@@ -1,0 +1,38 @@
+{# @var cart \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface #}
+{# @var product \AppBundle\Model\Product\AbstractProduct #}
+
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8">
+                    <h4 class="mb-3">Payment</h4>
+
+
+                    <iframe id="payment-frame"
+                            src="{{ path('shop-checkout-payment-frame') }}"
+                                frameborder="0" scrolling="auto" style="width: 100%; height: 900px; border: 0">
+                    </iframe>
+
+
+                 <!--   <a href="{{ path('shop-checkout-completed') }}" class="btn btn-lg btn-success btn-block">Finish Order</a>-->
+
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    {% include 'cart/shared/order_summary.html.twig' %}
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}

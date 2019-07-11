@@ -159,6 +159,69 @@ pimcore_ecommerce_framework:
                             options:
                                 charge: "5.90"
 
+
+    checkout_manager:
+        tenants:
+            default:
+                payment:
+                    provider: qpay
+                steps:
+                    deliveryaddress:
+                        class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
+                    confirm:
+                        class: \AppBundle\Ecommerce\CheckoutManager\Confirm
+
+
+    payment_manager:
+        # Service id of payment manager implementation - following value is default value an can be omitted
+        #        payment_manager_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\PaymentManager
+
+        # Configuration of payment providers, key is name of provider
+        providers:
+
+            datatrans:
+                # Service id of payment provider implementation
+                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Datatrans
+
+                # Currently active profile
+                profile: sandbox
+
+                # Available profiles with options
+                profiles:
+                    sandbox:
+                        merchant_id: 1000011011
+                        sign: 30916165706580013
+                        use_digital_signature: false
+                        recurring_payment_enabled: true
+                    live:
+                        merchant_id: merchant_id_id
+                        sign: sign_id
+                        use_digital_signature: false
+                        mode: live
+
+            qpay:
+                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\QPay
+                profile: sandbox
+                profiles:
+                    sandbox:
+                        secret: B8AKTPWBRMNBV455FG6M2DANE99WU2
+                        customer: D200001
+                        toolkit_password: jcv45z
+                        # define optional properties which can be used in initPayment (see Wirecard documentation)
+                        optional_payment_properties:
+                            - paymentType
+                            - financialInstitution
+                            - transactionIdentifier # necessary for recurPayment based on SEPA DIRECT DEBIT
+                        recurring_payment_enabled: true
+
+                        # set hash algorithm to HMAC-SHA512
+                        hash_algorithm:
+                            hmac_sha512
+
+                    live:
+                        secret: secret
+                        customer: customer
+
 services:
 
     _defaults:

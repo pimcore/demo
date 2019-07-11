@@ -7,7 +7,7 @@ namespace AppBundle\Ecommerce\Overrides;
  * TODO integrate that implementation into core
  * check if it is a BC break
  */
-class Environment extends \Pimcore\Bundle\EcommerceFrameworkBundle\Environment
+class Environment extends \Pimcore\Bundle\EcommerceFrameworkBundle\SessionEnvironment
 {
 
     protected $useGuestCart = null;

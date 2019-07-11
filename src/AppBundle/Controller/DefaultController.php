@@ -82,22 +82,5 @@ class DefaultController extends FrontendController
 //
 //    }
 
-    /**
-     * @Route("/checkout-payment", name="shop-checkout-payment")
-     */
-    public function checkoutPaymentAction(Factory $factory) {
-        $cartManager = $factory->getCartManager();
-        $this->view->cart = $cartManager->getOrCreateCartByName('cart');
-    }
-
-
-
-    /**
-     * @Route("/checkout-completed", name="shop-checkout-completed")
-     */
-    public function checkoutCompletedAction(Factory $factory) {
-        $cartManager = $factory->getCartManager();
-        $this->view->cart = $cartManager->getOrCreateCartByName('cart');
-    }
 
 }
