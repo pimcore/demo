@@ -1,0 +1,46 @@
+
+{%  if(values is not empty and values|length > 1) %}
+
+    {% set translatedValues = app_general_filter_translate(values) %}
+    {% set sortedValues = app_general_filter_sort(translatedValues, 'translated')  %}
+
+    <div class="filter pb-3">
+        <h5>{{ ('general.filter.' ~ label)|lower|trans }}</h5>
+
+        <ul class="list-group">
+
+            {%  if(currentValue is not empty) %}
+
+                <li class="list-group-item">
+
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="{{ fieldname ~ 'empty' }}" name="{{  fieldname }}" value="{{ constant('\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\FilterService\\FilterType\\AbstractFilterType::EMPTY_STRING') }}" class="custom-control-input">
+                        <label class="custom-control-label" for="{{ fieldname ~ 'empty' }}">{{ 'general.filters.all' | trans }}</label>
+                    </div>
+
+                </li>
+
+            {% endif %}
+
+            {% for value in sortedValues %}
+
+                {% set checked = currentValue == value['value'] %}
+
+                <li class="list-group-item d-flex justify-content-between align-items-center {{ checked ? 'list-group-item-secondary' : ''  }}">
+
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="{{ fieldname ~ value['value'] }}" name="{{  fieldname }}" value="{{ value['value'] }}" {{ checked ? 'checked="checked"' : ''  }} class="custom-control-input">
+                        <label class="custom-control-label" for="{{ fieldname ~ value['value'] }}">
+                            {{ value['translated'] }}
+                        </label>
+                    </div>
+                    <span class="badge badge-primary badge-pill">{{  value['count']  }}</span>
+                </li>
+
+
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endif %}

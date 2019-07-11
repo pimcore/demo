@@ -1,0 +1,21 @@
+name: Pimcore Demo
+files:
+    add:
+#        - app/config/local/*
+#        - app/config/parameters.yml
+#        - app/config/pimcore/*
+#        - app/config/pimcore/outputdataconfig/*
+#        - app/config/pimcore/advancedobjectsearch/*
+#        - app/Resources/views
+#        - src/AppBundle
+#        - var/classes
+#        - var/config/*
+#        - web/static
+#        - web/var/assets
+db:
+    data_files:
+#        - dump/data.sql
+#        - dump/storedFunctionAsset.sql
+#        - dump/storedFunctionDocument.sql
+#        - dump/storedFunctionObject.sql
+

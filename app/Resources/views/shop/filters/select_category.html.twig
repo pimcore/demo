@@ -1,0 +1,46 @@
+
+{%  set data = app_category_filter_prepare_data(currentValue, rootCategory) %}
+
+<div class="filter categories pb-3">
+
+    <h5>{{ ('general.filter.' ~ label) |lower|trans }}</h5>
+
+    <div class="list-group">
+
+        {% for parentCategory in data.parentCategories %}
+
+            <a href="{{ app_category_filter_generate_link(parentCategory, rootCategory)  }}" class="list-group-item list-group-item-action">
+                <i class="fas fa-angle-left"></i>
+                {{ parentCategory.name }}
+            </a>
+
+        {% endfor %}
+
+        <!-- current category -->
+        {%  if(data.currentCategory) %}
+            <input type="hidden" name="parentCategoryIds" value="{{ data.currentCategory.id }}" />
+            <span class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+                <strong>{{ data.currentCategory.name }}</strong>
+                {%  if(indexedValues[data.currentCategory.id]) is defined %}
+                    <span class="badge badge-primary badge-pill">{{  indexedValues[data.currentCategory.id]['count']  }}</span>
+                {% endif %}
+            </span>
+        {%  endif %}
+
+        {% for subCategory in data.subCategories %}
+
+            <a href="{{ app_category_filter_generate_link(subCategory, rootCategory)  }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <span>
+                    <i class="fas fa-angle-right"></i>
+                    {{ subCategory.name }}
+                </span>
+                {%  if(indexedValues[subCategory.id]) is defined %}
+                    <span class="badge badge-primary badge-pill">{{ indexedValues[subCategory.id]['count']  }}</span>
+                {% endif %}
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+</div>

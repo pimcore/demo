@@ -1,0 +1,35 @@
+<div class="filter pb-3">
+    <h5>{{ ('general.filter.' ~ label)|lower|trans }}</h5>
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for="{{ fieldname }}['from']">{{ 'general.filter.from' | trans }}</label>
+                    <input id="{{ fieldname }}['from']" name="{{ fieldname }}[from]" type="number"
+                           class="form-control" placeholder="{{ 'general.filter.from' | trans }}"
+                           min="{{ definition.rangeFrom }}" max="{{ definition.rangeTo }}"
+                           value="{{ currentValue['from'] }}"
+                    >
+                </div>
+                <div class="col">
+                    <label for="{{ fieldname }}['to']">{{ 'general.filter.to' | trans }}</label>
+                    <input id="{{ fieldname }}['to']" name="{{ fieldname }}[to]" type="number"
+                           class="form-control" placeholder="{{ 'general.filter.from' | trans }}"
+                           min="{{ definition.rangeFrom }}" max="{{ definition.rangeTo }}"
+                           value="{{ currentValue['to'] }}"
+                    >
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end pt-3">
+                <button type="submit" class="btn btn-sm btn-outline-primary">{{ 'general.filter.apply' | trans }}</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

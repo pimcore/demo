@@ -1,0 +1,121 @@
+{# @var productListing \Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface #}
+{# @var result \Zend\Paginator\Paginator #}
+{# @var item \AppBundle\Model\Product\Car #}
+{# @var filterService \Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterService #}
+{# @var filterDefinition \Pimcore\Model\DataObject\FilterDefinition #}
+
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <form id="js_filterfield">
+
+                        {% if(filterDefinition.filters|length > 0) %}
+
+                            {% for filter in filterDefinition.filters %}
+
+                                {% set filterMarkup = filterService.filterFrontend(filter, productListing, currentFilter) %}
+
+                                {{ filterMarkup | raw  }}
+
+                            {% endfor %}
+                        {% endif %}
+
+                    </form>
+
+                </div>
+
+                <div class="col-md-9">
+
+                    <div class="row">
+
+                        {%  for item in results %}
+
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    {% if(item.mainImage) %}
+                                        {{ item.mainImage.thumbnail('grid').html | raw }}
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <p class="card-text">{{ item.oSName }} {{ item.id }} </p>
+                                        <p>{{ item.oSPrice }}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <a href="{{ path('shop-add-to-cart', { id: item.id }) }}" class="btn btn-sm btn-outline-secondary">Add To Cart</a>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            </div>
+                                            <!--<small class="text-muted">9 mins</small>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pt-5">
+
+                <nav aria-label="Pagination">
+                    <ul class="pagination justify-content-center">
+                        {%  if(paginationVariables.previous is defined) %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{  pimcore_url({'page': paginationVariables.previous}) }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {%  endif %}
+
+                        {%  for page in paginationVariables.pagesInRange %}
+
+                            {%  if(paginationVariables.current == page) %}
+
+                                <li class="page-item active" aria-current="page">
+                                  <span class="page-link">
+                                    {{  page }}
+                                    <span class="sr-only">(current)</span>
+                                  </span>
+                                </li>
+
+                            {%  else %}
+                                <li class="page-item"><a class="page-link" href="{{  pimcore_url({'page': page}) }}">{{ page }}</a></li>
+                            {%  endif %}
+
+                        {% endfor %}
+
+                        {%  if(paginationVariables.next is defined) %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{  pimcore_url({'page': paginationVariables.next}) }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {%  endif %}
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{%  endblock %}
+
+{% do pimcore_inline_script().appendScript("
+
+    $('#js_filterfield .custom-checkbox input, #js_filterfield .custom-radio input').on('change', function() {
+        $('#js_filterfield').submit();
+    });
+
+") %}

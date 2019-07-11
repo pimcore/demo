@@ -1,0 +1,60 @@
+{% extends 'layout.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% block content %}
+
+    <div class="py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8">
+                    <h4 class="mb-3">{{ 'checkout.billing-address' | trans }}</h4>
+
+                    {{ form_start(form) }}
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_row(form.firstname) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.lastname) }}
+                            </div>
+                        </div>
+                        {{ form_row(form.email) }}
+                        {{ form_row(form.company) }}
+                        {{ form_row(form.street) }}
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{ form_row(form.zip) }}
+                            </div>
+                            <div class="col-md-8">
+                                {{ form_row(form.city) }}
+                            </div>
+                        </div>
+                        {{ form_row(form.countryCode) }}
+
+                        <hr/>
+
+                        {{ form_row(form.terms, {label_attr: {class: 'checkbox-custom'} }) }}
+
+                        <hr/>
+
+                    {{ form_row(form._submit, {'attr': {'class': 'btn-success btn-lg btn-block'}}) }}
+
+                    {{ form_end(form) }}
+
+                </div>
+                <div class="col-md-4 mb-4">
+                    {% include 'cart/shared/order_summary.html.twig' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
