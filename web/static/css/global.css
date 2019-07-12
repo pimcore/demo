@@ -1,0 +1,433 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&display=swap');
+
+/* COLORS */
+
+purple {
+linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
+}
+
+.background-purple {
+    background: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
+}
+
+.background-dark-purple {
+    background-color: #6428B4;
+}
+
+.background-light-purple {
+    background-color: #1E1E1E;
+}
+
+.background-grey {
+    background-color: #434343;
+}
+
+.background-dark {
+    background-color: #434343;
+}
+
+.background-light {
+    background-color: #F5F8F7;
+}
+
+/* GLOBAL */
+
+body {
+    font-family: "Hind Guntur";
+}
+
+p {
+    font-size: 18px;
+    line-height: 34px;
+}
+
+.dark {
+    color: #1E1E1E;
+}
+
+.light {
+    color: #FFFFFF;
+}
+
+/* GLOBAL - Headings */
+
+h1 {
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 132px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+h3 {
+    font-size: 40px;
+    letter-spacing: -0.86px;
+    line-height: 76px;
+}
+
+h4 {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -0.56px;
+    line-height: 56px;
+}
+
+h5 {
+    font-size: 30px;
+    letter-spacing: -0.56px;
+    line-height: 56px;
+}
+
+h6 {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -0.38px;
+    line-height: 37px;
+}
+
+/* GLOBAL - Display Headings */
+
+.display-1 {
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 132px;
+    text-transform: uppercase;
+}
+
+.display-2 {
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 95px;
+    text-transform: initial;
+}
+
+.display-3 {
+    font-size: 40px;
+    line-height: 76px;
+    text-transform: initial;
+}
+
+.display-4 {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 56px;
+    text-transform: initial;
+}
+
+.small {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.label {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* BUTTONS */
+
+.btn {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.btn-primary {
+    /*height: 42px;*/
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    /*line-height: 30px;*/
+    border-radius: 6px;
+    background: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
+    border-color: #6428B4;
+}
+
+.btn-secondary {
+    color: #6428B4;
+    font-size: 18px;
+    /*line-height: 30px;*/
+    text-align: center;
+    /*height: 42px;*/
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    border-color: #6428B4;
+}
+
+.btn-secondary:hover {
+    background-color: #6428B4;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+.caret {
+    border: none;
+    float: right;
+    margin-right:10px;
+    line-height: 30px;
+    color: #6428B4;
+}
+
+.dropdown
+.btn-secondary {
+    color: #1E1E1E;
+    text-align: left;
+}
+
+.dropdown
+.btn-secondary:hover {
+    color: #FFFFFF;
+}
+
+.custom-control-input:checked~
+.custom-control-label::before {
+    background-color: #6428B4;
+}
+
+.page-item .page-link {
+    color: var(--secondary);
+}
+
+.page-item.active .page-link {
+    color: #1E1E1E;
+    background-color: #FFFFFF;
+    border: 1px solid #dee2e6;
+}
+
+.flip {
+    transform: scaleX(-1);
+}
+
+.page-link {
+    height: 100%;
+}
+
+.page-link span {
+    background-image: url("../images/icons/arrow.svg");
+    position: absolute;
+    width: 8px;
+    height: 16px;
+    margin: 2px 0px 0px -3px;
+    background-repeat: no-repeat;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+}
+
+.product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        flex: 1;
+    }
+}
+
+.overflow-hidden { overflow: hidden; }
+
+.menu-link {
+    font-size: 20px;
+    line-height: 80px;
+}
+
+.menu-link.active {
+    color: #ffffff;
+}
+
+.menu-icon {
+    height: 20.5px;
+    width: 20.5px;
+    margin-left:25px;
+}
+
+.carousel-inner {
+    min-height: 700px;
+}
+
+.hero-banner {
+    overflow: hidden;
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    background-image: url("../images/hero1.png");
+    background-size: cover;
+    min-height: 700px;
+    background-position: bottom;
+}
+
+.hero-text {
+    color: #FFFFFF;
+    font-family: "Hind Guntur";
+    font-size: 26px;
+    letter-spacing: 3px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    top: 200px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+.custom-standard-card,
+.custom-product-card {
+    border-radius: 1.25rem;
+}
+
+.custom-standard-card.card-body,
+.custom-product-card.card-body
+{
+    box-shadow: 0 30px 20px 0 rgba(30,30,30,0.06);
+}
+
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(1.25rem - 1px);
+    border-top-right-radius: calc(1.25rem - 1px);
+}
+
+.grid-gallery-item {
+    padding: 0;
+}
+
+.grid-gallery-item img {
+    max-width:100%;
+    max-height:100%;
+}
+
+.grid-gallery-item h1,
+.grid-gallery-item h2 {
+    margin-bottom: 0px;
+    line-height: .5em;
+}
+
+.grid-gallery-item-text  {
+    position: absolute;
+    right: 15%;
+    bottom: 5%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    vertical-align: text-bottom;
+    text-align: center;
+}
+
+.custom-product-card
+.card-title {
+   font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    line-height: 22px;
+}
+.custom-product-card
+.card-body,
+.custom-standard-card
+.card-body {
+    padding: 1.75rem;
+}
+
+.custom-standard-card
+.card-text {
+    line-height: 1.25em;
+    margin-top: 10px
+}
+
+.custom-standard-card
+.card-title {
+    font-family: "Hind Guntur";
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    line-height: 22px;
+    text-align: center;
+    margin: auto;
+}
+
+.custom-product-card
+.card-text {
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.custom-product-card
+.card-price {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 22px;
+}

@@ -25,6 +25,14 @@ class DefaultController extends FrontendController
         $this->setViewAutoRender($event->getRequest(), true, 'twig');
     }
 
+    /**
+     * @param Request $request
+     * @Route("/examples", name="examples")
+     */
+    public function examplesAction(Request $request)
+    {
+    }
+
 
     public function defaultAction(Request $request)
     {

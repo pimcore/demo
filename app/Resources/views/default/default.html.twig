@@ -1,7 +1,317 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Product example · Bootstrap</title>
 
-    <h1>Hello New World !</h1>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/product/">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="#">
+            <img id="logo" src="/static/images/logo.svg" />
+        </a>
+        <a class="py-2 d-none d-md-inline-block menu-link active" href="#">Verkaufen</a>
+        <a class="py-2 d-none d-md-inline-block menu-link" href="#">Händler</a>
+        <a class="py-2 d-none d-md-inline-block menu-link" href="#">Informieren</a>
+        <a class="py-2 d-none d-md-inline-block menu-link" href="#">Magazin</a>
+
+
+        <div class="menu-link menu-icons float-right">
+            <a class="py-2 d-none d-md-inline-block menu-icon" href="#"><img src="/static/images/icons/search.svg" /></a>
+            <a class="py-2 d-none d-md-inline-block menu-icon" href="#"><img src="/static/images/icons/profile.svg" /></a>
+            <a class="py-2 d-none d-md-inline-block menu-icon" href="#"><img src="/static/images/icons/cart.svg" /></a>
+        </div>
+    </div>
+</nav>
+<section id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/static/images/hero1.png" width="100%"/>
+            <div class="container">
+                <div class="carousel-caption text-center">
+                    <h1>Headline</h1>
+                    <p class="hero-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Coming Soon</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/images/hero1.png" width="100%"/>
+            <div class="container">
+                <div class="carousel-caption  text-center">
+                    <h1>Welcome to New Demo</h1>
+                    <p class="hero-text">Explore new examples from new demo</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/images/hero1.png" width="100%"/>
+            <div class="container">
+                <div class="carousel-caption text-center">
+                    <h1>One more for good measure.</h1>
+                    <p class="hero-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarouse < role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</section>
+
+<section class="jumbotron bg-white text-center">
+    <div class="container">
+        <h2 class="jumbotron-heading">Introduction</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>
+            <a href="#" class="btn btn-primary my-2">Primary Button</a>
+            <a href="#" class="btn btn-secondary my-2 ml-3">Secondary Button</a>
+        </p>
+    </div>
+</section>
+<section class="jumbotron bg-light text-center">
+    <div class="container">
+        <h2 class="jumbotron-heading">Aktuelle News</h2>
+        <div class="card-deck mb-3 text-center">
+            <div class="card custom-standard-card mb-4 shadow-sm">
+                <img src="/static/images/9.png" height="auto" width="100%" />
+
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title text-uppercase">Volkswagen Kafer VW</h4>
+                    <p class="card-text">This is a wider card with supporting text below as additional content</p>
+
+                    <button type="button" class="btn btn-lg btn-secondary">Secondary Button</button>
+                </div>
+            </div>
+            <div class="card  custom-standard-card mb-4 shadow-sm">
+                <img src="/static/images/8.png" height="auto" width="100%" />
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title text-uppercase">Lorem Ipsum Dolor sit</h4>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in</p>
+                    <button type="button" class="btn btn-lg btn-secondary">Secondary Button</button>
+                </div>
+            </div>
+            <div class="card  custom-standard-card mb-4 shadow-sm">
+                <img src="/static/images/10.png" height="auto" width="100%" />
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title text-uppercase">Peugeot  p 172 m</h4>
+                    <p class="card-text">This is a wider card with supporting text below as additional content.</p>
+                    <button type="button" class="btn btn-lg btn-secondary">Secondary Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section grid-gallery">
+    <div class="row m-0">
+        <div class="grid-gallery-item col-md-6">
+            <img src="/static/images/2.png">
+                <div class="grid-gallery-item-text">
+                    <h2 class="text-uppercase">Headline</h2>
+                    <h5>Subheadline</h5>
+                </div>
+        </div>
+        <div class="grid-gallery-item  col-md-6">
+            <img src="/static/images/3.png">
+                <div class="grid-gallery-item-text">
+                    <h2 class="text-uppercase">Headline</h2>
+                    <h5>Subheadline</h5>
+                </div>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="grid-gallery-item  col-md-6">
+            <img src="/static/images/1.png">
+                <div class="grid-gallery-item-text">
+                    <h2 class="text-uppercase">Headline</h2>
+                    <h5>Subheadline</h5>
+                </div>
+        </div>
+        <div class="grid-gallery-item  col-md-6">
+            <img src="/static/images/4.png">
+                <div class="grid-gallery-item-text">
+                    <h2 class="text-uppercase">Headline</h2>
+                    <h5>Subheadline</h5>
+                </div>
+        </div>
+    </div>
+</section>
+
+<section class="jumbotron bg-light text-center">
+    <div class="container">
+        <h2 class="jumbotron-heading">Beliebteste</h2>
+        <div class="card-deck mb-3 text-left">
+            <div class="card custom-product-card mb-4 shadow-sm">
+                <img src="/static/images/5.png" height="auto" width="100%" />
+                <div class="card-body pricing">
+                    <h4 class="card-title pricing-card-title text-uppercase">VW Bus</h4>
+                    <p class="card-text">Cabrio 1200 34PS, Original</p>
+                    <p class="card-price">€ 25.900,-</p>
+                    <div class="row">
+                        <div class="col-6 pr-1">
+                            <button type="button" class="btn btn-block btn-secondary">Details</button>
+                        </div>
+                        <div class="col-6 pl-1">
+                            <button type="button" class="btn btn-block btn-primary">Kaufen <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card custom-product-card mb-4 shadow-sm">
+                <img src="/static/images/6.png" height="auto" width="100%" />
+                <div class="card-body pricing">
+                    <h4 class="card-title pricing-card-title text-uppercase">Chevrolet</h4>
+                    <p class="card-text">Cabrio 1200 34PS, Original</p>
+                    <p class="card-price">€ 25.900,-</p>
+                    <div class="row">
+                        <div class="col-6 pr-1">
+                            <button type="button" class="btn btn-block btn-secondary">Details</button>
+                        </div>
+                        <div class="col-6 pl-1">
+                            <button type="button" class="btn btn-block btn-primary">Kaufen <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card custom-product-card mb-4 shadow-sm">
+                <img src="/static/images/7.png" height="auto" width="100%" />
+                <div class="card-body pricing">
+                    <h4 class="card-title pricing-card-title text-uppercase">Volkswagen Käfer</h4>
+                    <p class="card-text">Cabrio 1200 34PS, Original</p>
+                    <p class="card-price">€ 25.900,-</p>
+                    <div class="row">
+                        <div class="col-6 pr-1">
+                            <button type="button" class="btn btn-block btn-secondary">Details</button>
+                        </div>
+                        <div class="col-6 pl-1">
+                            <button type="button" class="btn btn-block btn-primary">Kaufen <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="container py-5">
+    <div class="row">
+        <div class="col-12 col-md">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg width="129px" height="70px" viewBox="0 0 129 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+                <title>logo</title>
+                <desc>Created with Sketch.</desc>
+                <g id="draft" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="1" transform="translate(-198.000000, -20.000000)" fill="#000000">
+                        <g id="nav">
+                            <g id="logo" transform="translate(198.000000, 20.000000)">
+                                <g id="txt" transform="translate(40.337907, 36.008000)">
+                                    <path d="M8.46112791,7.01790698 C8.15345349,7.55511628 7.73589535,7.98 7.20845349,8.29174419 C6.68101163,8.60511628 6.10961628,8.76139535 5.49426744,8.76139535 C4.86915116,8.76139535 4.29043023,8.60511628 3.75810465,8.29174419 C3.22577907,7.98 2.80089535,7.55511628 2.48345349,7.01790698 C2.16601163,6.48069767 2.0072907,5.88895349 2.0072907,5.24430233 C2.0072907,4.59965116 2.16356977,4.01197674 2.47612791,3.47883721 C2.78868605,2.94732558 3.21356977,2.52651163 3.75077907,2.21883721 C4.28798837,1.91197674 4.86915116,1.75813953 5.49426744,1.75813953 C6.10961628,1.75813953 6.68101163,1.91197674 7.20845349,2.21883721 C7.73589535,2.52651163 8.15345349,2.94732558 8.46112791,3.47883721 C8.76880233,4.01197674 8.92263953,4.59965116 8.92263953,5.24430233 C8.92263953,5.88895349 8.76880233,6.48069767 8.46112791,7.01790698 M8.24136047,0.688604651 C7.40624419,0.229534884 6.48077907,3.01980663e-14 5.46496512,3.01980663e-14 C4.44915116,3.01980663e-14 3.52368605,0.229534884 2.68856977,0.688604651 C1.85345349,1.14767442 1.19659302,1.77767442 0.717988372,2.57860465 C0.239383721,3.37872093 8.13953488e-05,4.26837209 8.13953488e-05,5.24430233 C8.13953488e-05,6.22104651 0.239383721,7.11232558 0.717988372,7.91813953 C1.19659302,8.72476744 1.85345349,9.36209302 2.68856977,9.83093023 C3.52368605,10.2989535 4.44915116,10.5333721 5.46496512,10.5333721 C6.48077907,10.5333721 7.40624419,10.2989535 8.24136047,9.83093023 C9.07647674,9.36209302 9.73333721,8.72476744 10.2119419,7.91813953 C10.6905465,7.11232558 10.9298488,6.22104651 10.9298488,5.24430233 C10.9298488,4.26837209 10.6905465,3.37872093 10.2119419,2.57860465 C9.73333721,1.77767442 9.07647674,1.14767442 8.24136047,0.688604651" id="Fill-1"></path>
+                                    <polygon id="Fill-3" points="14.2848023 0.131860465 14.2848023 10.3876744 20.6727093 10.3876744 20.6727093 8.61488372 16.2480581 8.61488372 16.2480581 0.131860465"></polygon>
+                                    <path d="M25.8002093,1.86077907 L28.0711395,1.86077907 C28.7060233,1.86077907 29.2798605,2.00484884 29.7926512,2.29217442 C30.3054419,2.58112791 30.7083488,2.98647674 31.0013721,3.50822093 C31.2943953,4.03159302 31.440907,4.6200814 31.440907,5.27368605 C31.440907,5.9289186 31.2992791,6.51252326 31.0160233,7.02531395 C30.7327674,7.53810465 30.3396279,7.93856977 29.8366047,8.22589535 C29.3335814,8.51484884 28.7695116,8.6589186 28.1443953,8.6589186 L25.8002093,8.6589186 L25.8002093,1.86077907 Z M30.8255581,9.72845349 C31.6460233,9.2889186 32.2882326,8.68089535 32.752186,7.90438372 C33.2161395,7.12787209 33.4481163,6.24636047 33.4481163,5.25984884 C33.4481163,4.27333721 33.2185814,3.38938372 32.7595116,2.60798837 C32.3004419,1.82659302 31.6655581,1.21856977 30.8548605,0.783918605 C30.0441628,0.349267442 29.1260233,0.13194186 28.1004419,0.13194186 L23.8369535,0.13194186 L23.8369535,10.3877558 L28.027186,10.3877558 C29.0723023,10.3877558 30.005093,10.1679884 30.8255581,9.72845349 L30.8255581,9.72845349 Z" id="Fill-5"></path>
+                                    <polygon id="Fill-7" points="38.8397442 10.3873488 40.8176512 10.3873488 40.8176512 1.87502326 44.0116047 1.87502326 44.0116047 0.131534884 35.6457907 0.131534884 35.6457907 1.87502326 38.8397442 1.87502326"></polygon>
+                                    <polygon id="Fill-9" points="47.0294186 10.3875116 48.9926744 10.3875116 48.9926744 0.131697674 47.0294186 0.131697674"></polygon>
+                                    <polygon id="Fill-11" points="58.7799767 6.73888372 55.380907 0.132023256 53.1392791 0.132023256 53.1392791 10.3870233 54.9267209 10.3870233 54.9267209 3.03213953 58.1353256 9.33295349 59.3953256 9.33295349 62.5892791 3.03213953 62.5892791 10.3870233 64.3913721 10.3870233 64.3913721 0.132023256 62.1497442 0.132023256"></polygon>
+                                    <polygon id="Fill-12" points="70.5008256 6.09423256 75.4822209 6.09423256 75.4822209 4.38086047 70.5008256 4.38086047 70.5008256 1.84539535 76.0536163 1.84539535 76.0536163 0.132023256 68.5375698 0.132023256 68.5375698 10.3870233 76.2294302 10.3870233 76.2294302 8.67283721 70.5008256 8.67283721"></polygon>
+                                    <path d="M84.1262442,5.64037209 L81.8113605,5.64037209 L81.8113605,1.84572093 L84.1262442,1.84572093 C84.8685698,1.84572093 85.4350814,2.002 85.8257791,2.31455814 C86.2156628,2.62711628 86.4118256,3.09595349 86.4118256,3.72106977 C86.4118256,4.35595349 86.2156628,4.83455814 85.8257791,5.15688372 C85.4350814,5.4792093 84.8685698,5.64037209 84.1262442,5.64037209 L84.1262442,5.64037209 Z M86.2506628,6.98827907 C86.9148488,6.70583721 87.420314,6.28013953 87.7670581,5.71362791 C88.1129884,5.14793023 88.2871744,4.46339535 88.2871744,3.66246512 C88.2871744,2.5392093 87.9249651,1.66990698 87.2029884,1.05455814 C86.4801977,0.439209302 85.4546163,0.131534884 84.1262442,0.131534884 L79.8481047,0.131534884 L79.8481047,10.3873488 L81.8113605,10.3873488 L81.8113605,7.3692093 L84.1262442,7.3692093 C84.2922907,7.3692093 84.4143837,7.36432558 84.4925233,7.35455814 L86.265314,10.3873488 L88.5069419,10.3873488 L86.2506628,6.98827907 Z" id="Fill-13"></path>
+                                    <path d="M6.92267442,27.0861744 C6.4294186,27.3018721 5.93860465,27.4085 5.45023256,27.4085 C4.81534884,27.4085 4.23418605,27.2546628 3.70674419,26.9469884 C3.17930233,26.639314 2.76418605,26.2201279 2.46139535,25.6869884 C2.15860465,25.1554767 2.0072093,24.5710581 2.0072093,23.9369884 C2.0072093,23.3021047 2.15860465,22.7185 2.46139535,22.1853605 C2.76418605,21.6530349 3.17930233,21.2362907 3.70674419,20.932686 C4.23418605,20.6298953 4.81534884,20.479314 5.45023256,20.479314 C5.95813953,20.479314 6.45872093,20.5957093 6.95197674,20.8301279 C7.44523256,21.0653605 7.87255814,21.3925698 8.23395349,21.8125698 L9.37674419,20.3767558 C8.87860465,19.8582674 8.27790698,19.4529186 7.57465116,19.1607093 C6.87139535,18.8668721 6.15348837,18.7211744 5.42093023,18.7211744 C4.41488372,18.7211744 3.49918605,18.9507093 2.67383721,19.4089651 C1.84848837,19.8688488 1.19651163,20.4980349 0.717906977,21.2997791 C0.239302326,22.0998953 2.13162821e-14,22.9895465 2.13162821e-14,23.9654767 C2.13162821e-14,24.9422209 0.234418605,25.8335 0.703255814,26.639314 C1.17209302,27.4451279 1.81674419,28.0832674 2.6372093,28.5521047 C3.45767442,29.0201279 4.36116279,29.2545465 5.34767442,29.2545465 C6.08023256,29.2545465 6.80302326,29.0966395 7.51604651,28.7783837 C8.22906977,28.4609419 8.85418605,28.0287326 9.39139535,27.4817558 L8.23395349,26.1924535 C7.85302326,26.5733837 7.41593023,26.8712907 6.92267442,27.0861744" id="Fill-14"></path>
+                                    <path d="M15.0025465,25.2547791 L16.8192907,20.9473372 L18.6067326,25.2547791 L15.0025465,25.2547791 Z M15.852314,18.8530349 L11.354407,29.1080349 L13.3909186,29.1080349 L14.2992907,26.9396628 L19.3099884,26.9396628 L20.2183605,29.1080349 L22.3281279,29.1080349 L17.8888256,18.8530349 L15.852314,18.8530349 Z" id="Fill-15"></path>
+                                    <path d="M29.4780581,24.3613023 L27.1631744,24.3613023 L27.1631744,20.5666512 L29.4780581,20.5666512 C30.2203837,20.5666512 30.7868953,20.7229302 31.177593,21.0354884 C31.5674767,21.3480465 31.7636395,21.8168837 31.7636395,22.442 C31.7636395,23.0768837 31.5674767,23.5554884 31.177593,23.877814 C30.7868953,24.2001395 30.2203837,24.3613023 29.4780581,24.3613023 M33.1188721,24.4345581 C33.4648023,23.8688605 33.6389884,23.1843256 33.6389884,22.3833953 C33.6389884,21.2601395 33.2767791,20.3908372 32.5548023,19.7754884 C31.8320116,19.1601395 30.8064302,18.8524651 29.4780581,18.8524651 L25.1999186,18.8524651 L25.1999186,29.1082791 L27.1631744,29.1082791 L27.1631744,26.0901395 L29.4780581,26.0901395 C29.6441047,26.0901395 29.7661977,26.0852558 29.8443372,26.0754884 L31.6171279,29.1082791 L33.8587558,29.1082791 L31.6024767,25.7092093 C32.2666628,25.4267674 32.7721279,25.0010698 33.1188721,24.4345581" id="Fill-16"></path>
+                                    <path d="M43.1550814,23.6729419 C42.7106628,23.4678256 42.1417093,23.2627093 41.4482209,23.057593 C40.9500814,22.9102674 40.5569419,22.7759651 40.2688023,22.654686 C39.9806628,22.532593 39.7413605,22.3755 39.5508953,22.1858488 C39.3604302,21.9945698 39.2651977,21.7577093 39.2651977,21.4752674 C39.2651977,21.1627093 39.4019419,20.9185233 39.6754302,20.7418953 C39.9489186,20.5668953 40.3200814,20.4789884 40.7889186,20.4789884 C41.2081047,20.4789884 41.6948488,20.5668953 42.2467093,20.7418953 C42.7985698,20.9185233 43.3382209,21.167593 43.8656628,21.4891047 L44.6568256,19.7757326 C44.1489186,19.4436395 43.5701977,19.1791047 42.9206628,18.9837558 C42.2711279,18.7892209 41.6142674,18.6915465 40.9500814,18.6915465 C40.1882209,18.6915465 39.5167093,18.8136395 38.9355465,19.0578256 C38.3543837,19.3020116 37.9050814,19.646314 37.5876395,20.0907326 C37.2701977,20.5351512 37.1114767,21.0552674 37.1114767,21.6510814 C37.1114767,22.2957326 37.2677558,22.8150349 37.580314,23.2114302 C37.8928721,23.6070116 38.2689186,23.9024767 38.7084535,24.0970116 C39.1479884,24.2931744 39.713686,24.493407 40.4079884,24.6985233 C40.9158953,24.8442209 41.3163605,24.9768953 41.6093837,25.0941047 C41.902407,25.211314 42.1441512,25.3651512 42.3346163,25.5556163 C42.5250814,25.7460814 42.620314,25.9878256 42.620314,26.2808488 C42.620314,26.6414302 42.4640349,26.9279419 42.1514767,27.1379419 C41.8389186,27.3479419 41.4083372,27.4529419 40.8621744,27.4529419 C40.3054302,27.4529419 39.7047326,27.3161977 39.0600814,27.0427093 C38.4154302,26.7692209 37.8342674,26.3931744 37.316593,25.9145698 L36.4961279,27.5848023 C37.0626395,28.0829419 37.7268256,28.4809651 38.488686,28.7780581 C39.2505465,29.0767791 40.0319419,29.2249186 40.8328721,29.2249186 C41.5947326,29.2249186 42.2711279,29.1036395 42.8620581,28.8594535 C43.4529884,28.6152674 43.9169419,28.2611977 44.2539186,27.7964302 C44.5908953,27.3332907 44.7593837,26.7887558 44.7593837,26.1636395 C44.7593837,25.5092209 44.6031047,24.9817791 44.2905465,24.581314 C43.9779884,24.1808488 43.5995,23.8780581 43.1550814,23.6729419" id="Fill-17"></path>
+                                </g>
+                                <path d="M35,19.5348837 C41.2112791,19.5348837 46.5532558,23.205814 49.0130233,28.4883721 L59.3795349,28.4883721 C56.507907,17.71 46.6834884,9.76744186 35,9.76744186 C21.0643023,9.76744186 9.76744186,21.0643023 9.76744186,35 C9.76744186,48.1111628 19.7684884,58.8838372 32.5581395,60.112907 L32.5581395,50.2543023 C25.1804651,49.0805814 19.5348837,42.7081395 19.5348837,35 C19.5348837,26.459186 26.459186,19.5348837 35,19.5348837" id="Fill-18"></path>
+                                <path d="M2.44186047,35 C2.44186047,17.0189535 17.0189535,2.44186047 35,2.44186047 C50.7516279,2.44186047 63.8888372,13.6272093 66.9053488,28.4883721 L69.3854651,28.4883721 C66.3331395,12.2719767 52.1036047,1.42108547e-14 35,1.42108547e-14 C15.6702326,1.42108547e-14 0,15.6702326 0,35 C0,53.5084884 14.3687209,68.6504651 32.5581395,69.9055814 L32.5581395,67.4572093 C15.7190698,66.2077907 2.44186047,52.1589535 2.44186047,35" id="Fill-19"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <small class="d-block mb-3 text-muted p-3">&copy; 2019 pimcore GmbH</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Cool stuff</a></li>
+                <li><a class="text-muted" href="#">Random feature</a></li>
+                <li><a class="text-muted" href="#">Team feature</a></li>
+                <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                <li><a class="text-muted" href="#">Another one</a></li>
+                <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Resource</a></li>
+                <li><a class="text-muted" href="#">Resource name</a></li>
+                <li><a class="text-muted" href="#">Another resource</a></li>
+                <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Business</a></li>
+                <li><a class="text-muted" href="#">Education</a></li>
+                <li><a class="text-muted" href="#">Government</a></li>
+                <li><a class="text-muted" href="#">Gaming</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Team</a></li>
+                <li><a class="text-muted" href="#">Locations</a></li>
+                <li><a class="text-muted" href="#">Privacy</a></li>
+                <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+</html>
 
 {%  endblock %}
