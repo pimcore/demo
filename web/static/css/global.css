@@ -111,13 +111,50 @@ h6 {
     line-height: 22px;
 }
 
-/* BUTTONS */
+/* fix paddings due to font */
+.list-group-item {
+    padding-top: 15px;
+    padding-bottom: 9px;
+}
 
-.btn {
+.custom-control label {
+    padding-top: 3.5px;
+}
+
+input.form-control {
     padding-top: 10px;
     padding-bottom: 5px;
 }
 
+.quantity input {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.input-group .input-group-append .btn {
+    padding-top: 7px;
+    padding-bottom: 1px;
+}
+
+.badge {
+    padding-top: 6.5px;
+    padding-bottom: 2px;
+}
+
+.btn {
+    padding-top: 10px;
+    padding-bottom: 3px;
+}
+
+.btn.btn-sm {
+    padding-top: 7px;
+    padding-bottom: 2px;
+}
+
+
+/* BUTTONS */
 .btn-primary {
     color: #FFFFFF;
     font-size: 18px;
@@ -313,6 +350,7 @@ h6 {
 .custom-standard-card,
 .custom-product-card {
     border-radius: 1.25rem;
+    overflow: hidden;
 }
 
 .custom-standard-card.card-body,
