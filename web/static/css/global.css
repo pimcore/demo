@@ -153,6 +153,10 @@ input.form-control {
     padding-bottom: 2px;
 }
 
+.badge-primary {
+    background-color: #6428B4;
+}
+
 
 /* BUTTONS */
 .btn-primary {
@@ -162,6 +166,11 @@ input.form-control {
     border-radius: 6px;
     background: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
     border-color: #6428B4;
+}
+
+.btn-outline-primary {
+    border-color: #6428B4;
+    color: #6428B4;
 }
 
 .btn-secondary {
