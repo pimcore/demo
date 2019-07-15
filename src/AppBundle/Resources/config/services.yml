@@ -41,3 +41,7 @@ services:
             $generator: '@router'
         tags:
             - { name: templating.helper, alias: pimcoreUrl }
+
+    AppBundle\EventListener\NameSettingListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.dataobject.preAdd, method: onPreAdd }
