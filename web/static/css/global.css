@@ -104,13 +104,54 @@ h6 {
     line-height: 22px;
 }
 
-/* BUTTONS */
+/* fix paddings due to font */
+.list-group-item {
+    padding-top: 15px;
+    padding-bottom: 9px;
+}
 
-.btn {
+.custom-control label {
+    padding-top: 3.5px;
+}
+
+input.form-control {
     padding-top: 10px;
     padding-bottom: 5px;
 }
 
+.quantity input {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.input-group .input-group-append .btn {
+    padding-top: 7px;
+    padding-bottom: 1px;
+}
+
+.badge {
+    padding-top: 6.5px;
+    padding-bottom: 2px;
+}
+
+.btn {
+    padding-top: 10px;
+    padding-bottom: 3px;
+}
+
+.btn.btn-sm {
+    padding-top: 7px;
+    padding-bottom: 2px;
+}
+
+.badge-primary {
+    background-color: #6428B4;
+}
+
+
+/* BUTTONS */
 .btn-primary {
     color: #FFFFFF;
     font-size: 18px;
@@ -118,6 +159,11 @@ h6 {
     border-radius: 6px;
     background: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
     border-color: #6428B4;
+}
+
+.btn-outline-primary {
+    border-color: #6428B4;
+    color: #6428B4;
 }
 
 .btn-secondary {

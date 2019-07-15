@@ -38,21 +38,22 @@
                     <div class="row">
 
                         {%  for item in results %}
-
                             <div class="col-md-4">
-                                <div class="card mb-4 shadow-sm">
+                                <div class="card custom-product-card mb-4 shadow-sm">
                                     {% if(item.mainImage) %}
-                                        {{ item.mainImage.thumbnail('grid').html | raw }}
+                                        {{ item.mainImage.thumbnail('grid').html({style: 'width: 100%; height: auto'}) | raw }}
                                     {% endif %}
-                                    <div class="card-body">
-                                        <p class="card-text">{{ item.oSName }} {{ item.id }} </p>
-                                        <p>{{ item.oSPrice }}</p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <a href="{{ path('shop-add-to-cart', { id: item.id }) }}" class="btn btn-sm btn-outline-secondary">Add To Cart</a>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    <div class="card-body pricing">
+                                        <h4 class="card-title pricing-card-title text-uppercase">{{ item.oSName }} ({{ item.id }}) </h4>
+                                        <p class="card-text">Cabrio 1200 34PS, Original</p>
+                                        <p class="card-price">{{ item.oSPrice }}</p>
+                                        <div class="row">
+                                            <div class="col-6 pr-1">
+                                                <button type="button" class="btn btn-block btn-secondary">Details</button>
                                             </div>
-                                            <!--<small class="text-muted">9 mins</small>-->
+                                            <div class="col-6 pl-1">
+                                                <a href="{{ path('shop-add-to-cart', { id: item.id }) }}" class="btn btn-block btn-primary">Kaufen <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
