@@ -243,12 +243,8 @@ input.form-control {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
 }
-.site-header a {
-    color: #999;
-    transition: ease-in-out color .15s;
-}
+
 .site-header a:hover {
-    color: #fff;
     text-decoration: none;
 }
 
@@ -498,14 +494,125 @@ input.form-control {
 }
 
 /* Navigation */
-.navbar .dropdown .dropdown-menu {
+.menu-link .dropdown-menu {
+    top: 80%;
 }
 
+.menu-icons .dropdown-menu {
+    top: 130%;
+}
 
-.navbar .dropdown .dropdown-menu .dropdown-item a {
+.dropdown-menu a {
     color: #000;
 }
 
-.navbar .dropdown .dropdown-menu .dropdown-item:hover {
+.form-control:focus{
+    border-color: var(--dark-purple);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+::selection {
+    background: var(--light-purple);
+}
+
+.site-header .dropdown-item a:hover {
+    color: var(--dark-purple);
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: var(--dark-purple);
+}
+
+.dropdown .dropdown-menu .dropdown-item:hover {
     background-color: lightgray;
+}
+
+.dropdown-menu-arrow {
+    top: -25px;
+    left: 20%;
+    width: 0;
+    height: 0;
+    position: relative;
+}
+
+.dropdown-menu-arrow-search {
+    left: 15%;
+}
+
+.dropdown-menu-arrow-right {
+    left: 90%;
+}
+
+.dropdown-menu-arrow-left {
+    right: 10%;
+}
+
+.dropdown-menu-arrow:before,
+.dropdown-menu-arrow:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 7px 8px;
+    border-style: solid;
+    border-color: transparent;
+    z-index: 1001;
+}
+.dropdown-menu-arrow:after {
+    bottom: -18px;
+    right: -8px;
+    border-bottom-color: #fff;
+}
+.dropdown-menu-arrow:before {
+    bottom: -17px;
+    right: -8px;
+    border-bottom-color: rgba(0,0,0,.15);
+}
+
+
+/* nav animations */
+@media (min-width: 992px) {
+    .animate {
+        animation-duration: 0.3s;
+        -webkit-animation-duration: 0.3s;
+        animation-fill-mode: both;
+        -webkit-animation-fill-mode: both;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+    100% {
+        transform:translateY(0rem);
+        opacity: 1;
+    }
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes slideIn {
+    0% {
+        -webkit-transform: transform;
+        -webkit-opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -webkit-opacity: 1;
+    }
+    0% {
+        -webkit-transform: translateY(1rem);
+        -webkit-opacity: 0;
+    }
+}
+
+.slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
 }
