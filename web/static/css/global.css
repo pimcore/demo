@@ -1,13 +1,14 @@
 /* FONT */
 @import url('https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&display=swap');
 
-/* COLORS:
-purple: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
-dark-purple: #6428B4
-light-purple: #1E1E1E
-grey: #434343
-light: #F5F8F7
-*/
+/* VARS */
+:root {
+    --purple: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
+    --dark-purple: #6428B4;
+    --light-purple: #1E1E1E;
+    --grey: #434343;
+    --light: #F5F8F7;
+}
 
 /* GLOBAL */
 
@@ -18,14 +19,6 @@ body {
 p {
     font-size: 18px;
     line-height: 34px;
-}
-
-.dark {
-    color: #1E1E1E;
-}
-
-.light {
-    color: #FFFFFF;
 }
 
 /* GLOBAL - Headings */
@@ -145,9 +138,6 @@ h6 {
 }
 .caret {
     border: none;
-    float: right;
-    margin-right:10px;
-    line-height: 30px;
     color: #6428B4;
 }
 
@@ -159,6 +149,11 @@ h6 {
 .dropdown
 .btn-secondary:hover {
     color: #FFFFFF;
+}
+
+.show>.btn-secondary.dropdown-toggle {
+    background: #6428B4;
+    border-color: #6428B4;
 }
 
 .custom-control-input:checked~
@@ -302,7 +297,7 @@ h6 {
 .carousel-caption {
     position: absolute;
     right: 15%;
-    top: 200px;
+    top: 20vh;
     left: 15%;
     z-index: 10;
     padding-top: 20px;
@@ -313,6 +308,7 @@ h6 {
 .custom-standard-card,
 .custom-product-card {
     border-radius: 1.25rem;
+    overflow: hidden;
 }
 
 .custom-standard-card.card-body,
@@ -356,14 +352,24 @@ h6 {
 }
 
 .custom-product-card .card-title {
-   font-size: 20px;
+    font-size: 20px;
     font-weight: bold;
     letter-spacing: 3px;
     line-height: 22px;
+    min-height: 44px;
 }
 .custom-product-card .card-body,
 .custom-standard-card .card-body {
     padding: 1.75rem;
+}
+
+/* some special styles for grid with filters */
+.col-md-9 .col-md-4 .custom-product-card .card-body.pricing i {
+    display: none;
+}
+
+.col-md-9 .col-md-4 .custom-product-card .card-body {
+    padding: 1.25rem;
 }
 
 .custom-standard-card .card-text {
@@ -428,12 +434,14 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    .carousel-item {
-        width: 100%;
+    .carousel-item img {
+        max-width: 100%;
         height: auto;
+        width: 100%;
+        height: 70vh;
     }
     h1 {
-        font-size: 100%;
+        font-size: 2em;
         line-height: inherit;
     }
     .hero-text {
@@ -441,7 +449,17 @@ h6 {
         letter-spacing: 2px;
         line-height: 1em;
     }
-    .carousel-caption {
-        top: 0;
-    }
+}
+
+/* Navigation */
+.navbar .dropdown .dropdown-menu {
+}
+
+
+.navbar .dropdown .dropdown-menu .dropdown-item a {
+    color: #000;
+}
+
+.navbar .dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: lightgray;
 }
