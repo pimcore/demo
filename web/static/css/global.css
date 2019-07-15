@@ -403,14 +403,24 @@ input.form-control {
 }
 
 .custom-product-card .card-title {
-   font-size: 20px;
+    font-size: 20px;
     font-weight: bold;
     letter-spacing: 3px;
     line-height: 22px;
+    min-height: 44px;
 }
 .custom-product-card .card-body,
 .custom-standard-card .card-body {
     padding: 1.75rem;
+}
+
+/* some special styles for grid with filters */
+.col-md-9 .col-md-4 .custom-product-card .card-body.pricing i {
+    display: none;
+}
+
+.col-md-9 .col-md-4 .custom-product-card .card-body {
+    padding: 1.25rem;
 }
 
 .custom-standard-card .card-text {
