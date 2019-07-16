@@ -72,8 +72,8 @@
                     <ul class="pagination justify-content-center">
                         {%  if(paginationVariables.previous is defined) %}
                             <li class="page-item">
-                                <a class="page-link" href="{{  pimcore_url({'page': paginationVariables.previous}) }}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
+                                <a class="page-link prev" href="{{  pimcore_url({'page': paginationVariables.previous}) }}" aria-label="Previous">
+                                    <span aria-hidden="true"></span>
                                 </a>
                             </li>
                         {%  endif %}
@@ -97,8 +97,8 @@
 
                         {%  if(paginationVariables.next is defined) %}
                             <li class="page-item">
-                                <a class="page-link" href="{{  pimcore_url({'page': paginationVariables.next}) }}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
+                                <a class="page-link next flip" href="{{  pimcore_url({'page': paginationVariables.next}) }}" aria-label="Next">
+                                    <span aria-hidden="true"></span>
                                 </a>
                             </li>
                         {%  endif %}
