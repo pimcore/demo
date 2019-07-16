@@ -5,111 +5,136 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
-        <link rel="stylesheet" href="/static/css/global.css">
-
         {% spaceless -%}
+            {# add global stylesheets and scripts outside of any blocsk to add them to the helpers before any others assets are added #}
+            {# we use the view helper to have cache buster functionality #}
+            {% do pimcore_head_link().appendStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',null,null,{integrity:"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T",crossorigin:"anonymous"}) %}
             {% do pimcore_head_link().appendStylesheet(asset('static/css/global.css')) %}
+            {% do pimcore_head_link().appendStylesheet('https://use.fontawesome.com/releases/v5.9.0/css/all.css') %}
+            {% if editmode %}
+                {% do pimcore_head_link().appendStylesheet(asset('static/css/editmode.css')) %}
+            {% endif %}
+            {% do pimcore_head_script().appendFile('https://code.jquery.com/jquery-3.3.1.slim.min.js',null,null,{ integrity:"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo",crossorigin:"anonymous"}) %}
+            {% do pimcore_head_script().appendFile('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',null,null,{ integrity:"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1",crossorigin:"anonymous"}) %}
+            {% do pimcore_head_script().appendFile('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',null,null,{ integrity:"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM",crossorigin:"anonymous"}) %}
+
+            {% if not document is defined or not document %}
+                {% set document = pimcore_document(1) %}
+            {% endif %}
+
+            {% if document is instanceof('\\Pimcore\\Model\\Document\\Link') %}
+                {# @var document \Pimcore\Model\Document\Link #}
+                {% set document = document.getObject() %}
+            {% endif %}
+
+            {% if document.getTitle() is not empty %}
+                {% do pimcore_head_title().set(document.getTitle()) %}
+            {% endif %}
+
+            {% if document.getDescription() is not empty %}
+                {% do pimcore_head_meta().setDescription(document.getDescription()) %}
+            {% endif %}
+
+            {% do pimcore_head_title().append('Pimcore Demo') %}
+            {% do pimcore_head_title().setSeparator(' : ') %}
         {%- endspaceless %}
 
-        {{ pimcore_head_script() }}
+        {# we're using the deferred extension here to make sure this block is rendered after all helper calls #}
+        {% block layout_head_meta deferred %}
+        {{ pimcore_head_title() }}
+        {{ pimcore_head_meta() }}
+        {% endblock %}
+
+        {% block head_stylesheets deferred %}
+        {{ pimcore_head_link() }}
+        {% endblock %}
 
     </head>
     <body>
-    <nav class="navbar navbar-expand-md navbar-dark sticky-top py-1 site-header">
-        {# get root node if there is no document defined (for pages which are routed directly through static route) #}
-        {% if not document is defined or not document %}
-            {% set document = pimcore_document(1) %}
-        {% endif %}
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top py-1 site-header">
+            {# get root node if there is no document defined (for pages which are routed directly through static route) #}
+            {% if not document is defined or not document %}
+                {% set document = pimcore_document(1) %}
+            {% endif %}
 
-        {# get the document which should be used to start in navigation | default home #}
-        {% set navStartNode = document.getProperty('navigationRoot') %}
-        {% if not navStartNode is instanceof('\\Pimcore\\Model\\Document\\Page') %}
-            {% set navStartNode = pimcore_document(1) %}
-        {% endif %}
+            {# get the document which should be used to start in navigation | default home #}
+            {% set navStartNode = document.getProperty('navigationRoot') %}
 
-        {% set mainNavigation = pimcore_build_nav(document, navStartNode) %}
-        {% set menuRenderer = pimcore_nav_renderer('menu') %}
-        <div class="container">
-            {#Logo Image#}
-            <a class="py-2 mb-2" href="/">
-                <img id="logo" src="/static/images/logo.svg" />
-            </a>
-            {#responsive burger menu icon#}
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarCollapse" style="">
-                {#header - navigation links #}
-                <ul class="navbar-nav ml-4 m-auto">
-                {% for page in mainNavigation %}
-                    {% if page.visible() or menuRenderer.accept(page) %}
-                        {% set hasPages = page.hasPages() %}
-                        {% if hasPages %}
-                            <li class="dropdown py-2 d-md-inline-block menu-link nav-item  px-3">
-                                <a class="nav-link dropdown-toggle" href="{{ page.href() }}" id="dropdownMenuLink" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">{{ page.label() }}</a>
-                                <ul class="dropdown-menu  animate slideIn" aria-labelledby="dropdownMenuLink">
-                                    {% for childPage in page.pages() %}
-                                        {% if childPage.visible() or menuRenderer.accept(childPage) %}
-                                            <li class="dropdown-item"><a href="{{ childPage.href() }}">{{ childPage.label() }}</a></li>
-                                        {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                        {% else %}
-                            <li class="py-2 d-md-inline-block menu-link nav-item px-3">
-                                <a class="nav-link" href="{{ page.href() }}">{{ page.label() }} </a>
-                            </li>
+            {% if not navStartNode is instanceof('\\Pimcore\\Model\\Document') %}
+                {{ navStartNode }}
+                {% set navStartNode = pimcore_document(1) %}
+            {% endif %}
+
+            {% set mainNavigation = pimcore_build_nav(document, navStartNode) %}
+            {% set menuRenderer = pimcore_nav_renderer('menu') %}
+            <div class="container">
+                {#Logo Image#}
+                <a class="py-2 mb-2" href="{{ navStartNode }}">
+                    <img id ="logo" src="{{ asset('/static/images/logo.svg') }}" alt="Oldtimer Cars - Pimcore Demo">
+                </a>
+                {#responsive burger menu icon#}
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarCollapse">
+                    {#header - navigation links #}
+                    <ul class="navbar-nav ml-4 m-auto">
+                    {% for page in mainNavigation %}
+                        {% if page.visible() or menuRenderer.accept(page) %}
+                            {% set hasPages = page.hasPages() %}
+                            {% if hasPages %}
+                                <li class="dropdown py-2 d-md-inline-block menu-link nav-item  px-3 {{ (app.request.pathinfo starts with page.href()?'active':'') }}">
+                                    <a class="nav-link dropdown-toggle" href="{{ page.href() }}" id="dropdownMenuLink" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">{{ page.label() }}</a>
+                                    <ul class="dropdown-menu  animate slideIn" aria-labelledby="dropdownMenuLink">
+                                        {% for childPage in page.pages() %}
+                                            {% if childPage.visible() or menuRenderer.accept(childPage) %}
+                                                <li class="dropdown-item"><a href="{{ childPage.href() }}">{{ childPage.label() }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="py-2 d-md-inline-block menu-link nav-item px-3 {{ (page.href() == app.request.pathinfo?'active':'')  }}">
+                                    <a class="nav-link" href="{{ page.href() }}">{{ page.label() }} </a>
+                                </li>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                {% endfor %}
-                </ul>
-                {#header - navigation icons#}
-                <ul class="navbar-nav menu-icons">
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">
-                            <img src="/static/images/icons/search.svg" /></a>
-                        <div class="dropdown-menu dropdown-menu p-2">
-                            <span class="dropdown-menu-arrow dropdown-menu-arrow-search"></span>
-                            <form class="form-inline md-form mt-0">
-                                <input class="form-control form-control-sm" type="text" placeholder="search and press enter"
-                                       aria-label="Search">
-                            </form>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">
-                            <img src="/static/images/icons/profile.svg" /></a>
-                        <div class="dropdown-menu">
-                            <span class="dropdown-menu-arrow search arrow"></span>
-                            <a href="#" class="dropdown-item">Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#"class="dropdown-item">Logout</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle py-2 d-none  d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">
-                            <img src="/static/images/icons/cart.svg" /></a>
-                        <div class="dropdown-menu dropdown-menu-left">
-                            <span class="dropdown-menu-arrow"></span>
-                            <a href="#" class="dropdown-item">Order Summary</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#"class="dropdown-item">View Cart</a>
-                        </div>
-                    </li>
-                </ul>
+                    {% endfor %}
+                    </ul>
+                    {#header - navigation icons#}
+                    <ul class="navbar-nav menu-icons">
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">
+                                <img src="/static/images/icons/search.svg" /></a>
+                            <div class="dropdown-menu dropdown-menu p-2">
+                                <span class="dropdown-menu-arrow dropdown-menu-arrow-search"></span>
+                                <form class="form-inline md-form mt-0">
+                                    <input class="form-control form-control-sm" type="text" placeholder="search and press enter"
+                                           aria-label="Search">
+                                </form>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">
+                                <img src="/static/images/icons/profile.svg" /></a>
+                            <div class="dropdown-menu">
+                                <span class="dropdown-menu-arrow search arrow"></span>
+                                <a href="#" class="dropdown-item">Profile</a>
+                                <a href="#" class="dropdown-item">Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#"class="dropdown-item">Logout</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="py-2 d-none d-md-inline-block menu-icon ml-4" href="#">
+                                <img src="/static/images/icons/cart.svg" /></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-        <header>
-
-
-
-        </header>
+        </nav>
+        <header></header>
 
         <main role="main">
             {% for label, messages in app.flashes %}
@@ -126,15 +151,31 @@
 
         </main>
 
-            {# include a document-snippet - in this case the footer document #}
-            {{ pimcore_inc('/shared/includes/footer') }}
+        {# include a document-snippet - in this case the footer document #}
+        {{ pimcore_inc('/' ~ app.request.locale ~ '/shared/includes/footer') }}
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        {# output scripts added before #}
+        {% block scripts deferred %}
+            {{ pimcore_head_script() }}
+        {% endblock %}
 
+        <script type="text/javascript" >
+            // main menu
+            $(".navbar ul.navbar-nav>li>ul").each(function () {
+                var li = $(this).parent();
+                var a = $("a.nav-link", li);
+
+                $(this).addClass("dropdown-menu");
+                li.addClass("dropdown");
+                a.addClass("dropdown-toggle");
+                li.on("mouseenter", function () {
+                    $("ul", $(this)).show();
+                });
+                li.on("mouseleave", function () {
+                    $("ul", $(this)).hide();
+                });
+            });
+        </script>
         {{ pimcore_inline_script() }}
     </body>
 </html>

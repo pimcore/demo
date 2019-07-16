@@ -1,3 +1,7 @@
+{% if editmode %}
+    {% do pimcore_head_link().appendStylesheet(asset('static/css/editmode.css')) %}
+    {{ pimcore_head_link() }}
+{% endif %}
 {#footer#}
 <footer class="container py-5">
     <div class="row">
@@ -33,46 +37,24 @@
                         </g>
                     </g>
                 </svg>
-                <small class="d-block mb-3  p-3">&copy; 2019 pimcore GmbH</small>
+                <small class="d-block mb-3  p-3">&copy; {{ "now"|date('Y') }} pimcore GmbH</small>
             </a>
         </div>
-        <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Cool stuff</a></li>
-                <li><a class="text-muted" href="#">Random feature</a></li>
-                <li><a class="text-muted" href="#">Team feature</a></li>
-                <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                <li><a class="text-muted" href="#">Another one</a></li>
-                <li><a class="text-muted" href="#">Last time</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Resource</a></li>
-                <li><a class="text-muted" href="#">Resource name</a></li>
-                <li><a class="text-muted" href="#">Another resource</a></li>
-                <li><a class="text-muted" href="#">Final resource</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Business</a></li>
-                <li><a class="text-muted" href="#">Education</a></li>
-                <li><a class="text-muted" href="#">Government</a></li>
-                <li><a class="text-muted" href="#">Gaming</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Team</a></li>
-                <li><a class="text-muted" href="#">Locations</a></li>
-                <li><a class="text-muted" href="#">Privacy</a></li>
-                <li><a class="text-muted" href="#">Terms</a></li>
-            </ul>
-        </div>
+        {% if editmode %}
+            <h3 class="float-left">{{ 'Footer Column(s):' }}</h3>
+        {% endif %}
+        {% for i in pimcore_iterate_block(pimcore_block('mainlinkblock')) %}
+            <div class="col-6 col-md">
+                <h5>{{ pimcore_input('mainBlockTitle', {'placeholder': 'Footer Title'}) }}</h5>
+                <ul class="list-unstyled text-small">
+                    {% for i in pimcore_iterate_block(pimcore_block('linkblock')) %}
+                        <li>{{ pimcore_link('myLink', {'class': "text-muted"}) }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% if editmode %}
+                <hr />
+            {% endif %}
+        {% endfor %}
     </div>
 </footer>

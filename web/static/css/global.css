@@ -3,11 +3,11 @@
 
 /* VARS */
 :root {
-    --purple: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
-    --dark-purple: #6428B4;
-    --light-purple: #1E1E1E;
-    --grey: #434343;
-    --light: #F5F8F7;
+    --purple-gradient: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
+    --purple: #6428B4;
+    --light-purple: #9D54FF;;
+    --dark-gray: #434343;
+    --light-gray: #F5F8F7;
 }
 
 /* GLOBAL */
@@ -147,7 +147,7 @@ input.form-control {
 }
 
 .badge-primary {
-    background-color: #6428B4;
+    background-color: var(--purple);
 }
 
 
@@ -158,25 +158,25 @@ input.form-control {
     text-align: center;
     border-radius: 6px;
     background: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
-    border-color: #6428B4;
+    border-color: var(--purple);
 }
 
 .btn-outline-primary {
-    border-color: #6428B4;
-    color: #6428B4;
+    border-color: var(--purple);
+    color: var(--purple);
 }
 
 .btn-secondary {
-    color: #6428B4;
+    color: var(--purple);
     font-size: 18px;
     text-align: center;
     border-radius: 6px;
     background-color: #FFFFFF;
-    border-color: #6428B4;
+    border-color: var(--purple);
 }
 
 .btn-secondary:hover {
-    background-color: #6428B4;
+    background-color: var(--purple);
 }
 
 .dropdown-toggle::after {
@@ -184,7 +184,7 @@ input.form-control {
 }
 .caret {
     border: none;
-    color: #6428B4;
+    color: var(--purple);
 }
 
 .dropdown
@@ -198,17 +198,17 @@ input.form-control {
 }
 
 .show>.btn-secondary.dropdown-toggle {
-    background: #6428B4;
-    border-color: #6428B4;
+    background: var(--purple);
+    border-color: var(--purple);
 }
 
 .custom-control-input:checked~
 .custom-control-label::before {
-    background-color: #6428B4;
+    background-color: var(--purple);
 }
 
 .page-item .page-link {
-    color: #434343;
+    color: var(--dark-gray);
 }
 
 .page-item.active .page-link {
@@ -507,21 +507,22 @@ input.form-control {
 }
 
 .form-control:focus{
-    border-color: var(--dark-purple);
+    border-color: var(--purple);
     box-shadow: none;
     -webkit-box-shadow: none;
 }
 
 ::selection {
     background: var(--light-purple);
+    color: #ffffff;
 }
 
 .site-header .dropdown-item a:hover {
-    color: var(--dark-purple);
+    color: var(--purple);
 }
 
 .dropdown-menu .dropdown-item:hover {
-    color: var(--dark-purple);
+    color: var(--purple);
 }
 
 .dropdown .dropdown-menu .dropdown-item:hover {
