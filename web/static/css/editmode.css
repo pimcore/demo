@@ -1,4 +1,3 @@
-
 h5 {
     font-size: 1.5em;
     margin: 1em;
@@ -8,10 +7,26 @@ h5 {
     margin-bottom: 5vh;
 }
 
+.grid-gallery-item .tint {
+    display: block;
+}
+
+.grid-gallery-item .pimcore_block_entry {
+    flex: 0 0 50%;
+}
 .pimcore_block_buttons {
     margin-bottom: 2vh;
 }
 
 .carousel-imageblock {
     background-color: var(--dark-gray);
+}
+
+.grid-gallery-item-text  {
+    position: relative;
+    left: 0;
+    bottom: 10vh;
+    z-index: 10;
+    color: #fff;
+    text-align: center;
 }

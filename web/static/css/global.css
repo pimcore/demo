@@ -380,8 +380,17 @@ input.form-control {
     border-top-right-radius: calc(1.25rem - 1px);
 }
 
+.grid-gallery .flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .grid-gallery-item {
     padding: 0;
+    min-height: 20vh;
+    min-width: 40vw;
+    background-color: var(--dark-gray) !important;
 }
 
 .grid-gallery-item img {
@@ -395,6 +404,10 @@ input.form-control {
     line-height: .5em;
 }
 
+.grid-gallery .pimcore_block_entry {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
 .grid-gallery-item-text  {
     position: absolute;
     right: 15%;
@@ -517,6 +530,15 @@ input.form-control {
 }
 
 /* Navigation */
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: var(--light-gray) !important;
+}
+
 .menu-link .dropdown-menu {
     top: 80%;
 }
