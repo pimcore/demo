@@ -1,153 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>Pimcore Demo</title>
-</head>
-<body>
 
-{#<nav class="navbar navbar-expand-md navbar-dark sticky-top py-1 site-header">#}
-    {#<div class="container">#}
-        {#Logo Image#}
-        {#<a class="py-2 mb-2" href="/">#}
-            {#<img id="logo" src="/static/images/logo.svg" />#}
-        {#</a>#}
-        {#responsive burger menu icon#}
-        {#<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">#}
-            {#<span class="navbar-toggler-icon"></span>#}
-        {#</button>#}
-        {#<div class="navbar-collapse collapse" id="navbarCollapse" style="">#}
-            {#header - navigation links #}
-            {#<ul class="navbar-nav ml-4 m-auto">#}
-                {#<li class="py-2 d-md-inline-block menu-link nav-item active px-3">#}
-                    {#<a class="nav-link" href="#">Verkaufen </a>#}
-                {#</li>#}
-                {#<li class="dropdown py-2 d-md-inline-block menu-link nav-item  px-3">#}
-                    {#<a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Händler</a>#}
-                    {#<ul class="dropdown-menu  animate slideIn" aria-labelledby="dropdownMenuLink">#}
-                        {#<li class="dropdown-item"><a href="#">Action</a></li>#}
-                        {#<li class="dropdown-item"><a href="#">Another action</a></li>#}
-                        {#<li class="dropdown-item"><a href="#">Something else here</a></li>#}
-                    {#</ul>#}
-                {#</li>#}
-                {#<li class="py-2 d-md-inline-block menu-link nav-item  px-3">#}
-                    {#<a class="nav-link" href="#">Informieren</a>#}
-                {#</li>#}
-                {#<li class="py-2 d-md-inline-block menu-link nav-item  px-3">#}
-                    {#<a class="nav-link" href="#">Magazin</a>#}
-                {#</li>#}
-            {#</ul>#}
-            {#header - navigation icons#}
-            {#<ul class="navbar-nav menu-icons">#}
-                {#<li class="nav-item dropdown">#}
-                    {#<a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">#}
-                        {#<img src="/static/images/icons/search.svg" /></a>#}
-                    {#<div class="dropdown-menu dropdown-menu p-2">#}
-                        {#<span class="dropdown-menu-arrow dropdown-menu-arrow-search"></span>#}
-                        {#<form class="form-inline md-form mt-0">#}
-                            {#<input class="form-control form-control-sm" type="text" placeholder="search and press enter"#}
-                                   {#aria-label="Search">#}
-                        {#</form>#}
-                    {#</div>#}
-                {#</li>#}
-                {#<li class="nav-item dropdown">#}
-                    {#<a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">#}
-                        {#<img src="/static/images/icons/profile.svg" /></a>#}
-                    {#<div class="dropdown-menu">#}
-                        {#<span class="dropdown-menu-arrow search arrow"></span>#}
-                        {#<a href="#" class="dropdown-item">Profile</a>#}
-                        {#<a href="#" class="dropdown-item">Settings</a>#}
-                        {#<div class="dropdown-divider"></div>#}
-                        {#<a href="#"class="dropdown-item">Logout</a>#}
-                    {#</div>#}
-                {#</li>#}
-                {#<li class="nav-item dropdown">#}
-                    {#<a class="dropdown-toggle py-2 d-none  d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">#}
-                        {#<img src="/static/images/icons/cart.svg" /></a>#}
-                    {#<div class="dropdown-menu dropdown-menu-left">#}
-                        {#<span class="dropdown-menu-arrow"></span>#}
-                        {#<a href="#" class="dropdown-item">Order Summary</a>#}
-                        {#<div class="dropdown-divider"></div>#}
-                        {#<a href="#"class="dropdown-item">View Cart</a>#}
-                    {#</div>#}
-                {#</li>#}
-            {#</ul>#}
-        {#</div>#}
-    {#</div>#}
-{#</nav>#}
-{#intro caraousel#}
-<section id="introCaraousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#introCaraousel" data-slide-to="0" class="active"></li>
-        <li data-target="#introCaraousel" data-slide-to="1"></li>
-        <li data-target="#introCaraousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <span class="tint">
-                <img src="/static/images/hero1.png" width="100%" />
-            </span>
-            <div class="container">
-                <div class="carousel-caption text-center">
-                    <h1>Headline</h1>
-                    <p class="hero-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Coming Soon</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <span  class="tint">
-                <img src="/static/images/hero1.png" width="100%"/>
-            </span>
-            <div class="container">
-                <div class="carousel-caption  text-center">
-                    <h1>Welcome to New Demo</h1>
-                    <p class="hero-text">Explore new examples from new demo</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <span  class="tint">
-                <img src="/static/images/hero1.png" width="100%"/>
-            </span>
-            <div class="container">
-                <div class="carousel-caption text-center">
-                    <h1>One more for good measure.</h1>
-                    <p class="hero-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="carousel-control-prev" href="#introCaraousel < role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#introCaraousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</section>
+{#Hero caraousel#}
+    {{ include('includes/hero-carousel.html.twig') }}
 {#Introduction section#}
-<section class="jumbotron bg-white text-center">
-    <div class="container">
-        <h2 class="jumbotron-heading">Introduction</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>
-            <a href="#" class="btn btn-primary my-2">Primary Button</a>
-            <a href="#" class="btn btn-secondary my-2 ml-3">Secondary Button</a>
-        </p>
-    </div>
-</section>
+    {{ pimcore_areablock('content') }}
 {#Aktuelle News section#}
 <section class="jumbotron bg-light text-center">
     <div class="container">
@@ -285,9 +143,5 @@
         </div>
     </div>
 </section>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
-</html>
 
 {%  endblock %}
