@@ -152,7 +152,7 @@
         </main>
 
         {# include a document-snippet - in this case the footer document #}
-        {{ pimcore_inc('/' ~ app.request.locale ~ '/shared/includes/footer') }}
+        {{ pimcore_inc(document.getProperty('footer')) }}
 
         {# output scripts added before #}
         {% block scripts deferred %}
