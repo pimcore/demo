@@ -21,6 +21,15 @@ p {
     line-height: 34px;
 }
 
+main {
+    background-color: var(--light-gray);
+}
+
+.main-content  {
+    min-height: 60vh;
+    padding: 3em;
+}
+
 /* GLOBAL - Headings */
 
 h1 {
@@ -336,6 +345,12 @@ input.form-control {
     text-align: center;
 }
 
+
+
+.carousel-imageblock img {
+
+}
+
 .carousel-caption {
     position: absolute;
     right: 15%;
@@ -490,6 +505,14 @@ input.form-control {
         font-size: inherit;
         letter-spacing: 2px;
         line-height: 1em;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-imageblock {
+        height: 80vh;
+        overflow: hidden;
+        width: 100%;
     }
 }
 

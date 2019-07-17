@@ -11,3 +11,7 @@ h5 {
 .pimcore_block_buttons {
     margin-bottom: 2vh;
 }
+
+.carousel-imageblock {
+    background-color: var(--dark-gray);
+}
