@@ -61,12 +61,11 @@
             {% set navStartNode = document.getProperty('navigationRoot') %}
 
             {% if not navStartNode is instanceof('\\Pimcore\\Model\\Document') %}
-                {{ navStartNode }}
                 {% set navStartNode = pimcore_document(1) %}
             {% endif %}
 
-            {% set mainNavigation = pimcore_build_nav(document, navStartNode) %}
-            {% set menuRenderer = pimcore_nav_renderer('menu') %}
+            {#{% set mainNavigation = pimcore_build_nav(document, navStartNode) %}#}
+            {% set mainNavigation =  app_navigation_data_links(document, navStartNode) %}
             <div class="container">
                 {#Logo Image#}
                 <a class="py-2 mb-2" href="{{ navStartNode }}">
@@ -76,61 +75,20 @@
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                {#main header#}
                 <div class="navbar-collapse collapse" id="navbarCollapse">
-                    {#header - navigation links #}
-                    <ul class="navbar-nav ml-4 m-auto">
-                    {% for page in mainNavigation %}
-                        {% if page.visible() or menuRenderer.accept(page) %}
-                            {% set hasPages = page.hasPages() %}
-                            {% if hasPages %}
-                                <li class="dropdown py-2 d-md-inline-block menu-link nav-item  px-3 {{ (app.request.pathinfo starts with page.href()?'active':'') }}">
-                                    <a class="nav-link dropdown-toggle" href="{{ page.href() }}" id="dropdownMenuLink" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false">{{ page.label() }}</a>
-                                    <ul class="dropdown-menu  animate slideIn" aria-labelledby="dropdownMenuLink">
-                                        {% for childPage in page.pages() %}
-                                            {% if childPage.visible() or menuRenderer.accept(childPage) %}
-                                                <li class="dropdown-item"><a href="{{ childPage.href() }}">{{ childPage.label() }}</a></li>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                            {% else %}
-                                <li class="py-2 d-md-inline-block menu-link nav-item px-3 {{ (page.href() == app.request.pathinfo?'active':'')  }}">
-                                    <a class="nav-link" href="{{ page.href() }}">{{ page.label() }} </a>
-                                </li>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                    </ul>
+                    {#header - generate pimcore navigation #}
+
+
+                    {{ pimcore_render_nav(mainNavigation, 'menu', 'renderMenu', {
+                        maxDepth: 3,
+                        ulClass: 'navbar-nav menu-links ml-4 m-auto'
+                    }) }}
+
+
                     {#header - navigation icons#}
-                    <ul class="navbar-nav menu-icons">
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">
-                                <img src="/static/images/icons/search.svg" /></a>
-                            <div class="dropdown-menu dropdown-menu p-2">
-                                <span class="dropdown-menu-arrow dropdown-menu-arrow-search"></span>
-                                <form class="form-inline md-form mt-0">
-                                    <input class="form-control form-control-sm" type="text" placeholder="search and press enter"
-                                           aria-label="Search">
-                                </form>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle py-2 d-none d-md-inline-block menu-icon ml-4" data-toggle="dropdown" href="#">
-                                <img src="/static/images/icons/profile.svg" /></a>
-                            <div class="dropdown-menu">
-                                <span class="dropdown-menu-arrow search arrow"></span>
-                                <a href="#" class="dropdown-item">Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#"class="dropdown-item">Logout</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="py-2 d-none d-md-inline-block menu-icon ml-4" href="#">
-                                <img src="/static/images/icons/cart.svg" /></a>
-                        </li>
-                    </ul>
+                    {{ include('/includes/navigation-icons.html.twig') }}
                 </div>
             </div>
         </nav>
