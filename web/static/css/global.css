@@ -8,6 +8,7 @@
     --light-purple: #9D54FF;;
     --dark-gray: #434343;
     --light-gray: #F5F8F7;
+    --dark-purple: #4B0082;
 }
 
 /* GLOBAL */
@@ -26,7 +27,7 @@ main {
 }
 
 .main-content  {
-    min-height: 60vh;
+    min-height: 70vh;
     padding: 3em;
 }
 
@@ -185,7 +186,11 @@ input.form-control {
 }
 
 .btn-secondary:hover {
-    background-color: var(--purple);
+    background-color: var(--dark-purple);
+}
+
+.btn-primary:hover {
+    background: var(--dark-purple);
 }
 
 .dropdown-toggle::after {
@@ -426,7 +431,7 @@ input.form-control {
     font-weight: bold;
     letter-spacing: 3px;
     line-height: 22px;
-    min-height: 44px;
+    min-height: 40px;
 }
 .custom-product-card .card-body,
 .custom-standard-card .card-body {
@@ -518,6 +523,10 @@ input.form-control {
         font-size: inherit;
         letter-spacing: 2px;
         line-height: 1em;
+    }
+
+    .pricing a i {
+        display: none;
     }
 }
 

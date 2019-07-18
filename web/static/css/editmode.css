@@ -30,3 +30,11 @@ h5 {
     color: #fff;
     text-align: center;
 }
+
+.btn {
+    padding: .375rem .75rem;
+}
+
+.custom-product-card {
+    margin-bottom: 3.5rem !important;
+}
