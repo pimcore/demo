@@ -13,17 +13,8 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Routing\Annotation\Route;
 use Zend\Paginator\Paginator;
 
-class DefaultController extends FrontendController
+class DefaultController extends BaseController
 {
-
-    /**
-     * @inheritDoc
-     */
-    public function onKernelController(FilterControllerEvent $event)
-    {
-        // enable view auto-rendering
-        $this->setViewAutoRender($event->getRequest(), true, 'twig');
-    }
 
     /**
      * @param Request $request
@@ -34,10 +25,6 @@ class DefaultController extends FrontendController
     }
 
     public function defaultAction(Request $request)
-    {
-    }
-
-    public function contentAction(Request $request)
     {
     }
 
