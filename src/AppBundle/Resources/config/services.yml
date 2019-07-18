@@ -31,6 +31,9 @@ services:
     AppBundle\Twig\Extension\GeneralFilterExtension:
         tags: ['twig.extension']
 
+    AppBundle\Twig\Extension\NavigationExtension:
+        tags: ['twig.extension']
+
     AppBundle\Website\LinkGenerator\CategoryLinkGenerator:
         public: true
 
