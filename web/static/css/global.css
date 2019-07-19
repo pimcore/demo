@@ -23,6 +23,11 @@ main {
     background-color: var(--light-gray);
 }
 
+
+#main-content section {
+    margin-bottom: 50px;
+}
+
 .main-content  {
     min-height: 70vh;
     padding: 3em;
