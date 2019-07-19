@@ -8,9 +8,11 @@
         {% spaceless -%}
             {# add global stylesheets and scripts outside of any blocsk to add them to the helpers before any others assets are added #}
             {# we use the view helper to have cache buster functionality #}
+            {% do pimcore_head_link().appendStylesheet(asset(' ')) %}
+            {% do pimcore_head_link().appendStylesheet('https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&display=swap') %}
             {% do pimcore_head_link().appendStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',null,null,{integrity:"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T",crossorigin:"anonymous"}) %}
-            {% do pimcore_head_link().appendStylesheet(asset('static/css/global.css')) %}
             {% do pimcore_head_link().appendStylesheet('https://use.fontawesome.com/releases/v5.9.0/css/all.css') %}
+            {% do pimcore_head_link().appendStylesheet(asset('static/css/global.css')) %}
             {% if editmode %}
                 {% do pimcore_head_link().appendStylesheet(asset('static/css/editmode.css')) %}
             {% endif %}
