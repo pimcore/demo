@@ -310,12 +310,12 @@ input.form-control {
 
 .overflow-hidden { overflow: hidden; }
 
-.menu-link {
+.menu-links {
     font-size: 17px;
     font-weight: lighter;
 }
 
-.menu-link.active {
+.menu-links .active {
     color: #ffffff;
 }
 
@@ -568,7 +568,7 @@ input.form-control {
     display: block;
 }
 
-.menu-link .dropdown-menu {
+.menu-links .dropdown-menu {
     top: 80%;
 }
 
@@ -601,7 +601,23 @@ input.form-control {
     color: #ffffff;
 }
 
-.dropdown .dropdown-menu li:hover {
+.dropdown .dropdown-menu li > ul {
+    margin: 0px;
+}
+
+.dropdown .dropdown-menu li > ul {
+    padding: 0 0 0 1.5em;
+}
+
+.dropdown .dropdown-menu li > ul > li {
+    list-style: none;
+}
+
+.dropdown .dropdown-menu li > ul > li > a {
+    padding: .3em;
+}
+
+.dropdown .dropdown-menu li a:hover {
     background-color: lightgray;
 }
 

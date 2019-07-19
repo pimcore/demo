@@ -51,16 +51,26 @@ class NavigationExtension extends AbstractExtension
         $navigation = $this->navigationHelper->buildNavigation($document, $startNode, null, function($page, $document) {
             if($document->getProperty("templateType") == "category" && $rootCategory = $document->getProperty("templateListRoot")) {
                 foreach($rootCategory->getChildren() as $category) {
-                    $page->addPage(new NavDocument([
+                    $categoryPage = new NavDocument([
                         "label" => $category->getName(),
                         "id" => "category-" . $category->getId(),
                         "uri" => $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null])
-                    ]));
+                    ]);
+
+                    foreach($category->getChildren() as $subCategory) {
+                        $subCategoryPage = new NavDocument([
+                            "label" => $subCategory->getName(),
+                            "id" => "category-" . $subCategory->getId(),
+                            "uri" => $this->categoryLinkGenerator->generate($subCategory, ['rootCategory' => $rootCategory, 'page' => null])
+                        ]);
+
+                        $categoryPage->addPage($subCategoryPage);
+                    }
+                    $page->addPage($categoryPage);
                 }
             }
+
         });
-
-
 
         return $navigation;
     }
