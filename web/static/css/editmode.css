@@ -38,3 +38,11 @@ h5 {
 .custom-product-card {
     margin-bottom: 3.5rem !important;
 }
+
+.editmode-label {
+    margin-bottom: 3px;
+}
+
+.editmode-label label {
+    padding-right: 5px;
+}
