@@ -9,8 +9,8 @@
                     dropClass: 'grid-gallery-item' ~ i,
                 }) }}
                 <span class="grid-gallery-item-text">
-                    <h2 class="text-uppercase">{{ pimcore_input('heroGridHeadline' ~ i) }}</h2>
-                    <h5>{{ pimcore_input('heroGridSubheadline' ~ i) }}</h5>
+                    <h2 class="text-uppercase">{{ pimcore_input('heroGridHeadline' ~ i,{placeholder: 'Headline'}) }}</h2>
+                    <h5>{{ pimcore_input('heroGridSubheadline' ~ i,{placeholder: 'Sub Headline'}) }}</h5>
                     {% if editmode %}
                         <p>{{ pimcore_link('heroGridLink' ~ i) }}</p>
                     {% endif %}
