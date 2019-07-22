@@ -1,0 +1,32 @@
+{% set accordionBlock = pimcore_block('accordion') %}
+{% set id = uniqid('accordion-') %}
+
+<section id="accordion" class="area-text-accordion">
+    <div id="{{ id }}">
+
+        {% for i in pimcore_iterate_block(accordionBlock) %}
+            {% set headerId = 'heading' ~ i %}
+            {% set entryId = id ~ '-' ~ accordionBlock.getCurrent() %}
+            {% set stateClass = (editmode or (accordionBlock.getCurrent() == 0)) ? 'show' %}
+
+            <div class="card">
+                <div class="card-header" id="{{ headerId }}">
+                    <h5 class="mb-0">
+                        {% if editmode %}
+                            {{ pimcore_input('headline') }}
+                        {% else %}
+                            <button class="btn btn-link {{ stateClass != 'show' ? 'collapsed'}}" data-toggle="collapse" data-target="#{{ entryId }}" aria-expanded="false" aria-controls="collapseTwo">
+                                {{ pimcore_input('headline').getData() }}
+                            </button>
+                        {% endif %}
+                    </h5>
+                </div>
+                <div id="{{ editmode ? '' : entryId }}" class="collapse {{ stateClass }}" aria-labelledby="{{ headerId }}" data-parent="#{{ id }}">
+                    <div class="card-body">
+                        {{ pimcore_wysiwyg('text') }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
