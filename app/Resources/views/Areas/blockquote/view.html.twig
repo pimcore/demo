@@ -1,0 +1,24 @@
+{% if editmode %}
+    {#pre-select default option#}
+    {% if pimcore_select("position").isEmpty() %}
+        {% do pimcore_select("position").setDataFromResource("left") %}
+    {% endif %}
+
+    <div class="editmode-label">
+        <label>Orientation:</label>
+    </div>
+    {{   pimcore_select('position', {
+        store: [["text-left","left"],["text-right","right"],["text-center","center"]],
+        reload: true
+    }) }}
+
+
+{% endif %}
+<section class="container">
+
+    <blockquote class="blockquote {{  pimcore_select('position').getData() }}">
+        <p class="mb-0">{{ pimcore_input('quote') }}</p>
+        <footer class="blockquote-footer">{{ pimcore_input('author') }}</footer>
+    </blockquote>
+
+</section>
