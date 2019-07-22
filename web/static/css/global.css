@@ -159,9 +159,12 @@ input.form-control {
 }
 
 .badge-primary {
-    background-color: var(--purple);
+    background-color: var(--dark-gray);
 }
 
+.list-group-item-secondary .badge-primary {
+    background-color: var(--dark-purple);
+}
 
 /* BUTTONS */
 .btn-primary {
@@ -228,8 +231,8 @@ input.form-control {
 }
 
 .page-item.active .page-link {
-    color: #1E1E1E;
-    background-color: #FFFFFF;
+    color: #ffffff;
+    background-color: var(--dark-purple);
     border: 1px solid #dee2e6;
 }
 
