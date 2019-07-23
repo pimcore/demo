@@ -7,6 +7,7 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
 use Pimcore\Controller\FrontendController;
+use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\FilterDefinition;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -26,6 +27,18 @@ class DefaultController extends BaseController
 
     public function defaultAction(Request $request)
     {
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function galleryRenderletAction(Request $request)
+    {
+        if ($request->get('id') && $request->get('type') === 'asset') {
+            $this->view->asset = Asset::getById($request->get('id'));
+        }
     }
 
 

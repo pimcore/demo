@@ -828,6 +828,7 @@ input.form-control {
 }
 
 .area-gallery-single-images .pimcore_block_entry,
+.area-gallery-folder a img ,
 .area-gallery-single-images a img {
     margin: 0.5em;
 }

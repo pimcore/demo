@@ -1,0 +1,11 @@
+<section>
+    {% if asset %}
+            {% for image in asset.getChildren() %}
+                {% if image is instanceof('\\Pimcore\\Model\\Asset\\Image') %}
+                        <a href="{{ image.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
+                            {{ image.getThumbnail('galleryThumbnail').getHTML()|raw }}
+                        </a>
+                {% endif %}
+            {% endfor %}
+    {% endif %}
+</section>
