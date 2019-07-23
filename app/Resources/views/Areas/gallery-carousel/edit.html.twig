@@ -1,0 +1,27 @@
+{% set id = 'gallery-carousel-' ~ uniqid() %}
+{{ 'Number of Slides:' }}
+{% set positionSelect = pimcore_select('position', {
+    store: [["left","left"],["right","right"]],
+    reload: true
+}) %}
+{% for i in pimcore_iterate_block(pimcore_block('galleryblock', {reload: false})) %}
+    {{ 'Image:' }}
+    {{ pimcore_image('image_' ~ i, {
+        thumbnail: 'galleryCarousel',
+        dropClass: id ~ '-' ~ i,
+        height: 'auto',
+        width: 400,
+        hidetext: true
+    }) }}
+    <h3>{{ pimcore_input('caption-title-' ~ i, { placeholder: 'Heading' }) }}</h3>
+    <p>{{ pimcore_textarea('caption-text-' ~ i, { placeholder: 'Lead Text' }) }}</p>
+
+    <div class="editmode-label">
+        <label>Text Orientation:</label>
+        {{ pimcore_select('position-' ~ i, {
+            store: [["left","left"],["right","right"],["center","center"]]
+        }) }}
+    </div>
+
+    <hr>
+{% endfor %}

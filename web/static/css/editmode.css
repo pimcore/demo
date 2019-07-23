@@ -77,3 +77,7 @@ h5 {
 .area-gallery-single-images .pimcore_block_entry .col-md-3  {
     width: 95%;
 }
+
+.pimcore_area_edit_button {
+    z-index: 99999;
+}
