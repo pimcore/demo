@@ -36,13 +36,6 @@ class GeneralFilterExtension extends AbstractExtension
         ];
     }
 
-    public function getTests()
-    {
-        return [
-            new TwigTest('instanceof', [$this, 'instanceof']),
-        ];
-    }
-
     public function translateValues($values) {
 
         foreach($values as &$modifyingValue) {
@@ -111,10 +104,6 @@ class GeneralFilterExtension extends AbstractExtension
         });
 
         return $values;
-    }
-
-    public function instanceof($object, $className) {
-        return is_a($object, $className);
     }
 
 }
