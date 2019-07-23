@@ -66,3 +66,14 @@ h5 {
     margin: 1em 0 1em 0;
     padding: .15em;
 }
+
+.area-gallery-single-images .pimcore_block_entry {
+    float:left;
+    clear: none;
+    width: 22%;
+    height: 180px;
+}
+
+.area-gallery-single-images .pimcore_block_entry .col-md-3  {
+    width: 95%;
+}

@@ -813,3 +813,21 @@ input.form-control {
     font-family: "FontAwesome" !important;
     font-size: 26px !important;
 }
+
+.image-hotspot {
+    position: absolute;
+    background: rgba(100, 40, 180, 0.5);
+}
+
+.image-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #2aabeb;
+}
+
+.area-gallery-single-images .pimcore_block_entry,
+.area-gallery-single-images a img {
+    margin: 0.5em;
+}
