@@ -2,17 +2,15 @@
 
 {% block content %}
     <div id="main-content" class="main-content container" >
-        {% set headline = pimcore_input('headline', {'placeholder':'Headline'}) %}
         {% if document.getTitle() is empty %}
-            {% do pimcore_head_title(headline.getData()) %}
+            {% do pimcore_head_title(pimcore_input('headline').getData()) %}
         {% endif %}
 
         <div class="page-header">
             {# we need to pipe the editable through the raw filter here as we saved it to a variable #}
-            <h1>{{ headline|raw }}</h1>
+            <h1>{{ pimcore_input('headline', {'placeholder':'Headline'}) }}</h1>
         </div>
 
-        {#{{ include('Includes/content-headline.html.twig') }}#}
         {{ pimcore_areablock('content') }}
     </div>
 {% endblock %}
