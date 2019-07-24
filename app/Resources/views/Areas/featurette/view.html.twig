@@ -14,12 +14,12 @@
 
         {% set position = positionSelect.getData()|default('left') %}
         {% if editmode %}
-
-        <div class="editmode-label">
-            <label>Orientation:</label>
-            {{ positionSelect|raw }}
-        </div>
+            <div class="editmode-label">
+                <label>Orientation:</label>
+                {{ positionSelect | raw }}
+            </div>
         {% endif %}
+
         <div class="row featurette">
             <div class="col-sm-7 {{ position == 'right' ? 'order-md-2' }}">
                 <h2 class="featurette-heading">
@@ -35,13 +35,12 @@
             </div>
 
             <div class="col-sm-5 {{ position == 'right' ? 'order-md-1' }}">
-                {% if editmode %}
 
+                {% if editmode %}
                     <div class="editmode-label">
                         <label>Type:</label>
                         {{ typeSelect|raw }}
                     </div>
-
                 {% endif %}
 
                 {% set type = typeSelect.getData() %}
