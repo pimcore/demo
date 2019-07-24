@@ -1,33 +1,79 @@
 <section class="area-gallery-carousel">
+    {% set selectStore = [] %}
+    {% for i in 2..29 %}
+        {% set selectStore = selectStore|merge([i]) %}
+    {% endfor %}
+
+    {% set slidesSelect = pimcore_select('slides', {
+        store: selectStore,
+        reload: true,
+        width: 70
+    }) %}
+
+    {% set showPreviewsCheckbox = pimcore_checkbox('showPreviews') %}
+    {% set showPreviews = showPreviewsCheckbox.isChecked and not editmode %}
+
     {% set id = 'gallery-carousel-' ~ uniqid() %}
-    <div id="{{ id }}" class="gallery carousel slide">
+    {% set slides = slidesSelect.getData()|default(2) %}
+
+    {% if editmode %}
+
+        <div class="alert alert-secondary" style="height: 75px">
+            <div class="col-xs-6">
+                How many images you want to show?
+                {{ slidesSelect|raw }}
+            </div>
+            <div class="col-xs-6">
+                Show Previews
+                {{ showPreviewsCheckbox|raw }}
+            </div>
+        </div>
+
+        <style type="text/css">
+            .gallery .item {
+                min-height: 200px;
+            }
+        </style>
+
+    {% endif %}
+
+    <div id="{{ id }}" class="gallery carousel slide" data-ride="carousel"  {{ editmode ? 'data-interval="false"' }}>
         <!-- Indicators -->
-        {% if not editmode %}
-            {% set slides = pimcore_block('galleryblock').getCount() %}
-            <ol class="carousel-indicators">
-                {% for i in 0..(slides-1) %}
-                    <li data-target="#{{ id }}" data-slide-to="{{ i }}" class="{{ loop.first ? 'active' }}">
-                    </li>
-                {% endfor %}
-            </ol>
-        {% endif %}
+        <ol class="carousel-indicators {{ showPreviews ? 'preview visible-lg' }}">
+
+            {% for i in 0..(slides-1) %}
+
+                <li data-target="#{{ id }}" data-slide-to="{{ i }}" class="{{ loop.first ? 'active' }}">
+                    {% if showPreviews %}
+                        {{ pimcore_image('image_' ~ i, {
+                            thumbnail: 'galleryCarouselPreview',
+                        }) }}
+                    {% endif %}
+                </li>
+
+            {% endfor %}
+        </ol>
+
         <div class="carousel-inner">
-            {% for i in pimcore_iterate_block(pimcore_block('galleryblock')) %}
+            {% for i in 0..(slides-1) %}
                 <div class="carousel-item {{ id ~ '-' ~ i }} {{ loop.first ? 'active' }}">
                     {{ pimcore_image('image_' ~ i, {
                         thumbnail: 'galleryCarousel',
+                        hidetext: true,
+                        dropClass: id ~ '-' ~ i,
+                        width: '100%',
+                        defaultHeight: 200
                     }) }}
 
                     <div class="container">
-                        <div class="carousel-caption text-{{  pimcore_select('position-' ~ i).getData() ? pimcore_select('position-' ~ i).getData() : 'left' }}">
-
-                            {% if not pimcore_input('caption-title-' ~ i).isEmpty() %}
-                                <h3>{{ pimcore_input('caption-title-' ~ i).getData() }}</h3>
-                            {% endif %}
-
-                            {% if not pimcore_textarea('caption-text-' ~ i).isEmpty() %}
-                                <p>{{ pimcore_textarea('caption-text-' ~ i).getData() }}</p>
-                            {% endif %}
+                        <div class="carousel-caption text-center">
+                            <h3>{{ pimcore_input('caption-title_' ~ i) }}</h3>
+                            <p class="hero-text">{{ pimcore_textarea('caption-text' ~ i) }}</p>
+                            <p>{% set cLink = pimcore_link('caption-link' ~ i, {
+                                    'class': 'btn btn-lg btn-primary'
+                                }) %}
+                                {{ cLink|raw }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -44,4 +90,3 @@
         </a>
     </div>
 </section>
-

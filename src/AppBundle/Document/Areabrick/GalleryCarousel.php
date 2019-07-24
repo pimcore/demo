@@ -11,9 +11,4 @@ class GalleryCarousel extends AbstractAreabrick
     {
         return 'Gallery (Carousel)';
     }
-
-    public function hasEditTemplate()
-    {
-        return true;
-    }
 }

@@ -81,3 +81,12 @@ h5 {
 .pimcore_area_edit_button {
     z-index: 99999;
 }
+
+.area-gallery-carousel .carousel-inner .pimcore_tag_image {
+    min-height: 350px !important;
+}
+
+.area-gallery-carousel .carousel-inner .carousel-caption {
+    top: 15vh;
+    text-shadow: rgb(0, 0, 0) 0px 0px 5px;
+}
