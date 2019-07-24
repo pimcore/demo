@@ -1,11 +1,13 @@
 <section class="area-gallery-folder">
 
-    {{ pimcore_renderlet('gallery', {
-        controller: 'Default',
-        action: 'galleryRenderlet',
-        title: 'Drag an asset folder here to get a gallery',
-        height: 'auto'
-    }) }}
+    {{
+        pimcore_renderlet('gallery', {
+            controller: 'Default',
+            action: 'galleryRenderlet',
+            title: 'Drag an asset folder here to get a gallery',
+            height: 'auto'
+        })
+    }}
 
 </section>
 
