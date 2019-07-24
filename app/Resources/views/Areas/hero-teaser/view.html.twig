@@ -2,9 +2,15 @@
     <div class="container">
         <h2 class="jumbotron-heading">{{ pimcore_input('infoHeading',{'placeholder': 'Heading'}) }}</h2>
         <p>{{ pimcore_input('infoSummary',{'placeholder': 'Summary'}) }}</p>
-        <p>
-            {{  pimcore_link('infoLinkPrimary', {'class': "btn btn-primary my-2"}) }}
-            {{  pimcore_link('infoLinkSecondary', {'class': "btn btn-secondary my-2 ml-3"}) }}
-        </p>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="jumbotron-btn d-inline">
+                    {{  pimcore_link('infoLinkPrimary', {'class': "btn btn-primary my-2"}) }}
+                </div>
+                <div class="jumbotron-btn d-inline">
+                    {{  pimcore_link('infoLinkSecondary', {'class': "btn btn-secondary my-2 ml-3"}) }}
+                </div>
+            </div>
+        </div>
     </div>
 </section>
