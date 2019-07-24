@@ -837,3 +837,7 @@ input.form-control {
 .area-gallery-single-images a img {
     margin: 0.5em;
 }
+
+.featurette-divider {
+    margin: 40px 0;
+}
