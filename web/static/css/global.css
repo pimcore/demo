@@ -721,7 +721,10 @@ input.form-control {
 }
 
 #accordion .card-header .btn {
+    text-decoration: none;
     color: var(--purple);
+    padding: .5em 0 0 1.2em;
+    font-weight: 600;
 }
 
 /* embed */
