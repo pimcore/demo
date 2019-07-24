@@ -3,12 +3,10 @@
         {{ product.mainImage.thumbnail('grid').html({style: 'width: 100%; height: auto'}) | raw }}
     {% endif %}
 
-    {% set manufacturerName = ( product.manufacturer ? product.manufacturer.name : '')%}
-    {% set bodyStyleName = ( product.bodyStyle ? product.bodyStyle.name ~ ', ' : '')%}
 
     <div class="card-body pricing">
-        <h4 class="card-title pricing-card-title text-uppercase">{{ manufacturerName ~ ' ' ~ product.name(language) }}</h4>
-        <p class="card-text">{{ product.series ~ ', ' ~ bodyStyleName  ~ product.productionYear }}</p>
+        <h4 class="card-title pricing-card-title text-uppercase">{{ product.oSName }}</h4>
+        <p class="card-text">Cabrio 1200 34PS, Original</p>
         <p class="card-price">{{ product.oSPrice }},-</p>
         <div class="row">
             <div class="col p-1">

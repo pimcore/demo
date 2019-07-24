@@ -81,7 +81,7 @@ class DefaultController extends BaseController
         $paramsBag = [];
         if ($request->get('type') == 'object') {
             \Pimcore\Model\DataObject\AbstractObject::setGetInheritedValues(true);
-            $product = \Pimcore\Model\DataObject\Car::getById($request->get('id'));
+            $product = AbstractProduct::getById($request->get('id'));
 
             $paramsBag['product'] = $product;
             $paramsBag['col'] = $request->get('editmode') ? 12 : 3;
