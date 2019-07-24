@@ -21,6 +21,11 @@
             {% do pimcore_head_script().appendFile('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',null,null,{ integrity:"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1",crossorigin:"anonymous"}) %}
             {% do pimcore_head_script().appendFile('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',null,null,{ integrity:"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM",crossorigin:"anonymous"}) %}
             {% do pimcore_head_script().appendFile(asset('static/lib/magnific/magnific.js')) %}
+            {% do pimcore_head_script().appendFile(asset('static/js/main.js')) %}
+            {% if not editmode %}
+                    {% do pimcore_head_script().appendFile(asset('static/js/frontend.js')) %}
+            {% endif %}
+
             {% if not document is defined or not document %}
                 {% set document = pimcore_document(1) %}
             {% endif %}
@@ -122,44 +127,7 @@
             {{ pimcore_head_script() }}
         {% endblock %}
 
-        <script type="text/javascript" >
-            // main menu
-            $(".navbar ul.navbar-nav>li>ul").each(function () {
-                var li = $(this).parent();
-                var a = $("a.nav-link", li);
 
-                $(this).addClass("dropdown-menu");
-                li.addClass("dropdown");
-                a.addClass("dropdown-toggle");
-                li.on("mouseenter", function () {
-                    $("ul", $(this)).show();
-                });
-                li.on("mouseleave", function () {
-                    $("ul", $(this)).hide();
-                });
-            });
-
-            {% if not editmode %}
-                {% verbatim %}
-                    // center the caption on the portal page
-                    $("#portalHeader .carousel-caption").css("bottom", Math.round(($(window).height() - $("#portalHeader .carousel-caption").height()) / 3) + "px");
-
-                    $(document).ready(function () {
-
-                        // lightbox (magnific)
-                        $('a.thumbnail').magnificPopup({
-                            type: 'image',
-                            gallery: {
-                                enabled: true
-                            }
-                        });
-
-                        $(".image-hotspot").tooltip();
-                        $(".image-marker").tooltip();
-                    });
-                {% endverbatim %}
-            {% endif %}
-        </script>
         {% block inlinescripts deferred %}
             {{ pimcore_inline_script() }}
         {% endblock %}
