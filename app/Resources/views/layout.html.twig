@@ -44,12 +44,12 @@
 
         {# we're using the deferred extension here to make sure this block is rendered after all helper calls #}
         {% block layout_head_meta deferred %}
-        {{ pimcore_head_title() }}
-        {{ pimcore_head_meta() }}
+            {{ pimcore_head_title() }}
+            {{ pimcore_head_meta() }}
         {% endblock %}
 
         {% block head_stylesheets deferred %}
-        {{ pimcore_head_link() }}
+            {{ pimcore_head_link() }}
         {% endblock %}
 
     </head>
@@ -84,10 +84,12 @@
                     {#header - generate pimcore navigation #}
 
 
-                    {{ pimcore_render_nav(mainNavigation, 'menu', 'renderMenu', {
-                        maxDepth: 3,
-                        ulClass: 'navbar-nav menu-links ml-4 m-auto'
-                    }) }}
+                    {{
+                        pimcore_render_nav(mainNavigation, 'menu', 'renderMenu', {
+                            maxDepth: 3,
+                            ulClass: 'navbar-nav menu-links ml-4 m-auto'
+                        })
+                    }}
 
 
                     {#header - navigation icons#}
@@ -116,7 +118,7 @@
         {{ pimcore_inc(document.getProperty('footer')) }}
 
         {# output scripts added before #}
-        {% block scripts deferred %}
+        {% block headscripts deferred %}
             {{ pimcore_head_script() }}
         {% endblock %}
 
@@ -158,6 +160,8 @@
                 {% endverbatim %}
             {% endif %}
         </script>
-        {{ pimcore_inline_script() }}
+        {% block inlinescripts deferred %}
+            {{ pimcore_inline_script() }}
+        {% endblock %}
     </body>
 </html>
