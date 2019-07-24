@@ -37,6 +37,9 @@ services:
     AppBundle\Twig\Extension\UniqidExtension:
         tags: ['twig.extension']
 
+    AppBundle\Twig\Extension\LanguageSwitcherExtension:
+        tags: ['twig.extension']
+
     AppBundle\Website\LinkGenerator\CategoryLinkGenerator:
         public: true
 
