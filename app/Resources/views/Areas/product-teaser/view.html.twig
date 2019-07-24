@@ -4,16 +4,18 @@
         <div class="row mb-3 text-left">
             {% for i in pimcore_iterate_block(pimcore_block('teaserblock',{class:'row'})) %}
                 <div class="col-md-4">
-                    {{ pimcore_renderlet('productTeaser', {
-                        type: 'object',
-                        classname: 'Car',
-                        editmode: editmode,
-                        controller: 'Default',
-                        action: 'productCell',
-                        title: 'Drag a product here',
-                        height : 'auto',
-                        width: '20vw',
-                    }) }}
+                    {{
+                        pimcore_renderlet('productTeaser', {
+                            type: 'object',
+                            classname: 'Car',
+                            editmode: editmode,
+                            controller: 'Default',
+                            action: 'productCell',
+                            title: 'Drag a product here',
+                            height : 'auto',
+                            width: '20vw',
+                        })
+                    }}
                 </div>
             {% endfor %}
         </div>

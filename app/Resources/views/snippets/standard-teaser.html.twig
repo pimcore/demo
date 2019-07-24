@@ -13,24 +13,30 @@
 {% endif %}
 
 <div class="card custom-standard-card mb-4 shadow-sm">
-    {{ pimcore_image('image' ~ suffix, {
-        thumbnail: 'standardTeaser',
-        width: '100%',
-        height: 'auto'
-    }) }}
+    {{
+        pimcore_image('image' ~ suffix, {
+            thumbnail: 'standardTeaser',
+            width: '100%',
+            height: 'auto'
+        })
+    }}
 
     <div class="card-body">
         <h4 class="card-title pricing-card-title text-uppercase">{{ pimcore_input('title' ~ suffix) }}</h4>
         <p class="card-text">
-            {{ pimcore_wysiwyg('text' ~ suffix, {
-                height: 100,
-                enterMode: 2,
-            }) }}
+            {{
+                    pimcore_wysiwyg('text' ~ suffix, {
+                    height: 100,
+                    enterMode: 2,
+                })
+            }}
         </p>
         <p>
-            {{ pimcore_link('link' ~ suffix, {
-                class: 'btn btn-lg btn-secondary'
-            }) }}
+            {{
+                pimcore_link('link' ~ suffix, {
+                    class: 'btn btn-lg btn-secondary'
+                })
+            }}
         </p>
     </div>
 </div>

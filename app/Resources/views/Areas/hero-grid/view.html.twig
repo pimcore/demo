@@ -1,13 +1,20 @@
 <section class="section grid-gallery row">
+
 {% for i in pimcore_iterate_block(pimcore_block('heroGridBlock', {class:'row'})) %}
     <div class="grid-gallery-item grid-gallery-item{{ i }} {{ (not editmode?'col-md-6':'') }} zoom-outer">
+
         {% if not editmode %}
-        <a href="{{ pimcore_link('heroGridLink' ~ i).href }}">
-            {% endif %}
+            <a href="{{ pimcore_link('heroGridLink' ~ i).href }}">
+        {% endif %}
+
             <span  class="tint {{ (not editmode?'zoom-inner':'') }}">
-                {{ pimcore_image('heroGridImage' ~ i, {
-                    dropClass: 'grid-gallery-item' ~ i,
-                }) }}
+
+                {{
+                    pimcore_image('heroGridImage' ~ i, {
+                        dropClass: 'grid-gallery-item' ~ i,
+                    })
+                }}
+
                 <span class="grid-gallery-item-text">
                     <h2 class="text-uppercase">{{ pimcore_input('heroGridHeadline' ~ i,{placeholder: 'Headline'}) }}</h2>
                     <h5>{{ pimcore_input('heroGridSubheadline' ~ i,{placeholder: 'Sub Headline'}) }}</h5>
@@ -16,10 +23,13 @@
                     {% endif %}
                 </span>
             </span>
-            {% if not editmode %}
-        </a>
+
+        {% if not editmode %}
+            </a>
         {% endif %}
+
     </div>
 
 {% endfor %}
+
 </section>

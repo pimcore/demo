@@ -16,9 +16,11 @@
                 </h2>
 
                 <div class="lead">
-                    {{ pimcore_wysiwyg('content', {
-                        height: 200
-                    }) }}
+                    {{
+                        pimcore_wysiwyg('content', {
+                            height: 200
+                        })
+                    }}
                 </div>
             </div>
 
@@ -33,10 +35,12 @@
 
                 {% endif %}
 
-                {{ pimcore_image('image', {
-                    class: 'featurette-image img-responsive',
-                    thumbnail: 'featurerette'
-                }) }}
+                {{
+                    pimcore_image('image', {
+                        class: 'featurette-image img-responsive',
+                        thumbnail: 'featurerette'
+                    })
+                }}
 
             </div>
         </div>

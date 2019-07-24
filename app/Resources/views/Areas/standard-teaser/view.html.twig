@@ -3,31 +3,35 @@
         <h2 class="jumbotron-heading">{{ pimcore_input('standardTeaserHeading') }}</h2>
         <div class="card-deck mb-3 text-center">
             {% for t in 0..2 %}
-                {% set select = pimcore_select('type_' ~ t, {
-                    width: 90,
-                    reload: true,
-                    store: [
-                        ['direct','direct'],
-                        ['snippet','snippet']
-                    ]
-                }) %}
+                {%
+                    set select = pimcore_select('type_' ~ t, {
+                        width: 90,
+                        reload: true,
+                        store: [
+                            ['direct','direct'],
+                            ['snippet','snippet']
+                        ]
+                    })
+                %}
 
-                    {% if editmode %}
-                        <div class="col-md-4">
+                {% if editmode %}
+                    <div class="col-md-4">
                         <div class="editmode-label">
                             <label>Type:</label>
                             {{ select|raw }}
                         </div>
-                    {% endif %}
+                {% endif %}
 
-                    {% set type = select.getData() %}
-                    {% if type == "direct" %}
-                        {{ include('snippets/standard-teaser.html.twig', {
+                {% set type = select.getData() %}
+                {% if type == "direct" %}
+                    {{
+                        include('snippets/standard-teaser.html.twig', {
                             suffix: (t+1)
-                        }) }}
-                    {% else %}
-                        {{ pimcore_snippet('teaser_' ~ t) }}
-                    {% endif %}
+                        })
+                    }}
+                {% else %}
+                    {{ pimcore_snippet('teaser_' ~ t) }}
+                {% endif %}
 
                 {% if editmode %}
                     </div>
@@ -36,4 +40,5 @@
 
             {% endfor %}
         </div>
+    </div>
 </section>
