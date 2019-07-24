@@ -47,20 +47,24 @@
 
                 {% if type == 'video' %}
 
-                    {{ pimcore_video('video', {
-                        thumbnail: 'featurerette',
-                        attributes: {
-                            class: 'video-js vjs-default-skin vjs-big-play-centered',
-                            'data-setup': '{}'
-                        }
-                    }) }}
+                    {{
+                        pimcore_video('video', {
+                            thumbnail: 'featurerette',
+                            attributes: {
+                                class: 'video-js vjs-default-skin vjs-big-play-centered',
+                                'data-setup': '{}'
+                            }
+                        })
+                    }}
 
                 {% else %}
 
-                    {{ pimcore_image('image', {
-                        class: 'featurette-image img-responsive',
-                        thumbnail: 'featurerette'
-                    }) }}
+                    {{
+                        pimcore_image('image', {
+                            class: 'featurette-image img-responsive',
+                            thumbnail: 'featurerette'
+                        })
+                    }}
 
                 {% endif %}
 
