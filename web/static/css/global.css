@@ -827,6 +827,11 @@ input.form-control {
     background: #2aabeb;
 }
 
+.area-gallery-folder a ,
+.area-gallery-single-images a {
+    text-decoration: none;
+}
+
 .area-gallery-single-images .pimcore_block_entry,
 .area-gallery-folder a img ,
 .area-gallery-single-images a img {
