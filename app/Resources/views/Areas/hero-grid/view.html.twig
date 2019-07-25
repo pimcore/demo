@@ -1,29 +1,34 @@
-<section class="section grid-gallery row">
+{% if  editmode %}
+<div class="alert alert-secondary">
+    {{ 'Please use same aspect ratio images for best result.' }}
+</div>
+{% endif %}
+{% set id = uniqid('heroGrid-') %}
+<section id="{{ id }}" class="section grid-gallery no-gutters {{ (not editmode?'row':'') }}">
 
 {% for i in pimcore_iterate_block(pimcore_block('heroGridBlock', {class:'row'})) %}
-    <div class="grid-gallery-item grid-gallery-item{{ i }} {{ (not editmode?'col-md-6':'') }} zoom-outer">
+    <div class="grid-gallery-item grid-gallery-item-{{ id }}-{{ i }} {{ (not editmode?'col-md-6':'') }} zoom-outer">
 
         {% if not editmode %}
             <a href="{{ pimcore_link('heroGridLink' ~ i).href }}">
         {% endif %}
-
             <span  class="tint {{ (not editmode?'zoom-inner':'') }}">
-
                 {{
                     pimcore_image('heroGridImage' ~ i, {
-                        dropClass: 'grid-gallery-item' ~ i,
+                        dropClass: 'grid-gallery-item-' ~ id ~ '-' ~ i,
+                        reload: true,
+                        hidetext: true,
+                        title: 'Drag background image here'
                     })
                 }}
-
-                <span class="grid-gallery-item-text">
-                    <h2 class="text-uppercase">{{ pimcore_input('heroGridHeadline' ~ i,{placeholder: 'Headline'}) }}</h2>
-                    <h5>{{ pimcore_input('heroGridSubheadline' ~ i,{placeholder: 'Sub Headline'}) }}</h5>
-                    {% if editmode %}
-                        <p>{{ pimcore_link('heroGridLink' ~ i) }}</p>
-                    {% endif %}
-                </span>
             </span>
-
+             <span class="grid-gallery-item-text">
+                <h2 class="text-uppercase">{{ pimcore_input('heroGridHeadline' ~ i,{placeholder: 'Headline'}) }}</h2>
+                <h5>{{ pimcore_input('heroGridSubheadline' ~ i,{placeholder: 'Sub Headline'}) }}</h5>
+                {% if editmode %}
+                    <div class="mx-auto">{{ pimcore_link('heroGridLink' ~ i) }}</div>
+                {% endif %}
+            </span>
         {% if not editmode %}
             </a>
         {% endif %}

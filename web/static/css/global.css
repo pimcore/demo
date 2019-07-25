@@ -400,16 +400,24 @@ input.form-control {
     justify-content: center;
 }
 
+.grid-gallery-item .tint {
+    background-color:initial;
+
+}
+
+.grid-gallery-item .tint img {
+    opacity: 1;
+}
+
 .grid-gallery-item {
     padding: 0;
-    min-height: 20vh;
-    min-width: 40vw;
-    background-color: var(--dark-gray) !important;
+    max-height:50vh;
 }
 
 .grid-gallery-item img {
     max-width:100%;
     max-height:100%;
+    object-fit: cover;
 }
 
 .grid-gallery-item h1,

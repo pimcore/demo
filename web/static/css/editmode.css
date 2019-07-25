@@ -7,6 +7,12 @@ h5 {
     margin-bottom: 5vh;
 }
 
+.grid-gallery-item,
+.grid-gallery-item .pimcore_tag_image  {
+    min-height: 40vh;
+    height:auto;
+}
+
 .grid-gallery-item .tint {
     display: block;
 }
@@ -25,7 +31,7 @@ h5 {
 .grid-gallery-item-text  {
     position: relative;
     left: 0;
-    bottom: 10vh;
+    bottom: 25vh;
     z-index: 10;
     color: #fff;
     text-align: center;
