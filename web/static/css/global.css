@@ -854,7 +854,7 @@ input.form-control {
     margin: 40px 0;
 }
 
-.area-gallery-carousel .gallery-carousel-image {
+.img-responsive {
     width: 100%;
     height: auto;
 }
