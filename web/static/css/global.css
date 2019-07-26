@@ -1013,3 +1013,18 @@ input.form-control {
         display: none;
     }
 }
+
+/* Breadcrumbs */
+.breadcrumb-header a {
+    color: var(--purple);
+}
+
+.breadcrumb-header a:hover {
+    color: var(--dark-purple);
+}
+
+.main-content > .page-header > h1 {
+    font-size: 50px;
+    letter-spacing: 2px;
+    line-height: 100px;
+}

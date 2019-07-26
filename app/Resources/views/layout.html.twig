@@ -122,9 +122,24 @@
                 <div id="content" class="container">
                     <div class="row">
                         {% set hideLeftNav = document.getProperty('leftNavHide') %}
+                        {% set showBreadcrumbs = true %}
                         {% set mainColClass = hideLeftNav ? 'col-md-12 pt-5': 'col-md-9 pt-5 order-last' %}
 
                         <div class="{{ mainColClass }}">
+                            {% if showBreadcrumbs %}
+                                {% set mainNavStartNode = document.getProperty('navigationRoot') %}
+                                {% if mainNavStartNode is empty %}
+                                    {% set mainNavStartNode = pimcore_document(1) %}
+                                {% endif %}
+
+                                {% set mainNav = pimcore_build_nav(document, mainNavStartNode) %}
+                                {% do pimcore_nav_renderer('breadcrumbs').setMinDepth(null) %}
+
+                                <div class="breadcrumb-header">
+                                    <a href="/">{{ "Home"|trans }}</a> &gt;
+                                    {{ pimcore_render_nav(mainNav, 'breadcrumbs') }}
+                                </div>
+                            {% endif %}
                             {{ block('content') }}
                         </div>
 
