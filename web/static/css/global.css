@@ -587,7 +587,7 @@ input.form-control {
 }
 
 .menu-icons .dropdown-menu {
-    top: 130%;
+    top: 125%;
 }
 
 .navbar-nav li .dropdown-menu a {
@@ -854,9 +854,14 @@ input.form-control {
     margin: 40px 0;
 }
 
+.area-gallery-carousel .gallery-carousel-image {
+    width: 100%;
+    height: auto;
+}
+
 .area-gallery-carousel .carousel-item {
     height: auto;
-    min-height: 400px;
+    /*min-height: 400px;*/
 }
 
 .area-gallery-carousel .carousel-inner .carousel-caption {
@@ -1010,6 +1015,18 @@ input.form-control {
 /* Hide sidebar for small screen devices */
 @media only screen and (max-width: 600px) {
     .sidebar {
+        display: none;
+    }
+
+    .area-gallery-carousel .carousel-inner .carousel-caption {
+        top: 7vh;
+    }
+
+    .area-gallery-carousel .carousel-inner .carousel-caption h3 {
+        line-height: 1em;
+    }
+
+    .area-gallery-carousel .carousel-indicators {
         display: none;
     }
 }
