@@ -30,7 +30,7 @@ main {
 
 .main-content  {
     min-height: 70vh;
-    padding: 3em;
+    /*padding: 3em;*/
 }
 
 /* GLOBAL - Headings */
@@ -423,7 +423,7 @@ input.form-control {
 .grid-gallery-item h1,
 .grid-gallery-item h2 {
     margin-bottom: 0px;
-    line-height: .5em;
+    line-height: 1em;
 }
 
 .grid-gallery .pimcore_block_entry {
@@ -453,6 +453,7 @@ input.form-control {
 .custom-product-card .card-body,
 .custom-standard-card .card-body {
     padding: 1.75rem;
+    text-align: center;
 }
 
 /* some special styles for grid with filters */
@@ -886,4 +887,129 @@ input.form-control {
 .carousel-indicators.preview .active img {
     border: 2px solid #428BCA;
     opacity: 1;
+}
+
+/*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+
+/* By default it's not affixed in mobile views, so undo that */
+.bs-sidebar.affix {
+    position: static;
+}
+
+/* First level of nav */
+.bs-sidenav {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top:    10px;
+    padding-bottom: 10px;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #ffffff;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 8em;
+    padding-bottom: 8em;
+}
+
+/* All levels of nav */
+.bs-sidebar .nav > li > ul > li,
+.bs-sidebar .nav > li {
+    display: block;
+}
+.bs-sidebar .nav > li > a,
+.bs-sidebar .nav > li > ul > li > a {
+    display: block;
+    color: #716b7a;
+    padding: 5px 20px;
+}
+
+.bs-sidebar .nav > li > ul > li > a {
+    text-decoration: none;
+    color: #716b7a;
+    padding: 5px 0;
+}
+
+.bs-sidebar .nav > li > ul {
+    list-style: none;
+    text-decoration: none;
+}
+
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus,
+.bs-sidebar .nav > li > ul > li:hover {
+    text-decoration: none;
+    background-color: #e5e3e9;
+}
+.bs-sidebar .nav .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+    font-weight: bold;
+    color: var(--dark-purple);
+    background-color: transparent;
+    border-right: 5px solid var(--dark-purple);
+}
+
+/* Nav: second level (shown on .active) */
+.bs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    margin-bottom: 8px;
+}
+.bs-sidebar .nav .nav > li > a {
+    padding-top:    3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    font-size: 90%;
+}
+
+/* Show and affix the side nav when space allows it */
+@media screen and (min-width: 992px) {
+    .bs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-sidebar.affix,
+    .bs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 80px;
+    }
+    .bs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-sidebar.affix-bottom .bs-sidenav,
+    .bs-sidebar.affix .bs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .languages {
+        display: block;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-sidebar.affix-bottom,
+    .bs-sidebar.affix {
+        width: 263px;
+    }
+}
+
+/* Hide sidebar for small screen devices */
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
 }
