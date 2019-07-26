@@ -42,10 +42,24 @@ class LanguageSwitcherExtension extends AbstractExtension
                 }
             }
 
-            $links[$target] = \Locale::getDisplayLanguage($language);
+            $links[$language] = [
+                'link' => $target,
+                'text' => \Locale::getDisplayLanguage($language)
+            ];
         }
 
         return $links;
+    }
+
+    public function getLanguageFlag($language)
+    {
+        $flag = "";
+        if(Tool::isValidLanguage($language)) {
+            $flag = Tool::getLanguageFlagFile($language);
+        }
+        $flag = preg_replace("@^" . preg_quote(PIMCORE_WEB_ROOT, "@") . "@", "", $flag);
+
+        return $flag;
     }
 
     /**
@@ -54,7 +68,8 @@ class LanguageSwitcherExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('get_localized_links', [$this, 'getLocalizedLinks'])
+            new TwigFunction('get_localized_links', [$this, 'getLocalizedLinks']),
+            new TwigFunction('get_language_flag', [$this, 'getLanguageFlag'])
         ];
     }
 }

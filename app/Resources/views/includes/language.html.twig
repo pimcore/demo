@@ -4,9 +4,11 @@
     </a>
     <ul class="dropdown-menu">
         <span class="dropdown-menu-arrow search arrow"></span>
-        {% for link, text in get_localized_links(document) %}
+        {% for key, lang in get_localized_links(document) %}
             <li>
-                <a class="dropdown-item" href="{{ link }}">{{ text }}</a>
+                <a class="dropdown-item" href="{{ lang.link }}">
+                    <img class="language-switcher-img" src="{{ get_language_flag(key) }}" height="20" width="25">
+                    {{ lang.text }}</a>
             </li>
         {% endfor %}
     </ul>
