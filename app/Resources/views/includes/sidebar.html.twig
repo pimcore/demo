@@ -1,0 +1,11 @@
+{% use 'includes/editmode-layout.html.twig' %}
+
+{{ block('editmode_header') }}
+
+<div class="teasers">
+    {% for i in pimcore_iterate_block(pimcore_block('teasers')) %}
+        {{ pimcore_snippet('teaser') }}
+    {% endfor %}
+</div>
+
+{{ block('editmode_footer') }}
