@@ -34,4 +34,7 @@ class ContentController extends BaseController
     {
     }
 
+    public function thumbnailsAction()
+    {
+    }
 }

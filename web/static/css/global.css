@@ -839,6 +839,10 @@ input.form-control {
     background: #2aabeb;
 }
 
+.area-gallery-single-images {
+    text-align: center;
+}
+
 .area-gallery-folder a ,
 .area-gallery-single-images a {
     text-decoration: none;
@@ -1044,4 +1048,42 @@ input.form-control {
     font-size: 50px;
     letter-spacing: 2px;
     line-height: 100px;
+}
+
+.thumbnail-examples .row {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+section img {
+    max-width: 100%;
+}
+
+.thumbnail-examples h5 {
+    margin-top:1em;
+    line-height: 1em;
+    font-size: 26px;
+}
+
+.thumbnail-examples .img-container {
+    background: url(/static/images/transparent-background-placeholder.png);
+}
+
+.image-container {
+    position:relative;
+    max-width: 100%;
+}
+
+.image-hotspot {
+    position: absolute;
+    background: rgba(235, 105, 9, 0.2);
+}
+
+.image-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #2aabeb;
 }
