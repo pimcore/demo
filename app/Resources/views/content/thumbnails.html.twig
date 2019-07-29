@@ -23,10 +23,10 @@
         'Combined 2': 'exampleCombined2'
     } %}
 
-    <h5>
-        {{ 'Original Dimensions of the Image'|trans }}
+    <p>
+        {{ 'Original Dimensions of the Image:'|trans }}
         {{ image.width }} x {{ image.height }}
-    </h5>
+    </p>
 
     <section class="thumbnail-examples">
         {% for title, name in thumbnails %}
@@ -45,7 +45,7 @@
                 <h5>{{ title|trans }}</h5>
 
                 <div class="img-dimensions">
-                    {{ 'Dimensions'|trans }}
+                    {{ 'Dimensions:'|trans }}
                     {{ thumbnail.width }} x {{ thumbnail.height }}
                 </div>
             </div>
