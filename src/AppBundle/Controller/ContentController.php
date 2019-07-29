@@ -29,4 +29,9 @@ class ContentController extends BaseController
 
         $this->view->isLanding = true;
     }
+
+    public function editableRoundupAction()
+    {
+    }
+
 }
