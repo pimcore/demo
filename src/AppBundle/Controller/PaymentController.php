@@ -5,7 +5,9 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Form\DeliveryAddressFormType;
+use Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\V7\CheckoutManagerInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
+use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\QPayRequest;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Translation\Translator;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -42,10 +44,27 @@ class PaymentController extends FrontendController
         $cartManager = $factory->getCartManager();
         $this->view->cart = $cart = $cartManager->getOrCreateCartByName('cart');
 
+        /**
+         * @var $checkoutManager CheckoutManagerInterface
+         */
         $checkoutManager = $factory->getCheckoutManager($cart);
 
-        $paymentInformation = $checkoutManager->startOrderPayment();
-        $payment = $checkoutManager->getPayment();
+
+//        try {
+            $paymentInformation = $checkoutManager->initOrderPayment();
+
+//        } catch (PaymentNotAllowedException $e) {
+//
+//            /**
+//             * @var $orderManager OrderManagerInterface
+//             */
+//            $orderManager = $factory->getOrderManager();
+//
+//            $orderManager->recreateOrder($cart);
+//
+//            $paymentInformation = $checkoutManager->initOrderPayment();
+//        }
+//        //$payment = $checkoutManager->getPayment();
 
         //payment should be datatrans
         // TODO add more payments here
@@ -77,11 +96,21 @@ class PaymentController extends FrontendController
             'orderIdent' => $paymentInformation->getInternalPaymentId()
         ];
 
-        /**
-         * @var $paymentForm \Symfony\Component\Form\FormBuilderInterface
-         */
-        $paymentForm = $payment->initPayment($cart->getPriceCalculator()->getGrandTotal(), $config);
+        $config = new QPayRequest($config);
+        $config->setLanguage($request->getLocale());
+//        $config['language'] = $request->getLocale();
+//        $config['successURL'] = $url . 'success';
+//        $config['cancelURL'] = $url . 'cancel';
+//        $config['failureURL'] = $url . 'failure';
+//        $config['serviceURL'] = $url . 'service';
+//        $config['confirmMail'] = 'christian.fasching@pimcore.com';
+//        $config['orderDescription'] = 'My Order at pimcore.org';
+//        $config['imageURL'] = 'https://www.pimcore.org/static/css/skins/default/logo.png';
+//        $config['orderIdent'] = $paymentInformation->getInternalPaymentId();
 
+        $startPaymentResponse = $checkoutManager->startOrderPaymentWithPaymentProvider($config);
+
+        $paymentForm = $startPaymentResponse->getForm();
         $paymentForm->remove('submitbutton');
         $paymentForm->add('submitbutton', SubmitType::class, ['attr' => ['class' => 'btn btn-primary'], 'label' => $translator->trans('checkout.payment.paynow')]);
 

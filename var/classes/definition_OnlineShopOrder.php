@@ -1,10 +1,10 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:54+02:00
+* Generated at: 2019-08-06T18:16:33+02:00
 * Inheritance: no
 * Variants: no
-* Changed by: system (0)
+* Changed by: admin (2)
 
 
 Fields Summary: 
@@ -24,6 +24,8 @@ Fields Summary:
 - taxInfo [table]
 - currency [input]
 - cartId [input]
+- successorOrder [manyToOneRelation]
+- cartHash [numeric]
 - customer [manyToOneRelation]
 - customerFirstname [input]
 - customerLastname [input]
@@ -50,11 +52,11 @@ Fields Summary:
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'id' => 'EF_OSO',
    'name' => 'OnlineShopOrder',
-   'description' => NULL,
+   'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1562146314,
+   'modificationDate' => 1565108193,
    'userOwner' => 0,
-   'userModification' => 0,
+   'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractOrder',
    'listingParentClass' => '',
    'useTraits' => '',
@@ -218,12 +220,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                     ),
                      'width' => 400,
                      'defaultValue' => '',
-                     'optionsProviderClass' => NULL,
-                     'optionsProviderData' => NULL,
+                     'optionsProviderClass' => '',
+                     'optionsProviderData' => '',
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
                      'phpdocType' => 'string',
+                     'dynamicOptions' => false,
                      'name' => 'orderState',
                      'title' => 'OrderState',
                      'tooltip' => '',
@@ -273,6 +276,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'relationType' => true,
                      'visibleFields' => NULL,
                      'optimizedAdminLoading' => false,
+                     'visibleFieldDefinitions' => 
+                    array (
+                    ),
                      'lazyLoading' => false,
                      'classes' => 
                     array (
@@ -359,6 +365,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'relationType' => true,
                      'visibleFields' => NULL,
                      'optimizedAdminLoading' => false,
+                     'visibleFieldDefinitions' => 
+                    array (
+                    ),
                      'lazyLoading' => false,
                      'classes' => 
                     array (
@@ -413,6 +422,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'relationType' => true,
                      'visibleFields' => NULL,
                      'optimizedAdminLoading' => false,
+                     'visibleFieldDefinitions' => 
+                    array (
+                    ),
                      'lazyLoading' => true,
                      'classes' => 
                     array (
@@ -616,6 +628,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'rows' => '',
                      'rowsFixed' => false,
                      'data' => '',
+                     'columnConfigActivated' => false,
+                     'columnConfig' => 
+                    array (
+                    ),
                      'queryColumnType' => 'longtext',
                      'columnType' => 'longtext',
                      'phpdocType' => 'array',
@@ -689,14 +705,88 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'columnLength' => 255,
                      'phpdocType' => 'string',
                      'regex' => '',
-                     'unique' => NULL,
-                     'showCharCount' => NULL,
+                     'unique' => false,
+                     'showCharCount' => false,
                      'name' => 'cartId',
                      'title' => 'Cart ID',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => true,
                      'index' => true,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  1 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                     'fieldtype' => 'manyToOneRelation',
+                     'width' => '',
+                     'assetUploadPath' => '',
+                     'relationType' => true,
+                     'queryColumnType' => 
+                    array (
+                      'id' => 'int(11)',
+                      'type' => 'enum(\'document\',\'asset\',\'object\')',
+                    ),
+                     'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
+                     'objectsAllowed' => true,
+                     'assetsAllowed' => false,
+                     'assetTypes' => 
+                    array (
+                    ),
+                     'documentsAllowed' => false,
+                     'documentTypes' => 
+                    array (
+                    ),
+                     'lazyLoading' => true,
+                     'classes' => 
+                    array (
+                      0 => 
+                      array (
+                        'classes' => 'OnlineShopOrder',
+                      ),
+                    ),
+                     'pathFormatterClass' => '',
+                     'name' => 'successorOrder',
+                     'title' => 'Successor Order',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => true,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  2 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
+                     'fieldtype' => 'numeric',
+                     'width' => '',
+                     'defaultValue' => NULL,
+                     'queryColumnType' => 'double',
+                     'columnType' => 'double',
+                     'phpdocType' => 'float',
+                     'integer' => true,
+                     'unsigned' => false,
+                     'minValue' => NULL,
+                     'maxValue' => NULL,
+                     'unique' => false,
+                     'decimalSize' => NULL,
+                     'decimalPrecision' => NULL,
+                     'name' => 'cartHash',
+                     'title' => 'Cart Hash',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => true,
+                     'index' => false,
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
@@ -2247,6 +2337,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'customerCountry',
                  'title' => 'Country',
                  'tooltip' => '',
@@ -3782,6 +3873,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'deliveryCountry',
                  'title' => 'Country',
                  'tooltip' => '',
@@ -4028,16 +4120,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => NULL,
-   'previewUrl' => NULL,
-   'group' => NULL,
+   'icon' => '',
+   'previewUrl' => '',
+   'group' => '',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => NULL,
+   'linkGeneratorReference' => '',
    'propertyVisibility' => 
   array (
     'grid' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => false,
       'published' => false,
       'modificationDate' => false,
@@ -4046,6 +4139,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     'search' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => false,
       'published' => false,
       'modificationDate' => false,
