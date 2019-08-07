@@ -4,8 +4,6 @@
 namespace AppBundle\Website\Tool;
 
 
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
 class PimcoreUrl extends \Pimcore\Templating\Helper\PimcoreUrl
 {
 

@@ -42,39 +42,7 @@ class DefaultController extends BaseController
     }
 
 
-    /**
-     * @param Request $request
-     * @Route("/shop/{path}{categoryname}~c{category}", name="shop-category", defaults={"path"=""}, requirements={"path"=".*?", "categoryname"="[\w-]+", "category"="\d+"})
-     */
-    public function listingAction(Request $request, Factory $ecommerceFactory)
-    {
-        $params = array_merge($request->query->all(), $request->attributes->all());
-        $params['parentCategoryIds'] = $params['category'];
 
-//        p_r($params);
-
-        $indexService = $ecommerceFactory->getIndexService();
-        $productListing = $indexService->getProductListForCurrentTenant();
-        $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-        $this->view->productListing = $productListing;
-
-
-        $filterDefinition = FilterDefinition::getById(563);
-        $filterService = $ecommerceFactory->getFilterService();
-
-        Helper::setupProductList($filterDefinition, $productListing, $params, $this->view, $filterService, true);
-        $this->view->filterService = $filterService;
-        $this->view->filterDefinition = $filterDefinition;
-
-
-        // init pagination
-        $paginator = new Paginator($productListing);
-        $paginator->setCurrentPageNumber($request->get('page'));
-        $paginator->setItemCountPerPage(18);
-        $paginator->setPageRange(5);
-        $this->view->results = $paginator;
-        $this->view->paginationVariables = $paginator->getPages('Sliding');
-    }
 
     public function productCellAction(Request $request)
     {

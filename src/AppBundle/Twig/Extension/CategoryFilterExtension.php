@@ -38,7 +38,6 @@ class CategoryFilterExtension extends AbstractExtension
 
         $data = new \stdClass();
 
-        //TODO consider rootcategory & document
         $data->currentCategory = $this->getCurrentCategory($currentValue);
         $data->parentCategories = $data->currentCategory->getParentCategoryList($rootCategory);
         $data->subCategories = $this->getSubCategories($data->currentCategory, $rootCategory);
@@ -72,9 +71,14 @@ class CategoryFilterExtension extends AbstractExtension
         return $subCategories;
     }
 
-    public function generateLink(Category $category, Category $rootCategory = null) {
-        //TODO consider rootcategory & document
-        return $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null]);
+    /**
+     * @param Category $category
+     * @param Category|null $rootCategory
+     * @param bool $reset
+     * @return string
+     */
+    public function generateLink(Category $category, Category $rootCategory = null, $reset = false): string {
+        return $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory], $reset);
     }
 
 }

@@ -132,12 +132,13 @@
                                     {% set mainNavStartNode = pimcore_document(1) %}
                                 {% endif %}
 
-                                {% set mainNav = pimcore_build_nav(document, mainNavStartNode) %}
+                                {% set breadbrumbs = pimcore_build_nav(document, mainNavStartNode) %}
+                                {% do app_navigation_enrich_breadcrumbs(breadbrumbs) %}
                                 {% do pimcore_nav_renderer('breadcrumbs').setMinDepth(null) %}
 
                                 <div class="breadcrumb-header">
                                     <a href="/">{{ "Home"|trans }}</a> &gt;
-                                    {{ pimcore_render_nav(mainNav, 'breadcrumbs') }}
+                                    {{ pimcore_render_nav(breadbrumbs, 'breadcrumbs') }}
                                 </div>
                             {% endif %}
                             {{ block('content') }}

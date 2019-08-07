@@ -1087,3 +1087,11 @@ section img {
     border-radius: 10px;
     background: #2aabeb;
 }
+
+
+.detail-price {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 22px;
+}

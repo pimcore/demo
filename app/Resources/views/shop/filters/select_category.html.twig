@@ -3,13 +3,13 @@
 
 <div class="filter categories pb-3">
 
-    <h5>{{ ('general.filter.' ~ label) |lower|trans }}</h5>
+    <h6>{{ ('general.filter.' ~ label) |lower|trans }}</h6>
 
     <div class="list-group">
 
         {% for parentCategory in data.parentCategories %}
 
-            <a href="{{ app_category_filter_generate_link(parentCategory, rootCategory)  }}" class="list-group-item list-group-item-action">
+            <a href="{{ app_category_filter_generate_link(parentCategory, rootCategory, true)  }}" class="list-group-item list-group-item-action">
                 <i class="fas fa-angle-left"></i>
                 {{ parentCategory.name }}
             </a>
@@ -29,7 +29,7 @@
 
         {% for subCategory in data.subCategories %}
 
-            <a href="{{ app_category_filter_generate_link(subCategory, rootCategory)  }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <a href="{{ app_category_filter_generate_link(subCategory, rootCategory, true)  }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                 <span>
                     <i class="fas fa-angle-right"></i>
                     {{ subCategory.name }}

@@ -1,0 +1,266 @@
+{# @var product \AppBundle\Model\Product\Car #}
+
+{% import 'product/macros.html.twig' as macros %}
+
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="d-md-none mt-3">
+        {% if(product.manufacturer and product.manufacturer.logo)  %}
+            {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({class: 'img-fluid float-right'})|raw }}
+        {%  endif  %}
+
+        <h1>{{ product.oSName }}</h1>
+
+    </div>
+
+    <div class="bg-white my-3">
+        <div class="row">
+
+            {% if(product.mainImage) %}
+                <div class="col-md-6 mb-4">
+                    <div class="p-3">
+                        <a href="{{ product.mainImage.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
+                            {{ product.mainImage.thumbnail('product_detail').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
+                        </a>
+
+                        {%  if(product.additionalImages) %}
+
+                            <div class="row">
+
+                                {% for image in product.additionalImages %}
+
+                                    <div class="col-4 mt-3">
+
+                                        <a href="{{ image.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
+                                            {{ image.thumbnail('product_detail_small').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
+                                        </a>
+
+                                    </div>
+
+                                {% endfor %}
+
+                            </div>
+
+                        {%  endif %}
+                    </div>
+
+                </div>
+            {% endif %}
+
+            <div class="col-md-6 mb-4">
+
+                <div class="p-3 pt-4">
+
+                    {% if(product.manufacturer and product.manufacturer.logo)  %}
+                        {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({class: 'img-fluid float-right d-none d-md-block mb-3'})|raw }}
+                    {%  endif  %}
+
+                    <h2 class="d-none d-md-block mb-3">{{ product.oSName }}</h2>
+
+                    <div class="row">
+
+                        <dl class="item-property col-12">
+                            <dt>Color</dt>
+                            <dd>
+                                {% for colorVariant in product.colorVariants %}
+                                    <a href="{{ app_product_detaillink(colorVariant) }}"
+                                       class="btn {{ product.id == colorVariant.id ? 'btn-primary' : 'btn-outline-primary' }}">
+                                        {{ colorVariant.color | colorname }}
+                                    </a>
+                                {% endfor %}
+                            </dd>
+
+                        </dl>
+
+                        {% if(product.bodyStyle) %}
+                            <dl class="item-property col-6">
+                                <dt>{{ 'general.body-style' | trans }}</dt>
+                                <dd>{{ product.bodyStyle.name }}</dd>
+                            </dl>
+                        {% endif %}
+
+                        <dl class="item-property col-6">
+                            <dt>{{ 'general.car-class' | trans }}</dt>
+                            <dd>{{ ('general.' ~ product.carClass) | trans }}</dd>
+                        </dl>
+
+                        <dl class="item-property col-6 mb-0">
+                            <dt>{{ 'general.condition' | trans }}</dt>
+                            <dd>{{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans}}</dd>
+                        </dl>
+
+                        <dl class="item-property col-6 mb-0">
+                            <dt>{{ 'general.milage' | trans }}</dt>
+                            <dd>{{ product.saleInformation.saleInformation.milage}}</dd>
+                        </dl>
+
+                    </div>
+
+                    <hr/>
+                    <div class="mt-4 text-center">
+                        <p class="detail-price mb-0">{{ product.oSPrice}}</p>
+                        <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('general.' ~ product.saleInformation.saleInformation.availabilityType) | trans }}</p>
+                    </div>
+
+                    <a href="#" class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="mt-5 col-12 text-center">
+            <h4 class="text-center">{{ 'general.additional-information' | trans }}</h4>
+
+            {% if(product.description) %}
+                <p>{{ product.description | raw }}</p>
+            {% endif %}
+
+        </div>
+        <div class="col-12">
+
+            <ul class="nav nav-tabs" id="attributes" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">General</a>
+                </li>
+                {% if(product.attributes.dimensions or product.attributes.bodywork) %}
+                    <li class="nav-item">
+                        <a class="nav-link" id="dimensions-tab" data-toggle="tab" href="#dimensions" role="tab" aria-controls="dimensions" aria-selected="false">Dimensions</a>
+                    </li>
+                {% endif %}
+                {% if(product.attributes.engine or product.attributes.transmission) %}
+                    <li class="nav-item">
+                        <a class="nav-link" id="engine-tab" data-toggle="tab" href="#engine" role="tab" aria-controls="engine" aria-selected="false">Engine</a>
+                    </li>
+                {%  endif %}
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                    <div class="m-3">
+
+                        <div class="row">
+
+                            {% if(product.manufacturer) %}
+                                <dl class="item-property col-6 col-md-3">
+                                    <dt>{{ 'general.manufacturer' | trans }}</dt>
+                                    <dd>{{ product.manufacturer.name }}</dd>
+                                </dl>
+                            {% endif %}
+
+                            {{ macros.attribute(product.productionYear, 'general.productionYear') }}
+
+                            {% if(product.country) %}
+                                <dl class="item-property col-6 col-md-3">
+                                    <dt>{{ 'general.country' | trans }}</dt>
+                                    <dd>{{ product.country | country }}</dd>
+                                </dl>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+                {% if(product.attributes.dimensions or product.attributes.bodywork) %}
+                    <div class="tab-pane fade" id="dimensions" role="tabpanel" aria-labelledby="dimensions-tab">
+
+                        <div class="m-3">
+
+                            <div class="row">
+
+                                {% if(product.attributes.dimensions) %}
+                                    {{ macros.attribute(product.attributes.dimensions.length, 'general.length') }}
+                                    {{ macros.attribute(product.attributes.dimensions.width, 'general.width') }}
+                                    {{ macros.attribute(product.attributes.dimensions.wheelbase, 'general.wheelbase') }}
+                                    {{ macros.attribute(product.attributes.dimensions.weight, 'general.weight') }}
+                                {%  endif %}
+
+                                {% if(product.attributes.bodywork) %}
+                                    {{ macros.attribute(product.attributes.bodywork.numberOfDoors, 'general.numberOfDoors') }}
+                                    {{ macros.attribute(product.attributes.bodywork.numberOfSeats, 'general.numberOfSeats') }}
+                                {%  endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                {%  endif %}
+                {% if(product.attributes.engine or product.attributes.transmission) %}
+                    <div class="tab-pane fade" id="engine" role="tabpanel" aria-labelledby="engine-tab">
+
+                        <div class="m-3">
+
+                            <div class="row">
+
+                                {% if(product.attributes.engine) %}
+                                    {{ macros.attribute(product.attributes.engine.cylinders, 'general.cylinders') }}
+                                    {{ macros.attribute(product.attributes.engine.capacity, 'general.capacity') }}
+                                    {{ macros.attribute(product.attributes.engine.power, 'general.power') }}
+                                    {{ macros.attribute(product.attributes.engine.engineLocation, 'general.engineLocation') }}
+                                {%  endif %}
+
+                                {% if(product.attributes.transmission) %}
+                                    {{ macros.attribute(product.attributes.transmission.wheelDrive, 'general.wheelDrive', true, 'general.') }}
+                                {%  endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                {%  endif %}
+            </div>
+
+        </div>
+
+        {% set accessories = product.accessories %}
+
+        {%  if(accessories.count) %}
+
+            <hr>
+
+            <div class="mt-5 col-12 text-center">
+                <h4 class="text-center">{{ 'general.accessories' | trans }}</h4>
+
+                <div class="row">
+                    {% for item in accessories %}
+
+                        <div class="col-md-4">
+                            <div class="card custom-product-card mb-4 shadow-sm">
+                                {% if(item.mainImage) %}
+                                    {{ item.mainImage.thumbnail('grid').html({style: 'width: 100%; height: auto'}) | raw }}
+                                {% endif %}
+                                <div class="card-body pricing">
+                                    <h4 class="card-title pricing-card-title text-uppercase">{{ item.oSName }} ({{ item.id }}) </h4>
+                                    <p class="card-text">Cabrio 1200 34PS, Original</p>
+                                    <p class="card-price">{{ item.oSPrice }}</p>
+                                    <div class="row">
+                                        <div class="col-6 pr-1">
+                                            <a href="{{ app_product_detaillink(item) }}" class="btn btn-block btn-secondary">Details</a>
+                                        </div>
+                                        <div class="col-6 pl-1">
+                                            <a href="{{ path('shop-add-to-cart', { id: item.id }) }}" class="btn btn-block btn-primary">Kaufen <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        {% endif %}
+
+
+    </div>
+
+{% endblock %}
