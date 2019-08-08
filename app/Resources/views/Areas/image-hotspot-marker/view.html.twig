@@ -28,7 +28,8 @@
 <section class="area-image">
     <div style="position: relative;">
         {% set image = pimcore_image('image', {
-            thumbnail: 'content'
+            thumbnail: 'content',
+            class: 'img-responsive'
         }) %}
 
         {{ image|raw }}
