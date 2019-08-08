@@ -5,7 +5,7 @@
 <ul class="list-group mb-3">
     <li class="list-group-item d-flex justify-content-between lh-condensed">
         <div>
-            <h6 class="my-0">{{ 'checkout.products' | trans }}</h6>
+            <p class="mb-0"><strong class="my-0">{{ 'checkout.products' | trans }}</strong></p>
             <small class="text-muted">{{ 'checkout.products.subtext' | trans }}</small>
         </div>
         <span class="text-muted">{{ cart.priceCalculator.subTotal }}</span>
@@ -15,7 +15,7 @@
 
         <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
-                <h6 class="my-0">{{ ('checkout.modificator.' ~ name) | trans}}</h6>
+                <strong class="my-0">{{ ('checkout.modificator.' ~ name) | trans}}</strong>
             </div>
             <span class="text-muted">{{ modification }}</span>
         </li>
@@ -24,7 +24,7 @@
     {% endfor %}
 
     <li class="list-group-item d-flex justify-content-between" style="border-top: 2px solid">
-        <strong><span>{{ 'checkout.totalprice' | trans }}</span></strong>
-        <strong>{{ cart.priceCalculator.grandTotal }}</strong>
+        <h6><span>{{ 'checkout.totalprice' | trans }}</span></h6>
+        <h6>{{ cart.priceCalculator.grandTotal }}</h6>
     </li>
 </ul>
