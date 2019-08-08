@@ -1,121 +1,15 @@
-{# @var productListing \Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface #}
-{# @var result \Zend\Paginator\Paginator #}
-{# @var item \AppBundle\Model\Product\Car #}
-{# @var filterService \Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterService #}
-{# @var filterDefinition \Pimcore\Model\DataObject\FilterDefinition #}
 
-{% extends 'layout.html.twig' %}
+{% if not hideLayout is defined %}
+
+    {% extends 'layout.html.twig' %}
+
+{% endif %}
+
 
 {% block content %}
 
-
-    <h1>{{ category.name }}</h1>
-
-    <div class="album bg-light">
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-3">
-
-                    {% if( pimcore_device().isPhone ) %}
-                        <div id="filter-container" class="card mb-4">
-                            <div class="card-header">
-                                <a id="filter-head" href="#" class="text-dark text-decoration-none" data-toggle="collapse" data-target="#filter-container-content" aria-expanded="true" aria-controls="filter-container-content">
-                                    {{ 'filter.title' | trans }}
-                                </a>
-                            </div>
-                            <div id="filter-container-content" class="card-body collapse" aria-labelledby="filter-head" data-parent="#filter-container">
-                    {% endif %}
-
-                    <form id="js_filterfield">
-
-                        {% if(filterDefinition.filters|length > 0) %}
-
-                            {% for filter in filterDefinition.filters %}
-
-                                {% set filterMarkup = filterService.filterFrontend(filter, productListing, currentFilter) %}
-
-                                {{ filterMarkup | raw  }}
-
-                            {% endfor %}
-                        {% endif %}
-
-                    </form>
-
-                    {% if( pimcore_device().isPhone ) %}
-                            </div></div>
-                    {% endif %}
-
-                </div>
-
-                <div class="col-md-9">
-
-                    <div class="row">
-
-                        {%  for item in results %}
-                            <div class="col-md-4 d-flex align-items-stretch flex-column">
-                                {% include 'product/product_teaser.html.twig' with {'product': item} %}
-                            </div>
-
-                        {% endfor %}
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="pt-5">
-
-                <nav aria-label="Pagination">
-                    <ul class="pagination justify-content-center">
-                        {%  if(paginationVariables.previous is defined) %}
-                            <li class="page-item">
-                                <a class="page-link prev" href="{{  pimcore_url({'page': paginationVariables.previous}) }}" aria-label="Previous">
-                                    <span aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        {%  endif %}
-
-                        {%  for page in paginationVariables.pagesInRange %}
-
-                            {%  if(paginationVariables.current == page) %}
-
-                                <li class="page-item active" aria-current="page">
-                                  <span class="page-link">
-                                    {{  page }}
-                                    <span class="sr-only">(current)</span>
-                                  </span>
-                                </li>
-
-                            {%  else %}
-                                <li class="page-item"><a class="page-link" href="{{  pimcore_url({'page': page}) }}">{{ page }}</a></li>
-                            {%  endif %}
-
-                        {% endfor %}
-
-                        {%  if(paginationVariables.next is defined) %}
-                            <li class="page-item">
-                                <a class="page-link next flip" href="{{  pimcore_url({'page': paginationVariables.next}) }}" aria-label="Next">
-                                    <span aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        {%  endif %}
-                    </ul>
-                </nav>
-
-            </div>
-
-        </div>
+    <div id="main-content" class="main-content">
+        {% include 'product/listing_content.html.twig' %}
     </div>
 
-
 {%  endblock %}
-
-{% do pimcore_inline_script().appendScript("
-
-    $('#js_filterfield .custom-checkbox input, #js_filterfield .custom-radio input').on('change', function() {
-        $('#js_filterfield').submit();
-    });
-
-") %}

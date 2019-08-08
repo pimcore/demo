@@ -18,9 +18,9 @@
         </div>
     </div>
 
-    <div style="clearfix"></div>
+    <div style="clear: both"></div>
 {% endif %}
 
 {% if not pimcore_relation("productFilter").isEmpty() %}
-    {{ pimcore_action("listing", "default", null, params | merge({"filterdefinition": filterDefinitionObject, "noLayout": true})) }}
+    {{ pimcore_action("listing", "product", null, params | merge({"filterdefinition": filterDefinitionObject, "noLayout": true})) }}
 {% endif %}

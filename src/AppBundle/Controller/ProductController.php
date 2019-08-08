@@ -11,6 +11,7 @@ use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
+use Pimcore\Config;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\FilterDefinition;
@@ -66,15 +67,36 @@ class ProductController extends BaseController
         $params = array_merge($request->query->all(), $request->attributes->all());
         $params['parentCategoryIds'] = $params['category'];
 
+        $category = Category::getById($params['category']);
+        $this->view->category = $category;
+        if($category) {
+            $headTitleHelper($category->getName());
+            $breadcrumbHelperService->enrichCategoryPage($category);
+        }
+
+
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
         $this->view->productListing = $productListing;
 
-        //TODO load filter definition
-        $filterDefinition = FilterDefinition::getById(563);
-        $filterService = $ecommerceFactory->getFilterService();
+        // load current filter
+        if ($category) {
+            $filterDefinition = $category->getFilterdefinition();
 
+//            $trackingManager = Factory::getInstance()->getTrackingManager();
+//            $trackingManager->trackCategoryPageView($category->getName(), null);
+        }
+
+        if ($request->get('filterdefinition') instanceof FilterDefinition) {
+            $filterDefinition = $request->get('filterdefinition');
+        }
+
+        if (empty($filterDefinition)) {
+            $filterDefinition = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
+        }
+
+        $filterService = $ecommerceFactory->getFilterService();
         Helper::setupProductList($filterDefinition, $productListing, $params, $this->view, $filterService, true);
         $this->view->filterService = $filterService;
         $this->view->filterDefinition = $filterDefinition;
@@ -87,11 +109,9 @@ class ProductController extends BaseController
         $this->view->results = $paginator;
         $this->view->paginationVariables = $paginator->getPages('Sliding');
 
-        $category = Category::getById($params['category']);
-        $this->view->category = $category;
-        $headTitleHelper($category->getName());
-
-        $breadcrumbHelperService->enrichCategoryPage($category);
+        if($request->attributes->get('noLayout')) {
+            return $this->render('/product/listing_content.html.twig', $this->view->getAllParameters());
+        }
 
     }
 
