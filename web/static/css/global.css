@@ -117,7 +117,7 @@ h6 {
 }
 
 /* fix paddings due to font */
-.list-group-item {
+.list-group-item, .card-header {
     padding-top: 15px;
     padding-bottom: 9px;
 }
