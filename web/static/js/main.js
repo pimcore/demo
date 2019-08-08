@@ -5,11 +5,26 @@ $(".navbar ul.navbar-nav>li>ul").each(function () {
 
     $(this).addClass("dropdown-menu");
     li.addClass("dropdown");
-    a.addClass("dropdown-toggle");
     li.on("mouseenter", function () {
-        $("ul", $(this)).show();
+        $("ul.dropdown", $(this)).show();
     });
     li.on("mouseleave", function () {
-        $("ul", $(this)).hide();
+        $("ul.dropdown", $(this)).hide();
     });
+
+});
+
+$("ul.dropdown-submenu").each(function () {
+    $(this).parent('li').addClass('submenu-icon');
+});
+
+$('.search-button').on('click', '.search-toggle', function(e) {
+    var selector = $(this).data('selector');
+
+    $(selector).toggleClass('show').find('.search-input').focus();
+    $(this).toggleClass('active');
+
+    $('#autoComplete_results_list').toggleClass('d-block');
+
+    e.preventDefault();
 });

@@ -12,8 +12,9 @@
             {% do pimcore_head_link().appendStylesheet('https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&display=swap') %}
             {% do pimcore_head_link().appendStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',null,null,{integrity:"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T",crossorigin:"anonymous"}) %}
             {% do pimcore_head_link().appendStylesheet('https://use.fontawesome.com/releases/v5.9.0/css/all.css') %}
-            {% do pimcore_head_link().appendStylesheet(asset('static/css/global.css')) %}
             {% do pimcore_head_link().appendStylesheet(asset('static/lib/magnific/magnific.css'), 'screen') %}
+            {% do pimcore_head_link().appendStylesheet(asset('static/lib/autocompletejs/css/autoComplete.css'), 'screen') %}
+            {% do pimcore_head_link().appendStylesheet(asset('static/css/global.css')) %}
             {% if editmode %}
                 {% do pimcore_head_link().appendStylesheet(asset('static/css/editmode.css')) %}
             {% endif %}
@@ -21,6 +22,8 @@
             {% do pimcore_head_script().appendFile('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',null,null,{ integrity:"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1",crossorigin:"anonymous"}) %}
             {% do pimcore_head_script().appendFile('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',null,null,{ integrity:"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM",crossorigin:"anonymous"}) %}
             {% do pimcore_head_script().appendFile(asset('static/lib/magnific/magnific.js')) %}
+            {% do pimcore_head_script().appendFile(asset('static/lib/autocompletejs/js/autoComplete.min.js')) %}
+            {% do pimcore_head_script().appendFile(asset('static/js/search-autocomplete.js')) %}
             {% do pimcore_head_script().appendFile(asset('static/js/main.js')) %}
             {% if not editmode %}
                     {% do pimcore_head_script().appendFile(asset('static/js/frontend.js')) %}
@@ -92,8 +95,12 @@
 
                     {{
                         pimcore_render_nav(mainNavigation, 'menu', 'renderMenu', {
-                            maxDepth: 3,
-                            ulClass: 'navbar-nav menu-links ml-4 m-auto'
+                            maxDepth: 2,
+                            ulClass: {
+                                0: 'navbar-nav menu-links ml-4 m-auto',
+                                1: 'dropdown dropdown-menu',
+                                'default': 'dropdown-menu dropdown-submenu'
+                            }
                         })
                     }}
 

@@ -1211,6 +1211,7 @@ section img {
     opacity: 0;
     color: #fff;
     text-transform: uppercase;
+    caret-color: #fff;
 }
 
 #navbarCollapse .search-box .search-input::-webkit-input-placeholder {
@@ -1223,4 +1224,40 @@ section img {
 
 #navbarCollapse.show .search-box .search-input {
     opacity: 1;
+}
+
+#autoComplete_results_list {
+    width: 100%;
+}
+.autoComplete_result {
+    margin: 0;
+    padding: 0.6rem 0 0.6rem 2.5rem;
+    max-width: 100%;
+     border: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 1.1rem;
+    transition: all 0.1s ease-in-out;
+    background-color: rgba(0, 0, 0,0.6);
+    color: var(--light-gray);
+}
+
+.autoComplete_result:last-child {
+    border-radius: 0;
+}
+
+.autoComplete_highlighted {
+    color: #ffffff;
+    font-weight: normal;
+}
+
+.autoComplete_result:hover,
+.autoComplete_result:focus {
+    cursor: pointer;
+    background-color: var(--dark-purple);
+    border: 0;
+}
+
+#autoComplete:focus::selection {
+    background-color: var(--light-purple);
 }
