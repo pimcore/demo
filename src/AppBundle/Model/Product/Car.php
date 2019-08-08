@@ -89,6 +89,10 @@ class Car extends \Pimcore\Model\DataObject\Car
             $items = [];
         }
 
+        $items = array_filter($items, function($item) {
+             return !empty($item) &&  !empty($item->getImage());
+        });
+
         $generalImages = $this->getGenericImages()->getItems();
         if($generalImages) {
             $items = array_merge($items, $generalImages);
