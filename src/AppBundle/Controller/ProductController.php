@@ -3,12 +3,15 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Model\Product\AbstractProduct;
+use AppBundle\Model\Product\AccessoryPart;
 use AppBundle\Model\Product\Car;
 use AppBundle\Model\Product\Category;
 use AppBundle\Website\LinkGenerator\CategoryLinkGenerator;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
+use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Templating\Helper\HeadTitle;
@@ -26,11 +29,11 @@ class ProductController extends BaseController
      * @param Request $request
      * @Route("/shop/{path}{productname}~p{product}", name="shop-detail", defaults={"path"=""}, requirements={"path"=".*?", "productname"="[\w-]+", "product"="\d+"})
      */
-    public function detailAction(Request $request, Placeholder $placeholderHelper, HeadTitle $headTitleHelper, CategoryLinkGenerator $categoryLinkGenerator) {
+    public function detailAction(Request $request, Placeholder $placeholderHelper, HeadTitle $headTitleHelper, CategoryLinkGenerator $categoryLinkGenerator, Factory $factory) {
 
         $product = Concrete::getById($request->get("product"));
 
-        if(!($product->isPublished() && $product instanceof Car)) {
+        if(!($product->isPublished() && ($product instanceof Car || $product instanceof AccessoryPart))) {
             throw new NotFoundHttpException("Product not found.");
         }
 
@@ -60,7 +63,21 @@ class ProductController extends BaseController
 
         $headTitleHelper($product->getOSName());
 
-        $this->view->product = $product;
+        $paramBag = $this->view->getAllParameters();
+        $paramBag['product'] = $product;
+
+
+        if($product instanceof Car) {
+            return $this->render('product/detail.html.twig', $paramBag);
+        } else if($product instanceof AccessoryPart) {
+
+            // get all compatible products
+            $productList = $factory->getIndexService()->getProductListForCurrentTenant();
+            $productList->addCondition('o_id IN (' . implode(',',  $product->getCompatibleToProductIds()) . ')', 'o_id');
+            $paramBag['compatibleTo'] = $productList;
+
+            return $this->render('product/detail_accessory.html.twig', $paramBag);
+        }
     }
 
 
@@ -110,6 +127,23 @@ class ProductController extends BaseController
                 $parentId = 'category-' . $parentCategory->getId();
             }
         }
+
+    }
+
+    public function productTeaserAction(Request $request)
+    {
+        $paramsBag = [];
+        if ($request->get('type') == 'object') {
+            AbstractObject::setGetInheritedValues(true);
+            $product = AbstractProduct::getById($request->get('id'));
+
+            $paramsBag['product'] = $product;
+            //$trackingManager = Factory::getInstance()->getTrackingManager();
+            //$trackingManager->trackProductImpression($product);
+            return $this->render('/product/product_teaser.html.twig', $paramsBag);
+        }
+
+        throw new NotFoundHttpException('Product not found.');
 
     }
 

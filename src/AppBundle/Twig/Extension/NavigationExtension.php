@@ -97,11 +97,11 @@ class NavigationExtension extends AbstractExtension
         $placeholderHelper = $this->placeholderHelper;
         $additionalBreadCrumbs = $placeholderHelper('addBreadcrumb');
 
-        if( $additionalBreadCrumbs->getValue() )
+        if( $additionalBreadCrumbs->getArrayCopy() )
         {
             $parentPage = false;
 
-            foreach( $additionalBreadCrumbs->getValue() as $breadcrumb )
+            foreach( $additionalBreadCrumbs->getArrayCopy() as $breadcrumb )
             {
                 $page = $navigation->findBy('id', $breadcrumb['id']);
                 if(null === $page) {

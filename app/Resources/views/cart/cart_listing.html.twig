@@ -81,16 +81,17 @@
                                             {% endif %}
 
                                         </div>
-                                        <div class="col-8 text-sm-left col-md-4 text-md-left col-md-4">
-                                            <h5 class="product-name">{{ product.oSName }}</h5>
-                                            {% if product is instanceof('\\AppBundle\\Model\\Product\\Car')  %}
-                                                <p class="text-muted">
-                                                    <small>{{ 'cart.attribute.productionYear' | trans }}: {{ product.productionYear }}</small>
-                                                </p>
-                                            {% endif  %}
+                                        <div class="col-8 text-sm-left col-md-5 text-md-left col-md-4">
+                                            <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
+                                            {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                                                <p class="text-muted small">{{ product.subText | raw }}</p>
+                                            {% elseif(product.saleInformation.saleInformation)  %}
+                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                                            {% endif %}
+
                                         </div>
 
-                                        <div class="col-12 col-sm-12 text-sm-center col-md-6 text-md-right row pt-md-0 pt-2 ml-0 ml-md-n1">
+                                        <div class="col-12 col-sm-12 text-sm-center col-md-5 text-md-right row pt-md-0 pt-2 ml-0 ml-md-n1">
                                             <div class="col-7 col-sm-7 col-md-8 text-right pr-0" style="padding-top: 3px">
                                                 <h6>{{ item.price }}  <span class="text-muted">x</span></h6>
                                             </div>

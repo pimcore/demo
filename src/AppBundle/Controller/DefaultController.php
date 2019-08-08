@@ -42,26 +42,6 @@ class DefaultController extends BaseController
     }
 
 
-
-
-    public function productCellAction(Request $request)
-    {
-        $paramsBag = [];
-        if ($request->get('type') == 'object') {
-            \Pimcore\Model\DataObject\AbstractObject::setGetInheritedValues(true);
-            $product = AbstractProduct::getById($request->get('id'));
-
-            $paramsBag['product'] = $product;
-            $paramsBag['col'] = $request->get('editmode') ? 12 : 3;
-            $paramsBag['language'] = $request->getLocale();
-
-            //$trackingManager = Factory::getInstance()->getTrackingManager();
-            //$trackingManager->trackProductImpression($product);
-        }
-
-        return $this->render(':shop/list:product.html.twig', $paramsBag);
-    }
-
 //    /**
 //     * @Route("/checkout-address", name="shop-checkout-address")
 //     */

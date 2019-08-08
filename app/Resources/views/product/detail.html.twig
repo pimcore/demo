@@ -25,25 +25,27 @@
                             {{ product.mainImage.thumbnail('product_detail').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
                         </a>
 
-                        {%  if(product.additionalImages) %}
+                        {% block additionalimages %}
+                            {%  if(product.additionalImages) %}
 
-                            <div class="row">
+                                <div class="row">
 
-                                {% for image in product.additionalImages %}
+                                    {% for image in product.additionalImages %}
 
-                                    <div class="col-4 mt-3">
+                                        <div class="col-4 mt-3">
 
-                                        <a href="{{ image.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
-                                            {{ image.thumbnail('product_detail_small').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
-                                        </a>
+                                            <a href="{{ image.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
+                                                {{ image.thumbnail('product_detail_small').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
+                                            </a>
 
-                                    </div>
+                                        </div>
 
-                                {% endfor %}
+                                    {% endfor %}
 
-                            </div>
+                                </div>
 
-                        {%  endif %}
+                            {%  endif %}
+                        {% endblock %}
                     </div>
 
                 </div>
@@ -61,40 +63,46 @@
 
                     <div class="row">
 
-                        <dl class="item-property col-12">
-                            <dt>Color</dt>
-                            <dd>
-                                {% for colorVariant in product.colorVariants %}
-                                    <a href="{{ app_product_detaillink(colorVariant) }}"
-                                       class="btn {{ product.id == colorVariant.id ? 'btn-primary' : 'btn-outline-primary' }}">
-                                        {{ colorVariant.color | colorname }}
-                                    </a>
-                                {% endfor %}
-                            </dd>
+                        {% block colorvariants %}
+                            <dl class="item-property col-12">
+                                <dt>Color</dt>
+                                <dd>
+                                    {% for colorVariant in product.colorVariants %}
+                                        <a href="{{ app_product_detaillink(colorVariant) }}"
+                                           class="btn {{ product.id == colorVariant.id ? 'btn-primary' : 'btn-outline-primary' }}">
+                                            {{ colorVariant.color | colorname }}
+                                        </a>
+                                    {% endfor %}
+                                </dd>
 
-                        </dl>
-
-                        {% if(product.bodyStyle) %}
-                            <dl class="item-property col-6">
-                                <dt>{{ 'general.body-style' | trans }}</dt>
-                                <dd>{{ product.bodyStyle.name }}</dd>
                             </dl>
-                        {% endif %}
+                        {% endblock %}
 
-                        <dl class="item-property col-6">
-                            <dt>{{ 'general.car-class' | trans }}</dt>
-                            <dd>{{ ('general.' ~ product.carClass) | trans }}</dd>
-                        </dl>
+                        {% block detailinfos %}
+                            {% if(product.bodyStyle) %}
+                                <dl class="item-property col-6">
+                                    <dt>{{ 'general.body-style' | trans }}</dt>
+                                    <dd>{{ product.bodyStyle.name }}</dd>
+                                </dl>
+                            {% endif %}
 
-                        <dl class="item-property col-6 mb-0">
-                            <dt>{{ 'general.condition' | trans }}</dt>
-                            <dd>{{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans}}</dd>
-                        </dl>
+                            <dl class="item-property col-6">
+                                <dt>{{ 'general.car-class' | trans }}</dt>
+                                <dd>{{ ('general.' ~ product.carClass) | trans }}</dd>
+                            </dl>
+                        {% endblock %}
 
-                        <dl class="item-property col-6 mb-0">
-                            <dt>{{ 'general.milage' | trans }}</dt>
-                            <dd>{{ product.saleInformation.saleInformation.milage}}</dd>
-                        </dl>
+                        {% block salesinfos %}
+                            <dl class="item-property col-6 mb-0">
+                                <dt>{{ 'general.condition' | trans }}</dt>
+                                <dd>{{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans}}</dd>
+                            </dl>
+
+                            <dl class="item-property col-6 mb-0">
+                                <dt>{{ 'general.milage' | trans }}</dt>
+                                <dd>{{ product.saleInformation.saleInformation.milage}}</dd>
+                            </dl>
+                        {% endblock %}
 
                     </div>
 
@@ -104,7 +112,7 @@
                         <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('general.' ~ product.saleInformation.saleInformation.availabilityType) | trans }}</p>
                     </div>
 
-                    <a href="#" class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</a>
+                    <a href="{{ path('shop-add-to-cart', { id: product.id }) }}" class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</a>
 
                 </div>
 
@@ -114,15 +122,19 @@
 
         <hr>
 
-        <div class="mt-5 col-12 text-center">
-            <h4 class="text-center">{{ 'general.additional-information' | trans }}</h4>
+        {% block description %}
+            <div class="mt-5 col-12 text-center">
+                <h4 class="text-center">{{ 'general.additional-information' | trans }}</h4>
 
-            {% if(product.description) %}
-                <p>{{ product.description | raw }}</p>
-            {% endif %}
+                {% if(product.description) %}
+                    <p>{{ product.description | raw }}</p>
+                {% endif %}
 
-        </div>
-        <div class="col-12">
+            </div>
+        {% endblock %}
+
+        {% block attributes %}
+            <div class="col-12">
 
             <ul class="nav nav-tabs" id="attributes" role="tablist">
                 <li class="nav-item">
@@ -219,46 +231,32 @@
             </div>
 
         </div>
+        {% endblock %}
 
-        {% set accessories = product.accessories %}
+        {% block productrelations %}
+            {% set accessories = product.accessories %}
 
-        {%  if(accessories.count) %}
+            {%  if(accessories.count) %}
 
-            <hr>
+                <hr>
 
-            <div class="mt-5 col-12 text-center">
-                <h4 class="text-center">{{ 'general.accessories' | trans }}</h4>
+                <div class="mt-5 col-12">
+                    <h4 class="text-center">{{ 'general.accessories' | trans }}</h4>
 
-                <div class="row">
-                    {% for item in accessories %}
+                    <div class="row">
+                        {% for item in accessories %}
 
-                        <div class="col-md-4">
-                            <div class="card custom-product-card mb-4 shadow-sm">
-                                {% if(item.mainImage) %}
-                                    {{ item.mainImage.thumbnail('grid').html({style: 'width: 100%; height: auto'}) | raw }}
-                                {% endif %}
-                                <div class="card-body pricing">
-                                    <h4 class="card-title pricing-card-title text-uppercase">{{ item.oSName }} ({{ item.id }}) </h4>
-                                    <p class="card-text">Cabrio 1200 34PS, Original</p>
-                                    <p class="card-price">{{ item.oSPrice }}</p>
-                                    <div class="row">
-                                        <div class="col-6 pr-1">
-                                            <a href="{{ app_product_detaillink(item) }}" class="btn btn-block btn-secondary">Details</a>
-                                        </div>
-                                        <div class="col-6 pl-1">
-                                            <a href="{{ path('shop-add-to-cart', { id: item.id }) }}" class="btn btn-block btn-primary">Kaufen <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-md-3 d-flex align-items-stretch">
+                                {% include 'product/product_teaser.html.twig' with {'product': item} %}
                             </div>
-                        </div>
 
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
+
                 </div>
 
-            </div>
-
-        {% endif %}
+            {% endif %}
+        {% endblock %}
 
 
     </div>

@@ -12,20 +12,45 @@ class Car extends \Pimcore\Model\DataObject\Car
     const OBJECT_TYPE_ACTUAL_CAR = 'actual-car';
     const OBJECT_TYPE_VIRTUAL_CAR = 'virtual-car';
 
+    /**
+     * @return string
+     */
     public function getOSName() {
         return $this->getManufacturer()->getName() . " " . $this->getName();
     }
 
+    /**
+     * @return string
+     */
+    public function getSubText(): string {
+        $textParts = [];
+
+        $textParts[] = $this->getBodyStyle() ? $this->getBodyStyle()->getName() : '';
+        $textParts[] = $this->getProductionYear();
+        $textParts[] = $this->getAttributes()->getEngine() ? $this->getAttributes()->getEngine()->getPower() : '';
+
+        return "<span class='text-nowrap'>" . implode("</span>, <span class='text-nowrap'>" , array_filter($textParts)) . "</span>";
+    }
+
+    /**
+     * @return int|string
+     */
     public function getOSProductNumber()
     {
         return $this->getId();
     }
 
+    /**
+     * @return string
+     */
     public function getOSIndexType()
     {
         return $this->getObjectType() === self::OBJECT_TYPE_ACTUAL_CAR ? self::OBJECT_TYPE_VARIANT : self::OBJECT_TYPE_OBJECT;
     }
 
+    /**
+     * @return int
+     */
     public function getOSParentId()
     {
         if($this->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {

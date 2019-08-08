@@ -1,0 +1,30 @@
+<div class="card custom-product-card mb-4 shadow-sm flex-fill">
+    <a href="{{ app_product_detaillink(product) }}" class="text-decoration-none text-dark">
+        {% if(product.mainImage) %}
+            {{ product.mainImage.thumbnail('grid').html({style: 'width: 100%; height: auto'}) | raw }}
+        {% endif %}
+
+
+        <div class="card-body pricing position-relative">
+            <div class="card-body-top pb-3">
+                <h4 class="card-title pricing-card-title text-uppercase">{{ product.oSName }}</h4>
+                {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                    <p class="card-text">{{ product.subText | raw }}</p>
+                {% elseif(product.saleInformation.saleInformation)  %}
+                    <p class="card-text">{{ 'general.condition' | trans }}: {{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                {% endif %}
+            </div>
+            <div class="card-body-bottom">
+                <p class="card-price">{{ product.oSPrice }},-</p>
+                <div class="row button-row">
+                    <div class="col p-1">
+                        <a href="{{ app_product_detaillink(product) }}" class="btn btn-block btn-secondary">{{ 'general.details' | trans }}</a>
+                    </div>
+                    <div class="col p-1">
+                        <a href="{{ path('shop-add-to-cart', { id: product.id }) }}" class="btn btn-block btn-primary">{{ 'general.buy' | trans }} <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
