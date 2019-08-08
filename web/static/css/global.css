@@ -24,7 +24,7 @@ main {
 }
 
 
-#main-content section {
+#content section {
     margin-bottom: 50px;
 }
 
@@ -448,22 +448,59 @@ input.form-control {
     font-weight: bold;
     letter-spacing: 3px;
     line-height: 22px;
-    min-height: 40px;
 }
 .custom-product-card .card-body,
 .custom-standard-card .card-body {
     padding: 1.75rem;
+}
+
+.custom-product-card .card-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.custom-product-card .card-body .card-body-top {
+    justify-content: normal;
+}
+
+.custom-product-card .card-body .card-body-bottom {
+    justify-content: flex-end;
+}
+
+
+.custom-standard-card .card-body {
     text-align: center;
 }
 
 /* some special styles for grid with filters */
-.col-md-9 .col-md-4 .custom-product-card .card-body.pricing i {
+.col-md-9 .col-md-4 .custom-product-card .card-body.pricing i,
+.col-md-3 .custom-product-card .card-body.pricing i {
     display: none;
 }
 
-.col-md-9 .col-md-4 .custom-product-card .card-body {
+.col-md-9 .col-md-4 .custom-product-card .card-body,
+.col-md-3 .custom-product-card .card-body{
     padding: 1.25rem;
 }
+
+
+.col-md-9 .col-md-4 .custom-product-card .card-body .btn,
+.col-md-3 .custom-product-card .card-body .btn {
+    padding-top: 7px;
+    padding-bottom: 2px;
+    font-size: 16px;
+}
+
+.col-md-9 .col-md-4 .custom-product-card .card-body .button-row,
+.col-md-3 .custom-product-card .card-body .button-row {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+/* end special stypes for grid with filters */
+
 
 .custom-standard-card .card-text {
     line-height: 1.25em;
@@ -573,7 +610,8 @@ input.form-control {
     font-weight: lighter;
     padding: .5rem 2rem .5rem 2rem !important;
 }
-.menu-links > .dropdown > .dropdown-menu > li > a  {
+.menu-links .dropdown-menu li a
+{
     padding: .5em 1em .5em 1em;
 }
 
@@ -582,7 +620,7 @@ input.form-control {
     display: block;
 }
 
-.menu-links .dropdown-menu {
+.menu-links .dropdown {
     top: 80%;
 }
 
@@ -592,6 +630,27 @@ input.form-control {
 
 .navbar-nav li .dropdown-menu a {
     color: #000;
+}
+
+.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    position: relative;
+}
+
+.submenu-icon>a:after {
+    font-family: "Font Awesome 5 Free"; font-weight: 600; content: "\f0da";
+    float: right;
+    border: none;
+}
+
+.dropdown-submenu {
+    top: 0;
+    left: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
 @media (min-width: 992px) {
@@ -619,16 +678,8 @@ input.form-control {
     margin: 0px;
 }
 
-.dropdown .dropdown-menu li > ul {
-    padding: 0 0 0 1.5em;
-}
-
 .dropdown .dropdown-menu li > ul > li {
     list-style: none;
-}
-
-.dropdown .dropdown-menu li > ul > li > a {
-    padding: .3em;
 }
 
 .dropdown .dropdown-menu li a:hover {
@@ -935,7 +986,7 @@ input.form-control {
     display: block;
 }
 .bs-sidebar .nav > li > a,
-.bs-sidebar .nav > li > ul > li > a {
+.bs-sidebar .nav li ul li a {
     display: block;
     color: #716b7a;
     padding: 5px 20px;
@@ -944,27 +995,30 @@ input.form-control {
 .bs-sidebar .nav > li > ul > li > a {
     text-decoration: none;
     color: #716b7a;
-    padding: 5px 0;
 }
 
-.bs-sidebar .nav > li > ul {
+.bs-sidebar .nav li ul {
     list-style: none;
     text-decoration: none;
 }
 
 .bs-sidebar .nav > li > a:hover,
 .bs-sidebar .nav > li > a:focus,
-.bs-sidebar .nav > li > ul > li:hover {
+.bs-sidebar .nav > li > ul > li a:hover {
     text-decoration: none;
-    background-color: #e5e3e9;
+    background-color: #e5e3e9 !important;
 }
-.bs-sidebar .nav .active > a,
-.bs-sidebar .nav > .active:hover > a,
-.bs-sidebar .nav > .active:focus > a {
-    font-weight: bold;
+.bs-sidebar .nav .active > a {
     color: var(--dark-purple);
+    font-weight: bold;
     background-color: transparent;
     border-right: 5px solid var(--dark-purple);
+}
+
+
+.bs-sidebar .nav a:hover,
+.bs-sidebar .nav a:focus {
+    color: var(--dark-purple);
 }
 
 /* Nav: second level (shown on .active) */
@@ -982,6 +1036,7 @@ input.form-control {
 /* Show and affix the side nav when space allows it */
 @media screen and (min-width: 992px) {
     .bs-sidebar .nav > .active > ul {
+        padding-left: 1em;
         display: block;
     }
     /* Widen the fixed sidebar */
@@ -1094,4 +1149,57 @@ section img {
     font-weight: bold;
     letter-spacing: 2px;
     line-height: 22px;
+}
+
+.detail-price.original {
+    font-size: 20px;
+    text-decoration: line-through;
+    font-weight: normal;
+    letter-spacing: 2px;
+    line-height: 22px;
+}
+
+/* search bar */
+
+.search-toggle {
+    background-image: url(/static/images/icons/search.svg);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: bottom;
+    background-size: contain;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+#navbarCollapse .search-box {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    max-height: 0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    background-color: var(--purple);
+    transition: all 0.3s;
+}
+#navbarCollapse .search-box .search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 2em;
+    border: 0;
+    background-color: var(--purple);
+    opacity: 0;
+    color: #fff;
+    text-transform: uppercase;
+}
+#navbarCollapse .search-box .search-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+#navbarCollapse.show .search-box {
+    max-height: 4em;
+}
+#navbarCollapse.show .search-box .search-input {
+    opacity: 1;
 }
