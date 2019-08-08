@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Form\DeliveryAddressFormType;
+use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
@@ -29,7 +30,7 @@ class CheckoutController extends FrontendController
     /**
      * @Route("/checkout-address", name="shop-checkout-address")
      */
-    public function checkoutAddressAction(Factory $factory, Request $request) {
+    public function checkoutAddressAction(Factory $factory, Request $request, BreadcrumbHelperService $breadcrumbHelperService) {
         $cartManager = $factory->getCartManager();
         $cart = $this->view->cart = $cartManager->getOrCreateCartByName('cart');
 
@@ -44,6 +45,7 @@ class CheckoutController extends FrontendController
         $form->handleRequest($request);
         $this->view->form = $form->createView();
 
+        $breadcrumbHelperService->enrichCheckoutPage();
 
         if($request->getMethod() == Request::METHOD_POST) {
 

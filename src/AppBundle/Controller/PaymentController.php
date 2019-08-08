@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Form\DeliveryAddressFormType;
+use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\V7\CheckoutManagerInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\QPayRequest;
@@ -31,9 +32,10 @@ class PaymentController extends FrontendController
     /**
      * @Route("/checkout-payment", name="shop-checkout-payment")
      */
-    public function checkoutPaymentAction(Factory $factory) {
+    public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService) {
         $cartManager = $factory->getCartManager();
         $this->view->cart = $cartManager->getOrCreateCartByName('cart');
+        $breadcrumbHelperService->enrichCheckoutPage();
     }
 
 

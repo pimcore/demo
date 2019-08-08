@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Model\Product\AbstractProduct;
+use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Exception\VoucherServiceException;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
@@ -70,7 +71,7 @@ class CartController extends FrontendController
     /**
      * @Route("/cart", name="shop-cart-detail")
      */
-    public function cartListingAction(Request $request) {
+    public function cartListingAction(Request $request, BreadcrumbHelperService $breadcrumbHelperService) {
         $cart = $this->getCart();
 
         if($request->getMethod() == Request::METHOD_POST) {
@@ -85,6 +86,7 @@ class CartController extends FrontendController
         }
 
         $this->view->cart = $cart;
+        $breadcrumbHelperService->enrichCartPage();
     }
 
     /**
