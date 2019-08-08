@@ -108,6 +108,31 @@
 
                     <hr/>
                     <div class="mt-4 text-center">
+                        {% set priceInfo = product.oSPriceInfo %}
+
+                        {% if(priceInfo.rules) %}
+
+                            <div class="alert alert-success" role="alert">
+
+                                <h6 class="mb-0">Your Discounts</h6>
+
+                                {% for rule in priceInfo.rules %}
+
+                                    <p class="mb-0">{{ rule.label }}</p>
+
+                                {% endfor %}
+
+                            </div>
+
+                        {% endif %}
+
+                        {% if(priceInfo.hasDiscount) %}
+                            <p class="detail-price original mb-3">{{ priceInfo.originalPrice }}</p>
+                        {% endif %}
+
+
+
+
                         <p class="detail-price mb-0">{{ product.oSPrice}}</p>
                         <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('general.' ~ product.saleInformation.saleInformation.availabilityType) | trans }}</p>
                     </div>
