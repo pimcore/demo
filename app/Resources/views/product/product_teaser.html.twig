@@ -1,7 +1,7 @@
 <div class="card custom-product-card mb-4 shadow-sm flex-fill">
     <a href="{{ app_product_detaillink(product) }}" class="text-decoration-none text-dark">
         {% if(product.mainImage) %}
-            {{ product.mainImage.thumbnail('grid').html({style: 'width: 100%; height: auto'}) | raw }}
+            {{ product.mainImage.thumbnail('grid').html({class: 'img-fluid'}) | raw }}
         {% endif %}
 
 

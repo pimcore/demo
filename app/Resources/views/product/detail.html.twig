@@ -55,17 +55,20 @@
 
                 <div class="p-3 pt-4">
 
-                    {% if(product.manufacturer and product.manufacturer.logo)  %}
-                        {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({class: 'img-fluid float-right d-none d-md-block mb-3'})|raw }}
-                    {%  endif  %}
+                    <div class="row d-none d-md-block mb-3">
+                        <div class="col-12">
+                            {% if(product.manufacturer and product.manufacturer.logo)  %}
+                                {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({class: 'img-fluid float-right'})|raw }}
+                            {%  endif  %}
 
-                    <h2 class="d-none d-md-block mb-3">{{ product.oSName }}</h2>
-
+                            <h2 class="">{{ product.oSName }}</h2>
+                        </div>
+                    </div>
                     <div class="row">
 
                         {% block colorvariants %}
                             <dl class="item-property col-12">
-                                <dt>Color</dt>
+                                <dt>{{ 'general.color' | trans }}</dt>
                                 <dd>
                                     {% for colorVariant in product.colorVariants %}
                                         <a href="{{ app_product_detaillink(colorVariant) }}"
@@ -109,18 +112,19 @@
                     <hr/>
                     <div class="mt-4 text-center">
                         {% set priceInfo = product.oSPriceInfo %}
+                        {% set price = product.oSPrice %}
 
                         {% if(priceInfo.rules) %}
 
-                            <div class="alert alert-success" role="alert">
+                            <div class="alert alert-success mb-4" role="alert">
 
-                                <h6 class="mb-0">Your Discounts</h6>
+                                <p class="small mb-2"><strong>{{ 'general.your-benefits' | trans }}</strong></p>
 
-                                {% for rule in priceInfo.rules %}
-
-                                    <p class="mb-0">{{ rule.label }}</p>
-
-                                {% endfor %}
+                                <ul class="list-unstyled mb-0 small">
+                                    {% for rule in priceInfo.rules %}
+                                        <li>{{ rule.label }}</li>
+                                    {% endfor %}
+                                </ul>
 
                             </div>
 
@@ -130,10 +134,16 @@
                             <p class="detail-price original mb-3">{{ priceInfo.originalPrice }}</p>
                         {% endif %}
 
+                        <p class="detail-price mb-2">{{ price }}</p>
 
+                        <div class="detail-tax text-muted">
+                            <ul class="list-unstyled">
+                                {% for taxEntry in price.taxEntries %}
+                                    <li>{{ taxEntry.entry.name }}: {{ taxEntry.percent }}% ({{ taxEntry.amount.asNumeric | currency(price.currency.shortName) }})</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
 
-
-                        <p class="detail-price mb-0">{{ product.oSPrice}}</p>
                         <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('general.' ~ product.saleInformation.saleInformation.availabilityType) | trans }}</p>
                     </div>
 

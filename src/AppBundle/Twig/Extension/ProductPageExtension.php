@@ -6,7 +6,6 @@ namespace AppBundle\Twig\Extension;
 
 use AppBundle\Model\Product\AbstractProduct;
 use AppBundle\Model\Product\Car;
-use AppBundle\Model\Product\Category;
 use AppBundle\Website\LinkGenerator\ProductLinkGenerator;
 use Pimcore\Translation\Translator;
 use Twig\Extension\AbstractExtension;
@@ -57,7 +56,6 @@ class ProductPageExtension extends AbstractExtension
      * @return string
      */
     public function generateLink(AbstractProduct $product): string {
-        //TODO consider rootcategory & document
         return $this->productLinkGenerator->generate($product, []);
     }
 

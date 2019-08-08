@@ -31,6 +31,9 @@ services:
     AppBundle\Twig\Extension\Country:
         tags: ['twig.extension']
 
+    AppBundle\Twig\Extension\Currency:
+        tags: ['twig.extension']
+
     AppBundle\Twig\Extension\GeneralFilterExtension:
         tags: ['twig.extension']
 
