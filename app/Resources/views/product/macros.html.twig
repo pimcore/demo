@@ -5,7 +5,7 @@
             <dt>{{ label | trans }}</dt>
 
             {% if(translate) %}
-                <dd>{{ (translationKeyPrefix ~ value) | trans }}</dd>
+                <dd>{{ (translationKeyPrefix ~ value) | lower | trans }}</dd>
             {% else %}
                 <dd>{{ value }}</dd>
             {% endif %}

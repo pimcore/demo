@@ -39,7 +39,7 @@ class GeneralFilterExtension extends AbstractExtension
     public function translateValues($values) {
 
         foreach($values as &$modifyingValue) {
-            $modifyingValue['translated'] = $this->translator->trans(mb_strtolower('optionvalue.' . $modifyingValue['value']));
+            $modifyingValue['translated'] = $this->translator->trans(mb_strtolower('attribute.' . $modifyingValue['value']));
         }
 
         return $values;

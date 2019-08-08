@@ -67,7 +67,7 @@ class ProductPageExtension extends AbstractExtension
 
         $translatedColors = [];
         foreach($colorNames as $color) {
-            $translatedColors[] = $this->translator->trans('color.' . $color);
+            $translatedColors[] = $this->translator->trans(mb_strtolower('attribute.' . $color));
         }
 
         return implode("-", $translatedColors);

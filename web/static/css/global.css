@@ -1163,6 +1163,10 @@ section img {
     font-size: 14px;
 }
 
+.filter .hide-me[aria-expanded="true"] {
+    display: none;
+}
+
 /* search bar */
 
 .search-toggle {

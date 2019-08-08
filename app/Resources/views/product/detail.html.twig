@@ -91,14 +91,14 @@
 
                             <dl class="item-property col-6">
                                 <dt>{{ 'general.car-class' | trans }}</dt>
-                                <dd>{{ ('general.' ~ product.carClass) | trans }}</dd>
+                                <dd>{{ ('attribute.' ~ product.carClass) | lower | trans }}</dd>
                             </dl>
                         {% endblock %}
 
                         {% block salesinfos %}
                             <dl class="item-property col-6 mb-0">
                                 <dt>{{ 'general.condition' | trans }}</dt>
-                                <dd>{{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans}}</dd>
+                                <dd>{{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | lower | trans}}</dd>
                             </dl>
 
                             <dl class="item-property col-6 mb-0">
@@ -144,7 +144,7 @@
                             </ul>
                         </div>
 
-                        <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('general.' ~ product.saleInformation.saleInformation.availabilityType) | trans }}</p>
+                        <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('attribute.' ~ product.saleInformation.saleInformation.availabilityType) | lower | trans }}</p>
                     </div>
 
                     <a href="{{ path('shop-add-to-cart', { id: product.id }) }}" class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</a>
@@ -173,16 +173,16 @@
 
             <ul class="nav nav-tabs" id="attributes" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">General</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ 'general.general' | trans }}</a>
                 </li>
                 {% if(product.attributes.dimensions or product.attributes.bodywork) %}
                     <li class="nav-item">
-                        <a class="nav-link" id="dimensions-tab" data-toggle="tab" href="#dimensions" role="tab" aria-controls="dimensions" aria-selected="false">Dimensions</a>
+                        <a class="nav-link" id="dimensions-tab" data-toggle="tab" href="#dimensions" role="tab" aria-controls="dimensions" aria-selected="false">{{ 'general.dimensions' | trans }}</a>
                     </li>
                 {% endif %}
                 {% if(product.attributes.engine or product.attributes.transmission) %}
                     <li class="nav-item">
-                        <a class="nav-link" id="engine-tab" data-toggle="tab" href="#engine" role="tab" aria-controls="engine" aria-selected="false">Engine</a>
+                        <a class="nav-link" id="engine-tab" data-toggle="tab" href="#engine" role="tab" aria-controls="engine" aria-selected="false">{{ 'general.engine' | trans }}</a>
                     </li>
                 {%  endif %}
             </ul>
@@ -254,7 +254,7 @@
                                 {%  endif %}
 
                                 {% if(product.attributes.transmission) %}
-                                    {{ macros.attribute(product.attributes.transmission.wheelDrive, 'general.wheelDrive', true, 'general.') }}
+                                    {{ macros.attribute(product.attributes.transmission.wheelDrive, 'general.wheelDrive', true, 'attribute.') }}
                                 {%  endif %}
 
                             </div>
