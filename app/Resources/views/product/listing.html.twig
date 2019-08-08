@@ -18,6 +18,16 @@
 
                 <div class="col-md-3">
 
+                    {% if( pimcore_device().isPhone ) %}
+                        <div id="filter-container" class="card mb-5">
+                            <div class="card-header">
+                                <a id="filter-head" href="#" class="text-dark text-decoration-none" data-toggle="collapse" data-target="#filter-container-content" aria-expanded="true" aria-controls="filter-container-content">
+                                    {{ 'filter.title' | trans }}
+                                </a>
+                            </div>
+                            <div id="filter-container-content" class="card-body collapse" aria-labelledby="filter-head" data-parent="#filter-container">
+                    {% endif %}
+
                     <form id="js_filterfield">
 
                         {% if(filterDefinition.filters|length > 0) %}
@@ -32,6 +42,10 @@
                         {% endif %}
 
                     </form>
+
+                    {% if( pimcore_device().isPhone ) %}
+                            </div></div>
+                    {% endif %}
 
                 </div>
 
