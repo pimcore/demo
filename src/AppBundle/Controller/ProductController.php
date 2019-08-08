@@ -61,7 +61,7 @@ class ProductController extends BaseController
      * @param Request $request
      * @Route("/shop/{path}{categoryname}~c{category}", name="shop-category", defaults={"path"=""}, requirements={"path"=".*?", "categoryname"="[\w-]+", "category"="\d+"})
      */
-    public function listingAction(Request $request, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
+    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
     {
         $params = array_merge($request->query->all(), $request->attributes->all());
         $params['parentCategoryIds'] = $params['category'];
@@ -88,6 +88,9 @@ class ProductController extends BaseController
         $this->view->paginationVariables = $paginator->getPages('Sliding');
 
         $category = Category::getById($params['category']);
+        $this->view->category = $category;
+        $headTitleHelper($category->getName());
+
         $breadcrumbHelperService->enrichCategoryPage($category);
 
     }
