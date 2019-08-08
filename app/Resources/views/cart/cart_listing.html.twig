@@ -119,6 +119,40 @@
                             </div>
                         </form>
                     </div>
+
+                    {% if(cart.giftItems) %}
+                        <h6 class="mt-5 mb-0">Gifts</h6>
+                        <div class="card shopping-cart">
+                            <div class="card-body">
+
+                                {% for item in cart.giftItems %}
+
+                                    {% set product = item.product %}
+
+                                    <div class="row">
+                                        <div class="col-4 col-sm-4 col-md-2 text-md-center text-sm-left ">
+
+                                            {% if(product.mainImage is defined) %}
+
+                                                {{ product.mainImage.thumbnail('cart').html({class: 'img-responsive', style: 'width:100%; height: auto'}) | raw }}
+
+                                            {% endif %}
+
+                                        </div>
+                                        <div class="col-8 text-sm-left text-md-left">
+                                            <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
+                                            {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                                                <p class="text-muted small">{{ product.subText | raw }}</p>
+                                            {% elseif(product.saleInformation.saleInformation)  %}
+                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
