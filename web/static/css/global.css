@@ -126,6 +126,10 @@ h6 {
     padding-top: 3.5px;
 }
 
+.navbar-nav.menu-links li a {
+    padding-top: 10px;
+}
+
 input.form-control {
     padding-top: 10px;
     padding-bottom: 5px;
@@ -228,13 +232,22 @@ input.form-control {
 
 .page-item .page-link {
     color: var(--dark-gray);
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .page-item.active .page-link {
     color: #ffffff;
-    background-color: var(--dark-purple);
+    background-color: var(--purple);
     border: 1px solid #dee2e6;
 }
+
+.page-item:first-child .page-link, .page-item:last-child .page-link {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
 
 .flip {
     transform: scaleX(-1);
