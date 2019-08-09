@@ -16,7 +16,7 @@ class Car extends \Pimcore\Model\DataObject\Car
      * @return string
      */
     public function getOSName() {
-        return $this->getManufacturer()->getName() . " " . $this->getName();
+        return ($this->getManufacturer() ? $this->getManufacturer()->getName() . " " : "") . $this->getName();
     }
 
     /**

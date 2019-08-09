@@ -170,7 +170,7 @@ input.form-control {
 /* BUTTONS */
 .btn-primary {
     color: #FFFFFF;
-    font-size: 18px;
+    /*font-size: 18px;*/
     text-align: center;
     border-radius: 6px;
     background: linear-gradient(135.12deg, #7E3CD6 0%, #6428B4 100%);
@@ -277,6 +277,16 @@ input.form-control {
     background-color: rgba(0, 0, 0, .85);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
+}
+
+.site-header.purple {
+    background-color: var(--purple);
+}
+.site-header.red {
+    background-color: #f03c28;
+}
+.site-header.blue {
+    background-color: #2878f0;
 }
 
 .site-header a:hover {

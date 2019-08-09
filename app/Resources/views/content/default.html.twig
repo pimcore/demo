@@ -3,11 +3,10 @@
 {% block content %}
     <div id="main-content" class="main-content" >
         {% if document.getTitle() is empty %}
-            {% do pimcore_head_title(pimcore_input('headline').getData()) %}
+            {% do pimcore_head_title(pimcore_input('headline').getData(), 'PREPEND') %}
         {% endif %}
 
         <div class="page-header">
-            {# we need to pipe the editable through the raw filter here as we saved it to a variable #}
             <h1>{{ pimcore_input('headline', {'placeholder':'Headline'}) }}</h1>
         </div>
 
