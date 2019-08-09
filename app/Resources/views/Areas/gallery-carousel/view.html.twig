@@ -64,22 +64,18 @@
                             thumbnail: 'galleryCarousel',
                             hidetext: true,
                             dropClass: id ~ '-' ~ i,
-                            width: '100%',
-                            defaultHeight: 200,
-                            class: 'img-responsive'
+                            class: 'd-block w-100'
                         })
                     }}
 
-                    <div class="container">
-                        <div class="carousel-caption text-center">
-                            <h3>{{ pimcore_input('caption-title_' ~ i) }}</h3>
-                            <p class="hero-text">{{ pimcore_textarea('caption-text' ~ i) }}</p>
-                            <p>{% set cLink = pimcore_link('caption-link' ~ i, {
-                                    'class': 'btn btn-lg btn-primary'
-                                }) %}
-                                {{ cLink|raw }}
-                            </p>
-                        </div>
+                    <div class="carousel-caption text-center">
+                        <h3>{{ pimcore_input('caption-title_' ~ i) }}</h3>
+                        <p class="hero-text">{{ pimcore_textarea('caption-text' ~ i) }}</p>
+                        <p>{% set cLink = pimcore_link('caption-link' ~ i, {
+                                'class': 'btn btn-lg btn-primary'
+                            }) %}
+                            {{ cLink|raw }}
+                        </p>
                     </div>
                 </div>
             {% endfor %}

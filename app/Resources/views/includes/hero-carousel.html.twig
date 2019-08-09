@@ -7,37 +7,38 @@
 {% if count is empty or count == 0 %}
     {% set count = 1 %}
 {% endif %}
-<section id="heroCaraousel" class="carousel slide" data-ride="carousel" {{ editmode ? 'data-interval="false"' }}>
+<section id="heroCarousel" class="carousel slide" data-ride="carousel" {{ editmode ? 'data-interval="false"' }}>
         <ol class="carousel-indicators">
             {% for j in 0..(count - 1) %}
-            <li data-target="#heroCaraousel#heroCaraousel" data-slide-to="{{ j }}" class="{{ j == 0 ? 'active':'' }}"></li>
+                <li data-target="#heroCarousel" data-slide-to="{{ j }}" class="{{ j == 0 ? 'active':'' }}"></li>
             {% endfor %}
         </ol>
 
     <div class="carousel-inner">
         {% for i in 0..(count - 1) %}
-        <div class="carousel-item {{ 'portal-slide-' ~ (i + 1) }} {{ loop.first ? 'active' }}">
-            <span  class="carousel-imageblock tint">
-                {% set cImage = pimcore_image('cImage_' ~ i, {
-                    thumbnail: 'portalCarousel',
-                    hidetext: true,
-                    title: 'Drag Image Here',
-                    width: '100%',
-                    dropClass: 'portal-slide-' ~ (i + 1)
-                }) %}
+        <div class="carousel-item position-relative {{ 'portal-slide-' ~ (i + 1) }} {{ loop.first ? 'active' }}">
+            {% set cImage = pimcore_image('cImage_' ~ i, {
+                thumbnail: 'portalCarousel',
+                hidetext: true,
+                title: 'Drag Image Here',
+                class: 'd-block w-100',
+                dropClass: 'portal-slide-' ~ (i + 1)
+            }) %}
 
-                {{ cImage|raw }}
-            </span>
-            <div class="container">
-                <div class="carousel-caption text-center">
+            {{ cImage|raw }}
+            <div class="carousel-caption d-block">
+                {% if(i == 0) %}
                     <h1>{{ pimcore_input('cHeadline_' ~ i,{'placeholder':'Headline'}) }}</h1>
-                    <p class="hero-text">{{ pimcore_textarea('cText_' ~ i,{'placeholder':'Summary'}) }}</p>
-                    <p>{% set cLink = pimcore_link('cLink_' ~ i, {
-                            'class': 'btn btn-lg btn-primary'
-                        }) %}
-                        {{ cLink|raw }}
-                    </p>
-                </div>
+                {% else %}
+                    <div class="display-1">{{ pimcore_input('cHeadline_' ~ i,{'placeholder':'Headline'}) }}</div>
+                {% endif %}
+
+                <p class="hero-text">{{ pimcore_textarea('cText_' ~ i,{'placeholder':'Summary'}) }}</p>
+                <p>{% set cLink = pimcore_link('cLink_' ~ i, {
+                        'class': 'btn btn-lg btn-primary'
+                    }) %}
+                    {{ cLink|raw }}
+                </p>
             </div>
         </div>
         {% endfor %}
@@ -52,7 +53,7 @@
     </a>
     {% if editmode %}
 
-        <div class="container" style="padding-bottom: 40px">
+        <div class="container pt-2 pb-5">
             Number of Slides: {{ carouselSlides|raw }}
         </div>
 

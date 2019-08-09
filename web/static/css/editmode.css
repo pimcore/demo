@@ -1,16 +1,13 @@
 h5 {
     font-size: 1.5em;
-    margin: 1em;
 }
 
 .pimcore_block_entry {
     margin-bottom: 5vh;
 }
 
-.grid-gallery-item,
-.grid-gallery-item .pimcore_tag_image  {
-    min-height: 40vh;
-    height:auto;
+.grid-gallery-item {
+    position: relative;
 }
 
 .grid-gallery-item .tint {
@@ -20,6 +17,15 @@ h5 {
 .grid-gallery-item .pimcore_block_entry {
     flex: 0 0 50%;
 }
+
+.grid-gallery-item-text  {
+    position: absolute;
+    bottom: 30px;
+    z-index: 10;
+    color: #fff;
+    text-align: center;
+}
+
 .pimcore_block_buttons {
     margin-bottom: 2vh;
 }
@@ -28,18 +34,6 @@ h5 {
     background-color: var(--dark-gray);
 }
 
-.grid-gallery-item-text  {
-    position: relative;
-    left: 0;
-    bottom: 25vh;
-    z-index: 10;
-    color: #fff;
-    text-align: center;
-}
-
-.btn {
-    padding: .375rem .75rem;
-}
 
 .custom-product-card {
     margin-bottom: 3.5rem !important;
@@ -84,13 +78,20 @@ h5 {
     z-index: 99999;
 }
 
+#heroCarousel {
+    margin-bottom: 20px;
+}
+
 .area-gallery-carousel .carousel-inner .pimcore_tag_image {
     min-height: 350px !important;
 }
 
 .area-gallery-carousel .carousel-inner .carousel-caption {
     top: 15vh;
-    text-shadow: rgb(0, 0, 0) 0px 0px 5px;
+}
+
+.carousel .carousel-indicators li {
+    background-color: #000000;
 }
 
 .jumbotron-btn {

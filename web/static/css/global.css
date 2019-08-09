@@ -39,8 +39,11 @@ h1, .display-1 {
     font-size: 70px;
     font-weight: bold;
     letter-spacing: 4px;
-    line-height: 132px;
+    /*line-height: 132px;*/
     text-transform: uppercase;
+    line-height: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h2, .display-2 {
@@ -190,7 +193,7 @@ input.form-control {
 
 .btn-secondary {
     color: var(--purple);
-    font-size: 18px;
+    /*font-size: 18px;*/
     text-align: center;
     border-radius: 6px;
     background-color: #FFFFFF;
@@ -203,6 +206,7 @@ input.form-control {
 
 .btn-primary:hover {
     background: var(--dark-purple);
+    border-color: var(--dark-purple);
 }
 
 .dropdown-toggle::after {
@@ -355,11 +359,6 @@ input.form-control {
     width: 20.5px;
 }
 
-.carousel-inner > .item > img {
-    width: auto;
-    min-width: 100%;
-    max-width: none;
-}
 
 .hero-banner {
     overflow: hidden;
@@ -382,22 +381,6 @@ input.form-control {
 }
 
 
-
-.carousel-imageblock img {
-
-}
-
-.carousel-caption {
-    position: absolute;
-    right: 15%;
-    top: 20vh;
-    left: 15%;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
-}
 .custom-standard-card,
 .custom-product-card {
     border-radius: 1.25rem;
@@ -427,7 +410,7 @@ input.form-control {
 }
 
 .grid-gallery-item .tint {
-    background-color:initial;
+    background-color: initial;
 
 }
 
@@ -448,7 +431,7 @@ input.form-control {
 
 .grid-gallery-item h1,
 .grid-gallery-item h2 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     line-height: 1em;
 }
 
@@ -590,7 +573,7 @@ input.form-control {
 }
 
 @media (max-width: 768px) {
-    h1 {
+    h1, .display-1 {
         font-size: 2em;
         line-height: inherit;
     }
@@ -604,12 +587,6 @@ input.form-control {
         letter-spacing: 0;
         line-height: 2em;
     }
-    .carousel-item img {
-        max-width: 100%;
-        height: auto;
-        width: 100%;
-        height: 70vh;
-    }
 
     .hero-text {
         font-size: inherit;
@@ -622,13 +599,6 @@ input.form-control {
     }
 }
 
-@media (min-width: 768px) {
-    .carousel-imageblock {
-        height: 80vh;
-        overflow: hidden;
-        width: 100%;
-    }
-}
 
 /* Navigation */
 .menu-links > li {
@@ -932,9 +902,12 @@ input.form-control {
     height: auto;
 }
 
+.carousel-item .carousel-caption, .carousel-item .carousel-caption .hero-text {
+    text-shadow: rgb(0, 0, 0) 0px 0px 5px;
+}
+
 .area-gallery-carousel .carousel-item {
     height: auto;
-    /*min-height: 400px;*/
 }
 
 .area-gallery-carousel .carousel-inner .carousel-caption {

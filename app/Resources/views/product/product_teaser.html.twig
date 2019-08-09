@@ -18,7 +18,9 @@
                 <p class="card-price">{{ product.oSPrice }},-</p>
                 <div class="row button-row">
                     <div class="col p-1">
-                        <a href="{{ app_product_detaillink(product) }}" class="btn btn-block btn-secondary">{{ 'general.details' | trans }}</a>
+                        <a href="{{ app_product_detaillink(product) }}" class="btn btn-block btn-secondary">
+                            {{ 'general.details' | trans }}
+                        </a>
                     </div>
                     <div class="col p-1">
                         <a href="{{ path('shop-add-to-cart', { id: product.id }) }}" class="btn btn-block btn-primary">{{ 'general.buy' | trans }} <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></a>
