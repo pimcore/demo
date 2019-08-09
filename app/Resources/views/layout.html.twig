@@ -48,7 +48,7 @@
 
             {% do pimcore_head_title().append('Pimcore Demo') %}
             {% do pimcore_head_title().setSeparator(' : ') %}
-            {% set isLanding = ((isLanding is defined) and isLanding) %}
+            {% set isPortal = ((isPortal is defined) and isPortal) %}
         {%- endspaceless %}
 
         {# we're using the deferred extension here to make sure this block is rendered after all helper calls #}
@@ -124,7 +124,7 @@
             {% endfor %}
 
 
-            {% if isLanding %}
+            {% if isPortal %}
                 {{ block('content') }}
             {% else %}
                 <div id="content" class="container">
