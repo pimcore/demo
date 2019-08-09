@@ -6,10 +6,25 @@ return [
             [
                 "method" => "cover",
                 "arguments" => [
-                    "width" => 300,
-                    "height" => 200,
+                    "width" => 350,
+                    "height" => 235,
                     "positioning" => "center",
                     "forceResize" => FALSE
+                ]
+            ],
+            [
+                "method" => "brightnessSaturation",
+                "arguments" => [
+                    "brightness" => 100,
+                    "saturation" => 70,
+                    "hue" => 100
+                ]
+            ],
+            [
+                "method" => "addOverlayFit",
+                "arguments" => [
+                    "path" => "src/AppBundle/Resources/thumbnail-overlay/overlay.png",
+                    "composite" => "COMPOSITE_DEFAULT"
                 ]
             ]
         ],
@@ -26,7 +41,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1563130754,
+        "modificationDate" => 1565344340,
         "creationDate" => 1562150477,
         "id" => "grid"
     ],
@@ -373,27 +388,34 @@ return [
             [
                 "method" => "cover",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150",
+                    "width" => 275,
+                    "height" => 150,
                     "positioning" => "center",
-                    "doNotScaleUp" => "1"
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "applyMask",
                 "arguments" => [
-                    "path" => "/web/static/img/mask-example.png"
+                    "path" => "/web/static/images/mask-example.png"
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleMask",
         "description" => "",
+        "group" => "",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565342371,
+        "creationDate" => 1565342349,
         "id" => "exampleMask"
     ],
     "exampleOverlay" => [
@@ -534,5 +556,178 @@ return [
         "highResolution" => 0,
         "filenameSuffix" => NULL,
         "id" => "exampleSepia"
+    ],
+    "product_detail" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 700,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "product_detail",
+        "description" => "",
+        "group" => "",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565167949,
+        "creationDate" => 1565167920,
+        "id" => "product_detail"
+    ],
+    "product_detail_small" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 150,
+                    "height" => 100,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "product_detail_small",
+        "description" => "",
+        "group" => "",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565169325,
+        "creationDate" => 1565169289,
+        "id" => "product_detail_small"
+    ],
+    "product_detail_manufacturer" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 100,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "product_detail_manufacturer",
+        "description" => "",
+        "group" => "",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565170957,
+        "creationDate" => 1565170947,
+        "id" => "product_detail_manufacturer"
+    ],
+    "galleryCarousel" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 1140,
+                    "height" => 500,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+            "940w" => [
+                [
+                    "method" => "cover",
+                    "arguments" => [
+                        "width" => 940,
+                        "height" => 411,
+                        "positioning" => "center",
+                        "forceResize" => FALSE
+                    ]
+                ]
+            ],
+            "720w" => [
+                [
+                    "method" => "cover",
+                    "arguments" => [
+                        "width" => 720,
+                        "height" => 320,
+                        "positioning" => "center",
+                        "forceResize" => FALSE
+                    ]
+                ]
+            ],
+            "320w" => [
+                [
+                    "method" => "cover",
+                    "arguments" => [
+                        "width" => 320,
+                        "height" => 140,
+                        "positioning" => "center",
+                        "forceResize" => FALSE
+                    ]
+                ]
+            ]
+        ],
+        "name" => "galleryCarousel",
+        "description" => "",
+        "group" => "",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565347087,
+        "creationDate" => 1565346856,
+        "id" => "galleryCarousel"
+    ],
+    "galleryCarouselPreview" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 100,
+                    "height" => 54,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "galleryCarouselPreview",
+        "description" => "",
+        "group" => "",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565346948,
+        "creationDate" => 1565346938,
+        "id" => "galleryCarouselPreview"
     ]
 ];
