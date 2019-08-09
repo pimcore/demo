@@ -2,7 +2,7 @@
 {% set id = uniqid('accordion-') %}
 
 <section id="accordion" class="area-text-accordion">
-    <div id="{{ id }}">
+    <div id="{{ id }}" class="accordion">
 
         {% for i in pimcore_iterate_block(accordionBlock) %}
             {% set headerId = 'heading' ~ i %}

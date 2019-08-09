@@ -1,146 +1,155 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    {{ include('includes/content-default.html.twig') }}
 
-    {% if editmode %}
-        <style type="text/css">
-            .alert {
-                margin-top: 60px;
-            }
-        </style>
+    <div id="main-content" class="main-content" >
 
-        <div class="editable-roundup">
+        {{ include('includes/content-headline.html.twig') }}
 
-            <div class="alert alert-secondary">
-                <h4>Checkbox</h4>
-            </div>
-            {{ pimcore_checkbox('myCheckbox') }}
-
-            <div class="clearfix"></div>
-
-            <div class="alert alert-secondary">
-                <h4>Date</h4>
-            </div>
-            {{ pimcore_date('myDate') }}
-
-            <div class="alert alert-secondary">
-                <h4>Relation (Many-To-One)</h4>
-            </div>
-            {{ pimcore_relation("myRelation") }}
-
-            <div class="alert alert-secondary">
-                <h4>Relation (Many-To-Many)</h4>
-            </div>
-            {{ pimcore_relations("myRelations") }}
-
-            <div class="alert alert-secondary">
-                <h4>Image</h4>
-            </div>
-            {{ pimcore_image('myImage') }}
-
-            <div class="alert alert-secondary">
-                <h4>Input</h4>
-            </div>
-            {{ pimcore_input('myInput') }}
-
-            <div class="alert alert-secondary">
-                <h4>Link</h4>
-            </div>
-            {{ pimcore_link('myLink') }}
-
-            <div class="alert alert-secondary">
-                <h4>Multi-Select</h4>
-            </div>
-            {{ pimcore_multiselect('myMultiselect', {
-                width: 200,
-                height: 100,
-                store: [
-                    ["cars", "Cars"],
-                    ["motorcycles", "Motorcycles"],
-                    ["accessories", "Accessories"]
-                ]
-            }) }}
-
-            <div class="alert alert-secondary">
-                <h4>Numeric</h4>
-            </div>
-            {{ pimcore_numeric('myNumeric') }}
-
-            <div class="alert alert-secondary">
-                <h4>Embed</h4>
-            </div>
-            {{ pimcore_embed("myWidgets") }}
-
-            <div class="alert alert-secondary">
-                <h4>Renderlet (drop an asset folder)</h4>
-            </div>
-            {{ pimcore_renderlet('myRenderlet', {
-                controller: 'content',
-                action: 'gallery-renderlet'
-            }) }}
-
-            <div class="alert alert-secondary">
-                <h4>Select</h4>
-            </div>
-            {{ pimcore_select('mySelect', {
-                store: [
-                    ['one-month', 'One month'],
-                    ['three-months', 'Three months'],
-                    ['unlimited', 'Unlimited']
-                ]
-            }) }}
-
-            <div class="alert alert-secondary">
-                <h4>Snippet</h4>
-                <p>drop a document snippet here</p>
-            </div>
-            {{ pimcore_snippet('mySnippet') }}
-
-            <div class="alert alert-secondary">
-                <h4>Table</h4>
-                <p>of course you can create tables in the wysiwyg too</p>
-            </div>
-            {{ pimcore_table('tableName', {
-                width: 700,
-                height: 400,
-                defaults: {
-                    cols: 6,
-                    rows: 10,
-                    data: [
-                        ["Value 1", "Value 2", "Value 3"],
-                        ["this", "is", "test"]
-                    ]
-                }
-            }) }}
-
-            <div class="alert alert-secondary">
-                <h4>Textarea</h4>
-            </div>
-            {{ pimcore_textarea('myTextarea') }}
-
-            <div class="alert alert-secondary">
-                <h4>Video</h4>
-            </div>
-            {{ pimcore_video('myVideo', {
-                attributes: {
-                    class: 'video-js vjs-default-skin vjs-big-play-centered',
-                    'data-setup': '{}'
-                },
-                thumbnail: 'content',
-                height: 380
-            }) }}
-
-            <div class="alert alert-secondary">
-                <h4>WYSIWYG</h4>
-            </div>
-            {{ pimcore_wysiwyg('myWysiwyg') }}
-
-            <div class="alert alert-secondary">
-                <h4>PDF</h4>
-            </div>
-            {{ pimcore_pdf("myPdf", {"width": 640}) }}
+        <div class="lead">
+            {{ pimcore_wysiwyg('lead') }}
         </div>
 
-    {% endif %}
+        {% if editmode %}
+            <style type="text/css">
+                .alert {
+                    margin-top: 60px;
+                }
+            </style>
+
+            <div class="editable-roundup">
+
+                <div class="alert alert-secondary">
+                    <h4>Checkbox</h4>
+                </div>
+                {{ pimcore_checkbox('myCheckbox') }}
+
+                <div class="clearfix"></div>
+
+                <div class="alert alert-secondary">
+                    <h4>Date</h4>
+                </div>
+                {{ pimcore_date('myDate') }}
+
+                <div class="alert alert-secondary">
+                    <h4>Relation (Many-To-One)</h4>
+                </div>
+                {{ pimcore_relation("myRelation") }}
+
+                <div class="alert alert-secondary">
+                    <h4>Relation (Many-To-Many)</h4>
+                </div>
+                {{ pimcore_relations("myRelations") }}
+
+                <div class="alert alert-secondary">
+                    <h4>Image</h4>
+                </div>
+                {{ pimcore_image('myImage') }}
+
+                <div class="alert alert-secondary">
+                    <h4>Input</h4>
+                </div>
+                {{ pimcore_input('myInput') }}
+
+                <div class="alert alert-secondary">
+                    <h4>Link</h4>
+                </div>
+                {{ pimcore_link('myLink') }}
+
+                <div class="alert alert-secondary">
+                    <h4>Multi-Select</h4>
+                </div>
+                {{ pimcore_multiselect('myMultiselect', {
+                    width: 200,
+                    height: 100,
+                    store: [
+                        ["cars", "Cars"],
+                        ["motorcycles", "Motorcycles"],
+                        ["accessories", "Accessories"]
+                    ]
+                }) }}
+
+                <div class="alert alert-secondary">
+                    <h4>Numeric</h4>
+                </div>
+                {{ pimcore_numeric('myNumeric') }}
+
+                <div class="alert alert-secondary">
+                    <h4>Embed</h4>
+                </div>
+                {{ pimcore_embed("myWidgets") }}
+
+                <div class="alert alert-secondary">
+                    <h4>Renderlet (drop an asset folder)</h4>
+                </div>
+                {{ pimcore_renderlet('myRenderlet', {
+                    controller: 'content',
+                    action: 'gallery-renderlet'
+                }) }}
+
+                <div class="alert alert-secondary">
+                    <h4>Select</h4>
+                </div>
+                {{ pimcore_select('mySelect', {
+                    store: [
+                        ['one-month', 'One month'],
+                        ['three-months', 'Three months'],
+                        ['unlimited', 'Unlimited']
+                    ]
+                }) }}
+
+                <div class="alert alert-secondary">
+                    <h4>Snippet</h4>
+                    <p>drop a document snippet here</p>
+                </div>
+                {{ pimcore_snippet('mySnippet') }}
+
+                <div class="alert alert-secondary">
+                    <h4>Table</h4>
+                    <p>of course you can create tables in the wysiwyg too</p>
+                </div>
+                {{ pimcore_table('tableName', {
+                    width: 700,
+                    height: 400,
+                    defaults: {
+                        cols: 6,
+                        rows: 10,
+                        data: [
+                            ["Value 1", "Value 2", "Value 3"],
+                            ["this", "is", "test"]
+                        ]
+                    }
+                }) }}
+
+                <div class="alert alert-secondary">
+                    <h4>Textarea</h4>
+                </div>
+                {{ pimcore_textarea('myTextarea') }}
+
+                <div class="alert alert-secondary">
+                    <h4>Video</h4>
+                </div>
+                {{ pimcore_video('myVideo', {
+                    attributes: {
+                        class: 'video-js vjs-default-skin vjs-big-play-centered',
+                        'data-setup': '{}'
+                    },
+                    thumbnail: 'content',
+                    height: 380
+                }) }}
+
+                <div class="alert alert-secondary">
+                    <h4>WYSIWYG</h4>
+                </div>
+                {{ pimcore_wysiwyg('myWysiwyg') }}
+
+                <div class="alert alert-secondary">
+                    <h4>PDF</h4>
+                </div>
+                {{ pimcore_pdf("myPdf", {"width": 640}) }}
+            </div>
+
+        {% endif %}
+
+    </div>
 {% endblock %}

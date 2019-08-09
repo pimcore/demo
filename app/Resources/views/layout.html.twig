@@ -162,6 +162,8 @@
 
                                         {% set leftNav = pimcore_build_nav(document, leftStartNode) %}
 
+                                        <h5>{{ leftStartNode.getProperty('navigation_name') }}</h5>
+
                                         {{ pimcore_render_nav(leftNav, 'menu', 'renderMenu', {
                                             ulClass: 'nav bs-sidenav',
                                             expandSiblingNodesOfActiveBranch: true,

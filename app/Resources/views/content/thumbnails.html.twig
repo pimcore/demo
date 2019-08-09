@@ -1,61 +1,74 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    {{ include('includes/content-default.html.twig') }}
 
-    {# this is just used for demonstration #}
-    {% set image = pimcore_asset(341) %}
+    <div id="main-content" class="main-content" >
 
-    {% set thumbnails = {
-        'Cover': 'exampleCover',
-        'Contain': 'exampleContain',
-        'Frame': 'exampleFrame',
-        'Rotate': 'exampleRotate',
-        'Resize': 'exampleResize',
-        'Scale by Width': 'exampleScaleWidth',
-        'Scale by Height': 'exampleScaleHeight',
-        'Contain & Overlay': 'exampleOverlay',
-        'Rounded Corners': 'exampleCorners',
-        'Color Overlay': 'exampleColorOverlay',
-        'Sepia': 'exampleSepia',
-        'Grayscale': 'exampleGrayscale',
-        'Mask': 'exampleMask',
-        'Combined 1': 'exampleCombined1',
-        'Combined 2': 'exampleCombined2'
-    } %}
+        {{ include('includes/content-headline.html.twig') }}
 
-    <p>
-        {{ 'Original Dimensions of the Image:'|trans }}
-        {{ image.width }} x {{ image.height }}
-    </p>
+        {# this is just used for demonstration #}
+        {% set image =  pimcore_image('image').getImage() ?: pimcore_asset(341) %}
 
-    <section class="thumbnail-examples">
-        {% for title, name in thumbnails %}
 
-            {% if loop.index0 % 3 == 0 %}
-                <div class="row">
-            {% endif %}
+        <p>
+            {{ 'Original Dimensions of the Image:'|trans }}
+            {{ image.width }} x {{ image.height }}
+        </p>
 
-            <div class="col-lg-4">
-                {% set thumbnail = image.getThumbnail(name) %}
+        <div class="mb-5">
+            {{ pimcore_image('image', { thumbnail: 'content', class: 'img-responsive'}) }}
+        </div>
 
-                <div class="img-container">
-                    {{ thumbnail.getHTML()|raw }}
+
+        {% set thumbnails = {
+            'Cover': 'exampleCover',
+            'Contain': 'exampleContain',
+            'Frame': 'exampleFrame',
+            'Rotate': 'exampleRotate',
+            'Resize': 'exampleResize',
+            'Scale by Width': 'exampleScaleWidth',
+            'Scale by Height': 'exampleScaleHeight',
+            'Contain & Overlay': 'exampleOverlay',
+            'Rounded Corners': 'exampleCorners',
+            'Color Overlay': 'exampleColorOverlay',
+            'Sepia': 'exampleSepia',
+            'Grayscale': 'exampleGrayscale',
+            'Mask': 'exampleMask',
+            'Combined 1': 'exampleCombined1',
+            'Combined 2': 'exampleCombined2'
+        } %}
+
+
+
+        <section class="thumbnail-examples">
+            {% for title, name in thumbnails %}
+
+                {% if loop.index0 % 3 == 0 %}
+                    <div class="row">
+                {% endif %}
+
+                <div class="col-lg-4">
+                    {% set thumbnail = image.getThumbnail(name) %}
+
+                    <div class="img-container">
+                        {{ thumbnail.getHTML()|raw }}
+                    </div>
+
+                    <h5>{{ title|trans }}</h5>
+
+                    <div class="img-dimensions">
+                        {{ 'Dimensions:'|trans }}
+                        {{ thumbnail.width }} x {{ thumbnail.height }}
+                    </div>
                 </div>
 
-                <h5>{{ title|trans }}</h5>
+                {% if loop.last or ((loop.index0 + 1) % 3 == 0) %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
 
-                <div class="img-dimensions">
-                    {{ 'Dimensions:'|trans }}
-                    {{ thumbnail.width }} x {{ thumbnail.height }}
-                </div>
-            </div>
-
-            {% if loop.last or ((loop.index0 + 1) % 3 == 0) %}
-                </div>
-            {% endif %}
-        {% endfor %}
-    </section>
+    </div>
 
     {{ pimcore_areablock('content_bottom') }}
 {% endblock %}

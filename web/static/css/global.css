@@ -14,10 +14,10 @@ body {
     font-family: "Hind Guntur";
 }
 
-p {
+/*p {
     font-size: 18px;
-    line-height: 34px;
-}
+    line-height: 30px;
+}*/
 
 main {
     background-color: var(--light-gray);
@@ -33,9 +33,9 @@ main {
     /*padding: 3em;*/
 }
 
-/* GLOBAL - Headings */
+/* GLOBAL - (Display) Headings */
 
-h1 {
+h1, .display-1 {
     font-size: 70px;
     font-weight: bold;
     letter-spacing: 4px;
@@ -43,23 +43,27 @@ h1 {
     text-transform: uppercase;
 }
 
-h2 {
+h2, .display-2 {
     font-size: 50px;
     font-weight: bold;
     letter-spacing: 4px;
+    line-height: 95px;
+    text-transform: initial;
 }
 
-h3 {
+h3, .display-3 {
     font-size: 40px;
     letter-spacing: -0.86px;
     line-height: 76px;
+    text-transform: initial;
 }
 
-h4 {
+h4, .display-4 {
     font-size: 30px;
     font-weight: bold;
     letter-spacing: -0.56px;
     line-height: 56px;
+    text-transform: initial;
 }
 
 h5 {
@@ -75,33 +79,26 @@ h6 {
     line-height: 37px;
 }
 
-/* GLOBAL - Display Headings */
-
-.display-1 {
-    font-size: 70px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    line-height: 132px;
-    text-transform: uppercase;
-}
-
-.display-2 {
+.main-content h1, .main-content .display-1 {
     font-size: 50px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    line-height: 95px;
-    text-transform: initial;
+    letter-spacing: 2px;
+    line-height: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.display-3 {
+.main-content h2, .main-content .display-2 {
     font-size: 40px;
-    line-height: 76px;
-    text-transform: initial;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 58px;
+    /*text-transform: initial;*/
 }
 
-.display-4 {
+.main-content h3, .main-content .display-3 {
     font-size: 30px;
     font-weight: bold;
+    letter-spacing: -0.56px;
     line-height: 56px;
     text-transform: initial;
 }
@@ -153,7 +150,7 @@ input.form-control {
 }
 
 .btn {
-    padding-top: 10px;
+    padding-top: 8px;
     padding-bottom: 3px;
 }
 
@@ -184,6 +181,12 @@ input.form-control {
     border-color: var(--purple);
     color: var(--purple);
 }
+
+.btn-outline-primary:hover {
+    background-color: var(--purple);
+    border-color: var(--purple);
+}
+
 
 .btn-secondary {
     color: var(--purple);
@@ -815,6 +818,7 @@ input.form-control {
 .teaser-icon > .icon {
     text-align: center;
     position: relative;
+
 }
 
 .teaser-icon > .icon > .image {
@@ -875,15 +879,6 @@ input.form-control {
     color: #222;
 }
 
-.teaser-icon > .icon > .info > .more a {
-    font-size: 0.8em;
-    text-transform: uppercase;
-}
-
-
-.teaser-icon .space {
-    height: 30px;
-}
 
 .fa-selection .x-combo-list-item, .fa-selection .x-boundlist-item {
     font-family: "FontAwesome" !important;
@@ -976,7 +971,7 @@ input.form-control {
 
 /* First level of nav */
 .bs-sidenav {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     margin-bottom: 30px;
     padding-top:    10px;
     padding-bottom: 10px;
@@ -1110,12 +1105,6 @@ input.form-control {
 
 .breadcrumb-header a:hover {
     color: var(--dark-purple);
-}
-
-.main-content > .page-header > h1 {
-    font-size: 50px;
-    letter-spacing: 2px;
-    line-height: 100px;
 }
 
 .thumbnail-examples .row {

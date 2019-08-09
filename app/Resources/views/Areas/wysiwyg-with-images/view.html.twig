@@ -16,7 +16,7 @@
         </div>
         <div class="col-sm-4">
             {% for i in pimcore_iterate_block(pimcore_block('images')) %}
-                {{ macros.image_link(pimcore_image('image', { thumbnail: 'galleryThumbnail', class: 'img-responsive' }), editmode, 'galleryLightbox') }}
+                {{ macros.image_link(pimcore_image('image', { thumbnail: 'galleryThumbnail', class: 'img-responsive img-thumbnail mb-3' }), editmode, 'galleryLightbox') }}
             {% endfor %}
         </div>
     </div>
