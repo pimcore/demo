@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
 {
 
-    const ROOT_CATEGORY_PROPERTY_NAME = 'templateListRoot';
+    const ROOT_CATEGORY_PROPERTY_NAME = 'rootCategory';
 
     /**
      * @var RequestStack

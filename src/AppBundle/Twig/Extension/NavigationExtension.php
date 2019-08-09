@@ -16,6 +16,8 @@ use Twig\TwigFunction;
 
 class NavigationExtension extends AbstractExtension
 {
+    const NAVIGATION_EXTENSION_POINT_PROPERTY = "navigation_extension_point";
+
     /**
      * @var CategoryLinkGenerator
      */
@@ -61,7 +63,7 @@ class NavigationExtension extends AbstractExtension
      */
     public function getDataLinks(Document $document, Document $startNode) {
         $navigation = $this->navigationHelper->buildNavigation($document, $startNode, null, function($page, $document) {
-            if($document->getProperty("templateType") == "category" && $rootCategory = $document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME)) {
+            if($document->getProperty(self::NAVIGATION_EXTENSION_POINT_PROPERTY) == "category" && $rootCategory = $document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME)) {
                 foreach($rootCategory->getChildren() as $category) {
                     $categoryPage = new NavDocument([
                         "label" => $category->getName(),
