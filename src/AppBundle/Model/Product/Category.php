@@ -11,9 +11,10 @@ class Category extends \Pimcore\Model\DataObject\Category
      * stops at given stop category, otherwise stops at topmost category of object tree
      *
      * @param Category|null $stopCategory
+     * @param bool $includeStopCategory
      * @return array
      */
-    public function getParentCategoryList(Category $stopCategory = null)
+    public function getParentCategoryList(Category $stopCategory = null, $includeStopCategory = false): array
     {
         $parentCategories = [];
 
@@ -22,6 +23,9 @@ class Category extends \Pimcore\Model\DataObject\Category
             if ($stopCategory && $parentCategory->getId() == $stopCategory->getId()) {
                 //cancel when root category is reached
                 $parentCategory = null;
+                if($includeStopCategory) {
+                    $parentCategories[] = $stopCategory;
+                }
             } else {
                 $parentCategories[] = $parentCategory;
                 $parentCategory = $parentCategory->getParent();

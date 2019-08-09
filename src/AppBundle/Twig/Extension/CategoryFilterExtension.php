@@ -38,8 +38,12 @@ class CategoryFilterExtension extends AbstractExtension
 
         $data = new \stdClass();
 
+        $data->parentCategories = [];
         $data->currentCategory = $this->getCurrentCategory($currentValue);
-        $data->parentCategories = $data->currentCategory->getParentCategoryList($rootCategory);
+        if($data->currentCategory) {
+            $data->parentCategories = $data->currentCategory->getParentCategoryList($rootCategory);
+        }
+
         $data->subCategories = $this->getSubCategories($data->currentCategory, $rootCategory);
 
         return $data;
@@ -53,19 +57,24 @@ class CategoryFilterExtension extends AbstractExtension
         return Category::getById($currentValue);
     }
 
-    public function getParentCategories() {
 
-    }
-
-    public function getSubCategories(Category $currentCategory) {
+    public function getSubCategories(Category $currentCategory = null, $rootCategory = null) {
         $subCategories = [];
 
-        if($currentCategory) {
-            foreach($currentCategory->getChildren() as $subCategory) {
-                $subCategories[] = $subCategory;
-            }
+        $parent = $currentCategory ?: $rootCategory;
+
+        if($parent) {
+            $subCategories = array_filter($parent->getChildren(), function($item) {
+                return $item instanceof Category && $item->isPublished();
+            });
+
+//            foreach($currentCategory->getChildren() as $subCategory) {
+//                $subCategories[] = $subCategory;
+//            }
         } else {
-            //TODO get top level categories
+
+
+
         }
 
         return $subCategories;
