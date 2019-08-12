@@ -1,12 +1,13 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:04+02:00
+* Generated at: 2019-07-04T12:43:05+02:00
+* IP: 192.168.9.96
 
 
 Fields Summary: 
  - label [input]
- - field [indexFieldSelectionCombo]
+ - field [indexFieldSelection]
  - preSelect [input]
  - scriptPath [input]
 */ 
@@ -15,8 +16,8 @@ Fields Summary:
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'key' => 'FilterInputfield',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinitionType',
-   'title' => NULL,
-   'group' => NULL,
+   'title' => '',
+   'group' => '',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -84,101 +85,40 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'visibleSearch' => false,
           )),
           1 => 
-          Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelectionCombo::__set_state(array(
-             'fieldtype' => 'indexFieldSelectionCombo',
-             'specificPriceField' => '',
-             'showAllFields' => '',
-             'considerTenants' => false,
-             'options' => 
+          Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelection::__set_state(array(
+             'fieldtype' => 'indexFieldSelection',
+             'queryColumnType' => 
             array (
-              0 => 
-              array (
-                'key' => 'name',
-                'value' => 'name',
-              ),
-              1 => 
-              array (
-                'key' => 'shortDescription',
-                'value' => 'shortDescription',
-              ),
-              2 => 
-              array (
-                'key' => 'supplierRemoteId',
-                'value' => 'supplierRemoteId',
-              ),
-              3 => 
-              array (
-                'key' => 'mainImage',
-                'value' => 'mainImage',
-              ),
-              4 => 
-              array (
-                'key' => 'weight',
-                'value' => 'weight',
-              ),
-              5 => 
-              array (
-                'key' => 'specialFeatures',
-                'value' => 'specialFeatures',
-              ),
-              6 => 
-              array (
-                'key' => 'bundledSoftware',
-                'value' => 'bundledSoftware',
-              ),
-              7 => 
-              array (
-                'key' => 'warranty',
-                'value' => 'warranty',
-              ),
-              8 => 
-              array (
-                'key' => 'totalStorageCapacity',
-                'value' => 'totalStorageCapacity',
-              ),
-              9 => 
-              array (
-                'key' => 'processorClockSpeed',
-                'value' => 'processorClockSpeed',
-              ),
-              10 => 
-              array (
-                'key' => 'compatibleOperatingSystems',
-                'value' => 'compatibleOperatingSystems',
-              ),
-              11 => 
-              array (
-                'key' => 'hardDiskRotationalSpeed',
-                'value' => 'hardDiskRotationalSpeed',
-              ),
-              12 => 
-              array (
-                'key' => 'hardDiskDriveCapacity',
-                'value' => 'hardDiskDriveCapacity',
-              ),
-              13 => 
-              array (
-                'key' => 'accessories',
-                'value' => 'accessories',
-              ),
+              'tenant' => 'varchar(100)',
+              'field' => 'varchar(200)',
+              'preSelect' => 'text',
             ),
-             'width' => 300,
-             'defaultValue' => NULL,
-             'optionsProviderClass' => NULL,
-             'optionsProviderData' => NULL,
-             'queryColumnType' => 'varchar(255)',
-             'columnType' => 'varchar(255)',
-             'columnLength' => 190,
-             'phpdocType' => 'string',
+             'columnType' => 
+            array (
+              'tenant' => 'varchar(100)',
+              'field' => 'varchar(200)',
+              'preSelect' => 'text',
+            ),
+             'phpdocType' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\CoreExtensions\\ObjectData\\IndexFieldSelection',
+             'width' => 0,
+             'considerTenants' => true,
+             'multiPreSelect' => 'none',
+             'filterGroups' => 
+            array (
+              0 => 'string',
+            ),
+             'predefinedPreSelectOptions' => 
+            array (
+            ),
              'name' => 'field',
              'title' => 'Field',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => '',
-             'locked' => false,
+             'index' => false,
+             'locked' => NULL,
              'style' => '',
-             'permissions' => '',
+             'permissions' => NULL,
              'datatype' => 'data',
              'relationType' => false,
              'invisible' => false,

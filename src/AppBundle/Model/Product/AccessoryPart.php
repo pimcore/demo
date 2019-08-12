@@ -13,14 +13,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
      * @return string
      */
     public function getOSName() {
-
-        $name =
-            $this->getManufacturer()->getName() . " " .
-            $this->getSeries()->getName() . " " .
-            $this->getMainCategory()->getName() . " " .
-            $this->getNameAddition();
-
-        return $name;
+        return $this->getGeneratedName();
     }
 
     /**
@@ -28,7 +21,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
      */
     public function getOSProductNumber()
     {
-        return $this->getId();
+        return $this->getErpNumber();
     }
 
     /**

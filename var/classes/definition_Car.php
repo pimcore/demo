@@ -1,7 +1,7 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:14:40+02:00
+* Generated at: 2019-08-07T09:18:58+02:00
 * Inheritance: yes
 * Variants: no
 * Changed by: admin (2)
@@ -17,7 +17,7 @@ Fields Summary:
 - bodyStyle [manyToOneRelation]
 - carClass [select]
 - productionYear [numeric]
-- color [select]
+- color [multiselect]
 - country [country]
 - categories [manyToManyObjectRelation]
 - objectType [select]
@@ -34,7 +34,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Car',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1562145280,
+   'modificationDate' => 1565162338,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
@@ -380,6 +380,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'carClass',
                  'title' => 'Class',
                  'tooltip' => '',
@@ -426,8 +427,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleSearch' => false,
               )),
               6 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-                 'fieldtype' => 'select',
+              Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
+                 'fieldtype' => 'multiselect',
                  'options' => 
                 array (
                   0 => 
@@ -487,13 +488,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   ),
                 ),
                  'width' => '',
-                 'defaultValue' => '',
+                 'height' => '',
+                 'maxItems' => '',
+                 'renderType' => 'list',
                  'optionsProviderClass' => '',
                  'optionsProviderData' => '',
-                 'queryColumnType' => 'varchar',
-                 'columnType' => 'varchar',
-                 'columnLength' => 190,
-                 'phpdocType' => 'string',
+                 'queryColumnType' => 'text',
+                 'columnType' => 'text',
+                 'phpdocType' => 'array',
+                 'dynamicOptions' => false,
                  'name' => 'color',
                  'title' => 'Color',
                  'tooltip' => '',
@@ -1799,6 +1802,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'country',
                  'title' => 'Country',
                  'tooltip' => '',
@@ -1825,6 +1829,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'relationType' => true,
                  'visibleFields' => 'id,fullpath,name',
                  'optimizedAdminLoading' => false,
+                 'visibleFieldDefinitions' => 
+                array (
+                ),
                  'lazyLoading' => true,
                  'classes' => 
                 array (
@@ -1872,6 +1879,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'objectType',
                  'title' => 'objectType',
                  'tooltip' => '',
@@ -2125,7 +2133,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'previewUrl' => '',
    'group' => '',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => '',
+   'linkGeneratorReference' => '@AppBundle\\Website\\LinkGenerator\\ProductLinkGenerator',
    'propertyVisibility' => 
   array (
     'grid' => 

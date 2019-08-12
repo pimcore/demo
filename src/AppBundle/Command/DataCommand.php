@@ -57,7 +57,7 @@ class DataCommand extends AbstractCommand {
 
         $listing = new AccessoryPart\Listing();
         foreach($listing as $object) {
-            $this->updateAccessorySalesInformation($object);
+            $this->updateAccessoryERPInformation($object);
             $object->save();
         }
 
@@ -123,6 +123,24 @@ class DataCommand extends AbstractCommand {
         $saleInformation->setPriceInEUR($this->generatePrice(30, 2000));
         $saleInformation->setMilage(new QuantityValue(rand(30000, 300000), Unit::getByAbbreviation('km')));
 
+
+    }
+
+    protected function updateAccessoryERPInformation(AccessoryPart $part) {
+
+        if(empty($part->getErpNumber())) {
+            $part->setErpNumber(crc32($part->getId()));
+        }
+        $part->setCategoryCode($part->getMainCategory()->getId());
+
+        $owners = [
+            'RO',
+            'TU',
+            'RA',
+            'XE',
+            'PI'
+        ];
+        $part->setOwner($owners[rand(0, count($owners)-1)]);
 
     }
 

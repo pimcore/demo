@@ -1,22 +1,27 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-02T11:17:27+02:00
+* Generated at: 2019-08-12T17:20:06+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
+* IP: 192.168.9.95
 
 
 Fields Summary: 
+- localizedfields [localizedfields]
+-- generatedName [calculatedValue]
+-- nameAddition [input]
 - manufacturer [manyToOneRelation]
 - series [manyToOneRelation]
 - mainCategory [manyToOneRelation]
-- localizedfields [localizedfields]
--- nameAddition [input]
-- image [hotspotimage]
 - compatibleTo [manyToManyObjectRelation]
+- image [hotspotimage]
 - additionalCategories [manyToManyObjectRelation]
-- attributes [objectbricks]
+- erpNumber [input]
+- categoryCode [input]
+- owner [input]
+- saleInformation [objectbricks]
 */ 
 
 
@@ -25,10 +30,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'AccessoryPart',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1562059047,
+   'modificationDate' => 1565623206,
    'userOwner' => 2,
    'userModification' => 2,
-   'parentClass' => '',
+   'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -60,12 +65,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'childs' => 
     array (
       0 => 
-      Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'fieldtype' => 'panel',
-         'labelWidth' => 100,
-         'layout' => NULL,
+      Pimcore\Model\DataObject\ClassDefinition\Layout\Tabpanel::__set_state(array(
+         'fieldtype' => 'tabpanel',
          'border' => false,
-         'icon' => NULL,
+         'tabPosition' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -80,156 +83,691 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'childs' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
-             'fieldtype' => 'manyToOneRelation',
-             'width' => 500,
-             'assetUploadPath' => '',
-             'relationType' => true,
-             'queryColumnType' => 
-            array (
-              'id' => 'int(11)',
-              'type' => 'enum(\'document\',\'asset\',\'object\')',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
-             'objectsAllowed' => true,
-             'assetsAllowed' => false,
-             'assetTypes' => 
-            array (
-            ),
-             'documentsAllowed' => false,
-             'documentTypes' => 
-            array (
-            ),
-             'lazyLoading' => true,
-             'classes' => 
-            array (
-              0 => 
-              array (
-                'classes' => 'Manufacturer',
-              ),
-            ),
-             'pathFormatterClass' => '',
-             'name' => 'manufacturer',
-             'title' => 'Manufacturer',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 100,
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Base Data',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
-             'fieldtype' => 'manyToOneRelation',
-             'width' => 500,
-             'assetUploadPath' => '',
-             'relationType' => true,
-             'queryColumnType' => 
-            array (
-              'id' => 'int(11)',
-              'type' => 'enum(\'document\',\'asset\',\'object\')',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
-             'objectsAllowed' => true,
-             'assetsAllowed' => false,
-             'assetTypes' => 
-            array (
-            ),
-             'documentsAllowed' => false,
-             'documentTypes' => 
-            array (
-            ),
-             'lazyLoading' => true,
-             'classes' => 
-            array (
-              0 => 
-              array (
-                'classes' => 'Car',
-              ),
-            ),
-             'pathFormatterClass' => '',
-             'name' => 'series',
-             'title' => 'Series',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
-             'fieldtype' => 'manyToOneRelation',
-             'width' => 500,
-             'assetUploadPath' => '',
-             'relationType' => true,
-             'queryColumnType' => 
-            array (
-              'id' => 'int(11)',
-              'type' => 'enum(\'document\',\'asset\',\'object\')',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
-             'objectsAllowed' => true,
-             'assetsAllowed' => false,
-             'assetTypes' => 
-            array (
-            ),
-             'documentsAllowed' => false,
-             'documentTypes' => 
-            array (
-            ),
-             'lazyLoading' => true,
-             'classes' => 
-            array (
-              0 => 
-              array (
-                'classes' => 'Category',
-              ),
-            ),
-             'pathFormatterClass' => '',
-             'name' => 'mainCategory',
-             'title' => 'Main Category',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
-             'fieldtype' => 'localizedfields',
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
              'childs' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                 'fieldtype' => 'input',
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+                 'fieldtype' => 'fieldset',
+                 'labelWidth' => 100,
+                 'name' => 'Layout',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => 'Name',
                  'width' => NULL,
-                 'queryColumnType' => 'varchar',
-                 'columnType' => 'varchar',
-                 'columnLength' => 190,
-                 'phpdocType' => 'string',
-                 'regex' => '',
-                 'unique' => false,
-                 'showCharCount' => false,
-                 'name' => 'nameAddition',
-                 'title' => 'Name Addition',
+                 'height' => NULL,
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => '',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'childs' => 
+                array (
+                  0 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
+                     'fieldtype' => 'text',
+                     'html' => '<div class="alert alert-info">
+Text is generated based on
+<div><ul><li>manufacturer name</li><li>car series name</li><li>main category name</li><li>name addition</li>
+</ul></div>
+</div>',
+                     'renderingClass' => '',
+                     'renderingData' => '',
+                     'border' => false,
+                     'name' => 'Layout',
+                     'type' => NULL,
+                     'region' => NULL,
+                     'title' => '',
+                     'width' => NULL,
+                     'height' => NULL,
+                     'collapsible' => false,
+                     'collapsed' => false,
+                     'bodyStyle' => '',
+                     'datatype' => 'layout',
+                     'permissions' => NULL,
+                     'childs' => 
+                    array (
+                    ),
+                     'locked' => false,
+                  )),
+                  1 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+                     'fieldtype' => 'localizedfields',
+                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
+                     'childs' => 
+                    array (
+                      0 => 
+                      Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
+                         'fieldtype' => 'calculatedValue',
+                         'width' => 500,
+                         'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\AccessoryPartName',
+                         'queryColumnType' => 'varchar',
+                         'columnLength' => 190,
+                         'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
+                         'name' => 'generatedName',
+                         'title' => 'Fullname',
+                         'tooltip' => '',
+                         'mandatory' => false,
+                         'noteditable' => false,
+                         'index' => false,
+                         'locked' => NULL,
+                         'style' => '',
+                         'permissions' => NULL,
+                         'datatype' => 'data',
+                         'relationType' => false,
+                         'invisible' => false,
+                         'visibleGridView' => false,
+                         'visibleSearch' => false,
+                      )),
+                    ),
+                     'name' => 'localizedfields',
+                     'region' => NULL,
+                     'layout' => NULL,
+                     'title' => '',
+                     'width' => '',
+                     'height' => '',
+                     'maxTabs' => NULL,
+                     'labelWidth' => NULL,
+                     'border' => false,
+                     'provideSplitView' => false,
+                     'tabPosition' => NULL,
+                     'hideLabelsWhenTabsReached' => NULL,
+                     'referencedFields' => 
+                    array (
+                      0 => 
+                      Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+                         'fieldtype' => 'localizedfields',
+                         'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
+                         'childs' => 
+                        array (
+                          0 => 
+                          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                             'fieldtype' => 'input',
+                             'width' => NULL,
+                             'queryColumnType' => 'varchar',
+                             'columnType' => 'varchar',
+                             'columnLength' => 190,
+                             'phpdocType' => 'string',
+                             'regex' => '',
+                             'unique' => false,
+                             'showCharCount' => false,
+                             'name' => 'nameAddition',
+                             'title' => 'Name Addition',
+                             'tooltip' => '',
+                             'mandatory' => false,
+                             'noteditable' => false,
+                             'index' => false,
+                             'locked' => false,
+                             'style' => '',
+                             'permissions' => NULL,
+                             'datatype' => 'data',
+                             'relationType' => false,
+                             'invisible' => false,
+                             'visibleGridView' => false,
+                             'visibleSearch' => false,
+                          )),
+                        ),
+                         'name' => 'localizedfields',
+                         'region' => NULL,
+                         'layout' => NULL,
+                         'title' => '',
+                         'width' => '',
+                         'height' => '',
+                         'maxTabs' => NULL,
+                         'labelWidth' => NULL,
+                         'border' => false,
+                         'provideSplitView' => false,
+                         'tabPosition' => 'top',
+                         'hideLabelsWhenTabsReached' => NULL,
+                         'referencedFields' => 
+                        array (
+                        ),
+                         'fieldDefinitionsCache' => NULL,
+                         'tooltip' => '',
+                         'mandatory' => false,
+                         'noteditable' => false,
+                         'index' => NULL,
+                         'locked' => false,
+                         'style' => '',
+                         'permissions' => NULL,
+                         'datatype' => 'data',
+                         'relationType' => false,
+                         'invisible' => false,
+                         'visibleGridView' => true,
+                         'visibleSearch' => true,
+                      )),
+                    ),
+                     'tooltip' => NULL,
+                     'mandatory' => NULL,
+                     'noteditable' => NULL,
+                     'index' => NULL,
+                     'locked' => NULL,
+                     'style' => NULL,
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => true,
+                     'visibleSearch' => true,
+                  )),
+                ),
+                 'locked' => false,
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+                 'fieldtype' => 'fieldset',
+                 'labelWidth' => 100,
+                 'name' => 'Layout',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => 'Definition Data',
+                 'width' => NULL,
+                 'height' => NULL,
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => '',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'childs' => 
+                array (
+                  0 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                     'fieldtype' => 'manyToOneRelation',
+                     'width' => 500,
+                     'assetUploadPath' => '',
+                     'relationType' => true,
+                     'queryColumnType' => 
+                    array (
+                      'id' => 'int(11)',
+                      'type' => 'enum(\'document\',\'asset\',\'object\')',
+                    ),
+                     'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
+                     'objectsAllowed' => true,
+                     'assetsAllowed' => false,
+                     'assetTypes' => 
+                    array (
+                    ),
+                     'documentsAllowed' => false,
+                     'documentTypes' => 
+                    array (
+                    ),
+                     'lazyLoading' => true,
+                     'classes' => 
+                    array (
+                      0 => 
+                      array (
+                        'classes' => 'Manufacturer',
+                      ),
+                    ),
+                     'pathFormatterClass' => '',
+                     'name' => 'manufacturer',
+                     'title' => 'Manufacturer',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  1 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                     'fieldtype' => 'manyToOneRelation',
+                     'width' => 500,
+                     'assetUploadPath' => '',
+                     'relationType' => true,
+                     'queryColumnType' => 
+                    array (
+                      'id' => 'int(11)',
+                      'type' => 'enum(\'document\',\'asset\',\'object\')',
+                    ),
+                     'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
+                     'objectsAllowed' => true,
+                     'assetsAllowed' => false,
+                     'assetTypes' => 
+                    array (
+                    ),
+                     'documentsAllowed' => false,
+                     'documentTypes' => 
+                    array (
+                    ),
+                     'lazyLoading' => true,
+                     'classes' => 
+                    array (
+                      0 => 
+                      array (
+                        'classes' => 'Car',
+                      ),
+                    ),
+                     'pathFormatterClass' => '',
+                     'name' => 'series',
+                     'title' => 'Series',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  2 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                     'fieldtype' => 'manyToOneRelation',
+                     'width' => 500,
+                     'assetUploadPath' => '',
+                     'relationType' => true,
+                     'queryColumnType' => 
+                    array (
+                      'id' => 'int(11)',
+                      'type' => 'enum(\'document\',\'asset\',\'object\')',
+                    ),
+                     'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
+                     'objectsAllowed' => true,
+                     'assetsAllowed' => false,
+                     'assetTypes' => 
+                    array (
+                    ),
+                     'documentsAllowed' => false,
+                     'documentTypes' => 
+                    array (
+                    ),
+                     'lazyLoading' => true,
+                     'classes' => 
+                    array (
+                      0 => 
+                      array (
+                        'classes' => 'Category',
+                      ),
+                    ),
+                     'pathFormatterClass' => '',
+                     'name' => 'mainCategory',
+                     'title' => 'Main Category',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  3 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+                     'fieldtype' => 'localizedfields',
+                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
+                     'childs' => 
+                    array (
+                      0 => 
+                      Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                         'fieldtype' => 'input',
+                         'width' => NULL,
+                         'queryColumnType' => 'varchar',
+                         'columnType' => 'varchar',
+                         'columnLength' => 190,
+                         'phpdocType' => 'string',
+                         'regex' => '',
+                         'unique' => false,
+                         'showCharCount' => false,
+                         'name' => 'nameAddition',
+                         'title' => 'Name Addition',
+                         'tooltip' => '',
+                         'mandatory' => false,
+                         'noteditable' => false,
+                         'index' => false,
+                         'locked' => false,
+                         'style' => '',
+                         'permissions' => NULL,
+                         'datatype' => 'data',
+                         'relationType' => false,
+                         'invisible' => false,
+                         'visibleGridView' => false,
+                         'visibleSearch' => false,
+                      )),
+                    ),
+                     'name' => 'localizedfields',
+                     'region' => NULL,
+                     'layout' => NULL,
+                     'title' => '',
+                     'width' => '',
+                     'height' => '',
+                     'maxTabs' => NULL,
+                     'labelWidth' => NULL,
+                     'border' => false,
+                     'provideSplitView' => false,
+                     'tabPosition' => 'top',
+                     'hideLabelsWhenTabsReached' => NULL,
+                     'referencedFields' => 
+                    array (
+                    ),
+                     'fieldDefinitionsCache' => NULL,
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => NULL,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => true,
+                     'visibleSearch' => true,
+                  )),
+                  4 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                     'fieldtype' => 'manyToManyObjectRelation',
+                     'width' => '',
+                     'height' => '',
+                     'maxItems' => '',
+                     'queryColumnType' => 'text',
+                     'phpdocType' => 'array',
+                     'relationType' => true,
+                     'visibleFields' => 'id,key,name,bodyStyle',
+                     'optimizedAdminLoading' => false,
+                     'visibleFieldDefinitions' => 
+                    array (
+                    ),
+                     'lazyLoading' => true,
+                     'classes' => 
+                    array (
+                      0 => 
+                      array (
+                        'classes' => 'Car',
+                      ),
+                    ),
+                     'pathFormatterClass' => '',
+                     'name' => 'compatibleTo',
+                     'title' => 'Compatible To',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                ),
+                 'locked' => false,
+              )),
+            ),
+             'locked' => false,
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 100,
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Multimedia & Additiona Data',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'childs' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Hotspotimage::__set_state(array(
+                 'fieldtype' => 'hotspotimage',
+                 'queryColumnType' => 
+                array (
+                  'image' => 'int(11)',
+                  'hotspots' => 'text',
+                ),
+                 'columnType' => 
+                array (
+                  'image' => 'int(11)',
+                  'hotspots' => 'text',
+                ),
+                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\Hotspotimage',
+                 'ratioX' => NULL,
+                 'ratioY' => NULL,
+                 'predefinedDataTemplates' => '',
+                 'width' => '',
+                 'height' => '',
+                 'uploadPath' => '',
+                 'name' => 'image',
+                 'title' => 'image',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+                 'fieldtype' => 'fieldset',
+                 'labelWidth' => 100,
+                 'name' => 'Layout',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => 'Additional Data',
+                 'width' => NULL,
+                 'height' => NULL,
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => '',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'childs' => 
+                array (
+                  0 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                     'fieldtype' => 'manyToManyObjectRelation',
+                     'width' => '',
+                     'height' => '',
+                     'maxItems' => '',
+                     'queryColumnType' => 'text',
+                     'phpdocType' => 'array',
+                     'relationType' => true,
+                     'visibleFields' => 'id,fullpath,name',
+                     'optimizedAdminLoading' => false,
+                     'visibleFieldDefinitions' => 
+                    array (
+                    ),
+                     'lazyLoading' => true,
+                     'classes' => 
+                    array (
+                      0 => 
+                      array (
+                        'classes' => 'Category',
+                      ),
+                    ),
+                     'pathFormatterClass' => '',
+                     'name' => 'additionalCategories',
+                     'title' => 'Additional Categories',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                ),
+                 'locked' => false,
+              )),
+            ),
+             'locked' => false,
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 100,
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Sale Information & ERP Data',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'childs' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+                 'fieldtype' => 'fieldset',
+                 'labelWidth' => 100,
+                 'name' => 'Layout',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => 'ERP-Data',
+                 'width' => NULL,
+                 'height' => NULL,
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => '',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'childs' => 
+                array (
+                  0 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                     'fieldtype' => 'input',
+                     'width' => NULL,
+                     'queryColumnType' => 'varchar',
+                     'columnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => 'string',
+                     'regex' => '',
+                     'unique' => false,
+                     'showCharCount' => false,
+                     'name' => 'erpNumber',
+                     'title' => 'ERP Number',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => true,
+                     'index' => false,
+                     'locked' => NULL,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  1 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                     'fieldtype' => 'input',
+                     'width' => NULL,
+                     'queryColumnType' => 'varchar',
+                     'columnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => 'string',
+                     'regex' => '',
+                     'unique' => false,
+                     'showCharCount' => false,
+                     'name' => 'categoryCode',
+                     'title' => 'Category Code',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => true,
+                     'index' => false,
+                     'locked' => NULL,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  2 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                     'fieldtype' => 'input',
+                     'width' => NULL,
+                     'queryColumnType' => 'varchar',
+                     'columnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => 'string',
+                     'regex' => '',
+                     'unique' => false,
+                     'showCharCount' => false,
+                     'name' => 'owner',
+                     'title' => 'Owner',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => true,
+                     'index' => false,
+                     'locked' => NULL,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                ),
+                 'locked' => false,
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
+                 'fieldtype' => 'objectbricks',
+                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Objectbrick',
+                 'allowedTypes' => 
+                array (
+                  0 => 'SaleInformation',
+                ),
+                 'maxItems' => 1,
+                 'border' => false,
+                 'name' => 'saleInformation',
+                 'title' => '',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -244,161 +782,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleSearch' => false,
               )),
             ),
-             'name' => 'localizedfields',
-             'region' => NULL,
-             'layout' => NULL,
-             'title' => '',
-             'width' => '',
-             'height' => '',
-             'maxTabs' => NULL,
-             'labelWidth' => NULL,
-             'border' => false,
-             'provideSplitView' => false,
-             'tabPosition' => 'top',
-             'hideLabelsWhenTabsReached' => NULL,
-             'referencedFields' => 
-            array (
-            ),
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => NULL,
              'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => true,
-             'visibleSearch' => true,
-          )),
-          4 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Hotspotimage::__set_state(array(
-             'fieldtype' => 'hotspotimage',
-             'queryColumnType' => 
-            array (
-              'image' => 'int(11)',
-              'hotspots' => 'text',
-            ),
-             'columnType' => 
-            array (
-              'image' => 'int(11)',
-              'hotspots' => 'text',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\Hotspotimage',
-             'ratioX' => NULL,
-             'ratioY' => NULL,
-             'predefinedDataTemplates' => '',
-             'width' => '',
-             'height' => '',
-             'uploadPath' => '',
-             'name' => 'image',
-             'title' => 'image',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          5 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
-             'fieldtype' => 'manyToManyObjectRelation',
-             'width' => '',
-             'height' => '',
-             'maxItems' => '',
-             'queryColumnType' => 'text',
-             'phpdocType' => 'array',
-             'relationType' => true,
-             'visibleFields' => 'id,key,name,bodyStyle',
-             'optimizedAdminLoading' => false,
-             'lazyLoading' => true,
-             'classes' => 
-            array (
-              0 => 
-              array (
-                'classes' => 'Car',
-              ),
-            ),
-             'pathFormatterClass' => '',
-             'name' => 'compatibleTo',
-             'title' => 'Compatible To',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          6 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
-             'fieldtype' => 'manyToManyObjectRelation',
-             'width' => '',
-             'height' => '',
-             'maxItems' => '',
-             'queryColumnType' => 'text',
-             'phpdocType' => 'array',
-             'relationType' => true,
-             'visibleFields' => 'id,fullpath,name',
-             'optimizedAdminLoading' => false,
-             'lazyLoading' => true,
-             'classes' => 
-            array (
-              0 => 
-              array (
-                'classes' => 'Category',
-              ),
-            ),
-             'pathFormatterClass' => '',
-             'name' => 'additionalCategories',
-             'title' => 'Additional Categories',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          7 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
-             'fieldtype' => 'objectbricks',
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Objectbrick',
-             'allowedTypes' => 
-            array (
-              0 => 'SaleInformation',
-            ),
-             'maxItems' => '',
-             'border' => false,
-             'name' => 'attributes',
-             'title' => 'Attributes',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
           )),
         ),
          'locked' => false,
@@ -406,7 +790,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/twemoji/1f527.svg',
    'previewUrl' => '',
    'group' => '',
    'showAppLoggerTab' => false,

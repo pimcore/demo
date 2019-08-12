@@ -1,7 +1,8 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-02T11:17:27+02:00
+* Generated at: 2019-07-04T14:58:44+02:00
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -24,7 +25,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
     1 => 
     array (
       'classname' => 'AccessoryPart',
-      'fieldname' => 'attributes',
+      'fieldname' => 'saleInformation',
     ),
   ),
    'title' => '',

@@ -1,10 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:07+02:00
+* Generated at: 2019-07-04T12:42:14+02:00
 * Inheritance: yes
 * Variants: no
-* Changed by: system (0)
+* Changed by: admin (2)
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -29,11 +30,11 @@ Fields Summary:
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'id' => 'EF_FD',
    'name' => 'FilterDefinition',
-   'description' => NULL,
-   'creationDate' => NULL,
-   'modificationDate' => 1562146264,
-   'userOwner' => NULL,
-   'userModification' => 0,
+   'description' => '',
+   'creationDate' => 0,
+   'modificationDate' => 1562236934,
+   'userOwner' => 0,
+   'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinition',
    'listingParentClass' => '',
    'useTraits' => '',
@@ -710,6 +711,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   6 => 'FilterRelation',
                   7 => 'FilterSelect',
                   8 => 'FilterSelectFromMultiSelect',
+                  9 => 'FilterInputfield',
                 ),
                  'lazyLoading' => false,
                  'maxItems' => 10,
@@ -921,11 +923,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => NULL,
-   'previewUrl' => NULL,
-   'group' => NULL,
+   'icon' => '',
+   'previewUrl' => '',
+   'group' => '',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => NULL,
+   'linkGeneratorReference' => '',
    'propertyVisibility' => 
   array (
     'grid' => 

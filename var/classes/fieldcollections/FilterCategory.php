@@ -1,7 +1,8 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:03+02:00
+* Generated at: 2019-08-08T16:58:22+02:00
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -17,8 +18,8 @@ Fields Summary:
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'key' => 'FilterCategory',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\CategoryFilterDefinitionType',
-   'title' => NULL,
-   'group' => NULL,
+   'title' => '',
+   'group' => '',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -134,10 +135,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
             array (
               0 => 
               array (
-                'classes' => 'ProductCategory',
+                'classes' => 'Category',
               ),
             ),
-             'pathFormatterClass' => NULL,
+             'pathFormatterClass' => '',
              'name' => 'preSelect',
              'title' => 'Pre Select',
              'tooltip' => '',
@@ -178,10 +179,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
             array (
               0 => 
               array (
-                'classes' => 'ProductCategory',
+                'classes' => 'Category',
               ),
             ),
-             'pathFormatterClass' => NULL,
+             'pathFormatterClass' => '',
              'name' => 'rootCategory',
              'title' => 'Root Category',
              'tooltip' => '',
@@ -255,6 +256,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'relationType' => true,
              'visibleFields' => NULL,
              'optimizedAdminLoading' => false,
+             'visibleFieldDefinitions' => 
+            array (
+            ),
              'lazyLoading' => true,
              'classes' => 
             array (
