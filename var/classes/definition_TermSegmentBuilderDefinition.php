@@ -1,28 +1,30 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-12T17:38:34+02:00
+* Generated at: 2019-08-13T10:26:30+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.95
+* IP: 192.168.9.96
 
 
 Fields Summary: 
-- localizedfields [localizedfields]
--- name [input]
+- name [input]
+- terms [block]
+-- term [input]
+-- phrases [table]
 */ 
 
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
-   'id' => 'BS',
-   'name' => 'BodyStyle',
+   'id' => '4',
+   'name' => 'TermSegmentBuilderDefinition',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565624314,
-   'userOwner' => 2,
+   'modificationDate' => 1565684790,
+   'userOwner' => 0,
    'userModification' => 2,
-   'parentClass' => '',
+   'parentClass' => 'CustomerManagementFrameworkBundle\\Model\\AbstractTermSegmentBuilderDefinition',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -56,7 +58,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 100,
+         'labelWidth' => 200,
          'layout' => NULL,
          'border' => false,
          'icon' => NULL,
@@ -74,9 +76,43 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'childs' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
-             'fieldtype' => 'localizedfields',
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'fieldtype' => 'input',
+             'width' => NULL,
+             'queryColumnType' => 'varchar',
+             'columnType' => 'varchar',
+             'columnLength' => 190,
+             'phpdocType' => 'string',
+             'regex' => '',
+             'unique' => NULL,
+             'showCharCount' => NULL,
+             'name' => 'name',
+             'title' => 'Name',
+             'tooltip' => '',
+             'mandatory' => true,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Block::__set_state(array(
+             'fieldtype' => 'block',
+             'lazyLoading' => NULL,
+             'disallowAddRemove' => NULL,
+             'disallowReorder' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'maxItems' => NULL,
+             'columnType' => 'longtext',
+             'styleElement' => '',
+             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\BlockElement[][]',
              'childs' => 
             array (
               0 => 
@@ -88,10 +124,42 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnLength' => 190,
                  'phpdocType' => 'string',
                  'regex' => '',
-                 'unique' => false,
-                 'showCharCount' => false,
-                 'name' => 'name',
-                 'title' => 'Name',
+                 'unique' => NULL,
+                 'showCharCount' => NULL,
+                 'name' => 'term',
+                 'title' => 'Term',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Table::__set_state(array(
+                 'fieldtype' => 'table',
+                 'width' => '',
+                 'height' => '',
+                 'cols' => 1,
+                 'colsFixed' => true,
+                 'rows' => '',
+                 'rowsFixed' => false,
+                 'data' => '',
+                 'columnConfigActivated' => false,
+                 'columnConfig' => 
+                array (
+                ),
+                 'queryColumnType' => 'longtext',
+                 'columnType' => 'longtext',
+                 'phpdocType' => 'array',
+                 'name' => 'phrases',
+                 'title' => 'phrases',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -106,33 +174,24 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleSearch' => false,
               )),
             ),
-             'name' => 'localizedfields',
-             'region' => NULL,
              'layout' => NULL,
-             'title' => '',
-             'width' => '',
-             'height' => '',
-             'maxTabs' => NULL,
-             'labelWidth' => NULL,
-             'border' => false,
-             'provideSplitView' => false,
-             'tabPosition' => 'top',
-             'hideLabelsWhenTabsReached' => NULL,
              'referencedFields' => 
             array (
             ),
+             'name' => 'terms',
+             'title' => 'Terms',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => NULL,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => true,
-             'visibleSearch' => true,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
           )),
         ),
          'locked' => false,
@@ -140,9 +199,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => '/bundles/pimcoreadmin/img/twemoji/1f4e6.svg',
+   'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/data_configuration.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'CustomerManagement',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'propertyVisibility' => 

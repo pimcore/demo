@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<h1>Hello {{ app.user.email }}</h1>
+
+    {% include 'account/partial/social_buttons.html.twig' with {'connect': true, 'blacklist': blacklist, 'route': 'app_auth_oauth_connect'} %}
+
+{% endblock %}
+

@@ -11,6 +11,8 @@
  * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
  * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
+
+use HWI\Bundle\OAuthBundle\HWIOAuthBundle;
 use Pimcore\HttpKernel\BundleCollection\BundleCollection;
 use Pimcore\Kernel;
 
@@ -28,8 +30,11 @@ class AppKernel extends Kernel
             $collection->addBundle(new \AppBundle\AppBundle);
         }
 
-        if (class_exists('\Pimcore\Bundle\LegacyBundle\PimcoreLegacyBundle')) {
-            $collection->addBundle(new \Pimcore\Bundle\LegacyBundle\PimcoreLegacyBundle);
+        // activate bundle for SSO oauth login/register functionality
+        if (class_exists('\Http\HttplugBundle\HttplugBundle')) {
+            $collection->addBundle( new \Http\HttplugBundle\HttplugBundle());
         }
+        $collection->addBundle(HWIOAuthBundle::class);
+
     }
 }

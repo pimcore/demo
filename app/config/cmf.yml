@@ -1,0 +1,88 @@
+pimcore:
+    models:
+        class_overrides:
+            Pimcore\Model\DataObject\Customer: AppBundle\Model\Customer
+
+# Configure the HWIOAuth bundle
+hwi_oauth:
+    firewall_names: [demo_frontend]
+
+    # uses referrer as target path after successful login
+    use_referer: true
+
+    # the credential parameters need to be set somewhere. as we don't want to version client credentials
+    # we add those secrets to parameters.yml and reference the parameters here
+    resource_owners:
+        google:
+            type:                google
+            client_id:           '%google_client_id%'
+            client_secret:       '%google_client_secret%'
+            scope:               "openid email profile"
+            options:
+                csrf: true
+        twitter:
+            type:                twitter
+            client_id:           '%twitter_client_id%'
+            client_secret:       '%twitter_client_secret%'
+            options:
+                csrf: true
+
+pimcore_customer_management_framework:
+
+    # Configuration of customer save manager
+    customer_save_manager:
+
+        # If enabled the automatic object naming scheme will be applied on each customer save. See: customer_provider -> namingScheme option
+        enableAutomaticObjectNamingScheme: true
+
+    # Configuration of customer provider
+    customer_provider:
+
+        # parent folder for active customers
+        parentPath: '/customer management/customers'
+
+        # parent folder for customers which are unpublished and inactive
+        archiveDir: '/customer management/customers/_archive'
+
+        # If a naming scheme is configured customer objects will be automatically renamend and moved to the configured folder structure as soon as the naming scheme gets applied.
+        namingScheme: '{countryCode}/{zip}/{firstname}-{lastname}'
+
+        # Parent folder for customers which are created via the "new customer" button in the customer list view
+        newCustomersTempDir: '/customer management/customers/_temp'
+
+    # Configuration of segment manager
+    segment_manager:
+        segmentFolder:
+            # parent folder of manual segments + segment groups
+            manual: '/customer management/segments/manual'
+            # parent folder of calculated segments + segment groups
+            calculated: '/customer management/segments/calculated'
+
+    # Configuration of customer save manager
+    customer_save_validator:
+
+        # If enabled an exception will be thrown when saving a customer object if duplicate customers exist.
+        checkForDuplicates:   true
+        requiredFields:
+            # Provide valid field combinations. The customer object then is valid as soon as at least one of these field combinations is filled up.
+            - [email]
+            - [firstname, lastname]
+
+    # Configuration of customer duplicates services
+    customer_duplicates_services:
+
+        # Field or field combinations for hard duplicate check
+        duplicateCheckFields:
+            - [email]
+            - [firstname, lastname, zip, street]
+
+    # Enable/Disable SSO oauth client. If enabled additional steps are necessary, see SSO docs for details.
+    oauth_client:
+        enabled: true
+
+    # Configuration of EncryptionService
+    encryption:
+
+        # echo \Defuse\Crypto\Key::createNewRandomKey()->saveToAsciiSafeString();
+        # keep it secret
+        secret:               '%app_encryption_secret%'

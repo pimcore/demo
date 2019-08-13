@@ -66,6 +66,8 @@ class ProductController extends BaseController
     public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
     {
         $params = array_merge($request->query->all(), $request->attributes->all());
+
+        //needed to make sure category filter filters for active category
         $params['parentCategoryIds'] = $params['category'];
 
         $category = Category::getById($params['category']);

@@ -5,6 +5,7 @@ imports:
     - { resource: 'local/' }
 
     - { resource: ecommerce.yml }
+    - { resource: cmf.yml }
 
 pimcore:
 

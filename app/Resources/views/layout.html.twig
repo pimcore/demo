@@ -14,6 +14,7 @@
             {% do pimcore_head_link().appendStylesheet('https://use.fontawesome.com/releases/v5.9.0/css/all.css') %}
             {% do pimcore_head_link().appendStylesheet(asset('static/lib/magnific/magnific.css'), 'screen') %}
             {% do pimcore_head_link().appendStylesheet(asset('static/lib/autocompletejs/css/autoComplete.css'), 'screen') %}
+            {% do pimcore_head_link().appendStylesheet('https://use.fontawesome.com/releases/v5.7.0/css/all.css',null,null,{integrity:'sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ',crossorigin:'anonymous'}) %}
             {% do pimcore_head_link().appendStylesheet(asset('static/css/global.css')) %}
             {% if editmode %}
                 {% do pimcore_head_link().appendStylesheet(asset('static/css/editmode.css')) %}
@@ -130,7 +131,7 @@
                 <div id="content" class="container">
                     <div class="row">
                         {% set leftNavShow = document.getProperty('leftNavShow') %}
-                        {% set showBreadcrumbs = true %}
+                        {% set showBreadcrumbs = (hideBreadcrumbs is defined) ? not hideBreadcrumbs : true %}
                         {% set mainColClass = leftNavShow ? 'col-md-9 pt-5 order-last' : 'col-md-12 pt-5' %}
 
                         <div class="{{ mainColClass }}">

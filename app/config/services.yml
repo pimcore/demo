@@ -24,3 +24,6 @@ services:
 
 
     AppBundle\Form\DeliveryAddressFormType: ~
+    AppBundle\Form\LoginFormType: ~
+    AppBundle\Form\RegistrationFormType: ~
+    AppBundle\Form\RegistrationFormHandler: ~

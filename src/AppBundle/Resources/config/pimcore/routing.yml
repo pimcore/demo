@@ -4,3 +4,19 @@ app:
     prefix:
         en: /en
         de: /de
+
+
+account-logout:
+    path: '{_locale}/account/logout'
+
+
+app_auth_oauth_login:
+    path: /auth/oauth/login/{service}
+    defaults:
+        _controller: HWIOAuthBundle:Connect:redirectToService
+
+app_auth_oauth_check_google:
+    path: /auth/oauth/check/google
+
+app_auth_oauth_check_twitter:
+    path: /auth/oauth/check/twitter
