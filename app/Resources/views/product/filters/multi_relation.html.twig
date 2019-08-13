@@ -14,7 +14,7 @@
 
                 {% set object = objects[value['value']] %}
 
-                {%  if (object.published)  %}
+                {%  if (object and object.published)  %}
 
                     {% if(index == 8) %}
                         <a href="#" id="head-hidden-{{ fieldname }}" class="collapsed text-dark hide-me pt-1 text-center" data-toggle="collapse" data-target="#hidden-{{ fieldname }}" aria-expanded="false" aria-controls="hidden-{{ fieldname}}">
