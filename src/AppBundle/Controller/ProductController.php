@@ -32,7 +32,7 @@ class ProductController extends BaseController
 
         $product = Concrete::getById($request->get("product"));
 
-        if(!($product->isPublished() && ($product instanceof Car || $product instanceof AccessoryPart))) {
+        if(!($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart))) {
             throw new NotFoundHttpException("Product not found.");
         }
 
@@ -50,6 +50,7 @@ class ProductController extends BaseController
 
             // get all compatible products
             $productList = $factory->getIndexService()->getProductListForCurrentTenant();
+            $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
             $productList->addCondition('o_id IN (' . implode(',',  $product->getCompatibleToProductIds()) . ')', 'o_id');
             $paramBag['compatibleTo'] = $productList;
 
