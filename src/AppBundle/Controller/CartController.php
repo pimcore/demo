@@ -85,8 +85,14 @@ class CartController extends FrontendController
             $cart->save();
         }
 
-        $this->view->cart = $cart;
         $breadcrumbHelperService->enrichCartPage();
+
+        if($cart->isEmpty()) {
+            return $this->render('cart/cart_empty.html.twig', array_merge($this->view->getAllParameters(), ['cart' => $cart]));
+        } else {
+            return $this->render('cart/cart_listing.html.twig', array_merge($this->view->getAllParameters(), ['cart' => $cart]));
+        }
+
     }
 
     /**

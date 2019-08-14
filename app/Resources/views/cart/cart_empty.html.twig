@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="py-5 bg-light">
+        <div class="container">
+
+            <h4 class="mb-3">{{ 'cart.title.empty' | trans }}</h4>
+
+            <div class="text-center">
+
+                <a href="/" class="btn btn-outline-secondary">
+                    {{ 'cart.continue-shopping' | trans }}
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
