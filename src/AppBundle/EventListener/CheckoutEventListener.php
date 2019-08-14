@@ -10,7 +10,10 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Event\Model\Ecommerce\CommitOrderProcessorEvent;
 use Pimcore\Event\Model\Ecommerce\OrderManagerEvent;
 use Pimcore\Event\Model\Ecommerce\SendConfirmationMailEvent;
+use Pimcore\Localization\LocaleServiceInterface;
+use Pimcore\Mail;
 use Pimcore\Model\DataObject\OnlineShopOrder;
+use Pimcore\Model\Document\Email;
 
 class CheckoutEventListener
 {
@@ -26,14 +29,20 @@ class CheckoutEventListener
     protected $activityManager;
 
     /**
+     * @var LocaleServiceInterface
+     */
+    protected $localeService;
+
+    /**
      * CheckoutEventListener constructor.
      * @param Factory $ecommerceFactory
      * @param ActivityManagerInterface $activityManager
      */
-    public function __construct(Factory $ecommerceFactory, ActivityManagerInterface $activityManager)
+    public function __construct(Factory $ecommerceFactory, ActivityManagerInterface $activityManager, LocaleServiceInterface $localeService)
     {
         $this->ecommerceFactory = $ecommerceFactory;
         $this->activityManager = $activityManager;
+        $this->localeService = $localeService;
     }
 
 
@@ -90,7 +99,19 @@ class CheckoutEventListener
      * @param SendConfirmationMailEvent $event
      */
     public function sendConfirmationMail(SendConfirmationMailEvent $event) {
-        //TODO send confirmation mail
+
+        $order = $event->getOrder();
+
+        $mail = new Mail();
+        $mail->setDocument(Email::getByPath('/' . $this->localeService->getLocale() . '/mails/confirmation-mail' ));
+        $mail->setParams([
+            'ordernumber' => $order->getOrdernumber(),
+            'order' => $order
+        ]);
+
+        $mail->addTo($order->getCustomerEMail());
+        $mail->send();
+
         $event->setSkipDefaultBehaviour(true);
     }
 

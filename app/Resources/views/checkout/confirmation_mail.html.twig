@@ -1,0 +1,198 @@
+{# @var order \Pimcore\Model\DataObject\OnlineShopOrder #}
+{# @var ordernumber string #}
+
+
+{% extends('layouts/email.html.twig') %}
+
+{% block content %}
+
+    <table class="spacer">
+        <tbody>
+        <tr>
+            <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="row">
+        <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last">
+                <table>
+                    <tr>
+                        <th>
+
+                            <h3>{{ pimcore_input('greeting') }}</h3>
+                            <p>{{ pimcore_wysiwyg('greeting_text') }}</p>
+                            <table class="spacer">
+                                <tbody>
+                                <tr>
+                                    <td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            {% if order %}
+                                <table class="callout">
+                                    <tr>
+                                        <th class="callout-inner secondary">
+                                            <table class="row">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="small-12 large-6 columns first">
+                                                            <table>
+                                                                <tr>
+                                                                    <th>
+                                                                        <p> <strong>{{ 'general.orderNumber' | trans }}</strong><br> {{ order.ordernumber }} </p>
+                                                                        <p> <strong>{{ 'general.email' | trans }}</strong><br> {{ order.customerEmail }}</p>
+                                                                    </th>
+                                                                </tr>
+                                                            </table>
+                                                        </th>
+                                                        <th class="small-12 large-6 columns last">
+                                                            <table>
+                                                                <tr>
+                                                                    <th>
+                                                                        <p>
+                                                                            <strong>{{ 'general.address' | trans }}</strong><br>
+                                                                            {% if order.customerCompany %}
+                                                                                {{ order.customerCompany }}
+                                                                            {% endif %}
+                                                                            {{ order.customerFirstname }} {{ order.customerLastname }} <br/>
+                                                                            {{ order.customerStreet }} <br/>
+                                                                            {{ order.customerZip }} {{ order.customerCity }} <br/>
+                                                                            {{ order.customerCountry | country }}
+                                                                        </p>
+                                                                    </th>
+                                                                </tr>
+                                                            </table>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </th>
+                                        <th class="expander"></th>
+                                    </tr>
+                                </table>
+
+                                <table class="spacer">
+                                    <tbody>
+                                    <tr>
+                                        <td height="30px" style="font-size:30px;line-height:30px;">&#xA0;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <h4>{{ 'checkout.summary' | trans }}</h4>
+                                <table>
+                                    <tr>
+                                        <th><strong>{{ 'checkout.products' | trans }}</strong></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+
+                                    {% for orderItem in order.items %}
+                                        <tr>
+                                            <td>{{ orderItem.productName }}</td>
+                                            <td>{{ orderItem.amount }}</td>
+                                            <td class="text-right">{{ orderItem.totalPrice | currency }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    {% if order.giftItems %}
+
+                                        <tr>
+                                            <td colspan="3">
+                                                <table class="spacer">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td height="15px" style="font-size:15px;line-height:15px;">&#xA0;</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="mt-5">
+                                            <td><strong>{{ 'general.giftItems' | trans }}</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+
+                                        {% for orderItem in order.giftItems %}
+                                            <tr>
+                                                <td>{{ orderItem.productName }}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        {% endfor %}
+
+                                    {% endif %}
+
+                                    {% if order.priceModifications %}
+
+                                        <tr>
+                                            <td colspan="3">
+                                                <table class="spacer">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td height="15px" style="font-size:15px;line-height:15px;">&#xA0;</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>{{ 'general.priceModifications' | trans }}</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        {% for priceModification in order.priceModifications %}
+                                            <tr>
+                                                <td>{{ priceModification.name }}</td>
+                                                <td></td>
+                                                <td class="text-right">{{ priceModification.amount | currency }}</td>
+                                            </tr>
+
+                                        {% endfor %}
+
+                                    {% endif %}
+
+                                    <tr>
+                                        <td colspan="3">
+                                            <table class="spacer">
+                                                <tbody>
+                                                <tr>
+                                                    <td height="15px" style="font-size:15px;line-height:15px;">&#xA0;</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="mt-5">
+                                        <td colspan="2"><h5>{{ 'general.totalPrice' | trans }}</h5></td>
+                                        <td><h5 class="text-right">{{ order.totalPrice | currency }}</h5></td>
+                                    </tr>
+                                </table>
+                            {% else %}
+                                <table>
+                                    <tr>
+                                        <td>
+                                            HERE GOES SOME ORDER DATA
+                                        </td>
+                                    </tr>
+                                </table>
+                            {% endif %}
+                            <hr>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+    <table class="row footer text-center">
+
+{% endblock %}

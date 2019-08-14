@@ -8,8 +8,11 @@ use AppBundle\Form\DeliveryAddressFormType;
 use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Controller\FrontendController;
+use Pimcore\Mail;
 use Pimcore\Model\DataObject\OnlineShopOrder;
+use Pimcore\Model\Document\Email;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Routing\Annotation\Route;
@@ -107,6 +110,36 @@ class CheckoutController extends FrontendController
         $order = OnlineShopOrder::getById($orderId);
         $this->view->order = $order;
         $this->view->hideBreadcrumbs = true;
+    }
+
+    public function confirmationMailAction(Request $request) {
+        $this->view->order = $request->get('order');
+
+        if($request->get('order-id')) {
+            $this->view->order = OnlineShopOrder::getById($request->get('order-id'));
+        }
+
+        $this->view->ordernumber = $request->get('ordernumber');
+    }
+
+    /**
+     * @Route("/test/send-mail")
+     */
+    public function sendConfirmationMailAction() {
+
+        $order = OnlineShopOrder::getById(741);
+
+        $mail = new Mail();
+        $mail->setDocument(Email::getById(61));
+        $mail->setParams([
+            'ordernumber' => $order->getOrdernumber(),
+            'order' => $order
+        ]);
+
+        $mail->addTo('christian.fasching@elements.at');
+        $mail->send();
+
+        die("done");
     }
 
 }
