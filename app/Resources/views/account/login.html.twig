@@ -20,6 +20,10 @@
                 {{ form_widget(form._username) }}
                 {{ form_widget(form._password) }}
 
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+
                 <!--<div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me

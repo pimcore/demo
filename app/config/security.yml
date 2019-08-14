@@ -39,7 +39,9 @@ security:
             form_login:
                 login_path: 'account-login'
                 check_path: 'account-login'
+                csrf_token_generator: security.csrf.token_manager
                 default_target_path: 'account-index'
+
                 # use custom success handler to also update e-commerce framework environment after successful login
                 success_handler: AppBundle\EventListener\AuthenticationLoginListener
 
@@ -63,6 +65,6 @@ security:
                 # optional: to keep logins of other firewalls (like admin)
                 invalidate_session: false
                 # use custom success handler to also update e-commerce framework environment after successful logout
-                # success_handler: AppBundle\EventListener\AuthenticationLogoutListener
+                success_handler: AppBundle\EventListener\AuthenticationLogoutListener
 
             logout_on_user_change: true

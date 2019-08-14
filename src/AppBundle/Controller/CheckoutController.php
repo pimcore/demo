@@ -39,7 +39,7 @@ class CheckoutController extends FrontendController
         $deliveryAddress = $checkoutManager->getCheckoutStep('deliveryaddress');
 
 
-        $deliveryAddressDataArray = (array) $deliveryAddress->getData(); // TODO prefill from customer
+        $deliveryAddressDataArray = $this->fillDeliveryAddressFromCustomer($deliveryAddress->getData());
 
         $form = $this->createForm(DeliveryAddressFormType::class, $deliveryAddressDataArray, []);
         $form->handleRequest($request);
@@ -70,6 +70,32 @@ class CheckoutController extends FrontendController
         }
 
     }
+
+    /**
+     * @param $deliveryAddress
+     * @return array|null
+     */
+    protected function fillDeliveryAddressFromCustomer($deliveryAddress) {
+        $user = $this->getUser();
+
+        $deliveryAddress = (array) $deliveryAddress;
+
+        if($user) {
+            if($deliveryAddress === null) {
+                $deliveryAddress = [];
+            }
+
+            $params = ['email', 'firstname', 'lastname', 'street', 'zip', 'city', 'countryCode'];
+            foreach($params as $param) {
+                if(empty($deliveryAddress[$param])) {
+                    $deliveryAddress[$param] = $user->{'get' . ucfirst($param)}();
+                }
+            }
+        }
+
+        return $deliveryAddress;
+    }
+
 
     /**
      * @Route("/checkout-completed", name="shop-checkout-completed")

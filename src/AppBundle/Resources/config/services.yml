@@ -74,3 +74,14 @@ services:
     AppBundle\EventListener\AuthenticationLoginListener:
         arguments:
             $httpUtils: '@security.http_utils'
+
+    # authentication login listener for updating e-commerce framework environment after logout
+    AppBundle\EventListener\AuthenticationLogoutListener:
+        arguments:
+            $httpUtils: '@security.http_utils'
+
+    AppBundle\EventListener\CheckoutEventListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.ecommerce.ordermanager.postUpdateOrder, method: onUpdateOrder }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.sendConfirmationMails, method: sendConfirmationMail }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.postCommitOrder, method: postCommitOrder }

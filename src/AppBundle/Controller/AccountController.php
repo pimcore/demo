@@ -53,12 +53,16 @@ class AccountController extends BaseController
      *
      * @param AuthenticationUtils $authenticationUtils
      * @param OAuthRegistrationHandler $oAuthHandler
+     * @param SessionInterface $session
+     * @param Request $request
      * @param UserInterface|null $user
      * @return RedirectResponse
      */
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
         OAuthRegistrationHandler $oAuthHandler,
+        SessionInterface $session,
+        Request $request,
         UserInterface $user = null
     )
     {
@@ -101,6 +105,9 @@ class AccountController extends BaseController
         $this->view->form  = $form->createView();
         $this->view->error = $error;
         $this->view->hideBreadcrumbs = true;
+
+        //store referer in session to get redirected after login
+        $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
 
     }
 
@@ -337,7 +344,7 @@ class AccountController extends BaseController
      * @Security("has_role('ROLE_USER')")
      * @return Response
      */
-    public function indexAction(SsoIdentityServiceInterface $identityService, UserInterface $user) {
+    public function indexAction(SsoIdentityServiceInterface $identityService, UserInterface $user = null) {
         $this->view->hideBreadcrumbs = true;
 
         $blacklist = [];

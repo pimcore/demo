@@ -3,21 +3,29 @@
     <span class="badge badge-secondary badge-pill">{{ cart.itemAmount }}</span>
 </h4>
 <ul class="list-group mb-3">
-    <li class="list-group-item d-flex justify-content-between lh-condensed">
+    <li class="list-group-item d-flex justify-content-between">
         <div>
             <p class="mb-0"><strong class="my-0">{{ 'checkout.products' | trans }}</strong></p>
-            <small class="text-muted">{{ 'checkout.products.subtext' | trans }}</small>
+            <small class="text-muted">
+
+                {% for cartItem in cart.items %}
+
+                    <div>{{ cartItem.name }}</div>
+
+                {% endfor %}
+
+            </small>
         </div>
-        <span class="text-muted">{{ cart.priceCalculator.subTotal }}</span>
+        <span class="text-muted text-nowrap text-right">{{ cart.priceCalculator.subTotal }}</span>
     </li>
 
     {% for name, modification in cart.priceCalculator.priceModifications %}
 
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <li class="list-group-item d-flex justify-content-between">
             <div>
                 <strong class="my-0">{{ ('checkout.modificator.' ~ name) | trans}}</strong>
             </div>
-            <span class="text-muted">{{ modification }}</span>
+            <span class="text-muted text-nowrap text-right">{{ modification }}</span>
         </li>
 
 
@@ -25,6 +33,6 @@
 
     <li class="list-group-item d-flex justify-content-between" style="border-top: 2px solid">
         <h6><span>{{ 'checkout.totalprice' | trans }}</span></h6>
-        <h6>{{ cart.priceCalculator.grandTotal }}</h6>
+        <h6 class="text-nowrap text-right">{{ cart.priceCalculator.grandTotal }}</h6>
     </li>
 </ul>

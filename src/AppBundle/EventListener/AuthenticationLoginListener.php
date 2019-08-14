@@ -15,10 +15,13 @@
 namespace AppBundle\EventListener;
 
 
+use AppBundle\Controller\CartController;
 use AppBundle\Model\CustomerManagementFramework\Activity\LoginActivity;
 use CustomerManagementFrameworkBundle\ActivityManager\ActivityManagerInterface;
 use CustomerManagementFrameworkBundle\Model\CustomerInterface;
+use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -41,12 +44,18 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
      */
     protected $activityManager;
 
-    public function __construct(HttpUtils $httpUtils, EnvironmentInterface $environment, ActivityManagerInterface $activityManager, array $options = [])
+    /**
+     * @var Factory
+     */
+    protected $factory;
+
+    public function __construct(HttpUtils $httpUtils, EnvironmentInterface $environment, ActivityManagerInterface $activityManager, Factory $factory, array $options = [])
     {
         parent::__construct($httpUtils, $options);
 
         $this->environment = $environment;
         $this->activityManager = $activityManager;
+        $this->factory = $factory;
     }
 
     /**
@@ -72,16 +81,33 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
 
 
     public function doEcommerceFrameworkLogin(CustomerInterface $customer) {
+
         if ($customer) {
+
+            //migrate current cart entries to cart of to-log-in users cart
+            $cartManager = $this->factory->getCartManager();
+            $oldCart = $cartManager->getCartByName(CartController::DEFAULT_CART_NAME);
+
             $this->environment->setCurrentUserId($customer->getId());
+
+            $cartManager->reset();
+
+            if($oldCart instanceof CartInterface && count($oldCart->getItems()) > 0)
+            {
+                $userCart = $this->factory->getCartManager()->getCartByName(CartController::DEFAULT_CART_NAME);
+                foreach($oldCart->getItems() as $item)
+                {
+                    $userCart->addItem( $item->getProduct(), $item->getCount() );
+                }
+                $userCart->save();
+            }
         } else {
             $this->environment->setCurrentUserId(null);
         }
 
+
         // track login activity
         $this->activityManager->trackActivity(new LoginActivity($customer));
-
-        //todo migrate carts
 
         $this->environment->save();
     }
