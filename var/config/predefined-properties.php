@@ -21,11 +21,11 @@ return [
         "key" => "rootCategory",
         "type" => "object",
         "data" => "",
-        "config" => NULL,
+        "config" => "",
         "ctype" => "document",
         "inheritable" => FALSE,
         "creationDate" => 1565339891,
-        "modificationDate" => 1565339962
+        "modificationDate" => 1565795453
     ],
     3 => [
         "id" => 3,
@@ -65,5 +65,18 @@ return [
         "inheritable" => FALSE,
         "creationDate" => 1565351556,
         "modificationDate" => 1565351727
+    ],
+    6 => [
+        "id" => 6,
+        "name" => "Sidebar Snippet",
+        "description" => NULL,
+        "key" => "sidebar",
+        "type" => "text",
+        "data" => NULL,
+        "config" => NULL,
+        "ctype" => "document",
+        "inheritable" => TRUE,
+        "creationDate" => 1565795435,
+        "modificationDate" => 1565795447
     ]
 ];
