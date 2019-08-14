@@ -6,7 +6,7 @@
 {% set id = uniqid('heroGrid-') %}
 <section id="{{ id }}" class="section grid-gallery no-gutters {{ (not editmode?'row':'') }}">
 
-{% for i in pimcore_iterate_block(pimcore_block('heroGridBlock', {class:'row'})) %}
+{% for i in pimcore_iterate_block(pimcore_block('heroGridBlock', {class:'row m-0'})) %}
     <div class="grid-gallery-item grid-gallery-item-{{ id }}-{{ i }} {{ (not editmode?'col-md-6':'') }} zoom-outer">
 
         {% if not editmode %}
