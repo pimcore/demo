@@ -729,5 +729,84 @@ return [
         "modificationDate" => 1565346948,
         "creationDate" => 1565346938,
         "id" => "galleryCarouselPreview"
+    ],
+    "portalCarousel" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 1920,
+                    "height" => 600,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+            "1280w" => [
+                [
+                    "method" => "cover",
+                    "arguments" => [
+                        "width" => 1280,
+                        "height" => 500,
+                        "positioning" => NULL,
+                        "forceResize" => FALSE
+                    ]
+                ]
+            ],
+            "768w" => [
+                [
+                    "method" => "cover",
+                    "arguments" => [
+                        "width" => 768,
+                        "height" => 650,
+                        "positioning" => "center",
+                        "forceResize" => FALSE
+                    ]
+                ]
+            ]
+        ],
+        "name" => "portalCarousel",
+        "description" => "",
+        "group" => "",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565357033,
+        "creationDate" => 1565355190,
+        "id" => "portalCarousel"
+    ],
+    "heroGrid" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 952,
+                    "height" => 470,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "heroGrid",
+        "description" => "",
+        "group" => "",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1565359326,
+        "creationDate" => 1565359271,
+        "id" => "heroGrid"
     ]
 ];

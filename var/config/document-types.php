@@ -16,16 +16,16 @@ return [
     ],
     2 => [
         "id" => 2,
-        "name" => "Landing-Page",
+        "name" => "Portal-Page",
         "group" => NULL,
         "module" => NULL,
         "controller" => "@AppBundle\\Controller\\ContentController",
-        "action" => "landing",
+        "action" => "portal",
         "template" => NULL,
         "type" => "page",
         "priority" => 0,
         "creationDate" => 1564393927,
-        "modificationDate" => 1564393987
+        "modificationDate" => 1565780075
     ],
     3 => [
         "id" => 3,
