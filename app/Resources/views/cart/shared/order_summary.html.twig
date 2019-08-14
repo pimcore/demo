@@ -23,7 +23,13 @@
 
         <li class="list-group-item d-flex justify-content-between">
             <div>
-                <strong class="my-0">{{ ('checkout.modificator.' ~ name) | trans}}</strong>
+                <strong class="my-0">
+                    {% if(modification.description) %}
+                        {{ modification.description }}
+                    {% else %}
+                        {{ ('checkout.modificator.' ~ name) | trans}}
+                    {% endif %}
+                </strong>
             </div>
             <span class="text-muted text-nowrap text-right">{{ modification }}</span>
         </li>
