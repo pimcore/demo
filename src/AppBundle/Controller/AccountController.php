@@ -28,6 +28,8 @@ use CustomerManagementFrameworkBundle\Security\SsoIdentity\SsoIdentityServiceInt
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
+use Pimcore\Bundle\EcommerceFrameworkBundle\OrderManager\Order\Listing\Filter\CustomerObject;
 use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -343,8 +345,14 @@ class AccountController extends BaseController
             $blacklist[] = $identity->getProvider();
         }
 
-        $this->view->blacklist = $blacklist;
+        $orderManager = Factory::getInstance()->getOrderManager();
+        $orderList = $orderManager->createOrderList();
+        $orderList->addFilter(new CustomerObject($user));
+        $orderList->setOrder("orderDate DESC");
 
+
+        $this->view->blacklist = $blacklist;
+        $this->view->orderList = $orderList;
     }
 
 }

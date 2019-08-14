@@ -45,30 +45,30 @@ class DeliveryAddressFormType extends AbstractType
 
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'checkout.email'
+                'label' => 'general.email'
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'checkout.firstname'
+                'label' => 'general.firstname'
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'checkout.lastname'
+                'label' => 'general.lastname'
             ])
             ->add('company', TextType::class, [
-                'label' => 'checkout.company',
+                'label' => 'general.company',
                 'required' => false
             ])
             ->add('street', TextType::class, [
-                'label' => 'checkout.street'
+                'label' => 'general.street'
             ])
             ->add('zip', TextType::class, [
-                'label' => 'checkout.zip'
+                'label' => 'general.zip'
 
             ])
             ->add('city', TextType::class, [
-                'label' => 'checkout.city'
+                'label' => 'general.city'
             ])
             ->add('countryCode', ChoiceType::class, [
-                'label' => 'checkout.country',
+                'label' => 'general.country',
                 'choices' => [
                     strtoupper($regionArray['AT']) => 'AT',
                     strtoupper($regionArray['DE']) => 'DE'

@@ -1,10 +1,177 @@
+{# @var order \Pimcore\Model\DataObject\OnlineShopOrder #}
+
 {% extends 'layout.html.twig' %}
 
 {% block content %}
 
-<h1>Hello {{ app.user.email }}</h1>
+<div class="pb-5 bg-light">
+    <div class="container">
 
-    {% include 'account/partial/social_buttons.html.twig' with {'connect': true, 'blacklist': blacklist, 'route': 'app_auth_oauth_connect'} %}
+        <h1 class="display-4">Hello {{ app.user.email }}</h1>
+
+        <div class="row">
+
+            <div class="col-12 col-md-6">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>{{ 'general.customer-data' | trans }}</strong>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <dl class="item-property col-6">
+                                <dt>{{ 'general.firstname' | trans }}</dt>
+                                <dd>{{ app.user.firstname }}</dd>
+                            </dl>
+
+                            <dl class="item-property col-6">
+                                <dt>{{ 'general.lastname' | trans }}</dt>
+                                <dd>{{ app.user.lastname }}</dd>
+                            </dl>
+
+                            <dl class="item-property col-12">
+                                <dt>{{ 'general.email' | trans }}</dt>
+                                <dd>{{ app.user.email }}</dd>
+                            </dl>
+
+                            {% if app.user.company %}
+                                <dl class="item-property col-6">
+                                    <dt>{{ 'general.company' | trans }}</dt>
+                                    <dd>{{ app.user.company }}</dd>
+                                </dl>
+                            {% endif %}
+
+                            <dl class="item-property col-12">
+                                <dt>{{ 'general.street' | trans }}</dt>
+                                <dd>{{ app.user.street }}</dd>
+                            </dl>
+
+                            <dl class="item-property col-6">
+                                <dt>{{ 'general.zip' | trans }}</dt>
+                                <dd>{{ app.user.zip }}</dd>
+                            </dl>
+
+                            <dl class="item-property col-6">
+                                <dt>{{ 'general.city' | trans }}</dt>
+                                <dd>{{ app.user.city }}</dd>
+                            </dl>
+
+                            <dl class="item-property col-6">
+                                <dt>{{ 'general.country' | trans }}</dt>
+                                <dd>{{ app.user.countryCode | country }}</dd>
+                            </dl>
+
+                        </div>
+
+                        <div>
+                            {% include 'account/partial/social_buttons.html.twig' with {'connect': true, 'blacklist': blacklist, 'route': 'app_auth_oauth_connect'} %}
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            {% if orderList.count > 0 %}
+
+                <div class="col-12 col-md-6">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>{{ 'general.orders' | trans }}</strong>
+                        </div>
+
+                        <div class="card-body">
+
+                            {% for orderItem in orderList %}
+
+                                {% set order = orderItem.reference %}
+
+
+
+
+                                <div class="media mb-4">
+                                    <div class="mr-3"><i class="fa fa-shopping-cart"></i></div>
+                                    <div class="media-body">
+                                        <small class="text-muted">
+                                            {{ order.orderdate }}
+                                        </small>
+
+                                        <h6> {{ 'general.orderNumber' | trans }} {{ order.ordernumber }} </h6>
+
+                                        <dl class="item-property">
+                                            <dt>{{ 'general.orderItems' | trans }}</dt>
+                                            <dd>
+                                                {% for orderItem in order.items %}
+                                                    <div>
+                                                        {{ orderItem.productName }} ({{ orderItem.productNumber }})
+                                                        <span class="float-right">{{ orderItem.totalPrice | currency }}</span>
+                                                    </div>
+                                                {% endfor %}
+                                            </dd>
+                                        </dl>
+
+                                        {% if order.priceModifications %}
+                                            <dl class="item-property">
+                                                <dt>{{ 'general.priceModifications' | trans }}</dt>
+                                                <dd>
+                                                    {% for priceModification in order.priceModifications %}
+                                                        <div>
+                                                            {{ priceModification.name }}
+                                                            <span class="float-right">{{ priceModification.amount | currency }}</span>
+                                                        </div>
+                                                    {% endfor %}
+                                                </dd>
+                                            </dl>
+                                        {% endif %}
+
+                                        {% if order.giftItems %}
+                                            <dl class="item-property">
+                                                <dt>{{ 'general.giftItems' | trans }}</dt>
+                                                <dd>
+                                                    {% for orderItem in order.giftItems %}
+                                                        <div>
+                                                            {{ orderItem.productName }} ({{ orderItem.productNumber }})
+                                                        </div>
+                                                    {% endfor %}
+                                                </dd>
+                                            </dl>
+                                        {% endif %}
+
+                                        <dl class="item-property">
+                                            <dd>
+                                                <strong>
+                                                    {{ 'general.totalPrice' | trans }}
+                                                    <span class="float-right">{{ order.totalPrice | currency }}</span>
+                                                </strong>
+                                            </dd>
+                                        </dl>
+
+
+
+                                    </div>
+                                </div>
+
+                                <hr/>
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+
+            {% endif %}
+        </div>
+
+
+
+    </div>
+</div>
 
 {% endblock %}
 
