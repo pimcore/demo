@@ -137,4 +137,14 @@ class Car extends \Pimcore\Model\DataObject\Car
         return $this->getParent()->getChildren();
     }
 
+
+    public function getElementAdminStyle()
+    {
+        if (empty($this->o_elementAdminStyle)) {
+            $this->o_elementAdminStyle = new \AppBundle\Model\Product\AdminStyle\Car($this);
+        }
+
+        return $this->o_elementAdminStyle;
+    }
+
 }
