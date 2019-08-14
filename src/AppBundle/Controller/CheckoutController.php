@@ -106,7 +106,7 @@ class CheckoutController extends FrontendController
 
         $order = OnlineShopOrder::getById($orderId);
         $this->view->order = $order;
-
+        $this->view->hideBreadcrumbs = true;
     }
 
 }
