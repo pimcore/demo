@@ -39,24 +39,24 @@ pimcore_customer_management_framework:
     customer_provider:
 
         # parent folder for active customers
-        parentPath: '/customer management/customers'
+        parentPath: '/Customer Management/customers'
 
         # parent folder for customers which are unpublished and inactive
-        archiveDir: '/customer management/customers/_archive'
+        archiveDir: '/Customer Management/customers/_archive'
 
         # If a naming scheme is configured customer objects will be automatically renamend and moved to the configured folder structure as soon as the naming scheme gets applied.
         namingScheme: '{countryCode}/{zip}/{firstname}-{lastname}'
 
         # Parent folder for customers which are created via the "new customer" button in the customer list view
-        newCustomersTempDir: '/customer management/customers/_temp'
+        newCustomersTempDir: '/Customer Management/customers/_temp'
 
     # Configuration of segment manager
     segment_manager:
         segmentFolder:
             # parent folder of manual segments + segment groups
-            manual: '/customer management/segments/manual'
+            manual: '/Customer Management/segments/manual'
             # parent folder of calculated segments + segment groups
-            calculated: '/customer management/segments/calculated'
+            calculated: '/Customer Management/segments/calculated'
 
     # Configuration of customer save manager
     customer_save_validator:

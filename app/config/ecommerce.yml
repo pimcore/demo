@@ -51,7 +51,14 @@ pimcore_ecommerce_framework:
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
                         interpreter_options:
                             onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                -   brickfield: saleInformation
+                                    bricktype: SaleInformation
+                                    fieldname: milage
                         filtergroup: double
+
                     length:
                         type: double
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
@@ -64,6 +71,7 @@ pimcore_ecommerce_framework:
                                   bricktype: dimensions
                                   fieldname: length
                         filtergroup: double
+
                     width:
                         type: double
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
@@ -99,6 +107,19 @@ pimcore_ecommerce_framework:
                                 - brickfield: attributes
                                   bricktype: dimensions
                                   fieldname: weight
+                        filtergroup: double
+
+                    power:
+                        type: double
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
+                        interpreter_options:
+                            onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                - brickfield: attributes
+                                  bricktype: engine
+                                  fieldname: power
                         filtergroup: double
 
     filter_service:
@@ -178,6 +199,12 @@ pimcore_ecommerce_framework:
                     confirm:
                         class: \AppBundle\Ecommerce\CheckoutManager\Confirm
 
+
+    order_manager:
+        tenants:
+            default:
+                options:
+                    parent_order_folder: /Shop/Orders/%%Y/%%m/%%d
 
     payment_manager:
         # Service id of payment manager implementation - following value is default value an can be omitted
