@@ -39,13 +39,13 @@ h5 {
     margin-bottom: 3.5rem !important;
 }
 
-.editmode-label {
-    margin-bottom: 3px;
-}
+/*.editmode-label {*/
+/*    margin-bottom: 3px;*/
+/*}*/
 
-.editmode-label label {
-    padding-right: 5px;
-}
+/*.editmode-label label {*/
+/*    padding-right: 5px;*/
+/*}*/
 
 .teaser-icon > .icon > .image {
     line-height: normal;
@@ -82,6 +82,16 @@ h5 {
     margin-bottom: 20px;
 }
 
+.editmode-label {
+    padding-top: 7px;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+.pt-7px {
+    padding-top: 7px;
+}
+
 .area-gallery-carousel .carousel-inner .pimcore_tag_image {
     min-height: 350px !important;
 }
@@ -96,4 +106,12 @@ h5 {
 
 .jumbotron-btn {
     margin-right: 3em;
+}
+
+.pimcore_area_text-accordion .card-header .pimcore_tag_input {
+    padding-left: 10px;
+}
+
+.gallery .item {
+    min-height: 200px;
 }

@@ -4,8 +4,8 @@
         {% do pimcore_select("position").setDataFromResource("left") %}
     {% endif %}
 
-    <div class="editmode-label">
-        <label>Orientation:</label>
+    <div class="editmode-label align-middle">
+        Orientation:
     </div>
     {{
         pimcore_select('position', {
@@ -14,7 +14,8 @@
                 ["text-right","right"],
                 ["text-center","center"]
             ],
-            reload: true
+            reload: true,
+            class: 'align-middle'
         })
     }}
 {% endif %}

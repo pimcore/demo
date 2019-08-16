@@ -3,13 +3,14 @@
 <section class="area-featurette">
     {% for i in pimcore_iterate_block(featuretteBlock) %}
         {% set positionSelect = pimcore_select('position', {
-            store: [["left","left"],["right","right"]]
+            store: [["left","left"],["right","right"]],
+            class: 'align-middle'
         }) %}
 
         {% set position = positionSelect.getData()|default('right') %}
 
         <div class="row featurette">
-            <div class="col-sm-7 {{ position == 'right' ? 'col-sm-push-5' }}">
+            <div class="col-sm-7 {{ position == 'right' ? 'col-sm-push-5' : '' }}">
                 <h2 class="featurette-heading">
                     {{ pimcore_input('headline') }}
                     <span class="text-muted">{{ pimcore_input('subline') }}</span>
@@ -24,11 +25,11 @@
                 </div>
             </div>
 
-            <div class="col-sm-5 {{ position == 'right' ? 'col-sm-pull-7' }}">
+            <div class="col-sm-5 {{ position == 'right' ? 'col-sm-pull-7' : '' }}">
                 {% if editmode %}
 
-                    <div class="editmode-label">
-                        <label>Orientation:</label>
+                    <div class="mb-4">
+                        <span class="editmode-label align-middle">Orientation:</span>
                         {{ positionSelect|raw }}
                     </div>
 

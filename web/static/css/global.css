@@ -772,11 +772,11 @@ input.form-control {
 }
 
 /* accordion */
-#accordion .card-header {
+.accordion .card-header {
     padding: 0;
 }
 
-#accordion .card-header .btn {
+.accordion .card-header .btn {
     text-decoration: none;
     color: var(--purple);
     padding: .5em 0 0 1.2em;

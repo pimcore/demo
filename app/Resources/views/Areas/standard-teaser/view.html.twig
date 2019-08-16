@@ -10,14 +10,15 @@
                         store: [
                             ['direct','direct'],
                             ['snippet','snippet']
-                        ]
+                        ],
+                        class: 'align-middle'
                     })
                 %}
 
                 {% if editmode %}
                     <div class="col-md-4">
-                        <div class="editmode-label">
-                            <label>Type:</label>
+                        <div class="mb-3">
+                            <span class="editmode-label align-middle">Type:</span>
                             {{ select|raw }}
                         </div>
                 {% endif %}

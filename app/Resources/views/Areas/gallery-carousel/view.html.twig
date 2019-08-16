@@ -7,10 +7,11 @@
     {% set slidesSelect = pimcore_select('slides', {
         store: selectStore,
         reload: true,
-        width: 70
+        width: 70,
+        class: 'align-middle'
     }) %}
 
-    {% set showPreviewsCheckbox = pimcore_checkbox('showPreviews') %}
+    {% set showPreviewsCheckbox = pimcore_checkbox('showPreviews', {class: 'align-middle pt-7px'}) %}
     {% set showPreviews = showPreviewsCheckbox.isChecked and not editmode %}
 
     {% set id = 'gallery-carousel-' ~ uniqid() %}
@@ -20,24 +21,18 @@
 
         <div class="alert alert-secondary col-xs-12" style="height: 75px">
             <div class="col-xs-6 d-inline mx-auto">
-                How many images you want to show?
+                <span class="editmode-label align-middle">How many images you want to show?</span>
                 {{ slidesSelect|raw }}
             </div>
             <div class="col-xs-6 d-inline ml-5">
-                Show Previews
+                <span class="editmode-label align-middle">Show Previews</span>
                 {{ showPreviewsCheckbox|raw }}
             </div>
         </div>
 
-        <style type="text/css">
-            .gallery .item {
-                min-height: 200px;
-            }
-        </style>
-
     {% endif %}
 
-    <div id="{{ id }}" class="gallery carousel slide" data-ride="carousel"  {{ editmode ? 'data-interval="false"' }}>
+    <div id="{{ id }}" class="gallery carousel slide" data-ride="carousel"  {{ editmode ? 'data-interval="false"' : '' }}>
         <!-- Indicators -->
         <ol class="carousel-indicators {{ showPreviews ? 'preview visible-lg' }}">
 

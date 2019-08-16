@@ -4,24 +4,26 @@
     {% for i in pimcore_iterate_block(featuretteBlock) %}
         {% set positionSelect = pimcore_select('position', {
             store: [["left","left"],["right","right"]],
-            reload: true
+            reload: true,
+            class: 'align-middle'
         }) %}
 
         {% set typeSelect = pimcore_select('type', {
             reload: true,
-            store: [["video","video"], ["image","image"]]
+            store: [["video","video"], ["image","image"]],
+            class: 'align-middle'
         }) %}
 
         {% set position = positionSelect.getData()|default('left') %}
         {% if editmode %}
-            <div class="editmode-label">
-                <label>Orientation:</label>
+            <div class="mb-3">
+                <span class="editmode-label align-middle">Orientation:</span>
                 {{ positionSelect | raw }}
             </div>
         {% endif %}
 
         <div class="row featurette">
-            <div class="col-sm-7 {{ position == 'right' ? 'order-md-2' }}">
+            <div class="col-sm-7 {{ position == 'right' ? 'order-md-2' : '' }}">
                 <h2 class="featurette-heading">
                     {{ pimcore_input('headline') }}
                     <span class="text-muted">{{ pimcore_input('subline') }}</span>
@@ -34,11 +36,11 @@
                 </div>
             </div>
 
-            <div class="col-sm-5 {{ position == 'right' ? 'order-md-1' }}">
+            <div class="col-sm-5 {{ position == 'right' ? 'order-md-1' : '' }}">
 
                 {% if editmode %}
-                    <div class="editmode-label">
-                        <label>Type:</label>
+                    <div class="mb-3">
+                        <span class="editmode-label align-middle">Type:</span>
                         {{ typeSelect|raw }}
                     </div>
                 {% endif %}
