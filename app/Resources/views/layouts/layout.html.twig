@@ -56,6 +56,11 @@
         {% block layout_head_meta deferred %}
             {{ pimcore_head_title() }}
             {{ pimcore_head_meta() }}
+
+            {% if pimcore_placeholder('canonical').count() %}
+                <link rel="canonical" href="{{ pimcore_placeholder('canonical') }}"/>
+            {% endif %}
+
         {% endblock %}
 
         {% block head_stylesheets deferred %}

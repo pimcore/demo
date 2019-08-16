@@ -1,7 +1,8 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:04+02:00
+* Generated at: 2019-08-14T16:41:17+02:00
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -15,8 +16,8 @@ Fields Summary:
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'key' => 'FilterRelation',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinitionType',
-   'title' => NULL,
-   'group' => NULL,
+   'title' => '',
+   'group' => 'FilterTypes',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -43,14 +44,14 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'labelWidth' => 100,
          'layout' => '',
          'border' => false,
-         'icon' => NULL,
+         'icon' => '',
          'name' => 'Layout',
          'type' => '',
          'region' => '',
-         'title' => '',
+         'title' => 'Filter Relation',
          'width' => NULL,
          'height' => NULL,
-         'collapsible' => false,
+         'collapsible' => true,
          'collapsed' => false,
          'bodyStyle' => '',
          'datatype' => 'layout',

@@ -1,10 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:36+02:00
+* Generated at: 2019-08-16T11:21:25+02:00
 * Inheritance: no
 * Variants: no
-* Changed by: system (0)
+* Changed by: admin (2)
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -26,11 +27,11 @@ Fields Summary:
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'id' => 'EF_OSOI',
    'name' => 'OnlineShopOrderItem',
-   'description' => NULL,
-   'creationDate' => NULL,
-   'modificationDate' => 1562146294,
-   'userOwner' => NULL,
-   'userModification' => 0,
+   'description' => '',
+   'creationDate' => 0,
+   'modificationDate' => 1565947285,
+   'userOwner' => 0,
+   'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractOrderItem',
    'listingParentClass' => '',
    'useTraits' => '',
@@ -147,6 +148,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'orderState',
                  'title' => 'Order Item State',
                  'tooltip' => '',
@@ -391,6 +393,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'rows' => '',
                      'rowsFixed' => false,
                      'data' => '',
+                     'columnConfigActivated' => false,
+                     'columnConfig' => 
+                    array (
+                    ),
                      'queryColumnType' => 'longtext',
                      'columnType' => 'longtext',
                      'phpdocType' => 'array',
@@ -479,6 +485,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'relationType' => true,
                  'visibleFields' => NULL,
                  'optimizedAdminLoading' => false,
+                 'visibleFieldDefinitions' => 
+                array (
+                ),
                  'lazyLoading' => false,
                  'classes' => 
                 array (
@@ -581,16 +590,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => NULL,
-   'previewUrl' => NULL,
-   'group' => NULL,
+   'icon' => '/bundles/pimcoreadmin/img/twemoji/1f4e6.svg',
+   'previewUrl' => '',
+   'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => NULL,
+   'linkGeneratorReference' => '',
    'propertyVisibility' => 
   array (
     'grid' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => true,
       'published' => true,
       'modificationDate' => true,
@@ -599,6 +609,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     'search' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => true,
       'published' => true,
       'modificationDate' => true,

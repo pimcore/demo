@@ -1,7 +1,7 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-08T16:58:22+02:00
+* Generated at: 2019-08-14T16:40:35+02:00
 * IP: 192.168.9.96
 
 
@@ -19,7 +19,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'key' => 'FilterCategory',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\CategoryFilterDefinitionType',
    'title' => '',
-   'group' => '',
+   'group' => 'FilterTypes',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -46,14 +46,14 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'labelWidth' => 100,
          'layout' => '',
          'border' => false,
-         'icon' => NULL,
+         'icon' => '',
          'name' => 'Layout',
          'type' => '',
          'region' => '',
-         'title' => '',
+         'title' => 'Filter Category',
          'width' => NULL,
          'height' => NULL,
-         'collapsible' => false,
+         'collapsible' => true,
          'collapsed' => false,
          'bodyStyle' => '',
          'datatype' => 'layout',

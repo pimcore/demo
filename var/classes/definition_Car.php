@@ -1,7 +1,7 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-07T09:18:58+02:00
+* Generated at: 2019-08-14T16:48:51+02:00
 * Inheritance: yes
 * Variants: no
 * Changed by: admin (2)
@@ -20,12 +20,12 @@ Fields Summary:
 - color [multiselect]
 - country [country]
 - categories [manyToManyObjectRelation]
-- objectType [select]
 - gallery [imageGallery]
 - genericImages [imageGallery]
 - attributes [objectbricks]
 - saleInformation [objectbricks]
 - location [geopoint]
+- objectType [select]
 */ 
 
 
@@ -34,7 +34,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Car',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565162338,
+   'modificationDate' => 1565794131,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
@@ -214,14 +214,14 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'permissions' => NULL,
                  'datatype' => 'data',
                  'relationType' => false,
-                 'invisible' => false,
+                 'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
                  'fieldtype' => 'manyToOneRelation',
-                 'width' => '',
+                 'width' => 400,
                  'assetUploadPath' => '',
                  'relationType' => true,
                  'queryColumnType' => 
@@ -265,7 +265,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               3 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
                  'fieldtype' => 'manyToOneRelation',
-                 'width' => '',
+                 'width' => 400,
                  'assetUploadPath' => '',
                  'relationType' => true,
                  'queryColumnType' => 
@@ -372,7 +372,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                     'value' => 'sports car',
                   ),
                 ),
-                 'width' => '',
+                 'width' => 300,
                  'defaultValue' => '',
                  'optionsProviderClass' => '',
                  'optionsProviderData' => '',
@@ -399,7 +399,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               5 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
                  'fieldtype' => 'numeric',
-                 'width' => '',
+                 'width' => 300,
                  'defaultValue' => NULL,
                  'queryColumnType' => 'double',
                  'columnType' => 'double',
@@ -1827,7 +1827,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'queryColumnType' => 'text',
                  'phpdocType' => 'array',
                  'relationType' => true,
-                 'visibleFields' => 'id,fullpath,name',
+                 'visibleFields' => 'id,name,fullpath',
                  'optimizedAdminLoading' => false,
                  'visibleFieldDefinitions' => 
                 array (
@@ -1851,46 +1851,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
-              )),
-              9 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-                 'fieldtype' => 'select',
-                 'options' => 
-                array (
-                  0 => 
-                  array (
-                    'key' => 'actual-car',
-                    'value' => 'actual-car',
-                  ),
-                  1 => 
-                  array (
-                    'key' => 'virtual-car',
-                    'value' => 'virtual-car',
-                  ),
-                ),
-                 'width' => '',
-                 'defaultValue' => '',
-                 'optionsProviderClass' => '',
-                 'optionsProviderData' => '',
-                 'queryColumnType' => 'varchar',
-                 'columnType' => 'varchar',
-                 'columnLength' => 190,
-                 'phpdocType' => 'string',
-                 'dynamicOptions' => false,
-                 'name' => 'objectType',
-                 'title' => 'objectType',
-                 'tooltip' => '',
-                 'mandatory' => false,
-                 'noteditable' => false,
-                 'index' => false,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'datatype' => 'data',
-                 'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
@@ -1932,8 +1892,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   'hotspots' => 'text',
                 ),
                  'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ImageGallery',
-                 'width' => NULL,
-                 'height' => NULL,
+                 'width' => 300,
+                 'height' => 300,
                  'uploadPath' => '',
                  'ratioX' => NULL,
                  'ratioY' => NULL,
@@ -1967,8 +1927,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   'hotspots' => 'text',
                 ),
                  'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ImageGallery',
-                 'width' => NULL,
-                 'height' => NULL,
+                 'width' => 300,
+                 'height' => 300,
                  'uploadPath' => '',
                  'ratioX' => NULL,
                  'ratioY' => NULL,
@@ -2123,15 +2083,105 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             ),
              'locked' => false,
           )),
+          4 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 100,
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'System Data',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'childs' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
+                 'fieldtype' => 'text',
+                 'html' => '<div class="alert alert-info">
+Define type of Car object to manage, which elements should be visible in shop and which are only helper objects to take advantage of data inheritance. 
+<ul>
+<li><strong>actual-car</strong>: Actual cars that should be visible in shop. </li>
+<li><strong>virtual-car</strong>: Virtual objects that are only helper objects for setting up data inheritance. Will not be visible in shop.</li></ul></div>',
+                 'renderingClass' => '',
+                 'renderingData' => '',
+                 'border' => false,
+                 'name' => 'Layout',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => '',
+                 'width' => NULL,
+                 'height' => NULL,
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => '',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'childs' => 
+                array (
+                ),
+                 'locked' => false,
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+                 'fieldtype' => 'select',
+                 'options' => 
+                array (
+                  0 => 
+                  array (
+                    'key' => 'Actual-Car',
+                    'value' => 'actual-car',
+                  ),
+                  1 => 
+                  array (
+                    'key' => 'Virtual-Car',
+                    'value' => 'virtual-car',
+                  ),
+                ),
+                 'width' => 300,
+                 'defaultValue' => 'actual-car',
+                 'optionsProviderClass' => '',
+                 'optionsProviderData' => '',
+                 'queryColumnType' => 'varchar',
+                 'columnType' => 'varchar',
+                 'columnLength' => 190,
+                 'phpdocType' => 'string',
+                 'dynamicOptions' => false,
+                 'name' => 'objectType',
+                 'title' => 'Object Type',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+              )),
+            ),
+             'locked' => false,
+          )),
         ),
          'locked' => false,
       )),
     ),
      'locked' => false,
   )),
-   'icon' => '/bundles/pimcoreadmin/img/twemoji/1f697.svg',
+   'icon' => '/static/images/icons/car_gray.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '@AppBundle\\Website\\LinkGenerator\\ProductLinkGenerator',
    'propertyVisibility' => 

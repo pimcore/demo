@@ -1,0 +1,67 @@
+{# @var news \Pimcore\Model\DataObject\News #}
+
+{% extends 'layouts/layout.html.twig' %}
+
+
+{% block content %}
+
+    <div id="main-content" class="main-content mb-5">
+
+        <div class="page-header">
+            <h1>{{ news.title }}</h1>
+        </div>
+
+        <div class="text-muted mb-3">{{ news.date | date('Y-m-d h:i A') }}</div>
+        <div class="display-6">
+            {{ news.shortText }}
+        </div>
+
+        {% if news.gallery.items %}
+
+            <div class="row">
+
+                {% for image in news.gallery.items %}
+
+                    {% if image.image %}
+
+                        <div class="col-3 mt-3">
+
+                            <a href="{{ image.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
+                                {{ image.thumbnail('galleryThumbnail').getHTML({class: 'img-thumbnail img-fluid'})|raw }}
+                            </a>
+
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+        <div class="mt-5">
+            {{ news.text | raw }}
+        </div>
+
+        {% if news.relatedCars %}
+
+            <div class="row mt-5">
+                {% for car in news.relatedCars %}
+
+                    {% if car.objectType == 'actual-car' %}
+
+                        <div class="col-md-3 d-flex align-items-stretch flex-column">
+                            {% include 'product/product_teaser.html.twig' with {'product': car} %}
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}

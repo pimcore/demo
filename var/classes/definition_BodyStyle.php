@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-12T17:38:34+02:00
+* Generated at: 2019-08-16T11:23:11+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.95
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -19,7 +19,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'BodyStyle',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565624314,
+   'modificationDate' => 1565947391,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -140,9 +140,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => '/bundles/pimcoreadmin/img/twemoji/1f4e6.svg',
+   'icon' => '/bundles/pimcoreadmin/img/twemoji/1f4a0.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'propertyVisibility' => 

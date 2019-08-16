@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-12T17:20:06+02:00
+* Generated at: 2019-08-14T13:45:38+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.95
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -30,7 +30,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'AccessoryPart',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565623206,
+   'modificationDate' => 1565783138,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
@@ -166,7 +166,7 @@ Text is generated based on
                          'mandatory' => false,
                          'noteditable' => false,
                          'index' => false,
-                         'locked' => NULL,
+                         'locked' => false,
                          'style' => '',
                          'permissions' => NULL,
                          'datatype' => 'data',
@@ -253,12 +253,12 @@ Text is generated based on
                          'visibleSearch' => true,
                       )),
                     ),
-                     'tooltip' => NULL,
-                     'mandatory' => NULL,
-                     'noteditable' => NULL,
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
                      'index' => NULL,
-                     'locked' => NULL,
-                     'style' => NULL,
+                     'locked' => false,
+                     'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
                      'relationType' => false,
@@ -692,7 +692,7 @@ Text is generated based on
                      'mandatory' => false,
                      'noteditable' => true,
                      'index' => false,
-                     'locked' => NULL,
+                     'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
@@ -718,7 +718,7 @@ Text is generated based on
                      'mandatory' => false,
                      'noteditable' => true,
                      'index' => false,
-                     'locked' => NULL,
+                     'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
@@ -744,7 +744,7 @@ Text is generated based on
                      'mandatory' => false,
                      'noteditable' => true,
                      'index' => false,
-                     'locked' => NULL,
+                     'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
@@ -792,7 +792,7 @@ Text is generated based on
   )),
    'icon' => '/bundles/pimcoreadmin/img/twemoji/1f527.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'propertyVisibility' => 

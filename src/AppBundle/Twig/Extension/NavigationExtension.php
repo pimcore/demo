@@ -96,8 +96,7 @@ class NavigationExtension extends AbstractExtension
      */
     public function enrichBreadcrumbs(Container $navigation): Container {
 
-        $placeholderHelper = $this->placeholderHelper;
-        $additionalBreadCrumbs = $placeholderHelper('addBreadcrumb');
+        $additionalBreadCrumbs = $this->placeholderHelper->__invoke('addBreadcrumb');
 
         if( $additionalBreadCrumbs->getArrayCopy() )
         {

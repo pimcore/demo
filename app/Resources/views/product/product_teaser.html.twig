@@ -1,5 +1,6 @@
 <div class="card custom-product-card mb-4 shadow-sm flex-fill">
-    <a href="{{ app_product_detaillink(product) }}" class="text-decoration-none text-dark">
+    {% set detailLink = app_product_detaillink(product) %}
+    <a href="{{ detailLink }}" class="text-decoration-none text-dark">
         {% if(product.mainImage) %}
             {{ product.mainImage.thumbnail('grid').html({class: 'img-fluid'}) | raw }}
         {% endif %}
@@ -18,7 +19,7 @@
                 <p class="card-price">{{ product.oSPrice }},-</p>
                 <div class="row button-row">
                     <div class="col p-1">
-                        <a href="{{ app_product_detaillink(product) }}" class="btn btn-block btn-secondary">
+                        <a href="{{ detailLink }}" class="btn btn-block btn-secondary">
                             {{ 'general.details' | trans }}
                         </a>
                     </div>

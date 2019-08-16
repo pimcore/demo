@@ -1,10 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-02T11:17:27+02:00
+* Generated at: 2019-08-14T13:47:29+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -18,7 +19,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Manufacturer',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1562059047,
+   'modificationDate' => 1565783249,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -75,7 +76,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
-             'width' => NULL,
+             'width' => 400,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 190,
@@ -101,14 +102,14 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
              'fieldtype' => 'image',
-             'width' => '',
+             'width' => 500,
              'height' => '',
              'uploadPath' => '',
              'queryColumnType' => 'int(11)',
              'columnType' => 'int(11)',
              'phpdocType' => '\\Pimcore\\Model\\Asset\\Image',
              'name' => 'logo',
-             'title' => 'logo',
+             'title' => 'Logo',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -128,9 +129,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/factory.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'propertyVisibility' => 

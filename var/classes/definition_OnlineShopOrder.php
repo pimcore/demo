@@ -1,10 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-06T18:16:33+02:00
+* Generated at: 2019-08-16T11:25:31+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -54,7 +55,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopOrder',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565108193,
+   'modificationDate' => 1565947530,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractOrder',
@@ -686,7 +687,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'name' => 'System Informations',
                  'type' => NULL,
                  'region' => NULL,
-                 'title' => 'System Informations',
+                 'title' => 'System Information',
                  'width' => NULL,
                  'height' => NULL,
                  'collapsible' => true,
@@ -4120,9 +4121,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/deployment.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'propertyVisibility' => 

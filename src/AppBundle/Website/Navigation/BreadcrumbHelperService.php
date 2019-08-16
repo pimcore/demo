@@ -8,6 +8,7 @@ use AppBundle\Model\Product\Category;
 use AppBundle\Website\LinkGenerator\AbstractProductLinkGenerator;
 use AppBundle\Website\LinkGenerator\CategoryLinkGenerator;
 use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\News;
 use Pimcore\Model\Document;
 use Pimcore\Templating\Helper\Placeholder;
 use Pimcore\Translation\Translator;
@@ -71,7 +72,6 @@ class BreadcrumbHelperService
     public function enrichProductDetailPage(AbstractObject $product) {
 
         $document = $this->getCurrentDocument();
-        $placeholderHelper = $this->placeholderHelper;
 
         //breadcrumbs
         $category = $product->getMainCategory();
@@ -80,7 +80,7 @@ class BreadcrumbHelperService
             $parentCategories = $category->getParentCategoryList($document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME));
             $parentCategories[] = $category;
             foreach ($parentCategories as $index => $parentCategory) {
-                $placeholderHelper('addBreadcrumb')->append([
+                $this->placeholderHelper->__invoke('addBreadcrumb')->append([
                     'parentId' => $parentId,
                     'id' => 'category-' . $parentCategory->getId(),
                     'url' => $this->categoryLinkGenerator->generate($parentCategory, [], true),
@@ -90,7 +90,7 @@ class BreadcrumbHelperService
             }
         }
 
-        $placeholderHelper('addBreadcrumb')->append([
+        $this->placeholderHelper->__invoke('addBreadcrumb')->append([
             'parentId' => $category ? 'category-' . $category->getParentId() : '',
             'id' => 'product-' . $product->getId(),
             'url' => '#',
@@ -101,14 +101,13 @@ class BreadcrumbHelperService
     public function enrichCategoryPage(Category $category) {
 
         $document = $this->getCurrentDocument();
-        $placeholderHelper = $this->placeholderHelper;
 
         if ($category) {
             $parentId = $document->getId();
             $parentCategories = $category->getParentCategoryList($document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME));
             $parentCategories[] = $category;
             foreach ($parentCategories as $index => $parentCategory) {
-                $placeholderHelper('addBreadcrumb')->append([
+                $this->placeholderHelper->__invoke('addBreadcrumb')->append([
                     'parentId' => $parentId,
                     'id' => 'category-' . $parentCategory->getId(),
                     'url' => $this->categoryLinkGenerator->generate($parentCategory, [], true),
@@ -123,9 +122,8 @@ class BreadcrumbHelperService
     public function enrichCartPage() {
 
         $document = $this->getCurrentDocument();
-        $placeholderHelper = $this->placeholderHelper;
 
-        $placeholderHelper('addBreadcrumb')->append([
+        $this->placeholderHelper->__invoke('addBreadcrumb')->append([
             'parentId' => $document->getId(),
             'id' => 'cart',
             'url' => '#',
@@ -137,23 +135,34 @@ class BreadcrumbHelperService
     public function enrichCheckoutPage() {
 
         $document = $this->getCurrentDocument();
-        $placeholderHelper = $this->placeholderHelper;
 
-        $placeholderHelper('addBreadcrumb')->append([
+        $this->placeholderHelper->__invoke('addBreadcrumb')->append([
             'parentId' => $document->getId(),
             'id' => 'cart',
             'url' => $this->urlGenerator->generate('shop-cart-detail'),
             'label' => $this->translator->trans('cart.title')
         ]);
 
-        $placeholderHelper('addBreadcrumb')->append([
+        $this->placeholderHelper->__invoke('addBreadcrumb')->append([
             'parentId' => 'cart',
             'id' => 'checkout',
             'url' => '#',
             'label' => $this->translator->trans('general.checkout')
         ]);
 
+    }
 
+    /**
+     * @param News $news
+     */
+    public function enrichNewsPage(News $news) {
+        $document = $this->getCurrentDocument();
+        $this->placeholderHelper->__invoke('addBreadcrumb')->append([
+            'parentId' => $document->getId(),
+            'id' => 'news-' . $news->getId(),
+            'url' => '#',
+            'label' => $news->getTitle()
+        ]);
     }
 
 }

@@ -1,10 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:40+02:00
+* Generated at: 2019-08-16T11:27:35+02:00
 * Inheritance: no
 * Variants: no
-* Changed by: system (0)
+* Changed by: admin (2)
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -17,12 +18,12 @@ Fields Summary:
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'id' => 'EF_OSVT',
    'name' => 'OnlineShopVoucherToken',
-   'description' => NULL,
-   'creationDate' => NULL,
-   'modificationDate' => 1562146299,
-   'userOwner' => NULL,
-   'userModification' => 0,
-   'parentClass' => NULL,
+   'description' => '',
+   'creationDate' => 0,
+   'modificationDate' => 1565947655,
+   'userOwner' => 0,
+   'userModification' => 2,
+   'parentClass' => '',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -202,16 +203,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => NULL,
-   'previewUrl' => NULL,
-   'group' => NULL,
+   'icon' => '',
+   'previewUrl' => '',
+   'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => NULL,
+   'linkGeneratorReference' => '',
    'propertyVisibility' => 
   array (
     'grid' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => true,
       'published' => true,
       'modificationDate' => true,
@@ -220,6 +222,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     'search' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => true,
       'published' => true,
       'modificationDate' => true,

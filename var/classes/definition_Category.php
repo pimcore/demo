@@ -1,8 +1,8 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-08T16:54:58+02:00
-* Inheritance: no
+* Generated at: 2019-08-14T16:56:55+02:00
+* Inheritance: yes
 * Variants: no
 * Changed by: admin (2)
 * IP: 192.168.9.96
@@ -22,7 +22,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Category',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565276098,
+   'modificationDate' => 1565794615,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractCategory',
@@ -33,7 +33,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'encryptedTables' => 
   array (
   ),
-   'allowInherit' => false,
+   'allowInherit' => true,
    'allowVariants' => NULL,
    'showVariants' => false,
    'layoutDefinitions' => 
@@ -61,15 +61,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'fieldtype' => 'tabpanel',
          'border' => false,
          'tabPosition' => 'top',
-         'name' => '',
+         'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
-         'title' => '',
+         'title' => NULL,
          'width' => NULL,
          'height' => NULL,
          'collapsible' => false,
          'collapsed' => false,
-         'bodyStyle' => '',
+         'bodyStyle' => NULL,
          'datatype' => 'layout',
          'permissions' => NULL,
          'childs' => 
@@ -156,7 +156,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'name' => 'localizedfields',
                  'region' => NULL,
                  'layout' => NULL,
-                 'title' => '',
+                 'title' => 'Texts',
                  'width' => '',
                  'height' => '',
                  'maxTabs' => NULL,
@@ -207,7 +207,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
                  'fieldtype' => 'manyToOneRelation',
-                 'width' => '',
+                 'width' => 800,
                  'assetUploadPath' => '',
                  'relationType' => true,
                  'queryColumnType' => 
@@ -240,7 +240,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'mandatory' => false,
                  'noteditable' => false,
                  'index' => false,
-                 'locked' => NULL,
+                 'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
@@ -291,9 +291,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/genealogy.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '@AppBundle\\Website\\LinkGenerator\\CategoryLinkGenerator',
    'propertyVisibility' => 

@@ -49,12 +49,17 @@ services:
     AppBundle\Twig\Extension\ProductPageExtension:
         tags: ['twig.extension']
 
+    AppBundle\Twig\Extension\NewsExtension:
+        tags: ['twig.extension']
+
     AppBundle\Website\LinkGenerator\CategoryLinkGenerator:
         public: true
 
     AppBundle\Website\LinkGenerator\ProductLinkGenerator:
         public: true
 
+    AppBundle\Website\LinkGenerator\NewsLinkGenerator:
+        public: true
 
     AppBundle\Website\Navigation\BreadcrumbHelperService: ~
 

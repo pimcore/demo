@@ -1,0 +1,45 @@
+{% extends 'layouts/layout.html.twig' %}
+
+
+{% block content %}
+
+    <div id="main-content" class="main-content">
+
+        {% if document.getTitle() is empty %}
+            {% do pimcore_head_title(pimcore_input('headline').getData(), 'PREPEND') %}
+        {% endif %}
+
+        <div class="page-header">
+            <h1>{{ pimcore_input('headline', {'placeholder':'Headline'}) }}</h1>
+        </div>
+
+        {{
+            pimcore_areablock('content', {
+                'allowed': [
+                    'headlines',
+                    'hero-teaser',
+                    'horizontal-line',
+                    'wysiwyg'
+                ]
+            })
+        }}
+
+        <div class="row mt-5">
+
+            {%  for news in news %}
+                <div class="col-md-4 d-flex align-items-stretch flex-column">
+                    {% include 'news/news_teaser.html.twig' with {'news': news} %}
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div class="pt-5">
+
+            {% include 'includes/pagination.html.twig' %}
+
+        </div>
+
+    </div>
+
+{%  endblock %}

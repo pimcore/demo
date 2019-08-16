@@ -1,7 +1,7 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-04T12:42:14+02:00
+* Generated at: 2019-08-16T11:10:16+02:00
 * Inheritance: yes
 * Variants: no
 * Changed by: admin (2)
@@ -32,7 +32,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'FilterDefinition',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1562236934,
+   'modificationDate' => 1565946616,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinition',
@@ -221,6 +221,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'columnType' => 'varchar',
                      'columnLength' => 190,
                      'phpdocType' => 'string',
+                     'dynamicOptions' => false,
                      'name' => 'defaultOrderByInheritance',
                      'title' => 'inherit Default OrderBy',
                      'tooltip' => 'When set to yes, options are taken from a parent filter definition object (if available) .',
@@ -557,6 +558,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'conditionsInheritance',
                  'title' => 'inherit Conditions',
                  'tooltip' => 'When set to yes, options are taken from a parent filter definition object (if available) .',
@@ -681,6 +683,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnType' => 'varchar',
                  'columnLength' => 190,
                  'phpdocType' => 'string',
+                 'dynamicOptions' => false,
                  'name' => 'filtersInheritance',
                  'title' => 'inherit Filters',
                  'tooltip' => 'When set to yes, options are taken from a parent filter definition object (if available) .',
@@ -866,6 +869,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'columnType' => 'varchar',
                      'columnLength' => 190,
                      'phpdocType' => 'string',
+                     'dynamicOptions' => false,
                      'name' => 'similarityFieldsInheritance',
                      'title' => 'inherit SimilarityFields',
                      'tooltip' => 'When set to yes, options are taken from a parent filter definition object (if available) .',
@@ -923,9 +927,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
     ),
      'locked' => false,
   )),
-   'icon' => '',
+   'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/empty_filter.svg',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'propertyVisibility' => 

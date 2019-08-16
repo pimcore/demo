@@ -6,6 +6,7 @@ namespace AppBundle\Website\LinkGenerator;
 
 use AppBundle\Model\Product\Category;
 use AppBundle\Website\Tool\Text;
+use Pimcore\Http\Request\Resolver\DocumentResolver;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
 use Pimcore\Templating\Helper\PimcoreUrl;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -14,6 +15,11 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
 {
 
     const ROOT_CATEGORY_PROPERTY_NAME = 'rootCategory';
+
+    /**
+     * @var DocumentResolver
+     */
+    protected $documentResolver;
 
     /**
      * @var RequestStack
@@ -25,8 +31,9 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
      */
     protected $pimcoreUrl;
 
-    public function __construct(RequestStack $requestStack, PimcoreUrl $pimcoreUrl)
+    public function __construct(DocumentResolver $documentResolver, RequestStack $requestStack,  PimcoreUrl $pimcoreUrl)
     {
+        $this->documentResolver = $documentResolver;
         $this->requestStack = $requestStack;
         $this->pimcoreUrl = $pimcoreUrl;
     }
@@ -35,7 +42,7 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
     public function getNavigationPath(Category $category, Category $rootCategory = null)
     {
         if(empty($rootCategory)) {
-            $document = $this->requestStack->getCurrentRequest()->attributes->get('contentDocument');
+            $document = $this->documentResolver->getDocument($this->requestStack->getCurrentRequest());
             if($document) {
                 $rootCategory = $document->getProperty(self::ROOT_CATEGORY_PROPERTY_NAME);
             }

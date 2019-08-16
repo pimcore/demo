@@ -1,0 +1,28 @@
+{# @var news \Pimcore\Model\DataObject\News #}
+
+{% set detailLink = app_news_detaillink(news) %}
+
+
+<div class="teaser card custom-standard-card mb-4 shadow-sm">
+    <a href="{{ detailLink }}" class="text-decoration-none text-dark">
+
+    {% if news.gallery.items %}
+        {% set image = news.gallery.current %}
+
+        {% if image.image %}
+            {{ image.image.thumbnail('standardTeaser').html({class: 'img-fluid'}) | raw }}
+        {% endif %}
+
+    {% endif %}
+
+        <div class="card-body">
+            <h4 class="card-title pricing-card-title text-uppercase">{{ news.title }}</h4>
+            <p class="card-text">
+                {{ news.shortText }}
+            </p>
+            <p>
+                <a href="{{ detailLink }}" class="btn btn-lg btn-secondary">{{ 'general.read-more' | trans }}</a>
+            </p>
+        </div>
+    </a>
+</div>
