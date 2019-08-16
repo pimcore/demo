@@ -115,3 +115,20 @@ h5 {
 .gallery .item {
     min-height: 200px;
 }
+
+.pimcore_area_product-teaser .teaser-row-container .pimcore_tag_block {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.pimcore_area_product-teaser .teaser-row-container  .pimcore_block_entry {
+    width: 33%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.pimcore_editable .x-panel-body-default {
+    font-family: "Hind Guntur";
+}

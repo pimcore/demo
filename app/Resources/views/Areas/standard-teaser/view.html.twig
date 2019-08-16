@@ -1,11 +1,11 @@
-<section class="area-standard-teaser jumbotron bg-light text-center">
+<section class="area-standard-teaser bg-light text-center">
     <div class="container">
-        <h2 class="jumbotron-heading">{{ pimcore_input('standardTeaserHeading') }}</h2>
-        <div class="card-deck mb-3 text-center">
+        <h2>{{ pimcore_input('standardTeaserHeading') }}</h2>
+        <div class="card-deck mb-3 text-center {{ editmode ? 'no-gutters' : '' }} ">
             {% for t in 0..2 %}
                 {%
                     set select = pimcore_select('type_' ~ t, {
-                        width: 90,
+                        width: 110,
                         reload: true,
                         store: [
                             ['direct','direct'],

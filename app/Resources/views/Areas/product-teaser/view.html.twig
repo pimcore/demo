@@ -1,9 +1,9 @@
-<section class="jumbotron bg-light text-center">
+<section class="teaser-row-container pt-5 pb-3 bg-light text-center">
     <div class="container">
-        <h2 class="jumbotron-heading">{{ pimcore_input('productTeaserTitle', {'placeholder':'Enter Title'}) }}</h2>
+        <h2>{{ pimcore_input('productTeaserTitle', {'placeholder':'Enter Title'}) }}</h2>
         <div class="row mb-3 text-left">
-            {% for i in pimcore_iterate_block(pimcore_block('teaserblock',{class:'row'})) %}
-                <div class="col-md-4">
+            {% for i in pimcore_iterate_block(pimcore_block('teaserblock',{class:'row11'})) %}
+                <div class="{{ editmode ? '' : 'col-md-4 d-flex align-items-stretch flex-column' }}">
                     {{
                         pimcore_renderlet('productTeaser', {
                             type: 'object',
@@ -12,7 +12,7 @@
                             action: 'productTeaser',
                             title: 'Drag a product here',
                             height : 'auto',
-                            width: '20vw',
+                            width: '100%'
                         })
                     }}
                 </div>
