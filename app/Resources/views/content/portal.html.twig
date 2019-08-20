@@ -3,5 +3,7 @@
 {% block content %}
     {#Hero caraousel#}
     {{ include('includes/hero-carousel.html.twig') }}
-    {{ pimcore_areablock('content') }}
-{%  endblock %}
+    {{ pimcore_areablock('content', {
+        'allowed': ['hero-teaser', 'standard-teaser', 'hero-grid', 'product-teaser', 'gallery-carousel', 'horizontal-line', 'image', 'image-hotspot-marker', 'video']
+    }) }}
+{% endblock %}

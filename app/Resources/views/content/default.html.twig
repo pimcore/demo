@@ -10,6 +10,11 @@
             <h1>{{ pimcore_input('headline', {'placeholder':'Headline'}) }}</h1>
         </div>
 
-        {{ pimcore_areablock('content') }}
+        {{ pimcore_areablock('content', {
+            'allowed': ['blockquote', 'embed', 'featurette', 'gallery-carousel', 'gallery-folder',
+                'gallery-single-images', 'headlines', 'horizontal-line', 'icon-teaser-row', 'image',
+                'image-hotspot-marker', 'pdf', 'product-grid', 'product-teaser', 'standard-teaser', 'text-accordion',
+                'time-slider-featurette', 'video', 'wysiwyg', 'wysiwyg-with-images']
+        }) }}
     </div>
 {% endblock %}
