@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="<?= $this->language; ?>">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/print/css/print-style.css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&display=swap" rel="stylesheet">
+    {% if editmode %}
+        <link rel="stylesheet" type="text/css" href="/static/print/css/print-edit.css" media="screen" />
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="/static/print/css/print-preview.css" media="screen" />
+
+    {% if printermarks is defined and printermarks == true %}
+        <link rel="stylesheet" type="text/css" href="/bundles/pimcoreadmin/css/print/print-printermarks.css" media="print" />
+    {% endif %}
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+    {% block head_stylesheets deferred %}
+        {{ pimcore_head_link() }}
+    {% endblock %}
+
+    {% block headscripts deferred %}
+        {{ pimcore_head_script() }}
+    {% endblock %}
+
+    {% block register_definition deferred %}
+        <style type="text/css">
+
+            {{ pimcore_placeholder('register-title-definition') }}
+
+    {#        {% set rootCategory = document.getProperty('rootCategory') %}#}
+    {#        {% if rootCategory %}#}
+    {#            {% for category in rootCategory.children %}#}
+    {#                @page {{ category.key | replace({' ':''}) }}:right {#}
+    {#                    @left-top {#}
+    {#                        content: xhtml("<div class='register left register-{{ category.key | replace({' ':''}) }}'>{{ category.name() }}</div>");#}
+    {#                        z-index: 2000;#}
+    {#                    }#}
+    {#                }#}
+
+    {#                @page {{ category.key | replace({' ':''}) }}:left {#}
+    {#                    @right-top {#}
+    {#                        content: xhtml("<div class='register register-{{ category.key | replace({' ':''})}}'>{{ category.name() }}</div>");#}
+    {#                        z-index: 2000;#}
+    {#                    }#}
+    {#                }#}
+    {#            {% endfor %}#}
+    {#        {% endif %}#}
+
+        </style>
+    {% endblock %}
+
+
+
+</head>
+
+<body>
+<div class="site">
+    {{ block('content') }}
+</div>
+
+
+
+{% block inlinescripts deferred %}
+    {{ pimcore_inline_script() }}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div class="title-page-container">
+
+    {{ pimcore_image('backgroundimage', {'thumbnail': (editmode ? 'print_backgroundimage_small' : 'print_backgroundimage'), 'class': 'background'}) }}
+
+    <div class="img-container">
+        {{ pimcore_image('titleimage', {'thumbnail': 'print_titleimage', 'class': 'title'}) }}
+
+    </div>
+
+    <div class="heading">{{ pimcore_input('heading') }}</div>
+    <div class="subheading">{{ pimcore_input('subheading') }}</div>
+
+</div>

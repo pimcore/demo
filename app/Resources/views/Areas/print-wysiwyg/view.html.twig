@@ -1,0 +1,8 @@
+<div class="contentblock wysiwyg">
+    {% if editmode or pimcore_input('headline').data %}
+        <h2>{{ pimcore_input('headline') }}</h2>
+    {% endif %}
+
+    {{ pimcore_wysiwyg('content') }}
+
+</div>

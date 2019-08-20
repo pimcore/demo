@@ -1,0 +1,675 @@
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
+/* layout */
+.footer-text-placeholder-left, .toc-footer-text-placeholder-left {
+    position: running(footerElementLeft);
+    text-align: right;
+}
+
+.footer-text-placeholder-left:after, .toc-footer-text-placeholder-left:after {
+    content: counter(page);
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 900;
+    padding-left: 3mm;
+}
+
+.footer-text-placeholder-right, .toc-footer-text-placeholder-right {
+    position: running(footerElementRight);
+}
+
+.footer-text-placeholder-right:before, .toc-footer-text-placeholder-right:before {
+    content: counter(page);
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 900;
+    padding-right: 3mm;
+}
+
+
+.toc-footer-text-placeholder-left {
+    position: running(tocFooterElementLeft);
+    text-align: right;
+}
+.toc-footer-text-placeholder-right {
+    position: running(tocFooterElementRight);
+}
+.toc-footer-text-placeholder-left, .toc-footer-text-placeholder-right {
+    color: #ffffff;
+}
+
+
+@page {
+    counter-increment: page;
+
+    -ro-scale-content: none;
+    hyphens: auto;
+
+    size: A4 portrait;
+}
+
+@page title {
+    margin: 0;
+}
+
+@page:right {
+    margin:15mm 10mm 14mm 14mm;
+    @bottom-left {
+        content: element(footerElementRight);
+        text-align: left;
+    }
+}
+
+@page:left {
+    margin:15mm 14mm 14mm 10mm;
+    @bottom-right {
+        content: element(footerElementLeft);
+    }
+}
+
+@page toc {
+    background-color: #0078BD;
+    color: #ffffff;
+}
+@page toc:right {
+    margin:15mm 5mm 14mm 14mm;
+    @bottom-left {
+        content: element(tocFooterElementRight);
+        text-align: left;
+    }
+}
+@page toc:left {
+    margin:15mm 14mm 14mm 5mm;
+    @bottom-right {
+        content: element(tocFooterElementLeft);
+    }
+}
+
+
+.register {
+    font-size: 12pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    /*letter-spacing: 40;*/
+    text-align:left;
+    display: block;
+    height: 11mm;
+    margin: 0;
+    -ro-transform-origin: 0px 0px;
+    -ro-transform: rotate(-90deg) translateY(0) translateX(15mm);
+    position: absolute;
+    left: 3.75mm;
+    padding-top: 2mm;
+    padding-left: 5mm;
+}
+.register.left {
+    right: 3.75mm;
+    left: -3mm;
+    padding-top: 4.5mm;
+    height: 8mm;
+    /*border-radius: 0 0 0 3mm;*/
+}
+
+.register-orange {
+    top: 79.125mm;
+    width: 79.125mm;
+    background-color: #ec6e1e;
+}
+.register-red {
+    top: 97.25mm;
+    width: 97.25mm;
+    background-color: #cf120f;
+}
+.register-violett {
+    top: 115.375mm;
+    width: 115.375mm;
+    background-color: #a52774;
+}
+.register-green {
+    top:133.8mm;
+    width: 133.8mm;
+    background-color: #177f17;
+}
+
+.register-blue {
+    top: 151.625mm;
+    width: 151.625mm;
+    background-color: #28ABE1;
+}
+.register-yellow {
+    top:170.12mm;
+    width:170.12mm;
+    background-color: #f2e552;
+    color: #000000;
+}
+
+/* Layout Tabs */
+#toc-wrapper {
+    page: toc;
+}
+.page.orange {
+    page: orange;
+}
+.page.orange h1, .page.orange .headline {
+    color: #ec6e1e;
+}
+.page.orange .pimcore_area_print-product-row h4:after {
+    border-color: #ec6e1e;
+}
+.page.orange .pimcore_area_print-product-table .outputchannel thead td {
+    color: #ec6e1e;
+    border-color: #ec6e1e;
+}
+
+.page.red {
+    page: red;
+}
+.page.red h1, .page.red .headline {
+    color: #cf120f;
+}
+.page.red .pimcore_area_print-product-row h4:after {
+    border-color: #cf120f;
+}
+.page.red .pimcore_area_print-product-table .outputchannel thead td {
+    color: #cf120f;
+    border-color: #cf120f;
+}
+
+.page.violett {
+    page: violett;
+}
+.page.violett h1, .page.violett .headline {
+    color: #a52774;
+}
+.page.violett .pimcore_area_print-product-row h4:after {
+    border-color: #a52774;
+}
+.page.violett .pimcore_area_print-product-table .outputchannel thead td {
+    color: #a52774;
+    border-color: #a52774;
+}
+
+.page.green {
+    page: green;
+}
+.page.green h1, .page.green .headline {
+    color: #177f17;
+}
+.page.green .pimcore_area_print-product-row h4:after {
+    border-color: #177f17;
+}
+.page.green .pimcore_area_print-product-table .outputchannel thead td {
+    color: #177f17;
+    border-color: #177f17;
+}
+
+.page.blue {
+    page: blue;
+}
+.page.blue h1, .page.blue .headline {
+    color: #28ABE1;
+}
+.page.blue .pimcore_area_print-product-row h4:after {
+    border-color: #28ABE1;
+}
+.page.blue .pimcore_area_print-product-table .outputchannel thead td {
+    color: #28ABE1;
+    border-color: #28ABE1;
+}
+
+.page.yellow {
+    page: yellow;
+}
+.page.yellow h1, .page.yellow .headline {
+    color: #f2e552
+}
+.page.yellow .pimcore_area_print-product-row h4:after {
+    border-color: #f2e552;
+}
+.page.yellow .pimcore_area_print-product-table .outputchannel thead td {
+    color: #f2e552;
+    border-color: #f2e552;
+}
+
+
+
+body {
+    font-family: 'Hind Guntur', sans-serif;
+    font-size: 10pt;
+}
+
+/*.page {
+    page-break-after: always;
+}*/
+
+.site h1, .site .headline {
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 700;
+    line-height: 120%;
+    font-size: 16pt;
+}
+
+
+.site .right h1 {
+    text-align: right;
+}
+
+.site h2 {
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+    line-height: 120%;
+    font-size: 14pt;
+}
+
+
+
+.site h3 {
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 300;
+    line-height: 120%;
+    font-size: 12pt;
+}
+
+.pimcore_area_print-key-visual {
+    page-break-before: always;
+}
+
+
+.keyvisual {
+    position: relative;
+    padding-bottom: 8mm;
+}
+
+.keyvisual .image-container {
+    height: 76mm;
+    overflow: hidden;
+    width: 208mm;
+    margin-top: -18mm;
+    margin-left: -10mm;
+}
+
+.keyvisual .image-container img {
+    width: 208mm;
+    height: auto;
+}
+
+.pimcore_area_print-key-visual .headline {
+    text-align: center;
+    background: #000000;
+    display: block;
+    font-size: 35pt;
+    margin: 0 40mm 0 40mm;
+    padding-top: 13px;
+    line-height: 100%;
+    font-weight: 300;
+    text-transform: uppercase;
+    width: 115mm;
+    position: absolute;
+    left: 0;
+    top: 63mm;
+    z-index: 2000;
+}
+
+.pagebreak-force-page-break {
+    page-break-after: always;
+}
+
+.pimcore_area_print-product-row .element {
+    float: left;
+    padding: 3mm 0;
+    /*height: 6.64cm;*/
+    /*overflow: hidden;*/
+    position: relative;
+}
+
+.pimcore_area_print-product-row .element.first {
+    padding-right: 20mm;
+}
+
+.pimcore_area_print-product-row .element.small {
+    width: 6.7cm;
+}
+
+.pimcore_area_print-product-row .element.wide {
+    width: 87mm;
+}
+
+.pimcore_area_print-product-row .productrow {
+    page-break-inside: avoid;
+}
+
+.pimcore_area_print-product-row .productrow .clear {
+    clear: both;
+}
+
+
+.pimcore_area_print-product-row .texts {
+    padding-top: 2mm;
+}
+
+.pimcore_area_print-product-row h4 {
+    display: inline;
+    font-size: 13pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.pimcore_area_print-product-row h4:after {
+    content: ' ';
+    display: block;
+    width: 1cm;
+    border-bottom: 2px solid;
+}
+
+.pimcore_area_print-product-row .colorvariants img {
+    max-height: 1cm;
+    max-width: 1cm;
+    width: auto;
+    height: auto;
+    padding-bottom: 1mm;
+}
+
+
+.pimcore_area_print-product-row .infoblock {
+    margin: 3mm 0 5mm;
+    font-size: 8pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 300;
+    width: 45mm;
+}
+
+.pimcore_area_print-product-row .infoblock label {
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+    font-size: 8pt;
+}
+
+.pimcore_area_print-product-row .infoblock p {
+    margin-bottom: 0;
+    margin-top: 1mm;
+}
+
+.pimcore_area_print-product-row .infoblock .price {
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+.pimcore_area_print-product-row .mainImage img {
+    /*max-height: 3cm;*/
+    /*max-width: 3cm;*/
+    width: 100%;
+    height: auto;
+}
+
+
+.pimcore_area_print-product-row .small .mainImage {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.pimcore_area_print-product-row .small.first .mainImage {
+    /*width: 44mm;*/
+}
+
+.pimcore_area_print-product-row .small .colorvariants {
+    position: absolute;
+    width: 1cm;
+    right: 5mm;
+    top: 8mm;
+}
+
+.pimcore_area_print-product-row .small.first .colorvariants {
+    right: 24mm;
+}
+
+/*.pimcore_area_print-product-row .wide .texts {*/
+/*    padding-top: 15mm;*/
+/*    clear: both;*/
+/*}*/
+
+/*.pimcore_area_print-product-row .wide .colorvariants {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    margin-top: 0;*/
+/*}*/
+
+/*.pimcore_area_print-product-row .wide .colorvariants img {*/
+/*    padding-bottom: 0;*/
+/*    padding-top: 2mm;*/
+/*}*/
+
+/*.pimcore_area_print-product-row .wide .infoblock {*/
+/*    margin: 3mm 0 5mm;*/
+/*    font-size: 9pt;*/
+/*}*/
+
+
+/*.pimcore_area_print-product-row .wide .mainImage {*/
+/*    position: absolute;*/
+/*    top: 10mm;*/
+/*    right: 5mm;*/
+/*    display: block;*/
+/*}*/
+
+/*.pimcore_area_print-product-row .wide.first .mainImage {*/
+/*    right: 24mm;*/
+/*}*/
+
+/*.pimcore_area_print-product-row .wide .mainImage img {*/
+/*    max-height: 4.5cm;*/
+/*    max-width: 4.5cm;*/
+/*}*/
+
+.pimcore_area_print-title-page {
+    page: title;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.pimcore_area_print-title-page .title-page-container  {
+    position: absolute;
+    top: -3mm;
+    left: -3mm;
+    width: 216mm;
+    height: 303mm;
+}
+
+.pimcore_area_print-title-page .title-page-container img.background {
+    max-width: 216mm;
+    max-height: 303mm;
+    width: auto;
+    height: auto;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pimcore_area_print-title-page .img-container  {
+    position: absolute;
+    z-index: 200;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+.pimcore_area_print-title-page .title-page-container .img-container .title {
+    max-width: 60mm;
+    max-height: 60mm;
+    width: auto;
+    height: auto;
+    z-index: 2000;
+}
+
+
+.pimcore_area_print-title-page .heading {
+    position: absolute;
+    bottom: 50mm;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 700;
+    /*margin: 0 45mm;*/
+    font-size: 40pt;
+    text-align: center;
+    color: #ffffff;
+    z-index: 1000;
+    width: 100%;
+    text-shadow: rgb(0, 0, 0) 0 0 5px;
+}
+
+
+.pimcore_area_print-title-page .subheading {
+    position: absolute;
+    bottom: 45mm;
+    color: #ffffff;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+    font-size: 14pt;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+    text-shadow: rgb(0, 0, 0) 0 0 5px;
+}
+
+
+
+#toc-wrapper, #toc-wrapper a  {
+    color: #ffffff;
+}
+
+#toc-wrapper h1 {
+    text-transform: uppercase;
+    padding: 40mm 15mm 5mm 15mm;
+}
+
+#toc-wrapper p {
+    padding: 0 15mm;
+    font-size: 11pt;
+}
+
+#toc-wrapper .toc.ro-toc a:after {
+    content: leader(dotted) target-counter(attr(href), page);
+}
+
+#toc-wrapper a {
+    text-decoration: none;
+}
+
+/*!* indent TOC items according to heading level of target *!*/
+#toc-wrapper .toc.ro-toc .ro-toc-level-1 {
+    padding-top: 2mm;
+    font-size: 12pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+    padding-left: 0;
+}
+#toc-wrapper .toc.ro-toc .ro-toc-level-2 {
+    padding-left: 5mm;
+    padding-right: 0.5mm;
+    padding-top: 1mm;
+    font-size: 10pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 400;
+}
+#toc-wrapper .toc.ro-toc .ro-toc-level-3 {
+    padding-left: 10mm;
+    padding-top: 1mm;
+    padding-right: 0.5mm;
+    font-size: 10pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 300;
+}
+
+#toc-wrapper ul.toc.ro-toc {
+    list-style-type: none;
+    padding: 10mm 15mm;
+}
+
+#toc-wrapper, #toc-wrapper .ro-toc > h2 {
+    page-break-before: avoid;
+}
+
+.pimcore_area_print-toc {
+    page-break-inside: avoid;
+}
+
+
+.pimcore_area_print-product-table table.outputchannel {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+.pimcore_area_print-product-table .outputchannel thead {
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+}
+
+.pimcore_area_print-product-table .outputchannel {
+    margin-bottom: 10mm;
+    line-height: 120%;
+}
+
+.pimcore_area_print-product-table .outputchannel thead td {
+    border-bottom: 2px solid;
+    padding: 0 2mm 1mm 2mm;
+    vertical-align: bottom;
+    font-size: 9pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+
+}
+
+.pimcore_area_print-product-table .outputchannel thead td.super-header {
+    border-bottom: none;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+
+.pimcore_area_print-product-table .outputchannel thead td.sub-header {
+    font-weight: 400;
+    font-size: 9pt;
+    text-align: center;
+}
+
+.pimcore_area_print-product-table .outputchannel thead td img {
+    max-height: 5mm;
+    max-width: 5mm;
+    height: auto;
+    width: auto;
+    margin: 0 1mm 0 0 !important;
+}
+
+.pimcore_area_print-product-table .outputchannel tbody td {
+    padding: 1mm 2mm 1mm 2mm;
+    vertical-align: top;
+    font-size: 9pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 300;
+}
+
+.pimcore_area_print-product-table .outputchannel tbody td:first-child, .pimcore_area_print-product-table .outputchannel tbody td:last-child {
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: 600;
+}
+
+.pimcore_area_print-product-table .outputchannel tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+

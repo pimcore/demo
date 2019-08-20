@@ -1,0 +1,28 @@
+{%  block content %}
+
+
+    {% do app_print_create_register(document.getProperty('print_register_title') , document.getProperty('print_register_type')) %}
+
+    <div class="page {{ app_print_get_register_name(document.getProperty('print_register_title')) }} {{ document.getProperty('print_register_type') }}" id="documentpage-{{ document.id }}">
+
+        <div>
+
+            {{
+            pimcore_areablock('content', {
+                'allowed': [
+                    'print-wysiwyg',
+                    'print-page-break',
+                    'print-title-page',
+                    'print-key-visual',
+                    'print-product-row',
+                    'print-product-table',
+                    'print-toc'
+                ]
+            })
+            }}
+
+        </div>
+
+    </div>
+
+{% endblock %}

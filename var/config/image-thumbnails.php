@@ -11,21 +11,6 @@ return [
                     "positioning" => "center",
                     "forceResize" => FALSE
                 ]
-            ],
-            [
-                "method" => "brightnessSaturation",
-                "arguments" => [
-                    "brightness" => 100,
-                    "saturation" => 70,
-                    "hue" => 100
-                ]
-            ],
-            [
-                "method" => "addOverlayFit",
-                "arguments" => [
-                    "path" => "src/AppBundle/Resources/thumbnail-overlay/overlay.png",
-                    "composite" => "COMPOSITE_DEFAULT"
-                ]
             ]
         ],
         "medias" => [
@@ -33,7 +18,7 @@ return [
         ],
         "name" => "grid",
         "description" => "",
-        "group" => "",
+        "group" => "E-Commerce",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -41,7 +26,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565344340,
+        "modificationDate" => 1566220974,
         "creationDate" => 1562150477,
         "id" => "grid"
     ],
@@ -60,7 +45,7 @@ return [
         ],
         "name" => "cart",
         "description" => "",
-        "group" => "",
+        "group" => "E-Commerce",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -68,7 +53,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1562311619,
+        "modificationDate" => 1566220970,
         "creationDate" => 1562252277,
         "id" => "cart"
     ],
@@ -89,7 +74,7 @@ return [
         ],
         "name" => "galleryThumbnail",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -97,7 +82,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1564138711,
+        "modificationDate" => 1566220953,
         "creationDate" => 1563541372,
         "id" => "galleryThumbnail"
     ],
@@ -116,7 +101,7 @@ return [
         ],
         "name" => "galleryLightbox",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -124,7 +109,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1563541438,
+        "modificationDate" => 1566220948,
         "creationDate" => 1563541426,
         "id" => "galleryLightbox"
     ],
@@ -143,7 +128,7 @@ return [
         ],
         "name" => "content",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 95,
         "highResolution" => 0.0,
@@ -151,7 +136,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1564399883,
+        "modificationDate" => 1566220925,
         "creationDate" => 1563542883,
         "id" => "content"
     ],
@@ -172,7 +157,7 @@ return [
         ],
         "name" => "featurerette",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -180,7 +165,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1564138258,
+        "modificationDate" => 1566220932,
         "creationDate" => 1563545716,
         "id" => "featurerette"
     ],
@@ -189,30 +174,31 @@ return [
             [
                 "method" => "scaleByWidth",
                 "arguments" => [
-                    "width" => "275"
+                    "width" => 275,
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "roundCorners",
                 "arguments" => [
-                    "width" => "10",
-                    "height" => "10"
+                    "width" => 10,
+                    "height" => 10
                 ]
             ],
             [
                 "method" => "rotate",
                 "arguments" => [
-                    "angle" => "10"
+                    "angle" => 10
                 ]
             ],
             [
                 "method" => "addOverlay",
                 "arguments" => [
                     "path" => "/web/static/images/logo-overlay.png",
-                    "x" => "10",
-                    "y" => "10",
+                    "x" => 10,
+                    "y" => 10,
                     "origin" => "bottom-right",
-                    "alpha" => "100",
+                    "alpha" => 100,
                     "composite" => "COMPOSITE_DEFAULT"
                 ]
             ]
@@ -220,11 +206,18 @@ return [
         "medias" => [
 
         ],
+        "name" => "exampleCombined1",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220511,
+        "creationDate" => 1566220511,
         "id" => "exampleCombined1"
     ],
     "exampleCombined2" => [
@@ -232,13 +225,16 @@ return [
             [
                 "method" => "frame",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150"
+                    "width" => 275,
+                    "height" => 150,
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "grayscale",
-                "arguments" => ""
+                "arguments" => [
+
+                ]
             ],
             [
                 "method" => "setBackgroundColor",
@@ -250,11 +246,18 @@ return [
         "medias" => [
 
         ],
+        "name" => "exampleCombined2",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220519,
+        "creationDate" => 1566220519,
         "id" => "exampleCombined2"
     ],
     "exampleContain" => [
@@ -262,19 +265,27 @@ return [
             [
                 "method" => "contain",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150"
+                    "width" => 275,
+                    "height" => 150,
+                    "forceResize" => FALSE
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleContain",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220523,
+        "creationDate" => 1566220523,
         "id" => "exampleContain"
     ],
     "exampleCorners" => [
@@ -282,39 +293,46 @@ return [
             [
                 "method" => "cover",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150",
+                    "width" => 275,
+                    "height" => 150,
                     "positioning" => "center",
-                    "doNotScaleUp" => "1"
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "addOverlay",
                 "arguments" => [
                     "path" => "/web/static/images/logo-overlay.png",
-                    "x" => "10",
-                    "y" => "10",
+                    "x" => 10,
+                    "y" => 10,
                     "origin" => "top-left",
-                    "alpha" => "100",
+                    "alpha" => 100,
                     "composite" => "COMPOSITE_DEFAULT"
                 ]
             ],
             [
                 "method" => "roundCorners",
                 "arguments" => [
-                    "width" => "10",
-                    "height" => "10"
+                    "width" => 10,
+                    "height" => 10
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleCorners",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220529,
+        "creationDate" => 1566220529,
         "id" => "exampleCorners"
     ],
     "exampleCover" => [
@@ -322,21 +340,28 @@ return [
             [
                 "method" => "cover",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150",
+                    "width" => 275,
+                    "height" => 150,
                     "positioning" => "center",
-                    "doNotScaleUp" => "1"
+                    "forceResize" => FALSE
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleCover",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220533,
+        "creationDate" => 1566220533,
         "id" => "exampleCover"
     ],
     "exampleFrame" => [
@@ -344,19 +369,27 @@ return [
             [
                 "method" => "frame",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150"
+                    "width" => 275,
+                    "height" => 150,
+                    "forceResize" => FALSE
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleFrame",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220544,
+        "creationDate" => 1566220544,
         "id" => "exampleFrame"
     ],
     "exampleGrayscale" => [
@@ -364,23 +397,33 @@ return [
             [
                 "method" => "frame",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150"
+                    "width" => 275,
+                    "height" => 150,
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "grayscale",
-                "arguments" => ""
+                "arguments" => [
+
+                ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleGrayscale",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220549,
+        "creationDate" => 1566220549,
         "id" => "exampleGrayscale"
     ],
     "exampleMask" => [
@@ -406,7 +449,7 @@ return [
         ],
         "name" => "exampleMask",
         "description" => "",
-        "group" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
         "highResolution" => 0.0,
@@ -414,7 +457,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565342371,
+        "modificationDate" => 1566220557,
         "creationDate" => 1565342349,
         "id" => "exampleMask"
     ],
@@ -423,20 +466,20 @@ return [
             [
                 "method" => "cover",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150",
+                    "width" => 275,
+                    "height" => 150,
                     "positioning" => "centerleft",
-                    "doNotScaleUp" => "1"
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "addOverlay",
                 "arguments" => [
                     "path" => "/web/static/images/logo-overlay.png",
-                    "x" => "10",
-                    "y" => "10",
+                    "x" => 10,
+                    "y" => 10,
                     "origin" => "top-left",
-                    "alpha" => "75",
+                    "alpha" => 75,
                     "composite" => "COMPOSITE_DEFAULT"
                 ]
             ]
@@ -444,11 +487,18 @@ return [
         "medias" => [
 
         ],
+        "name" => "exampleOverlay",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220562,
+        "creationDate" => 1566220562,
         "id" => "exampleOverlay"
     ],
     "exampleResize" => [
@@ -456,19 +506,26 @@ return [
             [
                 "method" => "resize",
                 "arguments" => [
-                    "width" => "275",
-                    "height" => "150"
+                    "width" => 275,
+                    "height" => 150
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleResize",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220566,
+        "creationDate" => 1566220566,
         "id" => "exampleResize"
     ],
     "exampleRotate" => [
@@ -476,24 +533,32 @@ return [
             [
                 "method" => "scaleByWidth",
                 "arguments" => [
-                    "width" => "275"
+                    "width" => 275,
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "rotate",
                 "arguments" => [
-                    "angle" => "5"
+                    "angle" => 5
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleRotate",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220571,
+        "creationDate" => 1566220571,
         "id" => "exampleRotate"
     ],
     "exampleScaleHeight" => [
@@ -501,18 +566,26 @@ return [
             [
                 "method" => "scaleByHeight",
                 "arguments" => [
-                    "height" => "150"
+                    "height" => 150,
+                    "forceResize" => FALSE
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleScaleHeight",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220596,
+        "creationDate" => 1566220596,
         "id" => "exampleScaleHeight"
     ],
     "exampleScaleWidth" => [
@@ -520,18 +593,26 @@ return [
             [
                 "method" => "scaleByWidth",
                 "arguments" => [
-                    "width" => "275"
+                    "width" => 275,
+                    "forceResize" => FALSE
                 ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleScaleWidth",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220600,
+        "creationDate" => 1566220600,
         "id" => "exampleScaleWidth"
     ],
     "exampleSepia" => [
@@ -539,22 +620,32 @@ return [
             [
                 "method" => "scaleByWidth",
                 "arguments" => [
-                    "width" => "275"
+                    "width" => 275,
+                    "forceResize" => FALSE
                 ]
             ],
             [
                 "method" => "sepia",
-                "arguments" => ""
+                "arguments" => [
+
+                ]
             ]
         ],
         "medias" => [
 
         ],
+        "name" => "exampleSepia",
         "description" => "",
+        "group" => "Example",
         "format" => "SOURCE",
         "quality" => 90,
-        "highResolution" => 0,
-        "filenameSuffix" => NULL,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220605,
+        "creationDate" => 1566220605,
         "id" => "exampleSepia"
     ],
     "product_detail" => [
@@ -572,7 +663,7 @@ return [
         ],
         "name" => "product_detail",
         "description" => "",
-        "group" => "",
+        "group" => "E-Commerce",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -580,7 +671,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565167949,
+        "modificationDate" => 1566220986,
         "creationDate" => 1565167920,
         "id" => "product_detail"
     ],
@@ -601,7 +692,7 @@ return [
         ],
         "name" => "product_detail_small",
         "description" => "",
-        "group" => "",
+        "group" => "E-Commerce",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -609,7 +700,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565169325,
+        "modificationDate" => 1566220997,
         "creationDate" => 1565169289,
         "id" => "product_detail_small"
     ],
@@ -628,7 +719,7 @@ return [
         ],
         "name" => "product_detail_manufacturer",
         "description" => "",
-        "group" => "",
+        "group" => "E-Commerce",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -636,7 +727,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565170957,
+        "modificationDate" => 1566220992,
         "creationDate" => 1565170947,
         "id" => "product_detail_manufacturer"
     ],
@@ -689,7 +780,7 @@ return [
         ],
         "name" => "galleryCarousel",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -697,7 +788,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565347087,
+        "modificationDate" => 1566220937,
         "creationDate" => 1565346856,
         "id" => "galleryCarousel"
     ],
@@ -718,7 +809,7 @@ return [
         ],
         "name" => "galleryCarouselPreview",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -726,7 +817,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565346948,
+        "modificationDate" => 1566220943,
         "creationDate" => 1565346938,
         "id" => "galleryCarouselPreview"
     ],
@@ -768,7 +859,7 @@ return [
         ],
         "name" => "portalCarousel",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -776,7 +867,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565357033,
+        "modificationDate" => 1566221030,
         "creationDate" => 1565355190,
         "id" => "portalCarousel"
     ],
@@ -797,7 +888,7 @@ return [
         ],
         "name" => "heroGrid",
         "description" => "",
-        "group" => "",
+        "group" => "Areas",
         "format" => "SOURCE",
         "quality" => 85,
         "highResolution" => 0.0,
@@ -805,8 +896,217 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1565359326,
+        "modificationDate" => 1566220981,
         "creationDate" => 1565359271,
         "id" => "heroGrid"
+    ],
+    "print_keyvisual" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 2000,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_keyvisual",
+        "description" => "",
+        "group" => "Print",
+        "format" => "PRINT",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220677,
+        "creationDate" => 1566220615,
+        "id" => "print_keyvisual"
+    ],
+    "print_backgroundimage_small" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 800,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_backgroundimage_small",
+        "description" => "",
+        "group" => "Print",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220706,
+        "creationDate" => 1566220680,
+        "id" => "print_backgroundimage_small"
+    ],
+    "print_backgroundimage" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 3000,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_backgroundimage",
+        "description" => "",
+        "group" => "Print",
+        "format" => "PRINT",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220729,
+        "creationDate" => 1566220714,
+        "id" => "print_backgroundimage"
+    ],
+    "print_titleimage" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 1000,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_titleimage",
+        "description" => "",
+        "group" => "Print",
+        "format" => "PRINT",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220753,
+        "creationDate" => 1566220739,
+        "id" => "print_titleimage"
+    ],
+    "print_productcell" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 600,
+                    "height" => 360,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ],
+            [
+                "method" => "roundCorners",
+                "arguments" => [
+                    "width" => 9,
+                    "height" => 9
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_productcell",
+        "description" => "",
+        "group" => "Print",
+        "format" => "PRINT",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566313298,
+        "creationDate" => 1566220777,
+        "id" => "print_productcell"
+    ],
+    "standardTeaser" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 350,
+                    "height" => 235,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "standardTeaser",
+        "description" => "",
+        "group" => "Areas",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566220919,
+        "creationDate" => 1566220896,
+        "id" => "standardTeaser"
+    ],
+    "print_image_small" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 100,
+                    "height" => 60,
+                    "positioning" => "center",
+                    "forceResize" => FALSE
+                ]
+            ],
+            [
+                "method" => "roundCorners",
+                "arguments" => [
+                    "width" => 2,
+                    "height" => 2
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_image_small",
+        "description" => "",
+        "group" => "Print",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566313821,
+        "creationDate" => 1566306657,
+        "id" => "print_image_small"
     ]
 ];

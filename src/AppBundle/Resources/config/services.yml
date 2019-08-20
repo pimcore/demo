@@ -52,6 +52,10 @@ services:
     AppBundle\Twig\Extension\NewsExtension:
         tags: ['twig.extension']
 
+    AppBundle\Twig\Extension\PrintCatalogExtension:
+        tags: ['twig.extension']
+
+
     AppBundle\Website\LinkGenerator\CategoryLinkGenerator:
         public: true
 

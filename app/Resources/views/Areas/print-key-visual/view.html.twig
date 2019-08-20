@@ -1,0 +1,16 @@
+
+<div class="keyvisual">
+    <div class="image-container">
+        {{ pimcore_image('keyvisual', {'thumbnail': 'print_keyvisual'}) }}
+    </div>
+
+    <h1 class="headline">
+        {{ pimcore_input('headline') }}
+    </h1>
+
+</div>
+
+{% if not editmode %}
+    <div class="footer-text-placeholder-left">{{ pimcore_input('headline') }}</div>
+    <div class="footer-text-placeholder-right">{{ pimcore_input('headline') }}</div>
+{% endif %}

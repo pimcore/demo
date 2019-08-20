@@ -1,0 +1,49 @@
+{% do pimcore_head_script().appendFile(asset('/bundles/web2printtools/vendor/js/awesomizr.js')) %}
+
+{% if not editmode %}
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            Awesomizr.createTableOfContents({
+                /* toc container */
+                insertiontarget: '#toc-wrapper',
+                insertiontype: 'beforeend',
+                /* levels to look for and link to in toc*/
+                elements: ['h1','h2'],
+                /* container element for the toc */
+                container: {tag: 'ul', addClass: 'toc'},
+                /* container element for one line in the toc */
+                line: {tag: 'li'},
+                disabledocumenttitle: true,
+                toctitle: ' ',
+
+                /* method of getting the text for the toc lines */
+                text: function (elem) {
+                    return elem.textContent;
+                }
+            });
+
+        });
+
+    </script>
+{% endif %}
+
+
+<div id="toc-wrapper">
+    <h1>{{ pimcore_input('heading') }}</h1>
+
+    <p>{{ pimcore_wysiwyg('introtext') }}</p>
+
+    {% if editmode %}
+        TABLE OF CONTENTS IS GENERATED ON PDF-EXPORT
+    {% endif %}
+</div>
+
+
+{% if not editmode %}
+    <div class="toc-footer-text-placeholder-left">{{ pimcore_input('heading') }}</div>
+    <div class="toc-footer-text-placeholder-right">{{ pimcore_input('heading') }}</div>
+{% endif %}
+
+
+

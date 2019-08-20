@@ -1,0 +1,72 @@
+{% set count = 0 %}
+{% set totalCount = (configArray | length) %}
+
+{% for element in elements %}
+
+    {% set printRowEnd = false %}
+    {% if not subgroup is defined or subgroup == 0 %}
+        <tr class="{{ (count % 2 == 0) ? 'even' : '' }}">
+        {% set subgroup = 0 %}
+        {% set printRowEnd = true %}
+    {% endif %}
+
+            {% set isFirstColumn = true %}
+
+            {% for configElement in configArray %}
+
+                {% if configElement is instanceof('\\OutputDataConfigToolkitBundle\\ConfigElement\\Operator\\Group') %}
+
+                    {%
+                        include 'Areas/print-product-table/spec_attribute/column-attribute-table-values.html.twig' with {
+                            'configArray': configElement.childs,
+                            'elements': [element],
+                            'subgroup': (subgroup + 1)
+                        }
+                    %}
+
+                {% else %}
+
+                    {% if element is instanceof('\\Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\Defaultentry') %}
+
+                        {% if element.span %}
+                            {% if isFirstColumn and subgroup == 0 %}
+                                <td class="metaentry" colspan="{{ totalCount }}">{{ element.value }}</td>
+                            {% endif %}
+                        {% else %}
+                            <td class="metaentry">{{ element.value }}</td>
+                        {% endif %}
+
+                    {% elseif element is instanceof('\\Web2PrintToolsBundle\\Model\\Document\\Tag\\Outputchanneltable\\MetaEntry\\Table') %}
+
+                        {% if isFirstColumn and not subgroup %}
+                            {% do element.resetNextValue() %}
+                        {% endif %}
+
+                        {% set value = element.nextValue %}
+
+                        {% if value %}
+                            <td colspan="{{ value['span'] }}">{{ value['value'] }}</td>
+                        {% endif %}
+
+                    {% else %}
+
+                        <td>
+                            {% set outputElement = configElement.getLabeledValue(element) %}
+                            {{ app_print_output_spec_value(outputElement, thumbnailName) | raw }}
+                        </td>
+
+                    {% endif %}
+
+                {% endif %}
+
+                {% set isFirstColumn = false %}
+
+            {% endfor %}
+
+    {% if printRowEnd %}
+        </tr>
+        {% set count = count + 1 %}
+    {% endif %}
+
+
+{% endfor %}

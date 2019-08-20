@@ -1,0 +1,38 @@
+<tr>
+
+    {% for configElement in configArray %}
+
+        {% if configElement is instanceof('\\OutputDataConfigToolkitBundle\\ConfigElement\\Operator\\Group') %}
+
+            <td class="super-header" colspan="{{ configElement.childs | length }}">
+                {{ configElement.label }}
+            </td>
+
+        {% else %}
+            <td class="{{ currentLevel > 0 ? 'sub-header' : '' }}" rowspan="{{ levels - currentLevel }}">
+                {{ output_channel_column_header(configElement, classname) }}
+            </td>
+        {% endif %}
+
+    {% endfor %}
+
+</tr>
+
+
+{# for sub groups add additional row to header #}
+{% for configElement in configArray %}
+
+    {% if configElement is instanceof('\\OutputDataConfigToolkitBundle\\ConfigElement\\Operator\\Group') %}
+
+        {%
+            include 'Areas/print-product-table/spec_attribute/column-attribute-table-header.html.twig' with {
+            'configArray': configElement.childs,
+            'classname': classname,
+            'levels': levels,
+            'currentLevel': (currentLevel + 1)
+        }
+        %}
+
+    {% endif %}
+
+{% endfor %}

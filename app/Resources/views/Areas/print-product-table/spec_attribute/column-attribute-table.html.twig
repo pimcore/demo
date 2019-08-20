@@ -1,0 +1,22 @@
+{% set levels = output_channel_max_group_depth(configArray) %}
+
+<thead>
+    {%
+        include 'Areas/print-product-table/spec_attribute/column-attribute-table-header.html.twig' with {
+            'configArray': configArray,
+            'classname': classname,
+            'levels': levels,
+            'currentLevel': 0
+        }
+    %}
+</thead>
+
+<tbody>
+    {%
+        include 'Areas/print-product-table/spec_attribute/column-attribute-table-values.html.twig' with {
+        'configArray': configArray,
+        'elements': elements,
+        'thumbnailName': thumbnailName
+    }
+    %}
+</tbody>

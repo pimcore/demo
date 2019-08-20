@@ -1,0 +1,34 @@
+{% if editmode %}
+
+    <h3>{{ pimcore_input('headline') }}</h3>
+    <p>{{ pimcore_textarea('headtext') }}</p>
+
+    {{
+        pimcore_outputchanneltable('tableconfig', {
+            'disableClassSelection': false,
+            'disableFavoriteOutputChannel': true
+        })
+    }}
+
+{%  else %}
+
+    <div class="headline">
+        <h3>{{ pimcore_input('headline') }}</h3>
+    </div>
+
+    <p>{{ pimcore_textarea('headtext') }}</p>
+
+
+    {% set configArray = output_channel_build_output_data_config(pimcore_outputchanneltable('tableconfig').getOutputChannel()) %}
+    <table class="outputchannel">
+        {%
+            include 'Areas/print-product-table/spec_attribute/column-attribute-table.html.twig' with {
+                'configArray': configArray,
+                'classname': ("Pimcore\\Model\\DataObject\\" ~ pimcore_outputchanneltable('tableconfig').selectedClass),
+                'elements': pimcore_outputchanneltable('tableconfig'),
+                'thumbnailName': 'print_image_small'
+            }
+        %}
+    </table>
+
+{% endif %}
