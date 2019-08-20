@@ -11,16 +11,13 @@
  * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
-
-
-
 .pimcore_area_print-title-page .img-container {
-	top: 50%;
-	left: 50%;
-	margin-left: -30mm;
+	top: 20mm;
+	left: 20mm;
+	/*margin-left: -30mm;
 	margin-right: -30mm;
 	margin-top: -30mm;
-	margin-bottom: -30mm;
+	margin-bottom: -30mm;*/
 }
 
 

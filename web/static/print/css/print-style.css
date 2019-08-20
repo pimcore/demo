@@ -248,9 +248,9 @@ body {
     font-size: 10pt;
 }
 
-/*.page {
+.page {
     page-break-after: always;
-}*/
+}
 
 .site h1, .site .headline {
     font-family: 'Hind Guntur', sans-serif;
@@ -327,8 +327,6 @@ body {
 .pimcore_area_print-product-row .element {
     float: left;
     padding: 3mm 0;
-    /*height: 6.64cm;*/
-    /*overflow: hidden;*/
     position: relative;
 }
 
@@ -419,10 +417,6 @@ body {
     width: 100%;
 }
 
-.pimcore_area_print-product-row .small.first .mainImage {
-    /*width: 44mm;*/
-}
-
 .pimcore_area_print-product-row .small .colorvariants {
     position: absolute;
     width: 1cm;
@@ -433,44 +427,6 @@ body {
 .pimcore_area_print-product-row .small.first .colorvariants {
     right: 24mm;
 }
-
-/*.pimcore_area_print-product-row .wide .texts {*/
-/*    padding-top: 15mm;*/
-/*    clear: both;*/
-/*}*/
-
-/*.pimcore_area_print-product-row .wide .colorvariants {*/
-/*    display: block;*/
-/*    width: 100%;*/
-/*    margin-top: 0;*/
-/*}*/
-
-/*.pimcore_area_print-product-row .wide .colorvariants img {*/
-/*    padding-bottom: 0;*/
-/*    padding-top: 2mm;*/
-/*}*/
-
-/*.pimcore_area_print-product-row .wide .infoblock {*/
-/*    margin: 3mm 0 5mm;*/
-/*    font-size: 9pt;*/
-/*}*/
-
-
-/*.pimcore_area_print-product-row .wide .mainImage {*/
-/*    position: absolute;*/
-/*    top: 10mm;*/
-/*    right: 5mm;*/
-/*    display: block;*/
-/*}*/
-
-/*.pimcore_area_print-product-row .wide.first .mainImage {*/
-/*    right: 24mm;*/
-/*}*/
-
-/*.pimcore_area_print-product-row .wide .mainImage img {*/
-/*    max-height: 4.5cm;*/
-/*    max-width: 4.5cm;*/
-/*}*/
 
 .pimcore_area_print-title-page {
     page: title;
@@ -501,14 +457,15 @@ body {
 .pimcore_area_print-title-page .img-container  {
     position: absolute;
     z-index: 200;
-    top: 50%;
+    top: 20mm;
+    left: 20mm;
     width: 100%;
-    text-align: center;
+    text-align: left;
 }
 
 .pimcore_area_print-title-page .title-page-container .img-container .title {
-    max-width: 60mm;
-    max-height: 60mm;
+    max-width: 70mm;
+    max-height: 70mm;
     width: auto;
     height: auto;
     z-index: 2000;
@@ -655,7 +612,7 @@ body {
 }
 
 .pimcore_area_print-product-table .outputchannel tbody td {
-    padding: 1mm 2mm 1mm 2mm;
+    padding: 2mm 2mm 2mm 2mm;
     vertical-align: top;
     font-size: 9pt;
     font-family: 'Hind Guntur', sans-serif;
