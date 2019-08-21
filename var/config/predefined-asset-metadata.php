@@ -7,11 +7,11 @@ return [
         "description" => "",
         "type" => "input",
         "targetSubtype" => NULL,
-        "data" => "2",
+        "data" => "",
         "config" => NULL,
         "language" => NULL,
         "creationDate" => 1557394593,
-        "modificationDate" => 1563879090
+        "modificationDate" => 1566383852
     ],
     2 => [
         "id" => 2,
@@ -53,24 +53,12 @@ return [
         "id" => 5,
         "name" => "source",
         "description" => "",
-        "type" => "select",
-        "targetSubtype" => NULL,
-        "data" => NULL,
-        "config" => "test, test2",
-        "language" => NULL,
-        "creationDate" => 1557394633,
-        "modificationDate" => 1563879338
-    ],
-    6 => [
-        "id" => 6,
-        "name" => "New Definition",
-        "description" => NULL,
         "type" => "input",
         "targetSubtype" => NULL,
-        "data" => "1",
-        "config" => NULL,
+        "data" => NULL,
+        "config" => "",
         "language" => NULL,
-        "creationDate" => 1563878942,
-        "modificationDate" => 1563879087
+        "creationDate" => 1557394633,
+        "modificationDate" => 1566383853
     ]
 ];
