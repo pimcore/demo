@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
 {
 
-    const ROOT_CATEGORY_PROPERTY_NAME = 'rootCategory';
+    const ROOT_CATEGORY_PROPERTY_NAME = 'root_category';
 
     /**
      * @var DocumentResolver

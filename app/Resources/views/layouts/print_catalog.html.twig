@@ -27,32 +27,9 @@
 
     {% block register_definition deferred %}
         <style type="text/css">
-
             {{ pimcore_placeholder('register-title-definition') }}
-
-    {#        {% set rootCategory = document.getProperty('rootCategory') %}#}
-    {#        {% if rootCategory %}#}
-    {#            {% for category in rootCategory.children %}#}
-    {#                @page {{ category.key | replace({' ':''}) }}:right {#}
-    {#                    @left-top {#}
-    {#                        content: xhtml("<div class='register left register-{{ category.key | replace({' ':''}) }}'>{{ category.name() }}</div>");#}
-    {#                        z-index: 2000;#}
-    {#                    }#}
-    {#                }#}
-
-    {#                @page {{ category.key | replace({' ':''}) }}:left {#}
-    {#                    @right-top {#}
-    {#                        content: xhtml("<div class='register register-{{ category.key | replace({' ':''})}}'>{{ category.name() }}</div>");#}
-    {#                        z-index: 2000;#}
-    {#                    }#}
-    {#                }#}
-    {#            {% endfor %}#}
-    {#        {% endif %}#}
-
         </style>
     {% endblock %}
-
-
 
 </head>
 

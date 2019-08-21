@@ -74,10 +74,10 @@
             {% set document = pimcore_document(1) %}
         {% endif %}
 
-        <nav class="navbar navbar-expand-md navbar-dark sticky-top py-1 site-header {{ document.getProperty('headerColor') }}">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top py-1 site-header {{ document.getProperty('header_color') }}">
 
             {# get the document which should be used to start in navigation | default home #}
-            {% set navStartNode = document.getProperty('navigationRoot') %}
+            {% set navStartNode = document.getProperty('navigation_root') %}
 
             {% if not navStartNode is instanceof('\\Pimcore\\Model\\Document') %}
                 {% set navStartNode = pimcore_document(1) %}
@@ -135,13 +135,13 @@
             {% else %}
                 <div id="content" class="container">
                     <div class="row">
-                        {% set leftNavShow = document.getProperty('leftNavShow') %}
+                        {% set leftNavShow = document.getProperty('left_nav_show') %}
                         {% set showBreadcrumbs = (hideBreadcrumbs is defined) ? not hideBreadcrumbs : true %}
                         {% set mainColClass = leftNavShow ? 'col-md-9 pt-5 order-last' : 'col-md-12 pt-5' %}
 
                         <div class="{{ mainColClass }}">
                             {% if showBreadcrumbs %}
-                                {% set mainNavStartNode = document.getProperty('navigationRoot') %}
+                                {% set mainNavStartNode = document.getProperty('navigation_root') %}
                                 {% if mainNavStartNode is empty %}
                                     {% set mainNavStartNode = pimcore_document(1) %}
                                 {% endif %}
@@ -162,7 +162,7 @@
                             <div class="col-md-3 pt-5 order-first sidebar">
                                 <div class="sticky">
                                     <div class="bs-sidebar hidden-print affix-top" role="complementary">
-                                        {% set leftStartNode = document.getProperty('leftNavStartNode') %}
+                                        {% set leftStartNode = document.getProperty('left_nav-start_node') %}
                                         {% if leftStartNode is empty %}
                                             {% set leftStartNode = mainNavStartNode %}
                                         {% endif %}
