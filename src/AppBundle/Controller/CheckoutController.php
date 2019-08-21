@@ -32,21 +32,23 @@ class CheckoutController extends FrontendController
 
     /**
      * @Route("/checkout-address", name="shop-checkout-address")
+     *
+     * @param Factory $factory
+     * @param Request $request
+     * @param BreadcrumbHelperService $breadcrumbHelperService
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function checkoutAddressAction(Factory $factory, Request $request, BreadcrumbHelperService $breadcrumbHelperService) {
         $cartManager = $factory->getCartManager();
-        $cart = $this->view->cart = $cartManager->getOrCreateCartByName('cart');
+        $cart = $cartManager->getOrCreateCartByName('cart');
 
         $checkoutManager = $factory->getCheckoutManager($cart);
 
         $deliveryAddress = $checkoutManager->getCheckoutStep('deliveryaddress');
-
-
         $deliveryAddressDataArray = $this->fillDeliveryAddressFromCustomer($deliveryAddress->getData());
 
         $form = $this->createForm(DeliveryAddressFormType::class, $deliveryAddressDataArray, []);
         $form->handleRequest($request);
-        $this->view->form = $form->createView();
 
         $breadcrumbHelperService->enrichCheckoutPage();
 
@@ -71,6 +73,11 @@ class CheckoutController extends FrontendController
                 return $this->redirectToRoute('shop-checkout-payment');
             }
         }
+
+        return [
+            'cart' => $cart,
+            'form' => $form->createView(),
+        ];
 
     }
 
@@ -102,44 +109,36 @@ class CheckoutController extends FrontendController
 
     /**
      * @Route("/checkout-completed", name="shop-checkout-completed")
+     *
+     * @param SessionInterface $session
+     * @return array
      */
     public function checkoutCompletedAction(SessionInterface $session) {
 
         $orderId = $session->get("last_order_id");
 
         $order = OnlineShopOrder::getById($orderId);
-        $this->view->order = $order;
-        $this->view->hideBreadcrumbs = true;
-    }
 
-    public function confirmationMailAction(Request $request) {
-        $this->view->order = $request->get('order');
-
-        if($request->get('order-id')) {
-            $this->view->order = OnlineShopOrder::getById($request->get('order-id'));
-        }
-
-        $this->view->ordernumber = $request->get('ordernumber');
+        return [
+            'order' => $order,
+            'hideBreadcrumbs' => true
+        ];
     }
 
     /**
-     * @Route("/test/send-mail")
+     * @param Request $request
+     * @return array
      */
-    public function sendConfirmationMailAction() {
+    public function confirmationMailAction(Request $request) {
+        $order = $request->get('order');
 
-        $order = OnlineShopOrder::getById(741);
+        if($request->get('order-id')) {
+            $order = OnlineShopOrder::getById($request->get('order-id'));
+        }
 
-        $mail = new Mail();
-        $mail->setDocument(Email::getById(61));
-        $mail->setParams([
-            'ordernumber' => $order->getOrdernumber(),
-            'order' => $order
-        ]);
-
-        $mail->addTo('christian.fasching@elements.at');
-        $mail->send();
-
-        die("done");
+        return [
+            'order' => $order,
+            'ordernumber' => $request->get('ordernumber')
+        ];
     }
-
 }

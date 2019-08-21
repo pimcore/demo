@@ -22,6 +22,11 @@ class NewsController extends BaseController
 
     const NEWS_DEFAULT_DOCUMENT_PROPERTY_NAME = 'news_default_document';
 
+    /**
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     */
     public function listingAction(Request $request) {
 
         // get a list of news objects and order them by date
@@ -33,14 +38,21 @@ class NewsController extends BaseController
         $paginator->setCurrentPageNumber($request->get('page'));
         $paginator->setItemCountPerPage(6);
 
-        $this->view->news = $paginator;
-        $this->view->paginationVariables = $paginator->getPages('Sliding');
-
+        return [
+            'news' => $paginator,
+            'paginationVariables' => $paginator->getPages('Sliding')
+        ];
     }
 
     /**
-     * @param Request $request
      * @Route("{path}/{newstitle}~n{news}", name="news-detail", defaults={"path"=""}, requirements={"path"=".*?", "newstitle"="[\w-]+", "news"="\d+"})
+     *
+     * @param Request $request
+     * @param HeadTitle $headTitleHelper
+     * @param Placeholder $placeholderHelper
+     * @param NewsLinkGenerator $newsLinkGenerator
+     * @param BreadcrumbHelperService $breadcrumbHelperService
+     * @return array
      */
     public function detailAction(Request $request, HeadTitle $headTitleHelper, Placeholder $placeholderHelper, NewsLinkGenerator $newsLinkGenerator, BreadcrumbHelperService $breadcrumbHelperService) {
 
@@ -55,11 +67,16 @@ class NewsController extends BaseController
 
         $placeholderHelper('canonical')->set($newsLinkGenerator->generate($news, ['document' => $this->document->getProperty(self::NEWS_DEFAULT_DOCUMENT_PROPERTY_NAME)] ));
 
-        $this->view->news = $news;
-
+        return [
+            'news' => $news
+        ];
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function newsTeaserAction(Request $request)
     {
         $paramsBag = [];

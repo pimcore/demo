@@ -31,20 +31,33 @@ class PaymentController extends FrontendController
 
     /**
      * @Route("/checkout-payment", name="shop-checkout-payment")
+     *
+     * @param Factory $factory
+     * @param BreadcrumbHelperService $breadcrumbHelperService
+     * @return array
      */
     public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService) {
         $cartManager = $factory->getCartManager();
-        $this->view->cart = $cartManager->getOrCreateCartByName('cart');
         $breadcrumbHelperService->enrichCheckoutPage();
+
+        return [
+            'cart' => $cartManager->getOrCreateCartByName('cart')
+        ];
     }
 
 
     /**
      * @Route("/checkout-payment-frame", name="shop-checkout-payment-frame")
+     *
+     * @param Request $request
+     * @param Factory $factory
+     * @param Translator $translator
+     * @return array
+     * @throws \Pimcore\Bundle\EcommerceFrameworkBundle\Exception\UnsupportedException
      */
     public function paymentFrameAction(Request $request, Factory $factory, Translator $translator) {
         $cartManager = $factory->getCartManager();
-        $this->view->cart = $cart = $cartManager->getOrCreateCartByName('cart');
+        $cart = $cartManager->getOrCreateCartByName('cart');
 
         /**
          * @var $checkoutManager CheckoutManagerInterface
@@ -116,13 +129,21 @@ class PaymentController extends FrontendController
         $paymentForm->remove('submitbutton');
         $paymentForm->add('submitbutton', SubmitType::class, ['attr' => ['class' => 'btn btn-primary'], 'label' => $translator->trans('checkout.payment.paynow')]);
 
-        $this->view->form = $paymentForm->getForm()->createView();
-
+        return [
+            'cart' => $cart,
+            'form' => $paymentForm->getForm()->createView()
+        ];
     }
 
 
     /**
      * @Route("/checkout-payment-status", name="shop-checkout-payment-status")
+     *
+     * @param Request $request
+     * @param Factory $factory
+     * @param Translator $translator
+     * @param SessionInterface $session
+     * @return array
      */
     public function paymentStatusAction(Request $request, Factory $factory, Translator $translator, SessionInterface $session) {
         $cartManager = $factory->getCartManager();
@@ -137,8 +158,9 @@ class PaymentController extends FrontendController
             }
 
             $this->addFlash('danger', $translator->trans('checkout.payment.canceled'));
-            $this->view->goto = $this->generateUrl('shop-checkout-address');
-            return;
+            return [
+                'goto' => $this->generateUrl('shop-checkout-address')
+            ];
         }
 
         $params = array_merge($request->query->all(), $request->request->all());
@@ -158,18 +180,22 @@ class PaymentController extends FrontendController
 
                 $session->set("last_order_id", $order->getId());
 
-                $this->view->goto = $this->generateUrl('shop-checkout-completed');
+                $goto = $this->generateUrl('shop-checkout-completed');
             } else {
 
                 $this->addFlash('danger', strip_tags($request->get('mode'))); //TODO error message
-                $this->view->goto = $this->generateUrl('shop-checkout-address');
+                $goto = $this->generateUrl('shop-checkout-address');
             }
         } catch (\Exception $e) {
 
             $this->addFlash('danger', $e->getMessage()); //TODO error message
-            $this->view->goto = $this->generateUrl('shop-checkout-address');
+            $goto = $this->generateUrl('shop-checkout-address');
 
         }
+
+        return [
+            'goto' => $goto
+        ];
 
     }
 

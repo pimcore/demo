@@ -16,6 +16,7 @@ use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Templating\Helper\HeadTitle;
+use Pimcore\Templating\Model\ViewModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,8 +26,14 @@ class ProductController extends BaseController
 {
 
     /**
-     * @param Request $request
      * @Route("/shop/{path}{productname}~p{product}", name="shop-detail", defaults={"path"=""}, requirements={"path"=".*?", "productname"="[\w-]+", "product"="\d+"})
+     *
+     * @param Request $request
+     * @param HeadTitle $headTitleHelper
+     * @param BreadcrumbHelperService $breadcrumbHelperService
+     * @param Factory $factory
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $factory) {
 
@@ -60,18 +67,24 @@ class ProductController extends BaseController
 
 
     /**
-     * @param Request $request
      * @Route("/shop/{path}{categoryname}~c{category}", name="shop-category", defaults={"path"=""}, requirements={"path"=".*?", "categoryname"="[\w-]+", "category"="\d+"})
+     *
+     * @param Request $request
+     * @param HeadTitle $headTitleHelper
+     * @param BreadcrumbHelperService $breadcrumbHelperService
+     * @param Factory $ecommerceFactory
+     * @return array|\Symfony\Component\HttpFoundation\Response
      */
     public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
     {
+        $viewModel = new ViewModel();
         $params = array_merge($request->query->all(), $request->attributes->all());
 
         //needed to make sure category filter filters for active category
         $params['parentCategoryIds'] = $params['category'];
 
         $category = Category::getById($params['category']);
-        $this->view->category = $category;
+        $viewModel->category = $category;
         if($category) {
             $headTitleHelper($category->getName());
             $breadcrumbHelperService->enrichCategoryPage($category);
@@ -81,7 +94,7 @@ class ProductController extends BaseController
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-        $this->view->productListing = $productListing;
+        $viewModel->productListing = $productListing;
 
         // load current filter
         if ($category) {
@@ -100,21 +113,23 @@ class ProductController extends BaseController
         }
 
         $filterService = $ecommerceFactory->getFilterService();
-        Helper::setupProductList($filterDefinition, $productListing, $params, $this->view, $filterService, true);
-        $this->view->filterService = $filterService;
-        $this->view->filterDefinition = $filterDefinition;
+        Helper::setupProductList($filterDefinition, $productListing, $params, $viewModel, $filterService, true);
+        $viewModel->filterService = $filterService;
+        $viewModel->filterDefinition = $filterDefinition;
 
         // init pagination
         $paginator = new Paginator($productListing);
         $paginator->setCurrentPageNumber($request->get('page'));
         $paginator->setItemCountPerPage(18);
         $paginator->setPageRange(5);
-        $this->view->results = $paginator;
-        $this->view->paginationVariables = $paginator->getPages('Sliding');
+        $viewModel->results = $paginator;
+        $viewModel->paginationVariables = $paginator->getPages('Sliding');
 
         if($request->attributes->get('noLayout')) {
-            return $this->render('/product/listing_content.html.twig', $this->view->getAllParameters());
+            return $this->render('/product/listing_content.html.twig', array_merge($this->view, $viewModel->getAllParameters()));
         }
+
+        return $viewModel->getAllParameters();
 
     }
 

@@ -56,7 +56,7 @@ class AccountController extends BaseController
      * @param SessionInterface $session
      * @param Request $request
      * @param UserInterface|null $user
-     * @return RedirectResponse
+     * @return array|RedirectResponse
      */
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
@@ -99,15 +99,16 @@ class AccountController extends BaseController
 
         $form = $this->createForm(LoginFormType::class, $formData, [
             'action' => $this->generateUrl('account-login'),
-
         ]);
-
-        $this->view->form  = $form->createView();
-        $this->view->error = $error;
-        $this->view->hideBreadcrumbs = true;
 
         //store referer in session to get redirected after login
         $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
+
+        return [
+            'form' => $form->createView(),
+            'error' => $error,
+            'hideBreadcrumbs' => true
+        ];
 
     }
 
@@ -123,13 +124,14 @@ class AccountController extends BaseController
      *
      * @param Request $request
      * @param CustomerProviderInterface $customerProvider
-     * @param LoginManagerInterface $loginManager
      * @param OAuthRegistrationHandler $oAuthHandler
+     * @param LoginManagerInterface $loginManager
      * @param RegistrationFormHandler $registrationFormHandler
-     * @param string|null $registrationKey
+     * @param SessionInterface $session
+     * @param EnvironmentInterface $environment
+     * @param AuthenticationLoginListener $authenticationLoginListener
      * @param UserInterface|null $user
-     *
-     * @return Response|null
+     * @return array|RedirectResponse
      */
     public function registerAction(
         Request $request,
@@ -239,11 +241,13 @@ class AccountController extends BaseController
             $oAuthHandler->saveToken($registrationKey, $oAuthToken);
         }
 
-        $this->view->customer = $customer;
-        $this->view->form     = $form->createView();
-        $this->view->errors   = $errors;
-        $this->view->hideBreadcrumbs = true;
-        $this->view->hidePassword = $hidePassword;
+        return [
+            'customer' => $customer,
+            'form' => $form->createView(),
+            'errors' => $errors,
+            'hideBreadcrumbs' => true,
+            'hidePassword' => $hidePassword
+        ];
     }
 
 
@@ -342,11 +346,12 @@ class AccountController extends BaseController
      *
      * @Route("/account/index", name="account-index")
      * @Security("has_role('ROLE_USER')")
-     * @return Response
+     *
+     * @param SsoIdentityServiceInterface $identityService
+     * @param UserInterface|null $user
+     * @return array
      */
     public function indexAction(SsoIdentityServiceInterface $identityService, UserInterface $user = null) {
-        $this->view->hideBreadcrumbs = true;
-
         $blacklist = [];
         foreach($identityService->getSsoIdentities($user) as $identity) {
             $blacklist[] = $identity->getProvider();
@@ -358,8 +363,11 @@ class AccountController extends BaseController
         $orderList->setOrder("orderDate DESC");
 
 
-        $this->view->blacklist = $blacklist;
-        $this->view->orderList = $orderList;
+        return [
+            'blacklist' => $blacklist,
+            'orderList' => $orderList,
+            'hideBreadcrumbs' => true
+        ];
     }
 
 }

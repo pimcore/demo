@@ -141,29 +141,17 @@ class DefaultController extends BaseController
 
     /**
      * @param Request $request
-     *
-     * @return Response
+     * @return array
      */
     public function galleryRenderletAction(Request $request)
     {
         if ($request->get('id') && $request->get('type') === 'asset') {
-            $this->view->asset = Asset::getById($request->get('id'));
+            return [
+                'asset' => Asset::getById($request->get('id'))
+            ];
         }
+
+        return [];
     }
-
-
-//    /**
-//     * @Route("/checkout-address", name="shop-checkout-address")
-//     */
-//    public function checkoutAddressAction(Factory $factory, Request $request) {
-//        $cartManager = $factory->getCartManager();
-//        $this->view->cart = $cartManager->getOrCreateCartByName('cart');
-//
-//        if($request->getMethod() == Request::METHOD_POST) {
-//            return $this->redirectToRoute('shop-checkout-payment');
-//        }
-//
-//    }
-
 
 }

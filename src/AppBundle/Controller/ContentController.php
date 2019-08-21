@@ -21,13 +21,17 @@ class ContentController extends BaseController
      *
      * @ResponseHeader("X-Custom-Header", values={"Foo", "Bar"})
      * @ResponseHeader("X-Custom-Header2", values="Bazinga", replace=true)
+     *
+     * @return array
      */
     public function portalAction()
     {
         // you can also set the header via code
         $this->addResponseHeader('X-Custom-Header3', ['foo', 'bar']);
 
-        $this->view->isPortal = true;
+        return [
+            'isPortal' => true
+        ];
     }
 
     public function editableRoundupAction()
