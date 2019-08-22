@@ -4,7 +4,7 @@ return [
     1 => [
         "id" => 1,
         "name" => "Show LeftNav",
-        "description" => NULL,
+        "description" => "Defines if left navigation should be visible. \n",
         "key" => "left_nav_show",
         "type" => "bool",
         "data" => "",
@@ -12,12 +12,12 @@ return [
         "ctype" => "document",
         "inheritable" => TRUE,
         "creationDate" => 1564138072,
-        "modificationDate" => 1566411234
+        "modificationDate" => 1566463607
     ],
     2 => [
         "id" => 2,
         "name" => "Root Category",
-        "description" => "",
+        "description" => "Defines root category of shop.",
         "key" => "root_category",
         "type" => "object",
         "data" => "",
@@ -25,12 +25,12 @@ return [
         "ctype" => "document",
         "inheritable" => FALSE,
         "creationDate" => 1565339891,
-        "modificationDate" => 1566411239
+        "modificationDate" => 1566463620
     ],
     3 => [
         "id" => 3,
         "name" => "Navigation Extension Point",
-        "description" => "",
+        "description" => "Defines and extension point for adding dynamic elements to navigation.",
         "key" => "navigation_extension_point",
         "type" => "select",
         "data" => "",
@@ -38,12 +38,12 @@ return [
         "ctype" => "document",
         "inheritable" => FALSE,
         "creationDate" => 1565339906,
-        "modificationDate" => 1565339982
+        "modificationDate" => 1566463638
     ],
     4 => [
         "id" => 4,
         "name" => "LeftNav Start Node",
-        "description" => "",
+        "description" => "Start node for left navigation.",
         "key" => "left_nav_start_node",
         "type" => "document",
         "data" => NULL,
@@ -51,12 +51,12 @@ return [
         "ctype" => "document",
         "inheritable" => TRUE,
         "creationDate" => 1565342864,
-        "modificationDate" => 1566411247
+        "modificationDate" => 1566463647
     ],
     5 => [
         "id" => 5,
         "name" => "Header Color",
-        "description" => "",
+        "description" => "Specify header color. ",
         "key" => "header_color",
         "type" => "select",
         "data" => NULL,
@@ -64,25 +64,25 @@ return [
         "ctype" => "document",
         "inheritable" => FALSE,
         "creationDate" => 1565351556,
-        "modificationDate" => 1566410892
+        "modificationDate" => 1566463656
     ],
     6 => [
         "id" => 6,
         "name" => "Sidebar Snippet",
-        "description" => NULL,
+        "description" => "Specify a sidebar snippet.",
         "key" => "sidebar",
-        "type" => "text",
+        "type" => "document",
         "data" => NULL,
         "config" => NULL,
         "ctype" => "document",
         "inheritable" => TRUE,
         "creationDate" => 1565795435,
-        "modificationDate" => 1565795447
+        "modificationDate" => 1566463760
     ],
     7 => [
         "id" => 7,
         "name" => "News Default Document",
-        "description" => NULL,
+        "description" => "Defines the default news document (for canonical url)",
         "key" => "news_default_document",
         "type" => "document",
         "data" => NULL,
@@ -90,12 +90,12 @@ return [
         "ctype" => "document",
         "inheritable" => TRUE,
         "creationDate" => 1565959224,
-        "modificationDate" => 1565959238
+        "modificationDate" => 1566463680
     ],
     8 => [
         "id" => 8,
         "name" => "Print Register Type",
-        "description" => "",
+        "description" => "Defines color and size of register.",
         "key" => "print_register_type",
         "type" => "select",
         "data" => NULL,
@@ -103,12 +103,12 @@ return [
         "ctype" => "document",
         "inheritable" => TRUE,
         "creationDate" => 1566309612,
-        "modificationDate" => 1566309657
+        "modificationDate" => 1566463694
     ],
     9 => [
         "id" => 9,
         "name" => "Print Register Title",
-        "description" => "",
+        "description" => "Defines title for register.",
         "key" => "print_register_title",
         "type" => "text",
         "data" => NULL,
@@ -116,6 +116,19 @@ return [
         "ctype" => "document",
         "inheritable" => TRUE,
         "creationDate" => 1566309660,
-        "modificationDate" => 1566309674
+        "modificationDate" => 1566463704
+    ],
+    10 => [
+        "id" => 10,
+        "name" => "Terms & Conditions Page",
+        "description" => "Link to Terms and Conditions page\n",
+        "key" => "terms_and_conditions",
+        "type" => "document",
+        "data" => NULL,
+        "config" => NULL,
+        "ctype" => "document",
+        "inheritable" => TRUE,
+        "creationDate" => 1566463224,
+        "modificationDate" => 1566463592
     ]
 ];

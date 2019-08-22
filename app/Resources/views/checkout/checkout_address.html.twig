@@ -44,7 +44,19 @@
 
                         <hr/>
 
-                        {{ form_row(form.terms, {label_attr: {class: 'checkbox-custom'} }) }}
+                    <div class="form-group">
+                        {% do form.terms.setRendered %}
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" id="{{ form.terms.vars.id }}" name="{{ form.terms.vars.name }}" {{ form.terms.vars.required ? 'required="required"' : '' }} class="custom-control-input" value="{{ form.terms.vars.value }}">
+                            <label class="checkbox-custom custom-control-label {{ form.terms.vars.required ? 'required' : '' }}" for="{{ form.terms.vars.id }}">
+                                {{ 'checkout.terms' | trans([document.getProperty('terms_and_conditions')]) | raw }}
+                            </label>
+                        </div>
+                    </div>
+
+{#                    {{ form_widget(form.terms) }}#}
+
+{#                        {{ form_row(form.terms, {'label': ( 'checkout.terms' | trans([document.getProperty('terms_and_conditions')]) | raw ), label_attr: {class: 'checkbox-custom'} }) }}#}
 
                         <hr/>
 
