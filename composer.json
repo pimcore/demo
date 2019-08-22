@@ -9,12 +9,13 @@
   },
   "require": {
     "php": ">=7.2",
+    "heidelpay/heidelpay-php": "^1.2",
     "hwi/oauth-bundle": "^0.6.3",
     "php-http/guzzle6-adapter": "^1",
     "php-http/httplug-bundle": "^1.16",
     "pimcore/customer-management-framework-bundle": "dev-master",
-    "pimcore/web2print-tools-bundle": "dev-master",
-    "pimcore/pimcore": "dev-master"
+    "pimcore/pimcore": "dev-master",
+    "pimcore/web2print-tools-bundle": "dev-master"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

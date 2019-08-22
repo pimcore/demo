@@ -192,7 +192,7 @@ pimcore_ecommerce_framework:
         tenants:
             default:
                 payment:
-                    provider: qpay
+                    provider: heidelpay
                 steps:
                     deliveryaddress:
                         class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
@@ -212,6 +212,15 @@ pimcore_ecommerce_framework:
 
         # Configuration of payment providers, key is name of provider
         providers:
+
+            heidelpay:
+                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Heidelpay
+                profile: sandbox
+                profiles:
+                    sandbox:
+                        publicAccessKey: s-pub-2a10ifVINFAjpQJ9qW8jBe5OJPBx6Gxa
+                        privateAccessKey: s-priv-2a102ZMq3gV4I3zJ888J7RR6u75oqK3n
+
 
             datatrans:
                 # Service id of payment provider implementation
