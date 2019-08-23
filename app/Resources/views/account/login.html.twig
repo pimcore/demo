@@ -24,11 +24,11 @@
                        value="{{ csrf_token('authenticate') }}"
                 >
 
-                <!--<div class="checkbox mb-3">
+                <div class="checkbox mb-3">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input name="_remember_me" type="checkbox"> Remember me
                     </label>
-                </div>-->
+                </div>
 
                 {{ form_row(form._submit, {'attr': {'class': 'btn-success btn-lg btn-block mt-4'}}) }}
 
