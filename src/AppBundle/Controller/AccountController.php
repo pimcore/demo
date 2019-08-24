@@ -439,20 +439,4 @@ class AccountController extends BaseController
             'email' => $customer->getEmail()
         ];
     }
-
-    /**
-     * @param Request $request
-     * @return array
-     */
-    public function passwordRecoveryMailAction(Request $request, UrlGeneratorInterface $urlGenerator) {
-
-        $customer = $request->get('customer');
-
-        return [
-            'token' => $request->get('token'),
-            'tokenLink' => $urlGenerator->generate('account-reset-password', ['token' => $request->get('token')]),
-            'customer' => $customer,
-            'customerId' => $customer ? $customer->getId() : ''
-        ];
-    }
 }

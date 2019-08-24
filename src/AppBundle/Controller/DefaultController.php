@@ -29,13 +29,27 @@ class DefaultController extends BaseController
     {
     }
 
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function genericMailAction(Request $request) {
+    }
+
 
     /**
      * @param Request $request
      * @Route("/search", name="search")
      */
-    public function searchAction()
+    public function searchAction(Factory $factory)
     {
+
+        $productList = $factory->getIndexService()->getProductListForCurrentTenant();
+        $productList->addQueryCondition('term');
+
+
+
+
         //TODO: Implement search logic
         return $this->json(
                     array (
