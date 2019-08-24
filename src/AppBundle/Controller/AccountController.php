@@ -18,6 +18,7 @@ use AppBundle\EventListener\AuthenticationLoginListener;
 use AppBundle\Form\LoginFormType;
 use AppBundle\Form\RegistrationFormHandler;
 use AppBundle\Form\RegistrationFormType;
+use AppBundle\Services\PasswordRecoveryService;
 use CustomerManagementFrameworkBundle\CustomerProvider\CustomerProviderInterface;
 use CustomerManagementFrameworkBundle\CustomerSaveValidator\Exception\DuplicateCustomerException;
 use CustomerManagementFrameworkBundle\Model\CustomerInterface;
@@ -30,12 +31,14 @@ use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\OrderManager\Order\Listing\Filter\CustomerObject;
+use Pimcore\Translation\Translator;
 use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -102,7 +105,9 @@ class AccountController extends BaseController
         ]);
 
         //store referer in session to get redirected after login
-        $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
+        if(!$request->get('no-referer-redirect')) {
+            $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
+        }
 
         return [
             'form' => $form->createView(),
@@ -130,6 +135,8 @@ class AccountController extends BaseController
      * @param SessionInterface $session
      * @param EnvironmentInterface $environment
      * @param AuthenticationLoginListener $authenticationLoginListener
+     * @param Translator $translator
+     * @param UrlGeneratorInterface $urlGenerator
      * @param UserInterface|null $user
      * @return array|RedirectResponse
      */
@@ -142,6 +149,8 @@ class AccountController extends BaseController
         SessionInterface $session,
         EnvironmentInterface $environment,
         AuthenticationLoginListener $authenticationLoginListener,
+        Translator $translator,
+        UrlGeneratorInterface $urlGenerator,
         UserInterface $user = null
     ) {
 
@@ -223,7 +232,12 @@ class AccountController extends BaseController
 
                 return $response;
             } catch (DuplicateCustomerException $e) {
-                $errors[] = 'Customer already exists';
+                $errors[] = $translator->trans(
+                    'account.customer-already-exists',
+                    [
+                        $customer->getEmail(),
+                        $urlGenerator->generate('account-password-send-recovery', ['email' => $customer->getEmail()])
+                    ]);
             } catch (\Exception $e) {
                 $errors[] = $e->getMessage();
             }
@@ -370,4 +384,75 @@ class AccountController extends BaseController
         ];
     }
 
+
+    /**
+     * @Route("/account/send-password-recovery", name="account-password-send-recovery")
+     *
+     * @param Request $request
+     * @param PasswordRecoveryService $service
+     * @param Translator $translator
+     * @throws \Exception
+     */
+    public function sendPasswordRecoveryMailAction(Request $request, PasswordRecoveryService $service, Translator $translator) {
+        if($request->isMethod(Request::METHOD_POST)) {
+            $service->sendRecoveryMail($request->get('email', ''), $this->document->getProperty('password_reset_mail'));
+            $this->addFlash('success', $translator->trans('account.reset-mail-sent-when-possible'));
+            return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
+        }
+
+        return [
+            'hideBreadcrumbs' => true,
+            'emailPrefill' => $request->get('email')
+        ];
+    }
+
+    /**
+     * @Route("/account/reset-password", name="account-reset-password")
+     *
+     * @param Request $request
+     * @param PasswordRecoveryService $service
+     * @param Translator $translator
+     * @return array|RedirectResponse
+     */
+    public function resetPasswordAction(Request $request, PasswordRecoveryService $service, Translator $translator) {
+
+        $token = $request->get('token');
+        $customer = $service->getCustomerByToken($token);
+        if(!$customer) {
+            //TODO render error page
+            throw new NotFoundHttpException('Invalid token');
+        }
+
+        if($request->isMethod(Request::METHOD_POST)) {
+
+            $newPassword = $request->get('password');
+            $service->setPassword($token, $newPassword);
+
+            $this->addFlash('success', $translator->trans('account.password-reset-successful'));
+
+            return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
+        }
+
+        return [
+            'hideBreadcrumbs' => true,
+            'token' => $token,
+            'email' => $customer->getEmail()
+        ];
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function passwordRecoveryMailAction(Request $request, UrlGeneratorInterface $urlGenerator) {
+
+        $customer = $request->get('customer');
+
+        return [
+            'token' => $request->get('token'),
+            'tokenLink' => $urlGenerator->generate('account-reset-password', ['token' => $request->get('token')]),
+            'customer' => $customer,
+            'customerId' => $customer ? $customer->getId() : ''
+        ];
+    }
 }

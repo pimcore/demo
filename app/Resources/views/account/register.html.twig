@@ -14,7 +14,7 @@
             {% if errors %}
                 {% for error in errors %}
                     <div class="alert alert-danger">
-                        {{ error }}
+                        {{ error | raw }}
                     </div>
                 {% endfor %}
             {% endif %}
