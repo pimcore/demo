@@ -1,7 +1,8 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:04+02:00
+* Generated at: 2019-08-16T12:47:56+02:00
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -14,8 +15,8 @@ Fields Summary:
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'key' => 'VoucherTokenTypeSingle',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractVoucherTokenType',
-   'title' => NULL,
-   'group' => NULL,
+   'title' => '',
+   'group' => 'Voucher',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',

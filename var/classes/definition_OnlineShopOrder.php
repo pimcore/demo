@@ -1,7 +1,7 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T11:25:31+02:00
+* Generated at: 2019-08-22T16:08:42+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
@@ -55,7 +55,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopOrder',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565947530,
+   'modificationDate' => 1566482922,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractOrder',
@@ -3948,6 +3948,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   3 => 'PaymentProviderMpay24',
                   4 => 'PaymentProviderOGone',
                   5 => 'PaymentProviderWirecardSeamless',
+                  6 => 'PaymentProviderHeidelPay',
                 ),
                  'maxItems' => '',
                  'border' => false,

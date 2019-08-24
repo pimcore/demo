@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-14T16:48:51+02:00
+* Generated at: 2019-08-21T20:43:01+02:00
 * Inheritance: yes
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -34,7 +34,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Car',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565794131,
+   'modificationDate' => 1566412981,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
@@ -135,8 +135,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'datatype' => 'data',
                      'relationType' => false,
                      'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
+                     'visibleGridView' => true,
+                     'visibleSearch' => true,
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
@@ -303,8 +303,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'permissions' => NULL,
                  'datatype' => 'data',
                  'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
               )),
               4 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
@@ -509,8 +509,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'datatype' => 'data',
                  'relationType' => false,
                  'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
               )),
               7 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Country::__set_state(array(
@@ -2192,8 +2192,8 @@ Define type of Car object to manage, which elements should be visible in shop an
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -2201,8 +2201,8 @@ Define type of Car object to manage, which elements should be visible in shop an
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

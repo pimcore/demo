@@ -1,10 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-13T10:14:07+02:00
+* Generated at: 2019-08-21T20:44:49+02:00
 * Inheritance: no
 * Variants: no
-* Changed by: system (0)
+* Changed by: admin (2)
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -18,14 +19,14 @@ Fields Summary:
 
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
-   'id' => 1,
+   'id' => '1',
    'name' => 'CustomerSegmentGroup',
-   'description' => NULL,
-   'creationDate' => NULL,
-   'modificationDate' => 1565684046,
-   'userOwner' => NULL,
-   'userModification' => 0,
-   'parentClass' => NULL,
+   'description' => '',
+   'creationDate' => 0,
+   'modificationDate' => 1566413089,
+   'userOwner' => 0,
+   'userModification' => 2,
+   'parentClass' => '',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -102,8 +103,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnLength' => 255,
                  'phpdocType' => 'string',
                  'regex' => '',
-                 'unique' => NULL,
-                 'showCharCount' => NULL,
+                 'unique' => false,
+                 'showCharCount' => false,
                  'name' => 'name',
                  'title' => 'Segment group name',
                  'tooltip' => '',
@@ -116,8 +117,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'datatype' => 'data',
                  'relationType' => false,
                  'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
               )),
             ),
              'locked' => false,
@@ -291,27 +292,29 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'locked' => false,
   )),
    'icon' => '/bundles/pimcorecustomermanagementframework/icons/segment-group.svg',
-   'previewUrl' => NULL,
+   'previewUrl' => '',
    'group' => 'CustomerManagement',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => NULL,
+   'linkGeneratorReference' => '',
    'propertyVisibility' => 
   array (
     'grid' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,
