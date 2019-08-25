@@ -1,7 +1,7 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-23T16:28:31+02:00
+* Generated at: 2019-08-24T20:43:17+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
@@ -21,6 +21,7 @@ Fields Summary:
 - countryCode [country]
 - phone [input]
 - idEncoded [input]
+- customerLanguage [language]
 - manualSegments [advancedManyToManyObjectRelation]
 - calculatedSegments [advancedManyToManyObjectRelation]
 - password [password]
@@ -35,7 +36,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Customer',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566570511,
+   'modificationDate' => 1566672196,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\CustomerManagementFrameworkBundle\\Model\\AbstractCustomer\\DefaultAbstractUserawareCustomer',
@@ -1659,6 +1660,35 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
+              12 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Language::__set_state(array(
+                 'fieldtype' => 'language',
+                 'onlySystemLanguages' => false,
+                 'options' => NULL,
+                 'width' => NULL,
+                 'defaultValue' => NULL,
+                 'optionsProviderClass' => NULL,
+                 'optionsProviderData' => NULL,
+                 'queryColumnType' => 'varchar',
+                 'columnType' => 'varchar',
+                 'columnLength' => 190,
+                 'phpdocType' => 'string',
+                 'dynamicOptions' => false,
+                 'name' => 'customerLanguage',
+                 'title' => 'Language',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => NULL,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+              )),
             ),
              'locked' => false,
           )),
@@ -1950,7 +1980,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'mandatory' => false,
                  'noteditable' => false,
                  'index' => false,
-                 'locked' => NULL,
+                 'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
@@ -1973,7 +2003,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'mandatory' => false,
                  'noteditable' => false,
                  'index' => false,
-                 'locked' => NULL,
+                 'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',

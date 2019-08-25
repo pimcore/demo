@@ -204,6 +204,7 @@ class AccountController extends BaseController
         $errors = [];
         if ($form->isSubmitted() && $form->isValid()) {
             $registrationFormHandler->updateCustomerFromForm($customer, $form);
+            $customer->setCustomerLangauge($request->getLocale());
             $customer->setActive(true);
 
             try {
