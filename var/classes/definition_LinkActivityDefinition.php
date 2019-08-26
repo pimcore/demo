@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-13T10:24:56+02:00
+* Generated at: 2019-08-21T20:45:17+02:00
 * Inheritance: yes
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -30,7 +30,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'LinkActivityDefinition',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565684696,
+   'modificationDate' => 1566413117,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '',
@@ -113,8 +113,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnLength' => 190,
                  'phpdocType' => 'string',
                  'regex' => '',
-                 'unique' => NULL,
-                 'showCharCount' => NULL,
+                 'unique' => false,
+                 'showCharCount' => false,
                  'name' => 'code',
                  'title' => 'code (cmfa)',
                  'tooltip' => '',
@@ -127,8 +127,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'datatype' => 'data',
                  'relationType' => false,
                  'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
               )),
             ),
              'locked' => false,
@@ -569,8 +569,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -578,8 +578,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T11:23:51+02:00
+* Generated at: 2019-08-21T20:48:06+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -19,7 +19,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopTaxClass',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565947431,
+   'modificationDate' => 1566413286,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '',
@@ -185,8 +185,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -194,8 +194,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

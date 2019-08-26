@@ -126,7 +126,7 @@ class ProductController extends BaseController
         $viewModel->paginationVariables = $paginator->getPages('Sliding');
 
         if($request->attributes->get('noLayout')) {
-            return $this->render('/product/listing_content.html.twig', array_merge($this->view, $viewModel->getAllParameters()));
+            return $this->render('/product/listing_content.html.twig', array_merge($this->view->getAllParameters(), $viewModel->getAllParameters()));
         }
 
         return $viewModel->getAllParameters();

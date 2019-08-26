@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T11:38:32+02:00
+* Generated at: 2019-08-21T20:46:31+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -24,7 +24,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'News',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565948312,
+   'modificationDate' => 1566413191,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -121,8 +121,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'datatype' => 'data',
                      'relationType' => false,
                      'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
+                     'visibleGridView' => true,
+                     'visibleSearch' => true,
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
@@ -244,8 +244,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'datatype' => 'data',
                      'relationType' => false,
                      'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
+                     'visibleGridView' => true,
+                     'visibleSearch' => true,
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\ImageGallery::__set_state(array(
@@ -360,7 +360,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'previewUrl' => '',
    'group' => '',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => '',
+   'linkGeneratorReference' => '@AppBundle\\Website\\LinkGenerator\\NewsLinkGenerator',
    'propertyVisibility' => 
   array (
     'grid' => 
@@ -369,8 +369,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -378,8 +378,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T11:27:27+02:00
+* Generated at: 2019-08-21T20:48:25+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -19,7 +19,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopVoucherSeries',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565947647,
+   'modificationDate' => 1566413305,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractVoucherSeries',
@@ -105,8 +105,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'columnLength' => 255,
              'phpdocType' => 'string',
              'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
+             'unique' => false,
+             'showCharCount' => false,
              'name' => 'name',
              'title' => 'Name',
              'tooltip' => '',
@@ -119,8 +119,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'datatype' => 'data',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
+             'visibleGridView' => true,
+             'visibleSearch' => true,
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
@@ -172,8 +172,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -181,8 +181,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

@@ -143,12 +143,10 @@ return [
     "featurerette" => [
         "items" => [
             [
-                "method" => "cover",
+                "method" => "scaleByWidth",
                 "arguments" => [
                     "width" => 450,
-                    "height" => 229,
-                    "positioning" => "center",
-                    "forceResize" => TRUE
+                    "forceResize" => FALSE
                 ]
             ]
         ],
@@ -165,7 +163,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1566220932,
+        "modificationDate" => 1566821404,
         "creationDate" => 1563545716,
         "id" => "featurerette"
     ],

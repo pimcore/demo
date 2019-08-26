@@ -1,25 +1,26 @@
-<?php 
+<?php
 
-/** 
-* Generated at: 2019-08-16T12:49:55+02:00
+/**
+* Generated at: 2019-08-22T16:08:57+02:00
 * IP: 192.168.9.96
 
 
-Fields Summary: 
- - configurationKey [input]
- - auth_paymentType [input]
- - auth_orderNumber [input]
- - auth_paymentState [input]
+Fields Summary:
+ - auth_paymentMethod [input]
  - auth_amount [input]
  - auth_currency [input]
- - auth_gatewyReferenceNumber [input]
-*/ 
+ - auth_paymentType [input]
+ - auth_paymentReference [input]
+ - auth_clientMessage [input]
+ - auth_merchantMessage [input]
+ - auth_chargeId [input]
+*/
 
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
-   'classDefinitions' => 
+   'classDefinitions' =>
   array (
-    0 => 
+    0 =>
     array (
       'classname' => 'OnlineShopOrder',
       'fieldname' => 'paymentProvider',
@@ -27,9 +28,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
   ),
    'title' => '',
    'group' => 'PaymentProvider',
-   'key' => 'PaymentProviderWirecardSeamless',
+   'key' => 'PaymentProviderHeidelPay',
    'parentClass' => '',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
@@ -47,15 +48,15 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'childs' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
          'labelWidth' => 150,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
+         'icon' => '',
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -67,47 +68,21 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'childs' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
-             'width' => NULL,
+             'width' => 500,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 190,
              'phpdocType' => 'string',
              'regex' => '',
              'unique' => false,
-             'showCharCount' => NULL,
-             'name' => 'configurationKey',
-             'title' => 'Configuration Key',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'phpdocType' => 'string',
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
-             'name' => 'auth_paymentType',
-             'title' => 'Payment Type',
+             'showCharCount' => false,
+             'name' => 'auth_paymentMethod',
+             'title' => 'Payment Method',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
@@ -121,69 +96,17 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleGridView' => false,
              'visibleSearch' => false,
           )),
-          2 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
-             'width' => NULL,
+             'width' => 500,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
-             'columnLength' => 255,
+             'columnLength' => 190,
              'phpdocType' => 'string',
              'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
-             'name' => 'auth_orderNumber',
-             'title' => 'OrderNumber',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => true,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'phpdocType' => 'string',
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
-             'name' => 'auth_paymentState',
-             'title' => 'Payment State',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => true,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-          )),
-          4 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'phpdocType' => 'string',
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
+             'unique' => false,
+             'showCharCount' => false,
              'name' => 'auth_amount',
              'title' => 'Amount',
              'tooltip' => '',
@@ -199,17 +122,17 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleGridView' => false,
              'visibleSearch' => false,
           )),
-          5 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
-             'width' => NULL,
+             'width' => 500,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
-             'columnLength' => 255,
+             'columnLength' => 190,
              'phpdocType' => 'string',
              'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
+             'unique' => false,
+             'showCharCount' => false,
              'name' => 'auth_currency',
              'title' => 'Currency',
              'tooltip' => '',
@@ -225,22 +148,126 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleGridView' => false,
              'visibleSearch' => false,
           )),
-          6 => 
+          3 =>
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'fieldtype' => 'input',
+             'width' => 800,
+             'queryColumnType' => 'varchar',
+             'columnType' => 'varchar',
+             'columnLength' => 190,
+             'phpdocType' => 'string',
+             'regex' => '',
+             'unique' => false,
+             'showCharCount' => false,
+             'name' => 'auth_paymentType',
+             'title' => 'Payment Type',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => true,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+          )),
+          4 =>
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'fieldtype' => 'input',
+             'width' => 500,
+             'queryColumnType' => 'varchar',
+             'columnType' => 'varchar',
+             'columnLength' => 190,
+             'phpdocType' => 'string',
+             'regex' => '',
+             'unique' => false,
+             'showCharCount' => false,
+             'name' => 'auth_paymentReference',
+             'title' => 'Payment Reference',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => true,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+          )),
+          5 =>
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'fieldtype' => 'input',
+             'width' => 500,
+             'queryColumnType' => 'varchar',
+             'columnType' => 'varchar',
+             'columnLength' => 190,
+             'phpdocType' => 'string',
+             'regex' => '',
+             'unique' => false,
+             'showCharCount' => false,
+             'name' => 'auth_clientMessage',
+             'title' => 'Client Message',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => true,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+          )),
+          6 =>
+          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'fieldtype' => 'input',
+             'width' => 500,
+             'queryColumnType' => 'varchar',
+             'columnType' => 'varchar',
+             'columnLength' => 190,
+             'phpdocType' => 'string',
+             'regex' => '',
+             'unique' => false,
+             'showCharCount' => false,
+             'name' => 'auth_merchantMessage',
+             'title' => 'Merchant Message',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => true,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+          )),
+          7 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
-             'columnLength' => 255,
+             'columnLength' => 190,
              'phpdocType' => 'string',
              'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
-             'name' => 'auth_gatewyReferenceNumber',
-             'title' => 'Gateway Reference Number',
-             'tooltip' => 'auth_gatewayReferenceNumber',
+             'unique' => false,
+             'showCharCount' => false,
+             'name' => 'auth_chargeId',
+             'title' => 'Charge ID',
+             'tooltip' => '',
              'mandatory' => false,
-             'noteditable' => true,
+             'noteditable' => false,
              'index' => false,
              'locked' => false,
              'style' => '',

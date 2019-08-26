@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-14T13:47:29+02:00
+* Generated at: 2019-08-21T20:43:46+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -19,7 +19,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Manufacturer',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565783249,
+   'modificationDate' => 1566413026,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -96,8 +96,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'datatype' => 'data',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
+             'visibleGridView' => true,
+             'visibleSearch' => true,
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
@@ -142,8 +142,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -151,8 +151,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

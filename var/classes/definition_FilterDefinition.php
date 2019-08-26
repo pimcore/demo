@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T11:10:16+02:00
+* Generated at: 2019-08-21T20:46:54+02:00
 * Inheritance: yes
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -32,7 +32,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'FilterDefinition',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565946616,
+   'modificationDate' => 1566413214,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinition',
@@ -940,8 +940,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -949,8 +949,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

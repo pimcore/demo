@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T11:27:35+02:00
+* Generated at: 2019-08-21T20:48:53+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -20,7 +20,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopVoucherToken',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565947655,
+   'modificationDate' => 1566413333,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '',
@@ -109,7 +109,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'unsigned' => false,
              'minValue' => NULL,
              'maxValue' => NULL,
-             'unique' => NULL,
+             'unique' => false,
              'decimalSize' => NULL,
              'decimalPrecision' => NULL,
              'name' => 'tokenId',
@@ -124,8 +124,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'datatype' => 'data',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
+             'visibleGridView' => true,
+             'visibleSearch' => true,
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
@@ -136,8 +136,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'columnLength' => 255,
              'phpdocType' => 'string',
              'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
+             'unique' => false,
+             'showCharCount' => false,
              'name' => 'token',
              'title' => 'Token',
              'tooltip' => '',
@@ -150,8 +150,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'datatype' => 'data',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
+             'visibleGridView' => true,
+             'visibleSearch' => true,
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
@@ -216,8 +216,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -225,8 +225,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

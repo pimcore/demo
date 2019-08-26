@@ -1,7 +1,8 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-03T11:31:48+02:00
+* Generated at: 2019-08-16T12:49:45+02:00
+* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -20,8 +21,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       'fieldname' => 'paymentProvider',
     ),
   ),
-   'title' => NULL,
-   'group' => NULL,
+   'title' => '',
+   'group' => 'PaymentProvider',
    'key' => 'PaymentProviderPayPal',
    'parentClass' => '',
    'layoutDefinitions' => 

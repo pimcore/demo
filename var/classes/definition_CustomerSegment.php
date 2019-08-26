@@ -1,10 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-13T10:14:09+02:00
+* Generated at: 2019-08-21T20:44:28+02:00
 * Inheritance: no
 * Variants: no
-* Changed by: system (0)
+* Changed by: admin (2)
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -18,13 +19,13 @@ Fields Summary:
 
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
-   'id' => 2,
+   'id' => '2',
    'name' => 'CustomerSegment',
-   'description' => NULL,
-   'creationDate' => NULL,
-   'modificationDate' => 1565684047,
-   'userOwner' => NULL,
-   'userModification' => 0,
+   'description' => '',
+   'creationDate' => 0,
+   'modificationDate' => 1566413068,
+   'userOwner' => 0,
+   'userModification' => 2,
    'parentClass' => '\\CustomerManagementFrameworkBundle\\Model\\AbstractCustomerSegment',
    'listingParentClass' => '',
    'useTraits' => '',
@@ -102,8 +103,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'columnLength' => 255,
                  'phpdocType' => 'string',
                  'regex' => '',
-                 'unique' => NULL,
-                 'showCharCount' => NULL,
+                 'unique' => false,
+                 'showCharCount' => false,
                  'name' => 'name',
                  'title' => 'Segment name',
                  'tooltip' => '',
@@ -254,26 +255,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'fieldtype' => 'targetGroup',
                  'options' => 
                 array (
-                  0 => 
-                  array (
-                    'value' => 5,
-                    'key' => 'Outdoor',
-                  ),
-                  1 => 
-                  array (
-                    'value' => 20,
-                    'key' => 'TechnicalGuy',
-                  ),
-                  2 => 
-                  array (
-                    'value' => 15,
-                    'key' => 'Vouchers1',
-                  ),
-                  3 => 
-                  array (
-                    'value' => 8,
-                    'key' => 'Wandern',
-                  ),
                 ),
                  'width' => '',
                  'defaultValue' => NULL,
@@ -288,7 +269,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'title' => 'Linked TargetGroup',
                  'tooltip' => '',
                  'mandatory' => false,
-                 'noteditable' => true,
+                 'noteditable' => false,
                  'index' => false,
                  'locked' => false,
                  'style' => '',
@@ -309,27 +290,29 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'locked' => false,
   )),
    'icon' => '/bundles/pimcorecustomermanagementframework/icons/segment.svg',
-   'previewUrl' => NULL,
+   'previewUrl' => '',
    'group' => 'CustomerManagement',
    'showAppLoggerTab' => false,
-   'linkGeneratorReference' => NULL,
+   'linkGeneratorReference' => '',
    'propertyVisibility' => 
   array (
     'grid' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => false,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
       'id' => true,
+      'key' => false,
       'path' => false,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,

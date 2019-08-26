@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -34,22 +35,38 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'E-Mail',
+                'label' => 'general.email',
                 'required' => true
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'First Name',
+                'label' => 'general.firstname',
                 'required' => true
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Last Name',
+                'label' => 'general.lastname',
                 'required' => true
             ]);
         if(!$options['hidePassword']) {
             $builder->add('password', PasswordType::class, [
-                'label' => 'Password'
+                'label' => 'general.password'
             ]);
         }
+
+        $builder
+            ->add('newsletter', CheckboxType::class, [
+                'label' => 'general.newsletter',
+                'label_attr' => [
+                    'class' => 'checkbox-custom'
+                ]
+            ])
+            ->add('profiling', CheckboxType::class, [
+                'label' => 'general.profiling',
+                'label_attr' => [
+                    'class' => 'checkbox-custom'
+                ]
+            ]);
+
+
         $builder
             ->add('oAuthKey', HiddenType::class)
             ->add('_submit', SubmitType::class, [

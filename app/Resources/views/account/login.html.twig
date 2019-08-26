@@ -34,6 +34,7 @@
 
             {{ form_end(form) }}
 
+            <p>{{ 'account.forgot-password' | trans }} <a href="{{ path('account-password-send-recovery') }}">{{ 'account.password-recovery' | trans }}</a></p>
             <p>{{ 'general.no-account' | trans }} <a href="{{ path('account-register') }}">{{ 'general.register-now' | trans }}</a></p>
 
 

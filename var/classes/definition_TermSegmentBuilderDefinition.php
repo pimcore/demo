@@ -1,11 +1,11 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-13T10:26:30+02:00
+* Generated at: 2019-08-21T20:46:11+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 192.168.9.96
+* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -21,7 +21,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'TermSegmentBuilderDefinition',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565684790,
+   'modificationDate' => 1566413171,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => 'CustomerManagementFrameworkBundle\\Model\\AbstractTermSegmentBuilderDefinition',
@@ -84,8 +84,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'columnLength' => 190,
              'phpdocType' => 'string',
              'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
+             'unique' => false,
+             'showCharCount' => false,
              'name' => 'name',
              'title' => 'Name',
              'tooltip' => '',
@@ -98,8 +98,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'datatype' => 'data',
              'relationType' => false,
              'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
+             'visibleGridView' => true,
+             'visibleSearch' => true,
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Block::__set_state(array(
@@ -212,8 +212,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
     'search' => 
     array (
@@ -221,8 +221,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'key' => false,
       'path' => true,
       'published' => true,
-      'modificationDate' => true,
-      'creationDate' => true,
+      'modificationDate' => false,
+      'creationDate' => false,
     ),
   ),
    'dao' => NULL,
