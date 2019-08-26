@@ -33,6 +33,6 @@
     </li>
     {{ include('includes/language.html.twig') }}
 </ul>
-<form action="" class="search-box mx-auto">
-    <input id="autoComplete" type="text" class="text search-input" placeholder="Type here to search..." />
+<form action="{{ path('search') }}" class="search-box mx-auto">
+    <input id="autoComplete" name="term" value="{{ app.request.get("term") }}" type="text" class="text search-input" placeholder="Type here to search..." />
 </form>

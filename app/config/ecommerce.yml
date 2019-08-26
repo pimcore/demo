@@ -34,6 +34,7 @@ pimcore_ecommerce_framework:
                     - carClass
                 attributes:
                     name:
+                        fieldname: OSNameOSName
                         type: varchar(255)
                         filter_group: string
                     manufacturer_name:
