@@ -13,7 +13,7 @@
                 {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
                     <p>{{ product.subText | raw }}</p>
                 {% elseif(product.saleInformation.saleInformation)  %}
-                    <p>{{ 'general.condition' | trans }}: {{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                    <p>{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
                 {% endif %}
 
                 <p class="price">{{ product.oSPrice }},-</p>

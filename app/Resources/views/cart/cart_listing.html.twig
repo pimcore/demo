@@ -86,7 +86,7 @@
                                             {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
                                                 <p class="text-muted small">{{ product.subText | raw }}</p>
                                             {% elseif(product.saleInformation.saleInformation)  %}
-                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
                                             {% endif %}
 
                                         </div>
@@ -144,7 +144,7 @@
                                             {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
                                                 <p class="text-muted small">{{ product.subText | raw }}</p>
                                             {% elseif(product.saleInformation.saleInformation)  %}
-                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
                                             {% endif %}
 
                                         </div>

@@ -12,7 +12,7 @@
                 {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
                     <p class="card-text">{{ product.subText | raw }}</p>
                 {% elseif(product.saleInformation.saleInformation)  %}
-                    <p class="card-text">{{ 'general.condition' | trans }}: {{ ('general.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                    <p class="card-text">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
                 {% endif %}
             </div>
             <div class="card-body-bottom">
