@@ -3,12 +3,17 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Model\Product\AbstractProduct;
+use AppBundle\Model\Product\Car;
+use AppBundle\Model\Product\Category;
+use AppBundle\Website\LinkGenerator\ProductLinkGenerator;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
 use Pimcore\Controller\FrontendController;
+use Pimcore\Config;
 use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\FilterDefinition;
+use Pimcore\Templating\Model\ViewModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,109 +39,84 @@ class DefaultController extends BaseController
      * @param Request $request
      * @Route("/search", name="search")
      */
-    public function searchAction()
+    public function searchAction(Request $request, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator)
     {
-        //TODO: Implement search logic
-        return $this->json(
-                    array (
-                        0 =>
-                            array (
-                                'food' => 'Sauce - Thousand Island',
-                                'cities' => 'Soanindrariny',
-                                'animals' => 'Common boubou shrike',
-                            ),
-                        1 =>
-                            array (
-                                'food' => 'Wild Boar - Tenderloin',
-                                'cities' => 'Luthu',
-                                'animals' => 'Eastern diamondback rattlesnake',
-                            ),
-                        2 =>
-                            array (
-                                'food' => 'Goat - Whole Cut',
-                                'cities' => 'Kargowa',
-                                'animals' => 'Sheep, red',
-                            ),
-                        3 =>
-                            array (
-                                'food' => 'Cherries - Bing, Canned',
-                                'cities' => 'Colonia Aurora',
-                                'animals' => 'Sarus crane',
-                            ),
-                        4 =>
-                            array (
-                                'food' => 'Table Cloth 62x120 Colour',
-                                'cities' => 'Poykovskiy',
-                                'animals' => 'Monster, gila',
-                            ),
-                        5 =>
-                            array (
-                                'food' => 'Bag - Clear 7 Lb',
-                                'cities' => 'Buenavista',
-                                'animals' => 'Common genet',
-                            ),
-                        6 =>
-                            array (
-                                'food' => 'Kippers - Smoked',
-                                'cities' => 'Sypniewo',
-                                'animals' => 'Weaver, red-billed buffalo',
-                            ),
-                        7 =>
-                            array (
-                                'food' => 'Pasta - Ravioli',
-                                'cities' => 'Niaohe',
-                                'animals' => 'Mountain lion',
-                            ),
-                        8 =>
-                            array (
-                                'food' => 'Capers - Pickled',
-                                'cities' => 'Mariestad',
-                                'animals' => 'Pie, rufous tree',
-                            ),
-                        9 =>
-                            array (
-                                'food' => 'Ice Cream Bar - Oreo Sandwich',
-                                'cities' => 'Ngaoundéré',
-                                'animals' => 'Darter, african',
-                            ),
-                        10 =>
-                            array (
-                                'food' => 'Worcestershire Sauce',
-                                'cities' => 'Paris 08',
-                                'animals' => 'Peregrine falcon',
-                            ),
-                        11 =>
-                            array (
-                                'food' => 'Chicken - Whole',
-                                'cities' => 'Poroj',
-                                'animals' => 'Alpaca',
-                            ),
-                        12 =>
-                            array (
-                                'food' => 'Cabbage - Red',
-                                'cities' => 'Kuala Lumpur',
-                                'animals' => 'Emerald green tree boa',
-                            ),
-                        13 =>
-                            array (
-                                'food' => 'Crab - Meat',
-                                'cities' => 'Rajapeni',
-                                'animals' => 'Steenbuck',
-                            ),
-                        14 =>
-                            array (
-                                'food' => 'Star Anise, Whole',
-                                'cities' => 'Plettenberg Bay',
-                                'animals' => 'Cougar',
-                            ),
-                        15 =>
-                            array (
-                                'food' => 'Wine - Cave Springs Dry Riesling',
-                                'cities' => 'Thoen',
-                                'animals' => 'Manatee',
-                            )
-                    )
-        );
+        $paramsBag = [];
+        $paramsBag["hideNav"] = true;
+        $params = $request->query->all();
+        $viewModel = new ViewModel();
+
+        $category = Category::getById($params['category']);
+        $viewModel->category = $category;
+
+        $indexService = $ecommerceFactory->getIndexService();
+        $productListing = $indexService->getProductListForCurrentTenant();
+        $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
+        if ($request->get('term')) {
+            foreach (explode(' ', $params['term']) as $term) {
+                $productListing->addQueryCondition($term, 'search');
+            }
+        }
+
+        if($params["autocomplete"]) {
+            $resultset = [];
+            $productListing->setLimit(10);
+            foreach ($productListing as $product) {
+                $result["href"] = $productLinkGenerator->generate($product, []);
+                if($product instanceof Car){
+                    $result['product'] = $product->getOSName() . ' ' . $product->getColor()[0] . ', ' . $product->getCarClass();
+                } else {
+                    $result['product'] = $product->getOSName();
+                }
+
+                $resultset[] = $result;
+            }
+
+            return $this->json($resultset);
+        }
+
+        if (empty($filterDefinition)) {
+            $filterDefinition = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
+        }
+        $viewModel->filterDefinition = $filterDefinition;
+
+        // create and init filter service
+        $filterService = Factory::getInstance()->getFilterService();
+
+        Helper::setupProductList($filterDefinition, $productListing, $params, $viewModel, $filterService, true);
+        $viewModel->filterService = $filterService;
+        $viewModel->products = $productListing;
+
+        // init pagination
+        $paginator = new Paginator($productListing);
+        $paginator->setCurrentPageNumber($request->get('page'));
+        $paginator->setItemCountPerPage(18);
+        $paginator->setPageRange(5);
+        $viewModel->results = $paginator;
+        $viewModel->paginationVariables = $paginator->getPages('Sliding');
+
+        $trackingManager = Factory::getInstance()->getTrackingManager();
+        foreach ($paginator as $product) {
+            $trackingManager->trackProductImpression($product);
+        }
+
+        $translator = $this->get('translator');
+
+        //breadcrumbs
+        $placeholder = $this->get('pimcore.templating.view_helper.placeholder');
+        $placeholder('addBreadcrumb')->append([
+            'parentId' => $this->document->getId(),
+            'id' => 'search-result',
+            'label' => $translator->trans('shop.search-result', [$request->get('term')])
+        ]);
+
+        $viewModel->language = $request->getLocale();
+        $viewModel->language = $request->getLocale();
+
+        return $viewModel->getAllParameters();
+
+        $headTitle = $this->get('pimcore.templating.view_helper.head_title');
+        $headTitle($translator->trans('shop.search-result', [$request->get('term')]));
     }
 
     /**
