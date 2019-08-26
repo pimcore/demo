@@ -90,5 +90,23 @@ class NewsController extends BaseController
         throw new NotFoundHttpException('News not found.');
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function emailNewsTeaserAction(Request $request, NewsLinkGenerator $newsLinkGenerator)
+    {
+        $paramsBag = [];
+        if ($request->get('type') == 'object') {
+
+            $news = News::getById($request->get('id'));
+            $paramsBag['news'] = $news;
+            $paramsBag['detailLink'] = $newsLinkGenerator->generate($news, ['document' => $this->document->getProperty('news_default_document')]);
+
+            return $this->render('news/email_news_teaser.html.twig', $paramsBag);
+        }
+
+        throw new NotFoundHttpException('News not found.');
+    }
 
 }

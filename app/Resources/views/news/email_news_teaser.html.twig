@@ -1,0 +1,42 @@
+{# @var news \Pimcore\Model\DataObject\News #}
+
+<table class="row">
+    <tbody>
+    <tr>
+        <th class="small-12 large-8 columns first">
+            <table>
+                <tbody><tr>
+                    <th>
+                        <h2>{{ news.title }}</h2>
+
+                        <p>{{ news.shortText }}</p>
+
+                        <p>
+                            <a href="{{ detailLink }}">{{ 'general.read-more' | trans }}</a>
+                        </p>
+                    </th>
+                </tr>
+                </tbody></table>
+        </th>
+        <th class="small-12 large-4 columns last">
+            <table>
+                <tbody>
+                <tr>
+                    <th>
+                        {% if news.gallery.items %}
+                            {% set image = news.gallery.current %}
+
+                            {% if image.image %}
+                                <img src="{{ image.image.thumbnail('mail_teaser') }}" class="small-float-center">
+                            {% endif %}
+
+                        {% endif %}
+
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+        </th>
+    </tr>
+    </tbody>
+</table>

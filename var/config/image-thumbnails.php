@@ -829,7 +829,7 @@ return [
                     "width" => 1920,
                     "height" => 600,
                     "positioning" => "center",
-                    "forceResize" => FALSE
+                    "forceResize" => TRUE
                 ]
             ]
         ],
@@ -840,7 +840,7 @@ return [
                     "arguments" => [
                         "width" => 1280,
                         "height" => 500,
-                        "positioning" => NULL,
+                        "positioning" => "center",
                         "forceResize" => FALSE
                     ]
                 ]
@@ -867,7 +867,7 @@ return [
         "preserveMetaData" => FALSE,
         "rasterizeSVG" => FALSE,
         "downloadable" => FALSE,
-        "modificationDate" => 1566221030,
+        "modificationDate" => 1566809509,
         "creationDate" => 1565355190,
         "id" => "portalCarousel"
     ],
@@ -1108,5 +1108,59 @@ return [
         "modificationDate" => 1566313821,
         "creationDate" => 1566306657,
         "id" => "print_image_small"
+    ],
+    "mail_title" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 548,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "mail_title",
+        "description" => "",
+        "group" => "Mail",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566819381,
+        "creationDate" => 1566819368,
+        "id" => "mail_title"
+    ],
+    "mail_teaser" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 170,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "mail_teaser",
+        "description" => "",
+        "group" => "Mail",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1566820095,
+        "creationDate" => 1566820084,
+        "id" => "mail_teaser"
     ]
 ];

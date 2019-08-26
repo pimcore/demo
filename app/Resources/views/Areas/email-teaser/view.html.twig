@@ -1,0 +1,40 @@
+<table class="row">
+    <tbody>
+    <tr>
+        <th class="small-12 large-8 columns first">
+            <table>
+                <tbody><tr>
+                    <th>
+                        <h2>{{ pimcore_input('title') }}</h2>
+
+                        {{ pimcore_wysiwyg('text') }}
+
+                        <p>
+                            {{ pimcore_link('more') }}
+                        </p>
+                    </th>
+                </tr>
+                </tbody></table>
+        </th>
+        <th class="small-12 large-4 columns last">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>
+                            {% if editmode %}
+
+                                {{ pimcore_image('image', {'thumbnail': 'mail_teaser', 'class': 'small-float-center'}) }}
+
+                            {% else %}
+
+                                <img src="{{ pimcore_image('image').getThumbnail('mail_teaser') }}" class="small-float-center">
+
+                            {% endif %}
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </th>
+    </tr>
+    </tbody>
+</table>

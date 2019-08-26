@@ -1,0 +1,25 @@
+<table class="row">
+    <tbody>
+    <tr>
+        <th class="small-12 large-12 columns first last">
+            <table>
+                <tr>
+                    <th>
+                        {% if editmode %}
+                            <h3>{{ pimcore_input('headline') }}</h3>
+                        {% else %}
+
+                            {% if not pimcore_input('headline').isEmpty %}
+                                <h3>{{ pimcore_input('headline') }}</h3>
+                            {% endif %}
+
+                        {% endif %}
+
+                        <p>{{ pimcore_wysiwyg('text') }}</p>
+                    </th>
+                </tr>
+            </table>
+        </th>
+    </tr>
+    </tbody>
+</table>

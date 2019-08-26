@@ -52,5 +52,31 @@ return [
         "priority" => 0,
         "creationDate" => 1564394007,
         "modificationDate" => 1564394051
+    ],
+    5 => [
+        "id" => 5,
+        "name" => "Default Mail",
+        "group" => "",
+        "module" => NULL,
+        "controller" => "@AppBundle\\Controller\\DefaultController",
+        "action" => "genericMail",
+        "template" => NULL,
+        "type" => "email",
+        "priority" => 0,
+        "creationDate" => 1564393950,
+        "modificationDate" => 1566813069
+    ],
+    6 => [
+        "id" => 6,
+        "name" => "Newsletter",
+        "group" => "",
+        "module" => NULL,
+        "controller" => "@AppBundle\\Controller\\DefaultController",
+        "action" => "genericMail",
+        "template" => NULL,
+        "type" => "newsletter",
+        "priority" => 0,
+        "creationDate" => 1566819624,
+        "modificationDate" => 1566819657
     ]
 ];

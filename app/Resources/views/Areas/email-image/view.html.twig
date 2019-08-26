@@ -1,0 +1,28 @@
+<table class="row">
+    <tbody>
+    <tr>
+        <th class="small-12 large-12 columns first last">
+            <table>
+                <tbody><tr>
+                    <th>
+                        <center data-parsed="">
+
+                            {% if editmode %}
+
+                                {{ pimcore_image('image', {'thumbnail': 'mail_title', 'class': 'float-center'}) }}
+
+                            {% else %}
+
+                                <img src="{{ pimcore_image('image').getThumbnail('mail_title') }}" align="center" class="float-center">
+
+                            {% endif %}
+
+                        </center>
+                    </th>
+                    <th class="expander"></th>
+                </tr>
+                </tbody></table>
+        </th>
+    </tr>
+    </tbody>
+</table>
