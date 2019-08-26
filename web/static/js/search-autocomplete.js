@@ -4,37 +4,36 @@ document.querySelector("#autoComplete").addEventListener("autoComplete", functio
 });
 // The autoComplete.js Engine instance creator
 const autoCompletejs = new autoComplete({
-    data: {                              // Data src [Array, Function, Async] | (REQUIRED)
+    data: {
         src: async () => {
-            // API key token
-            const token = "this_is_the_API_token_number";
             // User search query
             const query = document.querySelector("#autoComplete").value;
             // Fetch External Data Source
-            const source = await fetch(`/en/search?key=${token}&q=${query}`);
+            const source = await fetch(`/en/search?autocomplete=true&term=${query}`);
             // Format data into JSON
             const data = await source.json();
             // Return Fetched data
             return data;
         },
-        key: ["food","cities","animals"],
+        key: ["product"],
         cache: false
     },
-    sort: (a, b) => {                    // Sort rendered results ascendingly | (Optional)
+    sort: (a, b) => {
         if (a.match < b.match) return -1;
         if (a.match > b.match) return 1;
         return 0;
     },
-    query: {                               // Query Interceptor               | (Optional)
-        manipulate: (query) => {
-            return query.replace("pizza", "burger");
-        }
-    },
-    selector: "#autoComplete",           // Input field selector              | (Optional)
-    threshold: 2,                        // Min. Chars length to start Engine | (Optional)
-    debounce: 300,                       // Post duration for engine to start | (Optional)
-    searchEngine: "loose",              // Search Engine type/mode           | (Optional)
+    // query: {
+    //     manipulate: (query) => {
+    //         return query.replace("maroon", "red");
+    //     }
+    // },
+    selector: "#autoComplete",
+    threshold: 2,
+    debounce: 300,
+    searchEngine: "loose",
     highlight: false,
+    maxResults: 7,
     resultsList: {
         render: true,
         container: function(source) {
@@ -59,20 +58,12 @@ const autoCompletejs = new autoComplete({
         document.querySelector("#autoComplete_results_list").appendChild(result);
     },
     onSelection: function(feedback) {
-        const selection = feedback.selection.value.food;
-        // Render selected choice to selection div
-        document.querySelector(".selection").innerHTML = selection;
-        // Clear Input
-        document.querySelector("#autoComplete").value = "";
-        // Change placeholder with the selected value
-        document.querySelector("#autoComplete").setAttribute("placeholder", selection);
-        // Concole log autoComplete data feedback
-        console.log(feedback);
-    },// Highlight matching results      | (Optional)
+        const selection = feedback.selection.value.href;
+        location.replace(selection);
+    },
 });
 
 // On page load add class to input field
 window.addEventListener("load", function() {
     document.querySelector("#autoComplete").classList.add("out");
-    // document.querySelector("#autoComplete_results_list").style.display = "none";
 });
