@@ -26,6 +26,16 @@
         </tr>
         </tbody>
     </table>
-    <table class="row footer text-center">
+
+    {{
+        pimcore_areablock('content', {
+            'allowed': [
+                'email-image',
+                'email-wysiwyg', 
+                'email-teaser',
+                'email-news'
+            ]
+        })
+    }}
 
 {% endblock %}

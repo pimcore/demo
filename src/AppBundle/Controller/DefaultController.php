@@ -34,6 +34,13 @@ class DefaultController extends BaseController
     {
     }
 
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function genericMailAction(Request $request) {
+    }
+
 
     /**
      * @param Request $request
@@ -113,10 +120,12 @@ class DefaultController extends BaseController
         $viewModel->language = $request->getLocale();
         $viewModel->language = $request->getLocale();
 
-        return $viewModel->getAllParameters();
 
         $headTitle = $this->get('pimcore.templating.view_helper.head_title');
         $headTitle($translator->trans('shop.search-result', [$request->get('term')]));
+
+        return $viewModel->getAllParameters();
+
     }
 
     /**
