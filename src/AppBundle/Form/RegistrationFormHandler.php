@@ -15,10 +15,13 @@
 namespace AppBundle\Form;
 
 use CustomerManagementFrameworkBundle\Model\CustomerInterface;
+use Pimcore\DataObject\Consent\Service;
+use Pimcore\Translation\Translator;
 use Symfony\Component\Form\Form;
 
 class RegistrationFormHandler
 {
+
     protected function getFormDataMapping(): array
     {
         return [

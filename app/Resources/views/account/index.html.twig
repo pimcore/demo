@@ -73,6 +73,33 @@
 
                 </div>
 
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <strong>{{ 'general.marketing' | trans }}</strong>
+                    </div>
+
+                    <div class="card-body">
+                        <form name="marketing_form" method="post" action="{{ path('account-update-marketing-permission') }}">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" id="marketing_form_newsletter" name="newsletter" class="custom-control-input" value="1" {{ app.user.newsletter.consent ? 'CHECKED="CHECKED"' : '' }}>
+                                    <label class="checkbox-custom custom-control-label" for="marketing_form_newsletter">{{ 'general.newsletter' | trans }}</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" id="marketing_form_profiling" name="profiling" class="custom-control-input" value="1" {{ app.user.profiling.consent ? 'CHECKED="CHECKED"' : '' }}>
+                                    <label class="checkbox-custom custom-control-label" for="marketing_form_profiling">{{ 'general.profiling' | trans }}</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="marketing_form__submit" class="btn btn-sm btn-block btn-success btn">
+                                    {{ 'general.update' | trans }}
+                                </button>
+                            </div>
+                        </form>
+                </div>
+
 
             </div>
 

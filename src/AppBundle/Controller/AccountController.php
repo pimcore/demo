@@ -18,6 +18,8 @@ use AppBundle\EventListener\AuthenticationLoginListener;
 use AppBundle\Form\LoginFormType;
 use AppBundle\Form\RegistrationFormHandler;
 use AppBundle\Form\RegistrationFormType;
+use AppBundle\Model\Customer;
+use AppBundle\Services\NewsletterDoubleOptInService;
 use AppBundle\Services\PasswordRecoveryService;
 use CustomerManagementFrameworkBundle\CustomerProvider\CustomerProviderInterface;
 use CustomerManagementFrameworkBundle\CustomerSaveValidator\Exception\DuplicateCustomerException;
@@ -31,6 +33,7 @@ use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\OrderManager\Order\Listing\Filter\CustomerObject;
+use Pimcore\DataObject\Consent\Service;
 use Pimcore\Translation\Translator;
 use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -133,10 +136,11 @@ class AccountController extends BaseController
      * @param LoginManagerInterface $loginManager
      * @param RegistrationFormHandler $registrationFormHandler
      * @param SessionInterface $session
-     * @param EnvironmentInterface $environment
      * @param AuthenticationLoginListener $authenticationLoginListener
      * @param Translator $translator
+     * @param Service $consentService
      * @param UrlGeneratorInterface $urlGenerator
+     * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
      * @param UserInterface|null $user
      * @return array|RedirectResponse
      */
@@ -147,10 +151,11 @@ class AccountController extends BaseController
         LoginManagerInterface $loginManager,
         RegistrationFormHandler $registrationFormHandler,
         SessionInterface $session,
-        EnvironmentInterface $environment,
         AuthenticationLoginListener $authenticationLoginListener,
         Translator $translator,
+        Service $consentService,
         UrlGeneratorInterface $urlGenerator,
+        NewsletterDoubleOptInService $newsletterDoubleOptInService,
         UserInterface $user = null
     ) {
 
@@ -204,11 +209,19 @@ class AccountController extends BaseController
         $errors = [];
         if ($form->isSubmitted() && $form->isValid()) {
             $registrationFormHandler->updateCustomerFromForm($customer, $form);
-            $customer->setCustomerLangauge($request->getLocale());
+            $customer->setCustomerLanguage($request->getLocale());
             $customer->setActive(true);
 
             try {
                 $customer->save();
+
+                if($form->getData()['newsletter']) {
+                    $consentService->giveConsent($customer, 'newsletter', $translator->trans('general.newsletter'));
+                    $newsletterDoubleOptInService->sendDoubleOptInMail($customer, $this->document->getProperty('newsletter_confirm_mail'));
+                }
+                if($form->getData()['profiling']) {
+                    $consentService->giveConsent($customer, 'profiling', $translator->trans('general.profiling'));
+                }
 
                 // add SSO identity from OAuth data
                 if (null !== $oAuthUserInfo) {
@@ -385,6 +398,67 @@ class AccountController extends BaseController
         ];
     }
 
+    /**
+     * @Route("/account/update-marketing", name="account-update-marketing-permission")
+     * @Security("has_role('ROLE_USER')")
+     *
+     * @param Request $request
+     * @param Service $consentService
+     * @param Translator $translator
+     * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
+     * @param UserInterface|null $user
+     * @return RedirectResponse
+     * @throws \Exception
+     */
+    public function updateMarketingPermissionAction(Request $request, Service $consentService, Translator $translator, NewsletterDoubleOptInService $newsletterDoubleOptInService, UserInterface $user = null) {
+
+        if($user instanceof Customer) {
+            $currentNewsletterPermission = $user->getNewsletter()->getConsent();
+            if(!$currentNewsletterPermission && $request->get('newsletter')) {
+                $consentService->giveConsent($user, 'newsletter', $translator->trans('general.newsletter'));
+                $newsletterDoubleOptInService->sendDoubleOptInMail($user, $this->document->getProperty('newsletter_confirm_mail'));
+            }
+            else if($currentNewsletterPermission && !$request->get('newsletter')) {
+                $user->setNewsletterConfirmed(false);
+                $consentService->revokeConsent($user, 'newsletter');
+            }
+
+            $currentProfilingPermission = $user->getProfiling()->getConsent();
+            if(!$currentProfilingPermission && $request->get('profiling')) {
+                $consentService->giveConsent($user, 'profiling', $translator->trans('general.profiling'));
+            }
+            else if($currentProfilingPermission && !$request->get('profiling')) {
+                $consentService->revokeConsent($user, 'profiling');
+            }
+
+            $user->save();
+
+            $this->addFlash('success', $translator->trans('account.marketing-permissions-updated'));
+        }
+
+        return $this->redirectToRoute('account-index');
+    }
+
+    /**
+     * @Route("/account/confirm-newsletter", name="account-confirm-newsletter")
+     *
+     * @param Request $request
+     * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
+     * @param Translator $translator
+     * @return RedirectResponse
+     */
+    public function confirmNewsletterAction(Request $request, NewsletterDoubleOptInService $newsletterDoubleOptInService, Translator $translator) {
+
+        $token = $request->get('token');
+        $customer = $newsletterDoubleOptInService->handleDoubleOptInConfirmation($token);
+        if($customer) {
+            $this->addFlash('success', $translator->trans('account.marketing-permissions-confirmed-newsletter'));
+            return $this->redirectToRoute('account-index');
+        } else {
+            throw new NotFoundHttpException('Invalid token');
+        }
+
+    }
 
     /**
      * @Route("/account/send-password-recovery", name="account-password-send-recovery")
