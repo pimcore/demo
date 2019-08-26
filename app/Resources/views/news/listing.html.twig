@@ -24,14 +24,12 @@
             })
         }}
 
-        <div class="row mt-5">
-
-            {%  for news in news %}
-                <div class="col-md-4 d-flex align-items-stretch flex-column">
+        <div class="row">
+            <ul class="list-unstyled">
+                {%  for news in news %}
                     {% include 'news/news_teaser.html.twig' with {'news': news} %}
-                </div>
-
-            {% endfor %}
+                {% endfor %}
+            </ul>
         </div>
 
         <div class="pt-5">
