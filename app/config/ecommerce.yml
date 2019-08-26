@@ -27,9 +27,24 @@ pimcore_ecommerce_framework:
             default:
                 config_id: AppBundle\Ecommerce\IndexService\Config\MySqlConfig
                 worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\DefaultMysql
+                search_attributes:
+                    - name
+                    - manufacturer_name
+                    - color
+                    - carClass
                 attributes:
                     name:
+                        fieldname: OSNameOSName
                         type: varchar(255)
+                        filter_group: string
+                    manufacturer_name:
+                        fieldname: 'manufacturer'
+                        type: varchar(255)
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\ObjectValue
+                        interpreter_options:
+                            target:
+                                fieldname: name
+                                locale: 'en'
                         filter_group: string
                     manufacturer:
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
