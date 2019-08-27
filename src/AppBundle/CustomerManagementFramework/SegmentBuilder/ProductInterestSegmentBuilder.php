@@ -15,8 +15,7 @@
 namespace AppBundle\CustomerManagementFramework\SegmentBuilder;
 
 
-use AppBundle\Model\Product\AccessoryPart;
-use AppBundle\Model\Product\Car;
+use AppBundle\Ecommerce\IndexService\SegmentGetter;
 use AppBundle\Website\Tool\ForceInheritance;
 use CustomerManagementFrameworkBundle\Model\CustomerInterface;
 use CustomerManagementFrameworkBundle\SegmentBuilder\AbstractSegmentBuilder;
@@ -32,11 +31,18 @@ use Pimcore\Model\DataObject\OnlineShopOrderItem;
 class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
 {
 
-    protected $segmentGroupName;
+    /**
+     * @var SegmentGetter
+     */
+    protected $segmentGetter;
 
-    public function __construct( $segmentGroupName = 'Interests')
+    /**
+     * ProductInterestSegmentBuilder constructor.
+     * @param SegmentGetter $segmentGetter
+     */
+    public function __construct(SegmentGetter $segmentGetter)
     {
-        $this->segmentGroupName = $segmentGroupName;
+        $this->segmentGetter = $segmentGetter;
     }
 
 
@@ -62,8 +68,11 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
      */
     public function calculateSegments(CustomerInterface $customer, SegmentManagerInterface $segmentManager)
     {
-        $segmentGroupName = $this->segmentGroupName;
-        ForceInheritance::run(function() use ($customer, $segmentManager, $segmentGroupName) {
+        if(!$customer->getProfilingConsent()) {
+            return;
+        }
+
+        ForceInheritance::run(function() use ($customer, $segmentManager) {
             $orderManager = Factory::getInstance()->getOrderManager();
 
             // create new order list
@@ -76,7 +85,7 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
             $list->setOrderState(AbstractOrder::ORDER_STATE_COMMITTED);
             $list->addFilter( new CustomerObject($customer));
 
-            $interests = [];
+            $segments = [];
 
             foreach($list as $orderItem) {
 
@@ -87,40 +96,17 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
                 $product = $orderItem->getProduct();
                 if($product) {
 
-                    if($product instanceof Car) {
-
-                        if($product->getManufacturer()) {
-                            $interests[$product->getManufacturer()->getName('en')]++;
-                        }
-                        if($product->getBodyStyle()) {
-                            $interests[$product->getBodyStyle()->getName('en')]++;
-                        }
-                        $interests[$product->getCarClass()]++;
-
-                    } else if ($product instanceof AccessoryPart) {
-
-                        if($product->getManufacturer()) {
-                            $interests[$product->getManufacturer()->getName('en')]++;
-                        }
-
-                    }
+                    $segments = array_merge($segments, $this->segmentGetter->get($product));
 
                 }
-
             }
 
+            $segmentManager->mergeSegments($customer, $segments, [], $this->getName());
 
-            foreach($interests as $interestName => $count) {
-                $segment = $segmentManager->createCalculatedSegment(
-                    $interestName,
-                    $segmentGroupName
-                );
-
-                $segmentManager->mergeSegments($customer, [$segment], [],  $this->getName(), null, $count );
-            }
         });
 
     }
+
 
     /**
      * @return string

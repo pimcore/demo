@@ -98,6 +98,7 @@ services:
 
     AppBundle\Services\PasswordRecoveryService: ~
     AppBundle\Services\NewsletterDoubleOptInService: ~
+    AppBundle\Services\SegmentTrackingHelperService: ~
 
 
 # CMF Services

@@ -16,7 +16,14 @@
                 {% endif %}
             </div>
             <div class="card-body-bottom">
-                <p class="card-price">{{ product.oSPrice }},-</p>
+
+                {% set priceInfo = product.oSPriceInfo %}
+
+                {% if(priceInfo.hasDiscount) %}
+                    <p class="card-price original mb-1">{{ priceInfo.originalPrice }}</p>
+                {% endif %}
+
+                <p class="card-price">{{ product.oSPrice }}</p>
                 <div class="row button-row">
                     <div class="col p-1">
                         <a href="{{ detailLink }}" class="btn btn-block btn-secondary">

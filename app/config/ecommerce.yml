@@ -137,6 +137,12 @@ pimcore_ecommerce_framework:
                                   fieldname: power
                         filtergroup: double
 
+
+                    segments:
+                        getter_id: AppBundle\Ecommerce\IndexService\SegmentGetter
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
+                        filter_group: relation
+
     filter_service:
 
         # Configure assortment tenants - at least one tenant has to be configured
@@ -196,11 +202,11 @@ pimcore_ecommerce_framework:
                         cart_readonly_mode: deactivated
                 price_calculator:
                     modificators:
-                        shipping:
-                            class: Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartPriceModificator\Shipping
-                            # configuration options for price modificator
+                        Shipping:
+                            class: AppBundle\Ecommerce\Cart\PriceModificator\Shipping
                             options:
-                                charge: "5.90"
+                                baseCharge: "10"
+                                carCharge: "200"
 
 
     checkout_manager:
@@ -291,6 +297,10 @@ services:
         parent: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\AbstractConfig
         autowire: true
         autoconfigure: false
+
+
+    AppBundle\Ecommerce\IndexService\SegmentGetter: ~
+
 
     # define own price system service and configure options for attribute name and price object class
     app.default_price_system:

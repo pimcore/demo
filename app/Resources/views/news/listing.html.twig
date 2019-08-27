@@ -24,14 +24,34 @@
             })
         }}
 
-        <div class="row mt-5">
+        <div class="row">
+            <ul class="list-unstyled">
+                {%  for news in news %}
+                    {# @var news \Pimcore\Model\DataObject\News #}
+                    {% set detailLink = app_news_detaillink(news) %}
 
-            {%  for news in news %}
-                <div class="col-md-4 d-flex align-items-stretch flex-column">
-                    {% include 'news/news_teaser.html.twig' with {'news': news} %}
-                </div>
+                    <li class="media my-3">
+                        {% if news.gallery.items %}
+                            {% set image = news.gallery.current %}
 
-            {% endfor %}
+                            {% if image.image %}
+                                <a href="{{ detailLink }}">
+                                    {{ image.image.thumbnail('newsList').html({class: 'mr-3'}) | raw }}
+                                </a>
+                            {% endif %}
+                        {% endif %}
+
+                        <div class="media-body">
+                            <h5 class="mt-0">
+                                <a href="{{ detailLink }}" class="text-decoration-none text-dark">
+                                    {{ news.title }}
+                                </a>
+                            </h5>
+                            {{ news.shortText }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
 
         <div class="pt-5">

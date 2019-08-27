@@ -1,0 +1,19 @@
+{% if item.links %}
+    <div class="row mt-5">
+        {% if item.title %}
+            <h6 class="col-12">{{ item.title }}</h6>
+        {% endif %}
+
+        <div class="col-12">
+            <ul class="list-group">
+
+                {% for linkBlock in item.links %}
+
+                    <li class="list-group-item">{{ linkBlock.link.data | raw }}</li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+{% endif %}

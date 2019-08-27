@@ -1,7 +1,7 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-26T10:36:02+02:00
+* Generated at: 2019-08-27T12:54:43+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
@@ -24,6 +24,7 @@ Fields Summary:
 - customerLanguage [language]
 - newsletter [consent]
 - newsletterConfirmed [newsletterConfirmed]
+- newsletterConfirmToken [input]
 - profiling [consent]
 - manualSegments [advancedManyToManyObjectRelation]
 - calculatedSegments [advancedManyToManyObjectRelation]
@@ -39,7 +40,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Customer',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566808562,
+   'modificationDate' => 1566903283,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\CustomerManagementFrameworkBundle\\Model\\AbstractCustomer\\DefaultAbstractUserawareCustomer',
@@ -5479,7 +5480,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'mandatory' => false,
                      'noteditable' => false,
                      'index' => false,
-                     'locked' => NULL,
+                     'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
@@ -5501,7 +5502,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'mandatory' => false,
                      'noteditable' => true,
                      'index' => false,
-                     'locked' => NULL,
+                     'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
@@ -5511,6 +5512,32 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'visibleSearch' => false,
                   )),
                   2 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                     'fieldtype' => 'input',
+                     'width' => NULL,
+                     'queryColumnType' => 'varchar',
+                     'columnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => 'string',
+                     'regex' => '',
+                     'unique' => false,
+                     'showCharCount' => false,
+                     'name' => 'newsletterConfirmToken',
+                     'title' => 'Newsletter Confirm Token',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => true,
+                     'index' => false,
+                     'locked' => NULL,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => true,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  3 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Consent::__set_state(array(
                      'fieldtype' => 'consent',
                      'defaultValue' => 0,
@@ -5528,7 +5555,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'mandatory' => false,
                      'noteditable' => false,
                      'index' => false,
-                     'locked' => NULL,
+                     'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
@@ -5649,7 +5676,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\AdvancedManyToManyObjectRelation::__set_state(array(
                  'allowedClassId' => 'CustomerSegment',
-                 'visibleFields' => 'name,id',
+                 'visibleFields' => 'id,name',
                  'columns' => 
                 array (
                   0 => 
@@ -5676,8 +5703,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 ),
                  'fieldtype' => 'advancedManyToManyObjectRelation',
                  'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ObjectMetadata[]',
-                 'enableBatchEdit' => NULL,
-                 'allowMultipleAssignments' => NULL,
+                 'enableBatchEdit' => false,
+                 'allowMultipleAssignments' => false,
                  'visibleFieldDefinitions' => 
                 array (
                 ),
@@ -5829,14 +5856,14 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'title' => 'Password Recovery Token',
                  'tooltip' => '',
                  'mandatory' => false,
-                 'noteditable' => false,
+                 'noteditable' => true,
                  'index' => false,
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
                  'relationType' => false,
-                 'invisible' => false,
+                 'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
@@ -5852,14 +5879,14 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'title' => 'Password Recovery Token Date',
                  'tooltip' => '',
                  'mandatory' => false,
-                 'noteditable' => false,
+                 'noteditable' => true,
                  'index' => false,
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
                  'relationType' => false,
-                 'invisible' => false,
+                 'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),

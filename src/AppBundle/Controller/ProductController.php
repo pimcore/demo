@@ -3,11 +3,14 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Ecommerce\IndexService\SegmentGetter;
 use AppBundle\Model\Product\AbstractProduct;
 use AppBundle\Model\Product\AccessoryPart;
 use AppBundle\Model\Product\Car;
 use AppBundle\Model\Product\Category;
+use AppBundle\Services\SegmentTrackingHelperService;
 use AppBundle\Website\Navigation\BreadcrumbHelperService;
+use CustomerManagementFrameworkBundle\Targeting\SegmentTracker;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
@@ -15,6 +18,7 @@ use Pimcore\Config;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\FilterDefinition;
+use Pimcore\Targeting\VisitorInfoStorage;
 use Pimcore\Templating\Helper\HeadTitle;
 use Pimcore\Templating\Model\ViewModel;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,10 +36,11 @@ class ProductController extends BaseController
      * @param HeadTitle $headTitleHelper
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param Factory $factory
+     * @param SegmentTrackingHelperService $segmentTrackingHelperService
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      */
-    public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $factory) {
+    public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $factory, SegmentTrackingHelperService $segmentTrackingHelperService) {
 
         $product = Concrete::getById($request->get("product"));
 
@@ -50,6 +55,9 @@ class ProductController extends BaseController
         $paramBag = $this->view->getAllParameters();
         $paramBag['product'] = $product;
 
+
+        //track segments for personalization
+        $segmentTrackingHelperService->trackSegmentsForProduct($product);
 
         if($product instanceof Car) {
             return $this->render('product/detail.html.twig', $paramBag);
@@ -73,9 +81,10 @@ class ProductController extends BaseController
      * @param HeadTitle $headTitleHelper
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param Factory $ecommerceFactory
+     * @param SegmentTrackingHelperService $segmentTrackingHelperService
      * @return array|\Symfony\Component\HttpFoundation\Response
      */
-    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
+    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService)
     {
         $viewModel = new ViewModel();
         $params = array_merge($request->query->all(), $request->attributes->all());
@@ -99,6 +108,9 @@ class ProductController extends BaseController
         // load current filter
         if ($category) {
             $filterDefinition = $category->getFilterdefinition();
+
+            //track segments for personalization
+            $segmentTrackingHelperService->trackSegmentsForCategory($category);
 
 //            $trackingManager = Factory::getInstance()->getTrackingManager();
 //            $trackingManager->trackCategoryPageView($category->getName(), null);
