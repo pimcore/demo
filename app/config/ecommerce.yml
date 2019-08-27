@@ -202,11 +202,11 @@ pimcore_ecommerce_framework:
                         cart_readonly_mode: deactivated
                 price_calculator:
                     modificators:
-                        shipping:
-                            class: Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartPriceModificator\Shipping
-                            # configuration options for price modificator
+                        Shipping:
+                            class: AppBundle\Ecommerce\Cart\PriceModificator\Shipping
                             options:
-                                charge: "5.90"
+                                baseCharge: "10"
+                                carCharge: "200"
 
 
     checkout_manager:
