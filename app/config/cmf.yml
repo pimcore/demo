@@ -86,3 +86,14 @@ pimcore_customer_management_framework:
         # echo \Defuse\Crypto\Key::createNewRandomKey()->saveToAsciiSafeString();
         # keep it secret
         secret:               '%app_encryption_secret%'
+
+    # Configuration for segment assignment
+    segment_assignment_classes:
+        types:
+            document:
+                page: true
+            object:
+                object:
+                    News: true
+                    Category: true
+                folder: true
