@@ -618,8 +618,16 @@ input.form-control {
     top: 80%;
 }
 
+.menu-links .dropdown-menu {
+    width: max-content;
+}
+
 .menu-icons .dropdown-menu {
     top: 125%;
+}
+
+.menu-icons .dropdown-item.active, .menu-icons .dropdown-item:active {
+    background-color: transparent;
 }
 
 .navbar-nav li .dropdown-menu a {
@@ -638,6 +646,7 @@ input.form-control {
     font-family: "Font Awesome 5 Free"; font-weight: 600; content: "\f0da";
     float: right;
     border: none;
+    margin-left: 0.5em;
 }
 
 .dropdown-submenu {
@@ -676,7 +685,7 @@ input.form-control {
     list-style: none;
 }
 
-.dropdown .dropdown-menu li a:hover {
+.dropdown .dropdown-menu a:hover {
     background-color: lightgray;
 }
 
