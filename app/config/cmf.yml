@@ -76,6 +76,59 @@ pimcore_customer_management_framework:
             - [email]
             - [firstname, lastname, zip, street]
 
+        duplicates_view:
+            enabled: true # the feature will be visible in the backend only if it is enabled
+            # Visible fields in the customer duplicates view.
+            # Each single group/array is one separate column in the view table.
+            listFields:
+                - [id]
+                - [email]
+                - [firstname, lastname]
+                - [street]
+                - [zip, city]
+                - [countryCode]
+
+        # Index used for a global search of customer duplicates.
+        # Matching field combinations can be configured here.
+        # See "Customer Duplicates Service" docs chapter for more details.
+        duplicates_index:
+            enableDuplicatesIndex: true
+            duplicateCheckFields:
+                - lastname:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+                  firstname:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+                  zip:
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\Zip
+
+                  city:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+                  street:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+
+                - email:
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+                      similarityThreshold: 90
+
+            dataTransformers:
+                street: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Street
+                firstname: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
+                city: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
+                lastname: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
+
     # Enable/Disable SSO oauth client. If enabled additional steps are necessary, see SSO docs for details.
     oauth_client:
         enabled: true
