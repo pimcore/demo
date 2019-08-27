@@ -143,4 +143,46 @@ class DefaultController extends BaseController
         return [];
     }
 
+    /**
+     * @param Request $request
+     * @Route("/product-print", name="product_print")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Exception
+     */
+    public function productPrintAction(Request $request)
+    {
+        $objId = $request->get('id');
+        $obj = Car::getById($objId);
+
+        if($obj instanceof Car) {
+            $params = $this->view->getAllParameters();
+            $params['product'] = $obj;
+            $html = $this->renderView('web2print/product_detail.html.twig', $params);
+
+            $adapter = \Pimcore\Web2Print\Processor::getInstance();
+
+            $options = [
+                "page-size" => "A4",
+                "orientation" => "Potrait",
+                "margin-left" => "0",
+                "margin-top" => "0",
+                "margin-bottom" => "0",
+                "margin-right" => "0",
+                "disable-smart-shrinking" => "",
+                "dpi" => "300"
+            ];
+
+            if($html){
+                return new \Symfony\Component\HttpFoundation\Response(
+                    $adapter->getPdfFromString($html, $options),
+                    200,
+                    array(
+                        'Content-Type' => 'application/pdf',
+                    )
+                );
+            }
+        }
+    }
 }

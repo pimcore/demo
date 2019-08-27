@@ -1,0 +1,275 @@
+{% import 'product/macros.html.twig' as macros %}
+
+{% extends 'layouts/print_catalog.html.twig' %}
+
+{%  block content %}
+    {% if product is instanceof('AppBundle\\Model\\Product\\Car') %}
+        <page size="A4">
+            <div id="main-content" class="main-content">
+                <div class="bg-white">
+                    <div class="row">
+                        <div class="col-sm-6">
+                        {% if(product.mainImage) %}
+                                <div class="col-xs-12 p-3">
+                                    {{ product.mainImage.thumbnail('print_productdetail').getHTML({class: 'img-fluid float-right'})|raw }}
+
+                                    {% block additionalimages %}
+                                        {% set additionalImages = product.additionalImages %}
+                                        {%  if(additionalImages) %}
+
+                                            <div class="row">
+
+                                                {% for image in additionalImages %}
+
+                                                    <div class="col-sm-6 mt-3">
+
+                                                        <a class="thumbnail">
+                                                            {{ image.thumbnail('print_productdetail_small').getHTML({class: 'img-fluid'})|raw }}
+                                                        </a>
+
+                                                    </div>
+
+                                                {% endfor %}
+
+                                            </div>
+
+                                        {%  endif %}
+                                    {% endblock %}
+                            </div>
+                        {% endif %}
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="p-3">
+                                <div class="row d-none d-block mb-3">
+                                    <div class="">
+                                        {% if(product.manufacturer and product.manufacturer.logo)  %}
+                                            {{ product.manufacturer.logo.thumbnail('print_product_detail_manufacturer').getHTML({class: 'img-fluid float-right'})|raw }}
+                                        {%  endif  %}
+
+                                        <h2 class="d-block">{{ product.oSName }}</h2>
+                                    </div>
+                                </div>
+                                <div class="row py-3">
+                                    {% block colorvariants %}
+                                        <dl class="item-property col-12">
+                                            <dt class="p-1 alert-secondary rounded">{{ 'general.color' | trans }}</dt>
+                                            <dd>
+                                                {% for colorVariant in product.colorVariants %}
+                                                    <span
+                                                            class="btn  {{ product.id == colorVariant.id ? 'btn-light' : '' }}">
+                                                {{ colorVariant.color | colorname }}
+                                            </span>
+                                                {% endfor %}
+                                            </dd>
+                                        </dl>
+                                    {% endblock %}
+
+                                    {% block detailinfos %}
+                                        {% if(product.bodyStyle) %}
+                                            <dl class="item-property col-sm-6">
+                                                <dt class="p-1 mb-1 alert-secondary rounded">{{ 'general.body-style' | trans }}</dt>
+                                                <dd>{{ product.bodyStyle.name }}</dd>
+                                            </dl>
+                                        {% endif %}
+
+                                        <dl class="item-property col-sm-6">
+                                            <dt class="p-1 mb-1 alert-secondary rounded">{{ 'general.car-class' | trans }}</dt>
+                                            <dd>{{ ('attribute.' ~ product.carClass) | lower | trans }}</dd>
+                                        </dl>
+                                    {% endblock %}
+
+                                    {% block salesinfos %}
+                                        {% if product.saleInformation.saleInformation %}
+                                        <dl class="item-property col-sm-6 mb-0">
+                                            <dt class="p-1 mb-1 alert-secondary rounded">{{ 'general.condition' | trans }}</dt>
+                                            <dd>{{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | lower | trans}}</dd>
+                                        </dl>
+
+                                        <dl class="item-property col-sm-6 mb-0">
+                                            <dt class="p-1 mb-1 alert-secondary rounded">{{ 'general.milage' | trans }}</dt>
+                                            <dd>{{ product.saleInformation.saleInformation.milage}}</dd>
+                                        </dl>
+                                        {% endif %}
+                                    {% endblock %}
+
+                                </div>
+
+                                <hr/>
+                                <div class="mt-4 text-center">
+                                    {% set priceInfo = product.oSPriceInfo %}
+                                    {% set price = product.oSPrice %}
+
+
+                                    {% if(priceInfo.hasDiscount) %}
+                                        <p class="detail-price original mb-3">{{ priceInfo.originalPrice }}</p>
+                                    {% endif %}
+
+                                    <p class="detail-price mb-2">{{ price }}</p>
+
+                                    <div class="detail-tax text-muted">
+                                        <ul class="list-unstyled">
+                                            {% for taxEntry in price.taxEntries %}
+                                                <li>{{ taxEntry.entry.name }}: {{ taxEntry.percent }}% ({{ taxEntry.amount.asNumeric | currency(price.currency.shortName) }})</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr/>
+                    {% block description %}
+                        <div class="mt-2 col-12 text-center">
+                            <h4 class="text-center">{{ 'general.additional-information' | trans }}</h4>
+
+                            {% if(product.description) %}
+                                <p>{{ product.description | raw }}</p>
+                            {% endif %}
+
+                        </div>
+                    {% endblock %}
+
+                    {% block attributes %}
+                        <div class="col-12" id="AdditionalInfo">
+                            <div class="card d-block mb-2" id="general">
+                                <div class="card-header">
+                                    {{ 'general.general' | trans }}
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="row">
+
+                                        {% if(product.manufacturer) %}
+                                            <dl class="item-property col-sm-6 col-sm-3">
+                                                <dt>{{ 'general.manufacturer' | trans }}</dt>
+                                                <dd>{{ product.manufacturer.name }}</dd>
+                                            </dl>
+                                        {% endif %}
+
+                                        {{ macros.attribute(product.productionYear, 'general.productionYear') }}
+
+                                        {% if(product.country) %}
+                                            <dl class="item-property col-sm-6 col-sm-3">
+                                                <dt>{{ 'general.country' | trans }}</dt>
+                                                <dd>{{ product.country | country }}</dd>
+                                            </dl>
+                                        {% endif %}
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            {% if(product.attributes.dimensions or product.attributes.bodywork) %}
+                                <div class="card d-block mb-2" id="engine">
+                                    <div class="card-header">
+                                        {{ 'general.engine' | trans }}
+                                    </div>
+                                    <div class="card-body p-2">
+                                        <div class="row">
+                                            {% if(product.attributes.dimensions) %}
+                                                {{ macros.attribute(product.attributes.dimensions.length, 'general.length') }}
+                                                {{ macros.attribute(product.attributes.dimensions.width, 'general.width') }}
+                                                {{ macros.attribute(product.attributes.dimensions.wheelbase, 'general.wheelbase') }}
+                                                {{ macros.attribute(product.attributes.dimensions.weight, 'general.weight') }}
+                                            {%  endif %}
+
+                                            {% if(product.attributes.bodywork) %}
+                                                {{ macros.attribute(product.attributes.bodywork.numberOfDoors, 'general.numberOfDoors') }}
+                                                {{ macros.attribute(product.attributes.bodywork.numberOfSeats, 'general.numberOfSeats') }}
+                                            {%  endif %}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            {%  endif %}
+                            {% if(product.attributes.engine or product.attributes.transmission) %}
+                                <div class="card d-block mb-2" id="dimensions">
+                                    <div class="card-header">
+                                        {{ 'general.dimensions' | trans }}
+                                    </div>
+                                    <div class="card-body p-2">
+
+                                        <div class="row">
+                                            {% if(product.attributes.engine) %}
+                                                {{ macros.attribute(product.attributes.engine.cylinders, 'general.cylinders') }}
+                                                {{ macros.attribute(product.attributes.engine.capacity, 'general.capacity') }}
+                                                {{ macros.attribute(product.attributes.engine.power, 'general.power') }}
+                                                {{ macros.attribute(product.attributes.engine.engineLocation, 'general.engineLocation') }}
+                                            {%  endif %}
+
+                                            {% if(product.attributes.transmission) %}
+                                                {{ macros.attribute(product.attributes.transmission.wheelDrive, 'general.wheelDrive', true, 'attribute.') }}
+                                            {%  endif %}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            {%  endif %}
+                        </div>
+                    {% endblock %}
+
+                    {% block productrelations %}
+                        {% set accessories = product.accessories %}
+
+                        {%  if(accessories.count) %}
+
+                            <hr/>
+
+                            <div class="mt-2 col-xs-12">
+                                <h4 class="text-center">{{ 'general.accessories' | trans }}</h4>
+
+                                <div class="row">
+                                    {% for product in accessories %}
+                                        <div class="col-sm-4 d-flex px-2 align-items-stretch">
+                                            <div class="card custom-product-card mb-2 shadow-sm flex-fill">
+                                                {% set detailLink = app_product_detaillink(product) %}
+                                                <a href="{{ detailLink }}" class="text-decoration-none text-dark">
+                                                    {% if(product.mainImage) %}
+                                                        {{ product.mainImage.thumbnail('print_grid').html({class: 'img-fluid'}) | raw }}
+                                                    {% endif %}
+
+
+                                                    <div class="card-body pricing">
+                                                        <div class="card-body-top pb-3">
+                                                            <h4 class="card-title pricing-card-title text-uppercase">{{ product.oSName }}</h4>
+                                                            {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                                                                <p class="card-text">{{ product.subText | raw }}</p>
+                                                            {% elseif(product.saleInformation.saleInformation)  %}
+                                                                <p class="card-text">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="card-body-bottom">
+
+                                                            {% set priceInfo = product.oSPriceInfo %}
+
+                                                            <p class="card-price">{{ product.oSPrice }}</p>
+                                                            <div class="row button-row">
+                                                                <div class="col p-1">
+                                                                    <a href="{{ detailLink }}" class="btn btn-block btn-secondary">
+                                                                        {{ 'general.details' | trans }}
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col p-1">
+                                                                    <a href="{{ path('shop-add-to-cart', { id: product.id }) }}" class="btn btn-block btn-primary">{{ 'general.buy' | trans }} <i class=" ml-2"><img src="/static/images/icons/cart.svg" height="20" width="auto"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+
+                </div>
+            </div>
+        </page>
+    {% endif %}
+{% endblock %}
