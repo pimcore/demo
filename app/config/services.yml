@@ -27,3 +27,4 @@ services:
     AppBundle\Form\LoginFormType: ~
     AppBundle\Form\RegistrationFormType: ~
     AppBundle\Form\RegistrationFormHandler: ~
+    AppBundle\Form\CarSubmitFormType: ~

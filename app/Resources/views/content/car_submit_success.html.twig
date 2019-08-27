@@ -1,0 +1,71 @@
+{% extends 'layouts/layout.html.twig' %}
+{# @var news \Pimcore\Model\DataObject\Car #}
+
+
+{% block content %}
+    <div id="main-content" class="main-content mb-5">
+
+        <div class="page-header">
+            <h1 class="display-2 text-center">{{ 'general.thank-you-car-submit' | trans }}</h1>
+        </div>
+
+        <p class="text-center text-muted small mb-5">{{ 'general.thank-you-car-submit.txt' | trans | raw }}</p>
+
+        <div class="mb-5 d-flex justify-content-center">
+            <div class="card col-md-8">
+                <div class="card-body">
+
+                    <h6>{{ 'general.car-details' | trans }}</h6>
+
+                    <dl class="item-property">
+                        <dd>
+                            <strong>
+                                {{ 'general.name' | trans }}
+                            </strong>
+                            {{ car.name }}
+                        </dd>
+                    </dl>
+
+                    <dl class="item-property">
+                        <dd>
+                            <strong>
+                                {{ 'general.description' | trans }}
+                            </strong>
+                            {{ car.description }}
+                        </dd>
+                    </dl>
+
+                    <dl class="item-property">
+                        <dd>
+                            <strong>
+                                {{ 'general.manufacturer' | trans }}
+                            </strong>
+                            {{ car.manufacturer.name }}
+                        </dd>
+                    </dl>
+
+                    <dl class="item-property">
+                        <dd>
+                            <strong>
+                                {{ 'general.body-style' | trans }}
+                            </strong>
+                            {{ car.bodyStyle.name }}
+                        </dd>
+                    </dl>
+
+
+                    <dl class="item-property">
+                        <dd>
+                            <strong>
+                                {{ 'general.car-class' | trans }}
+                            </strong>
+                            {{ ('attribute.' ~ car.carClass) | lower | trans}}
+                        </dd>
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

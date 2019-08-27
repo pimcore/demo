@@ -55,12 +55,14 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('newsletter', CheckboxType::class, [
                 'label' => 'general.newsletter',
+                'required' => false,
                 'label_attr' => [
                     'class' => 'checkbox-custom'
                 ]
             ])
             ->add('profiling', CheckboxType::class, [
                 'label' => 'general.profiling',
+                'required' => false,
                 'label_attr' => [
                     'class' => 'checkbox-custom'
                 ]

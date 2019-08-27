@@ -1,0 +1,20 @@
+{% extends 'layouts/layout.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block content %}
+    <div id="main-content" class="main-content mb-5">
+
+        <div class="page-header">
+            <h1>{{ pimcore_input('headline') }}</h1>
+        </div>
+
+        <p>
+            {{ pimcore_wysiwyg('intro') }}
+        </p>
+
+        {{ form(form) }}
+
+    </div>
+
+
+{% endblock %}
