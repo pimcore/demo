@@ -15,7 +15,7 @@ class Customer extends \Pimcore\Model\DataObject\Customer implements SsoAwareCus
      */
     public function getProfilingConsent()
     {
-        return $this->getProfiling()->getConsent();
+        return $this->getProfiling() ? $this->getProfiling()->getConsent() : false;
     }
 
 }

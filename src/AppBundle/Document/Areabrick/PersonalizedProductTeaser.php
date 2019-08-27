@@ -102,8 +102,6 @@ class PersonalizedProductTeaser extends AbstractAreabrick
             }
         }
 
-        p_r($segmentCollection);
-
         //build filter list
         $productList = $this->ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
         foreach($allowedSegmentGroups as $group) {
