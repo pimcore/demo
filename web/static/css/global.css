@@ -111,6 +111,12 @@ h6, .display-6 {
     line-height: 20px;
 }
 
+
+.extra-small {
+    font-size: 13px;
+    line-height: 15px;
+}
+
 .label {
     font-size: 16px;
     line-height: 22px;
@@ -536,6 +542,15 @@ input.form-control {
     letter-spacing: 2px;
     line-height: 22px;
 }
+
+.custom-product-card .card-price.original {
+    font-size: 15px;
+    font-weight: normal;
+    text-decoration: line-through;
+    letter-spacing: 2px;
+    line-height: 17px;
+}
+
 
 .image-holder:before {
     content: "";

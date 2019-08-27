@@ -89,6 +89,25 @@
                                                 <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
                                             {% endif %}
 
+                                            {% set priceInfo = item.priceInfo %}
+
+                                            {% if(priceInfo.rules) %}
+
+                                                <div class="alert alert-success mb-1" role="alert">
+
+                                                    <p class="extra-small small mb-2"><strong>{{ 'general.your-benefits' | trans }}</strong></p>
+
+                                                    <ul class="list-unstyled mb-0 extra-small">
+                                                        {% for rule in priceInfo.rules %}
+                                                            <li>{{ rule.label }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+
+                                                </div>
+
+                                            {% endif %}
+
+
                                         </div>
 
                                         <div class="col-12 col-sm-12 text-sm-center col-md-5 text-md-right row pt-md-0 pt-2 ml-0 ml-md-n1">
