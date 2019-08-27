@@ -115,10 +115,12 @@ class PersonalizedProductTeaser extends AbstractAreabrick
                 }
 
                 $productList->addRelationCondition('segments', 'dest IN (' . implode(',', $values) . ')');
+
             }
 
         }
 
+        $productList->setOrderKey('RAND()');
         $productList->setLimit(3);
         $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
 
