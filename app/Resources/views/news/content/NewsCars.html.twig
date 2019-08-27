@@ -1,0 +1,25 @@
+{% if item.relatedCars %}
+
+    <div class="row mt-5">
+
+        {% if item.title %}
+            <div class="col-12">
+                <h6>{{ item.title }}</h6>
+            </div>
+        {% endif %}
+
+
+        {% for car in item.relatedCars %}
+
+            {% if car.objectType == 'actual-car' %}
+
+                <div class="col-md-3 d-flex align-items-stretch flex-column">
+                    {% include 'product/product_teaser.html.twig' with {'product': car} %}
+                </div>
+
+            {% endif %}
+
+        {% endfor %}
+    </div>
+
+{% endif %}

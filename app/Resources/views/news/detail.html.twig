@@ -40,27 +40,15 @@
 
         {% endif %}
 
-        <div class="mt-5">
-            {{ news.text | raw }}
-        </div>
+        {% if news.content %}
 
-        {% if news.relatedCars %}
+            {% for item in news.content.items %}
 
-            <div class="row mt-5">
-                {% for car in news.relatedCars %}
+                {% include 'news/content/' ~ item.type ~ '.html.twig' with {'item': item} %}
 
-                    {% if car.objectType == 'actual-car' %}
-
-                        <div class="col-md-3 d-flex align-items-stretch flex-column">
-                            {% include 'product/product_teaser.html.twig' with {'product': car} %}
-                        </div>
-
-                    {% endif %}
-
-                {% endfor %}
-            </div>
-
+            {% endfor %}
         {% endif %}
+
 
     </div>
 

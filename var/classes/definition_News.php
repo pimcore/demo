@@ -1,21 +1,20 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-21T20:46:31+02:00
+* Generated at: 2019-08-27T15:47:59+02:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (2)
-* IP: 10.242.2.5
+* IP: 192.168.9.96
 
 
 Fields Summary: 
 - localizedfields [localizedfields]
 -- title [input]
 -- shortText [textarea]
--- text [wysiwyg]
+- content [fieldcollections]
 - date [datetime]
 - gallery [imageGallery]
-- relatedCars [manyToManyObjectRelation]
 */ 
 
 
@@ -24,7 +23,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'News',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566413191,
+   'modificationDate' => 1566913678,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -59,14 +58,12 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'childs' => 
     array (
       0 => 
-      Pimcore\Model\DataObject\ClassDefinition\Layout\Tabpanel::__set_state(array(
-         'fieldtype' => 'tabpanel',
-         'border' => false,
-         'tabPosition' => NULL,
-         'name' => 'Layout',
+      Pimcore\Model\DataObject\ClassDefinition\Layout\Region::__set_state(array(
+         'fieldtype' => 'region',
+         'name' => 'Base Data',
          'type' => NULL,
          'region' => NULL,
-         'title' => '',
+         'title' => 'Base Data',
          'width' => NULL,
          'height' => NULL,
          'collapsible' => false,
@@ -77,12 +74,16 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'childs' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Region::__set_state(array(
-             'fieldtype' => 'region',
-             'name' => 'Base Data',
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 100,
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'name' => 'Layout',
              'type' => NULL,
-             'region' => NULL,
-             'title' => 'Base Data',
+             'region' => 'center',
+             'title' => '',
              'width' => NULL,
              'height' => NULL,
              'collapsible' => false,
@@ -150,34 +151,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'visibleGridView' => false,
                      'visibleSearch' => false,
                   )),
-                  2 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
-                     'fieldtype' => 'wysiwyg',
-                     'width' => '',
-                     'height' => '',
-                     'queryColumnType' => 'longtext',
-                     'columnType' => 'longtext',
-                     'phpdocType' => 'string',
-                     'toolbarConfig' => '',
-                     'excludeFromSearchIndex' => false,
-                     'name' => 'text',
-                     'title' => 'Text',
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
-                  )),
                 ),
                  'name' => 'localizedfields',
-                 'region' => 'center',
+                 'region' => '',
                  'layout' => NULL,
                  'title' => '',
                  'width' => '',
@@ -205,85 +181,36 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleSearch' => true,
               )),
               1 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-                 'fieldtype' => 'panel',
-                 'labelWidth' => 100,
-                 'layout' => NULL,
-                 'border' => false,
-                 'icon' => '',
-                 'name' => 'Dates & Images',
-                 'type' => NULL,
-                 'region' => 'east',
-                 'title' => '',
-                 'width' => 450,
-                 'height' => NULL,
-                 'collapsible' => false,
-                 'collapsed' => false,
-                 'bodyStyle' => '',
-                 'datatype' => 'layout',
-                 'permissions' => NULL,
-                 'childs' => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
+                 'fieldtype' => 'fieldcollections',
+                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Fieldcollection',
+                 'allowedTypes' => 
                 array (
-                  0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
-                     'fieldtype' => 'datetime',
-                     'queryColumnType' => 'bigint(20)',
-                     'columnType' => 'bigint(20)',
-                     'phpdocType' => '\\Carbon\\Carbon',
-                     'defaultValue' => NULL,
-                     'useCurrentDate' => false,
-                     'name' => 'date',
-                     'title' => 'Date',
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => true,
-                     'visibleSearch' => true,
-                  )),
-                  1 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ImageGallery::__set_state(array(
-                     'fieldtype' => 'imageGallery',
-                     'queryColumnType' => 
-                    array (
-                      'images' => 'text',
-                      'hotspots' => 'text',
-                    ),
-                     'columnType' => 
-                    array (
-                      'images' => 'text',
-                      'hotspots' => 'text',
-                    ),
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ImageGallery',
-                     'width' => 412,
-                     'height' => 330,
-                     'uploadPath' => '',
-                     'ratioX' => NULL,
-                     'ratioY' => NULL,
-                     'predefinedDataTemplates' => '',
-                     'name' => 'gallery',
-                     'title' => 'Gallery',
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
-                  )),
+                  0 => 'NewsCars',
+                  1 => 'NewsLinks',
+                  2 => 'NewsText',
                 ),
+                 'lazyLoading' => true,
+                 'maxItems' => '',
+                 'disallowAddRemove' => false,
+                 'disallowReorder' => false,
+                 'collapsed' => false,
+                 'collapsible' => false,
+                 'border' => false,
+                 'name' => 'content',
+                 'title' => 'Content',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
                  'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
               )),
             ),
              'locked' => false,
@@ -295,11 +222,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'layout' => NULL,
              'border' => false,
              'icon' => '',
-             'name' => 'Relations',
+             'name' => 'Dates & Images',
              'type' => NULL,
-             'region' => NULL,
-             'title' => 'Relations',
-             'width' => NULL,
+             'region' => 'east',
+             'title' => '',
+             'width' => 450,
              'height' => NULL,
              'collapsible' => false,
              'collapsed' => false,
@@ -309,32 +236,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'childs' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
-                 'fieldtype' => 'manyToManyObjectRelation',
-                 'width' => '',
-                 'height' => '',
-                 'maxItems' => '',
-                 'queryColumnType' => 'text',
-                 'phpdocType' => 'array',
-                 'relationType' => true,
-                 'visibleFields' => 
-                array (
-                ),
-                 'optimizedAdminLoading' => false,
-                 'visibleFieldDefinitions' => 
-                array (
-                ),
-                 'lazyLoading' => true,
-                 'classes' => 
-                array (
-                  0 => 
-                  array (
-                    'classes' => 'Car',
-                  ),
-                ),
-                 'pathFormatterClass' => '',
-                 'name' => 'relatedCars',
-                 'title' => 'Related Cars',
+              Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
+                 'fieldtype' => 'datetime',
+                 'queryColumnType' => 'bigint(20)',
+                 'columnType' => 'bigint(20)',
+                 'phpdocType' => '\\Carbon\\Carbon',
+                 'defaultValue' => NULL,
+                 'useCurrentDate' => false,
+                 'name' => 'date',
+                 'title' => 'Date',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -343,6 +253,42 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\ImageGallery::__set_state(array(
+                 'fieldtype' => 'imageGallery',
+                 'queryColumnType' => 
+                array (
+                  'images' => 'text',
+                  'hotspots' => 'text',
+                ),
+                 'columnType' => 
+                array (
+                  'images' => 'text',
+                  'hotspots' => 'text',
+                ),
+                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ImageGallery',
+                 'width' => 412,
+                 'height' => 330,
+                 'uploadPath' => '',
+                 'ratioX' => NULL,
+                 'ratioY' => NULL,
+                 'predefinedDataTemplates' => '',
+                 'name' => 'gallery',
+                 'title' => 'Gallery',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
