@@ -17,17 +17,16 @@
 
             {{ form_start(form) }}
                 <h1 class="display-3 mb-3 font-weight-normal">{{ 'general.please-sign-in' | trans }}</h1>
-                {{ form_widget(form._username) }}
-                {{ form_widget(form._password) }}
+                {{ form_widget(form._username, { 'attr': {'placeholder': 'Username'}}) }}
+                {{ form_widget(form._password, { 'attr': {'placeholder': 'Password'}}) }}
 
                 <input type="hidden" name="_csrf_token"
                        value="{{ csrf_token('authenticate') }}"
                 >
 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input name="_remember_me" type="checkbox"> Remember me
-                    </label>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input name="_remember_me" type="checkbox" class="custom-control-input" id="rememberMe">
+                    <label class="custom-control-label" for="rememberMe">Remember me</label>
                 </div>
 
                 {{ form_row(form._submit, {'attr': {'class': 'btn-success btn-lg btn-block mt-4'}}) }}
