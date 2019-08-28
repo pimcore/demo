@@ -1087,12 +1087,20 @@ input.form-control {
 /* small screen devices */
 @media only screen and (max-width: 768px) {
 
+    .sticky-top {
+        position: relative;
+    }
+
     .search-button {
         display: none !important;
     }
 
     #navbarCollapse .search-box {
         width: 100% !important;
+    }
+
+    .menu-links .dropdown-menu {
+        width: 100%;
     }
 
     .menu-icons .dropdown-menu {
