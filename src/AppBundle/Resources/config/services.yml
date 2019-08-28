@@ -78,6 +78,11 @@ services:
         tags:
             - { name: kernel.event_listener, event: pimcore.dataobject.preAdd, method: onPreAdd }
 
+    AppBundle\EventListener\PimcoreAdminListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.css, method: addCSSFiles }
+            - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.js, method: addJSFiles }
+
 
     # authentication login listener for updating e-commerce framework environment after login
     AppBundle\EventListener\AuthenticationLoginListener:

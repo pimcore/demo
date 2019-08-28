@@ -2,9 +2,9 @@
 
 namespace AppBundle;
 
-use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends AbstractPimcoreBundle
+class AppBundle extends Bundle
 {
     /**
      * Returns the bundle name that this bundle overrides.
@@ -20,10 +20,4 @@ class AppBundle extends AbstractPimcoreBundle
         return null;
     }
 
-    public function getJsPaths()
-    {
-        return [
-          '/static/js/startup.js'
-        ];
-    }
 }

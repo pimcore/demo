@@ -1,0 +1,57 @@
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
+
+.qa-text-not-completed {
+    background-color: rgba(255,0,0,0.1);
+}
+
+
+.qa-attributes-not-completed {
+    background-color: rgba(255, 228, 52, 0.1);
+}
+
+.objectlayout_element_QualitySummary {
+    margin-bottom: 20px;
+}
+
+.qa-summary-table {
+    border-collapse: collapse;
+    color: black;
+    background-color: white;
+    min-width: 400px;
+}
+
+.qa-summary-table td:first-child {
+    width: 150px;
+}
+
+.qa-summary-table thead {
+    font-weight: bold;
+
+}
+
+.qa-summary-table th, .qa-summary-table td {
+    padding: 7px;
+    text-align: left;
+}
+
+.qa-summary-table .qa-not-completed {
+    background-color: rgba(255,0,0,0.1);
+}
+.qa-summary-table .qa-completed {
+    background-color: rgba(23, 127, 23, 0.1);
+}
+.qa-summary-table .qa-partly-completed {
+    background-color: rgba(255, 228, 52, 0.1);
+}
