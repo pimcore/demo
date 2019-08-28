@@ -39,7 +39,7 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
     }
 
 
-    public function getNavigationPath(Category $category, Category $rootCategory = null)
+    public function getNavigationPath(?Category $category, ?Category $rootCategory = null)
     {
         if(empty($rootCategory)) {
             $document = $this->documentResolver->getDocument($this->requestStack->getCurrentRequest());
@@ -48,9 +48,12 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
             }
         }
 
-        $categories = $category->getParentCategoryList($rootCategory);
-
+        $categories = [];
         $path = '';
+
+        if($category) {
+            $categories = $category->getParentCategoryList($rootCategory);
+        }
 
         foreach ($categories as $categoryInPath) {
             $path .= Text::toUrl($categoryInPath->getName()).'/';
