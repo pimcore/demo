@@ -47,10 +47,10 @@
 }
 
 .qa-summary-table .qa-not-completed {
-    background-color: rgba(255,0,0,0.1);
+    background-color: rgba(255, 0, 0, 0.16);
 }
 .qa-summary-table .qa-completed {
-    background-color: rgba(23, 127, 23, 0.1);
+    background-color: rgba(24, 185, 24, 0.13);
 }
 .qa-summary-table .qa-partly-completed {
     background-color: rgba(255, 228, 52, 0.1);
