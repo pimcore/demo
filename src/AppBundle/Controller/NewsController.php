@@ -58,7 +58,7 @@ class NewsController extends BaseController
 
         $news = News::getById($request->get('news'));
 
-        if(!($news instanceof News && $news->isPublished())) {
+        if(!($news instanceof News && ($news->isPublished() || $this->verifyPreviewRequest($request, $news)))) {
             throw new NotFoundHttpException("News not found.");
         }
 

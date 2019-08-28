@@ -44,7 +44,10 @@ class ProductController extends BaseController
 
         $product = Concrete::getById($request->get("product"));
 
-        if(!($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart))) {
+        if(!(
+                $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
+            )
+        ) {
             throw new NotFoundHttpException("Product not found.");
         }
 

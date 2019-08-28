@@ -20,8 +20,9 @@
         <div class="bg-white my-3">
             <div class="row">
 
-                {% if(product.mainImage) %}
-                    <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-4">
+                    {% if(product.mainImage) %}
+
                         <div class="p-3">
                             <a href="{{ product.mainImage.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
                                 {{ product.mainImage.thumbnail('product_detail').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
@@ -50,9 +51,8 @@
                                 {%  endif %}
                             {% endblock %}
                         </div>
-
-                    </div>
-                {% endif %}
+                    {% endif %}
+                </div>
 
                 <div class="col-md-6 mb-4">
 
@@ -99,15 +99,20 @@
                             {% endblock %}
 
                             {% block salesinfos %}
-                                <dl class="item-property col-6 mb-0">
-                                    <dt>{{ 'general.condition' | trans }}</dt>
-                                    <dd>{{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | lower | trans}}</dd>
-                                </dl>
 
-                                <dl class="item-property col-6 mb-0">
-                                    <dt>{{ 'general.milage' | trans }}</dt>
-                                    <dd>{{ product.saleInformation.saleInformation.milage}}</dd>
-                                </dl>
+                                {% if product.saleInformation.saleInformation %}
+
+                                    <dl class="item-property col-6 mb-0">
+                                        <dt>{{ 'general.condition' | trans }}</dt>
+                                        <dd>{{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | lower | trans}}</dd>
+                                    </dl>
+
+                                    <dl class="item-property col-6 mb-0">
+                                        <dt>{{ 'general.milage' | trans }}</dt>
+                                        <dd>{{ product.saleInformation.saleInformation.milage}}</dd>
+                                    </dl>
+
+                                {% endif %}
                             {% endblock %}
 
                         </div>
@@ -147,7 +152,9 @@
                                 </ul>
                             </div>
 
-                            <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('attribute.' ~ product.saleInformation.saleInformation.availabilityType) | lower | trans }}</p>
+                            {% if product.saleInformation.saleInformation %}
+                                <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('attribute.' ~ product.saleInformation.saleInformation.availabilityType) | lower | trans }}</p>
+                            {% endif %}
                         </div>
 
                         <a href="{{ path('shop-add-to-cart', { id: product.id }) }}" class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</a>

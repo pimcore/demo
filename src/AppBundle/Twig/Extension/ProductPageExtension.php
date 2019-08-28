@@ -60,14 +60,16 @@ class ProductPageExtension extends AbstractExtension
     }
 
     /**
-     * @param Car $car
+     * @param array|null $colorNames
      * @return string
      */
-    public function getColorName(array $colorNames = []): string {
+    public function getColorName(?array $colorNames = []): string {
 
         $translatedColors = [];
-        foreach($colorNames as $color) {
-            $translatedColors[] = $this->translator->trans(mb_strtolower('attribute.' . $color));
+        if($colorNames) {
+            foreach($colorNames as $color) {
+                $translatedColors[] = $this->translator->trans(mb_strtolower('attribute.' . $color));
+            }
         }
 
         return implode("-", $translatedColors);

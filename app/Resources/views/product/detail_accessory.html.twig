@@ -14,20 +14,24 @@
 
 {% block salesinfos %}
 
-    <dl class="item-property col-6 mb-0">
-        <dt>{{ 'general.condition' | trans }}</dt>
-        <dd>{{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans}}</dd>
-    </dl>
+    {% if product.saleInformation.saleInformation %}
 
-    <dl class="item-property col-6 mb-0">
-        <dt>{{ 'general.milage' | trans }}</dt>
-        <dd>{{ product.saleInformation.saleInformation.milage }}</dd>
-    </dl>
+        <dl class="item-property col-6 mb-0">
+            <dt>{{ 'general.condition' | trans }}</dt>
+            <dd>{{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans}}</dd>
+        </dl>
 
-    <dl class="item-property col-6 mb-0">
-        <dt>{{ 'general.available-pieces' | trans }}</dt>
-        <dd>{{ product.saleInformation.saleInformation.availabilityPieces }}</dd>
-    </dl>
+        <dl class="item-property col-6 mb-0">
+            <dt>{{ 'general.milage' | trans }}</dt>
+            <dd>{{ product.saleInformation.saleInformation.milage }}</dd>
+        </dl>
+
+        <dl class="item-property col-6 mb-0">
+            <dt>{{ 'general.available-pieces' | trans }}</dt>
+            <dd>{{ product.saleInformation.saleInformation.availabilityPieces }}</dd>
+        </dl>
+
+    {% endif %}
 
 {% endblock %}
 

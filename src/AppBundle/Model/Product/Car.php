@@ -100,11 +100,13 @@ class Car extends \Pimcore\Model\DataObject\Car
 
         return $items;
     }
+
     /**
-     * @return Category
+     * @return Category|null
      */
-    public function getMainCategory() {
-        return reset($this->getCategories());
+    public function getMainCategory(): ?Category {
+        $category = reset($this->getCategories());
+        return $category ?: null;
     }
 
     /**
