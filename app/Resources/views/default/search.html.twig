@@ -3,11 +3,11 @@
 {% block content %}
 {% if products|length < 1 %}
 <h3 class="text-center">{{ 'shop.empty-result' | trans }}</h3>
-<h2 class="text-center">{{ app.request.get('term') | upper }}</h2>
+<h2 class="text-center">{{ term | upper }}</h2>
 {% else  %}
-<h2>{{ app.request.get('term') | upper }}</h2>
+<h2>{{ term | upper }}</h2>
 <form id="js_filterfield" action="" method="get">
-    <input type="hidden" name="term" value="{{ app.request.get('term') }}" />
+    <input type="hidden" name="term" value="{{ term }}"/>
 
     <div class="productList" id="js-productlist">
         {% include ":product:listing_content.html.twig" with {'productListing': products, 'language': language} %}

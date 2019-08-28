@@ -59,9 +59,13 @@ class DefaultController extends BaseController
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-        if ($request->get('term')) {
-            foreach (explode(' ', $params['term']) as $term) {
-                $productListing->addQueryCondition($term, 'search');
+
+        $term = strip_tags($request->get('term'));
+        $term = trim(preg_replace('/\s+/', ' ', $term));
+
+        if (!empty($term)) {
+            foreach (explode(' ', $term) as $t) {
+                $productListing->addQueryCondition($t, 'search');
             }
         }
 
@@ -114,15 +118,15 @@ class DefaultController extends BaseController
         $placeholder('addBreadcrumb')->append([
             'parentId' => $this->document->getId(),
             'id' => 'search-result',
-            'label' => $translator->trans('shop.search-result', [$request->get('term')])
+            'label' => $translator->trans('shop.search-result', [$term])
         ]);
 
         $viewModel->language = $request->getLocale();
         $viewModel->language = $request->getLocale();
-
+        $viewModel->term = $term;
 
         $headTitle = $this->get('pimcore.templating.view_helper.head_title');
-        $headTitle($translator->trans('shop.search-result', [$request->get('term')]));
+        $headTitle($translator->trans('shop.search-result', [$term]));
 
         return $viewModel->getAllParameters();
 
