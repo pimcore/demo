@@ -96,7 +96,7 @@ class QualityCalculator {
 
             $htmlTable = "<table class='qa-summary-table'>";
 
-            $htmlTable .= "<thead><tr><td>Elements</td><td>Completed</td></tr></thead>";
+            $htmlTable .= "<thead><tr><td>Elements</td><td>State</td></tr></thead>";
 
             foreach($quality as $key => $value) {
 
@@ -122,7 +122,7 @@ class QualityCalculator {
 
             $htmlTable .= "</table>";
 
-            return "<h2>Data Quality Summary</h2>" . $htmlTable;
+            return "<h2 style='margin-top: 0'>Data Quality Summary</h2>" . $htmlTable;
         } else {
             return "";
         }

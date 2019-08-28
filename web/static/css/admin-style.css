@@ -29,11 +29,11 @@
     border-collapse: collapse;
     color: black;
     background-color: white;
-    min-width: 400px;
+    min-width: 500px;
 }
 
 .qa-summary-table td:first-child {
-    width: 150px;
+    width: 250px;
 }
 
 .qa-summary-table thead {
