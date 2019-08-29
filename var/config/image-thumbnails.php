@@ -1188,5 +1188,40 @@ return [
         "modificationDate" => 1567080706,
         "creationDate" => 1567080680,
         "id" => "newsList"
+    ],
+    "exampleColor" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 275,
+                    "forceResize" => FALSE
+                ]
+            ],
+            [
+                "method" => "brightnessSaturation",
+                "arguments" => [
+                    "brightness" => 90,
+                    "saturation" => 68,
+                    "hue" => 69
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "exampleColor",
+        "description" => "",
+        "group" => "Example",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1567081298,
+        "creationDate" => 1567081247,
+        "id" => "exampleColor"
     ]
 ];
