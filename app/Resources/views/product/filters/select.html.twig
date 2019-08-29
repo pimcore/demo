@@ -25,28 +25,31 @@
             {% set index = 0 %}
             {% for value in sortedValues %}
 
-                {% if(index == 8) %}
-                    <a href="#" id="head-hidden-{{ fieldname }}" class="collapsed text-dark hide-me pt-1 text-center" data-toggle="collapse" data-target="#hidden-{{ fieldname }}" aria-expanded="false" aria-controls="hidden-{{ fieldname}}">
-                        {{ 'filter.show-more' | trans }}
-                    </a>
-                    <div id="hidden-{{ fieldname }}" class="collapse" aria-labelledby="head-hidden-{{ fieldname }}" data-parent="#listgroup-{{ fieldname }}">
+                {% if(value['value'] is not empty) %}
+
+                    {% if(index == 8) %}
+                        <a href="#" id="head-hidden-{{ fieldname }}" class="collapsed text-dark hide-me pt-1 text-center" data-toggle="collapse" data-target="#hidden-{{ fieldname }}" aria-expanded="false" aria-controls="hidden-{{ fieldname}}">
+                            {{ 'filter.show-more' | trans }}
+                        </a>
+                        <div id="hidden-{{ fieldname }}" class="collapse" aria-labelledby="head-hidden-{{ fieldname }}" data-parent="#listgroup-{{ fieldname }}">
+                    {% endif %}
+
+
+                    {% set checked = currentValue == value['value'] %}
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center {{ checked ? 'list-group-item-secondary' : ''  }}">
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="{{ fieldname ~ value['value'] }}" name="{{  fieldname }}" value="{{ value['value'] }}" {{ checked ? 'checked="checked"' : ''  }} class="custom-control-input">
+                            <label class="custom-control-label" for="{{ fieldname ~ value['value'] }}">
+                                {{ value['translated'] }}
+                            </label>
+                        </div>
+                        <span class="badge badge-primary badge-pill">{{  value['count']  }}</span>
+                    </li>
+
+                    {% set index = index + 1 %}
                 {% endif %}
-
-
-                {% set checked = currentValue == value['value'] %}
-
-                <li class="list-group-item d-flex justify-content-between align-items-center {{ checked ? 'list-group-item-secondary' : ''  }}">
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="{{ fieldname ~ value['value'] }}" name="{{  fieldname }}" value="{{ value['value'] }}" {{ checked ? 'checked="checked"' : ''  }} class="custom-control-input">
-                        <label class="custom-control-label" for="{{ fieldname ~ value['value'] }}">
-                            {{ value['translated'] }}
-                        </label>
-                    </div>
-                    <span class="badge badge-primary badge-pill">{{  value['count']  }}</span>
-                </li>
-
-                {% set index = index + 1 %}
             {% endfor %}
 
             {% if(index > 8) %}
