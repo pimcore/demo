@@ -15,7 +15,8 @@
     "php-http/httplug-bundle": "^1.16",
     "pimcore/customer-management-framework-bundle": "dev-master",
     "pimcore/pimcore": "dev-master",
-    "pimcore/web2print-tools-bundle": "dev-master"
+    "pimcore/web2print-tools-bundle": "dev-master",
+    "pimcore/data-hub": "dev-master"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
