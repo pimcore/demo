@@ -1,0 +1,165 @@
+pimcore:
+    workflows:
+
+        simple_asset_workflow:
+
+            label: 'Simple Asset Workflow'
+
+            type: 'state_machine'
+
+            support_strategy:
+                type: "expression"
+                arguments:
+                    - \Pimcore\Model\Asset
+                    - 'is_fully_authenticated()'
+
+            initial_place: start
+
+            places:
+                start:
+                    label: 'Start Place of the Workflow'
+                    title: 'Start checking this asset'
+                    color: '#3572b0'
+                    visibleInHeader: true
+
+                review_license:
+                    label: 'Review License'
+                    color: 'orange'
+                    visibleInHeader: true
+
+                finished:
+                    label: 'Asset Reviewed'
+                    color: 'green'
+                    visibleInHeader: true
+
+            transitions:
+                start_workflow:
+                    from: start
+                    to: review_license
+                    options:
+                        label: 'Start Workflow'
+                finish_review:
+                    from: review_license
+                    to: finished
+                    options:
+                        label: 'Finish Review'
+                restart_review:
+                    from: finished
+                    to: review_license
+                    options:
+                        label: 'Restart Review'
+
+        product_data_enrichment:
+            label: "Product Data Enrichment Workflow"
+
+            support_strategy:
+                service: AppBundle\Workflow\SupportsStrategy
+
+            initial_place: todo
+
+            places:
+                todo:
+                    label: 'ToDo'
+                    title: 'Product Magic did not start'
+                    color: '#3572b0'
+                    colorInverted: true
+                    permissions:
+                        - objectLayout: CarTodo
+                          publish: false
+                          unpublish: false
+
+                edit_text:
+                    label: 'Edit Text'
+                    color: 'orange'
+                    permissions:
+                        - publish: false
+                          unpublish: false
+                edit_images:
+                    label: 'Edit Images'
+                    color: 'orange'
+                    permissions:
+                        - publish: false
+                          unpublish: false
+                done_text:
+                    label: 'Done Text'
+                    color: 'green'
+                    permissions:
+                        - publish: false
+                          unpublish: false
+                done_images:
+                    label: 'Done Images'
+                    color: 'green'
+                    permissions:
+                        - publish: false
+                          unpublish: false
+                done_all:
+                    label: 'Product is ready'
+                    color: '#009900'
+                    permissions:
+                        - condition: "is_fully_authenticated() and 'ROLE_PIMCORE_ADMIN' in roles"
+                          #modify: true
+                          objectLayout: CarReview
+
+                        - objectLayout: CarReview
+                          #modify: false
+
+
+            transitions:
+                start_work:
+                    from: 'todo'
+                    to: ['edit_text', 'edit_images']
+                    options:
+                        label: 'Start Work'
+                        #changePublishedState: force_unpublished
+                mark_text_done:
+                    from: 'edit_text'
+                    to: 'done_text'
+                    options:
+                        label: 'Mark Text Done'
+                        #changePublishedState: force_unpublished
+                mark_images_done:
+                    from: 'edit_images'
+                    to: 'done_images'
+                    options:
+                        label: 'Mark Images Done'
+                        #changePublishedState: force_unpublished
+                        notificationSettings:
+                            - notifyUsers: ['admin']
+                              notifyRoles: ['projectmanagers', 'admins']
+                              channelType: ['mail', 'pimcore_notification']
+
+                mark_done_all:
+                    from: ['done_text', 'done_images']
+                    to: 'done_all'
+                    options:
+                        label: 'Mark Product Done'
+                        changePublishedState: force_published
+                        notes:
+                            commentEnabled: true
+                        notificationSettings:
+                            - notifyUsers: ['admin']
+                              notifyRoles: ['projectmanagers', 'admins']
+                              channelType: ['mail', 'pimcore_notification']
+                reopen_issue:
+                    from: 'done_all'
+                    to: 'todo'
+                    options:
+                        label: 'Reopen Product'
+                        #changePublishedState: force_unpublished
+                        notes:
+                            commentEnabled: true
+                            commentRequired: true
+            globalActions:
+                log_time:
+                    label: 'Log Time'
+                    guard: "is_fully_authenticated()"
+                    notes:
+                        commentEnabled: true
+                        commentRequired: true
+                        type: 'Worklog'
+                        title: 'Time Logged'
+                        additionalFields:
+                            - name: 'timeWorked'
+                              fieldType: 'input'
+                              title: 'Time spent'
+                              required: true

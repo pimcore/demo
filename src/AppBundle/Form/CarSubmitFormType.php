@@ -40,12 +40,14 @@ class CarSubmitFormType extends AbstractType
         foreach($manufacturers as $manufacturer) {
             $manufacturerChoices[$manufacturer->getName()] = $manufacturer->getId();
         }
+        ksort($manufacturerChoices);
 
         $bodyStyles = new BodyStyle\Listing();
         $bodyStyleChoices = [];
         foreach($bodyStyles as $bodyStyle) {
             $bodyStyleChoices[$bodyStyle->getName()] = $bodyStyle->getId();
         }
+        ksort($bodyStyleChoices);
 
         $builder
             ->add('name', TextType::class, [
