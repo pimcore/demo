@@ -1,9 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="<?= $this->language; ?>">
+<html lang="">
 <head>
 
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    {% block head_stylesheets deferred %}
+        {{ pimcore_head_link() }}
+    {% endblock %}
+
     <link rel="stylesheet" type="text/css" href="/static/print/css/print-style.css"/>
 
     <link href="https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&display=swap" rel="stylesheet">
@@ -19,9 +22,7 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
-    {% block head_stylesheets deferred %}
-        {{ pimcore_head_link() }}
-    {% endblock %}
+
 
     {% block headscripts deferred %}
         {{ pimcore_head_script() }}

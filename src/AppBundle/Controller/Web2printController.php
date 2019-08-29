@@ -97,15 +97,22 @@ class Web2printController extends BaseController
             $params['product'] = $obj;
             $html = $this->renderView('web2print/product_detail.html.twig', $params);
 
-            $adapter = Processor::getInstance();
+            if($request->get('html')) {
+                return new Response($html);
+            } else {
 
-            if($html){
-                return new Response(
-                    $adapter->getPdfFromString($html),
-                    200,
-                    ['Content-Type' => 'application/pdf']
-                );
+                $adapter = Processor::getInstance();
+
+                if($html){
+                    return new Response(
+                        $adapter->getPdfFromString($html),
+                        200,
+                        ['Content-Type' => 'application/pdf']
+                    );
+                }
+
             }
+
         }
     }
 }

@@ -55,20 +55,57 @@
     hyphens: auto;
 
     size: A4 portrait;
+    margin:15mm 14mm 14mm 14mm;
+
 }
 
-page[size="A4"] {
-    background: white;
-    width: 19cm;
-    height: 29.7cm;
+/*page[size="A4"] {*/
+/*    background: green;*/
+/*    width: 182mm;*/
+/*    height: 268mm;*/
+/*    display: block;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*@media print {*/
+/*    body, .product-sheet, page[size="A4"] {*/
+/*        margin: 0;*/
+/*    }*/
+/*}*/
+
+.product-sheet {
+    width: 182mm;
+}
+
+.print-row {
     display: block;
-    margin: 0 auto;
+    clear: both;
+    margin: 0 -2.5mm;
 }
-
-@media print {
-    body, page[size="A4"] {
-        margin: 0;
-    }
+.print-row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.print-col-12 {
+    float: left;
+    width: 100%;
+    padding: 0 2.5mm;
+}
+.print-col-6 {
+    float: left;
+    width: 50%;
+    padding: 0 2.5mm;
+}
+.print-col-4 {
+    float: left;
+    width: 33%;
+    padding: 0 2.5mm;
+}
+.print-col-3 {
+    float: left;
+    width: 25%;
+    padding: 0 2.5mm;
 }
 
 @page title {

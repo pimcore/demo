@@ -1,7 +1,7 @@
 {% macro attribute(value, label, translate = false, translationKeyPrefix = '') %}
 
     {% if(value) %}
-        <dl class="item-property col-6 col-md-3">
+        <dl class="item-property col-6 col-md-3 print-col-3">
             <dt>{{ label | trans }}</dt>
 
             {% if(translate) %}
