@@ -88,6 +88,7 @@ h6, .display-6 {
     line-height: 70px;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow-wrap: break-word;
 }
 
 .main-content h2, .main-content .display-2 {
@@ -933,7 +934,7 @@ input.form-control {
 }
 
 .area-gallery-carousel .carousel-inner .carousel-caption {
-    top: 15vh;
+    bottom: 6vh;
 }
 
 /* Indicators list style */
@@ -1086,6 +1087,11 @@ input.form-control {
 
 /* small screen devices */
 @media only screen and (max-width: 768px) {
+
+    h2, .display-2 {
+        letter-spacing: 2px;
+        line-height: 48px;
+    }
 
     .sticky-top {
         position: relative;

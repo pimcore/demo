@@ -2,7 +2,7 @@
     {% set detailLink = app_product_detaillink(product) %}
     <a href="{{ detailLink }}" class="text-decoration-none text-dark">
         {% if(product.mainImage) %}
-            {{ product.mainImage.thumbnail('grid').html({class: 'img-fluid'}) | raw }}
+            {{ product.mainImage.thumbnail('grid').html({class: 'img-fluid w-100'}) | raw }}
         {% endif %}
 
 

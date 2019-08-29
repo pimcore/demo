@@ -63,7 +63,7 @@
                         })
                     }}
 
-                    <div class="carousel-caption text-center">
+                    <div class="carousel-caption text-center {{ showPreviews ? 'vh-10' : ''}}">
                         <h3>{{ pimcore_input('caption-title_' ~ i) }}</h3>
                         <p class="hero-text">{{ pimcore_textarea('caption-text' ~ i) }}</p>
                         <p>{% set cLink = pimcore_link('caption-link' ~ i, {
