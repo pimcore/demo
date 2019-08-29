@@ -91,4 +91,12 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
 
         return $modificatedPrice;
     }
+
+    public function setCharge(Decimal $charge)
+    {
+        if($charge->isZero()) {
+            $this->baseCharge = Decimal::zero();
+            $this->carCharge = Decimal::zero();
+        }
+    }
 }

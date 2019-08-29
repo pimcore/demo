@@ -25,14 +25,12 @@
                                         <div class="col-10" style="padding-top: 4px">
                                             <div>{{ codeInfo.tokenCode }}</div>
                                             {% if (codeInfo.errorMessages | length) > 0 %}
-                                                <small class="text-muted">{{ codeInfo.errorMessages | join(', ') }}</small>
+                                                <small class="text-muted"><i class="fas fa-exclamation-triangle"></i> {{ codeInfo.errorMessages | join(', ') }}</small>
                                             {% endif %}
                                             {% if (codeInfo.noValidRule) %}
-                                                <small class="text-muted">{{ 'cart.voucher-no-rule' | trans }}</small>
+                                                <small class="text-muted"><i class="fas fa-exclamation-triangle"></i> {{ 'cart.voucher-no-rule' | trans }}</small>
                                             {% endif %}
                                         </div>
-
-
 
                                         <div class="col-2">
                                             <a href="{{ path('shop-cart-remove-voucher', {'voucher-code': codeInfo.tokenCode}) }}" class="btn btn-outline-danger btn-sm">
