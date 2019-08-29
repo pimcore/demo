@@ -1160,5 +1160,33 @@ return [
         "modificationDate" => 1566820095,
         "creationDate" => 1566820084,
         "id" => "mail_teaser"
+    ],
+    "newsList" => [
+        "items" => [
+            [
+                "method" => "contain",
+                "arguments" => [
+                    "width" => 200,
+                    "height" => 150,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "newsList",
+        "description" => "",
+        "group" => "Areas",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1567080706,
+        "creationDate" => 1567080680,
+        "id" => "newsList"
     ]
 ];
