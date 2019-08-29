@@ -165,4 +165,13 @@ class BreadcrumbHelperService
         ]);
     }
 
+    public function enrichGenericDynamicPage($label) {
+        $document = $this->getCurrentDocument();
+        $this->placeholderHelper->__invoke('addBreadcrumb')->append([
+            'parentId' => $document->getId(),
+            'id' => 'search-result',
+            'label' => $label
+        ]);
+    }
+
 }

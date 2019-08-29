@@ -15,9 +15,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Model\Product\AbstractProduct;
+use AppBundle\Model\Product\Car;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document\Hardlink;
+use Pimcore\Web2Print\Processor;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class Web2printController extends BaseController
 {
@@ -73,5 +77,35 @@ class Web2printController extends BaseController
 
         return $paramsBag;
 
+    }
+
+    /**
+     * @param Request $request
+     * @Route("/product-print", name="product_print")
+     *
+     * @return Response
+     *
+     * @throws \Exception
+     */
+    public function productPrintAction(Request $request)
+    {
+        $objId = $request->get('id');
+        $obj = Car::getById($objId);
+
+        if($obj instanceof Car) {
+            $params = $this->view->getAllParameters();
+            $params['product'] = $obj;
+            $html = $this->renderView('web2print/product_detail.html.twig', $params);
+
+            $adapter = Processor::getInstance();
+
+            if($html){
+                return new Response(
+                    $adapter->getPdfFromString($html),
+                    200,
+                    ['Content-Type' => 'application/pdf']
+                );
+            }
+        }
     }
 }

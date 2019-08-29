@@ -2,22 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Model\Product\AbstractProduct;
-use AppBundle\Model\Product\Car;
-use AppBundle\Model\Product\Category;
-use AppBundle\Website\LinkGenerator\ProductLinkGenerator;
-use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
-use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
-use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
-use Pimcore\Controller\FrontendController;
-use Pimcore\Config;
 use Pimcore\Model\Asset;
-use Pimcore\Model\DataObject\FilterDefinition;
-use Pimcore\Templating\Model\ViewModel;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Routing\Annotation\Route;
-use Zend\Paginator\Paginator;
 
 class DefaultController extends BaseController
 {
@@ -41,97 +28,6 @@ class DefaultController extends BaseController
     public function genericMailAction(Request $request) {
     }
 
-
-    /**
-     * @param Request $request
-     * @Route("/search", name="search")
-     */
-    public function searchAction(Request $request, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator)
-    {
-        $paramsBag = [];
-        $paramsBag["hideNav"] = true;
-        $params = $request->query->all();
-        $viewModel = new ViewModel();
-
-        $category = Category::getById($params['category']);
-        $viewModel->category = $category;
-
-        $indexService = $ecommerceFactory->getIndexService();
-        $productListing = $indexService->getProductListForCurrentTenant();
-        $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-
-        $term = strip_tags($request->get('term'));
-        $term = trim(preg_replace('/\s+/', ' ', $term));
-
-        if (!empty($term)) {
-            foreach (explode(' ', $term) as $t) {
-                $productListing->addQueryCondition($t, 'search');
-            }
-        }
-
-        if($params["autocomplete"]) {
-            $resultset = [];
-            $productListing->setLimit(10);
-            foreach ($productListing as $product) {
-                $result["href"] = $productLinkGenerator->generate($product, []);
-                if($product instanceof Car){
-                    $result['product'] = $product->getOSName() . ' ' . $product->getColor()[0] . ', ' . $product->getCarClass();
-                } else {
-                    $result['product'] = $product->getOSName();
-                }
-
-                $resultset[] = $result;
-            }
-
-            return $this->json($resultset);
-        }
-
-        if (empty($filterDefinition)) {
-            $filterDefinition = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
-        }
-        $viewModel->filterDefinition = $filterDefinition;
-
-        // create and init filter service
-        $filterService = Factory::getInstance()->getFilterService();
-
-        Helper::setupProductList($filterDefinition, $productListing, $params, $viewModel, $filterService, true);
-        $viewModel->filterService = $filterService;
-        $viewModel->products = $productListing;
-
-        // init pagination
-        $paginator = new Paginator($productListing);
-        $paginator->setCurrentPageNumber($request->get('page'));
-        $paginator->setItemCountPerPage(18);
-        $paginator->setPageRange(5);
-        $viewModel->results = $paginator;
-        $viewModel->paginationVariables = $paginator->getPages('Sliding');
-
-        $trackingManager = Factory::getInstance()->getTrackingManager();
-        foreach ($paginator as $product) {
-            $trackingManager->trackProductImpression($product);
-        }
-
-        $translator = $this->get('translator');
-
-        //breadcrumbs
-        $placeholder = $this->get('pimcore.templating.view_helper.placeholder');
-        $placeholder('addBreadcrumb')->append([
-            'parentId' => $this->document->getId(),
-            'id' => 'search-result',
-            'label' => $translator->trans('shop.search-result', [$term])
-        ]);
-
-        $viewModel->language = $request->getLocale();
-        $viewModel->language = $request->getLocale();
-        $viewModel->term = $term;
-
-        $headTitle = $this->get('pimcore.templating.view_helper.head_title');
-        $headTitle($translator->trans('shop.search-result', [$term]));
-
-        return $viewModel->getAllParameters();
-
-    }
-
     /**
      * @param Request $request
      * @return array
@@ -147,46 +43,5 @@ class DefaultController extends BaseController
         return [];
     }
 
-    /**
-     * @param Request $request
-     * @Route("/product-print", name="product_print")
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Exception
-     */
-    public function productPrintAction(Request $request)
-    {
-        $objId = $request->get('id');
-        $obj = Car::getById($objId);
 
-        if($obj instanceof Car) {
-            $params = $this->view->getAllParameters();
-            $params['product'] = $obj;
-            $html = $this->renderView('web2print/product_detail.html.twig', $params);
-
-            $adapter = \Pimcore\Web2Print\Processor::getInstance();
-
-            $options = [
-                "page-size" => "A4",
-                "orientation" => "Potrait",
-                "margin-left" => "0",
-                "margin-top" => "0",
-                "margin-bottom" => "0",
-                "margin-right" => "0",
-                "disable-smart-shrinking" => "",
-                "dpi" => "300"
-            ];
-
-            if($html){
-                return new \Symfony\Component\HttpFoundation\Response(
-                    $adapter->getPdfFromString($html, $options),
-                    200,
-                    array(
-                        'Content-Type' => 'application/pdf',
-                    )
-                );
-            }
-        }
-    }
 }
