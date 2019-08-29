@@ -121,3 +121,7 @@ services:
 
     AppBundle\CustomerManagementFramework\SegmentBuilder\ProductInterestSegmentBuilder:
         tags: [cmf.segment_builder]
+
+
+# Workflow
+    AppBundle\Workflow\SupportsStrategy: ~

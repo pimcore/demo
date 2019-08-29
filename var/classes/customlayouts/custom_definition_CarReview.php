@@ -1,57 +1,21 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-28T13:45:50+02:00
-* Inheritance: yes
-* Variants: no
-* Changed by: admin (2)
+* Generated at: 2019-08-28T14:47:19+02:00
+* Changed by: system (0)
 * IP: 192.168.9.95
-
-
-Fields Summary: 
-- localizedfields [localizedfields]
--- name [input]
--- description [wysiwyg]
--- textsAvailable [calculatedValue]
-- series [input]
-- manufacturer [manyToOneRelation]
-- bodyStyle [manyToOneRelation]
-- carClass [select]
-- productionYear [numeric]
-- color [multiselect]
-- country [country]
-- categories [manyToManyObjectRelation]
-- gallery [imageGallery]
-- genericImages [imageGallery]
-- attributes [objectbricks]
-- saleInformation [objectbricks]
-- location [geopoint]
-- attributesAvailable [calculatedValue]
-- saleInformationAvailable [calculatedValue]
-- imagesAvailable [calculatedValue]
-- objectType [select]
 */ 
 
 
-return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
-   'id' => 'CAR',
-   'name' => 'Car',
+return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
+   'id' => 'CarReview',
+   'name' => 'Review',
    'description' => '',
-   'creationDate' => 0,
-   'modificationDate' => 1566992749,
+   'creationDate' => 1566996420,
+   'modificationDate' => 1566996439,
    'userOwner' => 2,
-   'userModification' => 2,
-   'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
-   'listingParentClass' => '',
-   'useTraits' => '',
-   'listingUseTraits' => '',
-   'encryption' => false,
-   'encryptedTables' => 
-  array (
-  ),
-   'allowInherit' => true,
-   'allowVariants' => NULL,
-   'showVariants' => false,
+   'userModification' => 0,
+   'classId' => 'CAR',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -91,6 +55,203 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'childs' => 
         array (
           0 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 180,
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'name' => 'Data Quality',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Data Quality',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'childs' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
+                 'fieldtype' => 'text',
+                 'html' => '',
+                 'renderingClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                 'renderingData' => '',
+                 'border' => false,
+                 'name' => 'QualitySummary',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => '',
+                 'width' => NULL,
+                 'height' => NULL,
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => 'padding: .75rem 1.25rem; color: #0c5460;     background-color: #d1ecf1; border-color: #bee5eb; border-radius: .25rem;',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'childs' => 
+                array (
+                ),
+                 'locked' => false,
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+                 'fieldtype' => 'localizedfields',
+                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
+                 'childs' => 
+                array (
+                  0 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
+                     'fieldtype' => 'calculatedValue',
+                     'width' => 0,
+                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'queryColumnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
+                     'name' => 'textsAvailable',
+                     'title' => 'Texts Available',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                ),
+                 'name' => 'localizedfields',
+                 'region' => NULL,
+                 'layout' => NULL,
+                 'title' => '',
+                 'width' => '',
+                 'height' => '',
+                 'maxTabs' => NULL,
+                 'labelWidth' => 210,
+                 'border' => false,
+                 'provideSplitView' => false,
+                 'tabPosition' => NULL,
+                 'hideLabelsWhenTabsReached' => NULL,
+                 'referencedFields' => 
+                array (
+                ),
+                 'fieldDefinitionsCache' => NULL,
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => NULL,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
+              )),
+              2 => 
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+                 'fieldtype' => 'panel',
+                 'labelWidth' => 210,
+                 'layout' => NULL,
+                 'border' => false,
+                 'icon' => '',
+                 'name' => 'Layout',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => '',
+                 'width' => NULL,
+                 'height' => NULL,
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => '',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'childs' => 
+                array (
+                  0 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
+                     'fieldtype' => 'calculatedValue',
+                     'width' => 0,
+                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'queryColumnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
+                     'name' => 'attributesAvailable',
+                     'title' => 'Attributes Available',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  1 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
+                     'fieldtype' => 'calculatedValue',
+                     'width' => 0,
+                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'queryColumnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
+                     'name' => 'saleInformationAvailable',
+                     'title' => 'Sale Information Available',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                  2 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
+                     'fieldtype' => 'calculatedValue',
+                     'width' => 0,
+                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'queryColumnType' => 'varchar',
+                     'columnLength' => 190,
+                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
+                     'name' => 'imagesAvailable',
+                     'title' => 'Images Available',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                  )),
+                ),
+                 'locked' => false,
+              )),
+            ),
+             'locked' => false,
+          )),
+          1 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
              'labelWidth' => 100,
@@ -182,66 +343,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'hideLabelsWhenTabsReached' => NULL,
                  'referencedFields' => 
                 array (
-                  0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
-                     'fieldtype' => 'localizedfields',
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
-                     'childs' => 
-                    array (
-                      0 => 
-                      Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
-                         'fieldtype' => 'calculatedValue',
-                         'width' => 0,
-                         'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
-                         'queryColumnType' => 'varchar',
-                         'columnLength' => 190,
-                         'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
-                         'name' => 'textsAvailable',
-                         'title' => 'Texts Available',
-                         'tooltip' => '',
-                         'mandatory' => false,
-                         'noteditable' => false,
-                         'index' => false,
-                         'locked' => false,
-                         'style' => '',
-                         'permissions' => NULL,
-                         'datatype' => 'data',
-                         'relationType' => false,
-                         'invisible' => false,
-                         'visibleGridView' => false,
-                         'visibleSearch' => false,
-                      )),
-                    ),
-                     'name' => 'localizedfields',
-                     'region' => NULL,
-                     'layout' => NULL,
-                     'title' => '',
-                     'width' => '',
-                     'height' => '',
-                     'maxTabs' => NULL,
-                     'labelWidth' => 210,
-                     'border' => false,
-                     'provideSplitView' => false,
-                     'tabPosition' => NULL,
-                     'hideLabelsWhenTabsReached' => NULL,
-                     'referencedFields' => 
-                    array (
-                    ),
-                     'fieldDefinitionsCache' => NULL,
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => NULL,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => true,
-                     'visibleSearch' => true,
-                  )),
                 ),
+                 'fieldDefinitionsCache' => NULL,
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1921,7 +2024,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             ),
              'locked' => false,
           )),
-          1 => 
+          2 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
              'labelWidth' => 100,
@@ -2014,7 +2117,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             ),
              'locked' => false,
           )),
-          2 => 
+          3 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
              'labelWidth' => 100,
@@ -2065,7 +2168,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             ),
              'locked' => false,
           )),
-          3 => 
+          4 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
              'labelWidth' => 100,
@@ -2142,203 +2245,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-              )),
-            ),
-             'locked' => false,
-          )),
-          4 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-             'fieldtype' => 'panel',
-             'labelWidth' => 180,
-             'layout' => NULL,
-             'border' => false,
-             'icon' => '',
-             'name' => 'Data Quality',
-             'type' => NULL,
-             'region' => NULL,
-             'title' => 'Data Quality',
-             'width' => NULL,
-             'height' => NULL,
-             'collapsible' => false,
-             'collapsed' => false,
-             'bodyStyle' => '',
-             'datatype' => 'layout',
-             'permissions' => NULL,
-             'childs' => 
-            array (
-              0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
-                 'fieldtype' => 'text',
-                 'html' => '',
-                 'renderingClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
-                 'renderingData' => '',
-                 'border' => false,
-                 'name' => 'QualitySummary',
-                 'type' => NULL,
-                 'region' => NULL,
-                 'title' => '',
-                 'width' => NULL,
-                 'height' => NULL,
-                 'collapsible' => false,
-                 'collapsed' => false,
-                 'bodyStyle' => 'padding: .75rem 1.25rem; color: #0c5460;     background-color: #d1ecf1; border-color: #bee5eb; border-radius: .25rem;',
-                 'datatype' => 'layout',
-                 'permissions' => NULL,
-                 'childs' => 
-                array (
-                ),
-                 'locked' => false,
-              )),
-              1 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
-                 'fieldtype' => 'localizedfields',
-                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
-                 'childs' => 
-                array (
-                  0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
-                     'fieldtype' => 'calculatedValue',
-                     'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
-                     'queryColumnType' => 'varchar',
-                     'columnLength' => 190,
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
-                     'name' => 'textsAvailable',
-                     'title' => 'Texts Available',
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
-                  )),
-                ),
-                 'name' => 'localizedfields',
-                 'region' => NULL,
-                 'layout' => NULL,
-                 'title' => '',
-                 'width' => '',
-                 'height' => '',
-                 'maxTabs' => NULL,
-                 'labelWidth' => 210,
-                 'border' => false,
-                 'provideSplitView' => false,
-                 'tabPosition' => NULL,
-                 'hideLabelsWhenTabsReached' => NULL,
-                 'referencedFields' => 
-                array (
-                ),
-                 'fieldDefinitionsCache' => NULL,
-                 'tooltip' => '',
-                 'mandatory' => false,
-                 'noteditable' => false,
-                 'index' => NULL,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'datatype' => 'data',
-                 'relationType' => false,
-                 'invisible' => false,
-                 'visibleGridView' => true,
-                 'visibleSearch' => true,
-              )),
-              2 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-                 'fieldtype' => 'panel',
-                 'labelWidth' => 210,
-                 'layout' => NULL,
-                 'border' => false,
-                 'icon' => '',
-                 'name' => 'Layout',
-                 'type' => NULL,
-                 'region' => NULL,
-                 'title' => '',
-                 'width' => NULL,
-                 'height' => NULL,
-                 'collapsible' => false,
-                 'collapsed' => false,
-                 'bodyStyle' => '',
-                 'datatype' => 'layout',
-                 'permissions' => NULL,
-                 'childs' => 
-                array (
-                  0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
-                     'fieldtype' => 'calculatedValue',
-                     'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
-                     'queryColumnType' => 'varchar',
-                     'columnLength' => 190,
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
-                     'name' => 'attributesAvailable',
-                     'title' => 'Attributes Available',
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
-                  )),
-                  1 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
-                     'fieldtype' => 'calculatedValue',
-                     'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
-                     'queryColumnType' => 'varchar',
-                     'columnLength' => 190,
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
-                     'name' => 'saleInformationAvailable',
-                     'title' => 'Sale Information Available',
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
-                  )),
-                  2 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
-                     'fieldtype' => 'calculatedValue',
-                     'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
-                     'queryColumnType' => 'varchar',
-                     'columnLength' => 190,
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
-                     'name' => 'imagesAvailable',
-                     'title' => 'Images Available',
-                     'tooltip' => '',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'datatype' => 'data',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
-                  )),
-                ),
-                 'locked' => false,
               )),
             ),
              'locked' => false,
@@ -2439,31 +2345,6 @@ Define type of Car object to manage, which elements should be visible in shop an
     ),
      'locked' => false,
   )),
-   'icon' => '/static/images/icons/car_gray.svg',
-   'previewUrl' => '',
-   'group' => 'Product Data',
-   'showAppLoggerTab' => false,
-   'linkGeneratorReference' => '@AppBundle\\Website\\LinkGenerator\\ProductLinkGenerator',
-   'propertyVisibility' => 
-  array (
-    'grid' => 
-    array (
-      'id' => true,
-      'key' => false,
-      'path' => true,
-      'published' => true,
-      'modificationDate' => false,
-      'creationDate' => false,
-    ),
-    'search' => 
-    array (
-      'id' => true,
-      'key' => false,
-      'path' => true,
-      'published' => true,
-      'modificationDate' => false,
-      'creationDate' => false,
-    ),
-  ),
+   'default' => 0,
    'dao' => NULL,
 ));

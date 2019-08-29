@@ -69,9 +69,11 @@ class Car extends \Pimcore\Model\DataObject\Car
     public function getMainImage() : ?Hotspotimage {
 
         $gallery = $this->getGallery();
-        $items = $gallery->getItems();
-        if($items) {
-            return $items[0];
+        if($gallery) {
+            $items = $gallery->getItems();
+            if($items) {
+                return $items[0];
+            }
         }
         return null;
     }
@@ -136,14 +138,28 @@ class Car extends \Pimcore\Model\DataObject\Car
      * @return Car[]
      */
     public function getColorVariants(): array {
-        return $this->getParent()->getChildren();
+        if($this->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
+            $parent = $this->getParent();
+
+            $carSiblings = [];
+            foreach($parent->getChildren() as $sibling) {
+                if($sibling instanceof Car && $sibling->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
+                    $carSiblings[] = $sibling;
+                }
+            }
+
+            return $carSiblings;
+
+        }
+
+        return [];
     }
 
 
     public function getElementAdminStyle()
     {
         if (empty($this->o_elementAdminStyle)) {
-            $this->o_elementAdminStyle = new \AppBundle\Model\Product\AdminStyle\Car($this);
+            $this->o_elementAdminStyle = new AdminStyle\Car($this);
         }
 
         return $this->o_elementAdminStyle;
