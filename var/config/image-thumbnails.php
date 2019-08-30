@@ -1223,5 +1223,88 @@ return [
         "modificationDate" => 1567081298,
         "creationDate" => 1567081247,
         "id" => "exampleColor"
+    ],
+    "print_product_detail" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 700,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_product_detail",
+        "description" => "",
+        "group" => "Print",
+        "format" => "PRINT",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1567104061,
+        "creationDate" => 1567104038,
+        "id" => "print_product_detail"
+    ],
+    "print_product_detail_small" => [
+        "items" => [
+            [
+                "method" => "cover",
+                "arguments" => [
+                    "width" => 200,
+                    "height" => 130,
+                    "positioning" => NULL,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_product_detail_small",
+        "description" => "",
+        "group" => "Print",
+        "format" => "PRINT",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1567104820,
+        "creationDate" => 1567104073,
+        "id" => "print_product_detail_small"
+    ],
+    "print_product_detail_manufacturer" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 100,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "print_product_detail_manufacturer",
+        "description" => "",
+        "group" => "Print",
+        "format" => "PRINT",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1567104431,
+        "creationDate" => 1567104392,
+        "id" => "print_product_detail_manufacturer"
     ]
 ];

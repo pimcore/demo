@@ -1,0 +1,30 @@
+
+SET NAMES utf8mb4;
+
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('390','de','Fahrzeuge',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('392','de','Ersatzteile',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('393','de','Beleuchtung',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('394','de','Frontscheinwerfer','Frontscheinwerfer');
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('395','de','Blinker','Blinker');
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('396','de','Rückleuchten','Rückleuchte');
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('397','de','Felgen','Felge');
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('399','de','Lenkräder','Lenkrad');
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('407','de','Windschutzscheiben','Windschutzscheibe');
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('409','de','Kühleremblems','Kühleremblem');
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('545','de','Sport & Leistung',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('546','de','Luxusfahrzeuge',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('547','de','Mittelklasse',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('548','de','Stadtautos',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('550','de','Geschäftswagen',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('551','de','Familienautos',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('552','de','Oberklasse',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('553','de','Luxusklasse',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('555','de','Grand Tourer',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('556','de','Gewerbefahrzeuge',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('557','de','Obere Mittelklasse',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('558','de','Muscle Cars',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('559','de','Sportwagen',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('560','de','Personal Luxury Cars',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('561','de','Economy-Autos',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('564','de','Produkte',NULL);
+INSERT INTO object_localized_query_CA_de (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('873','de',NULL,NULL);

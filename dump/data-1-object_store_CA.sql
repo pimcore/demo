@@ -1,0 +1,30 @@
+
+SET NAMES utf8mb4;
+
+INSERT INTO object_store_CA (`oo_id`) VALUES ('390');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('392');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('393');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('394');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('395');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('396');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('397');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('399');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('407');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('409');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('545');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('546');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('547');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('548');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('550');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('551');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('552');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('553');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('555');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('556');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('557');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('558');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('559');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('560');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('561');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('564');
+INSERT INTO object_store_CA (`oo_id`) VALUES ('873');

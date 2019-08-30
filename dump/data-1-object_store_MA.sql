@@ -1,0 +1,30 @@
+
+SET NAMES utf8mb4;
+
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('4','Jaguar','302');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('28','Alfa Romeo','290');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('35','Austin-Healey','292');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('39','Buick','294');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('45','Cadillac','295');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('59','Chevrolet','296');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('71','Citroen','297');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('80','AC Cars','289');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('83','Dodge','298');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('93','Ferrari','299');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('100','Fiat','300');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('106','Ford','301');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('121','Lamborghini','303');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('127','Lincoln Motor Company','304');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('134','Mercedes-Benz','305');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('145','Mercury','306');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('153','MG Cars','307');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('158','Peugeot','309');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('163','Pontiac','310');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('167','Porsche','311');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('176','Renault','312');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('181','VEB Sachsenring','314');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('185','Triumph','315');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('206','VW',NULL);
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('240','Aston Martin','291');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('300','BMW','393');
+INSERT INTO object_store_MA (`oo_id`,`name`,`logo`) VALUES ('355','Morris Motors','308');

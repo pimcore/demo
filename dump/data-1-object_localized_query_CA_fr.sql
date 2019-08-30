@@ -1,0 +1,30 @@
+
+SET NAMES utf8mb4;
+
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('390','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('392','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('393','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('394','fr','phares',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('395','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('396','fr','Feux arrière',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('397','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('399','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('407','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('409','fr','Mascottes de radiateur',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('545','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('546','fr','Véhicules de luxe',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('547','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('548','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('550','fr','Voitures de fonction',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('551','fr','Voitures familiales',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('552','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('553','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('555','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('556','fr','Commerciales',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('557','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('558','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('559','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('560','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('561','fr','Carro popular',NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('564','fr',NULL,NULL);
+INSERT INTO object_localized_query_CA_fr (`ooo_id`,`language`,`name`,`productNamePart`) VALUES ('873','fr',NULL,NULL);
