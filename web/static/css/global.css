@@ -39,11 +39,11 @@ h1, .display-1 {
     font-size: 70px;
     font-weight: bold;
     letter-spacing: 4px;
-    /*line-height: 132px;*/
     text-transform: uppercase;
     line-height: 90px;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow-wrap: break-word;
 }
 
 h2, .display-2 {
@@ -52,6 +52,7 @@ h2, .display-2 {
     letter-spacing: 4px;
     line-height: 95px;
     text-transform: initial;
+    overflow-wrap: break-word;
 }
 
 h3, .display-3 {
@@ -59,6 +60,7 @@ h3, .display-3 {
     letter-spacing: -0.86px;
     line-height: 76px;
     text-transform: initial;
+    overflow-wrap: break-word;
 }
 
 h4, .display-4 {
@@ -67,12 +69,14 @@ h4, .display-4 {
     letter-spacing: -0.56px;
     line-height: 56px;
     text-transform: initial;
+    overflow-wrap: break-word;
 }
 
 h5, .display-5 {
     font-size: 30px;
     letter-spacing: -0.56px;
     line-height: 56px;
+    overflow-wrap: break-word;
 }
 
 h6, .display-6 {
@@ -80,6 +84,7 @@ h6, .display-6 {
     font-weight: bold;
     letter-spacing: -0.38px;
     line-height: 37px;
+    overflow-wrap: break-word;
 }
 
 .main-content h1, .main-content .display-1 {
@@ -88,7 +93,6 @@ h6, .display-6 {
     line-height: 70px;
     margin-top: 20px;
     margin-bottom: 20px;
-    overflow-wrap: break-word;
 }
 
 .main-content h2, .main-content .display-2 {
@@ -96,7 +100,6 @@ h6, .display-6 {
     font-weight: normal;
     letter-spacing: normal;
     line-height: 58px;
-    /*text-transform: initial;*/
 }
 
 .main-content h3, .main-content .display-3 {
@@ -1149,7 +1152,7 @@ input.form-control {
     }
 
     .area-gallery-carousel .carousel-inner .carousel-caption {
-        top: 7vh;
+        top: 4vh;
     }
 
     .area-gallery-carousel .carousel-inner .carousel-caption h3 {

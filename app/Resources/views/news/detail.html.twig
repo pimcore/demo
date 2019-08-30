@@ -24,10 +24,10 @@
 
                     {% if image.image %}
 
-                        <div class="col-3 mt-3">
+                        <div class="col-sm-3 mt-3">
 
                             <a href="{{ image.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
-                                {{ image.thumbnail('galleryThumbnail').getHTML({class: 'img-thumbnail img-fluid'})|raw }}
+                                {{ image.thumbnail('galleryThumbnail').getHTML({class: 'img-thumbnail img-fluid w-100'})|raw }}
                             </a>
 
                         </div>
