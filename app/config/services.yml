@@ -22,9 +22,115 @@ services:
     #     tags:
     #         - { name: kernel.event_listener, event: pimcore.dataobject.preUpdate, method: onObjectPreUpdate }
 
+    AppBundle\Controller\:
+        resource: '../../src/AppBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    AppBundle\Command\:
+        resource: '../../src/AppBundle/Command'
+        tags: ['console.command']
 
     AppBundle\Form\DeliveryAddressFormType: ~
     AppBundle\Form\LoginFormType: ~
     AppBundle\Form\RegistrationFormType: ~
     AppBundle\Form\RegistrationFormHandler: ~
     AppBundle\Form\CarSubmitFormType: ~
+    AppBundle\Services\PasswordRecoveryService: ~
+    AppBundle\Services\NewsletterDoubleOptInService: ~
+    AppBundle\Services\SegmentTrackingHelperService: ~
+
+    AppBundle\Twig\Extension\CategoryFilterExtension:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\Country:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\Currency:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\GeneralFilterExtension:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\NavigationExtension:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\UniqidExtension:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\LanguageSwitcherExtension:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\ProductPageExtension:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\NewsExtension:
+        tags: ['twig.extension']
+
+    AppBundle\Twig\Extension\PrintCatalogExtension:
+        tags: ['twig.extension']
+
+
+    AppBundle\Website\LinkGenerator\CategoryLinkGenerator:
+        public: true
+
+    AppBundle\Website\LinkGenerator\ProductLinkGenerator:
+        public: true
+
+    AppBundle\Website\LinkGenerator\NewsLinkGenerator:
+        public: true
+
+    AppBundle\Website\Navigation\BreadcrumbHelperService: ~
+
+    Pimcore\Templating\Helper\PimcoreUrl:
+        class: AppBundle\Website\Tool\PimcoreUrl
+        arguments:
+            $generator: '@router'
+        tags:
+            - { name: templating.helper, alias: pimcoreUrl }
+
+    AppBundle\EventListener\NameSettingListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.dataobject.preAdd, method: onPreAdd }
+
+    AppBundle\EventListener\PimcoreAdminListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.css, method: addCSSFiles }
+            - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.js, method: addJSFiles }
+
+
+    # authentication login listener for updating e-commerce framework environment after login
+    AppBundle\EventListener\AuthenticationLoginListener:
+        arguments:
+            $httpUtils: '@security.http_utils'
+
+    # authentication login listener for updating e-commerce framework environment after logout
+    AppBundle\EventListener\AuthenticationLogoutListener:
+        arguments:
+            $httpUtils: '@security.http_utils'
+
+    AppBundle\EventListener\CheckoutEventListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.ecommerce.ordermanager.postUpdateOrder, method: onUpdateOrder }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.sendConfirmationMails, method: sendConfirmationMail }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.postCommitOrder, method: postCommitOrder }
+
+    # CMF Services
+
+    # example customer save handler config
+    CustomerManagementFrameworkBundle\CustomerSaveHandler\NormalizeZip:
+        tags: [cmf.customer_save_handler]
+
+    # example segment builder config
+    CustomerManagementFrameworkBundle\SegmentBuilder\StateSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+    CustomerManagementFrameworkBundle\SegmentBuilder\GenderSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+    AppBundle\CustomerManagementFramework\SegmentBuilder\ProductInterestSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+
+    # Workflow
+    AppBundle\Workflow\SupportsStrategy: ~
