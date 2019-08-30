@@ -1,0 +1,35 @@
+
+SET NAMES utf8mb4;
+
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1015','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1015','1027','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1016','835','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1016','1027','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1017','835','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1017','1027','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1018','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1018','1027','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1019','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1019','1031','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','825','object','calculatedSegments','7','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','835','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','860','object','calculatedSegments','8','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','862','object','calculatedSegments','9','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','875','object','calculatedSegments','6','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','876','object','calculatedSegments','10','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','963','object','calculatedSegments','4','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','965','object','calculatedSegments','5','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','971','object','calculatedSegments','3','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1020','1031','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1021','824','object','calculatedSegments','3','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1021','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1021','1031','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1022','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1023','835','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1024','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1024','839','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1025','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1025','1036','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1045','834','object','calculatedSegments','1','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1048','834','object','calculatedSegments','2','object','','0');
+INSERT INTO object_relations_CU (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1048','1031','object','calculatedSegments','1','object','','0');

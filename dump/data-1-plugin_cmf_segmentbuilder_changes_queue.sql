@@ -1,0 +1,33 @@
+
+SET NAMES utf8mb4;
+
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('704');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('709');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('711');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('713');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('714');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('715');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('716');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('718');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('722');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('814');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('866');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('867');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('868');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('869');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('870');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('871');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1015');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1016');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1017');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1018');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1019');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1020');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1021');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1022');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1023');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1024');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1025');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1045');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1048');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1049');
