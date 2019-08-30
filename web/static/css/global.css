@@ -614,6 +614,10 @@ input.form-control {
     .pricing a i {
         display: none;
     }
+
+    .back-to-top.display-block {
+        display: inline !important;
+    }
 }
 
 
@@ -1372,4 +1376,13 @@ section img {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    display: none;
+    z-index: 99999;
 }
