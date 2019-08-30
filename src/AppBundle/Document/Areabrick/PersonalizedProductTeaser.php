@@ -73,12 +73,14 @@ class PersonalizedProductTeaser extends AbstractAreabrick
         $segmentCollection = [];
         foreach($trackedSegments as $segmentId => $count) {
             $segment = $this->segmentManager->getSegmentById($segmentId);
-            $reference = $segment->getGroup()->getReference();
-            if(in_array($reference, $allowedSegmentGroups)) {
-                $segmentCollection[$reference][] = [
-                    'segment' => $segment,
-                    'count' => $count
-                ];
+            if($segment) {
+                $reference = $segment->getGroup()->getReference();
+                if(in_array($reference, $allowedSegmentGroups)) {
+                    $segmentCollection[$reference][] = [
+                        'segment' => $segment,
+                        'count' => $count
+                    ];
+                }
             }
         }
 
