@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Model\Product;
-
 
 use Pimcore\Model\DataObject\Data\Hotspotimage;
 
@@ -11,7 +22,8 @@ abstract class AbstractProduct extends \Pimcore\Bundle\EcommerceFrameworkBundle\
     /**
      * @return Hotspotimage|null
      */
-    public function getMainImage() : ?Hotspotimage {
+    public function getMainImage(): ?Hotspotimage
+    {
         return null;
     }
 
@@ -28,15 +40,14 @@ abstract class AbstractProduct extends \Pimcore\Bundle\EcommerceFrameworkBundle\
     /**
      * @return |null
      */
-    public function getPrice() {
-
+    public function getPrice()
+    {
         $saleInformationBrick = $this->getSaleInformation();
         $saleInformation = $saleInformationBrick->getSaleInformation();
-        if($saleInformation) {
+        if ($saleInformation) {
             return $saleInformation->getPriceInEUR();
         }
 
         return null;
     }
-
 }

@@ -14,6 +14,19 @@
 
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -46,7 +59,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'general.lastname',
                 'required' => true
             ]);
-        if(!$options['hidePassword']) {
+        if (!$options['hidePassword']) {
             $builder->add('password', PasswordType::class, [
                 'label' => 'general.password'
             ]);
@@ -67,7 +80,6 @@ class RegistrationFormType extends AbstractType
                     'class' => 'checkbox-custom'
                 ]
             ]);
-
 
         $builder
             ->add('oAuthKey', HiddenType::class)

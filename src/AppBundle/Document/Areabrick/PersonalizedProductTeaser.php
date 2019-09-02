@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Document\Areabrick;
-
 
 use AppBundle\Ecommerce\IndexService\SegmentGetter;
 use CustomerManagementFrameworkBundle\SegmentManager\SegmentManagerInterface;
@@ -36,6 +47,7 @@ class PersonalizedProductTeaser extends AbstractAreabrick
 
     /**
      * PersonalizedProductTeaser constructor.
+     *
      * @param VisitorInfoStorage $visitorInfoStorage
      * @param SegmentTracker $segmentTracker
      * @param SegmentManagerInterface $segmentManager
@@ -49,7 +61,6 @@ class PersonalizedProductTeaser extends AbstractAreabrick
         $this->ecommerceFactory = $ecommerceFactory;
     }
 
-
     /**
      * {@inheritdoc}
      */
@@ -62,7 +73,7 @@ class PersonalizedProductTeaser extends AbstractAreabrick
     {
         $info->getView()->usePersonalizedData = false;
 
-        if(! $this->visitorInfoStorage->hasVisitorInfo()) {
+        if (! $this->visitorInfoStorage->hasVisitorInfo()) {
             return;
         }
 
@@ -71,11 +82,11 @@ class PersonalizedProductTeaser extends AbstractAreabrick
 
         //get relevant segments for filtering
         $segmentCollection = [];
-        foreach($trackedSegments as $segmentId => $count) {
+        foreach ($trackedSegments as $segmentId => $count) {
             $segment = $this->segmentManager->getSegmentById($segmentId);
-            if($segment) {
+            if ($segment) {
                 $reference = $segment->getGroup()->getReference();
-                if(in_array($reference, $allowedSegmentGroups)) {
+                if (in_array($reference, $allowedSegmentGroups)) {
                     $segmentCollection[$reference][] = [
                         'segment' => $segment,
                         'count' => $count
@@ -84,19 +95,19 @@ class PersonalizedProductTeaser extends AbstractAreabrick
             }
         }
 
-        if(!$segmentCollection) {
+        if (!$segmentCollection) {
             return;
         }
 
         //order segments by count, pick 2 top segments
-        foreach($allowedSegmentGroups as $group) {
+        foreach ($allowedSegmentGroups as $group) {
             $groupCollection = $segmentCollection[$group];
-            if($groupCollection) {
-
-                usort($groupCollection, function($left, $right) {
-                    if($left['count'] === $right['count']) {
+            if ($groupCollection) {
+                usort($groupCollection, function ($left, $right) {
+                    if ($left['count'] === $right['count']) {
                         return 0;
                     }
+
                     return ($left['count'] < $right['count']) ? 1 : -1;
                 });
 
@@ -106,30 +117,25 @@ class PersonalizedProductTeaser extends AbstractAreabrick
 
         //build filter list
         $productList = $this->ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
-        foreach($allowedSegmentGroups as $group) {
-
+        foreach ($allowedSegmentGroups as $group) {
             $groupCollection = $segmentCollection[$group];
-            if($groupCollection) {
-
+            if ($groupCollection) {
                 $values = [];
-                foreach($groupCollection as $item) {
+                foreach ($groupCollection as $item) {
                     $values[] = intval($item['segment']->getId());
                 }
 
                 $productList->addRelationCondition('segments', 'dest IN (' . implode(',', $values) . ')');
-
             }
-
         }
 
         $productList->setOrderKey('RAND()');
         $productList->setLimit(3);
         $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
 
-        if($productList->count() >= 3) {
+        if ($productList->count() >= 3) {
             $info->getView()->productList = $productList;
             $info->getView()->usePersonalizedData = true;
         }
-
     }
 }

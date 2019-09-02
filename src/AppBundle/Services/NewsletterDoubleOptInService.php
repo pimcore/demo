@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Services;
-
 
 use AppBundle\Model\Customer;
 use AppBundle\Model\CustomerManagementFramework\PasswordRecoveryInterface;
@@ -14,7 +25,6 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class NewsletterDoubleOptInService
 {
-
     /**
      * @var UrlGeneratorInterface
      */
@@ -27,6 +37,7 @@ class NewsletterDoubleOptInService
 
     /**
      * NewsletterDoubleOptInService constructor.
+     *
      * @param UrlGeneratorInterface $urlGenerator
      * @param CustomerProviderInterface $customerProvider
      */
@@ -36,16 +47,15 @@ class NewsletterDoubleOptInService
         $this->customerProvider = $customerProvider;
     }
 
-
     /**
      * @param Customer $customer
      * @param Email $emailDocument
+     *
      * @throws \Exception
      */
-    public function sendDoubleOptInMail(Customer $customer, Email $emailDocument) {
-
-        if(!$customer->getNewsletterConfirmed()) {
-
+    public function sendDoubleOptInMail(Customer $customer, Email $emailDocument)
+    {
+        if (!$customer->getNewsletterConfirmed()) {
             $token = md5($customer->getId() . time() . uniqid());
             $customer->setNewsletterConfirmToken($token);
             $customer->save();
@@ -63,38 +73,37 @@ class NewsletterDoubleOptInService
 
             $mail->send();
         }
-
     }
-
 
     /**
      * @param string $token
+     *
      * @return PasswordRecoveryInterface|null
      */
-    public function getCustomerByToken(string $token): ?CustomerInterface {
+    public function getCustomerByToken(string $token): ?CustomerInterface
+    {
         $customerList = $this->customerProvider->getList();
-        $customerList->setCondition("newsletterConfirmToken = ?", [$token]);
+        $customerList->setCondition('newsletterConfirmToken = ?', [$token]);
         $customerList->setLimit(1);
 
         return $customerList->current();
     }
 
-
     /**
      * @param string $token
+     *
      * @return Customer|null
      */
-    public function handleDoubleOptInConfirmation(string $token): ?Customer {
+    public function handleDoubleOptInConfirmation(string $token): ?Customer
+    {
         $customer = $this->getCustomerByToken($token);
-        if($customer) {
+        if ($customer) {
             $customer->setNewsletterConfirmed(true);
             $customer->save();
+
             return $customer;
         }
 
         return null;
     }
-
-
-
 }

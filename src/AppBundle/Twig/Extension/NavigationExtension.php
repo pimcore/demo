@@ -1,22 +1,33 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Twig\Extension;
 
+use AppBundle\Website\LinkGenerator\AbstractProductLinkGenerator;
 use AppBundle\Website\LinkGenerator\CategoryLinkGenerator;
 use Pimcore\Model\Document;
 use Pimcore\Navigation\Container;
 use Pimcore\Navigation\Page\Document as NavDocument;
 use Pimcore\Templating\Helper\Navigation;
 use Pimcore\Templating\Helper\Placeholder;
-use AppBundle\Website\LinkGenerator\AbstractProductLinkGenerator;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-
 class NavigationExtension extends AbstractExtension
 {
-    const NAVIGATION_EXTENSION_POINT_PROPERTY = "navigation_extension_point";
+    const NAVIGATION_EXTENSION_POINT_PROPERTY = 'navigation_extension_point';
 
     /**
      * @var CategoryLinkGenerator
@@ -43,7 +54,6 @@ class NavigationExtension extends AbstractExtension
         $this->placeholderHelper = $placeholderHelper;
     }
 
-
     /**
      * @return array|TwigFunction[]
      */
@@ -61,21 +71,22 @@ class NavigationExtension extends AbstractExtension
      *
      * @return \Pimcore\Navigation\Container
      */
-    public function getDataLinks(Document $document, Document $startNode) {
-        $navigation = $this->navigationHelper->buildNavigation($document, $startNode, null, function($page, $document) {
-            if($document->getProperty(self::NAVIGATION_EXTENSION_POINT_PROPERTY) == "category" && $rootCategory = $document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME)) {
-                foreach($rootCategory->getChildren() as $category) {
+    public function getDataLinks(Document $document, Document $startNode)
+    {
+        $navigation = $this->navigationHelper->buildNavigation($document, $startNode, null, function ($page, $document) {
+            if ($document->getProperty(self::NAVIGATION_EXTENSION_POINT_PROPERTY) == 'category' && $rootCategory = $document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME)) {
+                foreach ($rootCategory->getChildren() as $category) {
                     $categoryPage = new NavDocument([
-                        "label" => $category->getName(),
-                        "id" => "category-" . $category->getId(),
-                        "uri" => $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null])
+                        'label' => $category->getName(),
+                        'id' => 'category-' . $category->getId(),
+                        'uri' => $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null])
                     ]);
 
-                    foreach($category->getChildren() as $subCategory) {
+                    foreach ($category->getChildren() as $subCategory) {
                         $subCategoryPage = new NavDocument([
-                            "label" => $subCategory->getName(),
-                            "id" => "category-" . $subCategory->getId(),
-                            "uri" => $this->categoryLinkGenerator->generate($subCategory, ['rootCategory' => $rootCategory, 'page' => null])
+                            'label' => $subCategory->getName(),
+                            'id' => 'category-' . $subCategory->getId(),
+                            'uri' => $this->categoryLinkGenerator->generate($subCategory, ['rootCategory' => $rootCategory, 'page' => null])
                         ]);
 
                         $categoryPage->addPage($subCategoryPage);
@@ -83,7 +94,6 @@ class NavigationExtension extends AbstractExtension
                     $page->addPage($categoryPage);
                 }
             }
-
         });
 
         return $navigation;
@@ -91,30 +101,29 @@ class NavigationExtension extends AbstractExtension
 
     /**
      * @param Container $navigation
+     *
      * @return Container
+     *
      * @throws \Exception
      */
-    public function enrichBreadcrumbs(Container $navigation): Container {
-
+    public function enrichBreadcrumbs(Container $navigation): Container
+    {
         $additionalBreadCrumbs = $this->placeholderHelper->__invoke('addBreadcrumb');
 
-        if( $additionalBreadCrumbs->getArrayCopy() )
-        {
+        if ($additionalBreadCrumbs->getArrayCopy()) {
             $parentPage = false;
 
-            foreach( $additionalBreadCrumbs->getArrayCopy() as $breadcrumb )
-            {
+            foreach ($additionalBreadCrumbs->getArrayCopy() as $breadcrumb) {
                 $page = $navigation->findBy('id', $breadcrumb['id']);
-                if(null === $page) {
+                if (null === $page) {
                     $parentPage = $parentPage ?: $navigation->findBy('id', $breadcrumb['parentId']);
                     $newPage = new \Pimcore\Navigation\Page\Document([
                         'id' => $breadcrumb['id'],
                         'uri' => $breadcrumb['url'] != '' ? $breadcrumb['url'] : '',
                         'label' => $breadcrumb['label'],
-                        "active" => true
+                        'active' => true
                     ]);
-                    if($parentPage)
-                    {
+                    if ($parentPage) {
                         $parentPage->setActive(false);
                         $parentPage->addPage($newPage);
                         $parentPage = $newPage;
@@ -122,7 +131,6 @@ class NavigationExtension extends AbstractExtension
                         $navigation->addPage($newPage);
                     }
                 }
-
             }
         }
 

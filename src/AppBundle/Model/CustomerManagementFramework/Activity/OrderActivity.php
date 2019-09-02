@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pimcore
  *
@@ -8,8 +9,8 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace AppBundle\Model\CustomerManagementFramework\Activity;
@@ -21,7 +22,6 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Model\AbstractOrder;
 
 class OrderActivity extends AbstractActivity
 {
-
     const TYPE = 'Customer Order';
 
     /**
@@ -45,7 +45,6 @@ class OrderActivity extends AbstractActivity
         $this->customer = $customer;
         $this->order = $order;
     }
-
 
     /**
      * Return the type of the activity (i.e. Booking, Login...)
@@ -80,8 +79,8 @@ class OrderActivity extends AbstractActivity
         return false;
     }
 
-    public static function cmfGetOverviewData(ActivityStoreEntryInterface $entry) {
-
+    public static function cmfGetOverviewData(ActivityStoreEntryInterface $entry)
+    {
         $attributes = $entry->getAttributes();
 
         $data = [
@@ -95,14 +94,15 @@ class OrderActivity extends AbstractActivity
         $orderId = $attributes['orderId'];
         $order = AbstractOrder::getById($orderId);
 
-        if($order) {
+        if ($order) {
             $data['Current Order State'] = $order->getOrderState();
         }
 
         return $data;
     }
 
-    public static function cmfGetDetailviewData(ActivityStoreEntryInterface $entry) {
+    public static function cmfGetDetailviewData(ActivityStoreEntryInterface $entry)
+    {
         $attributes = $entry->getAttributes();
 
         $data = [
@@ -117,11 +117,10 @@ class OrderActivity extends AbstractActivity
         $orderId = $attributes['orderId'];
         $order = AbstractOrder::getById($orderId);
 
-        if($order) {
+        if ($order) {
             $data['Current Order State'] = $order->getOrderState();
         }
 
         return $data;
     }
-
 }

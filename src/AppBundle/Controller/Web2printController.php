@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pimcore
  *
@@ -8,8 +9,8 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace AppBundle\Controller;
@@ -35,7 +36,7 @@ class Web2printController extends BaseController
 
         $paramsBag = array_merge($this->view->getAllParameters(), $paramsBag);
 
-        if($this->document->getProperty('hide-layout')) {
+        if ($this->document->getProperty('hide-layout')) {
             return $this->render('web2print/default_no_layout.html.twig', $paramsBag);
         } else {
             return $this->render('web2print/default.html.twig', $paramsBag);
@@ -53,12 +54,12 @@ class Web2printController extends BaseController
         $allChildren = [];
 
         //prepare children for include
-        foreach($this->document->getAllChildren() as $child) {
-            if($child instanceof Hardlink) {
+        foreach ($this->document->getAllChildren() as $child) {
+            if ($child instanceof Hardlink) {
                 $child = Hardlink\Service::wrap($child);
             }
 
-            $child->setProperty("hide-layout", "bool", true);
+            $child->setProperty('hide-layout', 'bool', true);
 
             $allChildren[] = $child;
         }
@@ -70,13 +71,11 @@ class Web2printController extends BaseController
 
     public function productCellAction(Request $request)
     {
-
         AbstractObject::setGetInheritedValues(true);
         $product = AbstractProduct::getById($request->get('id'));
         $paramsBag['product'] = $product;
 
         return $paramsBag;
-
     }
 
     /**
@@ -92,27 +91,24 @@ class Web2printController extends BaseController
         $objId = $request->get('id');
         $obj = Car::getById($objId);
 
-        if($obj instanceof Car) {
+        if ($obj instanceof Car) {
             $params = $this->view->getAllParameters();
             $params['product'] = $obj;
             $html = $this->renderView('web2print/product_detail.html.twig', $params);
 
-            if($request->get('html')) {
+            if ($request->get('html')) {
                 return new Response($html);
             } else {
-
                 $adapter = Processor::getInstance();
 
-                if($html){
+                if ($html) {
                     return new Response(
                         $adapter->getPdfFromString($html),
                         200,
                         ['Content-Type' => 'application/pdf']
                     );
                 }
-
             }
-
         }
     }
 }

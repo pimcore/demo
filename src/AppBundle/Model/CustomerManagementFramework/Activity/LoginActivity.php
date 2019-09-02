@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pimcore
  *
@@ -8,8 +9,8 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace AppBundle\Model\CustomerManagementFramework\Activity;
@@ -19,7 +20,6 @@ use CustomerManagementFrameworkBundle\Model\CustomerInterface;
 
 class LoginActivity extends AbstractActivity
 {
-
     const TYPE = 'Customer Login';
 
     /**
@@ -47,7 +47,6 @@ class LoginActivity extends AbstractActivity
         $this->customer = $customer;
         $this->activityDate = $activityDate;
     }
-
 
     /**
      * Return the type of the activity (i.e. Booking, Login...)

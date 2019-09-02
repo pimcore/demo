@@ -1,11 +1,21 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Twig\Extension;
 
-
 use AppBundle\Model\Product\AbstractProduct;
-use AppBundle\Model\Product\Car;
 use AppBundle\Website\LinkGenerator\ProductLinkGenerator;
 use Pimcore\Translation\Translator;
 use Twig\Extension\AbstractExtension;
@@ -14,7 +24,6 @@ use Twig\TwigFunction;
 
 class ProductPageExtension extends AbstractExtension
 {
-
     /**
      * @var ProductLinkGenerator
      */
@@ -27,6 +36,7 @@ class ProductPageExtension extends AbstractExtension
 
     /**
      * ProductPageExtension constructor.
+     *
      * @param ProductLinkGenerator $productLinkGenerator
      * @param Translator $translator
      */
@@ -35,7 +45,6 @@ class ProductPageExtension extends AbstractExtension
         $this->productLinkGenerator = $productLinkGenerator;
         $this->translator = $translator;
     }
-
 
     public function getFunctions()
     {
@@ -53,26 +62,28 @@ class ProductPageExtension extends AbstractExtension
 
     /**
      * @param AbstractProduct $product
+     *
      * @return string
      */
-    public function generateLink(AbstractProduct $product): string {
+    public function generateLink(AbstractProduct $product): string
+    {
         return $this->productLinkGenerator->generate($product, []);
     }
 
     /**
      * @param array|null $colorNames
+     *
      * @return string
      */
-    public function getColorName(?array $colorNames = []): string {
-
+    public function getColorName(?array $colorNames = []): string
+    {
         $translatedColors = [];
-        if($colorNames) {
-            foreach($colorNames as $color) {
+        if ($colorNames) {
+            foreach ($colorNames as $color) {
                 $translatedColors[] = $this->translator->trans(mb_strtolower('attribute.' . $color));
             }
         }
 
-        return implode("-", $translatedColors);
+        return implode('-', $translatedColors);
     }
-
 }

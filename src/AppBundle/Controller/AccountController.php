@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pimcore
  *
@@ -8,8 +9,8 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace AppBundle\Controller;
@@ -30,7 +31,6 @@ use CustomerManagementFrameworkBundle\Security\OAuth\OAuthRegistrationHandler;
 use CustomerManagementFrameworkBundle\Security\SsoIdentity\SsoIdentityServiceInterface;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
-use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\OrderManager\Order\Listing\Filter\CustomerObject;
 use Pimcore\DataObject\Consent\Service;
@@ -62,6 +62,7 @@ class AccountController extends BaseController
      * @param SessionInterface $session
      * @param Request $request
      * @param UserInterface|null $user
+     *
      * @return array|RedirectResponse
      */
     public function loginAction(
@@ -70,8 +71,7 @@ class AccountController extends BaseController
         SessionInterface $session,
         Request $request,
         UserInterface $user = null
-    )
-    {
+    ) {
 
         //redirect user to index page if logged in
         if ($user && $this->isGranted('ROLE_USER')) {
@@ -100,7 +100,7 @@ class AccountController extends BaseController
         $lastUsername = $authenticationUtils->getLastUsername();
 
         $formData = [
-            '_username'    => $lastUsername
+            '_username' => $lastUsername
         ];
 
         $form = $this->createForm(LoginFormType::class, $formData, [
@@ -108,7 +108,7 @@ class AccountController extends BaseController
         ]);
 
         //store referer in session to get redirected after login
-        if(!$request->get('no-referer-redirect')) {
+        if (!$request->get('no-referer-redirect')) {
             $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
         }
 
@@ -117,7 +117,6 @@ class AccountController extends BaseController
             'error' => $error,
             'hideBreadcrumbs' => true
         ];
-
     }
 
     /**
@@ -142,6 +141,7 @@ class AccountController extends BaseController
      * @param UrlGeneratorInterface $urlGenerator
      * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
      * @param UserInterface|null $user
+     *
      * @return array|RedirectResponse
      */
     public function registerAction(
@@ -179,7 +179,7 @@ class AccountController extends BaseController
         // load previously stored token from the session and try to load user profile
         // from provider
         if (null !== $registrationKey) {
-            $oAuthToken    = $oAuthHandler->loadToken($registrationKey);
+            $oAuthToken = $oAuthHandler->loadToken($registrationKey);
             $oAuthUserInfo = $oAuthHandler->loadUserInformation($oAuthToken);
         }
 
@@ -215,11 +215,11 @@ class AccountController extends BaseController
             try {
                 $customer->save();
 
-                if($form->getData()['newsletter']) {
+                if ($form->getData()['newsletter']) {
                     $consentService->giveConsent($customer, 'newsletter', $translator->trans('general.newsletter'));
                     $newsletterDoubleOptInService->sendDoubleOptInMail($customer, $this->document->getProperty('newsletter_confirm_mail'));
                 }
-                if($form->getData()['profiling']) {
+                if ($form->getData()['profiling']) {
                     $consentService->giveConsent($customer, 'profiling', $translator->trans('general.profiling'));
                 }
 
@@ -229,13 +229,12 @@ class AccountController extends BaseController
                 }
 
                 //check if special redirect is necessary
-                if($session->get('referrer')) {
+                if ($session->get('referrer')) {
                     $response = $this->redirect($session->get('referrer'));
                     $session->remove('referrer');
                 } else {
                     $response = $this->redirectToRoute('account-index');
                 }
-
 
                 // log user in manually
                 // pass response to login manager as it adds potential remember me cookies
@@ -251,14 +250,15 @@ class AccountController extends BaseController
                     [
                         $customer->getEmail(),
                         $urlGenerator->generate('account-password-send-recovery', ['email' => $customer->getEmail()])
-                    ]);
+                    ]
+                );
             } catch (\Exception $e) {
                 $errors[] = $e->getMessage();
             }
         }
 
-        if($form->isSubmitted() && !$form->isValid()) {
-            foreach($form->getErrors() as $error) {
+        if ($form->isSubmitted() && !$form->isValid()) {
+            foreach ($form->getErrors() as $error) {
                 $errors[] = $error->getMessage();
             }
         }
@@ -278,7 +278,6 @@ class AccountController extends BaseController
         ];
     }
 
-
     /**
      * Special route for connecting to social profiles that saves referrer in session for later
      * redirect to that referrer
@@ -286,6 +285,7 @@ class AccountController extends BaseController
      * @param Request $request
      * @param SessionInterface $session
      * @param $service
+     *
      * @return Response
      * @Route("/auth/oauth/referrerLogin/{service}", name="app_auth_oauth_login_referrer")
      */
@@ -293,9 +293,9 @@ class AccountController extends BaseController
     {
         // we overwrite this route to store user's referrer in the session
         $session->set('referrer', $request->headers->get('referer'));
-        return $this->forward('HWIOAuthBundle:Connect:redirectToService', array('service' => $service));
-    }
 
+        return $this->forward('HWIOAuthBundle:Connect:redirectToService', ['service' => $service]);
+    }
 
     /**
      * Connects an already logged in user to an auth provider
@@ -351,10 +351,10 @@ class AccountController extends BaseController
         return $this->redirectToRoute('account-index');
     }
 
-
     /**
      * @param array $formData
      * @param UserResponseInterface $userInformation
+     *
      * @return array
      */
     private function mergeOAuthFormData(
@@ -363,11 +363,10 @@ class AccountController extends BaseController
     ): array {
         return array_replace([
             'firstname' => $userInformation->getFirstName(),
-            'lastname'  => $userInformation->getLastName(),
-            'email'     => $userInformation->getEmail()
+            'lastname' => $userInformation->getLastName(),
+            'email' => $userInformation->getEmail()
         ], $formData);
     }
-
 
     /**
      * Index page for account - it is restricted to ROLE_USER via security annotation
@@ -377,19 +376,20 @@ class AccountController extends BaseController
      *
      * @param SsoIdentityServiceInterface $identityService
      * @param UserInterface|null $user
+     *
      * @return array
      */
-    public function indexAction(SsoIdentityServiceInterface $identityService, UserInterface $user = null) {
+    public function indexAction(SsoIdentityServiceInterface $identityService, UserInterface $user = null)
+    {
         $blacklist = [];
-        foreach($identityService->getSsoIdentities($user) as $identity) {
+        foreach ($identityService->getSsoIdentities($user) as $identity) {
             $blacklist[] = $identity->getProvider();
         }
 
         $orderManager = Factory::getInstance()->getOrderManager();
         $orderList = $orderManager->createOrderList();
         $orderList->addFilter(new CustomerObject($user));
-        $orderList->setOrder("orderDate DESC");
-
+        $orderList->setOrder('orderDate DESC');
 
         return [
             'blacklist' => $blacklist,
@@ -407,27 +407,27 @@ class AccountController extends BaseController
      * @param Translator $translator
      * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
      * @param UserInterface|null $user
+     *
      * @return RedirectResponse
+     *
      * @throws \Exception
      */
-    public function updateMarketingPermissionAction(Request $request, Service $consentService, Translator $translator, NewsletterDoubleOptInService $newsletterDoubleOptInService, UserInterface $user = null) {
-
-        if($user instanceof Customer) {
+    public function updateMarketingPermissionAction(Request $request, Service $consentService, Translator $translator, NewsletterDoubleOptInService $newsletterDoubleOptInService, UserInterface $user = null)
+    {
+        if ($user instanceof Customer) {
             $currentNewsletterPermission = $user->getNewsletter()->getConsent();
-            if(!$currentNewsletterPermission && $request->get('newsletter')) {
+            if (!$currentNewsletterPermission && $request->get('newsletter')) {
                 $consentService->giveConsent($user, 'newsletter', $translator->trans('general.newsletter'));
                 $newsletterDoubleOptInService->sendDoubleOptInMail($user, $this->document->getProperty('newsletter_confirm_mail'));
-            }
-            else if($currentNewsletterPermission && !$request->get('newsletter')) {
+            } elseif ($currentNewsletterPermission && !$request->get('newsletter')) {
                 $user->setNewsletterConfirmed(false);
                 $consentService->revokeConsent($user, 'newsletter');
             }
 
             $currentProfilingPermission = $user->getProfiling()->getConsent();
-            if(!$currentProfilingPermission && $request->get('profiling')) {
+            if (!$currentProfilingPermission && $request->get('profiling')) {
                 $consentService->giveConsent($user, 'profiling', $translator->trans('general.profiling'));
-            }
-            else if($currentProfilingPermission && !$request->get('profiling')) {
+            } elseif ($currentProfilingPermission && !$request->get('profiling')) {
                 $consentService->revokeConsent($user, 'profiling');
             }
 
@@ -445,19 +445,20 @@ class AccountController extends BaseController
      * @param Request $request
      * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
      * @param Translator $translator
+     *
      * @return RedirectResponse
      */
-    public function confirmNewsletterAction(Request $request, NewsletterDoubleOptInService $newsletterDoubleOptInService, Translator $translator) {
-
+    public function confirmNewsletterAction(Request $request, NewsletterDoubleOptInService $newsletterDoubleOptInService, Translator $translator)
+    {
         $token = $request->get('token');
         $customer = $newsletterDoubleOptInService->handleDoubleOptInConfirmation($token);
-        if($customer) {
+        if ($customer) {
             $this->addFlash('success', $translator->trans('account.marketing-permissions-confirmed-newsletter'));
+
             return $this->redirectToRoute('account-index');
         } else {
             throw new NotFoundHttpException('Invalid token');
         }
-
     }
 
     /**
@@ -466,12 +467,15 @@ class AccountController extends BaseController
      * @param Request $request
      * @param PasswordRecoveryService $service
      * @param Translator $translator
+     *
      * @throws \Exception
      */
-    public function sendPasswordRecoveryMailAction(Request $request, PasswordRecoveryService $service, Translator $translator) {
-        if($request->isMethod(Request::METHOD_POST)) {
+    public function sendPasswordRecoveryMailAction(Request $request, PasswordRecoveryService $service, Translator $translator)
+    {
+        if ($request->isMethod(Request::METHOD_POST)) {
             $service->sendRecoveryMail($request->get('email', ''), $this->document->getProperty('password_reset_mail'));
             $this->addFlash('success', $translator->trans('account.reset-mail-sent-when-possible'));
+
             return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
         }
 
@@ -487,19 +491,19 @@ class AccountController extends BaseController
      * @param Request $request
      * @param PasswordRecoveryService $service
      * @param Translator $translator
+     *
      * @return array|RedirectResponse
      */
-    public function resetPasswordAction(Request $request, PasswordRecoveryService $service, Translator $translator) {
-
+    public function resetPasswordAction(Request $request, PasswordRecoveryService $service, Translator $translator)
+    {
         $token = $request->get('token');
         $customer = $service->getCustomerByToken($token);
-        if(!$customer) {
+        if (!$customer) {
             //TODO render error page
             throw new NotFoundHttpException('Invalid token');
         }
 
-        if($request->isMethod(Request::METHOD_POST)) {
-
+        if ($request->isMethod(Request::METHOD_POST)) {
             $newPassword = $request->get('password');
             $service->setPassword($token, $newPassword);
 

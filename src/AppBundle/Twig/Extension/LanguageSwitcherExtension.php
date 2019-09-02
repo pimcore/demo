@@ -2,6 +2,19 @@
 
 declare(strict_types=1);
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
 namespace AppBundle\Twig\Extension;
 
 use Pimcore\Model\Document;
@@ -53,11 +66,11 @@ class LanguageSwitcherExtension extends AbstractExtension
 
     public function getLanguageFlag($language)
     {
-        $flag = "";
-        if(Tool::isValidLanguage($language)) {
+        $flag = '';
+        if (Tool::isValidLanguage($language)) {
             $flag = Tool::getLanguageFlagFile($language);
         }
-        $flag = preg_replace("@^" . preg_quote(PIMCORE_WEB_ROOT, "@") . "@", "", $flag);
+        $flag = preg_replace('@^' . preg_quote(PIMCORE_WEB_ROOT, '@') . '@', '', $flag);
 
         return $flag;
     }

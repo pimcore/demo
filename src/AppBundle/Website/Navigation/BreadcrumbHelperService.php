@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Website\Navigation;
-
 
 use AppBundle\Model\Product\Category;
 use AppBundle\Website\LinkGenerator\AbstractProductLinkGenerator;
@@ -17,7 +28,6 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class BreadcrumbHelperService
 {
-
     /**
      * @var RequestStack
      */
@@ -45,6 +55,7 @@ class BreadcrumbHelperService
 
     /**
      * BreadcrumbHelperService constructor.
+     *
      * @param RequestStack $requestStack
      * @param Placeholder $placeholderHelper
      * @param CategoryLinkGenerator $categoryLinkGenerator
@@ -60,17 +71,16 @@ class BreadcrumbHelperService
         $this->urlGenerator = $urlGenerator;
     }
 
-
     /**
      * @return Document
      */
-    protected function getCurrentDocument(): Document {
+    protected function getCurrentDocument(): Document
+    {
         return $this->requestStack->getCurrentRequest()->attributes->get('contentDocument');
     }
 
-
-    public function enrichProductDetailPage(AbstractObject $product) {
-
+    public function enrichProductDetailPage(AbstractObject $product)
+    {
         $document = $this->getCurrentDocument();
 
         //breadcrumbs
@@ -98,8 +108,8 @@ class BreadcrumbHelperService
         ]);
     }
 
-    public function enrichCategoryPage(Category $category) {
-
+    public function enrichCategoryPage(Category $category)
+    {
         $document = $this->getCurrentDocument();
 
         if ($category) {
@@ -116,11 +126,10 @@ class BreadcrumbHelperService
                 $parentId = 'category-' . $parentCategory->getId();
             }
         }
-
     }
 
-    public function enrichCartPage() {
-
+    public function enrichCartPage()
+    {
         $document = $this->getCurrentDocument();
 
         $this->placeholderHelper->__invoke('addBreadcrumb')->append([
@@ -129,11 +138,10 @@ class BreadcrumbHelperService
             'url' => '#',
             'label' => $this->translator->trans('cart.title')
         ]);
-
     }
 
-    public function enrichCheckoutPage() {
-
+    public function enrichCheckoutPage()
+    {
         $document = $this->getCurrentDocument();
 
         $this->placeholderHelper->__invoke('addBreadcrumb')->append([
@@ -149,13 +157,13 @@ class BreadcrumbHelperService
             'url' => '#',
             'label' => $this->translator->trans('general.checkout')
         ]);
-
     }
 
     /**
      * @param News $news
      */
-    public function enrichNewsPage(News $news) {
+    public function enrichNewsPage(News $news)
+    {
         $document = $this->getCurrentDocument();
         $this->placeholderHelper->__invoke('addBreadcrumb')->append([
             'parentId' => $document->getId(),
@@ -165,7 +173,8 @@ class BreadcrumbHelperService
         ]);
     }
 
-    public function enrichGenericDynamicPage($label) {
+    public function enrichGenericDynamicPage($label)
+    {
         $document = $this->getCurrentDocument();
         $this->placeholderHelper->__invoke('addBreadcrumb')->append([
             'parentId' => $document->getId(),
@@ -173,5 +182,4 @@ class BreadcrumbHelperService
             'label' => $label
         ]);
     }
-
 }

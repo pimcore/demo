@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\EventListener;
-
 
 use AppBundle\Model\CustomerManagementFramework\Activity\OrderActivity;
 use CustomerManagementFrameworkBundle\ActivityManager\ActivityManagerInterface;
@@ -17,7 +28,6 @@ use Pimcore\Model\Document\Email;
 
 class CheckoutEventListener
 {
-
     /**
      * @var Factory
      */
@@ -35,6 +45,7 @@ class CheckoutEventListener
 
     /**
      * CheckoutEventListener constructor.
+     *
      * @param Factory $ecommerceFactory
      * @param ActivityManagerInterface $activityManager
      */
@@ -45,13 +56,13 @@ class CheckoutEventListener
         $this->localeService = $localeService;
     }
 
-
     /**
      * @param OrderManagerEvent $event
+     *
      * @throws \Exception
      */
-    public function onUpdateOrder(OrderManagerEvent $event) {
-
+    public function onUpdateOrder(OrderManagerEvent $event)
+    {
         $cart = $event->getCart();
 
         /**
@@ -98,12 +109,12 @@ class CheckoutEventListener
     /**
      * @param SendConfirmationMailEvent $event
      */
-    public function sendConfirmationMail(SendConfirmationMailEvent $event) {
-
+    public function sendConfirmationMail(SendConfirmationMailEvent $event)
+    {
         $order = $event->getOrder();
 
         $mail = new Mail();
-        $mail->setDocument(Email::getByPath('/' . $this->localeService->getLocale() . '/mails/confirmation-mail' ));
+        $mail->setDocument(Email::getByPath('/' . $this->localeService->getLocale() . '/mails/confirmation-mail'));
         $mail->setParams([
             'ordernumber' => $order->getOrdernumber(),
             'order' => $order
@@ -117,15 +128,14 @@ class CheckoutEventListener
 
     /**
      * @param CommitOrderProcessorEvent $event
+     *
      * @throws \Pimcore\Bundle\EcommerceFrameworkBundle\Exception\UnsupportedException
      */
-    public function postCommitOrder(CommitOrderProcessorEvent $event) {
-
+    public function postCommitOrder(CommitOrderProcessorEvent $event)
+    {
         $order = $event->getOrder();
-        if($this->activityManager && $order->getCustomer()) {
+        if ($this->activityManager && $order->getCustomer()) {
             $this->activityManager->trackActivity(new OrderActivity($order->getCustomer(), $order));
         }
-
     }
-
 }

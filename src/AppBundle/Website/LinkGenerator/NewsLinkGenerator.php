@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Website\LinkGenerator;
-
 
 use AppBundle\Website\Tool\ForceInheritance;
 use AppBundle\Website\Tool\Text;
@@ -16,7 +27,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class NewsLinkGenerator implements LinkGeneratorInterface
 {
-
     /**
      * @var DocumentResolver
      */
@@ -39,6 +49,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
 
     /**
      * NewsLinkGenerator constructor.
+     *
      * @param DocumentResolver $documentResolver
      * @param RequestStack $requestStack
      * @param PimcoreUrl $pimcoreUrl
@@ -52,7 +63,6 @@ class NewsLinkGenerator implements LinkGeneratorInterface
         $this->localeService = $localeService;
     }
 
-
     /**
      * @param Concrete $object
      * @param array $params
@@ -61,26 +71,26 @@ class NewsLinkGenerator implements LinkGeneratorInterface
      */
     public function generate(Concrete $object, array $params = []): string
     {
-        if(!($object instanceof News)) {
-            throw new \InvalidArgumentException("Given object is no News");
+        if (!($object instanceof News)) {
+            throw new \InvalidArgumentException('Given object is no News');
         }
 
-        return ForceInheritance::run(function() use ($object, $params) {
-
+        return ForceInheritance::run(function () use ($object, $params) {
             $fullPath = '';
 
-            if($params['document']) {
+            if ($params['document']) {
                 $document = $params['document'];
             } else {
                 $document = $this->documentResolver->getDocument($this->requestStack->getCurrentRequest());
             }
 
             $localeUrlPart = '/' . $this->localeService->getLocale() . '/';
-            if($document && $localeUrlPart !== $document->getFullPath()) {
+            if ($document && $localeUrlPart !== $document->getFullPath()) {
                 $fullPath = substr($document->getFullPath(), strlen($localeUrlPart));
             }
 
-            return $this->pimcoreUrl->__invoke([
+            return $this->pimcoreUrl->__invoke(
+                [
                 'newstitle' => Text::toUrl($object->getTitle() ? $object->getTitle() : 'news'),
                 'news' => $object->getId(),
                 'path' => $fullPath

@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Services;
-
 
 use AppBundle\Ecommerce\IndexService\SegmentGetter;
 use AppBundle\Model\Product\AbstractProduct;
@@ -13,7 +24,6 @@ use Pimcore\Targeting\VisitorInfoStorage;
 
 class SegmentTrackingHelperService
 {
-
     /**
      * @var VisitorInfoStorage
      */
@@ -36,6 +46,7 @@ class SegmentTrackingHelperService
 
     /**
      * SegmentTrackingHelperService constructor.
+     *
      * @param VisitorInfoStorage $visitorInfoStorage
      * @param SegmentTracker $segmentTracker
      * @param SegmentGetter $segmentGetter
@@ -49,15 +60,14 @@ class SegmentTrackingHelperService
         $this->segmentManager = $segmentManager;
     }
 
-
     /**
      * @param AbstractProduct $product
      */
-    public function trackSegmentsForProduct(AbstractProduct $product) {
-
-        if($this->visitorInfoStorage->hasVisitorInfo()) {
+    public function trackSegmentsForProduct(AbstractProduct $product)
+    {
+        if ($this->visitorInfoStorage->hasVisitorInfo()) {
             $segments = $this->segmentGetter->get($product);
-            if($segments) {
+            if ($segments) {
                 $this->segmentTracker->trackSegments($this->visitorInfoStorage->getVisitorInfo(), $segments);
             }
         }
@@ -66,15 +76,13 @@ class SegmentTrackingHelperService
     /**
      * @param Category $category
      */
-    public function trackSegmentsForCategory(Category $category) {
-
-        if($this->visitorInfoStorage->hasVisitorInfo()) {
+    public function trackSegmentsForCategory(Category $category)
+    {
+        if ($this->visitorInfoStorage->hasVisitorInfo()) {
             $segments = $this->segmentManager->getSegmentsForElement($category);
-            if($segments) {
+            if ($segments) {
                 $this->segmentTracker->trackSegments($this->visitorInfoStorage->getVisitorInfo(), $segments);
             }
         }
-
     }
-
 }
