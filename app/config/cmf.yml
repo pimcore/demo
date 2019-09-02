@@ -1,3 +1,28 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # ---------------------------------------------------------
+    # CMF Services
+    # ---------------------------------------------------------
+
+    # example customer save handler config
+    CustomerManagementFrameworkBundle\CustomerSaveHandler\NormalizeZip:
+        tags: [cmf.customer_save_handler]
+
+    # example segment builder config
+    CustomerManagementFrameworkBundle\SegmentBuilder\StateSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+    CustomerManagementFrameworkBundle\SegmentBuilder\GenderSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+    AppBundle\CustomerManagementFramework\SegmentBuilder\ProductInterestSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+
 pimcore:
     models:
         class_overrides:
