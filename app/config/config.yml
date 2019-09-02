@@ -4,7 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: 'local/' }
 
-    - { resource: ecommerce.yml }
+    - { resource: ecommerce/base-ecommerce.yml }
     - { resource: cmf.yml }
     - { resource: workflows.yml }
 

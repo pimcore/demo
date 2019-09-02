@@ -45,14 +45,14 @@ class ProductController extends BaseController
      * @param Request $request
      * @param HeadTitle $headTitleHelper
      * @param BreadcrumbHelperService $breadcrumbHelperService
-     * @param Factory $factory
+     * @param Factory $ecommerceFactory
      * @param SegmentTrackingHelperService $segmentTrackingHelperService
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \Exception
      */
-    public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $factory, SegmentTrackingHelperService $segmentTrackingHelperService)
+    public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService)
     {
         $product = Concrete::getById($request->get('product'));
 
@@ -72,12 +72,15 @@ class ProductController extends BaseController
         //track segments for personalization
         $segmentTrackingHelperService->trackSegmentsForProduct($product);
 
+        $trackingManager = $ecommerceFactory->getTrackingManager();
+        $trackingManager->trackProductView($product);
+
         if ($product instanceof Car) {
             return $this->render('product/detail.html.twig', $paramBag);
         } elseif ($product instanceof AccessoryPart) {
 
             // get all compatible products
-            $productList = $factory->getIndexService()->getProductListForCurrentTenant();
+            $productList = $ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
             $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
             $productList->addCondition('o_id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'o_id');
             $paramBag['compatibleTo'] = $productList;
@@ -124,8 +127,8 @@ class ProductController extends BaseController
             //track segments for personalization
             $segmentTrackingHelperService->trackSegmentsForCategory($category);
 
-//            $trackingManager = Factory::getInstance()->getTrackingManager();
-//            $trackingManager->trackCategoryPageView($category->getName(), null);
+            $trackingManager = $ecommerceFactory->getTrackingManager();
+            $trackingManager->trackCategoryPageView($category->getName(), null);
         }
 
         if ($request->get('filterdefinition') instanceof FilterDefinition) {
@@ -153,10 +156,22 @@ class ProductController extends BaseController
             return $this->render('/product/listing_content.html.twig', array_merge($this->view->getAllParameters(), $viewModel->getAllParameters()));
         }
 
+        // track product impressions
+        $trackingManager = $ecommerceFactory->getTrackingManager();
+        foreach ($paginator as $product) {
+            $trackingManager->trackProductImpression($product);
+        }
+
         return $viewModel->getAllParameters();
     }
 
-    public function productTeaserAction(Request $request)
+    /**
+     * @param Request $request
+     * @param Factory $ecommerceFactory
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function productTeaserAction(Request $request, Factory $ecommerceFactory)
     {
         $paramsBag = [];
         if ($request->get('type') == 'object') {
@@ -164,8 +179,11 @@ class ProductController extends BaseController
             $product = AbstractProduct::getById($request->get('id'));
 
             $paramsBag['product'] = $product;
-            //$trackingManager = Factory::getInstance()->getTrackingManager();
-            //$trackingManager->trackProductImpression($product);
+
+            //track product impression
+            $trackingManager = $ecommerceFactory->getTrackingManager();
+            $trackingManager->trackProductImpression($product);
+
             return $this->render('/product/product_teaser.html.twig', $paramsBag);
         }
 
@@ -238,10 +256,10 @@ class ProductController extends BaseController
         $viewModel->results = $paginator;
         $viewModel->paginationVariables = $paginator->getPages('Sliding');
 
-//        $trackingManager = Factory::getInstance()->getTrackingManager();
-//        foreach ($paginator as $product) {
-//            $trackingManager->trackProductImpression($product);
-//        }
+        $trackingManager = $ecommerceFactory->getTrackingManager();
+        foreach ($paginator as $product) {
+            $trackingManager->trackProductImpression($product);
+        }
 
         //breadcrumbs
         $placeholder = $this->get('pimcore.templating.view_helper.placeholder');

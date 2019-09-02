@@ -42,10 +42,11 @@ class CheckoutController extends FrontendController
      * @param Factory $factory
      * @param Request $request
      * @param BreadcrumbHelperService $breadcrumbHelperService
+     * @param Factory $ecommerceFactory
      *
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function checkoutAddressAction(Factory $factory, Request $request, BreadcrumbHelperService $breadcrumbHelperService)
+    public function checkoutAddressAction(Factory $factory, Request $request, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
     {
         $cartManager = $factory->getCartManager();
         $cart = $cartManager->getOrCreateCartByName('cart');
@@ -80,6 +81,9 @@ class CheckoutController extends FrontendController
                 return $this->redirectToRoute('shop-checkout-payment');
             }
         }
+
+        $trackingManager = $ecommerceFactory->getTrackingManager();
+        $trackingManager->trackCheckoutStep($deliveryAddress, $cart, 1);
 
         return [
             'cart' => $cart,
@@ -118,14 +122,18 @@ class CheckoutController extends FrontendController
      * @Route("/checkout-completed", name="shop-checkout-completed")
      *
      * @param SessionInterface $session
+     * @param Factory $ecommerceFactory
      *
      * @return array
      */
-    public function checkoutCompletedAction(SessionInterface $session)
+    public function checkoutCompletedAction(SessionInterface $session, Factory $ecommerceFactory)
     {
         $orderId = $session->get('last_order_id');
 
         $order = OnlineShopOrder::getById($orderId);
+
+        $trackingManager = $ecommerceFactory->getTrackingManager();
+        $trackingManager->trackCheckoutComplete($order);
 
         return [
             'order' => $order,

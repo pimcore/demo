@@ -60,10 +60,16 @@ class CartController extends FrontendController
     }
 
     /**
-     * @param Request $request
      * @Route("/cart/add-to-cart", name="shop-add-to-cart")
+     *
+     * @param Request $request
+     * @param Factory $ecommerceFactory
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @throws \Exception
      */
-    public function addToCartAction(Request $request)
+    public function addToCartAction(Request $request, Factory $ecommerceFactory)
     {
         $id = $request->get('id');
         $product = AbstractProduct::getById($id);
@@ -76,13 +82,22 @@ class CartController extends FrontendController
         $cart->addItem($product, 1);
         $cart->save();
 
+        $trackingManager = $ecommerceFactory->getTrackingManager();
+        $trackingManager->trackCartProductActionAdd($cart, $product);
+
         return $this->redirectToRoute('shop-cart-detail');
     }
 
     /**
      * @Route("/cart", name="shop-cart-detail")
+     *
+     * @param Request $request
+     * @param BreadcrumbHelperService $breadcrumbHelperService
+     * @param Factory $ecommerceFactory
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function cartListingAction(Request $request, BreadcrumbHelperService $breadcrumbHelperService)
+    public function cartListingAction(Request $request, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
     {
         $cart = $this->getCart();
 
@@ -94,6 +109,9 @@ class CartController extends FrontendController
                 $cart->updateItem($itemKey, $product, $quantity, true);
             }
             $cart->save();
+
+            $trackingManager = $ecommerceFactory->getTrackingManager();
+            $trackingManager->trackCartUpdate($cart);
         }
 
         $breadcrumbHelperService->enrichCartPage();
@@ -106,22 +124,43 @@ class CartController extends FrontendController
     }
 
     /**
-     * @param Request $request
      * @Route("/cart/remove-from-cart", name="shop-remove-from-cart")
+     *
+     * @param Request $request
+     * @param Factory $ecommerceFactory
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeFromCartAction(Request $request)
+    public function removeFromCartAction(Request $request, Factory $ecommerceFactory)
     {
+        $id = $request->get('id');
+        $product = AbstractProduct::getById($id);
+        if (null === $product) {
+            throw new \Exception('Product not found');
+        }
+
         $cart = $this->getCart();
-        $cart->removeItem($request->get('id'));
+        $cart->removeItem($id);
         $cart->save();
+
+        $trackingManager = $ecommerceFactory->getTrackingManager();
+        $trackingManager->trackCartProductActionAdd($cart, $product);
 
         return $this->redirectToRoute('shop-cart-detail');
     }
 
     /**
      * @Route("/cart/apply-voucher", name="shop-cart-apply-voucher")
+     *
+     * @param Request $request
+     * @param Translator $translator
+     * @param Factory $ecommerceFactory
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @throws \Exception
      */
-    public function applyVoucherAction(Request $request, Translator $translator)
+    public function applyVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory)
     {
         if ($token = strip_tags($request->get('voucher-code'))) {
             $cart = $this->getCart();
@@ -130,6 +169,9 @@ class CartController extends FrontendController
                 $success = $cart->addVoucherToken($token);
                 if ($success) {
                     $this->addFlash('success', $translator->trans('cart.voucher-code-added'));
+
+                    $trackingManager = $ecommerceFactory->getTrackingManager();
+                    $trackingManager->trackCartUpdate($cart);
                 } else {
                     $this->addFlash('danger', $translator->trans('cart.voucher-code-could-not-be-added'));
                 }
@@ -145,8 +187,14 @@ class CartController extends FrontendController
 
     /**
      * @Route("/cart/remove-voucher", name="shop-cart-remove-voucher")
+     *
+     * @param Request $request
+     * @param Translator $translator
+     * @param Factory $ecommerceFactory
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeVoucherAction(Request $request, Translator $translator)
+    public function removeVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory)
     {
         if ($token = strip_tags($request->get('voucher-code'))) {
             $cart = $this->getCart();
@@ -154,6 +202,9 @@ class CartController extends FrontendController
             try {
                 $cart->removeVoucherToken($token);
                 $this->addFlash('success', $translator->trans('cart.voucher-code-removed'));
+
+                $trackingManager = $ecommerceFactory->getTrackingManager();
+                $trackingManager->trackCartUpdate($cart);
             } catch (VoucherServiceException $e) {
                 $this->addFlash('danger', $translator->trans('cart.error-voucher-code-' . $e->getCode()));
             }
