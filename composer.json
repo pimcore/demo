@@ -16,7 +16,8 @@
     "pimcore/customer-management-framework-bundle": "^2.2",
     "pimcore/pimcore": "dev-master",
     "pimcore/web2print-tools-bundle": "^3.1",
-    "pimcore/data-hub": "dev-master"
+    "pimcore/data-hub": "dev-master",
+    "wikimedia/composer-merge-plugin": "^1.4"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
