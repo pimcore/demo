@@ -31,3 +31,4 @@ INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1025
 INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1045');
 INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1048');
 INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1049');
+INSERT INTO plugin_cmf_segmentbuilder_changes_queue (`customerId`) VALUES ('1114');

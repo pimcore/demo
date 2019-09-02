@@ -21,9 +21,9 @@ INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) 
 INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('32','1048');
 INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('13','1021');
 INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('14','1021');
-INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('15','1022');
-INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('16','1022');
 INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('11','1020');
 INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('12','1020');
 INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('5','1017');
 INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('6','1017');
+INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('15','1022');
+INSERT INTO plugin_cmf_duplicatesindex_customers (`duplicate_id`,`customer_id`) VALUES ('16','1022');

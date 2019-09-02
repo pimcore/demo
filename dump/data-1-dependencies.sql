@@ -2397,3 +2397,8 @@ INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUE
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1109','object','1111');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1110','object','235');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1111','object','865');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1112','object','1113');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1113','object','381');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1117','object','1017');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1117','object','1118');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1118','object','105');

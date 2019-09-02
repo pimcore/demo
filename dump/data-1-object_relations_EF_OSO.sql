@@ -40,3 +40,6 @@ INSERT INTO object_relations_EF_OSO (`src_id`,`dest_id`,`type`,`fieldname`,`inde
 INSERT INTO object_relations_EF_OSO (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1109','1017','object','customer','0','object','','0');
 INSERT INTO object_relations_EF_OSO (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1109','1110','object','items','1','object','','0');
 INSERT INTO object_relations_EF_OSO (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1109','1111','object','voucherTokens','1','object','','0');
+INSERT INTO object_relations_EF_OSO (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1112','1113','object','items','1','object','','0');
+INSERT INTO object_relations_EF_OSO (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1117','1017','object','customer','0','object','','0');
+INSERT INTO object_relations_EF_OSO (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1117','1118','object','items','1','object','','0');

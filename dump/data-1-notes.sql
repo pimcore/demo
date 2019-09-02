@@ -227,3 +227,6 @@ INSERT INTO notes (`id`,`type`,`cid`,`ctype`,`date`,`user`,`title`,`description`
 INSERT INTO notes (`id`,`type`,`cid`,`ctype`,`date`,`user`,`title`,`description`) VALUES ('224','Status update','1100','object','1567067145','2','Start Work','');
 INSERT INTO notes (`id`,`type`,`cid`,`ctype`,`date`,`user`,`title`,`description`) VALUES ('225','Status update','1100','object','1567067154','2','Mark Images Done','');
 INSERT INTO notes (`id`,`type`,`cid`,`ctype`,`date`,`user`,`title`,`description`) VALUES ('226','Status update','1100','object','1567072791','2','Mark Text Done','');
+INSERT INTO notes (`id`,`type`,`cid`,`ctype`,`date`,`user`,`title`,`description`) VALUES ('227','cmf.SegmentManager','1114','object','1567166816',NULL,'Segment(s) added (GenderSegmentBuilder)','/Customer Management/segments/calculated/Gender/not-set');
+INSERT INTO notes (`id`,`type`,`cid`,`ctype`,`date`,`user`,`title`,`description`) VALUES ('228','consent-given','1114','object','1567166817',NULL,'Consent given for field newsletter','Please send me Newsletters. I can revoke this permission anytime. ');
+INSERT INTO notes (`id`,`type`,`cid`,`ctype`,`date`,`user`,`title`,`description`) VALUES ('229','consent-given','1114','object','1567166817',NULL,'Consent given for field profiling','Please optimize offers based on my interests and needs.');

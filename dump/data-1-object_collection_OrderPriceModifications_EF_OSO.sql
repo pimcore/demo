@@ -18,3 +18,6 @@ INSERT INTO object_collection_OrderPriceModifications_EF_OSO (`o_id`,`index`,`fi
 INSERT INTO object_collection_OrderPriceModifications_EF_OSO (`o_id`,`index`,`fieldname`,`name`,`netAmount`,`amount`) VALUES ('1107','0','priceModifications','Shipping','0.0000','0.0000');
 INSERT INTO object_collection_OrderPriceModifications_EF_OSO (`o_id`,`index`,`fieldname`,`name`,`netAmount`,`amount`) VALUES ('1109','0','priceModifications','Shipping','170.9402','200.0000');
 INSERT INTO object_collection_OrderPriceModifications_EF_OSO (`o_id`,`index`,`fieldname`,`name`,`netAmount`,`amount`) VALUES ('1109','1','priceModifications','Voucher Discount Commercial Cars','-189.7090','-221.9595');
+INSERT INTO object_collection_OrderPriceModifications_EF_OSO (`o_id`,`index`,`fieldname`,`name`,`netAmount`,`amount`) VALUES ('1112','0','priceModifications','Shipping','8.5470','10.0000');
+INSERT INTO object_collection_OrderPriceModifications_EF_OSO (`o_id`,`index`,`fieldname`,`name`,`netAmount`,`amount`) VALUES ('1117','0','priceModifications','Shipping','170.9402','200.0000');
+INSERT INTO object_collection_OrderPriceModifications_EF_OSO (`o_id`,`index`,`fieldname`,`name`,`netAmount`,`amount`) VALUES ('1117','1','priceModifications','Cart Discount','-838.3577','-980.8785');

@@ -25,3 +25,5 @@ INSERT INTO object_relations_EF_OSOI (`src_id`,`dest_id`,`type`,`fieldname`,`ind
 INSERT INTO object_relations_EF_OSOI (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1104','115','object','product','0','object','','0');
 INSERT INTO object_relations_EF_OSOI (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1108','97','object','product','0','object','','0');
 INSERT INTO object_relations_EF_OSOI (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1110','235','object','product','0','object','','0');
+INSERT INTO object_relations_EF_OSOI (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1113','381','object','product','0','object','','0');
+INSERT INTO object_relations_EF_OSOI (`src_id`,`dest_id`,`type`,`fieldname`,`index`,`ownertype`,`ownername`,`position`) VALUES ('1118','105','object','product','0','object','','0');

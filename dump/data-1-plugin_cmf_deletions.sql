@@ -20,3 +20,4 @@ INSERT INTO plugin_cmf_deletions (`id`,`entityType`,`type`,`creationDate`) VALUE
 INSERT INTO plugin_cmf_deletions (`id`,`entityType`,`type`,`creationDate`) VALUES ('871','customers','','1566903505');
 INSERT INTO plugin_cmf_deletions (`id`,`entityType`,`type`,`creationDate`) VALUES ('704','customers','','1566903517');
 INSERT INTO plugin_cmf_deletions (`id`,`entityType`,`type`,`creationDate`) VALUES ('1049','customers','','1566907378');
+INSERT INTO plugin_cmf_deletions (`id`,`entityType`,`type`,`creationDate`) VALUES ('1114','customers','','1567166842');
