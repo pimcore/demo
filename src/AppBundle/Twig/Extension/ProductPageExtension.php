@@ -15,8 +15,8 @@
 
 namespace AppBundle\Twig\Extension;
 
-use AppBundle\Model\Product\AbstractProduct;
 use AppBundle\Website\LinkGenerator\ProductLinkGenerator;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Model\ProductInterface;
 use Pimcore\Translation\Translator;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -61,13 +61,12 @@ class ProductPageExtension extends AbstractExtension
     }
 
     /**
-     * @param AbstractProduct $product
-     *
+     * @param ProductInterface $product
      * @return string
      */
-    public function generateLink(AbstractProduct $product): string
+    public function generateLink(ProductInterface $product): string
     {
-        return $this->productLinkGenerator->generate($product, []);
+        return $this->productLinkGenerator->generateWithMockup($product, []);
     }
 
     /**

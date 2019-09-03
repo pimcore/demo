@@ -1,140 +1,186 @@
 pimcore_ecommerce_framework:
     index_service:
         tenants:
-#            ElasticSearch:
-#                enabled: true
-#                worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\ElasticSearch\DefaultElasticSearch6
-#                config_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\ElasticSearch
-#
-#                placeholders:
-#                    '%%locale%%': 'de_AT'
-#
-#                config_options:
-#                    client_config:
-#                        logging: false
-#                        indexName: 'ecommerce-demo-elasticsearch'
-#
-#                    es_client_params:
-#                        hosts:
-#                            - 'http://dev-elk6.elements.local:9200'
-#                        indexType: 'DemoProducts'
-#
-#                    index_settings:
-#                        number_of_shards: 5
-#                        number_of_replicas: 0
-#                search_attributes:
-#                    - name
+            ElasticSearch:
+                enabled: true
+                worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\ElasticSearch\DefaultElasticSearch6
+                config_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\ElasticSearch
+
+                placeholders:
+                    '%%locale%%': 'de'
+
+                config_options:
+                    client_config:
+                        logging: false
+                        indexName: 'pimcore-demo'
+
+                    es_client_params:
+                        hosts:
+                            - 'http://dev-elk6.elements.local:9200'
+                        indexType: 'DemoProducts'
+
+                    index_settings:
+                        number_of_shards: 5
+                        number_of_replicas: 0
+                search_attributes:
+                    - name
 #                    - manufacturer_name
 #                    - color
 #                    - carClass
-#                attributes:
-#                    name:
-#                        fieldname: OSName
-#                        type: text
-#                        locale: '%%locale%%'
-#                        filter_group: string
-#                    manufacturer_name:
-#                        fieldname: 'manufacturer'
-#                        type: text
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\ObjectValue
-#                        interpreter_options:
-#                            target:
-#                                fieldname: name
-#                                locale: 'en'
-#                        filter_group: string
-#                    manufacturer:
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
-#                        filter_group: relation
-#                    bodyStyle:
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
-#                        filter_group: relation
-#                    carClass:
-#                        type: text
-#                        filter_group: string
-#                    color:
-#                        type: keyword
-#                        filter_group: multiselect
-#                    country:
-#                        type: keyword
-#                        filter_group: string
-#                    milage:
-#                        type: double
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
-#                        interpreter_options:
-#                            onlyValue: true
-#                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
-#                        getter_options:
-#                            source:
-#                                - brickfield: saleInformation
-#                                  bricktype: SaleInformation
-#                                  fieldname: milage
-#                        filtergroup: double
-#
-#                    length:
-#                        type: double
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
-#                        interpreter_options:
-#                            onlyValue: true
-#                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
-#                        getter_options:
-#                            source:
-#                                - brickfield: attributes
-#                                  bricktype: dimensions
-#                                  fieldname: length
-#                        filtergroup: double
-#
-#                    width:
-#                        type: double
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
-#                        interpreter_options:
-#                            onlyValue: true
-#                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
-#                        getter_options:
-#                            source:
-#                                - brickfield: attributes
-#                                  bricktype: dimensions
-#                                  fieldname: width
-#                        filtergroup: double
-#                    wheelbase:
-#                        type: double
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
-#                        interpreter_options:
-#                            onlyValue: true
-#                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
-#                        getter_options:
-#                            source:
-#                                - brickfield: attributes
-#                                  bricktype: dimensions
-#                                  fieldname: wheelbase
-#                        filtergroup: double
-#                    weight:
-#                        type: double
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
-#                        interpreter_options:
-#                            onlyValue: true
-#                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
-#                        getter_options:
-#                            source:
-#                                - brickfield: attributes
-#                                  bricktype: dimensions
-#                                  fieldname: weight
-#                        filtergroup: double
-#
-#                    power:
-#                        type: double
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
-#                        interpreter_options:
-#                            onlyValue: true
-#                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
-#                        getter_options:
-#                            source:
-#                                - brickfield: attributes
-#                                  bricktype: engine
-#                                  fieldname: power
-#                        filtergroup: double
-#
-#
-#                    segments:
-#                        getter_id: AppBundle\Ecommerce\IndexService\SegmentGetter
-#                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
-#                        filter_group: relation
+                attributes:
+                    name:
+                        fieldname: OSName
+                        type: text
+                        locale: '%%locale%%'
+                        filter_group: string
+                    manufacturer_name:
+                        fieldname: 'manufacturer'
+                        type: text
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\ObjectValue
+                        interpreter_options:
+                            target:
+                                fieldname: name
+                                locale: 'en'
+                        filter_group: string
+                    manufacturer:
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
+                        filter_group: relation
+                    bodyStyle:
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
+                        filter_group: relation
+                    carClass:
+                        type: keyword
+                        filter_group: string
+                    color:
+                        type: keyword
+                        filter_group: multiselect
+                    country:
+                        type: keyword
+                        filter_group: string
+                    milage:
+                        type: double
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
+                        interpreter_options:
+                            onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                - brickfield: saleInformation
+                                  bricktype: SaleInformation
+                                  fieldname: milage
+                        filtergroup: double
+
+                    length:
+                        type: keyword
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
+                        interpreter_options:
+                            onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                - brickfield: attributes
+                                  bricktype: dimensions
+                                  fieldname: length
+                        filtergroup: double
+
+                    width:
+                        type: double
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
+                        interpreter_options:
+                            onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                - brickfield: attributes
+                                  bricktype: dimensions
+                                  fieldname: width
+                        filtergroup: double
+                    wheelbase:
+                        type: double
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
+                        interpreter_options:
+                            onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                - brickfield: attributes
+                                  bricktype: dimensions
+                                  fieldname: wheelbase
+                        filtergroup: double
+                    weight:
+                        type: double
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
+                        interpreter_options:
+                            onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                - brickfield: attributes
+                                  bricktype: dimensions
+                                  fieldname: weight
+                        filtergroup: double
+
+                    power:
+                        type: double
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\QuantityValue
+                        interpreter_options:
+                            onlyValue: true
+                        getter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Getter\DefaultBrickGetterSequence
+                        getter_options:
+                            source:
+                                - brickfield: attributes
+                                  bricktype: engine
+                                  fieldname: power
+                        filtergroup: double
+
+
+                    segments:
+                        getter_id: AppBundle\Ecommerce\IndexService\SegmentGetter
+                        interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
+                        filter_group: relation
+
+    filter_service:
+        tenants:
+            ElasticSearch:
+                filter_types:
+                    FilterInputfield:
+                        # Service id for filter type implementation
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\Input
+                        # Default template for filter, can be overwritten in filter definition
+                        template: 'product/filters/input.html.twig'
+
+                    FilterNumberRange:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\NumberRange
+                        template: 'product/filters/numberrange.html.twig'
+
+                    FilterNumberRangeSelection:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\NumberRangeSelection
+                        template: 'product/filters/numberrange_select.html.twig'
+
+                    FilterSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\Select
+                        template: 'product/filters/select.html.twig'
+
+                    FilterSelectFromMultiSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\SelectFromMultiSelect
+                        template: 'product/filters/select.html.twig'
+
+                    FilterMultiSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\MultiSelect
+                        template: 'product/filters/multi_select.html.twig'
+
+                    FilterMultiSelectFromMultiSelect:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\MultiSelectFromMultiSelect
+                        template: 'product/filters/multi_select.html.twig'
+
+                    FilterMultiRelation:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\MultiSelectRelation
+                        template: 'product/filters/multi_relation.html.twig'
+
+                    FilterCategory:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\SelectCategory
+                        template: 'product/filters/select_category.html.twig'
+
+                    FilterRelation:
+                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\SelectRelation
+                        template: 'product/filters/object_relation.html.twig'
