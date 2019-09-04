@@ -500,3 +500,13 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('198','document','/en/Error-Page','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('198','document','/en/Error-Page','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('198','document','/en/Error-Page','navigation_title','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_accesskey','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_anchor','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_class','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_exclude','bool','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_name','text','Tenant-Switch','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_parameters','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_relation','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_tabindex','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_target','text',NULL,'0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_title','text','','0');
