@@ -16,7 +16,7 @@ pimcore_ecommerce_framework:
 
                     es_client_params:
                         hosts:
-                            - 'http://dev-elk6.elements.local:9200'
+                            - '<YOUR-ES-CLUSTER>'
                         indexType: 'DemoProducts'
 
                     index_settings:
@@ -40,7 +40,7 @@ pimcore_ecommerce_framework:
                         interpreter_options:
                             target:
                                 fieldname: name
-                                locale: 'en'
+                                locale: '%%locale%%'
                         filter_group: string
                     manufacturer:
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
