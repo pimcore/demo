@@ -79,14 +79,14 @@ class NavigationExtension extends AbstractExtension
                     $categoryPage = new NavDocument([
                         'label' => $category->getName(),
                         'id' => 'category-' . $category->getId(),
-                        'uri' => $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null])
+                        'uri' => $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null], true)
                     ]);
 
                     foreach ($category->getChildren() as $subCategory) {
                         $subCategoryPage = new NavDocument([
                             'label' => $subCategory->getName(),
                             'id' => 'category-' . $subCategory->getId(),
-                            'uri' => $this->categoryLinkGenerator->generate($subCategory, ['rootCategory' => $rootCategory, 'page' => null])
+                            'uri' => $this->categoryLinkGenerator->generate($subCategory, ['rootCategory' => $rootCategory, 'page' => null], true)
                         ]);
 
                         $categoryPage->addPage($subCategoryPage);
