@@ -1,0 +1,41 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-12">
+        <h1>{{ pimcore_input('headline') }}</h1>
+
+
+        <h4>Checkout Tenants</h4>
+
+        {% for checkoutTenant, desc in checkoutTenants %}
+            <a href="?change-checkout-tenant={{ checkoutTenant }}" class="btn btn-block {{ checkoutTenant == currentCheckoutTenant ? 'btn-success' : '' }} }}" type="button">
+                {{ checkoutTenant }}
+
+                {% if desc %}
+                    <br/><small>{{ desc }}</small>
+                {% endif %}
+            </a>
+        {% endfor %}
+
+
+        <br/><br/>
+        <h4>Assortment Tenants</h4>
+
+        {% for assortmentTenant, desc in assortmentTenants %}
+            <a href="?change-assortment-tenant={{ assortmentTenant }}" class="btn btn-block {{ assortmentTenant == currentAssortmentTenant ? 'btn-success' : '' }} }}" type="button">
+                {{ assortmentTenant }}
+
+                {% if desc %}
+                    <br/><small>{{ desc }}</small>
+                {% endif %}
+            </a>
+        {% endfor %}
+
+    </div>
+
+</div><!-- end row -->
+
+{% endblock %}

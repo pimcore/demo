@@ -18,6 +18,7 @@ namespace AppBundle\Controller;
 use AppBundle\Form\CarSubmitFormType;
 use AppBundle\Model\Product\Car;
 use AppBundle\Website\Tool\Text;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Controller\Configuration\ResponseHeader;
 use Pimcore\Model\DataObject\BodyStyle;
 use Pimcore\Model\DataObject\Manufacturer;
@@ -89,5 +90,33 @@ class ContentController extends BaseController
         return [
             'form' => $form->createView()
         ];
+    }
+
+
+    public function tenantSwitchesAction(Request $request, Factory $ecommerceFactory)
+    {
+        $environment = $ecommerceFactory->getEnvironment();
+
+        if ($request->get('change-checkout-tenant')) {
+            $checkoutTenant = $request->get('change-checkout-tenant');
+            $checkoutTenant = $checkoutTenant == 'default' ? '' : $checkoutTenant;
+            $environment->setCurrentCheckoutTenant(strip_tags($checkoutTenant));
+            $environment->save();
+        }
+
+        if ($request->get('change-assortment-tenant')) {
+            $assortmentTenant = $request->get('change-assortment-tenant');
+            $assortmentTenant = $assortmentTenant == 'default' ? '' : $assortmentTenant;
+            $environment->setCurrentAssortmentTenant(strip_tags($assortmentTenant));
+            $environment->save();
+        }
+
+        $paramsBag['checkoutTenants'] = ['default' => ''];
+        $paramsBag['currentCheckoutTenant'] = $environment->getCurrentCheckoutTenant() ? $environment->getCurrentCheckoutTenant() : 'default';
+
+        $paramsBag['assortmentTenants'] = ['default' => '', 'ElasticSearch' => 'needs to be configured and activated in configuration'];
+        $paramsBag['currentAssortmentTenant'] = $environment->getCurrentAssortmentTenant() ? $environment->getCurrentAssortmentTenant() : 'default';
+
+        return $paramsBag;
     }
 }

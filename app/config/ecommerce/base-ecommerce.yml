@@ -1,6 +1,6 @@
 imports:
     - { resource: '@PimcoreEcommerceFrameworkBundle/Resources/config/v7_configurations.yml' }
-
+#    - { resource: 'elastic-search.yml' }
 
 pimcore:
     models:
