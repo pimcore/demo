@@ -24,6 +24,8 @@ use AppBundle\Website\LinkGenerator\ProductLinkGenerator;
 use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
+use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\DefaultMysql;
+use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ElasticSearch\AbstractElasticSearch;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
 use Pimcore\Config;
 use Pimcore\Model\DataObject\AbstractObject;
@@ -82,7 +84,12 @@ class ProductController extends BaseController
             // get all compatible products
             $productList = $ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
             $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-            $productList->addCondition('o_id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'o_id');
+            if($productList instanceof DefaultMysql) {
+                $productList->addCondition('o_id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'o_id');
+            } else if($productList instanceof AbstractElasticSearch) {
+                $productList->addCondition(['terms' => ['system.o_id' => $product->getCompatibleToProductIds()]], 'o_id');
+            }
+
             $paramBag['compatibleTo'] = $productList;
 
             return $this->render('product/detail_accessory.html.twig', $paramBag);
@@ -218,7 +225,7 @@ class ProductController extends BaseController
 
         if (!empty($term)) {
             foreach (explode(' ', $term) as $t) {
-                $productListing->addQueryCondition($t, 'search');
+                $productListing->addQueryCondition($t);
             }
         }
 
@@ -226,7 +233,7 @@ class ProductController extends BaseController
             $resultset = [];
             $productListing->setLimit(10);
             foreach ($productListing as $product) {
-                $result['href'] = $productLinkGenerator->generate($product, []);
+                $result['href'] = $productLinkGenerator->generateWithMockup($product, []);
                 if ($product instanceof Car) {
                     $result['product'] = $product->getOSName() . ' ' . $product->getColor()[0] . ', ' . $product->getCarClass();
                 } else {

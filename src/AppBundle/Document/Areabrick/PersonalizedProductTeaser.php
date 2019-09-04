@@ -18,7 +18,10 @@ namespace AppBundle\Document\Areabrick;
 use AppBundle\Ecommerce\IndexService\SegmentGetter;
 use CustomerManagementFrameworkBundle\SegmentManager\SegmentManagerInterface;
 use CustomerManagementFrameworkBundle\Targeting\SegmentTracker;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Exception\InvalidConfigException;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
+use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\DefaultMysql;
+use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ElasticSearch\AbstractElasticSearch;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
 use Pimcore\Model\Document\Tag\Area\Info;
 use Pimcore\Targeting\VisitorInfoStorage;
@@ -125,11 +128,12 @@ class PersonalizedProductTeaser extends AbstractAreabrick
                     $values[] = intval($item['segment']->getId());
                 }
 
-                $productList->addRelationCondition('segments', 'dest IN (' . implode(',', $values) . ')');
+                $this->addRelationCondition($productList, $values);
+
             }
         }
 
-        $productList->setOrderKey('RAND()');
+        $this->setRandOrderKey($productList);
         $productList->setLimit(3);
         $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
 
@@ -137,5 +141,29 @@ class PersonalizedProductTeaser extends AbstractAreabrick
             $info->getView()->productList = $productList;
             $info->getView()->usePersonalizedData = true;
         }
+    }
+
+    protected function addRelationCondition(ProductListInterface $productList, $values) {
+
+        if($productList instanceof DefaultMysql) {
+            $productList->addRelationCondition('segments', 'dest IN (' . implode(',', $values) . ')');
+        } else if($productList instanceof AbstractElasticSearch) {
+            $productList->addRelationCondition('segments', ['terms' => ['relations.' . 'segments' => $values]]);
+        } else {
+            throw new InvalidConfigException("Product List Type not supported");
+        }
+
+    }
+
+    protected function setRandOrderKey(ProductListInterface $productList) {
+
+        if($productList instanceof DefaultMysql) {
+            $productList->setOrderKey('RAND()');
+        } else if($productList instanceof AbstractElasticSearch) {
+            //not possible
+        } else {
+            throw new InvalidConfigException("Product List Type not supported");
+        }
+
     }
 }

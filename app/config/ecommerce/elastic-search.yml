@@ -24,9 +24,9 @@ pimcore_ecommerce_framework:
                         number_of_replicas: 0
                 search_attributes:
                     - name
-#                    - manufacturer_name
-#                    - color
-#                    - carClass
+                    - manufacturer_name
+                    - color
+                    - carClass
                 attributes:
                     name:
                         fieldname: OSName
