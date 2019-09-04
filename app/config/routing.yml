@@ -1,13 +1,16 @@
 _pimcore:
     resource: "@PimcoreCoreBundle/Resources/config/routing.yml"
 
-app:
+app_localized:
     resource: "@AppBundle/Controller/"
     type:     annotation
     prefix:
         en: /en
         de: /de
 
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
 
 account-logout:
     path: '{_locale}/account/logout'
