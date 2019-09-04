@@ -22,6 +22,9 @@ services:
     AppBundle\CustomerManagementFramework\SegmentBuilder\ProductInterestSegmentBuilder:
         tags: [cmf.segment_builder]
 
+    # overwrite activity store to mysql
+    CustomerManagementFrameworkBundle\ActivityStore\ActivityStoreInterface:
+        class: CustomerManagementFrameworkBundle\ActivityStore\MySQL
 
 pimcore:
     models:
