@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f98fbd7879037faad3072f00f9eb2ed",
+    "content-hash": "1faff9cb3bdb783c73c52330d4f346a6",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -4758,16 +4758,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v2.2.1",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "b065c4af15156a3ca9b3578653c4f0ceefa16037"
+                "reference": "e2174f83c1c122dbb4693bcf361bd9fc51d7b12b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/b065c4af15156a3ca9b3578653c4f0ceefa16037",
-                "reference": "b065c4af15156a3ca9b3578653c4f0ceefa16037",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/e2174f83c1c122dbb4693bcf361bd9fc51d7b12b",
+                "reference": "e2174f83c1c122dbb4693bcf361bd9fc51d7b12b",
                 "shasum": ""
             },
             "require": {
@@ -4778,7 +4778,7 @@
                 "pear/archive_tar": "^1.4.3",
                 "pimcore/number-sequence-generator": "^1.0.1",
                 "pimcore/object-merger": "~2.0",
-                "pimcore/pimcore": ">=5.4 <6.2",
+                "pimcore/pimcore": ">=5.4 <6.3",
                 "pimcore/search-query-parser": "^1.2.4"
             },
             "require-dev": {
@@ -4812,7 +4812,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2019-08-27T12:49:14+00:00"
+            "time": "2019-09-05T09:57:25+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -4820,12 +4820,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "d192b05af972ac9a7611561e06b41384aceeb7f5"
+                "reference": "8a63c63890c43439bbe6f4340f655793d80ceef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/d192b05af972ac9a7611561e06b41384aceeb7f5",
-                "reference": "d192b05af972ac9a7611561e06b41384aceeb7f5",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/8a63c63890c43439bbe6f4340f655793d80ceef7",
+                "reference": "8a63c63890c43439bbe6f4340f655793d80ceef7",
                 "shasum": ""
             },
             "require": {
@@ -4850,7 +4850,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2019-09-02T09:35:50+00:00"
+            "time": "2019-09-04T12:52:24+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -4887,20 +4887,20 @@
         },
         {
             "name": "pimcore/object-merger",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/object-merger.git",
-                "reference": "019cf6dde95bc92b03ad261bf132dfb9f1b93c1b"
+                "reference": "edb065a87bb7c2d569fdd3a6c0faba29018bd90e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/019cf6dde95bc92b03ad261bf132dfb9f1b93c1b",
-                "reference": "019cf6dde95bc92b03ad261bf132dfb9f1b93c1b",
+                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/edb065a87bb7c2d569fdd3a6c0faba29018bd90e",
+                "reference": "edb065a87bb7c2d569fdd3a6c0faba29018bd90e",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": ">=5.4 <6.2"
+                "pimcore/pimcore": ">=5.4 <6.3"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -4919,7 +4919,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2019-08-08T09:08:16+00:00"
+            "time": "2019-09-05T09:57:35+00:00"
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
@@ -4959,16 +4959,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "dev-master",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "807f9c8faf54dc400a2fe5fcd46022533426c3e2"
+                "reference": "cd64d281e51d009a970f043c6043b7ad6b30078c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/807f9c8faf54dc400a2fe5fcd46022533426c3e2",
-                "reference": "807f9c8faf54dc400a2fe5fcd46022533426c3e2",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/cd64d281e51d009a970f043c6043b7ad6b30078c",
+                "reference": "cd64d281e51d009a970f043c6043b7ad6b30078c",
                 "shasum": ""
             },
             "require": {
@@ -5103,7 +5103,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2019-09-02T11:24:39+00:00"
+            "time": "2019-09-05T09:42:28+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -5149,20 +5149,20 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v3.1.1",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "a8137b5738a49086c910793aafb10e95b5514d38"
+                "reference": "d7549cb8de496e6def677a8a95715027ce929a88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/a8137b5738a49086c910793aafb10e95b5514d38",
-                "reference": "a8137b5738a49086c910793aafb10e95b5514d38",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/d7549cb8de496e6def677a8a95715027ce929a88",
+                "reference": "d7549cb8de496e6def677a8a95715027ce929a88",
                 "shasum": ""
             },
             "require": {
-                "pimcore/core-version": ">=5.4 <6.2",
+                "pimcore/core-version": ">=5.4 <6.3",
                 "pimcore/output-data-config-toolkit-bundle": "~2"
             },
             "type": "pimcore-bundle",
@@ -5182,7 +5182,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2019-08-20T13:40:56+00:00"
+            "time": "2019-09-05T09:57:45+00:00"
         },
         {
             "name": "piwik/device-detector",
@@ -5946,9 +5946,9 @@
             "authors": [
                 {
                     "name": "Evert Pot",
-                    "role": "Developer",
                     "email": "me@evertpot.com",
-                    "homepage": "http://evertpot.com/"
+                    "homepage": "http://evertpot.com/",
+                    "role": "Developer"
                 }
             ],
             "description": "Functions for making sense out of URIs.",
@@ -9710,7 +9710,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "pimcore/pimcore": 20,
         "pimcore/data-hub": 20
     },
     "prefer-stable": true,
