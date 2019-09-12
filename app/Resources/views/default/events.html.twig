@@ -7,6 +7,12 @@
 {% do pimcore_head_script().appendFile(asset('static/js/vue-app.js')) %}
 
 {% block content %}
+    {{ pimcore_areablock('content', {
+        'allowed': ['blockquote', 'embed', 'featurette', 'gallery-carousel', 'gallery-folder',
+            'gallery-single-images', 'headlines', 'horizontal-line', 'icon-teaser-row', 'image',
+            'image-hotspot-marker', 'pdf', 'product-grid', 'product-teaser', 'standard-teaser', 'text-accordion',
+            'time-slider-featurette', 'video', 'wysiwyg', 'wysiwyg-with-images']
+    }) }}
     <div  id="vueapp" class="row">
         <div class="col-md-12 mt-3">
             <section v-if="activePanel === 1"  v-cloak >
