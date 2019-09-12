@@ -34,8 +34,6 @@
 
 # project specific recommendations
 /var/config/tag-manager.php
-/var/config/reports.php
-
 
 #/web/var/
 /web/sitemap*.xml
