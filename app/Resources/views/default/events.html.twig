@@ -1,0 +1,112 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% do pimcore_head_script().appendFile('https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js') %}
+{% do pimcore_head_script().appendFile('https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.6.2/dist/vuejs-datepicker.js') %}
+{% do pimcore_head_script().appendFile('https://cdn.jsdelivr.net/npm/apollo-client-browser@1.9.0/dist/apollo-client.min.js') %}
+{% do pimcore_head_script().appendFile('https://cdn.jsdelivr.net/npm/vue-apollo@2.1.0-rc.7/dist/vue-apollo.min.js') %}
+{% do pimcore_head_script().appendFile(asset('static/js/vue-app.js')) %}
+
+{% block content %}
+    <div  id="vueapp" class="row">
+        <div class="col-md-12 mt-3">
+            <section v-if="activePanel === 1"  v-cloak >
+                <div class="header row my-4">
+                    <div class="col-md-3">
+                        <vuejs-datepicker id="fromDate" input-class="form-control" typeable v-model="filters.fromDate" @input="filterListing"  placeholder="From Date"></vuejs-datepicker>
+                    </div>
+                    <div class="col-md-3">
+                        <vuejs-datepicker id="fromDate" input-class="form-control" typeable  v-model="filters.toDate" @input="filterListing" placeholder="To Date"></vuejs-datepicker>
+                    </div>
+
+                    <div class="col-md-3 float-right">
+                        <select id="fromDate" class="form-control"  v-model="filters.tag">
+                            <option  value="All" >Filter By Tag</option>
+                            <option  value="1960" > 1960</option>
+                            <option value="BMW Group" > BMW Group</option>
+                            <option  value="Vintage" > vintage</option>
+                            <option value="Ferrari" > Ferrari</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button @click="clearFilters" class="btn btn-outline-primary btn-sm d-block form-control">CLEAR FILTERS</button>
+                    </div>
+                </div>
+                <div class="row mb-3 text-center">
+                    <div class="col-sm-12" v-if="loading">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="errored" class="col-md-12 text-center">
+                        <h5>Sorry, something went wrong. Please try back later!</h5>
+                    </div>
+                    <div v-else v-for="(event, index) in filterResult" class="col-sm-4">
+                        <div class="teaser card custom-standard-card mb-4 shadow-sm">
+                            <img contain width="350" height="235" class="img-fluid w-100" alt="" title="" :src="'https://dev-demo-data-cfasching.elements.zone/' + event.details.images[0].image.fullpath">
+                            <div class="card-body text-center">
+                                <h4 class="card-title pricing-card-title text-uppercase" v-text="event.details.title"></h4>
+                                <p><b>Location:</b> [[ event.details.locationAddress ]]</p>
+                                <p class="mb-0"><span>[[ event.details.fromDate | dateFormat ]]</span><span v-if="compareDates(event.details.fromDate, event.details.toDate)"> - [[ event.details.toDate | dateFormat ]]</span>
+                                    <span class="d-block mb-4"><b>Timings:</b> [[ event.details.fromDate | timeFormat ]] - [[ event.details.toDate | timeFormat ]]</span>
+
+                                    <a href="javascript:void(0);" class="btn btn-secondary btn-sm" id="show-modal" @click="openDetailPanel(event.details.id)">More Details</a>
+                            </div>
+                            <div class="card-footer">
+                                <!--Event Tags Footer-->
+                                <span v-for="tag in event.details.tags" class="badge badge-secondary mr-1">[[ tag ]]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section v-if="activePanel === 2" v-cloak >
+                <div class="row mt-4 breadcrumb-header header">
+                    <button href="javascript:void(0);" @click="changePanel(1)" class="btn btn-secondary form-control back-button" >Back to Events</button>
+                    <div class="col-md-12 text-center">
+                        <h3 class="">[[ eventDetails.title ]]</h3>
+                    </div>
+
+                </div>
+                <div class="row mb-3 bg-white mt-4 p-2">
+                    <div id="header" class="col-md-12 text-center">
+
+                    </div>
+                    <div id="gallery" class="row col-md-12 px-5">
+                        <div class="mx-auto" v-if="eventDetails.video" id="video-gallery">
+                            <iframe id="ytplayer" type="text/html" width="650" height="400"
+                                    :src="'https://www.youtube.com/embed/' + eventDetails.video.data.id"
+                                    frameborder="0"></iframe>
+                        </div>
+                        <div v-else id="image-gallery" v-for="image in eventDetails.images" class="col-sm-6 col-md-4">
+                            <img contain width="350" height="235" class="img-fluid w-100 img-thumbnail" alt="" title="" :src="'https://dev-demo-data-cfasching.elements.zone/' + image.image.fullpath">
+                        </div>
+                    </div>
+                    <div id="info" class="col-md-12 p-5">
+                        <p v-html="eventDetails.description"></p>
+                        <p><span class="font-weight-bold">Location: </span> [[ eventDetails.locationAddress ]]</p>
+                        <p>
+                            <span class="font-weight-bold">Date: </span>
+                            [[ eventDetails.fromDate | dateFormat ]] <span v-if="compareDates(eventDetails.fromDate, eventDetails.toDate)">- [[ eventDetails.toDate | dateFormat ]]</span>
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">Timings: </span>
+                            [[ eventDetails.fromDate | timeFormat ]] - [[ eventDetails.toDate | timeFormat ]]
+                        </p>
+                        <div class="card">
+                            <div class="card-header">Organizer:</div>
+                            <div class="card-body">
+                                <p v-if="eventDetails.contactName" ><span class="font-weight-bold">Name: </span> [[ eventDetails.contactName ]]</p>
+                                <p v-if="eventDetails.contactPhone" ><span class="font-weight-bold">Phone: </span> [[ eventDetails.contactPhone ]]</p>
+                                <p v-if="eventDetails.contactEmail" ><span class="font-weight-bold">Email: </span> [[ eventDetails.contactEmail ]]</p>
+                                <p v-if="eventDetails.contactAddress" ><span class="font-weight-bold">Address: </span> [[ eventDetails.contactAddress ]]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

@@ -1432,3 +1432,35 @@ section img {
     top:30%;
 }
 **/
+
+/** events page **/
+#vueapp .header {
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 1em;
+}
+
+#vueapp .back-button {
+    position: absolute;
+    width: 130px;
+    z-index: 1;
+}
+
+#vueapp img {
+    display: block;
+    height: 235px !important;
+}
+
+#vueapp h3 {
+    line-height: 1;
+    margin-top: .5em;
+}
+
+#vueapp .badge {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+[v-cloak] {
+    display: none;
+}
