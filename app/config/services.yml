@@ -9,37 +9,50 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    # Example custom templating helper
-    # AppBundle\Templating\Helper\Example:
-    #     # templating helpers need to be public as they
-    #     # are fetched from the container on demand
-    #     public: true
-    #     tags:
-    #         - { name: templating.helper, alias: fooBar }
 
-    # Example event listener for objects
-    # AppBundle\EventListener\TestListener:
-    #     tags:
-    #         - { name: kernel.event_listener, event: pimcore.dataobject.preUpdate, method: onObjectPreUpdate }
-
+    # ---------------------------------------------------------
+    # Register all controllers of AppBundle as services
+    # ---------------------------------------------------------
     AppBundle\Controller\:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
 
+
+
+    # ---------------------------------------------------------
+    # Register all commands of AppBundle as commands
+    # ---------------------------------------------------------
     AppBundle\Command\:
         resource: '../../src/AppBundle/Command'
         tags: ['console.command']
 
+
+
+    # ---------------------------------------------------------
+    # Forms
+    # ---------------------------------------------------------
     AppBundle\Form\DeliveryAddressFormType: ~
     AppBundle\Form\LoginFormType: ~
     AppBundle\Form\RegistrationFormType: ~
     AppBundle\Form\RegistrationFormHandler: ~
     AppBundle\Form\CarSubmitFormType: ~
+
+
+
+    # ---------------------------------------------------------
+    # Misc Services
+    # ---------------------------------------------------------
     AppBundle\Services\PasswordRecoveryService: ~
     AppBundle\Services\NewsletterDoubleOptInService: ~
     AppBundle\Services\SegmentTrackingHelperService: ~
+    AppBundle\Website\Navigation\BreadcrumbHelperService: ~
 
+
+
+    # ---------------------------------------------------------
+    # Twig Extensions
+    # ---------------------------------------------------------
     AppBundle\Twig\Extension\CategoryFilterExtension:
         tags: ['twig.extension']
 
@@ -71,6 +84,9 @@ services:
         tags: ['twig.extension']
 
 
+    # ---------------------------------------------------------
+    # Link Generators for DataObjects
+    # ---------------------------------------------------------
     AppBundle\Website\LinkGenerator\CategoryLinkGenerator:
         public: true
 
@@ -80,8 +96,13 @@ services:
     AppBundle\Website\LinkGenerator\NewsLinkGenerator:
         public: true
 
-    AppBundle\Website\Navigation\BreadcrumbHelperService: ~
 
+
+    # ---------------------------------------------------------
+    # Overwrite Pimcore Default Services
+    # ---------------------------------------------------------
+
+    # overwrite PimcoreUrl helper to add existing parameters to generated urls
     Pimcore\Templating\Helper\PimcoreUrl:
         class: AppBundle\Website\Tool\PimcoreUrl
         arguments:
@@ -89,15 +110,29 @@ services:
         tags:
             - { name: templating.helper, alias: pimcoreUrl }
 
+
+
+    # ---------------------------------------------------------
+    # Event Listeners
+    # ---------------------------------------------------------
+
+    # auto sets name based on key for bodystyle, manufacturer, category
     AppBundle\EventListener\NameSettingListener:
         tags:
             - { name: kernel.event_listener, event: pimcore.dataobject.preAdd, method: onPreAdd }
 
+    # adds additional static files to admin backend
     AppBundle\EventListener\PimcoreAdminListener:
         tags:
             - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.css, method: addCSSFiles }
             - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.js, method: addJSFiles }
 
+    # checkout listeners for ecommerce application
+    AppBundle\EventListener\CheckoutEventListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.ecommerce.ordermanager.postUpdateOrder, method: onUpdateOrder }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.sendConfirmationMails, method: sendConfirmationMail }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.postCommitOrder, method: postCommitOrder }
 
     # authentication login listener for updating e-commerce framework environment after login
     AppBundle\EventListener\AuthenticationLoginListener:
@@ -109,28 +144,13 @@ services:
         arguments:
             $httpUtils: '@security.http_utils'
 
-    AppBundle\EventListener\CheckoutEventListener:
-        tags:
-            - { name: kernel.event_listener, event: pimcore.ecommerce.ordermanager.postUpdateOrder, method: onUpdateOrder }
-            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.sendConfirmationMails, method: sendConfirmationMail }
-            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.postCommitOrder, method: postCommitOrder }
-
-    # CMF Services
-
-    # example customer save handler config
-    CustomerManagementFrameworkBundle\CustomerSaveHandler\NormalizeZip:
-        tags: [cmf.customer_save_handler]
-
-    # example segment builder config
-    CustomerManagementFrameworkBundle\SegmentBuilder\StateSegmentBuilder:
-        tags: [cmf.segment_builder]
-
-    CustomerManagementFrameworkBundle\SegmentBuilder\GenderSegmentBuilder:
-        tags: [cmf.segment_builder]
-
-    AppBundle\CustomerManagementFramework\SegmentBuilder\ProductInterestSegmentBuilder:
-        tags: [cmf.segment_builder]
 
 
+
+
+
+    # ---------------------------------------------------------
     # Workflow
+    # ---------------------------------------------------------
     AppBundle\Workflow\SupportsStrategy: ~
+

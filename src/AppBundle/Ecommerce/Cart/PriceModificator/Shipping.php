@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Ecommerce\Cart\PriceModificator;
 
@@ -15,7 +27,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartPriceModificator\Shipping
 {
-
     /**
      * @var Decimal
      */
@@ -25,7 +36,6 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
      * @var Decimal
      */
     protected $carCharge;
-
 
     protected function processOptions(array $options)
     {
@@ -46,7 +56,7 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
      */
     public function getName()
     {
-        return "Shipping";
+        return 'Shipping';
     }
 
     /**
@@ -59,22 +69,20 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
      */
     public function modify(PriceInterface $currentSubTotal, CartInterface $cart)
     {
-
         $carCount = 0;
         $hasAccessories = false;
 
-        foreach($cart->getItems() as $cartItem) {
-            if($cartItem->getProduct() instanceof Car) {
+        foreach ($cart->getItems() as $cartItem) {
+            if ($cartItem->getProduct() instanceof Car) {
                 $carCount += $cartItem->getCount();
             }
-            if($cartItem->getProduct() instanceof AccessoryPart) {
+            if ($cartItem->getProduct() instanceof AccessoryPart) {
                 $hasAccessories = true;
             }
         }
 
-
         $shippingCost = Decimal::zero();
-        if($hasAccessories) {
+        if ($hasAccessories) {
             $shippingCost = $shippingCost->add($this->baseCharge);
         }
 
@@ -94,7 +102,7 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
 
     public function setCharge(Decimal $charge)
     {
-        if($charge->isZero()) {
+        if ($charge->isZero()) {
             $this->baseCharge = Decimal::zero();
             $this->carCharge = Decimal::zero();
         }

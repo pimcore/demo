@@ -1060,6 +1060,14 @@ INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUE
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','198','document','105');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','198','object','252');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','198','object','253');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','3');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','12');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','58');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','65');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','88');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','93');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','105');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('document','199','document','114');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','4','asset','302');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','9','object','4');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','9','object','7');
@@ -2397,3 +2405,8 @@ INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUE
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1109','object','1111');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1110','object','235');
 INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1111','object','865');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1112','object','1113');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1113','object','381');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1117','object','1017');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1117','object','1118');
+INSERT INTO dependencies (`sourcetype`,`sourceid`,`targettype`,`targetid`) VALUES ('object','1118','object','105');

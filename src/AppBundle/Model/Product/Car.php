@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Model\Product;
-
 
 use Pimcore\Model\DataObject\AccessoryPart\Listing;
 use Pimcore\Model\DataObject\Data\Hotspotimage;
@@ -15,21 +26,23 @@ class Car extends \Pimcore\Model\DataObject\Car
     /**
      * @return string
      */
-    public function getOSName() {
-        return ($this->getManufacturer() ? $this->getManufacturer()->getName() . " " : "") . $this->getName();
+    public function getOSName()
+    {
+        return ($this->getManufacturer() ? $this->getManufacturer()->getName() . ' ' : '') . $this->getName();
     }
 
     /**
      * @return string
      */
-    public function getSubText(): string {
+    public function getSubText(): string
+    {
         $textParts = [];
 
         $textParts[] = $this->getBodyStyle() ? $this->getBodyStyle()->getName() : '';
         $textParts[] = $this->getProductionYear();
         $textParts[] = $this->getAttributes()->getEngine() ? $this->getAttributes()->getEngine()->getPower() : '';
 
-        return "<span class='text-nowrap'>" . implode("</span>, <span class='text-nowrap'>" , array_filter($textParts)) . "</span>";
+        return "<span class='text-nowrap'>" . implode("</span>, <span class='text-nowrap'>", array_filter($textParts)) . '</span>';
     }
 
     /**
@@ -53,50 +66,54 @@ class Car extends \Pimcore\Model\DataObject\Car
      */
     public function getOSParentId()
     {
-        if($this->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
+        if ($this->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
             $parent = $this->getParent();
-            while($parent->getParent() instanceof Car) {
+            while ($parent->getParent() instanceof self) {
                 $parent = $parent->getParent();
             }
+
             return $parent->getId();
         }
+
         return parent::getOSParentId();
     }
 
     /**
      * @return Hotspotimage|null
      */
-    public function getMainImage() : ?Hotspotimage {
-
+    public function getMainImage(): ?Hotspotimage
+    {
         $gallery = $this->getGallery();
-        if($gallery) {
+        if ($gallery) {
             $items = $gallery->getItems();
-            if($items) {
+            if ($items) {
                 return $items[0];
             }
         }
+
         return null;
     }
 
     /**
      * @return Hotspotimage[]
      */
-    public function getAdditionalImages(): array {
+    public function getAdditionalImages(): array
+    {
         $gallery = $this->getGallery();
         $items = $gallery->getItems();
 
-        if($items) {
+        if ($items) {
             unset($items[0]);
         } else {
             $items = [];
         }
 
-        $items = array_filter($items, function($item) {
-             return !empty($item) &&  !empty($item->getImage());
+        $items = array_filter($items, function ($item) {
+            return !empty($item) && !empty($item->getImage());
         });
 
         $generalImages = $this->getGenericImages()->getItems();
-        if($generalImages) {
+        if ($generalImages) {
             $items = array_merge($items, $generalImages);
         }
 
@@ -106,26 +123,28 @@ class Car extends \Pimcore\Model\DataObject\Car
     /**
      * @return Category|null
      */
-    public function getMainCategory(): ?Category {
+    public function getMainCategory(): ?Category
+    {
         $category = reset($this->getCategories());
+
         return $category ?: null;
     }
 
     /**
      * @return Listing
+     *
      * @throws \Exception
      */
-    public function getAccessories(): Listing {
+    public function getAccessories(): Listing
+    {
 
         // get all parent IDs
         $filterIds = ['compatibleTo LIKE "%,' . $this->getId() . ',%"'];
         $parent = $this->getParent();
-        while($parent instanceof Car) {
+        while ($parent instanceof self) {
             $filterIds[] = 'compatibleTo LIKE "%,' . $parent->getId() . ',%"';
             $parent = $parent->getParent();
         }
-
-
 
         // create listing with OR statements
         $listing = new Listing();
@@ -137,24 +156,23 @@ class Car extends \Pimcore\Model\DataObject\Car
     /**
      * @return Car[]
      */
-    public function getColorVariants(): array {
-        if($this->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
+    public function getColorVariants(): array
+    {
+        if ($this->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
             $parent = $this->getParent();
 
             $carSiblings = [];
-            foreach($parent->getChildren() as $sibling) {
-                if($sibling instanceof Car && $sibling->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
+            foreach ($parent->getChildren() as $sibling) {
+                if ($sibling instanceof self && $sibling->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
                     $carSiblings[] = $sibling;
                 }
             }
 
             return $carSiblings;
-
         }
 
         return [];
     }
-
 
     public function getElementAdminStyle()
     {
@@ -164,5 +182,4 @@ class Car extends \Pimcore\Model\DataObject\Car
 
         return $this->o_elementAdminStyle;
     }
-
 }

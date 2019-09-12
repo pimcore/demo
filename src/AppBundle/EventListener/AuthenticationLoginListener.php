@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pimcore
  *
@@ -8,12 +9,11 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace AppBundle\EventListener;
-
 
 use AppBundle\Controller\CartController;
 use AppBundle\Model\CustomerManagementFramework\Activity\LoginActivity;
@@ -79,9 +79,8 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
         return parent::onAuthenticationSuccess($request, $token);
     }
 
-
-    public function doEcommerceFrameworkLogin(CustomerInterface $customer) {
-
+    public function doEcommerceFrameworkLogin(CustomerInterface $customer)
+    {
         if ($customer) {
 
             //migrate current cart entries to cart of to-log-in users cart
@@ -92,12 +91,10 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
 
             $cartManager->reset();
 
-            if($oldCart instanceof CartInterface && count($oldCart->getItems()) > 0)
-            {
+            if ($oldCart instanceof CartInterface && count($oldCart->getItems()) > 0) {
                 $userCart = $this->factory->getCartManager()->getCartByName(CartController::DEFAULT_CART_NAME);
-                foreach($oldCart->getItems() as $item)
-                {
-                    $userCart->addItem( $item->getProduct(), $item->getCount() );
+                foreach ($oldCart->getItems() as $item) {
+                    $userCart->addItem($item->getProduct(), $item->getCount());
                 }
                 $userCart->save();
             }
@@ -105,11 +102,9 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
             $this->environment->setCurrentUserId(null);
         }
 
-
         // track login activity
         $this->activityManager->trackActivity(new LoginActivity($customer));
 
         $this->environment->save();
     }
-
 }

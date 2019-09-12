@@ -5,6 +5,7 @@ INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('4
 INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('42','asset','review_license','simple_asset_workflow');
 INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('68','asset','start','simple_asset_workflow');
 INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('260','object','edit_text,edit_images','product_data_enrichment');
+INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('367','asset','start','simple_asset_workflow');
 INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('387','asset','start','simple_asset_workflow');
 INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('389','asset','finished','simple_asset_workflow');
 INSERT INTO element_workflow_state (`cid`,`ctype`,`place`,`workflow`) VALUES ('395','asset','start','simple_asset_workflow');

@@ -1,0 +1,111 @@
+pimcore:
+    general:
+        timezone: Europe/Berlin
+        language: en
+        path_variable: ''
+        domain: ''
+        redirect_to_maindomain: false
+        debug_admin_translations: false
+        show_cookie_notice: false
+        valid_languages: 'en,de,fr'
+        fallback_languages:
+            en: ''
+            de: ''
+            fr: ''
+        default_language: ''
+        disable_usage_statistics: false
+        instance_identifier: ''
+    documents:
+        versions:
+            steps: 10
+            days: null
+        error_pages:
+            default: /en/Error-Page
+        create_redirect_when_moved: false
+        allow_trailing_slash: 'no'
+        generate_preview: true
+    objects:
+        versions:
+            steps: 10
+            days: null
+    assets:
+        versions:
+            steps: 10
+            days: null
+        icc_rgb_profile: ''
+        icc_cmyk_profile: ''
+        hide_edit_image: false
+        disable_tree_preview: false
+    services:
+        google:
+            client_id: ''
+            email: ''
+            simple_api_key: ''
+            browser_api_key: ''
+    cache:
+        enabled: false
+        lifetime: null
+        exclude_cookie: ''
+        exclude_patterns: ''
+    httpclient:
+        adapter: Socket
+        proxy_host: ''
+        proxy_port: ''
+        proxy_user: ''
+        proxy_pass: ''
+    email:
+        sender:
+            name: 'Pimcore Demo'
+            email: demo@pimcore.com
+        return:
+            name: ''
+            email: ''
+        method: sendmail
+        debug:
+            email_addresses: ''
+    newsletter:
+        sender:
+            name: ''
+            email: ''
+        return:
+            name: ''
+            email: ''
+        method: null
+        debug:
+            email_addresses: ''
+        use_specific: false
+    webservice:
+        enabled: false
+    applicationlog:
+        mail_notification:
+            send_log_summary: false
+            filter_priority: null
+            mail_receiver: ''
+        archive_treshold: '30'
+        archive_alternative_database: ''
+pimcore_admin:
+    branding:
+        color_login_screen: ''
+        color_admin_interface: ''
+        login_screen_custom_image: ''
+        login_screen_invert_colors: false
+swiftmailer:
+    mailers:
+        pimcore_mailer:
+            transport: sendmail
+            delivery_addresses:
+            host: ''
+            username: ''
+            password: ''
+            port: ''
+            encryption: null
+            auth_mode: null
+        newsletter_mailer:
+            transport: null
+            delivery_addresses:
+            host: ''
+            username: ''
+            password: ''
+            port: ''
+            encryption: null
+            auth_mode: null

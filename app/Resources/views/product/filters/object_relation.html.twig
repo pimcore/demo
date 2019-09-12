@@ -1,4 +1,4 @@
-{%  if(values is not empty and values|length > 1) %}
+{%  if(values is not empty and values|length > 0) %}
 
     {% set sortedValues = app_general_filter_sort_objects(values, 'name', objects)  %}
 

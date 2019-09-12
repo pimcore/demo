@@ -94,3 +94,4 @@ INSERT INTO sanitycheck (`id`,`type`) VALUES ('891','object');
 INSERT INTO sanitycheck (`id`,`type`) VALUES ('894','object');
 INSERT INTO sanitycheck (`id`,`type`) VALUES ('897','object');
 INSERT INTO sanitycheck (`id`,`type`) VALUES ('899','object');
+INSERT INTO sanitycheck (`id`,`type`) VALUES ('1114','object');

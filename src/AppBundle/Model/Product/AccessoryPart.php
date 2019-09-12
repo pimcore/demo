@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Model\Product;
 
@@ -8,11 +20,11 @@ use Pimcore\Model\DataObject\Data\Hotspotimage;
 
 class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
 {
-
     /**
      * @return string
      */
-    public function getOSName() {
+    public function getOSName()
+    {
         return $this->getGeneratedName();
     }
 
@@ -35,25 +47,28 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
     /**
      * @return Hotspotimage|null
      */
-    public function getMainImage() : ?Hotspotimage {
+    public function getMainImage(): ?Hotspotimage
+    {
         return $this->getImage();
     }
 
     /**
      * @return Category[]
      */
-    public function getCategories() {
+    public function getCategories()
+    {
         return [$this->getMainCategory()];
     }
 
     /**
      * @return int[]
+     *
      * @throws \Exception
      */
-    public function getCompatibleToProductIds() {
-
+    public function getCompatibleToProductIds()
+    {
         $paths = [];
-        foreach($this->getCompatibleTo() as $compatible) {
+        foreach ($this->getCompatibleTo() as $compatible) {
             $paths[] = 'o_path LIKE "' . $compatible->getFullPath() . '%"';
         }
 

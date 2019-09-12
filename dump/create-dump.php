@@ -72,7 +72,8 @@ $tableBlacklist = [
     'tmp_store',
     'targeting_storage',
     'tracking_events',
-    'versions'
+    'versions',
+    'users'
 ];
 
 // dump data

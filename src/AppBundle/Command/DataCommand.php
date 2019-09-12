@@ -1,12 +1,22 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
+
 namespace AppBundle\Command;
 
-
 use Pimcore\Console\AbstractCommand;
-use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\AccessoryPart;
-use Pimcore\Model\DataObject\BodyStyle;
 use Pimcore\Model\DataObject\Car;
 use Pimcore\Model\DataObject\Data\Geopoint;
 use Pimcore\Model\DataObject\Data\QuantityValue;
@@ -15,14 +25,12 @@ use Pimcore\Model\DataObject\QuantityValue\Unit;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DataCommand extends AbstractCommand {
-
-
+class DataCommand extends AbstractCommand
+{
     protected $priceRange = [
         'from' => 57,
         'to' => 900
      ];
-
 
     protected $availabilityTypes = [
         'couple-weeks',
@@ -45,18 +53,15 @@ class DataCommand extends AbstractCommand {
         [48.78339883980666, 9.180042743682863]
     ];
 
-
     public function configure()
     {
-        $this->setName("app:data-command");
+        $this->setName('app:data-command');
     }
-
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-
         $listing = new AccessoryPart\Listing();
-        foreach($listing as $object) {
+        foreach ($listing as $object) {
             $this->updateAccessoryERPInformation($object);
             $object->save();
         }
@@ -91,44 +96,41 @@ class DataCommand extends AbstractCommand {
 //            $object->save();
 //        }
 
-        $output->writeln("done");
-
+        $output->writeln('done');
     }
 
-    protected function updateAccessoryKey(AccessoryPart $object) {
-        $key = "";
+    protected function updateAccessoryKey(AccessoryPart $object)
+    {
+        $key = '';
 
-        $key .= $object->getManufacturer()->getName() . "-";
-        $key .= $object->getSeries()->getName() . "-";
+        $key .= $object->getManufacturer()->getName() . '-';
+        $key .= $object->getSeries()->getName() . '-';
         $key .= $object->getMainCategory()->getName();
-        if($object->getNameAddition()) {
-            $key .= "-" . $object->getNameAddition();
+        if ($object->getNameAddition()) {
+            $key .= '-' . $object->getNameAddition();
         }
         $key = strtolower($key);
         $object->setKey($key);
     }
 
-
-    protected function updateAccessorySalesInformation(AccessoryPart $object) {
-
+    protected function updateAccessorySalesInformation(AccessoryPart $object)
+    {
         $saleInformation = $object->getSaleInformation()->getSaleInformation();
 
-        if(empty($saleInformation)) {
+        if (empty($saleInformation)) {
             $saleInformation = new SaleInformation($object);
             $object->getSaleInformation()->setSaleInformation($saleInformation);
         }
         $saleInformation->setAvailabilityPieces(rand(1, 20));
-        $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0,2)]);
-        $saleInformation->setCondition($this->conditionTypes[rand(0,3)]);
+        $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0, 2)]);
+        $saleInformation->setCondition($this->conditionTypes[rand(0, 3)]);
         $saleInformation->setPriceInEUR($this->generatePrice(30, 2000));
         $saleInformation->setMilage(new QuantityValue(rand(30000, 300000), Unit::getByAbbreviation('km')));
-
-
     }
 
-    protected function updateAccessoryERPInformation(AccessoryPart $part) {
-
-        if(empty($part->getErpNumber())) {
+    protected function updateAccessoryERPInformation(AccessoryPart $part)
+    {
+        if (empty($part->getErpNumber())) {
             $part->setErpNumber(crc32($part->getId()));
         }
         $part->setCategoryCode($part->getMainCategory()->getId());
@@ -140,23 +142,21 @@ class DataCommand extends AbstractCommand {
             'XE',
             'PI'
         ];
-        $part->setOwner($owners[rand(0, count($owners)-1)]);
-
+        $part->setOwner($owners[rand(0, count($owners) - 1)]);
     }
 
-    protected function generatePrice($min, $max) {
-
+    protected function generatePrice($min, $max)
+    {
         $price = rand($min, $max);
 
         $price = intval($price / 100);
         $price = $price * 100 + 95.95;
 
         return $price;
-
     }
 
-    protected function generateCarPrice($condition) {
-
+    protected function generateCarPrice($condition)
+    {
         $priceRangeArray = [
             'broken' => [1500, 7500],
             'reworked' => [8000, 90000],
@@ -164,7 +164,5 @@ class DataCommand extends AbstractCommand {
         ];
 
         return $this->generatePrice($priceRangeArray[$condition][0], $priceRangeArray[$condition][1]);
-
     }
-
 }

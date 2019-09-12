@@ -13,13 +13,12 @@
     "hwi/oauth-bundle": "^0.6.3",
     "php-http/guzzle6-adapter": "^1",
     "php-http/httplug-bundle": "^1.16",
-    "pimcore/customer-management-framework-bundle": "dev-master",
-    "pimcore/pimcore": "dev-master",
-    "pimcore/web2print-tools-bundle": "dev-master",
-    "pimcore/data-hub": "dev-master"
+    "pimcore/customer-management-framework-bundle": "^2.2",
+    "pimcore/pimcore": "~6.2.0",
+    "pimcore/web2print-tools-bundle": "^3.1",
+    "pimcore/data-hub": "dev-master",
+    "wikimedia/composer-merge-plugin": "^1.4"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "require-dev": {
     "cache/integration-tests": "^0.16.0",
     "codeception/codeception": "~2.4.5"

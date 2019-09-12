@@ -1,5 +1,5 @@
 
-{%  if(values is not empty and values|length > 1) %}
+{%  if(values is not empty and values|length > 0) %}
 
     {% set translatedValues = app_general_filter_translate(values) %}
     {% set sortedValues = app_general_filter_sort(translatedValues, 'translated')  %}

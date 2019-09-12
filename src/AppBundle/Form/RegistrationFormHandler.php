@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pimcore
  *
@@ -8,26 +9,23 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace AppBundle\Form;
 
 use CustomerManagementFrameworkBundle\Model\CustomerInterface;
-use Pimcore\DataObject\Consent\Service;
-use Pimcore\Translation\Translator;
 use Symfony\Component\Form\Form;
 
 class RegistrationFormHandler
 {
-
     protected function getFormDataMapping(): array
     {
         return [
             'firstname' => 'firstname',
-            'lastname'  => 'lastname',
-            'email'     => 'email',
+            'lastname' => 'lastname',
+            'email' => 'email',
         ];
     }
 

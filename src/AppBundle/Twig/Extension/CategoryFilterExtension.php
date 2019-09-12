@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Twig\Extension;
-
 
 use AppBundle\Model\Product\Category;
 use AppBundle\Website\LinkGenerator\CategoryLinkGenerator;
@@ -18,13 +29,13 @@ class CategoryFilterExtension extends AbstractExtension
 
     /**
      * CategoryFilterExtension constructor.
+     *
      * @param CategoryLinkGenerator $categoryLinkGenerator
      */
     public function __construct(CategoryLinkGenerator $categoryLinkGenerator)
     {
         $this->categoryLinkGenerator = $categoryLinkGenerator;
     }
-
 
     public function getFunctions()
     {
@@ -34,13 +45,13 @@ class CategoryFilterExtension extends AbstractExtension
         ];
     }
 
-    public function prepareData($currentValue, Category $rootCategory = null) {
-
+    public function prepareData($currentValue, Category $rootCategory = null)
+    {
         $data = new \stdClass();
 
         $data->parentCategories = [];
         $data->currentCategory = $this->getCurrentCategory($currentValue);
-        if($data->currentCategory) {
+        if ($data->currentCategory) {
             $data->parentCategories = $data->currentCategory->getParentCategoryList($rootCategory);
         }
 
@@ -51,20 +62,22 @@ class CategoryFilterExtension extends AbstractExtension
 
     /**
      * @param $currentValue
+     *
      * @return Category
      */
-    public function getCurrentCategory($currentValue) {
+    public function getCurrentCategory($currentValue)
+    {
         return Category::getById($currentValue);
     }
 
-
-    public function getSubCategories(Category $currentCategory = null, $rootCategory = null) {
+    public function getSubCategories(Category $currentCategory = null, $rootCategory = null)
+    {
         $subCategories = [];
 
         $parent = $currentCategory ?: $rootCategory;
 
-        if($parent) {
-            $subCategories = array_filter($parent->getChildren(), function($item) {
+        if ($parent) {
+            $subCategories = array_filter($parent->getChildren(), function ($item) {
                 return $item instanceof Category && $item->isPublished();
             });
 
@@ -72,9 +85,6 @@ class CategoryFilterExtension extends AbstractExtension
 //                $subCategories[] = $subCategory;
 //            }
         } else {
-
-
-
         }
 
         return $subCategories;
@@ -84,10 +94,11 @@ class CategoryFilterExtension extends AbstractExtension
      * @param Category $category
      * @param Category|null $rootCategory
      * @param bool $reset
+     *
      * @return string
      */
-    public function generateLink(Category $category, Category $rootCategory = null, $reset = false): string {
+    public function generateLink(Category $category, Category $rootCategory = null, $reset = false): string
+    {
         return $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory], $reset);
     }
-
 }

@@ -35,7 +35,7 @@ CREATE TABLE `ecommerceframework_cart` (
   `creationDateTimestamp` int(10) NOT NULL,
   `modificationDateTimestamp` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
 
@@ -2806,7 +2806,7 @@ CREATE TABLE `plugin_cmf_actiontrigger_queue` (
   PRIMARY KEY (`id`),
   KEY `customerId` (`customerId`),
   KEY `actionId` (`actionId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 
 
@@ -2844,7 +2844,7 @@ CREATE TABLE `plugin_cmf_activities` (
   KEY `customerId` (`customerId`),
   KEY `o_id` (`o_id`),
   KEY `a_id` (`a_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
 
 
@@ -2911,7 +2911,7 @@ CREATE TABLE `plugin_cmf_duplicatesindex` (
   KEY `fieldCombination` (`fieldCombination`),
   KEY `soundex` (`soundex`),
   KEY `metaphone` (`metaphone`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 
 

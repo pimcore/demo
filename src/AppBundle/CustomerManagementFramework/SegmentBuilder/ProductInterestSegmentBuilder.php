@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pimcore
  *
@@ -8,12 +9,11 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- * @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace AppBundle\CustomerManagementFramework\SegmentBuilder;
-
 
 use AppBundle\Ecommerce\IndexService\SegmentGetter;
 use AppBundle\Website\Tool\ForceInheritance;
@@ -30,7 +30,6 @@ use Pimcore\Model\DataObject\OnlineShopOrderItem;
  */
 class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
 {
-
     /**
      * @var SegmentGetter
      */
@@ -38,13 +37,13 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
 
     /**
      * ProductInterestSegmentBuilder constructor.
+     *
      * @param SegmentGetter $segmentGetter
      */
     public function __construct(SegmentGetter $segmentGetter)
     {
         $this->segmentGetter = $segmentGetter;
     }
-
 
     /**
      * prepares data and configurations which could be reused for all buildSegment(CustomerInterface $customer) calls
@@ -68,11 +67,11 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
      */
     public function calculateSegments(CustomerInterface $customer, SegmentManagerInterface $segmentManager)
     {
-        if(!$customer->getProfilingConsent()) {
+        if (!$customer->getProfilingConsent()) {
             return;
         }
 
-        ForceInheritance::run(function() use ($customer, $segmentManager) {
+        ForceInheritance::run(function () use ($customer, $segmentManager) {
             $orderManager = Factory::getInstance()->getOrderManager();
 
             // create new order list
@@ -83,30 +82,24 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
 
             // set order state
             $list->setOrderState(AbstractOrder::ORDER_STATE_COMMITTED);
-            $list->addFilter( new CustomerObject($customer));
+            $list->addFilter(new CustomerObject($customer));
 
             $segments = [];
 
-            foreach($list as $orderItem) {
+            foreach ($list as $orderItem) {
 
                 /**
                  * @var $orderItem OnlineShopOrderItem
                  */
-
                 $product = $orderItem->getProduct();
-                if($product) {
-
+                if ($product) {
                     $segments = array_merge($segments, $this->segmentGetter->get($product));
-
                 }
             }
 
             $segmentManager->mergeSegments($customer, $segments, [], $this->getName());
-
         });
-
     }
-
 
     /**
      * @return string

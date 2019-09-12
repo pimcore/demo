@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Pimcore
+ *
+ * This source file is available under two different licenses:
+ * - GNU General Public License version 3 (GPLv3)
+ * - Pimcore Enterprise License (PEL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ */
 
 namespace AppBundle\Twig\Extension;
-
 
 use AppBundle\Website\Tool\Text;
 use Pimcore\Model\Asset\Image;
@@ -20,7 +31,6 @@ use Twig\TwigFunction;
 
 class PrintCatalogExtension extends AbstractExtension
 {
-
     /**
      * @var Translator
      */
@@ -33,6 +43,7 @@ class PrintCatalogExtension extends AbstractExtension
 
     /**
      * PrintCatalogExtension constructor.
+     *
      * @param Translator $translator
      * @param Placeholder $placeholderHelper
      */
@@ -41,7 +52,6 @@ class PrintCatalogExtension extends AbstractExtension
         $this->translator = $translator;
         $this->placeholderHelper = $placeholderHelper;
     }
-
 
     public function getFunctions()
     {
@@ -52,22 +62,21 @@ class PrintCatalogExtension extends AbstractExtension
         ];
     }
 
-
-    public function getSpecValue(\stdClass $outputElement, string $thumbnailName = null): string {
-
-        if($outputElement->value instanceof Image) {
+    public function getSpecValue(\stdClass $outputElement, string $thumbnailName = null): string
+    {
+        if ($outputElement->value instanceof Image) {
             return $this->printImage($outputElement->value, $thumbnailName);
-        } else if($outputElement->def instanceof ImageGallery) {
+        } elseif ($outputElement->def instanceof ImageGallery) {
             return $this->printImageGallery($outputElement->value, $thumbnailName);
-        } else if($outputElement->def instanceof Hotspotimage) {
+        } elseif ($outputElement->def instanceof Hotspotimage) {
             return $this->printHotspotImage($outputElement->value, $thumbnailName);
-        } else if($outputElement->def instanceof Select) {
+        } elseif ($outputElement->def instanceof Select) {
             return $this->printSelectValue($outputElement->value);
-        } else if($outputElement->def instanceof Multiselect) {
+        } elseif ($outputElement->def instanceof Multiselect) {
             return $this->printMultiSelectValue($outputElement->value);
-        } else if($outputElement->def instanceof ManyToOneRelation) {
+        } elseif ($outputElement->def instanceof ManyToOneRelation) {
             return $this->printManyToOne($outputElement->value);
-        } else if($outputElement->def instanceof ManyToManyObjectRelation) {
+        } elseif ($outputElement->def instanceof ManyToManyObjectRelation) {
             return $this->printManyToManyObjects($outputElement->value);
         } else {
             return $outputElement->value;
@@ -77,98 +86,115 @@ class PrintCatalogExtension extends AbstractExtension
     /**
      * @param Image $image
      * @param string $thumbnailName
+     *
      * @return string
      */
-    protected function printImage(Image $image, string $thumbnailName): string {
+    protected function printImage(Image $image, string $thumbnailName): string
+    {
         $src = $thumbnailName ? $image->getThumbnail($thumbnailName) : $image->getFullPath();
+
         return "<img src='$src' alt='image' />";
     }
 
     /**
      * @param \Pimcore\Model\DataObject\Data\ImageGallery $imageGallery
      * @param string $thumbnailName
+     *
      * @return string
      */
-    protected function printImageGallery(\Pimcore\Model\DataObject\Data\ImageGallery $imageGallery, string $thumbnailName): string {
+    protected function printImageGallery(\Pimcore\Model\DataObject\Data\ImageGallery $imageGallery, string $thumbnailName): string
+    {
         $firstItem = $imageGallery->current();
-        if($firstItem && $firstItem->getImage()) {
+        if ($firstItem && $firstItem->getImage()) {
             return $this->printImage($firstItem->getImage(), $thumbnailName);
         }
+
         return '';
     }
 
     /**
      * @param \Pimcore\Model\DataObject\Data\Hotspotimage $hotspotimage
      * @param string $thumbnailName
+     *
      * @return string
      */
-    protected function printHotspotImage(\Pimcore\Model\DataObject\Data\Hotspotimage $hotspotimage, string $thumbnailName): string {
+    protected function printHotspotImage(\Pimcore\Model\DataObject\Data\Hotspotimage $hotspotimage, string $thumbnailName): string
+    {
         $image = $hotspotimage->getImage();
-        if($image) {
+        if ($image) {
             return "<img src='{$hotspotimage->getThumbnail($thumbnailName)}' alt='image' />";
         }
     }
 
     /**
      * @param string $value
+     *
      * @return string
      */
-    protected function printSelectValue(string $value): string {
+    protected function printSelectValue(string $value): string
+    {
         return $this->translator->trans('attribute.' . strtolower($value));
     }
 
     /**
      * @param array|null $value
+     *
      * @return string
      */
-    protected function printMultiSelectValue(array $value = null): string {
+    protected function printMultiSelectValue(array $value = null): string
+    {
         $result = [];
-        if($value) {
-            foreach($value as $v) {
+        if ($value) {
+            foreach ($value as $v) {
                 $result[] = $this->translator->trans('attribute.' . strtolower($v));
             }
         }
 
-        return implode(", ", $result);
+        return implode(', ', $result);
     }
 
     /**
      * @param array $value
+     *
      * @return string
      */
-    protected function printManyToManyObjects(array $value): string {
+    protected function printManyToManyObjects(array $value): string
+    {
         $result = [];
-        if($value) {
-            foreach($value as $v) {
-                if(method_exists($v, "getName")) {
+        if ($value) {
+            foreach ($value as $v) {
+                if (method_exists($v, 'getName')) {
                     $result[] = $v->getName();
                 }
             }
         }
 
-        return implode(", ", $result);
+        return implode(', ', $result);
     }
 
     /**
      * @param AbstractElement|null $element
+     *
      * @return string
      */
-    protected function printManyToOne(AbstractElement $element = null): string {
-        if($element && method_exists($element, "getName")) {
+    protected function printManyToOne(AbstractElement $element = null): string
+    {
+        if ($element && method_exists($element, 'getName')) {
             return $element->getName();
         }
-        return "";
+
+        return '';
     }
 
     /**
      * @param string|null $name
      * @param string|null $registerType
      */
-    public function createRegisterTitleStyling(?string $name, ?string $registerType = '') {
-
+    public function createRegisterTitleStyling(?string $name, ?string $registerType = '')
+    {
         $key = $this->getRegisterName($name);
 
-        if($name) {
+        if ($name) {
             $this->placeholderHelper->__invoke('register-title-definition')->append("
 
                 @page $key:right {
@@ -191,16 +217,15 @@ class PrintCatalogExtension extends AbstractExtension
         
         ");
         }
-
-
     }
 
     /**
      * @param string|null $name
+     *
      * @return string
      */
-    public function getRegisterName(?string $name) {
+    public function getRegisterName(?string $name)
+    {
         return Text::toUrl($name);
     }
-
 }

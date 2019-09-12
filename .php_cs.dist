@@ -1,16 +1,32 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->in([__DIR__ . '/src']);
+    ->in([
+        __DIR__ . '/app',
+        __DIR__ . '/src',
+    ])
 
+    ->exclude([
+
+    ])
+
+    // do not fix views
+    ->notName('*.html.php')
+
+    // using notPath instead of exclude here as they can be nested (install-profiles)
+    ->notPath('/var\/config/')
+    ->notPath('/var\/classes/')
+;
+
+// do not enable self_accessor as it breaks pimcore models relying on get_called_class()
 return PhpCsFixer\Config::create()
     ->setRules([
-        '@PSR1'                               => true,
-        '@PSR2'                               => true,
-        'array_syntax'                        => ['syntax' => 'short'],
+        '@PSR1'                  => true,
+        '@PSR2'                  => true,
+        'array_syntax'           => ['syntax' => 'short'],
 
         // keep aligned = and => operators as they are: do not force aligning, but do not remove it
-        'binary_operator_spaces'              => ['align_double_arrow' => null, 'align_equals' => null],
+        'binary_operator_spaces' => ['align_double_arrow' => null, 'align_equals' => null],
 
         'blank_line_before_return'            => true,
         'encoding'                            => true,
@@ -18,6 +34,7 @@ return PhpCsFixer\Config::create()
         'hash_to_slash_comment'               => true,
         'lowercase_cast'                      => true,
         'magic_constant_casing'               => true,
+        'method_argument_space'               => ['ensure_fully_multiline' => false],
         'method_separation'                   => true,
         'native_function_casing'              => true,
         'no_blank_lines_after_class_opening'  => true,
@@ -42,7 +59,6 @@ return PhpCsFixer\Config::create()
         'phpdoc_separation'                   => true,
         'phpdoc_single_line_var_spacing'      => true,
         'return_type_declaration'             => true,
-        'self_accessor'                       => true,
         'short_scalar_cast'                   => true,
         'single_blank_line_before_namespace'  => true,
         'single_quote'                        => true,
