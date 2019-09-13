@@ -26,11 +26,16 @@
 
                     <div class="col-md-3 float-right">
                         <select id="fromDate" class="form-control"  v-model="filters.tag">
-                            <option  value="All" >Filter By Tag</option>
-                            <option  value="1960" > 1960</option>
-                            <option value="BMW Group" > BMW Group</option>
-                            <option  value="Vintage" > vintage</option>
-                            <option value="Ferrari" > Ferrari</option>
+                            <option value="All" >Filter By Tag</option>
+                            <option value="Trade Show" >Trade Show</option>
+                            <option value="Retro" > Retro</option>
+                            <option value="International" > International</option>
+                            <option  value="1950" > 1950</option>
+                            <option value="1960" > 1960</option>
+                            <option value="1970" > 1970</option>
+                            <option value="Salzburg" >Salzburg</option>
+                            <option value="Vienna" >Vienna</option>
+                            <option value="Wels" >Wels</option>
                         </select>
                     </div>
 
@@ -51,12 +56,12 @@
                     </div>
                     <div v-else v-for="(event, index) in filterResult" class="col-sm-4">
                         <div class="teaser card custom-standard-card mb-4 shadow-sm">
-                            <img contain width="350" height="235" class="img-fluid w-100" alt="" title="" :src="'https://dev-demo-data-cfasching.elements.zone/' + event.details.images[0].image.fullpath">
+                            <img contain width="350" height="235" class="img-fluid w-100" alt="" title="" :src="event.details.mainImage">
                             <div class="card-body text-center">
                                 <h4 class="card-title pricing-card-title text-uppercase" v-text="event.details.title"></h4>
                                 <p><b>Location:</b> [[ event.details.locationAddress ]]</p>
-                                <p class="mb-0"><span>[[ event.details.fromDate | dateFormat ]]</span><span v-if="compareDates(event.details.fromDate, event.details.toDate)"> - [[ event.details.toDate | dateFormat ]]</span>
-                                    <span class="d-block mb-4"><b>Timings:</b> [[ event.details.fromDate | timeFormat ]] - [[ event.details.toDate | timeFormat ]]</span>
+                                <p class="mb-0"><span>[[ event.details.fromDate ]]</span><span v-if="compareDates(event.details.fromDate, event.details.toDate)"> - [[ event.details.toDate ]]</span>
+                                    <span class="d-block mb-4"><b>Timings:</b> [[ event.details.fromTime ]] - [[ event.details.toTime ]]</span>
 
                                     <a href="javascript:void(0);" class="btn btn-secondary btn-sm" id="show-modal" @click="openDetailPanel(event.details.id)">More Details</a>
                             </div>
@@ -86,7 +91,10 @@
                                     :src="'https://www.youtube.com/embed/' + eventDetails.video.data.id"
                                     frameborder="0"></iframe>
                         </div>
-                        <div v-else id="image-gallery" v-for="image in eventDetails.images" class="col-sm-6 col-md-4">
+                        <div v-else id="image" class="col-md-8 mx-auto">
+                            <img :src="eventDetails.mainImage">
+                        </div>
+                        <div id="image-gallery" v-for="image in eventDetails.images" class="col-sm-6 col-md-4">
                             <img contain width="350" height="235" class="img-fluid w-100 img-thumbnail" alt="" title="" :src="'https://dev-demo-data-cfasching.elements.zone/' + image.image.fullpath">
                         </div>
                     </div>

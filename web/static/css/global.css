@@ -1446,11 +1446,6 @@ section img {
     z-index: 1;
 }
 
-#vueapp img {
-    display: block;
-    height: 235px !important;
-}
-
 #vueapp h3 {
     line-height: 1;
     margin-top: .5em;

@@ -20,11 +20,9 @@ query getEventListing($queryFilter: String) {
         locationAddress
         fromDate
         toDate
-        images {
-          image {
-            fullpath
-          }
-        }
+        fromTime
+        toTime
+        mainImage
         tags
       }
     }
@@ -41,11 +39,9 @@ query getEventDetails($id: Int!) {
       locationAddress
       fromDate
       toDate
-      images {
-        image {
-          fullpath
-        }
-      }
+      fromTime
+      toTime
+      mainImage
       video {
           type
           data {

@@ -5580,6 +5580,603 @@ return [
 
                 ]
             ]
+        ],
+        "events" => [
+            "general" => [
+                "active" => TRUE,
+                "type" => "graphql",
+                "name" => "events",
+                "description" => "",
+                "sqlObjectCondition" => "",
+                "path" => NULL
+            ],
+            "schema" => [
+                "queryEntities" => [
+                    "Event" => [
+                        "id" => "Event",
+                        "name" => "Event",
+                        "columnConfig" => [
+                            "columns" => [
+                                [
+                                    "attributes" => [
+                                        "attribute" => "title",
+                                        "label" => "title",
+                                        "dataType" => "input",
+                                        "layout" => [
+                                            "fieldtype" => "input",
+                                            "width" => 540,
+                                            "queryColumnType" => "varchar",
+                                            "columnType" => "varchar",
+                                            "columnLength" => 255,
+                                            "phpdocType" => "string",
+                                            "regex" => "",
+                                            "unique" => FALSE,
+                                            "showCharCount" => FALSE,
+                                            "name" => "title",
+                                            "title" => "title",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => TRUE,
+                                            "visibleSearch" => TRUE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "description",
+                                        "label" => "Description",
+                                        "dataType" => "wysiwyg",
+                                        "layout" => [
+                                            "fieldtype" => "wysiwyg",
+                                            "width" => 640,
+                                            "height" => 250,
+                                            "queryColumnType" => "longtext",
+                                            "columnType" => "longtext",
+                                            "phpdocType" => "string",
+                                            "toolbarConfig" => "",
+                                            "excludeFromSearchIndex" => FALSE,
+                                            "name" => "description",
+                                            "title" => "Description",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => TRUE,
+                                            "visibleSearch" => TRUE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "locationAddress",
+                                        "label" => "Location Address",
+                                        "dataType" => "textarea",
+                                        "layout" => [
+                                            "fieldtype" => "textarea",
+                                            "width" => 550,
+                                            "height" => 100,
+                                            "maxLength" => NULL,
+                                            "showCharCount" => FALSE,
+                                            "excludeFromSearchIndex" => FALSE,
+                                            "queryColumnType" => "longtext",
+                                            "columnType" => "longtext",
+                                            "phpdocType" => "string",
+                                            "name" => "locationAddress",
+                                            "title" => "Location Address",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "locationMap",
+                                        "label" => "Location Map",
+                                        "dataType" => "geopoint",
+                                        "layout" => [
+                                            "fieldtype" => "geopoint",
+                                            "queryColumnType" => [
+                                                "longitude" => "double",
+                                                "latitude" => "double"
+                                            ],
+                                            "columnType" => [
+                                                "longitude" => "double",
+                                                "latitude" => "double"
+                                            ],
+                                            "phpdocType" => "\\Pimcore\\Model\\DataObject\\Data\\Geopoint",
+                                            "lat" => 0,
+                                            "lng" => 0,
+                                            "zoom" => 1,
+                                            "mapType" => "roadmap",
+                                            "name" => "locationMap",
+                                            "title" => "Location Map",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "isOperator" => TRUE,
+                                    "attributes" => [
+                                        "label" => "FromDate",
+                                        "type" => "operator",
+                                        "class" => "DateFormatter",
+                                        "format" => "D, M d Y",
+                                        "childs" => [
+                                            [
+                                                "isOperator" => FALSE,
+                                                "attributes" => [
+                                                    "label" => "Start (fromDate)",
+                                                    "type" => "value",
+                                                    "class" => "DefaultValue",
+                                                    "attribute" => "fromDate",
+                                                    "dataType" => "datetime",
+                                                    "childs" => [
+
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ],
+                                    "key" => "#5d7bc456c5efa"
+                                ],
+                                [
+                                    "isOperator" => TRUE,
+                                    "attributes" => [
+                                        "label" => "ToDate",
+                                        "type" => "operator",
+                                        "class" => "DateFormatter",
+                                        "format" => "D, M d Y",
+                                        "childs" => [
+                                            [
+                                                "isOperator" => FALSE,
+                                                "attributes" => [
+                                                    "label" => "End (toDate)",
+                                                    "type" => "value",
+                                                    "class" => "DefaultValue",
+                                                    "attribute" => "toDate",
+                                                    "dataType" => "datetime",
+                                                    "childs" => [
+
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ],
+                                    "key" => "#5d7bc456c5efd"
+                                ],
+                                [
+                                    "isOperator" => TRUE,
+                                    "attributes" => [
+                                        "label" => "FromTime",
+                                        "type" => "operator",
+                                        "class" => "DateFormatter",
+                                        "format" => "h:i A",
+                                        "childs" => [
+                                            [
+                                                "isOperator" => FALSE,
+                                                "attributes" => [
+                                                    "label" => "Start (fromDate)",
+                                                    "type" => "value",
+                                                    "class" => "DefaultValue",
+                                                    "attribute" => "fromDate",
+                                                    "dataType" => "datetime",
+                                                    "childs" => [
+
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ],
+                                    "key" => "#5d7bc456c5efe"
+                                ],
+                                [
+                                    "isOperator" => TRUE,
+                                    "attributes" => [
+                                        "label" => "ToTime",
+                                        "type" => "operator",
+                                        "class" => "DateFormatter",
+                                        "format" => "h:i A",
+                                        "childs" => [
+                                            [
+                                                "isOperator" => FALSE,
+                                                "attributes" => [
+                                                    "label" => "End (toDate)",
+                                                    "type" => "value",
+                                                    "class" => "DefaultValue",
+                                                    "attribute" => "toDate",
+                                                    "dataType" => "datetime",
+                                                    "childs" => [
+
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ],
+                                    "key" => "#5d7bc456c5f00"
+                                ],
+                                [
+                                    "isOperator" => TRUE,
+                                    "attributes" => [
+                                        "label" => "mainImage",
+                                        "type" => "operator",
+                                        "class" => "Thumbnail",
+                                        "thumbnailConfig" => "group_eventHeader",
+                                        "childs" => [
+                                            [
+                                                "isOperator" => FALSE,
+                                                "attributes" => [
+                                                    "label" => "Image (mainImage)",
+                                                    "type" => "value",
+                                                    "class" => "DefaultValue",
+                                                    "attribute" => "mainImage",
+                                                    "dataType" => "image",
+                                                    "childs" => [
+
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ],
+                                    "key" => "#5d7bc456c5f01"
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "video",
+                                        "label" => "Video",
+                                        "dataType" => "video",
+                                        "layout" => [
+                                            "fieldtype" => "video",
+                                            "width" => 500,
+                                            "height" => 350,
+                                            "queryColumnType" => "text",
+                                            "columnType" => "text",
+                                            "phpdocType" => "\\Pimcore\\Model\\DataObject\\Data\\Video",
+                                            "name" => "video",
+                                            "title" => "Video",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "images",
+                                        "label" => "Additional Images",
+                                        "dataType" => "imageGallery",
+                                        "layout" => [
+                                            "fieldtype" => "imageGallery",
+                                            "queryColumnType" => [
+                                                "images" => "text",
+                                                "hotspots" => "text"
+                                            ],
+                                            "columnType" => [
+                                                "images" => "text",
+                                                "hotspots" => "text"
+                                            ],
+                                            "phpdocType" => "\\Pimcore\\Model\\DataObject\\Data\\ImageGallery",
+                                            "width" => 300,
+                                            "height" => 200,
+                                            "uploadPath" => "",
+                                            "ratioX" => NULL,
+                                            "ratioY" => NULL,
+                                            "predefinedDataTemplates" => "",
+                                            "name" => "images",
+                                            "title" => "Additional Images",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "tags",
+                                        "label" => "Tags",
+                                        "dataType" => "multiselect",
+                                        "layout" => [
+                                            "fieldtype" => "multiselect",
+                                            "options" => [
+                                                [
+                                                    "key" => "1960",
+                                                    "value" => "1960"
+                                                ],
+                                                [
+                                                    "key" => "BMW Group",
+                                                    "value" => "BMW Group"
+                                                ],
+                                                [
+                                                    "key" => "Vintage",
+                                                    "value" => "Vintage"
+                                                ],
+                                                [
+                                                    "key" => "Ferrari",
+                                                    "value" => "Ferrari"
+                                                ]
+                                            ],
+                                            "width" => 500,
+                                            "height" => "",
+                                            "maxItems" => "",
+                                            "renderType" => "tags",
+                                            "optionsProviderClass" => "",
+                                            "optionsProviderData" => "",
+                                            "queryColumnType" => "text",
+                                            "columnType" => "text",
+                                            "phpdocType" => "array",
+                                            "dynamicOptions" => FALSE,
+                                            "name" => "tags",
+                                            "title" => "Tags",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "margin-left:50px",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "contactName",
+                                        "label" => "Name",
+                                        "dataType" => "input",
+                                        "layout" => [
+                                            "fieldtype" => "input",
+                                            "width" => 250,
+                                            "queryColumnType" => "varchar",
+                                            "columnType" => "varchar",
+                                            "columnLength" => 255,
+                                            "phpdocType" => "string",
+                                            "regex" => "",
+                                            "unique" => FALSE,
+                                            "showCharCount" => FALSE,
+                                            "name" => "contactName",
+                                            "title" => "Name",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => TRUE,
+                                            "visibleSearch" => TRUE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "contactPhone",
+                                        "label" => "Phone",
+                                        "dataType" => "input",
+                                        "layout" => [
+                                            "fieldtype" => "input",
+                                            "width" => 250,
+                                            "queryColumnType" => "varchar",
+                                            "columnType" => "varchar",
+                                            "columnLength" => 190,
+                                            "phpdocType" => "string",
+                                            "regex" => "",
+                                            "unique" => FALSE,
+                                            "showCharCount" => FALSE,
+                                            "name" => "contactPhone",
+                                            "title" => "Phone",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => TRUE,
+                                            "visibleSearch" => TRUE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "contactEmail",
+                                        "label" => "Email",
+                                        "dataType" => "input",
+                                        "layout" => [
+                                            "fieldtype" => "input",
+                                            "width" => 350,
+                                            "queryColumnType" => "varchar",
+                                            "columnType" => "varchar",
+                                            "columnLength" => 190,
+                                            "phpdocType" => "string",
+                                            "regex" => "",
+                                            "unique" => FALSE,
+                                            "showCharCount" => FALSE,
+                                            "name" => "contactEmail",
+                                            "title" => "Email",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "contactAddress",
+                                        "label" => "Address",
+                                        "dataType" => "textarea",
+                                        "layout" => [
+                                            "fieldtype" => "textarea",
+                                            "width" => 550,
+                                            "height" => 100,
+                                            "maxLength" => NULL,
+                                            "showCharCount" => FALSE,
+                                            "excludeFromSearchIndex" => FALSE,
+                                            "queryColumnType" => "longtext",
+                                            "columnType" => "longtext",
+                                            "phpdocType" => "string",
+                                            "name" => "contactAddress",
+                                            "title" => "Address",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "isOperator" => TRUE,
+                                    "attributes" => [
+                                        "label" => "this is a text",
+                                        "type" => "operator",
+                                        "class" => "Text",
+                                        "textValue" => "this is a text",
+                                        "childs" => [
+
+                                        ]
+                                    ],
+                                    "key" => "#5d7bc456c5f03"
+                                ]
+                            ]
+                        ]
+                    ]
+                ],
+                "mutationEntities" => [
+
+                ],
+                "specialEntities" => [
+                    "asset" => [
+                        "id" => "asset",
+                        "read" => FALSE
+                    ],
+                    "asset_folder" => [
+                        "id" => "asset_folder",
+                        "read" => FALSE
+                    ],
+                    "object_folder" => [
+                        "id" => "object_folder",
+                        "read" => FALSE
+                    ],
+                    "document" => [
+                        "id" => "document"
+                    ]
+                ]
+            ],
+            "security" => [
+                "method" => "datahub_apikey",
+                "apikey" => "8e0935fe948ccf727342e86015c00834"
+            ],
+            "workspaces" => [
+                "asset" => [
+                    [
+                        "read" => TRUE,
+                        "cpath" => "/",
+                        "create" => FALSE,
+                        "update" => FALSE,
+                        "delete" => FALSE,
+                        "id" => "extModel1362-1"
+                    ]
+                ],
+                "object" => [
+                    [
+                        "read" => TRUE,
+                        "cpath" => "/Events",
+                        "create" => FALSE,
+                        "update" => FALSE,
+                        "delete" => FALSE,
+                        "id" => "extModel1393-1"
+                    ]
+                ]
+            ]
         ]
     ]
 ];
