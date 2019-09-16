@@ -1353,6 +1353,16 @@ CREATE TABLE `object_localized_data_NE` (
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+DROP TABLE IF EXISTS `object_localized_data_EV`;
+CREATE TABLE `object_localized_data_EV` (
+  `ooo_id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `ooo_id` (`ooo_id`),
+  KEY `language` (`language`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `object_localized_query_AP_de`;
@@ -1945,6 +1955,28 @@ CREATE TABLE `object_query_EF_OTOI` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+DROP TABLE IF EXISTS `object_query_EV`;
+CREATE TABLE `object_query_EV` (
+  `oo_id` int(11) NOT NULL DEFAULT '0',
+  `oo_classId` varchar(50) DEFAULT 'EV',
+  `oo_className` varchar(255) DEFAULT 'Event',
+  `locationAddress` longtext,
+  `locationMap__longitude` double DEFAULT NULL,
+  `locationMap__latitude` double DEFAULT NULL,
+  `images__images` text,
+  `images__hotspots` text,
+  `video` text,
+  `tags` text,
+  `contactName` varchar(255) DEFAULT NULL,
+  `contactPhone` varchar(190) DEFAULT NULL,
+  `contactEmail` varchar(190) DEFAULT NULL,
+  `contactAddress` longtext,
+  `fromDate` bigint(20) DEFAULT NULL,
+  `toDate` bigint(20) DEFAULT NULL,
+  `mainImage` int(11) DEFAULT NULL,
+  PRIMARY KEY (`oo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 DROP TABLE IF EXISTS `object_query_MA`;
 CREATE TABLE `object_query_MA` (
@@ -2406,7 +2438,26 @@ CREATE TABLE `object_relations_EF_OTOI` (
   KEY `ownername` (`ownername`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
+DROP TABLE IF EXISTS `object_relations_EV`;
+CREATE TABLE `object_relations_EV` (
+  `src_id` int(11) NOT NULL DEFAULT '0',
+  `dest_id` int(11) NOT NULL DEFAULT '0',
+  `type` varchar(50) NOT NULL DEFAULT '',
+  `fieldname` varchar(70) NOT NULL DEFAULT '0',
+  `index` int(11) unsigned NOT NULL DEFAULT '0',
+  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
+  `ownername` varchar(70) NOT NULL DEFAULT '',
+  `position` varchar(70) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
+  KEY `index` (`index`),
+  KEY `src_id` (`src_id`),
+  KEY `dest_id` (`dest_id`),
+  KEY `fieldname` (`fieldname`),
+  KEY `position` (`position`),
+  KEY `ownertype` (`ownertype`),
+  KEY `type` (`type`),
+  KEY `ownername` (`ownername`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `object_relations_MA`;
 CREATE TABLE `object_relations_MA` (
@@ -2743,6 +2794,27 @@ CREATE TABLE `object_store_EF_OTOI` (
   `finalTotalPrice` decimal(19,4) DEFAULT NULL,
   `comment` longtext,
   `cartItemKey` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`oo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+DROP TABLE IF EXISTS `object_store_EV`;
+CREATE TABLE `object_store_EV` (
+  `oo_id` int(11) NOT NULL DEFAULT '0',
+  `locationAddress` longtext,
+  `locationMap__longitude` double DEFAULT NULL,
+  `locationMap__latitude` double DEFAULT NULL,
+  `images__images` text,
+  `images__hotspots` text,
+  `video` text,
+  `tags` text,
+  `contactName` varchar(255) DEFAULT NULL,
+  `contactPhone` varchar(190) DEFAULT NULL,
+  `contactEmail` varchar(190) DEFAULT NULL,
+  `contactAddress` longtext,
+  `fromDate` bigint(20) DEFAULT NULL,
+  `toDate` bigint(20) DEFAULT NULL,
+  `mainImage` int(11) DEFAULT NULL,
   PRIMARY KEY (`oo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

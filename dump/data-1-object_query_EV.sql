@@ -1,0 +1,10 @@
+SET NAMES utf8mb4;
+
+INSERT INTO `object_query_EV` (`oo_id`, `oo_classId`, `oo_className`, `locationAddress`, `locationMap__longitude`, `locationMap__latitude`, `images__images`, `images__hotspots`, `video`, `tags`, `contactName`, `contactPhone`, `contactEmail`, `contactAddress`, `fromDate`, `toDate`, `mainImage`) VALUES
+(1130,	'EV',	'Event',	'Messezentrum Salzburg GmbH, Salzburg, Austria',	13.029676192221,	47.8235801,	'',	'a:0:{}',	NULL,	',Retro,1970,Salzburg,',	'John Doe',	'+43-6776-000000',	'john.doe@mail.com',	NULL,	1569740400,	1569859200,	401),
+(1131,	'EV',	'Event',	'Messezentrum Salzburg GmbH, Salzburg, Austria',	13.029676192221,	47.8235801,	'',	'a:0:{}',	NULL,	',Trade Show,1950,Salzburg,',	'John Doe',	'+43-6776-000000',	'john.doe@mail.com',	NULL,	1569481200,	1585328400,	402),
+(1132,	'EV',	'Event',	'Messe Wels GmbH, Wels, Austria',	14.0183948,	48.1523808,	'',	'a:0:{}',	NULL,	',Retro,Wels,',	'John Doe',	'+43-6776-000000',	'john.doe@mail.com',	NULL,	1570255200,	1570374000,	403),
+(1133,	'EV',	'Event',	'Reed Messe Wien, Vienna, Austria',	16.409917497177,	48.215057,	'',	'a:0:{}',	'a:8:{s:4:\"type\";s:7:\"youtube\";s:4:\"data\";s:11:\"HjFbyUVehR0\";s:6:\"poster\";s:0:\"\";s:5:\"title\";s:0:\"\";s:11:\"description\";s:0:\"\";s:6:\"_owner\";N;s:10:\"_fieldname\";s:0:\"\";s:9:\"_language\";N;}',	',Retro,Trade Show,Vienna,',	'John Doe',	'+43-6776-000000',	'john.doe@mail.com',	NULL,	1569394800,	1569699000,	404),
+(1135,	'EV',	'Event',	'Congress Center Messe Frankfurt, Frankfurt, Germany',	8.6479316880145,	50.1115525,	'',	'a:0:{}',	NULL,	',Retro,Trade Show,International,',	'John Doe',	'+43-6776-000000',	'john.doe@mail.com',	NULL,	1569650400,	1569855600,	406),
+(1136,	'EV',	'Event',	'Tyrol, South Tyrol, Graubünden, Austria.',	11.22963726417,	46.65594215,	'',	'a:0:{}',	NULL,	',Trade Show,Retro,1960,',	'John Doe',	'+43-6776-000000',	'john.doe@mail.com',	NULL,	1569916800,	1570024800,	407),
+(1137,	'EV',	'Event',	'Messe Erfurt GmbH, Erfurt, Germany',	10.9900029,	50.9603668,	'',	'a:0:{}',	NULL,	',1970,Trade Show,International,',	'John Doe',	'+43-6776-000000',	'john.doe@mail.com',	NULL,	1569402000,	1569693600,	408);
