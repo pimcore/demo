@@ -1576,9 +1576,3 @@ INSERT INTO assets_metadata (`cid`,`name`,`language`,`type`,`data`) VALUES ('388
 INSERT INTO assets_metadata (`cid`,`name`,`language`,`type`,`data`) VALUES ('393','alt','','input','https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/240px-BMW.svg.png');
 INSERT INTO assets_metadata (`cid`,`name`,`language`,`type`,`data`) VALUES ('393','copyright','','input','Logo of BMW');
 INSERT INTO assets_metadata (`cid`,`name`,`language`,`type`,`data`) VALUES ('393','title','','input','BMW');
-INSERT INTO assets_metadata (`cid`,`language`,`name`,`type`,`data`) VALUES ('401','','author','input','Vincent Ciro from Pixabay');
-INSERT INTO assets_metadata (`cid`,`language`,`name`,`type`,`data`) VALUES ('401','','authorLink','input','https://pixabay.com/users/vinnyciro-219264/');
-INSERT INTO assets_metadata (`cid`,`language`,`name`,`type`,`data`) VALUES ('401','','source','input','https://pixabay.com/images/id-581066/');
-INSERT INTO assets_metadata (`cid`,`language`,`name`,`type`,`data`) VALUES ('402','','author','input','Ben Scherjon from Pixabay');
-INSERT INTO assets_metadata (`cid`,`language`,`name`,`type`,`data`) VALUES ('402','','authorLink','input','https://pixabay.com/users/onzecreativitijd-594000/');
-INSERT INTO assets_metadata (`cid`,`language`,`name`,`type`,`data`) VALUES ('402','','source','input','https://pixabay.com/images/id-770407/');
