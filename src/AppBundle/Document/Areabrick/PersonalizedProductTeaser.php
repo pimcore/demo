@@ -80,49 +80,18 @@ class PersonalizedProductTeaser extends AbstractAreabrick
             return;
         }
 
-        $allowedSegmentGroups = [SegmentGetter::SEGMENT_GROUP_CAR_CLASS, SegmentGetter::SEGMENT_GROUP_MANUFACTURER];
-        $trackedSegments = $this->segmentTracker->getAssignments($this->visitorInfoStorage->getVisitorInfo());
-
         //get relevant segments for filtering
-        $segmentCollection = [];
-        foreach ($trackedSegments as $segmentId => $count) {
-            $segment = $this->segmentManager->getSegmentById($segmentId);
-            if ($segment) {
-                $reference = $segment->getGroup()->getReference();
-                if (in_array($reference, $allowedSegmentGroups)) {
-                    $segmentCollection[$reference][] = [
-                        'segment' => $segment,
-                        'count' => $count
-                    ];
-                }
-            }
-        }
+        $allowedSegmentGroups = [SegmentGetter::SEGMENT_GROUP_CAR_CLASS, SegmentGetter::SEGMENT_GROUP_MANUFACTURER];
+        $segmentCollection = $this->segmentTracker->getFilteredAssignments($this->visitorInfoStorage->getVisitorInfo(), $allowedSegmentGroups, 2);
 
-        if (!$segmentCollection) {
+        if(empty($segmentCollection)) {
             return;
-        }
-
-        //order segments by count, pick 2 top segments
-        foreach ($allowedSegmentGroups as $group) {
-            $groupCollection = $segmentCollection[$group];
-            if ($groupCollection) {
-                usort($groupCollection, function ($left, $right) {
-                    if ($left['count'] === $right['count']) {
-                        return 0;
-                    }
-
-                    return ($left['count'] < $right['count']) ? 1 : -1;
-                });
-
-                $segmentCollection[$group] = array_slice($groupCollection, 0, 2);
-            }
         }
 
         //build filter list
         $productList = $this->ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
-        foreach ($allowedSegmentGroups as $group) {
-            $groupCollection = $segmentCollection[$group];
-            if ($groupCollection) {
+        foreach ($segmentCollection as $group => $groupCollection) {
+            if (!empty($groupCollection)) {
                 $values = [];
                 foreach ($groupCollection as $item) {
                     $values[] = intval($item['segment']->getId());
