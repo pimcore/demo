@@ -109,6 +109,12 @@
                             <span class="font-weight-bold">Timings: </span>
                             [[ eventDetails.fromDate | timeFormat ]] - [[ eventDetails.toDate | timeFormat ]]
                         </p>
+                        <p>
+                            <span class="font-weight-bold">Showcasing Cars: </span>
+                            <ul>
+                                <li v-for="car in eventDetails.cars">[[ car.manufacturer.name ]] [[ car.carName ]], [[ car.productionYear ]]</li>
+                        </ul>
+                        </p>
                         <div class="card">
                             <div class="card-header">Organizer:</div>
                             <div class="card-body">

@@ -5734,6 +5734,50 @@ return [
                                     "isOperator" => FALSE
                                 ],
                                 [
+                                    "attributes" => [
+                                        "attribute" => "cars",
+                                        "label" => "Cars",
+                                        "dataType" => "manyToManyObjectRelation",
+                                        "layout" => [
+                                            "fieldtype" => "manyToManyObjectRelation",
+                                            "width" => "",
+                                            "height" => "",
+                                            "maxItems" => "",
+                                            "queryColumnType" => "text",
+                                            "phpdocType" => "array",
+                                            "relationType" => TRUE,
+                                            "visibleFields" => [
+
+                                            ],
+                                            "optimizedAdminLoading" => FALSE,
+                                            "visibleFieldDefinitions" => [
+
+                                            ],
+                                            "lazyLoading" => TRUE,
+                                            "classes" => [
+                                                [
+                                                    "classes" => "Car"
+                                                ]
+                                            ],
+                                            "pathFormatterClass" => "",
+                                            "name" => "cars",
+                                            "title" => "Cars",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
                                     "isOperator" => TRUE,
                                     "attributes" => [
                                         "label" => "FromDate",
@@ -5756,7 +5800,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d7bc456c5efa"
+                                    "key" => "#5d8204ee8b978"
                                 ],
                                 [
                                     "isOperator" => TRUE,
@@ -5781,7 +5825,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d7bc456c5efd"
+                                    "key" => "#5d8204ee8b97a"
                                 ],
                                 [
                                     "isOperator" => TRUE,
@@ -5806,7 +5850,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d7bc456c5efe"
+                                    "key" => "#5d8204ee8b97c"
                                 ],
                                 [
                                     "isOperator" => TRUE,
@@ -5831,7 +5875,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d7bc456c5f00"
+                                    "key" => "#5d8204ee8b97d"
                                 ],
                                 [
                                     "isOperator" => TRUE,
@@ -5856,7 +5900,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d7bc456c5f01"
+                                    "key" => "#5d8204ee8b97e"
                                 ],
                                 [
                                     "attributes" => [
@@ -6112,19 +6156,320 @@ return [
                                         ]
                                     ],
                                     "isOperator" => FALSE
-                                ],
+                                ]
+                            ]
+                        ]
+                    ],
+                    "Car" => [
+                        "id" => "Car",
+                        "name" => "Car",
+                        "columnConfig" => [
+                            "columns" => [
                                 [
-                                    "isOperator" => TRUE,
                                     "attributes" => [
-                                        "label" => "this is a text",
-                                        "type" => "operator",
-                                        "class" => "Text",
-                                        "textValue" => "this is a text",
-                                        "childs" => [
-
+                                        "attribute" => "name",
+                                        "label" => "Name",
+                                        "dataType" => "input",
+                                        "layout" => [
+                                            "fieldtype" => "input",
+                                            "width" => NULL,
+                                            "queryColumnType" => "varchar",
+                                            "columnType" => "varchar",
+                                            "columnLength" => 190,
+                                            "phpdocType" => "string",
+                                            "regex" => "",
+                                            "unique" => FALSE,
+                                            "showCharCount" => FALSE,
+                                            "name" => "name",
+                                            "title" => "Name",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => TRUE,
+                                            "visibleSearch" => TRUE
                                         ]
                                     ],
-                                    "key" => "#5d7bc456c5f03"
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "description",
+                                        "label" => "Description",
+                                        "dataType" => "wysiwyg",
+                                        "layout" => [
+                                            "fieldtype" => "wysiwyg",
+                                            "width" => "",
+                                            "height" => "",
+                                            "queryColumnType" => "longtext",
+                                            "columnType" => "longtext",
+                                            "phpdocType" => "string",
+                                            "toolbarConfig" => "",
+                                            "excludeFromSearchIndex" => FALSE,
+                                            "name" => "description",
+                                            "title" => "Description",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "manufacturer",
+                                        "label" => "Manufacturer",
+                                        "dataType" => "manyToOneRelation",
+                                        "layout" => [
+                                            "fieldtype" => "manyToOneRelation",
+                                            "width" => 400,
+                                            "assetUploadPath" => "",
+                                            "relationType" => TRUE,
+                                            "queryColumnType" => [
+                                                "id" => "int(11)",
+                                                "type" => "enum('document','asset','object')"
+                                            ],
+                                            "phpdocType" => "\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject",
+                                            "objectsAllowed" => TRUE,
+                                            "assetsAllowed" => FALSE,
+                                            "assetTypes" => [
+
+                                            ],
+                                            "documentsAllowed" => FALSE,
+                                            "documentTypes" => [
+
+                                            ],
+                                            "lazyLoading" => TRUE,
+                                            "classes" => [
+                                                [
+                                                    "classes" => "Manufacturer"
+                                                ]
+                                            ],
+                                            "pathFormatterClass" => "",
+                                            "name" => "manufacturer",
+                                            "title" => "Manufacturer",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "carClass",
+                                        "label" => "Class",
+                                        "dataType" => "select",
+                                        "layout" => [
+                                            "fieldtype" => "select",
+                                            "options" => [
+                                                [
+                                                    "key" => "Full-size luxury car",
+                                                    "value" => "Full-size luxury car"
+                                                ],
+                                                [
+                                                    "key" => "Grand tourer",
+                                                    "value" => "Grand tourer"
+                                                ],
+                                                [
+                                                    "key" => "Light commercial vehicle",
+                                                    "value" => "Light commercial vehicle"
+                                                ],
+                                                [
+                                                    "key" => "Muscle Car",
+                                                    "value" => "Muscle Car"
+                                                ],
+                                                [
+                                                    "key" => "City Car",
+                                                    "value" => "City Car"
+                                                ],
+                                                [
+                                                    "key" => "Executive car",
+                                                    "value" => "Executive car"
+                                                ],
+                                                [
+                                                    "key" => "Economy car",
+                                                    "value" => "Economy car"
+                                                ],
+                                                [
+                                                    "key" => "Personal luxury car",
+                                                    "value" => "Personal luxury car"
+                                                ],
+                                                [
+                                                    "key" => "Full-Size",
+                                                    "value" => "Full-Size"
+                                                ],
+                                                [
+                                                    "key" => "Family car",
+                                                    "value" => "Family car"
+                                                ],
+                                                [
+                                                    "key" => "Mid-size luxury",
+                                                    "value" => "Mid-size luxury"
+                                                ],
+                                                [
+                                                    "key" => "sports car",
+                                                    "value" => "sports car"
+                                                ]
+                                            ],
+                                            "width" => 300,
+                                            "defaultValue" => "",
+                                            "optionsProviderClass" => "",
+                                            "optionsProviderData" => "",
+                                            "queryColumnType" => "varchar",
+                                            "columnType" => "varchar",
+                                            "columnLength" => 190,
+                                            "phpdocType" => "string",
+                                            "dynamicOptions" => FALSE,
+                                            "name" => "carClass",
+                                            "title" => "Class",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "productionYear",
+                                        "label" => "Production Year",
+                                        "dataType" => "numeric",
+                                        "layout" => [
+                                            "fieldtype" => "numeric",
+                                            "width" => 300,
+                                            "defaultValue" => NULL,
+                                            "queryColumnType" => "double",
+                                            "columnType" => "double",
+                                            "phpdocType" => "float",
+                                            "integer" => TRUE,
+                                            "unsigned" => TRUE,
+                                            "minValue" => NULL,
+                                            "maxValue" => NULL,
+                                            "unique" => FALSE,
+                                            "decimalSize" => NULL,
+                                            "decimalPrecision" => NULL,
+                                            "name" => "productionYear",
+                                            "title" => "Production Year",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ]
+                            ]
+                        ]
+                    ],
+                    "Manufacturer" => [
+                        "id" => "Manufacturer",
+                        "name" => "Manufacturer",
+                        "columnConfig" => [
+                            "columns" => [
+                                [
+                                    "attributes" => [
+                                        "attribute" => "name",
+                                        "label" => "Name",
+                                        "dataType" => "input",
+                                        "layout" => [
+                                            "fieldtype" => "input",
+                                            "width" => 400,
+                                            "queryColumnType" => "varchar",
+                                            "columnType" => "varchar",
+                                            "columnLength" => 190,
+                                            "phpdocType" => "string",
+                                            "regex" => "",
+                                            "unique" => FALSE,
+                                            "showCharCount" => FALSE,
+                                            "name" => "name",
+                                            "title" => "Name",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => TRUE,
+                                            "visibleSearch" => TRUE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
+                                ],
+                                [
+                                    "attributes" => [
+                                        "attribute" => "logo",
+                                        "label" => "Logo",
+                                        "dataType" => "image",
+                                        "layout" => [
+                                            "fieldtype" => "image",
+                                            "width" => 500,
+                                            "height" => "",
+                                            "uploadPath" => "",
+                                            "queryColumnType" => "int(11)",
+                                            "columnType" => "int(11)",
+                                            "phpdocType" => "\\Pimcore\\Model\\Asset\\Image",
+                                            "name" => "logo",
+                                            "title" => "Logo",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
+                                        ]
+                                    ],
+                                    "isOperator" => FALSE
                                 ]
                             ]
                         ]
@@ -6136,11 +6481,11 @@ return [
                 "specialEntities" => [
                     "asset" => [
                         "id" => "asset",
-                        "read" => FALSE
+                        "read" => TRUE
                     ],
                     "asset_folder" => [
                         "id" => "asset_folder",
-                        "read" => FALSE
+                        "read" => TRUE
                     ],
                     "object_folder" => [
                         "id" => "object_folder",
@@ -6156,10 +6501,13 @@ return [
                 "apikey" => "8e0935fe948ccf727342e86015c00834"
             ],
             "workspaces" => [
+                "document" => [
+
+                ],
                 "asset" => [
                     [
                         "read" => TRUE,
-                        "cpath" => "/",
+                        "cpath" => "/Sample Content/Event images",
                         "create" => FALSE,
                         "update" => FALSE,
                         "delete" => FALSE,
@@ -6169,11 +6517,27 @@ return [
                 "object" => [
                     [
                         "read" => TRUE,
+                        "cpath" => "/Product Data/Manufacturer",
+                        "create" => FALSE,
+                        "update" => FALSE,
+                        "delete" => FALSE,
+                        "id" => "extModel1448-2"
+                    ],
+                    [
+                        "read" => TRUE,
+                        "cpath" => "/Product Data/Cars",
+                        "create" => FALSE,
+                        "update" => FALSE,
+                        "delete" => FALSE,
+                        "id" => "extModel1448-1"
+                    ],
+                    [
+                        "read" => TRUE,
                         "cpath" => "/Events",
                         "create" => FALSE,
                         "update" => FALSE,
                         "delete" => FALSE,
-                        "id" => "extModel1393-1"
+                        "id" => "extModel3397-1"
                     ]
                 ]
             ]

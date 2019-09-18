@@ -33,28 +33,39 @@ query getEventListing($queryFilter: String) {
 const GET_EVENT_DETAILS = Apollo.gql `
 query getEventDetails($id: Int!) {
   eventDetails: getEvent(id: $id) {
-      id
-      title
-      description
-      locationAddress
-      fromDate
-      toDate
-      fromTime
-      toTime
-      mainImage
-      video {
-          type
-          data {
-            ... on VideoDataDescriptor {
-              id
-            }
-          }
+    id
+    title
+    description
+    locationAddress
+    fromDate
+    toDate
+    fromTime
+    toTime
+    mainImage
+    video {
+      type
+      data {
+        ... on VideoDataDescriptor {
+          id
+        }
       }
-      contactName
-      contactPhone
-      contactEmail
-      contactAddress
     }
+    contactName
+    contactPhone
+    contactEmail
+    contactAddress
+    cars {
+      ... on object_Car {
+        manufacturer {
+          ... on object_Manufacturer {
+            name
+          }
+        }
+        carName: name
+        productionYear
+      }
+    }
+  }
 }
 `;
 

@@ -1,10 +1,10 @@
 <?php 
 
 /** 
-* Generated at: 2019-09-13T18:35:20+02:00
+* Generated at: 2019-09-18T12:17:25+02:00
 * Inheritance: no
 * Variants: no
-* Changed by: admin (2)
+* Changed by: admin (1)
 * IP: 192.168.9.64
 
 
@@ -17,6 +17,7 @@ Fields Summary:
 - locationMap [geopoint]
 - fromDate [datetime]
 - toDate [datetime]
+- cars [manyToManyObjectRelation]
 - mainImage [image]
 - video [video]
 - images [imageGallery]
@@ -32,9 +33,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Event',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1568392520,
+   'modificationDate' => 1568801845,
    'userOwner' => 2,
-   'userModification' => 2,
+   'userModification' => 1,
    'parentClass' => '',
    'listingParentClass' => '',
    'useTraits' => '',
@@ -286,7 +287,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
                      'fieldtype' => 'textarea',
                      'width' => 550,
-                     'height' => 100,
+                     'height' => 70,
                      'maxLength' => NULL,
                      'showCharCount' => false,
                      'excludeFromSearchIndex' => false,
@@ -443,6 +444,68 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'layout' => NULL,
              'border' => false,
              'icon' => '',
+             'name' => 'Cars',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Cars',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'childs' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                 'fieldtype' => 'manyToManyObjectRelation',
+                 'width' => '',
+                 'height' => '',
+                 'maxItems' => '',
+                 'queryColumnType' => 'text',
+                 'phpdocType' => 'array',
+                 'relationType' => true,
+                 'visibleFields' => 
+                array (
+                ),
+                 'optimizedAdminLoading' => false,
+                 'visibleFieldDefinitions' => 
+                array (
+                ),
+                 'lazyLoading' => true,
+                 'classes' => 
+                array (
+                  0 => 
+                  array (
+                    'classes' => 'Car',
+                  ),
+                ),
+                 'pathFormatterClass' => '',
+                 'name' => 'cars',
+                 'title' => 'Cars',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+              )),
+            ),
+             'locked' => false,
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 100,
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
              'name' => 'Media',
              'type' => NULL,
              'region' => NULL,
@@ -586,7 +649,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             ),
              'locked' => false,
           )),
-          2 => 
+          3 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
              'labelWidth' => 100,
