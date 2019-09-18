@@ -12,7 +12,7 @@ CREATE TABLE `bundle_outputdataconfigtoolkit_outputdefinition` (
   `configuration` longtext CHARACTER SET latin1,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Unique` (`o_id`,`o_classId`,`channel`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
 
@@ -1342,6 +1342,19 @@ CREATE TABLE `object_localized_data_CAR` (
 
 
 
+DROP TABLE IF EXISTS `object_localized_data_EV`;
+CREATE TABLE `object_localized_data_EV` (
+  `ooo_id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `ooo_id` (`ooo_id`),
+  KEY `language` (`language`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 DROP TABLE IF EXISTS `object_localized_data_NE`;
 CREATE TABLE `object_localized_data_NE` (
   `ooo_id` int(11) NOT NULL DEFAULT '0',
@@ -1504,6 +1517,45 @@ CREATE TABLE `object_localized_query_CA_fr` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `ooo_id` (`ooo_id`),
+  KEY `language` (`language`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `object_localized_query_EV_de`;
+CREATE TABLE `object_localized_query_EV_de` (
+  `ooo_id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `ooo_id` (`ooo_id`),
+  KEY `language` (`language`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `object_localized_query_EV_en`;
+CREATE TABLE `object_localized_query_EV_en` (
+  `ooo_id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `ooo_id` (`ooo_id`),
+  KEY `language` (`language`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `object_localized_query_EV_fr`;
+CREATE TABLE `object_localized_query_EV_fr` (
+  `ooo_id` int(11) NOT NULL DEFAULT '0',
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
   KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
@@ -1941,6 +1993,31 @@ CREATE TABLE `object_query_EF_OTOI` (
   `subItems` text,
   `comment` longtext,
   `cartItemKey` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`oo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `object_query_EV`;
+CREATE TABLE `object_query_EV` (
+  `oo_id` int(11) NOT NULL DEFAULT '0',
+  `oo_classId` varchar(50) DEFAULT 'EV',
+  `oo_className` varchar(255) DEFAULT 'Event',
+  `tags` text,
+  `locationAddress` longtext,
+  `locationMap__longitude` double DEFAULT NULL,
+  `locationMap__latitude` double DEFAULT NULL,
+  `fromDate` bigint(20) DEFAULT NULL,
+  `toDate` bigint(20) DEFAULT NULL,
+  `mainImage` int(11) DEFAULT NULL,
+  `video` text,
+  `images__images` text,
+  `images__hotspots` text,
+  `contactName` varchar(255) DEFAULT NULL,
+  `contactPhone` varchar(190) DEFAULT NULL,
+  `contactEmail` varchar(190) DEFAULT NULL,
+  `contactAddress` longtext,
+  `cars` text,
   PRIMARY KEY (`oo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -2408,6 +2485,29 @@ CREATE TABLE `object_relations_EF_OTOI` (
 
 
 
+DROP TABLE IF EXISTS `object_relations_EV`;
+CREATE TABLE `object_relations_EV` (
+  `src_id` int(11) NOT NULL DEFAULT '0',
+  `dest_id` int(11) NOT NULL DEFAULT '0',
+  `type` varchar(50) NOT NULL DEFAULT '',
+  `fieldname` varchar(70) NOT NULL DEFAULT '0',
+  `index` int(11) unsigned NOT NULL DEFAULT '0',
+  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
+  `ownername` varchar(70) NOT NULL DEFAULT '',
+  `position` varchar(70) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
+  KEY `index` (`index`),
+  KEY `src_id` (`src_id`),
+  KEY `dest_id` (`dest_id`),
+  KEY `fieldname` (`fieldname`),
+  KEY `position` (`position`),
+  KEY `ownertype` (`ownertype`),
+  KEY `type` (`type`),
+  KEY `ownername` (`ownername`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 DROP TABLE IF EXISTS `object_relations_MA`;
 CREATE TABLE `object_relations_MA` (
   `src_id` int(11) NOT NULL DEFAULT '0',
@@ -2748,6 +2848,28 @@ CREATE TABLE `object_store_EF_OTOI` (
 
 
 
+DROP TABLE IF EXISTS `object_store_EV`;
+CREATE TABLE `object_store_EV` (
+  `oo_id` int(11) NOT NULL DEFAULT '0',
+  `tags` text,
+  `locationAddress` longtext,
+  `locationMap__longitude` double DEFAULT NULL,
+  `locationMap__latitude` double DEFAULT NULL,
+  `fromDate` bigint(20) DEFAULT NULL,
+  `toDate` bigint(20) DEFAULT NULL,
+  `mainImage` int(11) DEFAULT NULL,
+  `video` text,
+  `images__images` text,
+  `images__hotspots` text,
+  `contactName` varchar(255) DEFAULT NULL,
+  `contactPhone` varchar(190) DEFAULT NULL,
+  `contactEmail` varchar(190) DEFAULT NULL,
+  `contactAddress` longtext,
+  PRIMARY KEY (`oo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 DROP TABLE IF EXISTS `object_store_MA`;
 CREATE TABLE `object_store_MA` (
   `oo_id` int(11) NOT NULL DEFAULT '0',
@@ -3002,6 +3124,20 @@ CREATE TABLE `plugin_cmf_sequence_numbers` (
 
 DROP TABLE IF EXISTS `plugin_datahub_workspaces_asset`;
 CREATE TABLE `plugin_datahub_workspaces_asset` (
+  `cid` int(11) unsigned NOT NULL DEFAULT '0',
+  `cpath` varchar(765) CHARACTER SET utf8 DEFAULT NULL,
+  `configuration` varchar(50) NOT NULL DEFAULT '0',
+  `create` tinyint(1) unsigned DEFAULT '0',
+  `read` tinyint(1) unsigned DEFAULT '0',
+  `update` tinyint(1) unsigned DEFAULT '0',
+  `delete` tinyint(1) unsigned DEFAULT '0',
+  PRIMARY KEY (`cid`,`configuration`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `plugin_datahub_workspaces_document`;
+CREATE TABLE `plugin_datahub_workspaces_document` (
   `cid` int(11) unsigned NOT NULL DEFAULT '0',
   `cpath` varchar(765) CHARACTER SET utf8 DEFAULT NULL,
   `configuration` varchar(50) NOT NULL DEFAULT '0',

@@ -1015,3 +1015,6 @@ INSERT INTO documents_elements (`documentId`,`name`,`type`,`data`) VALUES ('198'
 INSERT INTO documents_elements (`documentId`,`name`,`type`,`data`) VALUES ('198','content:2.teaserblock:3.productTeaser','renderlet','a:3:{s:2:\"id\";i:98;s:4:\"type\";s:6:\"object\";s:7:\"subtype\";s:6:\"object\";}');
 INSERT INTO documents_elements (`documentId`,`name`,`type`,`data`) VALUES ('198','headline','input','Oooops ...');
 INSERT INTO documents_elements (`documentId`,`name`,`type`,`data`) VALUES ('199','headline','input','TEnant Switches');
+INSERT INTO documents_elements (`documentId`,`name`,`type`,`data`) VALUES ('200','content','areablock','a:1:{i:0;a:3:{s:3:\"key\";s:1:\"1\";s:4:\"type\";s:9:\"headlines\";s:6:\"hidden\";b:0;}}');
+INSERT INTO documents_elements (`documentId`,`name`,`type`,`data`) VALUES ('200','content:1.headline','input','AUTO SHOWS\'19');
+INSERT INTO documents_elements (`documentId`,`name`,`type`,`data`) VALUES ('200','content:1.lead','wysiwyg','<p>This page is based on vuejs+apollo which calls Datahub API to fetch events data from Pimcore.</p>\n');

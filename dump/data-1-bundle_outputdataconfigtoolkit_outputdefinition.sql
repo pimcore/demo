@@ -85,3 +85,5 @@ INSERT INTO bundle_outputdataconfigtoolkit_outputdefinition (`id`,`o_id`,`o_clas
 INSERT INTO bundle_outputdataconfigtoolkit_outputdefinition (`id`,`o_id`,`o_classId`,`channel`,`configuration`) VALUES ('82','1','MA','channel-website',NULL);
 INSERT INTO bundle_outputdataconfigtoolkit_outputdefinition (`id`,`o_id`,`o_classId`,`channel`,`configuration`) VALUES ('83','1','NE','channel-marketplace',NULL);
 INSERT INTO bundle_outputdataconfigtoolkit_outputdefinition (`id`,`o_id`,`o_classId`,`channel`,`configuration`) VALUES ('84','1','NE','channel-website',NULL);
+INSERT INTO bundle_outputdataconfigtoolkit_outputdefinition (`id`,`o_id`,`o_classId`,`channel`,`configuration`) VALUES ('85','1','EV','channel-marketplace',NULL);
+INSERT INTO bundle_outputdataconfigtoolkit_outputdefinition (`id`,`o_id`,`o_classId`,`channel`,`configuration`) VALUES ('86','1','EV','channel-website',NULL);

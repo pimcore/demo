@@ -510,3 +510,4 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('199','document','/en/More-Stuff/Developers-Corner/Tenant-Switch','navigation_title','text','','0');
+INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('200','document','/en/Events','navigation_name','text','Events','0');
