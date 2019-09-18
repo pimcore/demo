@@ -38,10 +38,10 @@ pimcore:
         disable_tree_preview: false
     services:
         google:
-            client_id: ''
-            email: ''
-            simple_api_key: ''
-            browser_api_key: ''
+            client_id: 73893596983.apps.googleusercontent.com
+            email: 73893596983@developer.gserviceaccount.com
+            simple_api_key: AIzaSyCo9Wj49hYJWW2WgOju4iMYNTvdcBxmyQ8
+            browser_api_key: AIzaSyBJX16kWAmUVEz1c1amzp2iKqAfumbcoQQ
     cache:
         enabled: false
         lifetime: null
