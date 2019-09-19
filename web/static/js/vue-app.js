@@ -22,7 +22,9 @@ query getEventListing($queryFilter: String) {
         toDate
         fromTime
         toTime
-        mainImage
+        mainImage {
+          fullpath(thumbnail: "events_list")
+        }
         tags
       }
     }
@@ -41,7 +43,9 @@ query getEventDetails($id: Int!) {
     toDate
     fromTime
     toTime
-    mainImage
+    mainImage {
+      fullpath(thumbnail: "events_header")
+    }
     video {
       type
       data {

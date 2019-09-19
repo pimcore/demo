@@ -5800,7 +5800,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d8204ee8b978"
+                                    "key" => "#5d83518861112"
                                 ],
                                 [
                                     "isOperator" => TRUE,
@@ -5825,7 +5825,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d8204ee8b97a"
+                                    "key" => "#5d83518861115"
                                 ],
                                 [
                                     "isOperator" => TRUE,
@@ -5850,7 +5850,7 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d8204ee8b97c"
+                                    "key" => "#5d83518861116"
                                 ],
                                 [
                                     "isOperator" => TRUE,
@@ -5875,32 +5875,38 @@ return [
                                             ]
                                         ]
                                     ],
-                                    "key" => "#5d8204ee8b97d"
+                                    "key" => "#5d83518861117"
                                 ],
                                 [
-                                    "isOperator" => TRUE,
                                     "attributes" => [
-                                        "label" => "mainImage",
-                                        "type" => "operator",
-                                        "class" => "Thumbnail",
-                                        "thumbnailConfig" => "group_eventHeader",
-                                        "childs" => [
-                                            [
-                                                "isOperator" => FALSE,
-                                                "attributes" => [
-                                                    "label" => "Image (mainImage)",
-                                                    "type" => "value",
-                                                    "class" => "DefaultValue",
-                                                    "attribute" => "mainImage",
-                                                    "dataType" => "image",
-                                                    "childs" => [
-
-                                                    ]
-                                                ]
-                                            ]
+                                        "attribute" => "mainImage",
+                                        "label" => "Image",
+                                        "dataType" => "image",
+                                        "layout" => [
+                                            "fieldtype" => "image",
+                                            "width" => 500,
+                                            "height" => 350,
+                                            "uploadPath" => "",
+                                            "queryColumnType" => "int(11)",
+                                            "columnType" => "int(11)",
+                                            "phpdocType" => "\\Pimcore\\Model\\Asset\\Image",
+                                            "name" => "mainImage",
+                                            "title" => "Image",
+                                            "tooltip" => "",
+                                            "mandatory" => FALSE,
+                                            "noteditable" => FALSE,
+                                            "index" => FALSE,
+                                            "locked" => FALSE,
+                                            "style" => "",
+                                            "permissions" => NULL,
+                                            "datatype" => "data",
+                                            "relationType" => FALSE,
+                                            "invisible" => FALSE,
+                                            "visibleGridView" => FALSE,
+                                            "visibleSearch" => FALSE
                                         ]
                                     ],
-                                    "key" => "#5d8204ee8b97e"
+                                    "isOperator" => FALSE
                                 ],
                                 [
                                     "attributes" => [

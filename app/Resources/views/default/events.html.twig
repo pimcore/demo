@@ -56,7 +56,7 @@
                     </div>
                     <div v-else v-for="(event, index) in filterResult" class="col-sm-4">
                         <div class="teaser card custom-standard-card mb-4 shadow-sm">
-                            <img contain width="350" height="235" class="img-fluid w-100" alt="" title="" :src="event.details.mainImage">
+                            <img contain width="350" height="235" class="img-fluid w-100" alt="" title="" :src="event.details.mainImage.fullpath">
                             <div class="card-body text-center">
                                 <h4 class="card-title pricing-card-title text-uppercase" v-text="event.details.title"></h4>
                                 <p><b>Location:</b> [[ event.details.locationAddress ]]</p>
@@ -92,10 +92,10 @@
                                     frameborder="0"></iframe>
                         </div>
                         <div v-else id="image" class="col-md-8 mx-auto">
-                            <img :src="eventDetails.mainImage">
+                            <img :src="eventDetails.mainImage.fullpath">
                         </div>
                         <div id="image-gallery" v-for="image in eventDetails.images" class="col-sm-6 col-md-4">
-                            <img contain width="350" height="235" class="img-fluid w-100 img-thumbnail" alt="" title="" :src="'https://dev-demo-data-cfasching.elements.zone/' + image.image.fullpath">
+                            <img contain width="350" height="235" class="img-fluid w-100 img-thumbnail" alt="" title="" :src="image.image.fullpath">
                         </div>
                     </div>
                     <div id="info" class="col-md-12 p-5">

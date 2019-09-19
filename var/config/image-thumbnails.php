@@ -1306,5 +1306,59 @@ return [
         "modificationDate" => 1567104431,
         "creationDate" => 1567104392,
         "id" => "print_product_detail_manufacturer"
+    ],
+    "events_header" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 700,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "events_header",
+        "description" => "",
+        "group" => "Data Hub",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1568887256,
+        "creationDate" => 1568887242,
+        "id" => "events_header"
+    ],
+    "events_list" => [
+        "items" => [
+            [
+                "method" => "scaleByWidth",
+                "arguments" => [
+                    "width" => 350,
+                    "forceResize" => FALSE
+                ]
+            ]
+        ],
+        "medias" => [
+
+        ],
+        "name" => "events_list",
+        "description" => "",
+        "group" => "Data Hub",
+        "format" => "SOURCE",
+        "quality" => 85,
+        "highResolution" => 0.0,
+        "preserveColor" => FALSE,
+        "preserveMetaData" => FALSE,
+        "rasterizeSVG" => FALSE,
+        "downloadable" => FALSE,
+        "modificationDate" => 1568888282,
+        "creationDate" => 1568888270,
+        "id" => "events_list"
     ]
 ];
