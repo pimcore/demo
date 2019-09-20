@@ -39,6 +39,10 @@ query getEventDetails($id: Int!) {
     title
     description
     locationAddress
+    locationMap {
+      longitude
+      latitude
+    }
     fromDate
     toDate
     fromTime
@@ -73,6 +77,11 @@ query getEventDetails($id: Int!) {
 }
 `;
 
+// Map components
+Vue.component('v-map', window.Vue2Leaflet.LMap);
+Vue.component('v-tilelayer', window.Vue2Leaflet.LTileLayer);
+Vue.component('v-marker', window.Vue2Leaflet.LMarker);
+
 new Vue({
   el: '#vueapp',
   delimiters: ['[[',']]'],
@@ -101,21 +110,6 @@ new Vue({
       error(error) { // Catch the error
         console.log(error);
         this.errored = true;
-      }
-    }
-  },
-  filters: {
-    dateFormat: function(value) {
-      if (value) {
-        return new Date(value).toDateString();
-      }
-    },
-    timeFormat: function(value) {
-      if (value) {
-        return new Date(value).toLocaleTimeString("en-US", {
-          hour: "numeric",
-          minute: "numeric"
-        });
       }
     }
   },
@@ -186,6 +180,9 @@ new Vue({
 
         });
       }
+    },
+    mapCoordinates: function() {
+      return [this.eventDetails.locationMap.latitude, this.eventDetails.locationMap.longitude]
     }
   }
 });

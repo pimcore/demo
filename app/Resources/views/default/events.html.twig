@@ -4,6 +4,9 @@
 {% do pimcore_head_script().appendFile('https://cdn.jsdelivr.net/npm/vuejs-datepicker@1.6.2/dist/vuejs-datepicker.js') %}
 {% do pimcore_head_script().appendFile('https://cdn.jsdelivr.net/npm/apollo-client-browser@1.9.0/dist/apollo-client.min.js') %}
 {% do pimcore_head_script().appendFile('https://cdn.jsdelivr.net/npm/vue-apollo@2.1.0-rc.7/dist/vue-apollo.min.js') %}
+{% do pimcore_head_script().appendFile('https://unpkg.com/leaflet@1.5.1/dist/leaflet.js') %}
+{% do pimcore_head_script().appendFile('https://unpkg.com/vue2-leaflet') %}
+{% do pimcore_head_link().appendStylesheet(asset('https://unpkg.com/leaflet/dist/leaflet.css')) %}
 {% do pimcore_head_script().appendFile(asset('static/js/vue-app.js')) %}
 
 {% block content %}
@@ -85,7 +88,7 @@
                     <div id="header" class="col-md-12 text-center">
 
                     </div>
-                    <div id="gallery" class="col-md-12">
+                    <div id="gallery" class="col-md-8 mx-auto">
                         <div class="iframe-container mx-auto" v-if="eventDetails.video" id="video-gallery">
                             <iframe id="ytplayer" type="text/html"
                                     :src="'https://www.youtube.com/embed/' + eventDetails.video.data.id"
@@ -100,23 +103,37 @@
                     </div>
                     <div id="info" class="col-md-12 p-5">
                         <p v-html="eventDetails.description"></p>
-                        <p><span class="font-weight-bold">Location: </span> [[ eventDetails.locationAddress ]]</p>
-                        <p>
-                            <span class="font-weight-bold">Date: </span>
-                            [[ eventDetails.fromDate | dateFormat ]] <span v-if="compareDates(eventDetails.fromDate, eventDetails.toDate)">- [[ eventDetails.toDate | dateFormat ]]</span>
-                        </p>
-                        <p>
-                            <span class="font-weight-bold">Timings: </span>
-                            [[ eventDetails.fromTime ]] - [[ eventDetails.toTime ]]
-                        </p>
-                        <p v-if="eventDetails.cars" >
-                            <span class="font-weight-bold">Showcasing Cars: </span>
-                            <ul>
-                                <li v-for="car in eventDetails.cars">
-                                    <span v-if="car.manufacturer">[[ car.manufacturer.name ]]</span> [[ car.carName ]], [[ car.productionYear ]]
-                                </li>
-                        </ul>
-                        </p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p><span class="font-weight-bold">Location: </span> [[ eventDetails.locationAddress ]]</p>
+
+                                <p>
+                                    <span class="font-weight-bold">Date: </span>
+                                    [[ eventDetails.fromDate ]] <span v-if="compareDates(eventDetails.fromDate, eventDetails.toDate)">- [[ eventDetails.toDate ]]</span>
+                                </p>
+                                <p>
+                                    <span class="font-weight-bold">Timings: </span>
+                                    [[ eventDetails.fromTime ]] - [[ eventDetails.toTime ]]
+                                </p>
+                                <p v-if="eventDetails.cars" >
+                                    <span class="font-weight-bold">Showcasing Cars: </span>
+                                <ul>
+                                    <li v-for="car in eventDetails.cars">
+                                        <span v-if="car.manufacturer">[[ car.manufacturer.name ]]</span> [[ car.carName ]], [[ car.productionYear ]]
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="col-md-12 mb-4" style="height: 250px">
+                                    <v-map :zoom=15 :center="mapCoordinates">
+                                        <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+                                        <v-marker :lat-lng="mapCoordinates"></v-marker>
+                                    </v-map>
+                                </div>
+                            </div>
+                        </div>
+
                         <div v-if="eventDetails.contactName" class="card">
                             <div class="card-header">Organizer:</div>
                             <div class="card-body">
