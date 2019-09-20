@@ -14,17 +14,17 @@
             'time-slider-featurette', 'video', 'wysiwyg', 'wysiwyg-with-images']
     }) }}
     <div  id="vueapp" class="row">
-        <div class="col-md-12 mt-3">
+        <div class="col-md-12">
             <section v-if="activePanel === 1"  v-cloak >
-                <div class="header row my-4">
-                    <div class="col-md-3">
+                <div class="header row mb-4">
+                    <div class="col-md-3 mb-2">
                         <vuejs-datepicker id="fromDate" input-class="form-control" typeable v-model="filters.fromDate" @input="filterListing"  placeholder="From Date"></vuejs-datepicker>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                         <vuejs-datepicker id="fromDate" input-class="form-control" typeable  v-model="filters.toDate" @input="filterListing" placeholder="To Date"></vuejs-datepicker>
                     </div>
 
-                    <div class="col-md-3 float-right">
+                    <div class="col-md-3 mb-2 float-right">
                         <select id="fromDate" class="form-control"  v-model="filters.tag">
                             <option value="All" >Filter By Tag</option>
                             <option value="Trade Show" >Trade Show</option>
@@ -39,7 +39,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                         <button @click="clearFilters" class="btn btn-outline-primary btn-sm d-block form-control">CLEAR FILTERS</button>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div v-else v-for="(event, index) in filterResult" class="col-sm-4">
                         <div class="teaser card custom-standard-card mb-4 shadow-sm">
-                            <img contain width="350" height="235" class="img-fluid w-100" alt="" title="" :src="event.details.mainImage.fullpath">
+                            <img v-if="event.details.mainImage" contain width="350" height="235" class="img-fluid w-100" alt="" title="" :src="event.details.mainImage.fullpath">
                             <div class="card-body text-center">
                                 <h4 class="card-title pricing-card-title text-uppercase" v-text="event.details.title"></h4>
                                 <p><b>Location:</b> [[ event.details.locationAddress ]]</p>
@@ -74,25 +74,25 @@
                 </div>
             </section>
             <section v-if="activePanel === 2" v-cloak >
-                <div class="row mt-4 breadcrumb-header header">
-                    <button href="javascript:void(0);" @click="changePanel(1)" class="btn btn-secondary form-control back-button" >Back to Events</button>
+                <div class="row header">
+                    <a href="javascript:void(0);" @click="changePanel(1)" class="btn btn-secondary form-control back-button" >Back to Events</a>
                     <div class="col-md-12 text-center">
                         <h3 class="">[[ eventDetails.title ]]</h3>
                     </div>
 
                 </div>
-                <div class="row mb-3 bg-white mt-4 p-2">
+                <div class="row mb-3 bg-white p-2">
                     <div id="header" class="col-md-12 text-center">
 
                     </div>
-                    <div id="gallery" class="row col-md-12 px-5">
-                        <div class="mx-auto" v-if="eventDetails.video" id="video-gallery">
-                            <iframe id="ytplayer" type="text/html" width="650" height="400"
+                    <div id="gallery" class="col-md-12">
+                        <div class="iframe-container mx-auto" v-if="eventDetails.video" id="video-gallery">
+                            <iframe id="ytplayer" type="text/html"
                                     :src="'https://www.youtube.com/embed/' + eventDetails.video.data.id"
-                                    frameborder="0"></iframe>
+                                    frameborder="0" class="iframe-responsive"></iframe>
                         </div>
-                        <div v-else id="image" class="col-md-8 mx-auto">
-                            <img :src="eventDetails.mainImage.fullpath">
+                        <div v-else id="image">
+                            <img class="d-block mx-auto" v-if="eventDetails.mainImage" :src="eventDetails.mainImage.fullpath">
                         </div>
                         <div id="image-gallery" v-for="image in eventDetails.images" class="col-sm-6 col-md-4">
                             <img contain width="350" height="235" class="img-fluid w-100 img-thumbnail" alt="" title="" :src="image.image.fullpath">
@@ -107,15 +107,17 @@
                         </p>
                         <p>
                             <span class="font-weight-bold">Timings: </span>
-                            [[ eventDetails.fromDate | timeFormat ]] - [[ eventDetails.toDate | timeFormat ]]
+                            [[ eventDetails.fromTime ]] - [[ eventDetails.toTime ]]
                         </p>
-                        <p>
+                        <p v-if="eventDetails.cars" >
                             <span class="font-weight-bold">Showcasing Cars: </span>
                             <ul>
-                                <li v-for="car in eventDetails.cars">[[ car.manufacturer.name ]] [[ car.carName ]], [[ car.productionYear ]]</li>
+                                <li v-for="car in eventDetails.cars">
+                                    <span v-if="car.manufacturer">[[ car.manufacturer.name ]]</span> [[ car.carName ]], [[ car.productionYear ]]
+                                </li>
                         </ul>
                         </p>
-                        <div class="card">
+                        <div v-if="eventDetails.contactName" class="card">
                             <div class="card-header">Organizer:</div>
                             <div class="card-body">
                                 <p v-if="eventDetails.contactName" ><span class="font-weight-bold">Name: </span> [[ eventDetails.contactName ]]</p>

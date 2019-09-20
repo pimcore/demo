@@ -1134,16 +1134,22 @@ input.form-control {
         display: block !important;
     }
 
+    ul.dropdown-menu, .navbar-nav li:hover > ul.dropdown-menu {
+        display: none;
+    }
+
     .main-menu-icon>a:after {
         font-family: "Font Awesome 5 Free"; font-weight: 600; content: "\f067";
         float: right;
         border: none;
+        padding: 0px 5px 0 5px;
     }
 
     .main-menu-icon.active-icon>a:after {
         font-family: "Font Awesome 5 Free"; font-weight: 600; content: "\f068";
         float: right;
         border: none;
+        padding: 0px 5px 0 5px;
     }
 
     .search-toggle {
@@ -1458,4 +1464,26 @@ section img {
 
 [v-cloak] {
     display: none;
+}
+
+@media (max-width: 768px) {
+    #vueapp .back-button {
+        position: inherit;
+        margin-bottom: 1em;
+    }
+}
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.iframe-responsive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
