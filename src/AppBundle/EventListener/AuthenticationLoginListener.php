@@ -92,7 +92,7 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
             $cartManager->reset();
 
             if ($oldCart instanceof CartInterface && count($oldCart->getItems()) > 0) {
-                $userCart = $this->factory->getCartManager()->getCartByName(CartController::DEFAULT_CART_NAME);
+                $userCart = $this->factory->getCartManager()->getOrCreateCartByName(CartController::DEFAULT_CART_NAME);
                 foreach ($oldCart->getItems() as $item) {
                     $userCart->addItem($item->getProduct(), $item->getCount());
                 }
