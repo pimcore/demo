@@ -125,7 +125,7 @@
                                 </p>
                             </div>
                             <div class="col-sm-6">
-                                <div class="col-md-12 mb-4" style="height: 250px">
+                                <div v-if="eventDetails.locationMap" class="col-md-12 mb-4" style="height: 250px">
                                     <v-map :zoom=15 :center="mapCoordinates">
                                         <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
                                         <v-marker :lat-lng="mapCoordinates"></v-marker>
