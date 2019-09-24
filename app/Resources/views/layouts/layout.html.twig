@@ -136,7 +136,7 @@
                     <div class="row">
                         {% set leftNavShow = document.getProperty('left_nav_show') %}
                         {% set showBreadcrumbs = (hideBreadcrumbs is defined) ? not hideBreadcrumbs : true %}
-                        {% set mainColClass = leftNavShow ? 'col-md-9 pt-5 order-last' : 'col-md-12 pt-5' %}
+                        {% set mainColClass = leftNavShow ? 'col-md-9 pt-3 pt-md-5 order-last' : 'col-md-12 pt-3 pt-md-5' %}
 
                         <div class="{{ mainColClass }}">
                             {% if showBreadcrumbs %}
@@ -158,7 +158,7 @@
                         </div>
 
                         {% if leftNavShow %}
-                            <div class="col-md-3 pt-5 order-first sidebar">
+                            <div class="col-md-3 pt-3 pt-md-5 order-first sidebar">
                                 <div class="sticky">
                                     <div class="bs-sidebar hidden-print affix-top" role="complementary">
                                         {% set leftStartNode = document.getProperty('left_nav_start_node') %}
