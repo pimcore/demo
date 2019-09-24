@@ -16,9 +16,9 @@ pimcore_ecommerce_framework:
 
                     es_client_params:
                         hosts:
-                            - '<YOUR-ES-CLUSTER>'
+                            - '%es_client%'
                         indexType: 'DemoProducts'
-
+ 
                     index_settings:
                         number_of_shards: 5
                         number_of_replicas: 0
