@@ -1,3 +1,17 @@
+parameters:
+    index_service.attribute-search-analyzer-attributes:
+        type: text
+        fields:
+            analyzed:
+                type: text
+                analyzer: "english"
+                search_analyzer: "english"
+            analyzed_ngram:
+                type: text
+                analyzer: app_ngram_analyzer
+                search_analyzer: app_whitespace_analyzer
+
+
 pimcore_ecommerce_framework:
     index_service:
         tenants:
@@ -7,11 +21,11 @@ pimcore_ecommerce_framework:
                 config_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\ElasticSearch
 
                 placeholders:
-                    '%%locale%%': 'de'
+                    '%%locale%%': 'en'
 
                 config_options:
                     client_config:
-                        logging: false
+                        logging: true
                         indexName: 'pimcore-demo'
 
                     es_client_params:
@@ -22,17 +36,42 @@ pimcore_ecommerce_framework:
                     index_settings:
                         number_of_shards: 5
                         number_of_replicas: 0
+                        analysis:
+                            analyzer:
+                                app_ngram_analyzer:
+                                    tokenizer: app_ngram_tokenzier
+                                    filter:
+                                        - lowercase
+                                app_whitespace_analyzer:
+                                    tokenizer: app_whitespace_tokenzier
+                                    filter:
+                                        - lowercase
+                            tokenizer:
+                                app_ngram_tokenzier:
+                                    type: nGram
+                                    min_gram: 3
+                                    max_gram: 25
+                                    token_chars: [letter, digit]
+                                app_whitespace_tokenzier:
+                                    type: whitespace
+
                 search_attributes:
-                    - name
-                    - manufacturer_name
+                    - name^3
+                    - name.analyzed
+                    - name.analyzed_ngram
+                    - manufacturer_name^2
+                    - manufacturer_name.analyzed
+                    - manufacturer_name.analyzed_ngram
                     - color
                     - carClass
                 attributes:
                     name:
-                        fieldname: OSName
+                        fieldname: productName
                         type: text
                         locale: '%%locale%%'
                         filter_group: string
+                        options:
+                            mapping: '%index_service.attribute-search-analyzer-attributes%'
                     manufacturer_name:
                         fieldname: 'manufacturer'
                         type: text
@@ -42,6 +81,8 @@ pimcore_ecommerce_framework:
                                 fieldname: name
                                 locale: '%%locale%%'
                         filter_group: string
+                        options:
+                            mapping: '%index_service.attribute-search-analyzer-attributes%'
                     manufacturer:
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
                         filter_group: relation

@@ -221,13 +221,47 @@ class ProductController extends BaseController
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
 
         $term = strip_tags($request->get('term'));
-        $term = trim(preg_replace('/\s+/', ' ', $term));
 
-        if (!empty($term)) {
-            foreach (explode(' ', $term) as $t) {
-                $productListing->addQueryCondition($t);
+        if($productListing instanceof AbstractElasticSearch) {
+
+            // simple elastic search query - uses multi-match query on all defined search_attributes
+//            $productListing->addQueryCondition($term);
+
+            //sample for a more specific elastic search query - not considers search_attributes but provides full flexibility
+            $query = [
+                'multi_match' => [
+                    "query" => $term,
+                    "type" => "cross_fields",
+                    "operator" => "and",
+                    "fields" => [
+                        "attributes.name^4",
+                        "attributes.name.analyzed",
+                        "attributes.name.analyzed_ngram",
+                        "attributes.manufacturer_name^3",
+                        "attributes.manufacturer_name.analyzed",
+                        "attributes.manufacturer_name.analyzed_ngram",
+                        "attributes.color",
+                        "attributes.carClass"
+                    ]
+                ]
+            ];
+
+            $productListing->addQueryCondition($query, 'searchTerm');
+
+
+        } else {
+
+            //default mysql search query condition - would also work for elastic search in that way
+            $term = trim(preg_replace('/\s+/', ' ', $term));
+
+            if (!empty($term)) {
+                foreach (explode(' ', $term) as $t) {
+                    $productListing->addQueryCondition($t);
+                }
             }
+
         }
+
 
         if ($params['autocomplete']) {
             $resultset = [];

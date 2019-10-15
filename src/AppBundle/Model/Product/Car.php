@@ -31,6 +31,10 @@ class Car extends \Pimcore\Model\DataObject\Car
         return ($this->getManufacturer() ? $this->getManufacturer()->getName() . ' ' : '') . $this->getName();
     }
 
+    public function getProductName($language = null) {
+        return $this->getName($language);
+    }
+
     /**
      * @return string
      */

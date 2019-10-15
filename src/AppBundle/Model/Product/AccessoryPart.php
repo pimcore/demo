@@ -28,6 +28,14 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
         return $this->getGeneratedName();
     }
 
+    public function getProductName($language = null) {
+        return
+            ($this->getSeries() ? ($this->getSeries()->getName() . ' ') : '') .
+            ($this->getMainCategory() ? ($this->getMainCategory()->getName($language) . ' ') : '') .
+            $this->getNameAddition($language)
+            ;
+    }
+
     /**
      * @return int|string
      */
