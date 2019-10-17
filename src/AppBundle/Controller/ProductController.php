@@ -228,22 +228,39 @@ class ProductController extends BaseController
 //            $productListing->addQueryCondition($term);
 
             //sample for a more specific elastic search query - not considers search_attributes but provides full flexibility
+            // this query weights cars more that accessries
             $query = [
-                'multi_match' => [
-                    "query" => $term,
-                    "type" => "cross_fields",
-                    "operator" => "and",
-                    "fields" => [
-                        "attributes.name^4",
-                        "attributes.name.analyzed",
-                        "attributes.name.analyzed_ngram",
-                        "attributes.manufacturer_name^3",
-                        "attributes.manufacturer_name.analyzed",
-                        "attributes.manufacturer_name.analyzed_ngram",
-                        "attributes.color",
-                        "attributes.carClass"
-                    ]
+                'function_score' => [
+                    'query' => [
+                        'multi_match' => [
+                            "query" => $term,
+                            "type" => "cross_fields",
+                            "operator" => "and",
+                            "fields" => [
+                                "attributes.name^4",
+                                "attributes.name.analyzed",
+                                "attributes.name.analyzed_ngram",
+                                "attributes.manufacturer_name^3",
+                                "attributes.manufacturer_name.analyzed",
+                                "attributes.manufacturer_name.analyzed_ngram",
+                                "attributes.color",
+                                "attributes.carClass"
+                            ]
+                        ]
+                    ],
+                    'functions' => [
+                        [
+                            'filter' => ['match' => ['system.o_classId' => 'AP']],
+                            'weight' => 1
+                        ],
+                        [
+                            'filter' => ['match' => ['system.o_classId' => 'CAR']],
+                            'weight' => 2
+                        ]
+                    ],
+                    'boost_mode' => 'multiply'
                 ]
+
             ];
 
             $productListing->addQueryCondition($query, 'searchTerm');
