@@ -1,0 +1,68 @@
+{%  if(values is not empty and values|length > 0) %}
+
+    {% for keyId, keyBucket in values %}
+
+        {%  set subFieldname = fieldname ~ '[' ~ keyId ~ ']' %}
+        {%  set subFieldId = fieldname ~ '-' ~ keyId %}
+
+        <div class="filter pb-3">
+            <h6 class="mb-0">{{ ('general.filter.' ~ keyBucket['keyConfig'].title)|lower|trans }}</h6>
+
+
+            <ul id="listgroup-{{ subFieldId }}" class="list-group">
+
+                {%  if(currentValue is not empty and currentValue[keyId] is defined ) %}
+
+                    <li class="list-group-item">
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="{{ subFieldId ~ 'empty' }}" name="{{  subFieldname }}" value="{{ constant('\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\FilterService\\FilterType\\AbstractFilterType::EMPTY_STRING') }}" class="custom-control-input">
+                            <label class="custom-control-label" for="{{ subFieldId ~ 'empty' }}">{{ 'general.filters.all' | trans }}</label>
+                        </div>
+
+                    </li>
+
+                {% endif %}
+
+                {% set index = 0 %}
+                {% for value in keyBucket['values'] %}
+
+                    {% if(value['value'] is not empty) %}
+
+                        {% if(index == 2) %}
+                            <a href="#" id="head-hidden-{{ subFieldId }}" class="collapsed text-dark hide-me pt-1 text-center" data-toggle="collapse" data-target="#hidden-{{ subFieldId }}" aria-expanded="false" aria-controls="hidden-{{ subFieldId }}">
+                                {{ 'filter.show-more' | trans }}
+                            </a>
+                            <div id="hidden-{{ subFieldId }}" class="collapse" aria-labelledby="head-hidden-{{ subFieldId }}" data-parent="#listgroup-{{ subFieldId }}">
+                        {% endif %}
+
+
+                        {% set checked = (currentValue[keyId] is defined and currentValue[keyId] == value['value']) %}
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center {{ checked ? 'list-group-item-secondary' : ''  }}">
+
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="{{ subFieldId ~ value['value'] }}" name="{{  subFieldname }}" value="{{ value['value'] }}" {{ checked ? 'checked="checked"' : ''  }} class="custom-control-input">
+                                <label class="custom-control-label" for="{{ subFieldId ~ value['value'] }}">
+                                    {{ value['value'] }}
+                                </label>
+                            </div>
+                            <span class="badge badge-primary badge-pill">{{  value['count']  }}</span>
+                        </li>
+
+                        {% set index = index + 1 %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if(index > 2) %}
+                    </div>
+                {% endif %}
+
+            </ul>
+
+
+        </div>
+
+    {% endfor %}
+
+{% endif %}
