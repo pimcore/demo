@@ -181,18 +181,18 @@ pimcore_ecommerce_framework:
                         filter_group: relation
 
                     # sample configuration for classification store attributes filter
-                    classificationstore:
-                        fieldname: 'cl'
-                        interpreter: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultClassificationStore
-                        filtergroup: classificationstore
-                        options:
-                            mapping:
-                                type: 'object'
-                                properties:
-                                    keys:
-                                        type: 'long'
-                                    values:
-                                        type: 'object'
+#                    classificationstore:
+#                        fieldname: 'cl'
+#                        interpreter: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultClassificationStore
+#                        filtergroup: classificationstore
+#                        options:
+#                            mapping:
+#                                type: 'object'
+#                                properties:
+#                                    keys:
+#                                        type: 'long'
+#                                    values:
+#                                        type: 'object'
 
 
     filter_service:
