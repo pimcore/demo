@@ -241,6 +241,6 @@ pimcore_ecommerce_framework:
                         filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\SelectRelation
                         template: 'product/filters/object_relation.html.twig'
 
-                    FilterSelectClsStoreAttributes:
-                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\SelectClassificationStoreAttributes
-                        template: 'product/filters/nested_attributes.html.twig'
+#                    FilterSelectClsStoreAttributes:
+#                        filter_type_id: Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\FilterType\ElasticSearch\SelectClassificationStoreAttributes
+#                        template: 'product/filters/nested_attributes.html.twig'
