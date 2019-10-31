@@ -6,7 +6,7 @@ parameters:
     twitter_client_id: <twitter_client_id>
     twitter_client_secret: <twitter_client_secret>
 
-    app_encryption_secret: "<your_application_secret_key_change_it"
+    app_encryption_secret: "ThisTokenIsNotSoSecretChangeIt"
 
 
     # customize the full path to external executables
