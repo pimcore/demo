@@ -113,9 +113,9 @@ class ProductController extends BaseController
         $params = array_merge($request->query->all(), $request->attributes->all());
 
         //needed to make sure category filter filters for active category
-        $params['parentCategoryIds'] = $params['category'];
+        $params['parentCategoryIds'] = $params['category'] ?? null;
 
-        $category = Category::getById($params['category']);
+        $category = Category::getById($params['category'] ?? null);
         $viewModel->category = $category;
         if ($category) {
             $headTitleHelper($category->getName());
@@ -214,7 +214,7 @@ class ProductController extends BaseController
         $params = $request->query->all();
         $viewModel = new ViewModel();
 
-        $viewModel->category = Category::getById($params['category']);
+        $viewModel->category = Category::getById($params['category'] ?? null);
 
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();

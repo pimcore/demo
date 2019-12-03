@@ -129,7 +129,8 @@ class Car extends \Pimcore\Model\DataObject\Car
      */
     public function getMainCategory(): ?Category
     {
-        $category = reset($this->getCategories());
+        $categories = $this->getCategories();
+        $category = reset($categories);
 
         return $category ?: null;
     }

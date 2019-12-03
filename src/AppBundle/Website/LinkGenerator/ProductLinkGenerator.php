@@ -61,7 +61,7 @@ class ProductLinkGenerator extends AbstractProductLinkGenerator implements LinkG
                 [
                     'productname' => Text::toUrl($object->getOSName() ? $object->getOSName() : 'product'),
                     'product' => $object->getId(),
-                    'path' => $this->getNavigationPath($object->getMainCategory(), $params['rootCategory']),
+                    'path' => $this->getNavigationPath($object->getMainCategory(), $params['rootCategory'] ?? null),
                     'page' => null
                 ],
                 'shop-detail',

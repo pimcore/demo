@@ -22,6 +22,7 @@ use Pimcore\Localization\LocaleServiceInterface;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\News;
+use Pimcore\Model\Document;
 use Pimcore\Templating\Helper\PimcoreUrl;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -78,7 +79,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
         return ForceInheritance::run(function () use ($object, $params) {
             $fullPath = '';
 
-            if ($params['document']) {
+            if (isset($params['document']) && $params['document'] instanceof Document) {
                 $document = $params['document'];
             } else {
                 $document = $this->documentResolver->getDocument($this->requestStack->getCurrentRequest());
