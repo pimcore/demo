@@ -54,7 +54,7 @@ return [
             ]
         ],
         "niceName" => "TODOs",
-        "group" => "Worfklow",
+        "group" => "Workflow",
         "groupIconClass" => "",
         "iconClass" => "pimcore_icon_workflow_action",
         "menuShortcut" => TRUE,
@@ -77,8 +77,8 @@ return [
         ],
         "id" => "Workflow_TODO"
     ],
-    "Worfklow_Done-All" => [
-        "name" => "Worfklow_Done-All",
+    "Workflow_Done-All" => [
+        "name" => "Workflow_Done-All",
         "sql" => "",
         "dataSourceConfig" => [
             [
@@ -130,7 +130,7 @@ return [
             ]
         ],
         "niceName" => "Done All",
-        "group" => "Worfklow",
+        "group" => "Workflow",
         "groupIconClass" => "",
         "iconClass" => "pimcore_icon_workflow_action",
         "menuShortcut" => TRUE,
@@ -151,7 +151,7 @@ return [
         "sharedRoleNames" => [
 
         ],
-        "id" => "Worfklow_Done-All"
+        "id" => "Workflow_Done-All"
     ],
     "Quality_Images" => [
         "name" => "Quality_Images",
