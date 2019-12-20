@@ -78,6 +78,11 @@ class ProductController extends BaseController
         $trackingManager->trackProductView($product);
 
         if ($product instanceof Car) {
+
+            foreach ($product->getAccessories() as $accessory) {
+                $trackingManager->trackProductImpression($accessory, 'crosssells');
+            }
+
             return $this->render('product/detail.html.twig', $paramBag);
         } elseif ($product instanceof AccessoryPart) {
 
@@ -88,6 +93,10 @@ class ProductController extends BaseController
                 $productList->addCondition('o_id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'o_id');
             } else if($productList instanceof AbstractElasticSearch) {
                 $productList->addCondition(['terms' => ['system.o_id' => $product->getCompatibleToProductIds()]], 'o_id');
+            }
+
+            foreach($productList as $compatibleProduct) {
+                $trackingManager->trackProductImpression($compatibleProduct, 'crosssells');
             }
 
             $paramBag['compatibleTo'] = $productList;
@@ -166,7 +175,7 @@ class ProductController extends BaseController
         // track product impressions
         $trackingManager = $ecommerceFactory->getTrackingManager();
         foreach ($paginator as $product) {
-            $trackingManager->trackProductImpression($product);
+            $trackingManager->trackProductImpression($product, 'grid');
         }
 
         return $viewModel->getAllParameters();
@@ -189,7 +198,7 @@ class ProductController extends BaseController
 
             //track product impression
             $trackingManager = $ecommerceFactory->getTrackingManager();
-            $trackingManager->trackProductImpression($product);
+            $trackingManager->trackProductImpression($product, 'teaser');
 
             return $this->render('/product/product_teaser.html.twig', $paramsBag);
         }
@@ -316,7 +325,7 @@ class ProductController extends BaseController
 
         $trackingManager = $ecommerceFactory->getTrackingManager();
         foreach ($paginator as $product) {
-            $trackingManager->trackProductImpression($product);
+            $trackingManager->trackProductImpression($product, 'search-results');
         }
 
         //breadcrumbs
