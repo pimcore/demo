@@ -735,16 +735,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.11.0",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "b8ca1dcf6b0dc8a2af7a09baac8d0c48345df4ff"
+                "reference": "2053eafdf60c2172ee1373d1b9289ba1db7f1fc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/b8ca1dcf6b0dc8a2af7a09baac8d0c48345df4ff",
-                "reference": "b8ca1dcf6b0dc8a2af7a09baac8d0c48345df4ff",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/2053eafdf60c2172ee1373d1b9289ba1db7f1fc6",
+                "reference": "2053eafdf60c2172ee1373d1b9289ba1db7f1fc6",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +814,7 @@
                 "doctrine",
                 "php"
             ],
-            "time": "2019-09-10T10:10:14+00:00"
+            "time": "2020-01-10T15:49:25+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -4986,16 +4986,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "2.4.5",
+            "version": "v2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "057b2d5df22c05c3b875b134f993217e9f619085"
+                "reference": "f8f4f808eb25174bd133bdeaf062292e0628ca0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/057b2d5df22c05c3b875b134f993217e9f619085",
-                "reference": "057b2d5df22c05c3b875b134f993217e9f619085",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/f8f4f808eb25174bd133bdeaf062292e0628ca0c",
+                "reference": "f8f4f808eb25174bd133bdeaf062292e0628ca0c",
                 "shasum": ""
             },
             "require": {
@@ -5040,7 +5040,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2019-12-06T14:44:09+00:00"
+            "time": "2020-01-10T11:07:17+00:00"
         },
         {
             "name": "pimcore/data-hub",
