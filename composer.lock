@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "619dfc349337cdb918737ab2588ebfc0",
+    "content-hash": "06980fc3eeb4f99c8537e3176a8ea8d4",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -322,16 +322,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149"
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/62e8fc2dc550e5d6d8c9360c7721662670f58149",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/47fe531de31fca4a1b997f87308e7d7804348f7e",
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e",
                 "shasum": ""
             },
             "require": {
@@ -374,7 +374,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-12-11T14:44:42+00:00"
+            "time": "2020-01-13T10:02:55+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -5187,16 +5187,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v6.3.6",
+            "version": "v6.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "1cc5752b0360d59f58b125863744d8e020c9cb54"
+                "reference": "ede8ed7e8f8aeb87b3e266f9498c98d65a419f60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/1cc5752b0360d59f58b125863744d8e020c9cb54",
-                "reference": "1cc5752b0360d59f58b125863744d8e020c9cb54",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/ede8ed7e8f8aeb87b3e266f9498c98d65a419f60",
+                "reference": "ede8ed7e8f8aeb87b3e266f9498c98d65a419f60",
                 "shasum": ""
             },
             "require": {
@@ -5272,9 +5272,8 @@
             "require-dev": {
                 "cache/integration-tests": "^0.16.0",
                 "codeception/codeception": "~2.4.5",
-                "phpstan/phpstan": "^0.11",
-                "phpstan/phpstan-shim": "^0.11",
-                "phpstan/phpstan-symfony": "^0.11"
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-symfony": "^0.12"
             },
             "suggest": {
                 "ext-curl": "*",
@@ -5336,7 +5335,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2019-12-11T13:54:08+00:00"
+            "time": "2020-01-13T13:59:30+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -5382,21 +5381,21 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v3.4.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "420016fbd36afd0327b783d4d8e0faeae6d7dbc6"
+                "reference": "ce136a097f80df77acd1b62985b483eff657c8a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/420016fbd36afd0327b783d4d8e0faeae6d7dbc6",
-                "reference": "420016fbd36afd0327b783d4d8e0faeae6d7dbc6",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/ce136a097f80df77acd1b62985b483eff657c8a7",
+                "reference": "ce136a097f80df77acd1b62985b483eff657c8a7",
                 "shasum": ""
             },
             "require": {
                 "pimcore/output-data-config-toolkit-bundle": "~3",
-                "pimcore/pimcore": ">=5.4 <6.4"
+                "pimcore/pimcore": ">=5.4 <6.5"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5415,7 +5414,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2019-11-13T11:24:10+00:00"
+            "time": "2019-12-06T08:40:30+00:00"
         },
         {
             "name": "piwik/device-detector",
