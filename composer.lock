@@ -5048,12 +5048,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "8f297a0bdfca13b9fbb2f71968c8eb70b2e87c38"
+                "reference": "8352fc616790d51096edf39f4da771e4ee385646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/8f297a0bdfca13b9fbb2f71968c8eb70b2e87c38",
-                "reference": "8f297a0bdfca13b9fbb2f71968c8eb70b2e87c38",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/8352fc616790d51096edf39f4da771e4ee385646",
+                "reference": "8352fc616790d51096edf39f4da771e4ee385646",
                 "shasum": ""
             },
             "require": {
@@ -5078,7 +5078,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2019-12-20T10:48:31+00:00"
+            "time": "2020-01-14T09:29:56+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -5418,16 +5418,16 @@
         },
         {
             "name": "piwik/device-detector",
-            "version": "3.12.2",
+            "version": "3.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/matomo-org/device-detector.git",
-                "reference": "c352144e2ab1aff81e659aa38224be987b87855b"
+                "reference": "22257883bd2c7c21d68112a907cdad7de4a2ba31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/c352144e2ab1aff81e659aa38224be987b87855b",
-                "reference": "c352144e2ab1aff81e659aa38224be987b87855b",
+                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/22257883bd2c7c21d68112a907cdad7de4a2ba31",
+                "reference": "22257883bd2c7c21d68112a907cdad7de4a2ba31",
                 "shasum": ""
             },
             "require": {
@@ -5469,7 +5469,7 @@
                 "parser",
                 "useragent"
             ],
-            "time": "2019-12-22T21:23:31+00:00"
+            "time": "2020-01-13T16:15:20+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
