@@ -39,7 +39,7 @@ class BaseController extends FrontendController
      */
     protected function verifyPreviewRequest(Request $request, DataObject $object): bool
     {
-        if ($request->get('pimcore_object_preview') && DataObject\Service::getObjectFromSession($object->getId())) {
+        if ($request->get('pimcore_object_preview') && DataObject\Service::getElementFromSession('object', $object->getId())) {
             return true;
         }
 
