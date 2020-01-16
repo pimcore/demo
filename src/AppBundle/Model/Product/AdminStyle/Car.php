@@ -17,12 +17,18 @@ namespace AppBundle\Model\Product\AdminStyle;
 
 use AppBundle\Website\Tool\ForceInheritance;
 use Pimcore\Model\Element\AdminStyle;
+use Pimcore\Model\Element\ElementInterface;
 
 class Car extends AdminStyle
 {
+    /** @var ElementInterface */
+    protected $element;
+
     public function __construct($element)
     {
         parent::__construct($element);
+
+        $this->element = $element;
 
         if ($element instanceof \AppBundle\Model\Product\Car) {
             ForceInheritance::run(function () use ($element) {
