@@ -2253,21 +2253,21 @@
         },
         {
             "name": "heidelpay/heidelpay-php",
-            "version": "1.2.5.1",
+            "version": "1.2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heidelpay/heidelpayPHP.git",
-                "reference": "9eecc31089971eb7e080b8932ca715bdac06d4d1"
+                "reference": "0b3ce3396c89bef83121322a164f7f0cd6a1b425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heidelpay/heidelpayPHP/zipball/9eecc31089971eb7e080b8932ca715bdac06d4d1",
-                "reference": "9eecc31089971eb7e080b8932ca715bdac06d4d1",
+                "url": "https://api.github.com/repos/heidelpay/heidelpayPHP/zipball/0b3ce3396c89bef83121322a164f7f0cd6a1b425",
+                "reference": "0b3ce3396c89bef83121322a164f7f0cd6a1b425",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.0.0|^7.1.0|^7.2.0|^7.3.0"
+                "php": "~7.0.0|~7.1.0|~7.2.0|~7.3.0"
             },
             "require-dev": {
                 "codacy/coverage": "^1.4",
@@ -2295,7 +2295,7 @@
                 }
             ],
             "description": "This is the php sdk to connect to the heidelpay rest api.",
-            "time": "2019-11-26T09:44:40+00:00"
+            "time": "2020-01-21T12:48:12+00:00"
         },
         {
             "name": "http-interop/http-factory-guzzle",
@@ -3530,16 +3530,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.29.0",
+            "version": "2.29.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "faf862506030dc48c061c840c7f50933f1df4ed8"
+                "reference": "e509be5bf2d703390e69e14496d9a1168452b0a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/faf862506030dc48c061c840c7f50933f1df4ed8",
-                "reference": "faf862506030dc48c061c840c7f50933f1df4ed8",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e509be5bf2d703390e69e14496d9a1168452b0a2",
+                "reference": "e509be5bf2d703390e69e14496d9a1168452b0a2",
                 "shasum": ""
             },
             "require": {
@@ -3596,7 +3596,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-01-21T07:29:55+00:00"
+            "time": "2020-01-21T09:36:43+00:00"
         },
         {
             "name": "nikic/phlexy",
