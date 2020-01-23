@@ -1,11 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T11:10:45+02:00
+* Generated at: 2020-01-23T11:18:22+01:00
 * Inheritance: no
 * Variants: no
-* Changed by: admin (2)
-* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -28,7 +26,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OfferToolOfferItem',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1565946645,
+   'modificationDate' => 1579774702,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\OfferTool\\AbstractOfferItem',
@@ -42,6 +40,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
+   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -407,6 +406,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'phpdocType' => 'array',
              'relationType' => true,
              'visibleFields' => NULL,
+             'allowToCreateNewObject' => true,
              'optimizedAdminLoading' => false,
              'visibleFieldDefinitions' => 
             array (

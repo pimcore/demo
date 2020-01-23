@@ -1,11 +1,10 @@
 <?php 
 
 /** 
-* Generated at: 2019-09-18T12:17:25+02:00
+* Generated at: 2020-01-23T11:18:22+01:00
 * Inheritance: no
 * Variants: no
 * Changed by: admin (1)
-* IP: 192.168.9.64
 
 
 Fields Summary: 
@@ -33,7 +32,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Event',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1568801845,
+   'modificationDate' => 1579774702,
    'userOwner' => 2,
    'userModification' => 1,
    'parentClass' => '',
@@ -47,6 +46,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
+   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -469,6 +469,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleFields' => 
                 array (
                 ),
+                 'allowToCreateNewObject' => true,
                  'optimizedAdminLoading' => false,
                  'visibleFieldDefinitions' => 
                 array (

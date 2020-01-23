@@ -34,7 +34,8 @@ CREATE TABLE `ecommerceframework_cart` (
   `name` varchar(250) COLLATE utf8_bin DEFAULT NULL,
   `creationDateTimestamp` int(10) NOT NULL,
   `modificationDateTimestamp` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `ecommerceframework_cart_userid_index` (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
@@ -59,7 +60,8 @@ CREATE TABLE `ecommerceframework_cartitem` (
   `comment` longtext CHARACTER SET latin1,
   `addedDateTimestamp` int(10) NOT NULL,
   `sortIndex` int(10) unsigned DEFAULT '0',
-  PRIMARY KEY (`itemKey`,`cartId`,`parentItemKey`)
+  PRIMARY KEY (`itemKey`,`cartId`,`parentItemKey`),
+  KEY `cartId_parentItemKey` (`cartId`,`parentItemKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
@@ -663,7 +665,6 @@ CREATE TABLE `object_collection_FilterCategoryMultiselect_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -678,7 +679,6 @@ CREATE TABLE `object_collection_FilterCategoryMultiselect_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -695,7 +695,6 @@ CREATE TABLE `object_collection_FilterCategory_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -710,7 +709,6 @@ CREATE TABLE `object_collection_FilterCategory_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -730,7 +728,6 @@ CREATE TABLE `object_collection_FilterInputfield_EF_FD` (
   `field__preSelect` text,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -745,7 +742,6 @@ CREATE TABLE `object_collection_FilterInputfield_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -765,7 +761,6 @@ CREATE TABLE `object_collection_FilterMultiRelation_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -780,7 +775,6 @@ CREATE TABLE `object_collection_FilterMultiRelation_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -800,7 +794,6 @@ CREATE TABLE `object_collection_FilterMultiSelectFromMultiSelect_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `UseAndCondition` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -819,7 +812,6 @@ CREATE TABLE `object_collection_FilterMultiSelect_EF_FD` (
   `UseAndCondition` tinyint(1) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -834,7 +826,6 @@ CREATE TABLE `object_collection_FilterMultiSelect_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -864,7 +855,6 @@ CREATE TABLE `object_collection_FilterNumberRangeSelection_EF_FD` (
   `unit` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -879,7 +869,6 @@ CREATE TABLE `object_collection_FilterNumberRangeSelection_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -902,7 +891,6 @@ CREATE TABLE `object_collection_FilterNumberRange_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -917,7 +905,6 @@ CREATE TABLE `object_collection_FilterNumberRange_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -936,7 +923,6 @@ CREATE TABLE `object_collection_FilterRelation_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -951,7 +937,6 @@ CREATE TABLE `object_collection_FilterRelation_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -970,7 +955,6 @@ CREATE TABLE `object_collection_FilterSelectFromMultiSelect_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -985,7 +969,6 @@ CREATE TABLE `object_collection_FilterSelectFromMultiSelect_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -1004,7 +987,6 @@ CREATE TABLE `object_collection_FilterSelect_EF_FD` (
   `scriptPath` varchar(255) DEFAULT NULL,
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1019,7 +1001,6 @@ CREATE TABLE `object_collection_FilterSelect_localized_EF_FD` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -1033,7 +1014,6 @@ CREATE TABLE `object_collection_NewsCars_NE` (
   `index` int(11) NOT NULL DEFAULT '0',
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1048,7 +1028,6 @@ CREATE TABLE `object_collection_NewsCars_localized_NE` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -1063,7 +1042,6 @@ CREATE TABLE `object_collection_NewsLinks_NE` (
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `links` longtext,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1078,7 +1056,6 @@ CREATE TABLE `object_collection_NewsLinks_localized_NE` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -1092,7 +1069,6 @@ CREATE TABLE `object_collection_NewsText_NE` (
   `index` int(11) NOT NULL DEFAULT '0',
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1107,7 +1083,6 @@ CREATE TABLE `object_collection_NewsText_localized_NE` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `text` longtext,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -1123,7 +1098,6 @@ CREATE TABLE `object_collection_OrderByFields_EF_FD` (
   `field` varchar(190) DEFAULT NULL,
   `direction` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1138,8 +1112,8 @@ CREATE TABLE `object_collection_OrderPriceModifications_EF_OSO` (
   `name` varchar(255) DEFAULT NULL,
   `netAmount` decimal(19,4) DEFAULT NULL,
   `amount` decimal(19,4) DEFAULT NULL,
+  `pricingRuleId` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1173,7 +1147,6 @@ CREATE TABLE `object_collection_PaymentInfo_EF_OSO` (
   `provider_ogone_PaymentId` varchar(255) DEFAULT NULL,
   `provider_ogone_PaymentType` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1187,7 +1160,6 @@ CREATE TABLE `object_collection_PricingRule_EF_OSOI` (
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `ruleId` double DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1202,7 +1174,6 @@ CREATE TABLE `object_collection_PricingRule_localized_EF_OSOI` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -1218,7 +1189,6 @@ CREATE TABLE `object_collection_SimilarityField_EF_FD` (
   `field` varchar(190) DEFAULT NULL,
   `weight` double DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1232,7 +1202,6 @@ CREATE TABLE `object_collection_TaxEntry_EF_OSTC` (
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `percent` double DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1247,7 +1216,6 @@ CREATE TABLE `object_collection_TaxEntry_localized_EF_OSTC` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`)
@@ -1269,7 +1237,6 @@ CREATE TABLE `object_collection_VoucherTokenTypePattern_EF_OSVS` (
   `allowOncePerCart` tinyint(1) DEFAULT NULL,
   `onlyTokenPerCart` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1285,7 +1252,6 @@ CREATE TABLE `object_collection_VoucherTokenTypeSingle_EF_OSVS` (
   `usages` decimal(64,0) DEFAULT NULL,
   `onlyTokenPerCart` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
-  KEY `o_id` (`o_id`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1298,7 +1264,6 @@ CREATE TABLE `object_localized_data_AP` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `nameAddition` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1310,7 +1275,6 @@ CREATE TABLE `object_localized_data_BS` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1323,7 +1287,6 @@ CREATE TABLE `object_localized_data_CA` (
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1336,7 +1299,6 @@ CREATE TABLE `object_localized_data_CAR` (
   `name` varchar(190) DEFAULT NULL,
   `description` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1349,7 +1311,6 @@ CREATE TABLE `object_localized_data_EV` (
   `title` varchar(255) DEFAULT NULL,
   `description` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1362,7 +1323,6 @@ CREATE TABLE `object_localized_data_NE` (
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1375,7 +1335,6 @@ CREATE TABLE `object_localized_query_AP_de` (
   `nameAddition` varchar(190) DEFAULT NULL,
   `generatedName` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1388,7 +1347,6 @@ CREATE TABLE `object_localized_query_AP_en` (
   `nameAddition` varchar(190) DEFAULT NULL,
   `generatedName` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1401,7 +1359,6 @@ CREATE TABLE `object_localized_query_AP_fr` (
   `nameAddition` varchar(190) DEFAULT NULL,
   `generatedName` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1413,7 +1370,6 @@ CREATE TABLE `object_localized_query_BS_de` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1425,7 +1381,6 @@ CREATE TABLE `object_localized_query_BS_en` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1437,7 +1392,6 @@ CREATE TABLE `object_localized_query_BS_fr` (
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1451,7 +1405,6 @@ CREATE TABLE `object_localized_query_CAR_de` (
   `description` longtext,
   `textsAvailable` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1465,7 +1418,6 @@ CREATE TABLE `object_localized_query_CAR_en` (
   `description` longtext,
   `textsAvailable` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1479,7 +1431,6 @@ CREATE TABLE `object_localized_query_CAR_fr` (
   `description` longtext,
   `textsAvailable` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1492,7 +1443,6 @@ CREATE TABLE `object_localized_query_CA_de` (
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1505,7 +1455,6 @@ CREATE TABLE `object_localized_query_CA_en` (
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1518,7 +1467,6 @@ CREATE TABLE `object_localized_query_CA_fr` (
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1531,7 +1479,6 @@ CREATE TABLE `object_localized_query_EV_de` (
   `title` varchar(255) DEFAULT NULL,
   `description` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1544,7 +1491,6 @@ CREATE TABLE `object_localized_query_EV_en` (
   `title` varchar(255) DEFAULT NULL,
   `description` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1557,7 +1503,6 @@ CREATE TABLE `object_localized_query_EV_fr` (
   `title` varchar(255) DEFAULT NULL,
   `description` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1570,7 +1515,6 @@ CREATE TABLE `object_localized_query_NE_de` (
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1583,7 +1527,6 @@ CREATE TABLE `object_localized_query_NE_en` (
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1596,7 +1539,6 @@ CREATE TABLE `object_localized_query_NE_fr` (
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext,
   PRIMARY KEY (`ooo_id`,`language`),
-  KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1615,7 +1557,6 @@ CREATE TABLE `object_metadata_CU` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   `index` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`o_id`,`dest_id`,`type`,`fieldname`,`column`,`ownertype`,`ownername`,`position`,`index`),
-  KEY `o_id` (`o_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `column` (`column`),
@@ -1858,7 +1799,7 @@ CREATE TABLE `object_query_EF_OSO` (
   `totalPrice` decimal(19,4) DEFAULT NULL,
   `taxInfo` longtext,
   `currency` varchar(255) DEFAULT NULL,
-  `cartId` varchar(255) DEFAULT NULL,
+  `cartId` varchar(190) DEFAULT NULL,
   `customer__id` int(11) DEFAULT NULL,
   `customer__type` enum('document','asset','object') DEFAULT NULL,
   `customerFirstname` varchar(255) DEFAULT NULL,
@@ -1880,7 +1821,8 @@ CREATE TABLE `object_query_EF_OSO` (
   `successorOrder__id` int(11) DEFAULT NULL,
   `successorOrder__type` enum('document','asset','object') DEFAULT NULL,
   `cartHash` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`oo_id`)
+  PRIMARY KEY (`oo_id`),
+  KEY `p_index_cartId` (`cartId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -2060,7 +2002,6 @@ CREATE TABLE `object_relations_1` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2083,7 +2024,6 @@ CREATE TABLE `object_relations_2` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2106,7 +2046,6 @@ CREATE TABLE `object_relations_3` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2129,7 +2068,6 @@ CREATE TABLE `object_relations_4` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2152,7 +2090,6 @@ CREATE TABLE `object_relations_5` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2175,7 +2112,6 @@ CREATE TABLE `object_relations_AP` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2198,7 +2134,6 @@ CREATE TABLE `object_relations_BS` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2221,7 +2156,6 @@ CREATE TABLE `object_relations_CA` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2244,7 +2178,6 @@ CREATE TABLE `object_relations_CAR` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2267,7 +2200,6 @@ CREATE TABLE `object_relations_CU` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2290,7 +2222,6 @@ CREATE TABLE `object_relations_EF_FD` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2313,7 +2244,6 @@ CREATE TABLE `object_relations_EF_OSO` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2336,7 +2266,6 @@ CREATE TABLE `object_relations_EF_OSOI` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2359,7 +2288,6 @@ CREATE TABLE `object_relations_EF_OSTC` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2382,7 +2310,6 @@ CREATE TABLE `object_relations_EF_OSVS` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2405,7 +2332,6 @@ CREATE TABLE `object_relations_EF_OSVT` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2428,7 +2354,6 @@ CREATE TABLE `object_relations_EF_OTCP` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2451,7 +2376,6 @@ CREATE TABLE `object_relations_EF_OTO` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2474,7 +2398,6 @@ CREATE TABLE `object_relations_EF_OTOI` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2497,7 +2420,6 @@ CREATE TABLE `object_relations_EV` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2520,7 +2442,6 @@ CREATE TABLE `object_relations_MA` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2543,7 +2464,6 @@ CREATE TABLE `object_relations_NE` (
   `position` varchar(70) NOT NULL DEFAULT '0',
   PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
   KEY `index` (`index`),
-  KEY `src_id` (`src_id`),
   KEY `dest_id` (`dest_id`),
   KEY `fieldname` (`fieldname`),
   KEY `position` (`position`),
@@ -2736,7 +2656,7 @@ CREATE TABLE `object_store_EF_OSO` (
   `totalPrice` decimal(19,4) DEFAULT NULL,
   `taxInfo` longtext,
   `currency` varchar(255) DEFAULT NULL,
-  `cartId` varchar(255) DEFAULT NULL,
+  `cartId` varchar(190) DEFAULT NULL,
   `customerFirstname` varchar(255) DEFAULT NULL,
   `customerLastname` varchar(255) DEFAULT NULL,
   `customerCompany` varchar(255) DEFAULT NULL,
@@ -2754,7 +2674,8 @@ CREATE TABLE `object_store_EF_OSO` (
   `deliveryCountry` varchar(190) DEFAULT NULL,
   `paymentReference` varchar(255) DEFAULT NULL,
   `cartHash` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`oo_id`)
+  PRIMARY KEY (`oo_id`),
+  KEY `p_index_cartId` (`cartId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

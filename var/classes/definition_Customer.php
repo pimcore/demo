@@ -1,11 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-27T12:54:43+02:00
+* Generated at: 2020-01-23T11:18:21+01:00
 * Inheritance: no
 * Variants: no
-* Changed by: admin (2)
-* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -40,7 +38,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Customer',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566903283,
+   'modificationDate' => 1579774701,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\CustomerManagementFrameworkBundle\\Model\\AbstractCustomer\\DefaultAbstractUserawareCustomer',
@@ -54,6 +52,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
+   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -5528,7 +5527,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'mandatory' => false,
                      'noteditable' => true,
                      'index' => false,
-                     'locked' => NULL,
+                     'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
@@ -5653,6 +5652,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'maxItems' => '',
                  'queryColumnType' => 'text',
                  'relationType' => true,
+                 'allowToCreateNewObject' => true,
                  'optimizedAdminLoading' => false,
                  'lazyLoading' => true,
                  'classes' => 
@@ -5713,6 +5713,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'maxItems' => '',
                  'queryColumnType' => 'text',
                  'relationType' => true,
+                 'allowToCreateNewObject' => true,
                  'optimizedAdminLoading' => false,
                  'lazyLoading' => true,
                  'classes' => 
@@ -5814,6 +5815,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'phpdocType' => 'array',
                  'relationType' => true,
                  'visibleFields' => NULL,
+                 'allowToCreateNewObject' => true,
                  'optimizedAdminLoading' => false,
                  'visibleFieldDefinitions' => 
                 array (

@@ -1,14 +1,14 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T12:48:37+02:00
-* IP: 192.168.9.96
+* Generated at: 2020-01-23T11:16:51+01:00
 
 
 Fields Summary: 
- - name [input]
- - netAmount [numeric]
- - amount [numeric]
+- name [input]
+- netAmount [numeric]
+- pricingRuleId [numeric]
+- amount [numeric]
 */ 
 
 
@@ -114,6 +114,36 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'visibleSearch' => false,
           )),
           2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
+             'fieldtype' => 'numeric',
+             'width' => NULL,
+             'defaultValue' => NULL,
+             'queryColumnType' => 'double',
+             'columnType' => 'double',
+             'phpdocType' => 'float',
+             'integer' => true,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => NULL,
+             'decimalSize' => NULL,
+             'decimalPrecision' => NULL,
+             'name' => 'pricingRuleId',
+             'title' => 'Applied pricing rule ID',
+             'tooltip' => NULL,
+             'mandatory' => NULL,
+             'noteditable' => true,
+             'index' => NULL,
+             'locked' => NULL,
+             'style' => NULL,
+             'permissions' => NULL,
+             'datatype' => 'data',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+          )),
+          3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'fieldtype' => 'numeric',
              'width' => 300,

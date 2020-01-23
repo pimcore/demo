@@ -288,8 +288,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('136','document','/de','news_default_document','document','142','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('136','document','/de','password_reset_mail','document','145','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('136','document','/de','terms_and_conditions','document','160','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('137','document','/de/shared','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('138','document','/de/Finden-und-Kaufen','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('138','document','/de/Finden-und-Kaufen','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('138','document','/de/Finden-und-Kaufen','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('138','document','/de/Finden-und-Kaufen','navigation_class','text','','0');
@@ -302,7 +300,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('138','document','/de/Finden-und-Kaufen','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('138','document','/de/Finden-und-Kaufen','navigation_title','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('138','document','/de/Finden-und-Kaufen','root_category','object','564','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('139','document','/de/Magazin','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('139','document','/de/Magazin','left_nav_show','bool','1','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('139','document','/de/Magazin','left_nav_start_node','document','139','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('139','document','/de/Magazin','navigation_accesskey','text','','0');
@@ -316,7 +313,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('139','document','/de/Magazin','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('139','document','/de/Magazin','navigation_title','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('139','document','/de/Magazin','sidebar','document','150','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('140','document','/de/Weiteres','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('140','document','/de/Weiteres','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('140','document','/de/Weiteres','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('140','document','/de/Weiteres','navigation_class','text','','0');
@@ -328,8 +324,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('140','document','/de/Weiteres','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('140','document','/de/Weiteres','navigation_title','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('140','document','/de/Weiteres','root_category','object','564','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('141','document','/de/mails','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('142','document','/de/News','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('142','document','/de/News','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('142','document','/de/News','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('142','document','/de/News','navigation_class','text','','0');
@@ -340,16 +334,7 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('142','document','/de/News','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('142','document','/de/News','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('142','document','/de/News','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('144','document','/de/mails/confirmation-mail','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('145','document','/de/mails/password-recovery','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('146','document','/de/mails/newsletter_confirm','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('147','document','/de/mails/after-order-mail','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('148','document','/de/shared/includes','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('149','document','/de/shared/teasers','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('150','document','/de/shared/sidebar','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('151','document','/de/Magazin/Lifestyle','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('151','document','/de/Magazin/Lifestyle','navigation_name','text','Lifestyle','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('152','document','/de/Magazin/Kultur','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('152','document','/de/Magazin/Kultur','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('152','document','/de/Magazin/Kultur','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('152','document','/de/Magazin/Kultur','navigation_class','text','','0');
@@ -360,9 +345,7 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('152','document','/de/Magazin/Kultur','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('152','document','/de/Magazin/Kultur','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('152','document','/de/Magazin/Kultur','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('153','document','/de/Magazin/Trends','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('153','document','/de/Magazin/Trends','navigation_name','text','Trends','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('154','document','/de/Magazin/Auktionen','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('154','document','/de/Magazin/Auktionen','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('154','document','/de/Magazin/Auktionen','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('154','document','/de/Magazin/Auktionen','navigation_class','text','','0');
@@ -373,7 +356,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('154','document','/de/Magazin/Auktionen','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('154','document','/de/Magazin/Auktionen','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('154','document','/de/Magazin/Auktionen','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('155','document','/de/Magazin/Auto-Galerie','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('155','document','/de/Magazin/Auto-Galerie','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('155','document','/de/Magazin/Auto-Galerie','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('155','document','/de/Magazin/Auto-Galerie','navigation_class','text','','0');
@@ -384,7 +366,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('155','document','/de/Magazin/Auto-Galerie','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('155','document','/de/Magazin/Auto-Galerie','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('155','document','/de/Magazin/Auto-Galerie','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('156','document','/de/Magazin/Auto des Tages','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('156','document','/de/Magazin/Auto des Tages','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('156','document','/de/Magazin/Auto des Tages','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('156','document','/de/Magazin/Auto des Tages','navigation_class','text','','0');
@@ -395,7 +376,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('156','document','/de/Magazin/Auto des Tages','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('156','document','/de/Magazin/Auto des Tages','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('156','document','/de/Magazin/Auto des Tages','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('157','document','/de/Magazin/Auto-einstellen','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('157','document','/de/Magazin/Auto-einstellen','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('157','document','/de/Magazin/Auto-einstellen','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('157','document','/de/Magazin/Auto-einstellen','navigation_class','text','','0');
@@ -406,7 +386,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('157','document','/de/Magazin/Auto-einstellen','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('157','document','/de/Magazin/Auto-einstellen','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('157','document','/de/Magazin/Auto-einstellen','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('158','document','/de/Weiteres/Landingpages','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('158','document','/de/Weiteres/Landingpages','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('158','document','/de/Weiteres/Landingpages','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('158','document','/de/Weiteres/Landingpages','navigation_class','text','','0');
@@ -417,7 +396,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('158','document','/de/Weiteres/Landingpages','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('158','document','/de/Weiteres/Landingpages','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('158','document','/de/Weiteres/Landingpages','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('160','document','/de/Weiteres/Terms-and-Conditions','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('160','document','/de/Weiteres/Terms-and-Conditions','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('160','document','/de/Weiteres/Terms-and-Conditions','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('160','document','/de/Weiteres/Terms-and-Conditions','navigation_class','text','','0');
@@ -428,7 +406,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('160','document','/de/Weiteres/Terms-and-Conditions','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('160','document','/de/Weiteres/Terms-and-Conditions','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('160','document','/de/Weiteres/Terms-and-Conditions','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('161','document','/de/Weiteres/Demo-Features','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('161','document','/de/Weiteres/Demo-Features','left_nav_show','bool','1','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('161','document','/de/Weiteres/Demo-Features','left_nav_start_node','document','94','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('161','document','/de/Weiteres/Demo-Features','navigation_accesskey','text','','0');
@@ -441,7 +418,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('161','document','/de/Weiteres/Demo-Features','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('161','document','/de/Weiteres/Demo-Features','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('161','document','/de/Weiteres/Demo-Features','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('164','document','/de/Finden-und-Kaufen/Beliebte-Marken','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('164','document','/de/Finden-und-Kaufen/Beliebte-Marken','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('164','document','/de/Finden-und-Kaufen/Beliebte-Marken','navigation_anchor','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('164','document','/de/Finden-und-Kaufen/Beliebte-Marken','navigation_class','text','','0');
@@ -452,7 +428,6 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('164','document','/de/Finden-und-Kaufen/Beliebte-Marken','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('164','document','/de/Finden-und-Kaufen/Beliebte-Marken','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('164','document','/de/Finden-und-Kaufen/Beliebte-Marken','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('165','document','/de/Finden-und-Kaufen/Im-Angebot','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('165','document','/de/Finden-und-Kaufen/Im-Angebot','left_nav_show','bool','','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('165','document','/de/Finden-und-Kaufen/Im-Angebot','navigation_accesskey','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('165','document','/de/Finden-und-Kaufen/Im-Angebot','navigation_anchor','text','','0');
@@ -464,18 +439,10 @@ INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('165','document','/de/Finden-und-Kaufen/Im-Angebot','navigation_tabindex','text','','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('165','document','/de/Finden-und-Kaufen/Im-Angebot','navigation_target','text',NULL,'0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('165','document','/de/Finden-und-Kaufen/Im-Angebot','navigation_title','text','','0');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('166','document','/de/shared/teasers/Beliebte Marken','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('167','document','/de/shared/teasers/Magazin','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('168','document','/de/shared/teasers/News','language','text','de','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('169','document','/de/shared/teasers/Auto Galerie','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('170','document','/de/shared/includes/footer','navigation_name','text','footer','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('171','document','/de/Weiteres/Landingpages/Chevrolet','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('171','document','/de/Weiteres/Landingpages/Chevrolet','navigation_name','text','Chevrolet','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('172','document','/de/Weiteres/Landingpages/Ford-Musclecars','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('172','document','/de/Weiteres/Landingpages/Ford-Musclecars','navigation_name','text','Ford Musclecars','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('173','document','/de/Weiteres/Landingpages/Vans','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('173','document','/de/Weiteres/Landingpages/Vans','navigation_name','text','Vans','1');
-INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('174','document','/de/Weiteres/Landingpages/Volkswagen','language','text','de','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('174','document','/de/Weiteres/Landingpages/Volkswagen','navigation_name','text','Volkswagen','1');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('193','document','/en/More-Stuff/Demo-Features/Data-Quality','navigation_name','text','Data-Quality','0');
 INSERT INTO properties (`cid`,`ctype`,`cpath`,`name`,`type`,`data`,`inheritable`) VALUES ('194','document','/en/More-Stuff/Demo-Features/Workflows','navigation_name','text','Workflows','0');

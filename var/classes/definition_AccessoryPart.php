@@ -1,11 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-21T20:41:55+02:00
+* Generated at: 2020-01-23T11:18:21+01:00
 * Inheritance: no
 * Variants: no
-* Changed by: admin (2)
-* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -30,7 +28,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'AccessoryPart',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566412915,
+   'modificationDate' => 1579774701,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
@@ -44,6 +42,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
+   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -155,6 +154,7 @@ Text is generated based on
                       0 => 
                       Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                          'fieldtype' => 'calculatedValue',
+                         'elementType' => 'input',
                          'width' => 500,
                          'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\AccessoryPartName',
                          'queryColumnType' => 'varchar',
@@ -490,6 +490,7 @@ Text is generated based on
                      'phpdocType' => 'array',
                      'relationType' => true,
                      'visibleFields' => 'id,key,name,bodyStyle',
+                     'allowToCreateNewObject' => true,
                      'optimizedAdminLoading' => false,
                      'visibleFieldDefinitions' => 
                     array (
@@ -605,6 +606,7 @@ Text is generated based on
                      'phpdocType' => 'array',
                      'relationType' => true,
                      'visibleFields' => 'id,fullpath,name',
+                     'allowToCreateNewObject' => true,
                      'optimizedAdminLoading' => false,
                      'visibleFieldDefinitions' => 
                     array (

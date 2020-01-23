@@ -1,11 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-22T16:08:42+02:00
+* Generated at: 2020-01-23T11:29:33+01:00
 * Inheritance: no
 * Variants: no
-* Changed by: admin (2)
-* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -55,7 +53,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopOrder',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566482922,
+   'modificationDate' => 1579775373,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractOrder',
@@ -69,6 +67,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
+   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
@@ -276,6 +275,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'phpdocType' => 'array',
                      'relationType' => true,
                      'visibleFields' => NULL,
+                     'allowToCreateNewObject' => true,
                      'optimizedAdminLoading' => false,
                      'visibleFieldDefinitions' => 
                     array (
@@ -365,6 +365,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'phpdocType' => 'array',
                      'relationType' => true,
                      'visibleFields' => NULL,
+                     'allowToCreateNewObject' => true,
                      'optimizedAdminLoading' => false,
                      'visibleFieldDefinitions' => 
                     array (
@@ -422,6 +423,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'phpdocType' => 'array',
                      'relationType' => true,
                      'visibleFields' => NULL,
+                     'allowToCreateNewObject' => true,
                      'optimizedAdminLoading' => false,
                      'visibleFieldDefinitions' => 
                     array (
@@ -703,7 +705,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'width' => 400,
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
-                     'columnLength' => 255,
+                     'columnLength' => 190,
                      'phpdocType' => 'string',
                      'regex' => '',
                      'unique' => false,

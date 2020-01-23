@@ -1,11 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-21T20:45:52+02:00
+* Generated at: 2020-01-23T11:18:21+01:00
 * Inheritance: no
 * Variants: no
-* Changed by: admin (2)
-* IP: 10.242.2.5
 
 
 Fields Summary: 
@@ -21,7 +19,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'SsoIdentity',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566413152,
+   'modificationDate' => 1579774701,
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '\\CustomerManagementFrameworkBundle\\Model\\AbstractSsoIdentity',
@@ -35,6 +33,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
+   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',

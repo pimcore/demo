@@ -1,11 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-27T15:47:59+02:00
+* Generated at: 2020-01-23T11:18:22+01:00
 * Inheritance: no
 * Variants: no
-* Changed by: admin (2)
-* IP: 192.168.9.96
 
 
 Fields Summary: 
@@ -23,7 +21,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'News',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1566913678,
+   'modificationDate' => 1579774702,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -37,6 +35,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
+   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
