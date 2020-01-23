@@ -84,6 +84,7 @@ class CartController extends FrontendController
 
         $trackingManager = $ecommerceFactory->getTrackingManager();
         $trackingManager->trackCartProductActionAdd($cart, $product);
+        $trackingManager->forwardTrackedCodesAsFlashMessage();
 
         return $this->redirectToRoute('shop-cart-detail');
     }
@@ -144,7 +145,8 @@ class CartController extends FrontendController
         $cart->save();
 
         $trackingManager = $ecommerceFactory->getTrackingManager();
-        $trackingManager->trackCartProductActionAdd($cart, $product);
+        $trackingManager->trackCartProductActionRemove($cart, $product);
+        $trackingManager->forwardTrackedCodesAsFlashMessage();
 
         return $this->redirectToRoute('shop-cart-detail');
     }
