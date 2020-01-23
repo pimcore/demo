@@ -59,7 +59,7 @@ pimcore_ecommerce_framework:
                         type: varchar(255)
                         filter_group: multiselect
                     country:
-                        type: varchar(255)
+                        type: varchar(10)
                         filter_group: string
                     milage:
                         type: double
