@@ -237,7 +237,7 @@ class ProductController extends BaseController
 //            $productListing->addQueryCondition($term);
 
             //sample for a more specific elastic search query - not considers search_attributes but provides full flexibility
-            // this query weights cars more that accessries
+            // this query weights cars more that accessories
             $query = [
                 'function_score' => [
                     'query' => [
