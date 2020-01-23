@@ -35,13 +35,19 @@ INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES 
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190522130545','2019-07-02 11:17:27');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190527121800','2019-07-02 11:17:27');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190618154000','2020-01-23 11:31:25');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190701141857','2020-01-23 12:43:52');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190708175236','2020-01-23 11:31:07');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190729085052','2020-01-23 12:43:52');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190802090149','2020-01-23 12:43:52');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190806160450','2020-01-23 11:29:33');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190807121356','2020-01-23 11:29:23');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190828142756','2020-01-23 11:29:12');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190902085052','2020-01-23 11:28:01');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190904154339','2020-01-23 12:43:52');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191015131700','2020-01-23 12:43:52');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191107141816','2020-01-23 11:26:47');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191114123638','2020-01-23 11:26:38');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191114132014','2020-01-23 12:43:52');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191121150326','2020-01-23 11:25:16');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191125135853','2020-01-23 11:24:48');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191125200416','2020-01-23 11:20:23');
@@ -52,6 +58,7 @@ INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES 
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191230103524','2020-01-23 11:17:56');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20191230104529','2020-01-23 11:17:28');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20200113120101','2020-01-23 11:16:51');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20200116181758','2020-01-23 12:43:52');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('PimcoreCustomerManagementFrameworkBundle','00000001','2019-08-13 10:14:15');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('PimcoreCustomerManagementFrameworkBundle','20171019130865','2019-08-13 10:14:15');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('PimcoreCustomerManagementFrameworkBundle','20171102160547','2019-08-13 10:14:15');
