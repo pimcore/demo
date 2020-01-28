@@ -1,6 +1,6 @@
 {% set providers = ['google', 'twitter'] %}
 {% set blacklist = blacklist is defined ? blacklist : [] %}
-{% set route = route is defined ? route : 'app_auth_oauth_login' %}
+{% set route = route is defined ? route : 'hwi_oauth_service_redirect' %}
 {% set connect = connect is defined ? connect : false %}
 
 {% set translationKey = connect ? 'general.connect-to' : 'general.sign-in-with' %}

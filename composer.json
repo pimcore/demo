@@ -10,9 +10,9 @@
   "require": {
     "php": ">=7.2",
     "heidelpay/heidelpay-php": "^1.2",
-    "hwi/oauth-bundle": "^0.6.3",
-    "php-http/guzzle6-adapter": "^1",
-    "php-http/httplug-bundle": "^1.16",
+    "hwi/oauth-bundle": "^1.0.0",
+    "php-http/guzzle6-adapter": "^2.0",
+    "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "^2.2",
     "pimcore/pimcore": "~6.4.0",
     "pimcore/web2print-tools-bundle": "^3.1",

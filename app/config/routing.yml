@@ -16,10 +16,18 @@ account-logout:
     path: '{_locale}/account/logout'
 
 
-app_auth_oauth_login:
-    path: /auth/oauth/login/{service}
-    defaults:
-        _controller: HWIOAuthBundle:Connect:redirectToService
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /auth/oauth
+
 
 app_auth_oauth_check_google:
     path: /auth/oauth/check/google
