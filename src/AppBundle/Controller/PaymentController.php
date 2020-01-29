@@ -15,6 +15,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Ecommerce\CheckoutManager\Confirm;
 use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\V7\CheckoutManagerInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
@@ -65,6 +66,9 @@ class PaymentController extends FrontendController
         if ($paymentProvider instanceof Heidelpay) {
             $accessKey = $paymentProvider->getPublicAccessKey();
         }
+
+        $trackingManager = $factory->getTrackingManager();
+        $trackingManager->trackCheckoutStep(new Confirm($cart), $cart, 2);
 
         return [
             'cart' => $cart,
