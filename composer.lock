@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e71e5e19ccce040d8062038b5682cb83",
+    "content-hash": "1bfbf71c2424ef01ddc76c441ac9bfca",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -2253,21 +2253,21 @@
         },
         {
             "name": "heidelpay/heidelpay-php",
-            "version": "1.2.6.0",
+            "version": "1.2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heidelpay/heidelpayPHP.git",
-                "reference": "0b3ce3396c89bef83121322a164f7f0cd6a1b425"
+                "reference": "9eecc31089971eb7e080b8932ca715bdac06d4d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heidelpay/heidelpayPHP/zipball/0b3ce3396c89bef83121322a164f7f0cd6a1b425",
-                "reference": "0b3ce3396c89bef83121322a164f7f0cd6a1b425",
+                "url": "https://api.github.com/repos/heidelpay/heidelpayPHP/zipball/9eecc31089971eb7e080b8932ca715bdac06d4d1",
+                "reference": "9eecc31089971eb7e080b8932ca715bdac06d4d1",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "~7.0.0|~7.1.0|~7.2.0|~7.3.0"
+                "php": "^7.0.0|^7.1.0|^7.2.0|^7.3.0"
             },
             "require-dev": {
                 "codacy/coverage": "^1.4",
@@ -2295,7 +2295,7 @@
                 }
             ],
             "description": "This is the php sdk to connect to the heidelpay rest api.",
-            "time": "2020-01-21T12:48:12+00:00"
+            "time": "2019-11-26T09:44:40+00:00"
         },
         {
             "name": "http-interop/http-factory-guzzle",
