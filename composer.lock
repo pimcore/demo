@@ -3117,16 +3117,16 @@
         },
         {
             "name": "mjaschen/phpgeo",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjaschen/phpgeo.git",
-                "reference": "3bc2788e4e42d586531a3ce076032a52231d9850"
+                "reference": "75b20ef705f6da256b3326bca40a54732a0528a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mjaschen/phpgeo/zipball/3bc2788e4e42d586531a3ce076032a52231d9850",
-                "reference": "3bc2788e4e42d586531a3ce076032a52231d9850",
+                "url": "https://api.github.com/repos/mjaschen/phpgeo/zipball/75b20ef705f6da256b3326bca40a54732a0528a7",
+                "reference": "75b20ef705f6da256b3326bca40a54732a0528a7",
                 "shasum": ""
             },
             "require": {
@@ -3179,7 +3179,7 @@
                 "track",
                 "vincenty"
             ],
-            "time": "2020-02-04T08:17:49+00:00"
+            "time": "2020-02-05T17:39:53+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5067,12 +5067,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "8ed1c5f748831408f00e76fba7e72375aad8648b"
+                "reference": "a100003754e8e7124ebf6ff0b1fc13603d43dc14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/8ed1c5f748831408f00e76fba7e72375aad8648b",
-                "reference": "8ed1c5f748831408f00e76fba7e72375aad8648b",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/a100003754e8e7124ebf6ff0b1fc13603d43dc14",
+                "reference": "a100003754e8e7124ebf6ff0b1fc13603d43dc14",
                 "shasum": ""
             },
             "require": {
@@ -5097,7 +5097,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-01-23T08:54:24+00:00"
+            "time": "2020-02-06T08:57:04+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
