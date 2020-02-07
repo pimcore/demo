@@ -49,15 +49,14 @@ class ProductController extends BaseController
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param Factory $ecommerceFactory
      * @param SegmentTrackingHelperService $segmentTrackingHelperService
+     * @param Concrete $product built-in parameter conversion, please see https://github.com/pimcore/pimcore/pull/5554
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \Exception
      */
-    public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService)
+    public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService, Concrete $product)
     {
-        $product = Concrete::getById($request->get('product'));
-
         if (!(
                 $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
             )
