@@ -168,10 +168,10 @@
                                             {% set leftStartNode = mainNavStartNode %}
                                         {% endif %}
 
-                                        {% set leftNav = pimcore_build_nav(
+                                        {% set leftNav = pimcore_build_nav({
                                             active: document,
                                             root: leftStartNode
-                                            ) %}
+                                        }) %}
 
                                         <h5>{{ leftStartNode.getProperty('navigation_name') }}</h5>
 
