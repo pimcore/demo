@@ -82,7 +82,6 @@
                 {% set navStartNode = pimcore_document(1) %}
             {% endif %}
 
-            {#{% set mainNavigation = pimcore_build_nav(document, navStartNode) %}#}
             {% set mainNavigation =  app_navigation_data_links(document, navStartNode) %}
             <div class="container">
                 {#Logo Image#}
@@ -145,7 +144,10 @@
                                     {% set mainNavStartNode = pimcore_document(1) %}
                                 {% endif %}
 
-                                {% set breadbrumbs = pimcore_build_nav(document, mainNavStartNode) %}
+                                {% set breadbrumbs = pimcore_build_nav({
+                                    active: document,
+                                    root: mainNavStartNode
+                                }) %}
                                 {% do app_navigation_enrich_breadcrumbs(breadbrumbs) %}
                                 {% do pimcore_nav_renderer('breadcrumbs').setMinDepth(null) %}
 
@@ -166,7 +168,10 @@
                                             {% set leftStartNode = mainNavStartNode %}
                                         {% endif %}
 
-                                        {% set leftNav = pimcore_build_nav(document, leftStartNode) %}
+                                        {% set leftNav = pimcore_build_nav(
+                                            document,
+                                            leftStartNode
+                                            ) %}
 
                                         <h5>{{ leftStartNode.getProperty('navigation_name') }}</h5>
 

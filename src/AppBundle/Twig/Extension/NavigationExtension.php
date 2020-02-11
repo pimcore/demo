@@ -73,28 +73,32 @@ class NavigationExtension extends AbstractExtension
      */
     public function getDataLinks(Document $document, Document $startNode)
     {
-        $navigation = $this->navigationHelper->buildNavigation($document, $startNode, null, function ($page, $document) {
-            if ($document->getProperty(self::NAVIGATION_EXTENSION_POINT_PROPERTY) == 'category' && $rootCategory = $document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME)) {
-                foreach ($rootCategory->getChildren() as $category) {
-                    $categoryPage = new NavDocument([
-                        'label' => $category->getName(),
-                        'id' => 'category-' . $category->getId(),
-                        'uri' => $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null], true)
-                    ]);
-
-                    foreach ($category->getChildren() as $subCategory) {
-                        $subCategoryPage = new NavDocument([
-                            'label' => $subCategory->getName(),
-                            'id' => 'category-' . $subCategory->getId(),
-                            'uri' => $this->categoryLinkGenerator->generate($subCategory, ['rootCategory' => $rootCategory, 'page' => null], true)
+        $navigation = $this->navigationHelper->build([
+            'active' => $document,
+            'root' => $startNode,
+            'pageCallback' => function($page, $document) {
+                if ($document->getProperty(self::NAVIGATION_EXTENSION_POINT_PROPERTY) == 'category' && $rootCategory = $document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME)) {
+                    foreach ($rootCategory->getChildren() as $category) {
+                        $categoryPage = new NavDocument([
+                            'label' => $category->getName(),
+                            'id' => 'category-' . $category->getId(),
+                            'uri' => $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory, 'page' => null], true)
                         ]);
 
-                        $categoryPage->addPage($subCategoryPage);
+                        foreach ($category->getChildren() as $subCategory) {
+                            $subCategoryPage = new NavDocument([
+                                'label' => $subCategory->getName(),
+                                'id' => 'category-' . $subCategory->getId(),
+                                'uri' => $this->categoryLinkGenerator->generate($subCategory, ['rootCategory' => $rootCategory, 'page' => null], true)
+                            ]);
+
+                            $categoryPage->addPage($subCategoryPage);
+                        }
+                        $page->addPage($categoryPage);
                     }
-                    $page->addPage($categoryPage);
                 }
             }
-        });
+        ]);
 
         return $navigation;
     }
