@@ -169,8 +169,8 @@
                                         {% endif %}
 
                                         {% set leftNav = pimcore_build_nav(
-                                            document,
-                                            leftStartNode
+                                            active: document,
+                                            root: leftStartNode
                                             ) %}
 
                                         <h5>{{ leftStartNode.getProperty('navigation_name') }}</h5>
