@@ -14,7 +14,7 @@
     "php-http/guzzle6-adapter": "^2.0",
     "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "^2.2",
-    "pimcore/pimcore": "~6.4.0",
+    "pimcore/pimcore": "~6.5.0",
     "pimcore/web2print-tools-bundle": "^3.1",
     "pimcore/data-hub": "dev-master",
     "wikimedia/composer-merge-plugin": "^1.4"
