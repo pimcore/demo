@@ -5007,16 +5007,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v2.5.2",
+            "version": "v2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "294c5d7f024021eef1e43a2fbff77cb4ca9e7472"
+                "reference": "b9549f630cf4edc9d7b4d343b6c66a940d8495cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/294c5d7f024021eef1e43a2fbff77cb4ca9e7472",
-                "reference": "294c5d7f024021eef1e43a2fbff77cb4ca9e7472",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/b9549f630cf4edc9d7b4d343b6c66a940d8495cf",
+                "reference": "b9549f630cf4edc9d7b4d343b6c66a940d8495cf",
                 "shasum": ""
             },
             "require": {
@@ -5027,7 +5027,7 @@
                 "pear/archive_tar": "^1.4.3",
                 "pimcore/number-sequence-generator": "^1.0.1",
                 "pimcore/object-merger": "~2.0",
-                "pimcore/pimcore": ">=5.4 <6.6",
+                "pimcore/pimcore": ">=5.4 <6.7",
                 "pimcore/search-query-parser": "^1.2.4"
             },
             "require-dev": {
@@ -5061,7 +5061,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-02-19T13:13:44+00:00"
+            "time": "2020-03-03T13:17:37+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -5136,20 +5136,20 @@
         },
         {
             "name": "pimcore/object-merger",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/object-merger.git",
-                "reference": "919a92e2c0ad846d2551fa1f0faeae44b0ef0d4d"
+                "reference": "0c04238e066daa5c3af4d9e1af823888dfe5e946"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/919a92e2c0ad846d2551fa1f0faeae44b0ef0d4d",
-                "reference": "919a92e2c0ad846d2551fa1f0faeae44b0ef0d4d",
+                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/0c04238e066daa5c3af4d9e1af823888dfe5e946",
+                "reference": "0c04238e066daa5c3af4d9e1af823888dfe5e946",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": ">=5.4 <6.6"
+                "pimcore/pimcore": ">=5.4 <6.7"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5168,24 +5168,24 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-02-14T09:08:55+00:00"
+            "time": "2020-03-03T13:17:47+00:00"
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "v3.4.0",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "583f25574b2e787480600344fdac5330b4cf05a5"
+                "reference": "9c6b5fe2595d80ef9ece9cce47f635ff12c3df6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/583f25574b2e787480600344fdac5330b4cf05a5",
-                "reference": "583f25574b2e787480600344fdac5330b4cf05a5",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/9c6b5fe2595d80ef9ece9cce47f635ff12c3df6e",
+                "reference": "9c6b5fe2595d80ef9ece9cce47f635ff12c3df6e",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": ">=5.4 <6.6"
+                "pimcore/pimcore": ">=5.4 <6.7"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5204,7 +5204,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-02-14T09:10:16+00:00"
+            "time": "2020-03-03T13:18:05+00:00"
         },
         {
             "name": "pimcore/pimcore",
@@ -5413,21 +5413,21 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v3.4.0",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "99dd71bb93fc5991831354aa4e56a0f180eef977"
+                "reference": "551447ce4a1b20f7eb079d1a359b7d52a3db71b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/99dd71bb93fc5991831354aa4e56a0f180eef977",
-                "reference": "99dd71bb93fc5991831354aa4e56a0f180eef977",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/551447ce4a1b20f7eb079d1a359b7d52a3db71b5",
+                "reference": "551447ce4a1b20f7eb079d1a359b7d52a3db71b5",
                 "shasum": ""
             },
             "require": {
                 "pimcore/output-data-config-toolkit-bundle": "~3",
-                "pimcore/pimcore": ">=5.4 <6.6"
+                "pimcore/pimcore": ">=5.4 <6.7"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5446,7 +5446,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-02-14T09:09:34+00:00"
+            "time": "2020-03-03T13:17:56+00:00"
         },
         {
             "name": "piwik/device-detector",
