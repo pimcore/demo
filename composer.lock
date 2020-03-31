@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d62ec6192f832e0341365234d76fd52e",
+    "content-hash": "7e29b2d325d6647ed96799d8126c2707",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -2317,6 +2317,43 @@
             "time": "2019-11-26T09:44:40+00:00"
         },
         {
+            "name": "html2text/html2text",
+            "version": "4.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtibben/html2text.git",
+                "reference": "f7555eaf271beea4e1098274d3ff37fbb7b21ea7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtibben/html2text/zipball/f7555eaf271beea4e1098274d3ff37fbb7b21ea7",
+                "reference": "f7555eaf271beea4e1098274d3ff37fbb7b21ea7",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance",
+                "symfony/polyfill-mbstring": "If you can't install ext-mbstring"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Html2Text\\": [
+                        "src/",
+                        "test/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Converts HTML to formatted plain text",
+            "time": "2018-08-13T12:05:08+00:00"
+        },
+        {
             "name": "http-interop/http-factory-guzzle",
             "version": "1.0.0",
             "source": {
@@ -3288,25 +3325,32 @@
         },
         {
             "name": "mpratt/embera",
-            "version": "1.9.6",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpratt/Embera.git",
-                "reference": "47bcef7f8d7ee60fdc51b55ab25444b1ead06f2f"
+                "reference": "03a4375e6c34948cb61588b554b3ce82002e0233"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpratt/Embera/zipball/47bcef7f8d7ee60fdc51b55ab25444b1ead06f2f",
-                "reference": "47bcef7f8d7ee60fdc51b55ab25444b1ead06f2f",
+                "url": "https://api.github.com/repos/mpratt/Embera/zipball/03a4375e6c34948cb61588b554b3ce82002e0233",
+                "reference": "03a4375e6c34948cb61588b554b3ce82002e0233",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.3"
+            },
+            "suggest": {
+                "ext-curl": "Allow to fetch data using curl instead of using file_get_contents"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Embera": "Lib/"
+                "psr-4": {
+                    "Embera\\": "src/Embera"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3316,16 +3360,17 @@
             "authors": [
                 {
                     "name": "Michael Pratt",
-                    "email": "pratt@hablarmierda.net",
+                    "email": "yo@michael-pratt.com",
                     "homepage": "http://www.michael-pratt.com",
                     "role": "Author/Developer"
                 }
             ],
-            "description": "Oembed consumer library, that gives information about urls. It helps you replace urls to 60+ sites like youtube or vimeo, with their html embed code.",
+            "description": "Oembed consumer library. Converts urls into their html embed code. Supports 150+ sites, such as Youtube, Twitter, vimeo, Instagram etc.",
             "homepage": "https://github.com/mpratt/Embera",
             "keywords": [
                 "Auto embed",
                 "Embed Text",
+                "Responsive Embeds",
                 "Url Embed",
                 "embed",
                 "instagram",
@@ -3335,7 +3380,7 @@
                 "vine",
                 "youtube"
             ],
-            "time": "2020-01-03T00:35:55+00:00"
+            "time": "2020-03-19T00:52:05+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -3565,16 +3610,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.32.1",
+            "version": "2.32.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ecb525c766deb3bbbb6a0082ea0e41d3d9ae477c"
+                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ecb525c766deb3bbbb6a0082ea0e41d3d9ae477c",
-                "reference": "ecb525c766deb3bbbb6a0082ea0e41d3d9ae477c",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
+                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
                 "shasum": ""
             },
             "require": {
@@ -3642,7 +3687,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-03-26T13:04:10+00:00"
+            "time": "2020-03-31T13:43:19+00:00"
         },
         {
             "name": "nikic/phlexy",
@@ -5120,12 +5165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "4bc63245e78ceffe41f31530530f342814c2b458"
+                "reference": "2e88f1590df723a38be976778e6f30f355870872"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/4bc63245e78ceffe41f31530530f342814c2b458",
-                "reference": "4bc63245e78ceffe41f31530530f342814c2b458",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/2e88f1590df723a38be976778e6f30f355870872",
+                "reference": "2e88f1590df723a38be976778e6f30f355870872",
                 "shasum": ""
             },
             "require": {
@@ -5150,7 +5195,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-03-31T08:32:19+00:00"
+            "time": "2020-03-31T13:30:11+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -5259,16 +5304,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v6.5.3",
+            "version": "v6.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "3b4593153a48024988fba5a599726ed09c37e5ff"
+                "reference": "e1328ffdb6cdc5416279c72353f2de9817ce9d1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/3b4593153a48024988fba5a599726ed09c37e5ff",
-                "reference": "3b4593153a48024988fba5a599726ed09c37e5ff",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/e1328ffdb6cdc5416279c72353f2de9817ce9d1f",
+                "reference": "e1328ffdb6cdc5416279c72353f2de9817ce9d1f",
                 "shasum": ""
             },
             "require": {
@@ -5301,13 +5346,14 @@
                 "geoip2/geoip2": "^2.9",
                 "google/apiclient": "^2.0",
                 "guzzlehttp/guzzle": "^6.3",
+                "html2text/html2text": "^4.2.1",
                 "http-interop/http-factory-guzzle": "^1.0.0",
                 "hybridauth/hybridauth": "^2.12",
                 "lcobucci/jwt": "^3.2",
                 "league/csv": "^9.1",
                 "linfo/linfo": "^4.0.0",
                 "mjaschen/phpgeo": "^2.0",
-                "mpratt/embera": "^1.9.3",
+                "mpratt/embera": "^2.0.3",
                 "myclabs/deep-copy": "^1.3",
                 "neitanod/forceutf8": "^2.0.4",
                 "nesbot/carbon": "^1.34.0 || ^2.11.0",
@@ -5350,7 +5396,7 @@
                 "klarna/checkout": "^3.0.0",
                 "mpay24/mpay24-php": "^4.2",
                 "paypal/paypal-checkout-sdk": "^1",
-                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan": "^0.12.18",
                 "phpstan/phpstan-symfony": "^0.12"
             },
             "suggest": {
@@ -5375,7 +5421,7 @@
                 "symfony-tests-dir": "tests",
                 "symfony-assets-install": "relative",
                 "branch-alias": {
-                    "dev-master": "6.5-dev"
+                    "dev-master": "6.6-dev"
                 }
             },
             "autoload": {
@@ -5418,7 +5464,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2020-03-03T13:02:17+00:00"
+            "time": "2020-03-31T12:26:29+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -5501,16 +5547,16 @@
         },
         {
             "name": "piwik/device-detector",
-            "version": "3.12.3",
+            "version": "3.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/matomo-org/device-detector.git",
-                "reference": "22257883bd2c7c21d68112a907cdad7de4a2ba31"
+                "reference": "6a92e45a55eb507f53581e9add7dc82835ad6424"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/22257883bd2c7c21d68112a907cdad7de4a2ba31",
-                "reference": "22257883bd2c7c21d68112a907cdad7de4a2ba31",
+                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/6a92e45a55eb507f53581e9add7dc82835ad6424",
+                "reference": "6a92e45a55eb507f53581e9add7dc82835ad6424",
                 "shasum": ""
             },
             "require": {
@@ -5552,7 +5598,7 @@
                 "parser",
                 "useragent"
             ],
-            "time": "2020-01-13T16:15:20+00:00"
+            "time": "2020-03-31T08:53:12+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
