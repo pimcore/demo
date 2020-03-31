@@ -5120,12 +5120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "fe81f3c95748b8b3811dc1bd342085580f91ed95"
+                "reference": "4bc63245e78ceffe41f31530530f342814c2b458"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/fe81f3c95748b8b3811dc1bd342085580f91ed95",
-                "reference": "fe81f3c95748b8b3811dc1bd342085580f91ed95",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/4bc63245e78ceffe41f31530530f342814c2b458",
+                "reference": "4bc63245e78ceffe41f31530530f342814c2b458",
                 "shasum": ""
             },
             "require": {
@@ -5150,7 +5150,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-03-26T10:01:06+00:00"
+            "time": "2020-03-31T08:32:19+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -7690,16 +7690,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v4.4.6",
+            "version": "v4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "895d796658d76312344a19374afe9ff04c00b78d"
+                "reference": "0889df1e88559968eb291c938d25b96e252f7bed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/895d796658d76312344a19374afe9ff04c00b78d",
-                "reference": "895d796658d76312344a19374afe9ff04c00b78d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/0889df1e88559968eb291c938d25b96e252f7bed",
+                "reference": "0889df1e88559968eb291c938d25b96e252f7bed",
                 "shasum": ""
             },
             "require": {
@@ -7875,7 +7875,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-03-27T08:32:59+00:00"
+            "time": "2020-03-30T14:59:37+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
