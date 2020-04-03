@@ -515,16 +515,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.10.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "233e36632422cfc5cc499f14ad6c1476b50cb7b1"
+                "reference": "5eb79f3dbdffed6544e1fc287572c0f462bd29bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/233e36632422cfc5cc499f14ad6c1476b50cb7b1",
-                "reference": "233e36632422cfc5cc499f14ad6c1476b50cb7b1",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/5eb79f3dbdffed6544e1fc287572c0f462bd29bb",
+                "reference": "5eb79f3dbdffed6544e1fc287572c0f462bd29bb",
                 "shasum": ""
             },
             "require": {
@@ -580,7 +580,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2020-04-02T08:15:55+00:00"
+            "time": "2020-04-02T12:33:25+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -5166,12 +5166,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "b6845b32bb7659ad64b4cfe56b8df8b390d13833"
+                "reference": "90bb240299b503951b82a6b10f94c9ae4ee5272d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/b6845b32bb7659ad64b4cfe56b8df8b390d13833",
-                "reference": "b6845b32bb7659ad64b4cfe56b8df8b390d13833",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/90bb240299b503951b82a6b10f94c9ae4ee5272d",
+                "reference": "90bb240299b503951b82a6b10f94c9ae4ee5272d",
                 "shasum": ""
             },
             "require": {
@@ -5196,7 +5196,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-04-01T09:13:05+00:00"
+            "time": "2020-04-03T08:25:31+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
