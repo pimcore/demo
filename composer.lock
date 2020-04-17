@@ -5243,16 +5243,16 @@
         },
         {
             "name": "pimcore/object-merger",
-            "version": "v2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/object-merger.git",
-                "reference": "0c04238e066daa5c3af4d9e1af823888dfe5e946"
+                "reference": "78c733ec64a7f1bcad730291bb1c8f8b0b8d6329"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/0c04238e066daa5c3af4d9e1af823888dfe5e946",
-                "reference": "0c04238e066daa5c3af4d9e1af823888dfe5e946",
+                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/78c733ec64a7f1bcad730291bb1c8f8b0b8d6329",
+                "reference": "78c733ec64a7f1bcad730291bb1c8f8b0b8d6329",
                 "shasum": ""
             },
             "require": {
@@ -5275,7 +5275,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-03-03T13:17:47+00:00"
+            "time": "2020-04-17T08:44:08+00:00"
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
