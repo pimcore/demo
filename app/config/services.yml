@@ -48,6 +48,11 @@ services:
     AppBundle\Services\SegmentTrackingHelperService: ~
     AppBundle\Website\Navigation\BreadcrumbHelperService: ~
 
+    AppBundle\Model\Product\CalculatedValue\QualityCalculator:
+        public: true
+
+    AppBundle\Model\Product\CalculatedValue\AccessoryPartName:
+        public: true
 
 
     # ---------------------------------------------------------
@@ -96,7 +101,8 @@ services:
     AppBundle\Website\LinkGenerator\NewsLinkGenerator:
         public: true
 
-
+    AppBundle\Website\CustomRenderer:
+        public: true
 
     # ---------------------------------------------------------
     # Overwrite Pimcore Default Services
@@ -144,9 +150,11 @@ services:
         arguments:
             $httpUtils: '@security.http_utils'
 
-
-
-
+    AppBundle\EventListener\TestListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.document.preAdd, method: onPostUpdate }
+            - { name: kernel.event_listener, event: pimcore.asset.preAdd, method: onAssetPreUpdate }
+            - { name: kernel.event_listener, event: pimcore.admin.class.objectbrick.updateDefinition, method: onObjectbrickUpdate }
 
 
     # ---------------------------------------------------------
@@ -154,3 +162,15 @@ services:
     # ---------------------------------------------------------
     AppBundle\Workflow\SupportsStrategy: ~
 
+    AppBundle\Maintenance\TestTask:
+        tags:
+            - { name: pimcore.maintenance.task, type: test_task }
+
+
+    app.options.provider.dropdown:
+        class: AppBundle\Product\OptionsProvider\DropdownOptionsProvider
+        public: true
+
+    app.default.value.service:
+        class: AppBundle\Services\DefaultValueService
+        public: true
