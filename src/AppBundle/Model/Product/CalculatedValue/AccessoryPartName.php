@@ -17,10 +17,24 @@ namespace AppBundle\Model\Product\CalculatedValue;
 
 use AppBundle\Model\Product\AccessoryPart;
 use AppBundle\Website\Tool\ForceInheritance;
+use Pimcore\Model\DataObject\ClassDefinition\CalculatorClassInterface;
+use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject\Data\CalculatedValue;
 
-class AccessoryPartName
+class AccessoryPartName implements CalculatorClassInterface
 {
-    public static function compute($object, $context)
+    public function compute(Concrete $object, CalculatedValue $context): string
+    {
+        return $this->getCalculatedValueForEditMode($object, $context);
+    }
+
+    /**
+     * @param $object
+     * @param $context CalculatedValue
+     *
+     * @return string
+     */
+    public function getCalculatedValueForEditMode(Concrete $object, CalculatedValue $context): string
     {
         if ($object instanceof AccessoryPart) {
             $language = $context->getPosition();

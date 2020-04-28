@@ -78,7 +78,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
                  'fieldtype' => 'text',
                  'html' => '',
-                 'renderingClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                 'renderingClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                  'renderingData' => '',
                  'border' => false,
                  'name' => 'QualitySummary',
@@ -107,7 +107,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
                      'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
                      'columnLength' => 190,
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
@@ -180,7 +180,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
                      'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
                      'columnLength' => 190,
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
@@ -203,7 +203,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
                      'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
                      'columnLength' => 190,
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
@@ -226,7 +226,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
                      'width' => 0,
-                     'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
+                     'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
                      'columnLength' => 190,
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',

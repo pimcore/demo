@@ -48,6 +48,11 @@ services:
     AppBundle\Services\SegmentTrackingHelperService: ~
     AppBundle\Website\Navigation\BreadcrumbHelperService: ~
 
+    AppBundle\Model\Product\CalculatedValue\QualityCalculator:
+        public: true
+
+    AppBundle\Model\Product\CalculatedValue\AccessoryPartName:
+        public: true
 
 
     # ---------------------------------------------------------

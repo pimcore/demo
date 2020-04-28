@@ -16,11 +16,13 @@
 namespace AppBundle\Model\Product\CalculatedValue;
 
 use AppBundle\Model\Product\Car;
+use Pimcore\Model\DataObject\ClassDefinition\CalculatorClassInterface;
+use Pimcore\Model\DataObject\ClassDefinition\Layout\DynamicTextLabelInterface;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Data\CalculatedValue;
 use Pimcore\Tool;
 
-class QualityCalculator
+class QualityCalculator implements DynamicTextLabelInterface, CalculatorClassInterface
 {
     /**
      * @param $object Concrete
@@ -28,9 +30,9 @@ class QualityCalculator
      *
      * @return string
      */
-    public static function compute(Concrete $object, CalculatedValue $context)
+    public function compute(Concrete $object, CalculatedValue $context): string
     {
-        return self::getCalculatedValueForEditMode($object, $context);
+        return $this->getCalculatedValueForEditMode($object, $context);
     }
 
     /**
@@ -39,7 +41,7 @@ class QualityCalculator
      *
      * @return string
      */
-    public static function getCalculatedValueForEditMode(Concrete $object, CalculatedValue $context)
+    public function getCalculatedValueForEditMode(Concrete $object, CalculatedValue $context): string
     {
         if ($object instanceof Car) {
             if ($context->getFieldname() == 'textsAvailable') {
@@ -79,7 +81,7 @@ class QualityCalculator
      *
      * @return string
      */
-    public static function renderLayoutText($data, Concrete $object, $params)
+    public function renderLayoutText($data, $object, $params)
     {
         if ($object instanceof Car) {
             $quality = [];

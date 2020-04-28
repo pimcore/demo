@@ -1,6 +1,6 @@
 <?php 
 
-/** 
+/**
 * Generated at: 2020-01-23T11:18:21+01:00
 * Inheritance: no
 * Variants: no
@@ -43,7 +43,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowVariants' => NULL,
    'showVariants' => false,
    'cacheRawRelationData' => false,
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
@@ -156,7 +156,7 @@ Text is generated based on
                          'fieldtype' => 'calculatedValue',
                          'elementType' => 'input',
                          'width' => 500,
-                         'calculatorClass' => '\\AppBundle\\Model\\Product\\CalculatedValue\\AccessoryPartName',
+                         'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\AccessoryPartName',
                          'queryColumnType' => 'varchar',
                          'columnLength' => 190,
                          'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue',
