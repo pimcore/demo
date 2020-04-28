@@ -25,7 +25,7 @@ class AccessoryPartName implements CalculatorClassInterface
 {
     public function compute(Concrete $object, CalculatedValue $context): string
     {
-        return self::getCalculatedValueForEditMode($object, $context);
+        return $this->getCalculatedValueForEditMode($object, $context);
     }
 
     /**
