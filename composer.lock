@@ -3361,16 +3361,16 @@
         },
         {
             "name": "mpratt/embera",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpratt/Embera.git",
-                "reference": "bbbe707d43db585152410f2af2f21296d4c0987c"
+                "reference": "db1ddc16a70f76ace5527c85e2cc6bbc5c47846e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpratt/Embera/zipball/bbbe707d43db585152410f2af2f21296d4c0987c",
-                "reference": "bbbe707d43db585152410f2af2f21296d4c0987c",
+                "url": "https://api.github.com/repos/mpratt/Embera/zipball/db1ddc16a70f76ace5527c85e2cc6bbc5c47846e",
+                "reference": "db1ddc16a70f76ace5527c85e2cc6bbc5c47846e",
                 "shasum": ""
             },
             "require": {
@@ -3416,7 +3416,7 @@
                 "vine",
                 "youtube"
             ],
-            "time": "2020-04-06T20:59:58+00:00"
+            "time": "2020-04-28T04:08:00+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -5201,12 +5201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "c38daae4a692831d41d58187418a449c25ba479d"
+                "reference": "eda733241ad19226dec90fb100fa473752399c33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/c38daae4a692831d41d58187418a449c25ba479d",
-                "reference": "c38daae4a692831d41d58187418a449c25ba479d",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/eda733241ad19226dec90fb100fa473752399c33",
+                "reference": "eda733241ad19226dec90fb100fa473752399c33",
                 "shasum": ""
             },
             "require": {
@@ -5231,7 +5231,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-04-22T11:37:37+00:00"
+            "time": "2020-04-27T14:42:28+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -5546,16 +5546,16 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "551447ce4a1b20f7eb079d1a359b7d52a3db71b5"
+                "reference": "f32f9a981ad3a23420461eaae911fe91b93bf077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/551447ce4a1b20f7eb079d1a359b7d52a3db71b5",
-                "reference": "551447ce4a1b20f7eb079d1a359b7d52a3db71b5",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/f32f9a981ad3a23420461eaae911fe91b93bf077",
+                "reference": "f32f9a981ad3a23420461eaae911fe91b93bf077",
                 "shasum": ""
             },
             "require": {
@@ -5579,7 +5579,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-03-03T13:17:56+00:00"
+            "time": "2020-04-28T07:41:24+00:00"
         },
         {
             "name": "piwik/device-detector",
@@ -9143,23 +9143,20 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a"
+                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/63a995caa1ca9e5590304cd845c15ad6d482a62a",
-                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
+                "reference": "6568f4687e5b41b054365f9ae03fcb1ed5f2069b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6"
             },
             "type": "library",
             "extra": {
@@ -9191,7 +9188,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2018-08-07T13:53:10+00:00"
+            "time": "2020-04-27T09:25:28+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
