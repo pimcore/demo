@@ -20,8 +20,9 @@ cd ./my-project
 You can also use Docker to setup a new Pimcore Installation:
 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/skeleton my-project
+COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo my-project
 cd ./my-project
+docker-compose up -d
 docker-compose exec php vendor/bin/pimcore-install --mysql-host-socket=db
 ```
 
