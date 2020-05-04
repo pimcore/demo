@@ -2030,16 +2030,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.132",
+            "version": "v0.133",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e"
+                "reference": "dd53c4a23a5c4d868e409585e30ab31da278b5d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/317c8555eaea64a38594d9e617b59547cea45f3e",
-                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/dd53c4a23a5c4d868e409585e30ab31da278b5d2",
+                "reference": "dd53c4a23a5c4d868e409585e30ab31da278b5d2",
                 "shasum": ""
             },
             "require": {
@@ -2063,7 +2063,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-04-22T00:25:30+00:00"
+            "time": "2020-05-03T00:24:28+00:00"
         },
         {
             "name": "google/auth",
@@ -5140,16 +5140,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v2.5.3",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "b9549f630cf4edc9d7b4d343b6c66a940d8495cf"
+                "reference": "9648372c8f9f07271a7aebf816e3dc794a3e7273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/b9549f630cf4edc9d7b4d343b6c66a940d8495cf",
-                "reference": "b9549f630cf4edc9d7b4d343b6c66a940d8495cf",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/9648372c8f9f07271a7aebf816e3dc794a3e7273",
+                "reference": "9648372c8f9f07271a7aebf816e3dc794a3e7273",
                 "shasum": ""
             },
             "require": {
@@ -5194,7 +5194,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-03-03T13:17:37+00:00"
+            "time": "2020-04-30T14:14:34+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -5202,12 +5202,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "552e7270ae7b8b0d731519c3e44443aa5838a2e5"
+                "reference": "05e5a110f5513aa219c241956c65bea5168f5047"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/552e7270ae7b8b0d731519c3e44443aa5838a2e5",
-                "reference": "552e7270ae7b8b0d731519c3e44443aa5838a2e5",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/05e5a110f5513aa219c241956c65bea5168f5047",
+                "reference": "05e5a110f5513aa219c241956c65bea5168f5047",
                 "shasum": ""
             },
             "require": {
@@ -5232,7 +5232,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-04-30T13:46:09+00:00"
+            "time": "2020-05-04T07:36:20+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
