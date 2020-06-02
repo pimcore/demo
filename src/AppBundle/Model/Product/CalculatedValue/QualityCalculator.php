@@ -70,7 +70,7 @@ class QualityCalculator implements DynamicTextLabelInterface, CalculatorClassInt
 
             return 'not completed';
         } else {
-            return null;
+            return '';
         }
     }
 
