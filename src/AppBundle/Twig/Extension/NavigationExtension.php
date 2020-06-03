@@ -123,7 +123,7 @@ class NavigationExtension extends AbstractExtension
                     $parentPage = $parentPage ?: $navigation->findBy('id', $breadcrumb['parentId']);
                     $newPage = new \Pimcore\Navigation\Page\Document([
                         'id' => $breadcrumb['id'],
-                        'uri' => $breadcrumb['url'] != '' ? $breadcrumb['url'] : '',
+                        'uri' => isset($breadcrumb['url']) && $breadcrumb['url'] != '' ? $breadcrumb['url'] : '',
                         'label' => $breadcrumb['label'],
                         'active' => true
                     ]);

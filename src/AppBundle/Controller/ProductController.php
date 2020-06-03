@@ -288,7 +288,7 @@ class ProductController extends BaseController
         }
 
 
-        if ($params['autocomplete']) {
+        if (isset($params['autocomplete'])) {
             $resultset = [];
             $productListing->setLimit(10);
             foreach ($productListing as $product) {
