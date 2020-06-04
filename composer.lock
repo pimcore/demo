@@ -1991,6 +1991,68 @@
             "time": "2020-03-25T18:49:23+00:00"
         },
         {
+            "name": "friendsofsymfony/jsrouting-bundle",
+            "version": "2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
+                "reference": "9deaf916760ce1d64cf46460473260b02751cee5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/9deaf916760ce1d64cf46460473260b02751cee5",
+                "reference": "9deaf916760ce1d64cf46460473260b02751cee5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "symfony/console": "~3.3|^4.0|^5.0",
+                "symfony/framework-bundle": "~3.3|^4.0|^5.0",
+                "symfony/serializer": "~3.3|^4.0|^5.0",
+                "willdurand/jsonp-callback-validator": "~1.0"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~3.3|^4.0|^5.0",
+                "symfony/phpunit-bridge": "^3.3|^4.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FOS\\JsRoutingBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "will+git@drnd.me"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
+                }
+            ],
+            "description": "A pretty nice way to expose your Symfony2 routing to client applications.",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "Js Routing",
+                "javascript",
+                "routing"
+            ],
+            "time": "2020-05-20T09:38:45+00:00"
+        },
+        {
             "name": "geoip2/geoip2",
             "version": "v2.10.0",
             "source": {
@@ -4426,16 +4488,16 @@
         },
         {
             "name": "phive/twig-extensions-deferred",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rybakit/twig-extensions-deferred-legacy.git",
-                "reference": "0c2da51bcaeefac09d94d9125d837f8f63b01325"
+                "reference": "2d8514ef779e1e33724befed86be62cc3c23c405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rybakit/twig-extensions-deferred-legacy/zipball/0c2da51bcaeefac09d94d9125d837f8f63b01325",
-                "reference": "0c2da51bcaeefac09d94d9125d837f8f63b01325",
+                "url": "https://api.github.com/repos/rybakit/twig-extensions-deferred-legacy/zipball/2d8514ef779e1e33724befed86be62cc3c23c405",
+                "reference": "2d8514ef779e1e33724befed86be62cc3c23c405",
                 "shasum": ""
             },
             "require": {
@@ -4468,7 +4530,13 @@
                 "lazy",
                 "twig"
             ],
-            "time": "2019-05-24T21:57:45+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/rybakit",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-06-03T12:45:28+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -5305,16 +5373,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "9648372c8f9f07271a7aebf816e3dc794a3e7273"
+                "reference": "54b0a1f1b13440a3bd427cb78f87c3600ed36dd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/9648372c8f9f07271a7aebf816e3dc794a3e7273",
-                "reference": "9648372c8f9f07271a7aebf816e3dc794a3e7273",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/54b0a1f1b13440a3bd427cb78f87c3600ed36dd4",
+                "reference": "54b0a1f1b13440a3bd427cb78f87c3600ed36dd4",
                 "shasum": ""
             },
             "require": {
@@ -5325,7 +5393,7 @@
                 "pear/archive_tar": "^1.4.3",
                 "pimcore/number-sequence-generator": "^1.0.1",
                 "pimcore/object-merger": "~2.0",
-                "pimcore/pimcore": ">=5.4 <6.7",
+                "pimcore/pimcore": ">=5.4 <6.8",
                 "pimcore/search-query-parser": "^1.2.4"
             },
             "require-dev": {
@@ -5342,6 +5410,9 @@
                     "bundles": [
                         "CustomerManagementFrameworkBundle\\PimcoreCustomerManagementFrameworkBundle"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -5359,7 +5430,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-04-30T14:14:34+00:00"
+            "time": "2020-06-03T11:46:35+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -5434,20 +5505,20 @@
         },
         {
             "name": "pimcore/object-merger",
-            "version": "2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/object-merger.git",
-                "reference": "78c733ec64a7f1bcad730291bb1c8f8b0b8d6329"
+                "reference": "98a41718a10fe80ced165a70df0202f98f95a8c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/78c733ec64a7f1bcad730291bb1c8f8b0b8d6329",
-                "reference": "78c733ec64a7f1bcad730291bb1c8f8b0b8d6329",
+                "url": "https://api.github.com/repos/pimcore/object-merger/zipball/98a41718a10fe80ced165a70df0202f98f95a8c6",
+                "reference": "98a41718a10fe80ced165a70df0202f98f95a8c6",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": ">=5.4 <6.7"
+                "pimcore/pimcore": ">=5.4 <6.8"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5466,24 +5537,24 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-04-17T08:44:08+00:00"
+            "time": "2020-06-03T11:52:47+00:00"
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "9c6b5fe2595d80ef9ece9cce47f635ff12c3df6e"
+                "reference": "61684fb9a3fe04376fcfc8ddbc7fe702c4c100d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/9c6b5fe2595d80ef9ece9cce47f635ff12c3df6e",
-                "reference": "9c6b5fe2595d80ef9ece9cce47f635ff12c3df6e",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/61684fb9a3fe04376fcfc8ddbc7fe702c4c100d9",
+                "reference": "61684fb9a3fe04376fcfc8ddbc7fe702c4c100d9",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": ">=5.4 <6.7"
+                "pimcore/pimcore": ">=5.4 <6.8"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5502,20 +5573,20 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-03-03T13:18:05+00:00"
+            "time": "2020-06-03T11:50:28+00:00"
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v6.6.4",
+            "version": "v6.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "569a798efac5f450f66e7dbf24b60ffe5b996f5a"
+                "reference": "abc6b383e8099070873369c0df3f8b7ff5b4d18e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/569a798efac5f450f66e7dbf24b60ffe5b996f5a",
-                "reference": "569a798efac5f450f66e7dbf24b60ffe5b996f5a",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/abc6b383e8099070873369c0df3f8b7ff5b4d18e",
+                "reference": "abc6b383e8099070873369c0df3f8b7ff5b4d18e",
                 "shasum": ""
             },
             "require": {
@@ -5545,6 +5616,7 @@
                 "ext-simplexml": "*",
                 "ext-zip": "*",
                 "ext-zlib": "*",
+                "friendsofsymfony/jsrouting-bundle": "^2.5",
                 "geoip2/geoip2": "^2.9",
                 "google/apiclient": "^2.0",
                 "guzzlehttp/guzzle": "^6.3",
@@ -5666,7 +5738,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2020-05-11T09:40:50+00:00"
+            "time": "2020-06-04T08:48:07+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -5712,21 +5784,21 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v3.4.2",
+            "version": "v3.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "f32f9a981ad3a23420461eaae911fe91b93bf077"
+                "reference": "d345685048810ef8915eda273693b8a512f68373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/f32f9a981ad3a23420461eaae911fe91b93bf077",
-                "reference": "f32f9a981ad3a23420461eaae911fe91b93bf077",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/d345685048810ef8915eda273693b8a512f68373",
+                "reference": "d345685048810ef8915eda273693b8a512f68373",
                 "shasum": ""
             },
             "require": {
                 "pimcore/output-data-config-toolkit-bundle": "~3",
-                "pimcore/pimcore": ">=5.4 <6.7"
+                "pimcore/pimcore": ">=5.4 <6.8"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5745,7 +5817,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-04-28T07:41:24+00:00"
+            "time": "2020-06-03T11:52:00+00:00"
         },
         {
             "name": "piwik/device-detector",
@@ -8603,6 +8675,46 @@
             ],
             "description": "Composer plugin to merge multiple composer.json files",
             "time": "2017-04-25T02:31:25+00:00"
+        },
+        {
+            "name": "willdurand/jsonp-callback-validator",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/JsonpCallbackValidator.git",
+                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/JsonpCallbackValidator/zipball/1a7d388bb521959e612ef50c5c7b1691b097e909",
+                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JsonpCallbackValidator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "JSONP callback validator.",
+            "time": "2014-01-20T22:35:06+00:00"
         },
         {
             "name": "zendframework/zend-code",
