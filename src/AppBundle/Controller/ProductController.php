@@ -252,7 +252,11 @@ class ProductController extends BaseController
                                 "attributes.manufacturer_name.analyzed",
                                 "attributes.manufacturer_name.analyzed_ngram",
                                 "attributes.color",
-                                "attributes.carClass"
+                                "attributes.color.analyzed",
+                                "attributes.color.analyzed_ngram",
+                                "attributes.carClass",
+                                "attributes.carClass.analyzed",
+                                "attributes.carClass.analyzed_ngram"
                             ]
                         ]
                     ],

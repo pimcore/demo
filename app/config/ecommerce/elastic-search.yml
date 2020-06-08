@@ -1,15 +1,13 @@
 parameters:
-    index_service.attribute-search-analyzer-attributes:
-        type: text
-        fields:
-            analyzed:
-                type: text
-                analyzer: "english"
-                search_analyzer: "english"
-            analyzed_ngram:
-                type: text
-                analyzer: app_ngram_analyzer
-                search_analyzer: app_whitespace_analyzer
+    index_service.attribute-search-analyzer-attribute-fields:
+        analyzed:
+            type: text
+            analyzer: "english"
+            search_analyzer: "english"
+        analyzed_ngram:
+            type: text
+            analyzer: app_ngram_analyzer
+            search_analyzer: app_whitespace_analyzer
 
 
 pimcore_ecommerce_framework:
@@ -76,7 +74,9 @@ pimcore_ecommerce_framework:
                         locale: '%%locale%%'
                         filter_group: string
                         options:
-                            mapping: '%index_service.attribute-search-analyzer-attributes%'
+                            mapping:
+                                type: text
+                                fields: '%index_service.attribute-search-analyzer-attribute-fields%'
                     manufacturer_name:
                         fieldname: 'manufacturer'
                         type: text
@@ -87,7 +87,12 @@ pimcore_ecommerce_framework:
                                 locale: '%%locale%%'
                         filter_group: string
                         options:
-                            mapping: '%index_service.attribute-search-analyzer-attributes%'
+                            mapping:
+                                type: text
+                                fields: '%index_service.attribute-search-analyzer-attribute-fields%'
+                    price_field:
+                        type: double
+                        getter_id: AppBundle\Ecommerce\IndexService\PriceGetter
                     manufacturer:
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
                         filter_group: relation
@@ -95,15 +100,17 @@ pimcore_ecommerce_framework:
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
                         filter_group: relation
                     carClass:
-                        type: keyword
                         filter_group: string
                         options:
                             mapping:
                                 type: keyword
-                                normalizer: lowercase
+                                fields: '%index_service.attribute-search-analyzer-attribute-fields%'
                     color:
-                        type: keyword
                         filter_group: multiselect
+                        options:
+                            mapping:
+                                type: keyword
+                                fields: '%index_service.attribute-search-analyzer-attribute-fields%'
                     country:
                         type: keyword
                         filter_group: string
