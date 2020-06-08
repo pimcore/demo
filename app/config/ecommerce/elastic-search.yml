@@ -90,9 +90,6 @@ pimcore_ecommerce_framework:
                             mapping:
                                 type: text
                                 fields: '%index_service.attribute-search-analyzer-attribute-fields%'
-                    price_field:
-                        type: double
-                        getter_id: AppBundle\Ecommerce\IndexService\PriceGetter
                     manufacturer:
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
                         filter_group: relation
