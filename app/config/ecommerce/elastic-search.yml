@@ -37,6 +37,11 @@ pimcore_ecommerce_framework:
                         number_of_shards: 5
                         number_of_replicas: 0
                         analysis:
+                            normalizer:
+                                lowercase:
+                                    type: custom
+                                    filter:
+                                        - lowercase
                             analyzer:
                                 app_ngram_analyzer:
                                     tokenizer: app_ngram_tokenzier
@@ -92,6 +97,10 @@ pimcore_ecommerce_framework:
                     carClass:
                         type: keyword
                         filter_group: string
+                        options:
+                            mapping:
+                                type: keyword
+                                normalizer: lowercase
                     color:
                         type: keyword
                         filter_group: multiselect
