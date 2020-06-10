@@ -23,7 +23,7 @@ You don't need to have a PHP environment with composer installed.
 ### Prerequisits
 
 * Your user must be allowed to run docker commands (directly or via sudo).
-* You must have docker-composed installed.
+* You must have docker-compose installed.
 * Your user must be allowed to change file permissions (directly or via sudo).
 
 ### Follow these steps
