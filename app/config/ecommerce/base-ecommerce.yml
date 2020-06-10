@@ -239,8 +239,8 @@ pimcore_ecommerce_framework:
                 profile: sandbox
                 profiles:
                     sandbox:
-                        publicAccessKey: s-pub-2a10ifVINFAjpQJ9qW8jBe5OJPBx6Gxa
-                        privateAccessKey: s-priv-2a102ZMq3gV4I3zJ888J7RR6u75oqK3n
+                        publicAccessKey: s-pub-2a10GBUCSfOqqtyulwXJub7e8m0EwDbP
+                        privateAccessKey: s-priv-2a10PcxkejMP6YJwHH1shzvHyOd8PrOt
 
 
             datatrans:
