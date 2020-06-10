@@ -34,5 +34,5 @@
     {{ include('includes/language.html.twig') }}
 </ul>
 <form action="{{ path('search') }}" class="search-box mx-auto">
-    <input id="autoComplete" name="term" value="{{ app.request.get("term") }}" type="text" class="text search-input" placeholder="Type here to search..." />
+    <input id="autoComplete" name="term" value="{{ app.request.get("term") }}" type="text" class="text search-input" placeholder="Type here to search..." autocomplete="off" />
 </form>
