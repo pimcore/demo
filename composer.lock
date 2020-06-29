@@ -3585,16 +3585,16 @@
         },
         {
             "name": "mpratt/embera",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpratt/Embera.git",
-                "reference": "fbf831b725bd82b4872af1cafe46871a66550c07"
+                "reference": "d336d00e0b207ba9bbf81f0386c9f84caddf65ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpratt/Embera/zipball/fbf831b725bd82b4872af1cafe46871a66550c07",
-                "reference": "fbf831b725bd82b4872af1cafe46871a66550c07",
+                "url": "https://api.github.com/repos/mpratt/Embera/zipball/d336d00e0b207ba9bbf81f0386c9f84caddf65ad",
+                "reference": "d336d00e0b207ba9bbf81f0386c9f84caddf65ad",
                 "shasum": ""
             },
             "require": {
@@ -3640,7 +3640,7 @@
                 "vine",
                 "youtube"
             ],
-            "time": "2020-06-23T01:03:55+00:00"
+            "time": "2020-06-29T03:58:56+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -6041,20 +6041,20 @@
         },
         {
             "name": "psr/http-client",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-client.git",
-                "reference": "496a823ef742b632934724bf769560c2a5c7c44e"
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/496a823ef742b632934724bf769560c2a5c7c44e",
-                "reference": "496a823ef742b632934724bf769560c2a5c7c44e",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0",
+                "php": "^7.0 || ^8.0",
                 "psr/http-message": "^1.0"
             },
             "type": "library",
@@ -6086,7 +6086,7 @@
                 "psr",
                 "psr-18"
             ],
-            "time": "2018-10-30T23:29:13+00:00"
+            "time": "2020-06-29T06:28:15+00:00"
         },
         {
             "name": "psr/http-factory",
