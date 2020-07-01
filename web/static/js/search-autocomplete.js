@@ -8,12 +8,17 @@ const autoCompletejs = new autoComplete({
         src: async () => {
             // User search query
             const query = document.querySelector("#autoComplete").value;
-            // Fetch External Data Source
-            const source = await fetch(`/en/search?autocomplete=true&term=${query}`);
-            // Format data into JSON
-            const data = await source.json();
-            // Return Fetched data
-            return data;
+
+            if(query) {
+                // Fetch External Data Source
+                const source = await fetch(`/en/search?autocomplete=true&term=${query}`);
+                // Format data into JSON
+                const data = await source.json();
+                // Return Fetched data
+                return data;
+            } else {
+                return [];
+            }
         },
         key: ["product"],
         cache: false
