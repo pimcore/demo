@@ -30,6 +30,7 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductList
 use Pimcore\Config;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject\Data\UrlSlug;
 use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Templating\Helper\HeadTitle;
 use Pimcore\Templating\Model\ViewModel;
@@ -41,6 +42,18 @@ use Zend\Paginator\Paginator;
 
 class ProductController extends BaseController
 {
+
+    /**
+     * @param Request $request
+     * @param AbstractObject $object
+     * @param UrlSlug $urlSlug
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function productDetailSlugAction(Request $request, AbstractObject $object, UrlSlug $urlSlug) {
+        return $this->forward('AppBundle\Controller\ProductController::detailAction', ['product' => $object]);
+    }
+
+
     /**
      * @Route("/shop/{path}{productname}~p{product}", name="shop-detail", defaults={"path"=""}, requirements={"path"=".*?", "productname"="[\w-]+", "product"="\d+"})
      *
@@ -55,13 +68,28 @@ class ProductController extends BaseController
      *
      * @throws \Exception
      */
-    public function detailAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService, Concrete $product)
+    public function detailAction(
+        Request $request,
+        HeadTitle $headTitleHelper,
+        BreadcrumbHelperService $breadcrumbHelperService,
+        Factory $ecommerceFactory,
+        SegmentTrackingHelperService $segmentTrackingHelperService,
+        Concrete $product,
+        ProductLinkGenerator $productLinkGenerator
+    )
     {
         if (!(
                 $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
             )
         ) {
             throw new NotFoundHttpException('Product not found.');
+        }
+
+        //redirect to main url
+        $generatorUrl = $productLinkGenerator->generate($product);
+        if($generatorUrl != $request->getPathInfo()) {
+            $queryString = $request->getQueryString();
+            return $this->redirect($generatorUrl . ($queryString ? '?' . $queryString : ''));
         }
 
         $breadcrumbHelperService->enrichProductDetailPage($product);

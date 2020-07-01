@@ -1,9 +1,6 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-28T14:52:33+02:00
-* Changed by: system (0)
-* IP: 192.168.9.95
 */ 
 
 
@@ -12,7 +9,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
    'name' => 'Todo',
    'description' => '',
    'creationDate' => 1566996476,
-   'modificationDate' => 1566996753,
+   'modificationDate' => 1593591768,
    'userOwner' => 2,
    'userModification' => 0,
    'classId' => 'CAR',
@@ -22,7 +19,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
@@ -42,7 +38,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
          'labelWidth' => 100,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Basedata',
          'type' => NULL,
          'region' => NULL,
@@ -66,6 +61,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 190,
@@ -87,6 +83,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => true,
                  'visibleSearch' => true,
+                 'defaultValueGenerator' => '',
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
@@ -164,7 +161,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'documentTypes' => 
             array (
             ),
-             'lazyLoading' => true,
              'classes' => 
             array (
               0 => 
@@ -208,7 +204,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'documentTypes' => 
             array (
             ),
-             'lazyLoading' => true,
              'classes' => 
             array (
               0 => 
@@ -320,12 +315,15 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
    'default' => 0,
    'dao' => NULL,

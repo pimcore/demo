@@ -1,7 +1,6 @@
 <?php 
 
-/**
-* Generated at: 2020-01-23T11:18:21+01:00
+/** 
 * Inheritance: no
 * Variants: no
 
@@ -20,6 +19,7 @@ Fields Summary:
 - categoryCode [input]
 - owner [input]
 - saleInformation [objectbricks]
+- urlSlug [urlSlug]
 */ 
 
 
@@ -28,10 +28,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'AccessoryPart',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1579774701,
+   'modificationDate' => 1593591615,
    'userOwner' => 2,
-   'userModification' => 2,
+   'userModification' => 1,
    'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
+   'implementsInterfaces' => '',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -42,14 +43,12 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
-   'cacheRawRelationData' => false,
-   'layoutDefinitions' =>
+   'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
@@ -87,8 +86,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => '',
-             'name' => 'Layout',
+             'name' => 'Base Data',
              'type' => NULL,
              'region' => NULL,
              'title' => 'Base Data',
@@ -105,7 +103,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
                  'labelWidth' => 100,
-                 'name' => 'Layout',
+                 'name' => 'Name',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'Name',
@@ -200,6 +198,7 @@ Text is generated based on
                           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                              'fieldtype' => 'input',
                              'width' => NULL,
+                             'defaultValue' => NULL,
                              'queryColumnType' => 'varchar',
                              'columnType' => 'varchar',
                              'columnLength' => 190,
@@ -221,6 +220,7 @@ Text is generated based on
                              'invisible' => false,
                              'visibleGridView' => false,
                              'visibleSearch' => false,
+                             'defaultValueGenerator' => '',
                           )),
                         ),
                          'name' => 'localizedfields',
@@ -273,7 +273,7 @@ Text is generated based on
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
                  'labelWidth' => 100,
-                 'name' => 'Layout',
+                 'name' => 'Definition Data',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'Definition Data',
@@ -307,7 +307,6 @@ Text is generated based on
                      'documentTypes' => 
                     array (
                     ),
-                     'lazyLoading' => true,
                      'classes' => 
                     array (
                       0 => 
@@ -351,7 +350,6 @@ Text is generated based on
                      'documentTypes' => 
                     array (
                     ),
-                     'lazyLoading' => true,
                      'classes' => 
                     array (
                       0 => 
@@ -395,7 +393,6 @@ Text is generated based on
                      'documentTypes' => 
                     array (
                     ),
-                     'lazyLoading' => true,
                      'classes' => 
                     array (
                       0 => 
@@ -428,6 +425,7 @@ Text is generated based on
                       Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                          'fieldtype' => 'input',
                          'width' => NULL,
+                         'defaultValue' => NULL,
                          'queryColumnType' => 'varchar',
                          'columnType' => 'varchar',
                          'columnLength' => 190,
@@ -449,6 +447,7 @@ Text is generated based on
                          'invisible' => false,
                          'visibleGridView' => false,
                          'visibleSearch' => false,
+                         'defaultValueGenerator' => '',
                       )),
                     ),
                      'name' => 'localizedfields',
@@ -495,7 +494,6 @@ Text is generated based on
                      'visibleFieldDefinitions' => 
                     array (
                     ),
-                     'lazyLoading' => true,
                      'classes' => 
                     array (
                       0 => 
@@ -523,6 +521,7 @@ Text is generated based on
               )),
             ),
              'locked' => false,
+             'icon' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -530,8 +529,7 @@ Text is generated based on
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => '',
-             'name' => 'Layout',
+             'name' => 'Multimedia & Additiona Data',
              'type' => NULL,
              'region' => NULL,
              'title' => 'Multimedia & Additiona Data',
@@ -583,7 +581,7 @@ Text is generated based on
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
                  'labelWidth' => 100,
-                 'name' => 'Layout',
+                 'name' => 'Additional Data',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'Additional Data',
@@ -611,7 +609,6 @@ Text is generated based on
                      'visibleFieldDefinitions' => 
                     array (
                     ),
-                     'lazyLoading' => true,
                      'classes' => 
                     array (
                       0 => 
@@ -639,6 +636,7 @@ Text is generated based on
               )),
             ),
              'locked' => false,
+             'icon' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -646,8 +644,7 @@ Text is generated based on
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => '',
-             'name' => 'Layout',
+             'name' => 'Sale Information & ERP Data',
              'type' => NULL,
              'region' => NULL,
              'title' => 'Sale Information & ERP Data',
@@ -664,7 +661,7 @@ Text is generated based on
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
                  'labelWidth' => 100,
-                 'name' => 'Layout',
+                 'name' => 'ERP-Data',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'ERP-Data',
@@ -681,6 +678,7 @@ Text is generated based on
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'fieldtype' => 'input',
                      'width' => NULL,
+                     'defaultValue' => NULL,
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
@@ -702,11 +700,13 @@ Text is generated based on
                      'invisible' => false,
                      'visibleGridView' => true,
                      'visibleSearch' => true,
+                     'defaultValueGenerator' => '',
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'fieldtype' => 'input',
                      'width' => NULL,
+                     'defaultValue' => NULL,
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
@@ -728,11 +728,13 @@ Text is generated based on
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                   2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'fieldtype' => 'input',
                      'width' => NULL,
+                     'defaultValue' => NULL,
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
@@ -754,6 +756,7 @@ Text is generated based on
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                 ),
                  'locked' => false,
@@ -785,18 +788,72 @@ Text is generated based on
               )),
             ),
              'locked' => false,
+             'icon' => '',
+          )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'fieldtype' => 'panel',
+             'labelWidth' => 100,
+             'layout' => NULL,
+             'border' => false,
+             'name' => 'System Data',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'System Data',
+             'width' => NULL,
+             'height' => NULL,
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'childs' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\UrlSlug::__set_state(array(
+                 'fieldtype' => 'urlSlug',
+                 'width' => NULL,
+                 'domainLabelWidth' => NULL,
+                 'action' => 'AppBundle\\Controller\\ProductController:productDetailSlugAction',
+                 'availableSites' => 
+                array (
+                ),
+                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\UrlSlug[]',
+                 'name' => 'urlSlug',
+                 'title' => 'UrlSlug',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => NULL,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+              )),
+            ),
+             'locked' => false,
+             'icon' => '',
           )),
         ),
          'locked' => false,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
    'icon' => '/bundles/pimcoreadmin/img/twemoji/1f527.svg',
    'previewUrl' => '',
    'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
+   'compositeIndices' => 
+  array (
+  ),
+   'showFieldLookup' => false,
    'propertyVisibility' => 
   array (
     'grid' => 
@@ -818,5 +875,6 @@ Text is generated based on
       'creationDate' => false,
     ),
   ),
+   'enableGridLocking' => false,
    'dao' => NULL,
 ));

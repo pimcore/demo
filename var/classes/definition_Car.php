@@ -1,7 +1,6 @@
 <?php 
 
 /** 
-* Generated at: 2020-01-23T11:18:21+01:00
 * Inheritance: yes
 * Variants: no
 
@@ -28,6 +27,7 @@ Fields Summary:
 - saleInformationAvailable [calculatedValue]
 - imagesAvailable [calculatedValue]
 - objectType [select]
+- urlSlug [urlSlug]
 */ 
 
 
@@ -36,10 +36,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Car',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1579774701,
+   'modificationDate' => 1593591618,
    'userOwner' => 2,
-   'userModification' => 2,
+   'userModification' => 1,
    'parentClass' => '\\AppBundle\\Model\\Product\\AbstractProduct',
+   'implementsInterfaces' => '',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -50,14 +51,12 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => true,
    'allowVariants' => NULL,
    'showVariants' => false,
-   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
@@ -95,7 +94,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Basedata',
              'type' => NULL,
              'region' => NULL,
@@ -119,6 +117,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'fieldtype' => 'input',
                      'width' => NULL,
+                     'defaultValue' => NULL,
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
@@ -140,6 +139,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => true,
                      'visibleSearch' => true,
+                     'defaultValueGenerator' => '',
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
@@ -259,6 +259,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 190,
@@ -280,6 +281,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
@@ -302,7 +304,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'documentTypes' => 
                 array (
                 ),
-                 'lazyLoading' => true,
                  'classes' => 
                 array (
                   0 => 
@@ -346,7 +347,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'documentTypes' => 
                 array (
                 ),
-                 'lazyLoading' => true,
                  'classes' => 
                 array (
                   0 => 
@@ -458,6 +458,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               5 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -488,6 +489,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               6 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
@@ -1880,6 +1882,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               8 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
@@ -1896,7 +1899,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleFieldDefinitions' => 
                 array (
                 ),
-                 'lazyLoading' => true,
                  'classes' => 
                 array (
                   0 => 
@@ -1921,6 +1923,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -1928,7 +1931,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Media',
              'type' => NULL,
              'region' => NULL,
@@ -2014,6 +2016,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2021,7 +2024,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Attributes',
              'type' => NULL,
              'region' => NULL,
@@ -2065,6 +2067,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2072,7 +2075,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Sale Information',
              'type' => NULL,
              'region' => NULL,
@@ -2128,6 +2130,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'lat' => 0.0,
                  'lng' => 0.0,
                  'zoom' => 1,
+                 'width' => NULL,
+                 'height' => NULL,
                  'mapType' => 'roadmap',
                  'name' => 'location',
                  'title' => 'Location',
@@ -2146,6 +2150,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           4 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2153,7 +2158,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelWidth' => 180,
              'layout' => NULL,
              'border' => false,
-             'icon' => '',
              'name' => 'Data Quality',
              'type' => NULL,
              'region' => NULL,
@@ -2256,7 +2260,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'labelWidth' => 210,
                  'layout' => NULL,
                  'border' => false,
-                 'icon' => '',
                  'name' => 'Layout',
                  'type' => NULL,
                  'region' => NULL,
@@ -2344,9 +2347,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   )),
                 ),
                  'locked' => false,
+                 'icon' => '',
               )),
             ),
              'locked' => false,
+             'icon' => '',
           )),
           5 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2354,7 +2359,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => '',
              'name' => 'System Data',
              'type' => NULL,
              'region' => NULL,
@@ -2404,11 +2408,13 @@ Define type of Car object to manage, which elements should be visible in shop an
                   array (
                     'key' => 'Actual-Car',
                     'value' => 'actual-car',
+                    'id' => 'extModel1585-1',
                   ),
                   1 => 
                   array (
                     'key' => 'Virtual-Car',
                     'value' => 'virtual-car',
+                    'id' => 'extModel1585-2',
                   ),
                 ),
                  'width' => 300,
@@ -2434,21 +2440,53 @@ Define type of Car object to manage, which elements should be visible in shop an
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
+              )),
+              2 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\UrlSlug::__set_state(array(
+                 'fieldtype' => 'urlSlug',
+                 'width' => NULL,
+                 'domainLabelWidth' => NULL,
+                 'action' => 'AppBundle\\Controller\\ProductController:productDetailSlugAction',
+                 'availableSites' => 
+                array (
+                ),
+                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\UrlSlug[]',
+                 'name' => 'urlSlug',
+                 'title' => 'UrlSlug',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => NULL,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
               )),
             ),
              'locked' => false,
+             'icon' => '',
           )),
         ),
          'locked' => false,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
    'icon' => '/static/images/icons/car_gray.svg',
    'previewUrl' => '',
    'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '@AppBundle\\Website\\LinkGenerator\\ProductLinkGenerator',
+   'compositeIndices' => 
+  array (
+  ),
+   'showFieldLookup' => false,
    'propertyVisibility' => 
   array (
     'grid' => 
@@ -2470,5 +2508,6 @@ Define type of Car object to manage, which elements should be visible in shop an
       'creationDate' => false,
     ),
   ),
+   'enableGridLocking' => false,
    'dao' => NULL,
 ));

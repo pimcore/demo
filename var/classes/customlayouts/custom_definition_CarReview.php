@@ -1,9 +1,6 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-28T14:47:19+02:00
-* Changed by: system (0)
-* IP: 192.168.9.95
 */ 
 
 
@@ -12,7 +9,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
    'name' => 'Review',
    'description' => '',
    'creationDate' => 1566996420,
-   'modificationDate' => 1566996439,
+   'modificationDate' => 1593591768,
    'userOwner' => 2,
    'userModification' => 0,
    'classId' => 'CAR',
@@ -22,7 +19,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
@@ -60,7 +56,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'labelWidth' => 180,
              'layout' => NULL,
              'border' => false,
-             'icon' => '',
              'name' => 'Data Quality',
              'type' => NULL,
              'region' => NULL,
@@ -106,6 +101,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   0 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
+                     'elementType' => 'input',
                      'width' => 0,
                      'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
@@ -162,7 +158,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'labelWidth' => 210,
                  'layout' => NULL,
                  'border' => false,
-                 'icon' => '',
                  'name' => 'Layout',
                  'type' => NULL,
                  'region' => NULL,
@@ -179,6 +174,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   0 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
+                     'elementType' => 'input',
                      'width' => 0,
                      'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
@@ -202,6 +198,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
+                     'elementType' => 'input',
                      'width' => 0,
                      'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
@@ -225,6 +222,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                      'fieldtype' => 'calculatedValue',
+                     'elementType' => 'input',
                      'width' => 0,
                      'calculatorClass' => '@AppBundle\\Model\\Product\\CalculatedValue\\QualityCalculator',
                      'queryColumnType' => 'varchar',
@@ -247,9 +245,11 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   )),
                 ),
                  'locked' => false,
+                 'icon' => '',
               )),
             ),
              'locked' => false,
+             'icon' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -257,7 +257,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Basedata',
              'type' => NULL,
              'region' => NULL,
@@ -281,6 +280,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'fieldtype' => 'input',
                      'width' => NULL,
+                     'defaultValue' => NULL,
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
@@ -302,6 +302,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => true,
                      'visibleSearch' => true,
+                     'defaultValueGenerator' => '',
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
@@ -362,6 +363,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 190,
@@ -383,6 +385,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
@@ -405,7 +408,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'documentTypes' => 
                 array (
                 ),
-                 'lazyLoading' => true,
                  'classes' => 
                 array (
                   0 => 
@@ -449,7 +451,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'documentTypes' => 
                 array (
                 ),
-                 'lazyLoading' => true,
                  'classes' => 
                 array (
                   0 => 
@@ -561,6 +562,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               5 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -591,6 +593,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               6 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
@@ -1983,6 +1986,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               8 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
@@ -1994,11 +1998,11 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'phpdocType' => 'array',
                  'relationType' => true,
                  'visibleFields' => 'id,name,fullpath',
+                 'allowToCreateNewObject' => true,
                  'optimizedAdminLoading' => false,
                  'visibleFieldDefinitions' => 
                 array (
                 ),
-                 'lazyLoading' => true,
                  'classes' => 
                 array (
                   0 => 
@@ -2023,6 +2027,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2030,7 +2035,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Media',
              'type' => NULL,
              'region' => NULL,
@@ -2116,6 +2120,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2123,7 +2128,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Attributes',
              'type' => NULL,
              'region' => NULL,
@@ -2167,6 +2171,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           4 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2174,7 +2179,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => NULL,
              'name' => 'Sale Information',
              'type' => NULL,
              'region' => NULL,
@@ -2230,6 +2234,8 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'lat' => 0.0,
                  'lng' => 0.0,
                  'zoom' => 1,
+                 'width' => NULL,
+                 'height' => NULL,
                  'mapType' => 'roadmap',
                  'name' => 'location',
                  'title' => 'Location',
@@ -2248,6 +2254,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
           )),
           5 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -2255,7 +2262,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'labelWidth' => 100,
              'layout' => NULL,
              'border' => false,
-             'icon' => '',
              'name' => 'System Data',
              'type' => NULL,
              'region' => NULL,
@@ -2305,11 +2311,13 @@ Define type of Car object to manage, which elements should be visible in shop an
                   array (
                     'key' => 'Actual-Car',
                     'value' => 'actual-car',
+                    'id' => 'extModel1585-1',
                   ),
                   1 => 
                   array (
                     'key' => 'Virtual-Car',
                     'value' => 'virtual-car',
+                    'id' => 'extModel1585-2',
                   ),
                 ),
                  'width' => 300,
@@ -2335,15 +2343,18 @@ Define type of Car object to manage, which elements should be visible in shop an
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'icon' => '',
           )),
         ),
          'locked' => false,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
    'default' => 0,
    'dao' => NULL,

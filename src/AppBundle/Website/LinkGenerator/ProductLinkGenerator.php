@@ -57,6 +57,10 @@ class ProductLinkGenerator extends AbstractProductLinkGenerator implements LinkG
     protected function doGenerate($object, $params): string
     {
         return ForceInheritance::run(function () use ($object, $params) {
+            if(!empty($object->getUrlSlug())) {
+                return current($object->getUrlSlug())->getSlug();
+            }
+
             return $this->pimcoreUrl->__invoke(
                 [
                     'productname' => Text::toUrl($object->getOSName() ? $object->getOSName() : 'product'),
