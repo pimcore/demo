@@ -1,13 +1,10 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-02T11:17:27+02:00
-
-
 Fields Summary: 
- - numberOfDoors [numeric]
- - numberOfSeats [numeric]
- - cargoCapacity [quantityValue]
+- numberOfDoors [numeric]
+- numberOfSeats [numeric]
+- cargoCapacity [quantityValue]
 */ 
 
 
@@ -20,17 +17,18 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       'fieldname' => 'attributes',
     ),
   ),
-   'title' => '',
-   'group' => '',
+   'dao' => NULL,
    'key' => 'Bodywork',
    'parentClass' => '',
+   'implementsInterfaces' => NULL,
+   'title' => '',
+   'group' => '',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -50,7 +48,6 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'labelWidth' => 100,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -93,6 +90,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -123,6 +121,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
@@ -162,12 +161,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
-   'dao' => NULL,
 ));

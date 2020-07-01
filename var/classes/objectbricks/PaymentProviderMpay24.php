@@ -1,23 +1,19 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T12:49:34+02:00
-* IP: 192.168.9.96
-
-
 Fields Summary: 
- - configurationKey [input]
- - auth_OPERATION [input]
- - auth_TID [input]
- - auth_STATUS [input]
- - auth_PRICE [input]
- - auth_CURRENCY [input]
- - auth_P_TYPE [input]
- - auth_BRAND [input]
- - auth_MPAYTID [input]
- - auth_APPR_CODE [input]
- - auth_PROFILE_STATUS [input]
- - auth_FILTER_STATUS [input]
+- configurationKey [input]
+- auth_OPERATION [input]
+- auth_TID [input]
+- auth_STATUS [input]
+- auth_PRICE [input]
+- auth_CURRENCY [input]
+- auth_P_TYPE [input]
+- auth_BRAND [input]
+- auth_MPAYTID [input]
+- auth_APPR_CODE [input]
+- auth_PROFILE_STATUS [input]
+- auth_FILTER_STATUS [input]
 */ 
 
 
@@ -30,17 +26,18 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       'fieldname' => 'paymentProvider',
     ),
   ),
-   'title' => '',
-   'group' => 'PaymentProvider',
+   'dao' => NULL,
    'key' => 'PaymentProviderMpay24',
    'parentClass' => '',
+   'implementsInterfaces' => NULL,
+   'title' => '',
+   'group' => 'PaymentProvider',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -60,7 +57,6 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'labelWidth' => 100,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -78,6 +74,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => NULL,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 190,
@@ -99,11 +96,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -125,11 +124,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -151,11 +152,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -177,11 +180,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -203,11 +208,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           5 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -229,11 +236,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           6 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -255,11 +264,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           7 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -281,11 +292,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           8 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -307,11 +320,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           9 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -333,11 +348,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           10 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -359,11 +376,13 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           11 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
@@ -385,12 +404,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
-   'dao' => NULL,
 ));

@@ -1,16 +1,12 @@
 <?php 
 
 /** 
-* Generated at: 2019-07-04T14:58:44+02:00
-* IP: 192.168.9.96
-
-
 Fields Summary: 
- - availabilityPieces [numeric]
- - availabilityType [select]
- - condition [select]
- - priceInEUR [numeric]
- - milage [quantityValue]
+- availabilityPieces [numeric]
+- availabilityType [select]
+- condition [select]
+- priceInEUR [numeric]
+- milage [quantityValue]
 */ 
 
 
@@ -28,17 +24,18 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       'fieldname' => 'saleInformation',
     ),
   ),
-   'title' => '',
-   'group' => '',
+   'dao' => NULL,
    'key' => 'SaleInformation',
    'parentClass' => '',
+   'implementsInterfaces' => NULL,
+   'title' => '',
+   'group' => '',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -58,7 +55,6 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'labelWidth' => 100,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -101,6 +97,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
@@ -131,6 +128,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'columnType' => 'varchar',
              'columnLength' => 190,
              'phpdocType' => 'string',
+             'dynamicOptions' => false,
              'name' => 'availabilityType',
              'title' => 'Availability Type',
              'tooltip' => '',
@@ -145,6 +143,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
@@ -180,6 +179,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'columnType' => 'varchar',
              'columnLength' => 190,
              'phpdocType' => 'string',
+             'dynamicOptions' => false,
              'name' => 'condition',
              'title' => 'Condition',
              'tooltip' => '',
@@ -194,6 +194,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -224,6 +225,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
@@ -264,12 +266,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
-   'dao' => NULL,
 ));

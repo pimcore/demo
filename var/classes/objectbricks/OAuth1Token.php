@@ -1,12 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-13T10:14:13+02:00
-
-
 Fields Summary: 
- - token [textarea]
- - tokenSecret [textarea]
+- token [textarea]
+- tokenSecret [textarea]
 */ 
 
 
@@ -19,17 +16,18 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       'fieldname' => 'credentials',
     ),
   ),
-   'title' => NULL,
-   'group' => NULL,
+   'dao' => NULL,
    'key' => 'OAuth1Token',
    'parentClass' => 'CustomerManagementFrameworkBundle\\Model\\Objectbrick\\AbstractOAuth1Token',
+   'implementsInterfaces' => NULL,
+   'title' => NULL,
+   'group' => NULL,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -49,7 +47,6 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'labelWidth' => 100,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -117,9 +114,10 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
   )),
-   'dao' => NULL,
 ));
