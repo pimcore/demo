@@ -162,7 +162,7 @@ class ProductController extends BaseController
         // init pagination
         $paginator = new Paginator($productListing);
         $paginator->setCurrentPageNumber($request->get('page'));
-        $paginator->setItemCountPerPage(18);
+        $paginator->setItemCountPerPage($filterDefinition->getPageLimit());
         $paginator->setPageRange(5);
         $viewModel->results = $paginator;
         $viewModel->paginationVariables = $paginator->getPages('Sliding');
@@ -321,7 +321,7 @@ class ProductController extends BaseController
         // init pagination
         $paginator = new Paginator($productListing);
         $paginator->setCurrentPageNumber($request->get('page'));
-        $paginator->setItemCountPerPage(18);
+        $paginator->setItemCountPerPage($filterDefinition->getPageLimit());
         $paginator->setPageRange(5);
         $viewModel->results = $paginator;
         $viewModel->paginationVariables = $paginator->getPages('Sliding');
