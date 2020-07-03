@@ -4624,16 +4624,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "10d9019f393773345aedc0dc79e7fd678da874ee"
+                "reference": "9ab7668fee74a5ad61996095e50917bd50ee8bfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/10d9019f393773345aedc0dc79e7fd678da874ee",
-                "reference": "10d9019f393773345aedc0dc79e7fd678da874ee",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/9ab7668fee74a5ad61996095e50917bd50ee8bfe",
+                "reference": "9ab7668fee74a5ad61996095e50917bd50ee8bfe",
                 "shasum": ""
             },
             "require": {
@@ -4656,7 +4656,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -4685,7 +4685,7 @@
                 "message",
                 "psr7"
             ],
-            "time": "2020-06-14T10:44:12+00:00"
+            "time": "2020-07-02T11:43:45+00:00"
         },
         {
             "name": "php-http/guzzle6-adapter",
@@ -5456,12 +5456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "fedf2b1ad4fb2cb068d6336f7229c2ac8a1f9b91"
+                "reference": "fc77214d3744eed42ec2b635e1d333a41a978ef2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/fedf2b1ad4fb2cb068d6336f7229c2ac8a1f9b91",
-                "reference": "fedf2b1ad4fb2cb068d6336f7229c2ac8a1f9b91",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/fc77214d3744eed42ec2b635e1d333a41a978ef2",
+                "reference": "fc77214d3744eed42ec2b635e1d333a41a978ef2",
                 "shasum": ""
             },
             "require": {
@@ -5486,7 +5486,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-06-26T09:51:34+00:00"
+            "time": "2020-07-03T07:31:20+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
