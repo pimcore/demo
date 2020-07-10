@@ -1815,16 +1815,16 @@
         },
         {
             "name": "endroid/qr-code",
-            "version": "3.8.2",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/qr-code.git",
-                "reference": "1616778c697238b16e1b7592ea824bafcf7d108c"
+                "reference": "c525713608a781729b8011103a2990d639898ef0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/qr-code/zipball/1616778c697238b16e1b7592ea824bafcf7d108c",
-                "reference": "1616778c697238b16e1b7592ea824bafcf7d108c",
+                "url": "https://api.github.com/repos/endroid/qr-code/zipball/c525713608a781729b8011103a2990d639898ef0",
+                "reference": "c525713608a781729b8011103a2990d639898ef0",
                 "shasum": ""
             },
             "require": {
@@ -1837,10 +1837,12 @@
                 "symfony/property-access": "^3.4||^4.4||^5.0"
             },
             "require-dev": {
-                "endroid/quality": "dev-master"
+                "endroid/quality": "dev-master",
+                "setasign/fpdf": "^1.8"
             },
             "suggest": {
                 "roave/security-advisories": "Avoids installation of package versions with vulnerabilities",
+                "setasign/fpdf": "Required to use the FPDF writer.",
                 "symfony/security-checker": "Checks your composer.lock for vulnerabilities"
             },
             "type": "library",
@@ -1880,7 +1882,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-19T08:57:37+00:00"
+            "time": "2020-07-10T08:35:06+00:00"
         },
         {
             "name": "facebook/graph-sdk",
