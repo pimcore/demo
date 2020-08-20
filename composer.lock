@@ -2906,16 +2906,16 @@
         },
         {
             "name": "lcobucci/jwt",
-            "version": "3.3.2",
+            "version": "3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lcobucci/jwt.git",
-                "reference": "56f10808089e38623345e28af2f2d5e4eb579455"
+                "reference": "c1123697f6a2ec29162b82f170dd4a491f524773"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/56f10808089e38623345e28af2f2d5e4eb579455",
-                "reference": "56f10808089e38623345e28af2f2d5e4eb579455",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/c1123697f6a2ec29162b82f170dd4a491f524773",
+                "reference": "c1123697f6a2ec29162b82f170dd4a491f524773",
                 "shasum": ""
             },
             "require": {
@@ -2967,7 +2967,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-05-22T08:21:12+00:00"
+            "time": "2020-08-20T13:22:28+00:00"
         },
         {
             "name": "league/csv",
@@ -5467,12 +5467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "74899dc6bc0aad5e1cdf31a4a6ed95e61c8be693"
+                "reference": "4ed98ef4fbf6211c54690fa3661643bb58bd2a61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/74899dc6bc0aad5e1cdf31a4a6ed95e61c8be693",
-                "reference": "74899dc6bc0aad5e1cdf31a4a6ed95e61c8be693",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/4ed98ef4fbf6211c54690fa3661643bb58bd2a61",
+                "reference": "4ed98ef4fbf6211c54690fa3661643bb58bd2a61",
                 "shasum": ""
             },
             "require": {
@@ -5503,7 +5503,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-08-19T11:57:27+00:00"
+            "time": "2020-08-20T10:20:28+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -5612,16 +5612,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v6.7.0",
+            "version": "v6.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "454e6661269ba4f19dbca66cf4a4be9f192c1998"
+                "reference": "dee82b6069915b0b1a42913cfd70c74ec37254cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/454e6661269ba4f19dbca66cf4a4be9f192c1998",
-                "reference": "454e6661269ba4f19dbca66cf4a4be9f192c1998",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/dee82b6069915b0b1a42913cfd70c74ec37254cd",
+                "reference": "dee82b6069915b0b1a42913cfd70c74ec37254cd",
                 "shasum": ""
             },
             "require": {
@@ -5775,7 +5775,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2020-08-12T13:28:45+00:00"
+            "time": "2020-08-20T13:32:32+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
