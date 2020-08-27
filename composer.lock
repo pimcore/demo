@@ -3649,16 +3649,16 @@
         },
         {
             "name": "mpratt/embera",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpratt/Embera.git",
-                "reference": "988d75fa223e7fb476deda511bd2c818c2623159"
+                "reference": "7081e4d3b13ed82b25fd125fb38af796a34bf234"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpratt/Embera/zipball/988d75fa223e7fb476deda511bd2c818c2623159",
-                "reference": "988d75fa223e7fb476deda511bd2c818c2623159",
+                "url": "https://api.github.com/repos/mpratt/Embera/zipball/7081e4d3b13ed82b25fd125fb38af796a34bf234",
+                "reference": "7081e4d3b13ed82b25fd125fb38af796a34bf234",
                 "shasum": ""
             },
             "require": {
@@ -3704,7 +3704,7 @@
                 "vine",
                 "youtube"
             ],
-            "time": "2020-07-01T04:32:17+00:00"
+            "time": "2020-08-26T17:29:36+00:00"
         },
         {
             "name": "mustangostang/spyc",
@@ -5481,12 +5481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "296cde01c4bf4beb20f746968cd308a042495cd4"
+                "reference": "0e219c8e6995c701518f6ffbcbd6b39b06e87e30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/296cde01c4bf4beb20f746968cd308a042495cd4",
-                "reference": "296cde01c4bf4beb20f746968cd308a042495cd4",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/0e219c8e6995c701518f6ffbcbd6b39b06e87e30",
+                "reference": "0e219c8e6995c701518f6ffbcbd6b39b06e87e30",
                 "shasum": ""
             },
             "require": {
@@ -5517,7 +5517,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-08-25T12:12:31+00:00"
+            "time": "2020-08-26T14:12:29+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
