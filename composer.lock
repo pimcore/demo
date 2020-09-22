@@ -4658,16 +4658,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "88ff14cad4a0db68b343260fa7ac3f1599703660"
+                "reference": "87b580cd54244512ba931fe1e3b0b506e5a00dd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/88ff14cad4a0db68b343260fa7ac3f1599703660",
-                "reference": "88ff14cad4a0db68b343260fa7ac3f1599703660",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/87b580cd54244512ba931fe1e3b0b506e5a00dd6",
+                "reference": "87b580cd54244512ba931fe1e3b0b506e5a00dd6",
                 "shasum": ""
             },
             "require": {
@@ -4719,7 +4719,7 @@
                 "message",
                 "psr7"
             ],
-            "time": "2020-09-04T08:41:23+00:00"
+            "time": "2020-09-22T06:59:55+00:00"
         },
         {
             "name": "php-http/guzzle6-adapter",
@@ -5496,12 +5496,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "d0a27ccee8779b6eae26b5394c55d5394ef9657a"
+                "reference": "1c9a91c6449bbbcc3524611ada15d06c20175f66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/d0a27ccee8779b6eae26b5394c55d5394ef9657a",
-                "reference": "d0a27ccee8779b6eae26b5394c55d5394ef9657a",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/1c9a91c6449bbbcc3524611ada15d06c20175f66",
+                "reference": "1c9a91c6449bbbcc3524611ada15d06c20175f66",
                 "shasum": ""
             },
             "require": {
@@ -5532,7 +5532,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-09-14T13:45:27+00:00"
+            "time": "2020-09-21T12:05:44+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
