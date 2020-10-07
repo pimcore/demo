@@ -21,6 +21,7 @@ use Pimcore\Model\DataObject\News;
 use Pimcore\Templating\Helper\HeadTitle;
 use Pimcore\Templating\Helper\Placeholder;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Zend\Paginator\Paginator;
@@ -32,7 +33,7 @@ class NewsController extends BaseController
     /**
      * @param Request $request
      *
-     * @return array
+     * @return Response
      *
      * @throws \Exception
      */
@@ -48,10 +49,10 @@ class NewsController extends BaseController
         $paginator->setCurrentPageNumber($request->get('page'));
         $paginator->setItemCountPerPage(6);
 
-        return [
+        return $this->render('news/listing.html.twig', [
             'news' => $paginator,
             'paginationVariables' => $paginator->getPages('Sliding')
-        ];
+        ]);
     }
 
     /**
@@ -63,7 +64,7 @@ class NewsController extends BaseController
      * @param NewsLinkGenerator $newsLinkGenerator
      * @param BreadcrumbHelperService $breadcrumbHelperService
      *
-     * @return array
+     * @return Response
      */
     public function detailAction(Request $request, HeadTitle $headTitleHelper, Placeholder $placeholderHelper, NewsLinkGenerator $newsLinkGenerator, BreadcrumbHelperService $breadcrumbHelperService)
     {
@@ -78,9 +79,9 @@ class NewsController extends BaseController
 
         $placeholderHelper('canonical')->set($newsLinkGenerator->generate($news, ['document' => $this->document->getProperty(self::NEWS_DEFAULT_DOCUMENT_PROPERTY_NAME)]));
 
-        return [
+        return $this->render('news/detail.html.twig', [
             'news' => $news
-        ];
+        ]);
     }
 
     /**

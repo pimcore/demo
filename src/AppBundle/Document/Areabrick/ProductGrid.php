@@ -34,6 +34,6 @@ class ProductGrid extends AbstractAreabrick
          * @var $filterDefinition FilterDefinition
          */
         $filterDefinition = $this->getDocumentTag($info->getDocument(), 'href', 'productFilter')->getElement();
-        $info->getView()->filterDefinitionObject = $filterDefinition;
+        $info->setParam('filterDefinitionObject', $filterDefinition);
     }
 }

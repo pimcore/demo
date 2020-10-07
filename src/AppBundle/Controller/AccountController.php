@@ -37,6 +37,7 @@ use Pimcore\DataObject\Consent\Service;
 use Pimcore\Translation\Translator;
 use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -56,7 +57,7 @@ class AccountController extends BaseController
 {
     /**
      * @Route("/account/login", name="account-login")
-     *
+     * @Template
      * @param AuthenticationUtils $authenticationUtils
      * @param OAuthRegistrationHandler $oAuthHandler
      * @param SessionInterface $session
@@ -128,7 +129,7 @@ class AccountController extends BaseController
      * registration process is different on every project.
      *
      * @Route("/account/register", name="account-register")
-     *
+     * @Template
      * @param Request $request
      * @param CustomerProviderInterface $customerProvider
      * @param OAuthRegistrationHandler $oAuthHandler
@@ -352,6 +353,7 @@ class AccountController extends BaseController
     }
 
     /**
+     * @Template
      * @param array $formData
      * @param UserResponseInterface $userInformation
      *
@@ -371,6 +373,7 @@ class AccountController extends BaseController
     /**
      * Index page for account - it is restricted to ROLE_USER via security annotation
      *
+     * @Template
      * @Route("/account/index", name="account-index")
      * @Security("has_role('ROLE_USER')")
      *
@@ -463,7 +466,7 @@ class AccountController extends BaseController
 
     /**
      * @Route("/account/send-password-recovery", name="account-password-send-recovery")
-     *
+     * @Template
      * @param Request $request
      * @param PasswordRecoveryService $service
      * @param Translator $translator
@@ -487,7 +490,7 @@ class AccountController extends BaseController
 
     /**
      * @Route("/account/reset-password", name="account-reset-password")
-     *
+     * @Template
      * @param Request $request
      * @param PasswordRecoveryService $service
      * @param Translator $translator

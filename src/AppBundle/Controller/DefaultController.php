@@ -16,33 +16,45 @@
 namespace AppBundle\Controller;
 
 use Pimcore\Model\Asset;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends BaseController
 {
     /**
+     * @Template
      * @param Request $request
      * @Route("/examples", name="examples")
      */
     public function examplesAction(Request $request)
     {
-    }
-
-    public function defaultAction(Request $request)
-    {
+        return [];
     }
 
     /**
+     * @Template
+     * @param Request $request
+     * @return array
+     */
+    public function defaultAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Template
      * @param Request $request
      *
      * @return array
      */
     public function genericMailAction(Request $request)
     {
+        return [];
     }
 
     /**
+     * @Template
      * @param Request $request
      *
      * @return array

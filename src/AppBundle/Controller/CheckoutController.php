@@ -20,6 +20,7 @@ use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -28,17 +29,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class CheckoutController extends FrontendController
 {
     /**
-     * @inheritDoc
-     */
-    public function onKernelController(FilterControllerEvent $event)
-    {
-        // enable view auto-rendering
-        $this->setViewAutoRender($event->getRequest(), true, 'twig');
-    }
-
-    /**
      * @Route("/checkout-address", name="shop-checkout-address")
-     *
+     * @Template
      * @param Factory $factory
      * @param Request $request
      * @param BreadcrumbHelperService $breadcrumbHelperService
@@ -120,7 +112,7 @@ class CheckoutController extends FrontendController
 
     /**
      * @Route("/checkout-completed", name="shop-checkout-completed")
-     *
+     * @Template
      * @param SessionInterface $session
      * @param Factory $ecommerceFactory
      *
@@ -143,7 +135,7 @@ class CheckoutController extends FrontendController
 
     /**
      * @param Request $request
-     *
+     * @Template
      * @return array
      */
     public function confirmationMailAction(Request $request)

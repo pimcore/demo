@@ -74,7 +74,7 @@ class PersonalizedProductTeaser extends AbstractAreabrick
 
     public function action(Info $info)
     {
-        $info->getView()->usePersonalizedData = false;
+        $info->setParam('usePersonalizedData', false);
 
         if (! $this->visitorInfoStorage->hasVisitorInfo()) {
             return;
@@ -107,8 +107,8 @@ class PersonalizedProductTeaser extends AbstractAreabrick
         $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
 
         if ($productList->count() >= 3) {
-            $info->getView()->productList = $productList;
-            $info->getView()->usePersonalizedData = true;
+            $info->setParam('productList', $productList);
+            $info->setParam('usePersonalizedData', true);
         }
     }
 

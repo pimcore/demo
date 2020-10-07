@@ -24,13 +24,18 @@ use Pimcore\Model\DataObject\BodyStyle;
 use Pimcore\Model\DataObject\Manufacturer;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Translation\Translator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ContentController extends BaseController
 {
+    /**
+     * @Template
+     */
     public function defaultAction()
     {
+        return [];
     }
 
     /**
@@ -39,6 +44,7 @@ class ContentController extends BaseController
      * are not really set as we don't have a response yet, but they will be added to the final response
      * by the ResponseHeaderListener.
      *
+     * @Template
      * @ResponseHeader("X-Custom-Header", values={"Foo", "Bar"})
      * @ResponseHeader("X-Custom-Header2", values="Bazinga", replace=true)
      *
@@ -54,14 +60,25 @@ class ContentController extends BaseController
         ];
     }
 
+    /**
+     * @Template
+     */
     public function editableRoundupAction()
     {
+        return [];
     }
 
+    /**
+     * @Template
+     */
     public function thumbnailsAction()
     {
+        return [];
     }
 
+    /**
+     * @Template
+     */
     public function carSubmitAction(Request $request, Translator $translator)
     {
         $form = $this->createForm(CarSubmitFormType::class);
@@ -84,7 +101,7 @@ class ContentController extends BaseController
 
             $this->addFlash('success', $translator->trans('general.car-submitted'));
 
-            return $this->renderTemplate('content/car_submit_success.html.twig', array_merge($this->view->getAllParameters(), ['car' => $car]));
+            return $this->renderTemplate('content/car_submit_success.html.twig', ['car' => $car]);
         }
 
         return [
@@ -92,7 +109,9 @@ class ContentController extends BaseController
         ];
     }
 
-
+    /**
+     * @Template
+     */
     public function tenantSwitchesAction(Request $request, Factory $ecommerceFactory)
     {
         $environment = $ecommerceFactory->getEnvironment();

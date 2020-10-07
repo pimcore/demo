@@ -20,6 +20,7 @@ use AppBundle\Model\Product\Car;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document\Hardlink;
 use Pimcore\Web2Print\Processor;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +44,12 @@ class Web2printController extends BaseController
         }
     }
 
+    /**
+     * @Template
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     */
     public function containerAction(Request $request)
     {
         $paramsBag = [];
@@ -69,6 +76,11 @@ class Web2printController extends BaseController
         return $paramsBag;
     }
 
+    /**
+     * @Template
+     * @param Request $request
+     * @return array
+     */
     public function productCellAction(Request $request)
     {
         AbstractObject::setGetInheritedValues(true);

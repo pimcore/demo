@@ -27,6 +27,7 @@ use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
 use Pimcore\Translation\Translator;
 use Psr\Log\LoggerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -37,17 +38,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class PaymentController extends FrontendController
 {
     /**
-     * @inheritDoc
-     */
-    public function onKernelController(FilterControllerEvent $event)
-    {
-        // enable view auto-rendering
-        $this->setViewAutoRender($event->getRequest(), true, 'twig');
-    }
-
-    /**
      * @Route("/checkout-payment", name="shop-checkout-payment")
-     *
+     * @Template
      * @param Factory $factory
      * @param BreadcrumbHelperService $breadcrumbHelperService
      *

@@ -22,9 +22,9 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Exception\VoucherServiceException;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Translation\Translator;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\Routing\Annotation\Route;
 
 class CartController extends FrontendController
 {
@@ -38,15 +38,6 @@ class CartController extends FrontendController
     public function __construct(Factory $factory)
     {
         $this->factory = $factory;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function onKernelController(FilterControllerEvent $event)
-    {
-        // enable view auto-rendering
-        $this->setViewAutoRender($event->getRequest(), true, 'twig');
     }
 
     /**

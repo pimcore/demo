@@ -23,15 +23,6 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 class BaseController extends FrontendController
 {
     /**
-     * @inheritDoc
-     */
-    public function onKernelController(FilterControllerEvent $event)
-    {
-        // enable view auto-rendering
-        $this->setViewAutoRender($event->getRequest(), true, 'twig');
-    }
-
-    /**
      * @param Request $request
      * @param DataObject $object
      *

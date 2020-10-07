@@ -23,7 +23,7 @@ use AppBundle\Services\SegmentTrackingHelperService;
 use AppBundle\Website\LinkGenerator\ProductLinkGenerator;
 use AppBundle\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
-use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\Helper;
+use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\ListHelper;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\DefaultMysql;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ElasticSearch\AbstractElasticSearch;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
@@ -33,16 +33,16 @@ use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Data\UrlSlug;
 use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Templating\Helper\HeadTitle;
-use Pimcore\Templating\Model\ViewModel;
 use Pimcore\Translation\Translator;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Zend\Paginator\Paginator;
 
 class ProductController extends BaseController
 {
-
     /**
      * @param Request $request
      * @param AbstractObject $object
@@ -52,7 +52,6 @@ class ProductController extends BaseController
     public function productDetailSlugAction(Request $request, AbstractObject $object, UrlSlug $urlSlug) {
         return $this->forward('AppBundle\Controller\ProductController::detailAction', ['product' => $object]);
     }
-
 
     /**
      * @Route("/shop/{path}{productname}~p{product}", name="shop-detail", defaults={"path"=""}, requirements={"path"=".*?", "productname"="[\w-]+", "product"="\d+"})
@@ -140,19 +139,19 @@ class ProductController extends BaseController
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param Factory $ecommerceFactory
      * @param SegmentTrackingHelperService $segmentTrackingHelperService
+     * @param ListHelper $listHelper
      *
      * @return array|\Symfony\Component\HttpFoundation\Response
      */
-    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService)
+    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService, ListHelper $listHelper)
     {
-        $viewModel = new ViewModel();
         $params = array_merge($request->query->all(), $request->attributes->all());
 
         //needed to make sure category filter filters for active category
         $params['parentCategoryIds'] = $params['category'] ?? null;
 
         $category = Category::getById($params['category'] ?? null);
-        $viewModel->category = $category;
+        $params['category'] = $category;
         if ($category) {
             $headTitleHelper($category->getName());
             $breadcrumbHelperService->enrichCategoryPage($category);
@@ -161,7 +160,7 @@ class ProductController extends BaseController
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-        $viewModel->productListing = $productListing;
+        $params['productListing'] = $productListing;
 
         // load current filter
         if ($category) {
@@ -183,20 +182,20 @@ class ProductController extends BaseController
         }
 
         $filterService = $ecommerceFactory->getFilterService();
-        Helper::setupProductList($filterDefinition, $productListing, $params, $viewModel, $filterService, true);
-        $viewModel->filterService = $filterService;
-        $viewModel->filterDefinition = $filterDefinition;
+        $listHelper->setupProductList($filterDefinition, $productListing, $params, $filterService, true);
+        $params['filterService'] = $filterService;
+        $params['filterDefinition'] = $filterDefinition;
 
         // init pagination
         $paginator = new Paginator($productListing);
         $paginator->setCurrentPageNumber($request->get('page'));
         $paginator->setItemCountPerPage($filterDefinition->getPageLimit());
         $paginator->setPageRange(5);
-        $viewModel->results = $paginator;
-        $viewModel->paginationVariables = $paginator->getPages('Sliding');
+        $params['results'] = $paginator;
+        $params['paginationVariables'] = $paginator->getPages('Sliding');
 
         if ($request->attributes->get('noLayout')) {
-            return $this->render('/product/listing_content.html.twig', array_merge($this->view->getAllParameters(), $viewModel->getAllParameters()));
+            return $this->render('/product/listing_content.html.twig', $params);
         }
 
         // track product impressions
@@ -205,7 +204,7 @@ class ProductController extends BaseController
             $trackingManager->trackProductImpression($product, 'grid');
         }
 
-        return $viewModel->getAllParameters();
+        return $this->render('product/listing.html.twig', $params);
     }
 
     /**
@@ -237,20 +236,20 @@ class ProductController extends BaseController
      * @Route("/search", name="search")
      *
      * @param Request $request
+     * @param ListHelper $listHelper
      * @param Factory $ecommerceFactory
      * @param ProductLinkGenerator $productLinkGenerator
      * @param Translator $translator
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param HeadTitle $headTitleHelper
      *
-     * @return array|\Symfony\Component\HttpFoundation\JsonResponse
+     * @return Response|JsonResponse
      */
-    public function searchAction(Request $request, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper)
+    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper)
     {
         $params = $request->query->all();
-        $viewModel = new ViewModel();
 
-        $viewModel->category = Category::getById($params['category'] ?? null);
+        $params['category'] = Category::getById($params['category'] ?? null);
 
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
@@ -337,22 +336,23 @@ class ProductController extends BaseController
             return $this->json($resultset);
         }
 
-        $filterDefinition = $viewModel->filterDefinition = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
+        $filterDefinition = $params['']->filterDefinition = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
 
         // create and init filter service
         $filterService = Factory::getInstance()->getFilterService();
 
-        Helper::setupProductList($filterDefinition, $productListing, $params, $viewModel, $filterService, true);
-        $viewModel->filterService = $filterService;
-        $viewModel->products = $productListing;
+        $listHelper->setupProductList($filterDefinition, $productListing, $params, $filterService, true);
+
+        $params['filterService'] = $filterService;
+        $params['products'] = $productListing;
 
         // init pagination
         $paginator = new Paginator($productListing);
         $paginator->setCurrentPageNumber($request->get('page'));
         $paginator->setItemCountPerPage($filterDefinition->getPageLimit());
         $paginator->setPageRange(5);
-        $viewModel->results = $paginator;
-        $viewModel->paginationVariables = $paginator->getPages('Sliding');
+        $params['results'] = $paginator;
+        $params['paginationVariables'] = $paginator->getPages('Sliding');
 
         $trackingManager = $ecommerceFactory->getTrackingManager();
         foreach ($paginator as $product) {
@@ -367,12 +367,12 @@ class ProductController extends BaseController
             'label' => $translator->trans('shop.search-result', [$term])
         ]);
 
-        $viewModel->language = $request->getLocale();
-        $viewModel->term = $term;
+        $params['language'] = $request->getLocale();
+        $params['term'] = $term;
 
         $breadcrumbHelperService->enrichGenericDynamicPage($translator->trans('shop.search-result', [$term]));
         $headTitleHelper($translator->trans('shop.search-result', [$term]));
 
-        return $viewModel->getAllParameters();
+        return $this->render('product/search.html.twig', $params);
     }
 }
