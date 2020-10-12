@@ -7,16 +7,18 @@
     "optimize-autoloader": true,
     "sort-packages": true
   },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
   "require": {
     "php": ">=7.2",
     "heidelpay/heidelpay-php": "1.2.5.1",
     "hwi/oauth-bundle": "^1.0.0",
     "php-http/guzzle6-adapter": "^2.0",
     "php-http/httplug-bundle": "^1",
-    "pimcore/customer-management-framework-bundle": "dev-master",
+    "pimcore/customer-management-framework-bundle": "^3.0",
     "pimcore/pimcore": "~6.8.0",
-    "pimcore/web2print-tools-bundle": "dev-master",
-    "pimcore/data-hub": "dev-master",
+    "pimcore/web2print-tools-bundle": "^4.0",
+    "pimcore/data-hub": "^1.0",
     "wikimedia/composer-merge-plugin": "^1.4"
   },
   "require-dev": {
