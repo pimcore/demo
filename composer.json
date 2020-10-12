@@ -15,7 +15,7 @@
     "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "dev-master",
     "pimcore/pimcore": "~6.8.0",
-    "pimcore/web2print-tools-bundle": "^3.1",
+    "pimcore/web2print-tools-bundle": "dev-master",
     "pimcore/data-hub": "dev-master",
     "wikimedia/composer-merge-plugin": "^1.4"
   },
