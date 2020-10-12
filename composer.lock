@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56064815903a5c9ee4ec36ea4fe69ff5",
+    "content-hash": "5c21855406638d6cbfe079bd81fd4729",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -5275,16 +5275,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v2.5.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "37b7906bce67d46cdd5e27102759b3d15d5b26d3"
+                "reference": "b4d7e361a393dd3006ce7f1faf40b2e31dfd96e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/37b7906bce67d46cdd5e27102759b3d15d5b26d3",
-                "reference": "37b7906bce67d46cdd5e27102759b3d15d5b26d3",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/b4d7e361a393dd3006ce7f1faf40b2e31dfd96e2",
+                "reference": "b4d7e361a393dd3006ce7f1faf40b2e31dfd96e2",
                 "shasum": ""
             },
             "require": {
@@ -5332,7 +5332,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-08-25T09:55:10+00:00"
+            "time": "2020-10-09T12:15:50+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -10948,6 +10948,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "pimcore/customer-management-framework-bundle": 20,
         "pimcore/data-hub": 20
     },
     "prefer-stable": false,
