@@ -13,7 +13,7 @@
     "hwi/oauth-bundle": "^1.0.0",
     "php-http/guzzle6-adapter": "^2.0",
     "php-http/httplug-bundle": "^1",
-    "pimcore/customer-management-framework-bundle": "^2.2",
+    "pimcore/customer-management-framework-bundle": "dev-master",
     "pimcore/pimcore": "~6.8.0",
     "pimcore/web2print-tools-bundle": "^3.1",
     "pimcore/data-hub": "dev-master",
