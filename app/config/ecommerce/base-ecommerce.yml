@@ -343,6 +343,7 @@ services:
 
 
     Pimcore\Localization\IntlFormatter:
+        public: true
         calls:
             - [setCurrencyFormat, ['en', '¤¤ #,##0.00']]
             - [setCurrencyFormat, ['de', '#,##0.00 ¤¤']]
