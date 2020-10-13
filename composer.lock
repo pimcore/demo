@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c21855406638d6cbfe079bd81fd4729",
+    "content-hash": "2a6834a616f8eb6bd4c16c573643f4e2",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -343,16 +343,16 @@
         },
         {
             "name": "colinmollenhour/credis",
-            "version": "1.11.2",
+            "version": "v1.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/colinmollenhour/credis.git",
-                "reference": "b8b2bd6b87d2d4df67065f3510efb80d5f9c4e53"
+                "reference": "dc200278d644be1de8c99a17462aa9ef70cedc89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colinmollenhour/credis/zipball/b8b2bd6b87d2d4df67065f3510efb80d5f9c4e53",
-                "reference": "b8b2bd6b87d2d4df67065f3510efb80d5f9c4e53",
+                "url": "https://api.github.com/repos/colinmollenhour/credis/zipball/dc200278d644be1de8c99a17462aa9ef70cedc89",
+                "reference": "dc200278d644be1de8c99a17462aa9ef70cedc89",
                 "shasum": ""
             },
             "require": {
@@ -379,7 +379,7 @@
             ],
             "description": "Credis is a lightweight interface to the Redis key-value store which wraps the phpredis library when available for better performance.",
             "homepage": "https://github.com/colinmollenhour/credis",
-            "time": "2020-06-15T19:25:47+00:00"
+            "time": "2020-10-12T20:38:47+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -1796,27 +1796,27 @@
         },
         {
             "name": "dragonmantank/cron-expression",
-            "version": "3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dragonmantank/cron-expression.git",
-                "reference": "fa4e95ff5a7f1d62c3fbc05c32729b7f3ca14b52"
+                "reference": "48212cdc0a79051d50d7fc2f0645c5a321caf926"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/fa4e95ff5a7f1d62c3fbc05c32729b7f3ca14b52",
-                "reference": "fa4e95ff5a7f1d62c3fbc05c32729b7f3ca14b52",
+                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/48212cdc0a79051d50d7fc2f0645c5a321caf926",
+                "reference": "48212cdc0a79051d50d7fc2f0645c5a321caf926",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1|^8.0"
             },
             "replace": {
                 "mtdowling/cron-expression": "^1.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.11",
-                "phpunit/phpunit": "^6.4|^7.0"
+                "phpstan/phpstan": "^0.11|^0.12",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
             },
             "type": "library",
             "autoload": {
@@ -1846,7 +1846,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-21T02:30:13+00:00"
+            "time": "2020-10-13T01:26:01+00:00"
         },
         {
             "name": "drewm/mailchimp-api",
@@ -2020,6 +2020,64 @@
                 }
             ],
             "time": "2020-10-07T09:42:59+00:00"
+        },
+        {
+            "name": "facebook/graph-sdk",
+            "version": "5.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/php-graph-sdk.git",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
+                "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                },
+                "files": [
+                    "src/Facebook/polyfills.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/php-graph-sdk/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/php-graph-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2018-12-11T22:56:31+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -2824,6 +2882,63 @@
             "time": "2020-04-06T20:52:53+00:00"
         },
         {
+            "name": "hybridauth/hybridauth",
+            "version": "v2.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hybridauth/hybridauth.git",
+                "reference": "06909cd8cbc1201f01db8a8d36bc8c06dd27223d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/06909cd8cbc1201f01db8a8d36bc8c06dd27223d",
+                "reference": "06909cd8cbc1201f01db8a8d36bc8c06dd27223d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "facebook/graph-sdk": "^5.4",
+                "paypal/rest-api-sdk-php": "*",
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hybrid": "hybridauth/"
+                },
+                "classmap": [
+                    "hybridauth/Hybrid"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(MIT or GPL-3.0+)"
+            ],
+            "authors": [
+                {
+                    "name": "Miled",
+                    "email": "hybridauth@gmail.com"
+                }
+            ],
+            "description": "Open source social sign on PHP library.",
+            "homepage": "http://hybridauth.sourceforge.net",
+            "keywords": [
+                "OpenId",
+                "facebook",
+                "google",
+                "hybridauth",
+                "login",
+                "oauth",
+                "social",
+                "twitter",
+                "yahoo"
+            ],
+            "time": "2019-12-13T11:20:07+00:00"
+        },
+        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.17",
             "source": {
@@ -3065,6 +3180,59 @@
                 }
             ],
             "time": "2020-09-05T08:40:12+00:00"
+        },
+        {
+            "name": "linfo/linfo",
+            "version": "v4.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:jrgp/linfo.git",
+                "reference": "2cd1edf906b9ee4dbecfac7a4829d45ce9d585c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jrgp/linfo/zipball/2cd1edf906b9ee4dbecfac7a4829d45ce9d585c0",
+                "reference": "2cd1edf906b9ee4dbecfac7a4829d45ce9d585c0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.*"
+            },
+            "suggest": {
+                "ext-com": "On Windows"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Linfo\\": "src/Linfo"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joe Gillotti",
+                    "email": "joe@joegillotti.com",
+                    "homepage": "http://joegillotti.com",
+                    "role": "Author"
+                }
+            ],
+            "description": "App and library for easily parsing and displaying system information of the host, like network/torrents/cpu/memory/usb/pci/sound cards/filesystems/raid array/ipmi/etc.",
+            "homepage": "http://github.com/jrgp/linfo",
+            "keywords": [
+                "CPU",
+                "health",
+                "linux",
+                "specs",
+                "system"
+            ],
+            "time": "2019-10-21T21:47:56+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -3805,16 +3973,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.41.2",
+            "version": "2.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "35959c93ada06469107a05df6b15b65074a960cf"
+                "reference": "e148788eeae9b9b7b87996520358b86faad37b52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/35959c93ada06469107a05df6b15b65074a960cf",
-                "reference": "35959c93ada06469107a05df6b15b65074a960cf",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e148788eeae9b9b7b87996520358b86faad37b52",
+                "reference": "e148788eeae9b9b7b87996520358b86faad37b52",
                 "shasum": ""
             },
             "require": {
@@ -3890,7 +4058,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-10T23:35:06+00:00"
+            "time": "2020-10-12T20:36:09+00:00"
         },
         {
             "name": "nikic/phlexy",
@@ -4100,6 +4268,56 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "paypal/rest-api-sdk-php",
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/72e2f2466975bf128a31e02b15110180f059fc04",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "abandoned": true,
+            "time": "2019-01-04T20:04:25+00:00"
         },
         {
             "name": "pear/archive_tar",
@@ -4845,16 +5063,16 @@
         },
         {
             "name": "php-http/message",
-            "version": "1.9.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "2c7256e3c1aba0bfca70f099810f1c7712e00945"
+                "reference": "09f3f13af3a1a4273ecbf8e6b27248c002a3db29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/2c7256e3c1aba0bfca70f099810f1c7712e00945",
-                "reference": "2c7256e3c1aba0bfca70f099810f1c7712e00945",
+                "url": "https://api.github.com/repos/php-http/message/zipball/09f3f13af3a1a4273ecbf8e6b27248c002a3db29",
+                "reference": "09f3f13af3a1a4273ecbf8e6b27248c002a3db29",
                 "shasum": ""
             },
             "require": {
@@ -4914,7 +5132,7 @@
                 "message",
                 "psr-7"
             ],
-            "time": "2020-08-17T06:33:14+00:00"
+            "time": "2020-10-13T06:21:08+00:00"
         },
         {
             "name": "php-http/message-factory",
@@ -5279,12 +5497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "b4d7e361a393dd3006ce7f1faf40b2e31dfd96e2"
+                "reference": "ab4af280730c4c98d82c9d85dc377b47245257af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/b4d7e361a393dd3006ce7f1faf40b2e31dfd96e2",
-                "reference": "b4d7e361a393dd3006ce7f1faf40b2e31dfd96e2",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/ab4af280730c4c98d82c9d85dc377b47245257af",
+                "reference": "ab4af280730c4c98d82c9d85dc377b47245257af",
                 "shasum": ""
             },
             "require": {
@@ -5314,7 +5532,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -5332,7 +5550,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-10-09T12:15:50+00:00"
+            "time": "2020-10-12T13:47:35+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -5340,12 +5558,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "c6c351cbd7d4007a94f7f41d8bfd85d611baa1a5"
+                "reference": "e2cfd0742235abd9a04814a7a29b6f8c573ed363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/c6c351cbd7d4007a94f7f41d8bfd85d611baa1a5",
-                "reference": "c6c351cbd7d4007a94f7f41d8bfd85d611baa1a5",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/e2cfd0742235abd9a04814a7a29b6f8c573ed363",
+                "reference": "e2cfd0742235abd9a04814a7a29b6f8c573ed363",
                 "shasum": ""
             },
             "require": {
@@ -5361,6 +5579,9 @@
                     "bundles": [
                         "Pimcore\\Bundle\\DataHubBundle\\PimcoreDataHubBundle"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -5376,7 +5597,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-10-07T06:14:16+00:00"
+            "time": "2020-10-12T14:03:57+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -5449,16 +5670,16 @@
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "v3.4.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "78acba7ff34e67fb7180626f88bbe86ca5782f63"
+                "reference": "821ba079d38804c8e3adad6937e77d6ed92f69fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/78acba7ff34e67fb7180626f88bbe86ca5782f63",
-                "reference": "78acba7ff34e67fb7180626f88bbe86ca5782f63",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/821ba079d38804c8e3adad6937e77d6ed92f69fd",
+                "reference": "821ba079d38804c8e3adad6937e77d6ed92f69fd",
                 "shasum": ""
             },
             "require": {
@@ -5470,6 +5691,9 @@
                     "bundles": [
                         "OutputDataConfigToolkitBundle\\OutputDataConfigToolkitBundle"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -5481,7 +5705,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-08-25T09:59:39+00:00"
+            "time": "2020-10-12T13:50:38+00:00"
         },
         {
             "name": "pimcore/pimcore",
@@ -5531,8 +5755,10 @@
                 "guzzlehttp/guzzle": "^6.3",
                 "html2text/html2text": "^4.2.1",
                 "http-interop/http-factory-guzzle": "^1.0.0",
+                "hybridauth/hybridauth": "^2.12",
                 "lcobucci/jwt": "^3.2",
                 "league/csv": "^9.1",
+                "linfo/linfo": "^4.0.0",
                 "mjaschen/phpgeo": "^2.0",
                 "mpratt/embera": "^2.0.3",
                 "myclabs/deep-copy": "^1.3",
@@ -5555,7 +5781,7 @@
                 "symfony/contracts": "^1.1",
                 "symfony/monolog-bundle": "^3.1.0",
                 "symfony/swiftmailer-bundle": "^3.2.2",
-                "symfony/symfony": "^4.1.12",
+                "symfony/symfony": "^3.4.26 || ^4.1.12",
                 "tijsverkoyen/css-to-inline-styles": "^2.2.1",
                 "twig/extensions": "^1.5",
                 "twig/twig": "^2.4",
@@ -5605,7 +5831,7 @@
                 "symfony-tests-dir": "tests",
                 "symfony-assets-install": "relative",
                 "branch-alias": {
-                    "dev-master": "7.0-dev"
+                    "dev-master": "6.8-dev"
                 }
             },
             "autoload": {
@@ -5648,7 +5874,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2020-10-12T07:32:47+00:00"
+            "time": "2020-10-12T08:17:06+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -5694,20 +5920,20 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v3.4.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "84acf11d40d52f0f7dbf87c3096b106e36e66065"
+                "reference": "1f72ff209d6dbceea39adf73b03d064ec90c8491"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/84acf11d40d52f0f7dbf87c3096b106e36e66065",
-                "reference": "84acf11d40d52f0f7dbf87c3096b106e36e66065",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/1f72ff209d6dbceea39adf73b03d064ec90c8491",
+                "reference": "1f72ff209d6dbceea39adf73b03d064ec90c8491",
                 "shasum": ""
             },
             "require": {
-                "pimcore/output-data-config-toolkit-bundle": "~3",
+                "pimcore/output-data-config-toolkit-bundle": "^4.0",
                 "pimcore/pimcore": "^5.4 || ^6.0"
             },
             "type": "pimcore-bundle",
@@ -5716,6 +5942,9 @@
                     "bundles": [
                         "Web2PrintToolsBundle\\Web2PrintToolsBundle"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -5727,7 +5956,7 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-08-25T09:58:13+00:00"
+            "time": "2020-10-12T13:53:24+00:00"
         },
         {
             "name": "piwik/device-detector",
@@ -10946,12 +11175,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {
-        "pimcore/customer-management-framework-bundle": 20,
-        "pimcore/data-hub": 20
-    },
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.2"
