@@ -2345,16 +2345,16 @@
         },
         {
             "name": "google/auth",
-            "version": "v1.14.1",
+            "version": "v1.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "2df57c61c2fd739a15a81f792b1ccedc3e06d2b6"
+                "reference": "9d82b20a07ca560a5075e24ca8ac5721bc8c961d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/2df57c61c2fd739a15a81f792b1ccedc3e06d2b6",
-                "reference": "2df57c61c2fd739a15a81f792b1ccedc3e06d2b6",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/9d82b20a07ca560a5075e24ca8ac5721bc8c961d",
+                "reference": "9d82b20a07ca560a5075e24ca8ac5721bc8c961d",
                 "shasum": ""
             },
             "require": {
@@ -2393,7 +2393,7 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2020-10-06T18:10:43+00:00"
+            "time": "2020-10-14T16:58:18+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -5497,12 +5497,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "ab4af280730c4c98d82c9d85dc377b47245257af"
+                "reference": "4832c7b377fa80a3e4082f7d91de20e3bd1dbb72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/ab4af280730c4c98d82c9d85dc377b47245257af",
-                "reference": "ab4af280730c4c98d82c9d85dc377b47245257af",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/4832c7b377fa80a3e4082f7d91de20e3bd1dbb72",
+                "reference": "4832c7b377fa80a3e4082f7d91de20e3bd1dbb72",
                 "shasum": ""
             },
             "require": {
@@ -5550,7 +5550,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-10-12T13:47:35+00:00"
+            "time": "2020-10-14T15:23:00+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -5558,12 +5558,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "e2cfd0742235abd9a04814a7a29b6f8c573ed363"
+                "reference": "521cd940abe8206b752a47e1122d0855154cfa50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/e2cfd0742235abd9a04814a7a29b6f8c573ed363",
-                "reference": "e2cfd0742235abd9a04814a7a29b6f8c573ed363",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/521cd940abe8206b752a47e1122d0855154cfa50",
+                "reference": "521cd940abe8206b752a47e1122d0855154cfa50",
                 "shasum": ""
             },
             "require": {
@@ -5597,7 +5597,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-10-12T14:03:57+00:00"
+            "time": "2020-10-14T10:19:45+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
