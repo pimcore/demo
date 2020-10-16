@@ -5706,16 +5706,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v6.8.2",
+            "version": "v6.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "f037214e93be9854f8811aee40b1b8c6405c238e"
+                "reference": "9da77eb34a4d59aadbc3adbc5f3e9f819b6cbe11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/f037214e93be9854f8811aee40b1b8c6405c238e",
-                "reference": "f037214e93be9854f8811aee40b1b8c6405c238e",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/9da77eb34a4d59aadbc3adbc5f3e9f819b6cbe11",
+                "reference": "9da77eb34a4d59aadbc3adbc5f3e9f819b6cbe11",
                 "shasum": ""
             },
             "require": {
@@ -5871,7 +5871,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2020-10-12T08:17:06+00:00"
+            "time": "2020-10-16T12:23:21+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
