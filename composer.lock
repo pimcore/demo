@@ -5674,16 +5674,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "821ba079d38804c8e3adad6937e77d6ed92f69fd"
+                "reference": "8a7ec05cf61eea15b496ca9a45aecf666867d3bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/821ba079d38804c8e3adad6937e77d6ed92f69fd",
-                "reference": "821ba079d38804c8e3adad6937e77d6ed92f69fd",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/8a7ec05cf61eea15b496ca9a45aecf666867d3bc",
+                "reference": "8a7ec05cf61eea15b496ca9a45aecf666867d3bc",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": "^5.4 || ^6.0"
+                "pimcore/pimcore": "^6.8"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -5705,20 +5705,20 @@
             "license": [
                 "GPL-3.0+"
             ],
-            "time": "2020-10-12T13:50:38+00:00"
+            "time": "2020-10-16T10:43:08+00:00"
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v6.8.2",
+            "version": "v6.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "f037214e93be9854f8811aee40b1b8c6405c238e"
+                "reference": "9da77eb34a4d59aadbc3adbc5f3e9f819b6cbe11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/f037214e93be9854f8811aee40b1b8c6405c238e",
-                "reference": "f037214e93be9854f8811aee40b1b8c6405c238e",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/9da77eb34a4d59aadbc3adbc5f3e9f819b6cbe11",
+                "reference": "9da77eb34a4d59aadbc3adbc5f3e9f819b6cbe11",
                 "shasum": ""
             },
             "require": {
@@ -5874,7 +5874,7 @@
                 "e-commerce",
                 "rad"
             ],
-            "time": "2020-10-12T08:17:06+00:00"
+            "time": "2020-10-16T12:23:21+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
