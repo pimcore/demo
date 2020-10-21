@@ -2719,16 +2719,16 @@
         },
         {
             "name": "hwi/oauth-bundle",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hwi/HWIOAuthBundle.git",
-                "reference": "0131bac13cd889114f47594bb82f7b2927894f50"
+                "reference": "252608b96ade4124ac7b028814fd3c9574750824"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/0131bac13cd889114f47594bb82f7b2927894f50",
-                "reference": "0131bac13cd889114f47594bb82f7b2927894f50",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/252608b96ade4124ac7b028814fd3c9574750824",
+                "reference": "252608b96ade4124ac7b028814fd3c9574750824",
                 "shasum": ""
             },
             "require": {
@@ -2739,12 +2739,12 @@
                 "php-http/httplug": "^2.0",
                 "php-http/message-factory": "^1.0",
                 "psr/http-message": "^1.0",
-                "symfony/form": "^3.4|^4.3|^5.0",
-                "symfony/framework-bundle": "^3.4.26|^4.3|^5.0",
-                "symfony/options-resolver": "^3.4|^4.3|^5.0",
-                "symfony/security-bundle": "^3.4|^4.3|^5.0",
-                "symfony/templating": "^3.4|^4.3|^5.0",
-                "symfony/yaml": "^3.4|^4.3|^5.0"
+                "symfony/form": "^3.4|^4.4|^5.0",
+                "symfony/framework-bundle": "^3.4.26|^4.4|^5.0",
+                "symfony/options-resolver": "^3.4|^4.4|^5.0",
+                "symfony/security-bundle": "^3.4|^4.4|^5.0",
+                "symfony/templating": "^3.4|^4.4|^5.0",
+                "symfony/yaml": "^3.4|^4.4|^5.0"
             },
             "conflict": {
                 "twig/twig": "<1.34"
@@ -2757,15 +2757,15 @@
                 "php-http/guzzle6-adapter": "^2.0",
                 "php-http/httplug-bundle": "^1.7",
                 "phpunit/phpunit": "^7.5|^8.0",
-                "symfony/browser-kit": "^3.4|^4.3|^5.0",
-                "symfony/css-selector": "^3.4|^4.3|^5.0",
+                "symfony/browser-kit": "^3.4|^4.4|^5.0",
+                "symfony/css-selector": "^3.4|^4.4|^5.0",
                 "symfony/monolog-bundle": "^3.4",
                 "symfony/phpunit-bridge": "^5.0",
-                "symfony/property-access": "^3.4|^4.3|^5.0",
-                "symfony/stopwatch": "^3.4|^4.3|^5.0",
-                "symfony/translation": "^3.4|^4.3|^5.0",
-                "symfony/twig-bundle": "^3.4|^4.3|^5.0",
-                "symfony/validator": "^3.4|^4.3|^5.0"
+                "symfony/property-access": "^3.4|^4.4|^5.0",
+                "symfony/stopwatch": "^3.4|^4.4|^5.0",
+                "symfony/translation": "^3.4|^4.4|^5.0",
+                "symfony/twig-bundle": "^3.4|^4.4|^5.0",
+                "symfony/validator": "^3.4|^4.4|^5.0"
             },
             "suggest": {
                 "doctrine/doctrine-bundle": "to use Doctrine user provider",
@@ -2777,7 +2777,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2818,6 +2818,7 @@
                 "Deezer",
                 "EVE Online",
                 "amazon",
+                "apple",
                 "asana",
                 "auth0",
                 "azure",
@@ -2879,7 +2880,7 @@
                 "yandex",
                 "youtube"
             ],
-            "time": "2020-04-06T20:52:53+00:00"
+            "time": "2020-10-19T11:02:20+00:00"
         },
         {
             "name": "hybridauth/hybridauth",
@@ -4906,16 +4907,16 @@
         },
         {
             "name": "php-http/httplug-bundle",
-            "version": "1.18.0",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/HttplugBundle.git",
-                "reference": "027dff799d50f32cb312f383eb631a035d820db2"
+                "reference": "1e9a170992d49d01fda2ab18ac7bdd1bb502ab38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/HttplugBundle/zipball/027dff799d50f32cb312f383eb631a035d820db2",
-                "reference": "027dff799d50f32cb312f383eb631a035d820db2",
+                "url": "https://api.github.com/repos/php-http/HttplugBundle/zipball/1e9a170992d49d01fda2ab18ac7bdd1bb502ab38",
+                "reference": "1e9a170992d49d01fda2ab18ac7bdd1bb502ab38",
                 "shasum": ""
             },
             "require": {
@@ -5004,7 +5005,7 @@
                 "message",
                 "php-http"
             ],
-            "time": "2020-03-30T07:21:02+00:00"
+            "time": "2020-10-21T06:56:07+00:00"
         },
         {
             "name": "php-http/logger-plugin",
@@ -5558,12 +5559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "07beb792fbf7e7e19d511054c9c29eee43c22114"
+                "reference": "e1234b113bfd6688c692c584d6e1ad048c2ef5fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/07beb792fbf7e7e19d511054c9c29eee43c22114",
-                "reference": "07beb792fbf7e7e19d511054c9c29eee43c22114",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/e1234b113bfd6688c692c584d6e1ad048c2ef5fe",
+                "reference": "e1234b113bfd6688c692c584d6e1ad048c2ef5fe",
                 "shasum": ""
             },
             "require": {
@@ -5597,7 +5598,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-10-16T08:04:34+00:00"
+            "time": "2020-10-20T12:36:34+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
