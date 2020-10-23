@@ -3974,16 +3974,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.41.4",
+            "version": "2.41.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "6571aec754a648ef476a8d8f57993f7bc965afe4"
+                "reference": "c4a9caf97cfc53adfc219043bcecf42bc663acee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/6571aec754a648ef476a8d8f57993f7bc965afe4",
-                "reference": "6571aec754a648ef476a8d8f57993f7bc965afe4",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/c4a9caf97cfc53adfc219043bcecf42bc663acee",
+                "reference": "c4a9caf97cfc53adfc219043bcecf42bc663acee",
                 "shasum": ""
             },
             "require": {
@@ -4059,7 +4059,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-22T07:28:05+00:00"
+            "time": "2020-10-23T06:02:30+00:00"
         },
         {
             "name": "nikic/phlexy",
@@ -5559,12 +5559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "e1234b113bfd6688c692c584d6e1ad048c2ef5fe"
+                "reference": "5f71598782cc62504cd3baa04c2443ff693855ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/e1234b113bfd6688c692c584d6e1ad048c2ef5fe",
-                "reference": "e1234b113bfd6688c692c584d6e1ad048c2ef5fe",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/5f71598782cc62504cd3baa04c2443ff693855ca",
+                "reference": "5f71598782cc62504cd3baa04c2443ff693855ca",
                 "shasum": ""
             },
             "require": {
@@ -5598,7 +5598,7 @@
                 "GPL-3.0+"
             ],
             "description": "Pimcore Data Hub",
-            "time": "2020-10-20T12:36:34+00:00"
+            "time": "2020-10-22T08:58:13+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
