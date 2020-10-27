@@ -20,8 +20,8 @@ use AppBundle\Website\LinkGenerator\CategoryLinkGenerator;
 use Pimcore\Model\Document;
 use Pimcore\Navigation\Container;
 use Pimcore\Navigation\Page\Document as NavDocument;
-use Pimcore\Templating\Helper\Navigation;
-use Pimcore\Templating\Helper\Placeholder;
+use Pimcore\Twig\Extension\Templating\Navigation;
+use Pimcore\Twig\Extension\Templating\Placeholder;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

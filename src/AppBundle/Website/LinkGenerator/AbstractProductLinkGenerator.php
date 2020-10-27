@@ -19,7 +19,7 @@ use AppBundle\Model\Product\Category;
 use AppBundle\Website\Tool\Text;
 use Pimcore\Http\Request\Resolver\DocumentResolver;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
-use Pimcore\Templating\Helper\PimcoreUrl;
+use Pimcore\Twig\Extension\Templating\PimcoreUrl;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface

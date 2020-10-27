@@ -24,7 +24,7 @@ use Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation;
 use Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect;
 use Pimcore\Model\DataObject\ClassDefinition\Data\Select;
 use Pimcore\Model\Element\AbstractElement;
-use Pimcore\Templating\Helper\Placeholder;
+use Pimcore\Twig\Extension\Templating\Placeholder;
 use Pimcore\Translation\Translator;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -202,7 +202,7 @@ class PrintCatalogExtension extends AbstractExtension
                         content: xhtml(\"<div class='register left register-$registerType'>$name</div>\");
                         z-index: 2000;
                     }
-                }        
+                }
 
                 @page $key:left {
                     @right-top {
@@ -210,11 +210,11 @@ class PrintCatalogExtension extends AbstractExtension
                         z-index: 2000;
                     }
                 }
-                
+
                 .page.$key {
                     page: $key;
-                }                
-        
+                }
+
         ");
         }
     }

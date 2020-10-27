@@ -23,7 +23,7 @@ use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\News;
 use Pimcore\Model\Document;
-use Pimcore\Templating\Helper\PimcoreUrl;
+use Pimcore\Twig\Extension\Templating\PimcoreUrl;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class NewsLinkGenerator implements LinkGeneratorInterface
