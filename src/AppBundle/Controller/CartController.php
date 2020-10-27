@@ -107,11 +107,11 @@ class CartController extends FrontendController
         }
 
         $breadcrumbHelperService->enrichCartPage();
-
+        $params = array_merge($request->request->all(), $request->query->all());
         if ($cart->isEmpty()) {
-            return $this->render('cart/cart_empty.html.twig', array_merge($this->view->getAllParameters(), ['cart' => $cart]));
+            return $this->render('cart/cart_empty.html.twig', array_merge($params, ['cart' => $cart]));
         } else {
-            return $this->render('cart/cart_listing.html.twig', array_merge($this->view->getAllParameters(), ['cart' => $cart]));
+            return $this->render('cart/cart_listing.html.twig', array_merge($params, ['cart' => $cart]));
         }
     }
 

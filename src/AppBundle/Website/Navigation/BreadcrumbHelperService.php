@@ -21,7 +21,7 @@ use AppBundle\Website\LinkGenerator\CategoryLinkGenerator;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\News;
 use Pimcore\Model\Document;
-use Pimcore\Templating\Helper\Placeholder;
+use Pimcore\Twig\Extension\Templating\Placeholder;
 use Pimcore\Translation\Translator;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

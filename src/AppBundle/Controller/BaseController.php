@@ -18,7 +18,6 @@ namespace AppBundle\Controller;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class BaseController extends FrontendController
 {
@@ -35,5 +34,15 @@ class BaseController extends FrontendController
         }
 
         return false;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    protected function getAllParameters(Request $request): array
+    {
+        return array_merge($request->request->all(), $request->query->all());
     }
 }

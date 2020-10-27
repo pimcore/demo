@@ -95,7 +95,7 @@ class ProductController extends BaseController
         $breadcrumbHelperService->enrichProductDetailPage($product);
         $headTitleHelper($product->getOSName());
 
-        $paramBag = $this->view->getAllParameters();
+        $paramBag = $this->getAllParameters();
         $paramBag['product'] = $product;
 
         //track segments for personalization

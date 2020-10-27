@@ -112,8 +112,6 @@ services:
         class: AppBundle\Website\Tool\PimcoreUrl
         arguments:
             $generator: '@router'
-        tags:
-            - { name: templating.helper, alias: pimcoreUrl }
 
 
 
