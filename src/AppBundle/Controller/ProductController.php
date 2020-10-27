@@ -32,8 +32,9 @@ use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\Data\UrlSlug;
 use Pimcore\Model\DataObject\FilterDefinition;
-use Pimcore\Templating\Helper\HeadTitle;
 use Pimcore\Translation\Translator;
+use Pimcore\Twig\Extension\Templating\HeadTitle;
+use Pimcore\Twig\Extension\Templating\Placeholder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -242,10 +243,11 @@ class ProductController extends BaseController
      * @param Translator $translator
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param HeadTitle $headTitleHelper
+     * @param Placeholder $placeholder
      *
      * @return Response|JsonResponse
      */
-    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper)
+    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper, Placeholder $placeholder)
     {
         $params = $request->query->all();
 
@@ -360,7 +362,6 @@ class ProductController extends BaseController
         }
 
         //breadcrumbs
-        $placeholder = $this->get('pimcore.templating.view_helper.placeholder');
         $placeholder('addBreadcrumb')->append([
             'parentId' => $this->document->getId(),
             'id' => 'search-result',
