@@ -35,7 +35,7 @@ class Web2printController extends BaseController
             $paramsBag[$key] = $value;
         }
 
-        $paramsBag = array_merge($this->getAllParameters(), $paramsBag);
+        $paramsBag = array_merge($this->getAllParameters($request), $paramsBag);
 
         if ($this->document->getProperty('hide-layout')) {
             return $this->render('web2print/default_no_layout.html.twig', $paramsBag);
