@@ -5935,12 +5935,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "efd7f68a5cd6d2eefc0ee8619c36ea41fc9d8751"
+                "reference": "12900c5c22d5cde7284295ba155f9a23dce8ba99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/efd7f68a5cd6d2eefc0ee8619c36ea41fc9d8751",
-                "reference": "efd7f68a5cd6d2eefc0ee8619c36ea41fc9d8751",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/12900c5c22d5cde7284295ba155f9a23dce8ba99",
+                "reference": "12900c5c22d5cde7284295ba155f9a23dce8ba99",
                 "shasum": ""
             },
             "require": {
@@ -6104,7 +6104,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2020-10-30T09:35:28+00:00"
+            "time": "2020-10-31T09:35:23+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -6259,6 +6259,7 @@
                 "source": "https://github.com/matomo-org/piwik",
                 "wiki": "https://dev.matomo.org/"
             },
+            "abandoned": "matomo/device-detector",
             "time": "2020-10-25T10:17:36+00:00"
         },
         {
