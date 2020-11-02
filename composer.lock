@@ -2461,16 +2461,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.152",
+            "version": "v0.153",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "e1cc05269e852d62677387f831271ad984b245f8"
+                "reference": "db62bb19f32f81c9551f223c72be0682eb58ebd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/e1cc05269e852d62677387f831271ad984b245f8",
-                "reference": "e1cc05269e852d62677387f831271ad984b245f8",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/db62bb19f32f81c9551f223c72be0682eb58ebd8",
+                "reference": "db62bb19f32f81c9551f223c72be0682eb58ebd8",
                 "shasum": ""
             },
             "require": {
@@ -2496,9 +2496,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.152"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.153"
             },
-            "time": "2020-10-25T00:25:04+00:00"
+            "time": "2020-11-01T00:25:23+00:00"
         },
         {
             "name": "google/auth",
@@ -5935,12 +5935,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "12900c5c22d5cde7284295ba155f9a23dce8ba99"
+                "reference": "7579f8d4563f1f0e16c3115d7664d3c6797b79e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/12900c5c22d5cde7284295ba155f9a23dce8ba99",
-                "reference": "12900c5c22d5cde7284295ba155f9a23dce8ba99",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/7579f8d4563f1f0e16c3115d7664d3c6797b79e9",
+                "reference": "7579f8d4563f1f0e16c3115d7664d3c6797b79e9",
                 "shasum": ""
             },
             "require": {
@@ -6104,7 +6104,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2020-10-31T09:35:23+00:00"
+            "time": "2020-11-02T09:35:23+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
