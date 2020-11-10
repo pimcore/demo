@@ -13,7 +13,7 @@ pimcore:
                     - \Pimcore\Model\Asset
                     - 'is_fully_authenticated()'
 
-            initial_place: start
+            initial_markings: start
 
             places:
                 start:
@@ -55,7 +55,7 @@ pimcore:
             support_strategy:
                 service: AppBundle\Workflow\SupportsStrategy
 
-            initial_place: todo
+            initial_markings: todo
 
             places:
                 todo:
