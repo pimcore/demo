@@ -5930,12 +5930,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "31bf83ad5688e40cc0d394fdb45b4d867decce48"
+                "reference": "202b12751981aea30fad09089b9767e144991398"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/31bf83ad5688e40cc0d394fdb45b4d867decce48",
-                "reference": "31bf83ad5688e40cc0d394fdb45b4d867decce48",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/202b12751981aea30fad09089b9767e144991398",
+                "reference": "202b12751981aea30fad09089b9767e144991398",
                 "shasum": ""
             },
             "require": {
@@ -5974,7 +5974,7 @@
                 "issues": "https://github.com/pimcore/data-hub/issues",
                 "source": "https://github.com/pimcore/data-hub/tree/master"
             },
-            "time": "2020-11-06T09:02:06+00:00"
+            "time": "2020-11-10T09:07:52+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
