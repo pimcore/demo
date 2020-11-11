@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        {% spaceless -%}
+        {% apply spaceless %}
             {# add global stylesheets and scripts outside of any blocsk to add them to the helpers before any others assets are added #}
             {# we use the view helper to have cache buster functionality #}
             {% do pimcore_head_link().appendStylesheet('https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&display=swap') %}
@@ -49,7 +49,7 @@
             {% do pimcore_head_title().append('Pimcore Demo') %}
             {% do pimcore_head_title().setSeparator(' : ') %}
             {% set isPortal = ((isPortal is defined) and isPortal) %}
-        {%- endspaceless %}
+        {% endapply %}
 
         {# we're using the deferred extension here to make sure this block is rendered after all helper calls #}
         {% block layout_head_meta deferred %}
