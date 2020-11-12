@@ -23,8 +23,7 @@
     <div class="element first {{ leftMode ? 'wide' : 'small' }} ">
         {{
             pimcore_renderlet('productteaser1', {
-                'controller': 'web2print',
-                'action': 'product-cell',
+                'controller': 'AppBundle\\Controller\\Web2printController::productCellAction',
                 'type': 'object',
                 'className': ['Car', 'AccessoryPart'],
                 'editmode': editmode,
@@ -39,8 +38,7 @@
     <div class="element {{ leftMode ? 'small' : 'wide' }}">
         {{
             pimcore_renderlet('productteaser2', {
-                'controller': 'web2print',
-                'action': 'product-cell',
+                'controller': 'AppBundle\\Controller\\Web2printController::productCellAction',
                 'type': 'object',
                 'className': ['Car', 'AccessoryPart'],
                 'editmode': editmode,

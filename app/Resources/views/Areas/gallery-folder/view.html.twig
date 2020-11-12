@@ -2,8 +2,7 @@
 
     {{
         pimcore_renderlet('gallery', {
-            controller: 'Default',
-            action: 'galleryRenderlet',
+            controller: 'AppBundle\\Controller\\DefaultController::galleryRenderletAction',
             title: 'Drag an asset folder here to get a gallery',
             height: 'auto'
         })

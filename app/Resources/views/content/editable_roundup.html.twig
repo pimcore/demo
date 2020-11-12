@@ -83,8 +83,7 @@
                     <h4>Renderlet (drop an asset folder)</h4>
                 </div>
                 {{ pimcore_renderlet('myRenderlet', {
-                    controller: 'content',
-                    action: 'gallery-renderlet'
+                    controller: 'AppBundle\\Controller\\ContentController::galleryRenderletAction'
                 }) }}
 
                 <div class="alert alert-secondary">
