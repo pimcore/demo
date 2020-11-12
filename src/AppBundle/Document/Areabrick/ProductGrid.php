@@ -33,7 +33,7 @@ class ProductGrid extends AbstractAreabrick
         /**
          * @var $filterDefinition FilterDefinition
          */
-        $filterDefinition = $this->getDocumentEditable($info->getDocument(), 'href', 'productFilter')->getElement();
+        $filterDefinition = $this->getDocumentEditable($info->getDocument(), 'relation', 'productFilter')->getElement();
         $info->setParam('filterDefinitionObject', $filterDefinition);
     }
 }
