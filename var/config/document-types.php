@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     1 => [
@@ -19,8 +19,8 @@ return [
         "name" => "Portal-Page",
         "group" => NULL,
         "module" => NULL,
-        "controller" => "@AppBundle\\Controller\\ContentController",
-        "action" => "portal",
+        "controller" => "AppBundle\\Controller\\ContentController::portalAction",
+        "action" => NULL,
         "template" => NULL,
         "type" => "page",
         "priority" => 0,
@@ -32,8 +32,8 @@ return [
         "name" => "Content-Page",
         "group" => NULL,
         "module" => NULL,
-        "controller" => "@AppBundle\\Controller\\ContentController",
-        "action" => "default",
+        "controller" => "AppBundle\\Controller\\ContentController::defaultAction",
+        "action" => NULL,
         "template" => NULL,
         "type" => "page",
         "priority" => 0,
@@ -58,8 +58,8 @@ return [
         "name" => "Default Mail",
         "group" => "",
         "module" => NULL,
-        "controller" => "@AppBundle\\Controller\\DefaultController",
-        "action" => "genericMail",
+        "controller" => "AppBundle\\Controller\\DefaultController::genericMailAction",
+        "action" => NULL,
         "template" => NULL,
         "type" => "email",
         "priority" => 0,
@@ -71,8 +71,8 @@ return [
         "name" => "Newsletter",
         "group" => "",
         "module" => NULL,
-        "controller" => "@AppBundle\\Controller\\DefaultController",
-        "action" => "genericMail",
+        "controller" => "AppBundle\\Controller\\DefaultController::genericMailAction",
+        "action" => NULL,
         "template" => NULL,
         "type" => "newsletter",
         "priority" => 0,
