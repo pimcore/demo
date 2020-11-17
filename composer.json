@@ -19,10 +19,6 @@
     "pimcore/web2print-tools-bundle": "^4.0",
     "pimcore/data-hub": "^1.0"
   },
-  "require-dev": {
-    "cache/integration-tests": "^0.16.0",
-    "codeception/codeception": "~2.4.5"
-  },
   "autoload": {
     "psr-4": {
       "": ["src/"],
