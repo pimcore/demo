@@ -11,7 +11,7 @@
   "minimum-stability": "dev",
   "require": {
     "heidelpay/heidelpay-php": "1.2.5.1",
-    "hwi/oauth-bundle": "^1.0.0",
+    "hwi/oauth-bundle": "^1.2.0",
     "php-http/guzzle6-adapter": "^2.0",
     "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "^3.0",
