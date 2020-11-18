@@ -9,6 +9,9 @@ imports:
     - { resource: workflows.yml }
     - { resource: migrations.yml }
 
+twig:
+    default_path: "%kernel.project_dir%/app/Resources/views"
+
 pimcore:
 
 # IMPORTANT Notice!
