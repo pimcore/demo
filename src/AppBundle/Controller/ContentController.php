@@ -44,40 +44,44 @@ class ContentController extends BaseController
      * are not really set as we don't have a response yet, but they will be added to the final response
      * by the ResponseHeaderListener.
      *
-     * @Template
      * @ResponseHeader("X-Custom-Header", values={"Foo", "Bar"})
      * @ResponseHeader("X-Custom-Header2", values="Bazinga", replace=true)
      *
-     * @return array
+     * @return Response
      */
     public function portalAction()
     {
         // you can also set the header via code
         $this->addResponseHeader('X-Custom-Header3', ['foo', 'bar']);
 
-        return [
+        return $this->render('content/portal.html.twig' ,[
             'isPortal' => true
-        ];
+        ]);
     }
 
     /**
-     * @Template
+     * @return Response
      */
     public function editableRoundupAction()
     {
-        return [];
+        return $this->render('content/editable_roundup.html.twig');
     }
 
     /**
-     * @Template
+     * @return Response
      */
     public function thumbnailsAction()
     {
-        return [];
+        return $this->render('content/thumbnails.html.twig');
     }
 
     /**
-     * @Template
+     * @param Request $request
+     * @param Translator $translator
+     *
+     * @return Response
+     *
+     * @throws \Exception
      */
     public function carSubmitAction(Request $request, Translator $translator)
     {
@@ -104,13 +108,16 @@ class ContentController extends BaseController
             return $this->renderTemplate('content/car_submit_success.html.twig', ['car' => $car]);
         }
 
-        return [
+        return $this->render('content/car_submit.html.twig', [
             'form' => $form->createView()
-        ];
+        ]);
     }
 
     /**
-     * @Template
+     * @param Request $request
+     * @param Factory $ecommerceFactory
+     *
+     * @return Response
      */
     public function tenantSwitchesAction(Request $request, Factory $ecommerceFactory)
     {
@@ -136,6 +143,6 @@ class ContentController extends BaseController
         $paramsBag['assortmentTenants'] = ['default' => '', 'ElasticSearch' => 'needs to be configured and activated in configuration'];
         $paramsBag['currentAssortmentTenant'] = $environment->getCurrentAssortmentTenant() ? $environment->getCurrentAssortmentTenant() : 'default';
 
-        return $paramsBag;
+        return $this->render('content/tenant_switches.html.twig', $paramsBag);
     }
 }

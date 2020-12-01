@@ -48,7 +48,7 @@ class ProductController extends BaseController
      * @param Request $request
      * @param AbstractObject $object
      * @param UrlSlug $urlSlug
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function productDetailSlugAction(Request $request, AbstractObject $object, UrlSlug $urlSlug) {
         return $this->forward('AppBundle\Controller\ProductController::detailAction', ['product' => $object]);
@@ -63,8 +63,9 @@ class ProductController extends BaseController
      * @param Factory $ecommerceFactory
      * @param SegmentTrackingHelperService $segmentTrackingHelperService
      * @param Concrete $product built-in parameter conversion, please see https://github.com/pimcore/pimcore/pull/5554
+     * @param ProductLinkGenerator $productLinkGenerator
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
      * @throws \Exception
      */
@@ -142,7 +143,7 @@ class ProductController extends BaseController
      * @param SegmentTrackingHelperService $segmentTrackingHelperService
      * @param ListHelper $listHelper
      *
-     * @return array|\Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService, ListHelper $listHelper)
     {
@@ -212,7 +213,7 @@ class ProductController extends BaseController
      * @param Request $request
      * @param Factory $ecommerceFactory
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function productTeaserAction(Request $request, Factory $ecommerceFactory)
     {

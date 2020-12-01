@@ -18,18 +18,20 @@ namespace AppBundle\Controller;
 use Pimcore\Model\Asset;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends BaseController
 {
     /**
-     * @Template
-     * @param Request $request
      * @Route("/examples", name="examples")
+     *
+     * @param Request $request
+     * @return Response
      */
     public function examplesAction(Request $request)
     {
-        return [];
+        return $this->render('default/examples.html.twig');
     }
 
     /**
@@ -43,30 +45,27 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Template
      * @param Request $request
      *
-     * @return array
+     * @return Response
      */
     public function genericMailAction(Request $request)
     {
-        return [];
+        return $this->render('default/generic_mail.html.twig');
     }
 
     /**
-     * @Template
      * @param Request $request
      *
-     * @return array
+     * @return Response
      */
     public function galleryRenderletAction(Request $request)
     {
+        $params = [];
         if ($request->get('id') && $request->get('type') === 'asset') {
-            return [
-                'asset' => Asset::getById($request->get('id'))
-            ];
+            $params['asset'] =  Asset::getById($request->get('id'));
         }
 
-        return [];
+        return $this->render('default/gallery_renderlet.html.twig', $params);
     }
 }

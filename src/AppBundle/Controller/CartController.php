@@ -22,8 +22,9 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Exception\VoucherServiceException;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Translation\Translator;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CartController extends FrontendController
@@ -56,7 +57,7 @@ class CartController extends FrontendController
      * @param Request $request
      * @param Factory $ecommerceFactory
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      *
      * @throws \Exception
      */
@@ -87,7 +88,7 @@ class CartController extends FrontendController
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param Factory $ecommerceFactory
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function cartListingAction(Request $request, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
     {
@@ -121,7 +122,7 @@ class CartController extends FrontendController
      * @param Request $request
      * @param Factory $ecommerceFactory
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function removeFromCartAction(Request $request, Factory $ecommerceFactory)
     {
@@ -149,7 +150,7 @@ class CartController extends FrontendController
      * @param Translator $translator
      * @param Factory $ecommerceFactory
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      *
      * @throws \Exception
      */
@@ -185,7 +186,7 @@ class CartController extends FrontendController
      * @param Translator $translator
      * @param Factory $ecommerceFactory
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function removeVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory)
     {

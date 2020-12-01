@@ -30,6 +30,7 @@ use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,11 +40,11 @@ class PaymentController extends FrontendController
 {
     /**
      * @Route("/checkout-payment", name="shop-checkout-payment")
-     * @Template
+     *
      * @param Factory $factory
      * @param BreadcrumbHelperService $breadcrumbHelperService
      *
-     * @return array
+     * @return Response
      */
     public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService)
     {
@@ -62,10 +63,10 @@ class PaymentController extends FrontendController
         $trackingManager = $factory->getTrackingManager();
         $trackingManager->trackCheckoutStep(new Confirm($cart), $cart, 2);
 
-        return [
+        return $this->render('payment/checkout_payment.html.twig', [
             'cart' => $cart,
             'accessKey' => $accessKey
-        ];
+        ]);
     }
 
     /**

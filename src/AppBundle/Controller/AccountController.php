@@ -57,14 +57,14 @@ class AccountController extends BaseController
 {
     /**
      * @Route("/account/login", name="account-login")
-     * @Template
+     *
      * @param AuthenticationUtils $authenticationUtils
      * @param OAuthRegistrationHandler $oAuthHandler
      * @param SessionInterface $session
      * @param Request $request
      * @param UserInterface|null $user
      *
-     * @return array|RedirectResponse
+     * @return Response|RedirectResponse
      */
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
@@ -113,11 +113,11 @@ class AccountController extends BaseController
             $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
         }
 
-        return [
+        return $this->render('account/login.html.twig', [
             'form' => $form->createView(),
             'error' => $error,
             'hideBreadcrumbs' => true
-        ];
+        ]);
     }
 
     /**
@@ -129,7 +129,7 @@ class AccountController extends BaseController
      * registration process is different on every project.
      *
      * @Route("/account/register", name="account-register")
-     * @Template
+     *
      * @param Request $request
      * @param CustomerProviderInterface $customerProvider
      * @param OAuthRegistrationHandler $oAuthHandler
@@ -143,7 +143,7 @@ class AccountController extends BaseController
      * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
      * @param UserInterface|null $user
      *
-     * @return array|RedirectResponse
+     * @return Response|RedirectResponse
      */
     public function registerAction(
         Request $request,
@@ -270,13 +270,13 @@ class AccountController extends BaseController
             $oAuthHandler->saveToken($registrationKey, $oAuthToken);
         }
 
-        return [
+        return $this->render('account/register.html.twig', [
             'customer' => $customer,
             'form' => $form->createView(),
             'errors' => $errors,
             'hideBreadcrumbs' => true,
             'hidePassword' => $hidePassword
-        ];
+        ]);
     }
 
     /**
@@ -302,7 +302,7 @@ class AccountController extends BaseController
      * Connects an already logged in user to an auth provider
      *
      * @Route("/oauth/connect/{service}", name="app_auth_oauth_connect")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("is_granted('ROLE_USER')")
      *
      * @param Request $request
      * @param OAuthRegistrationHandler $oAuthHandler
@@ -353,7 +353,7 @@ class AccountController extends BaseController
     }
 
     /**
-     * @Template
+     *
      * @param array $formData
      * @param UserResponseInterface $userInformation
      *
@@ -373,14 +373,13 @@ class AccountController extends BaseController
     /**
      * Index page for account - it is restricted to ROLE_USER via security annotation
      *
-     * @Template
      * @Route("/account/index", name="account-index")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("is_granted('ROLE_USER')")
      *
      * @param SsoIdentityServiceInterface $identityService
      * @param UserInterface|null $user
      *
-     * @return array
+     * @return Response
      */
     public function indexAction(SsoIdentityServiceInterface $identityService, UserInterface $user = null)
     {
@@ -394,16 +393,16 @@ class AccountController extends BaseController
         $orderList->addFilter(new CustomerObject($user));
         $orderList->setOrder('orderDate DESC');
 
-        return [
+        return $this->render('/account/index.html.twig', [
             'blacklist' => $blacklist,
             'orderList' => $orderList,
             'hideBreadcrumbs' => true
-        ];
+        ]);
     }
 
     /**
      * @Route("/account/update-marketing", name="account-update-marketing-permission")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("is_granted('ROLE_USER')")
      *
      * @param Request $request
      * @param Service $consentService
@@ -466,10 +465,12 @@ class AccountController extends BaseController
 
     /**
      * @Route("/account/send-password-recovery", name="account-password-send-recovery")
-     * @Template
+     *
      * @param Request $request
      * @param PasswordRecoveryService $service
      * @param Translator $translator
+     *
+     * @return Response
      *
      * @throws \Exception
      */
@@ -482,20 +483,20 @@ class AccountController extends BaseController
             return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
         }
 
-        return [
+        return $this->render('account/send_password_recovery_mail.html.twig', [
             'hideBreadcrumbs' => true,
             'emailPrefill' => $request->get('email')
-        ];
+        ]);
     }
 
     /**
      * @Route("/account/reset-password", name="account-reset-password")
-     * @Template
+     *
      * @param Request $request
      * @param PasswordRecoveryService $service
      * @param Translator $translator
      *
-     * @return array|RedirectResponse
+     * @return Response|RedirectResponse
      */
     public function resetPasswordAction(Request $request, PasswordRecoveryService $service, Translator $translator)
     {
@@ -515,10 +516,10 @@ class AccountController extends BaseController
             return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
         }
 
-        return [
+        return $this->render('account/reset_password.html.twig', [
             'hideBreadcrumbs' => true,
             'token' => $token,
             'email' => $customer->getEmail()
-        ];
+        ]);
     }
 }

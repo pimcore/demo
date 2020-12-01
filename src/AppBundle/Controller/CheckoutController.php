@@ -21,7 +21,9 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,13 +32,13 @@ class CheckoutController extends FrontendController
 {
     /**
      * @Route("/checkout-address", name="shop-checkout-address")
-     * @Template
+     *
      * @param Factory $factory
      * @param Request $request
      * @param BreadcrumbHelperService $breadcrumbHelperService
      * @param Factory $ecommerceFactory
      *
-     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @return Response|RedirectResponse
      */
     public function checkoutAddressAction(Factory $factory, Request $request, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
     {
@@ -77,10 +79,10 @@ class CheckoutController extends FrontendController
         $trackingManager = $ecommerceFactory->getTrackingManager();
         $trackingManager->trackCheckoutStep($deliveryAddress, $cart, 1);
 
-        return [
+        return $this->render('checkout/checkout_address.html.twig', [
             'cart' => $cart,
             'form' => $form->createView(),
-        ];
+        ]);
     }
 
     /**
@@ -112,11 +114,11 @@ class CheckoutController extends FrontendController
 
     /**
      * @Route("/checkout-completed", name="shop-checkout-completed")
-     * @Template
+     *
      * @param SessionInterface $session
      * @param Factory $ecommerceFactory
      *
-     * @return array
+     * @return Response
      */
     public function checkoutCompletedAction(SessionInterface $session, Factory $ecommerceFactory)
     {
@@ -127,16 +129,16 @@ class CheckoutController extends FrontendController
         $trackingManager = $ecommerceFactory->getTrackingManager();
         $trackingManager->trackCheckoutComplete($order);
 
-        return [
+        return $this->render('checkout/checkout_completed.html.twig', [
             'order' => $order,
             'hideBreadcrumbs' => true
-        ];
+        ]);
     }
 
     /**
      * @param Request $request
-     * @Template
-     * @return array
+     *
+     * @return Response
      */
     public function confirmationMailAction(Request $request)
     {
@@ -146,9 +148,9 @@ class CheckoutController extends FrontendController
             $order = OnlineShopOrder::getById($request->get('order-id'));
         }
 
-        return [
+        return $this->render('checkout/confirmation_mail.html.twig', [
             'order' => $order,
             'ordernumber' => $request->get('ordernumber')
-        ];
+        ]);
     }
 }

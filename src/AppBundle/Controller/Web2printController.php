@@ -27,6 +27,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Web2printController extends BaseController
 {
+    /**
+     * @param Request $request
+     *
+     * @return Response
+     */
     public function defaultAction(Request $request)
     {
         $paramsBag = [];
@@ -45,9 +50,10 @@ class Web2printController extends BaseController
     }
 
     /**
-     * @Template
+     *
      * @param Request $request
-     * @return array
+     * @return Response
+     *
      * @throws \Exception
      */
     public function containerAction(Request $request)
@@ -73,13 +79,14 @@ class Web2printController extends BaseController
 
         $paramsBag['allChildren'] = $allChildren;
 
-        return $paramsBag;
+        return $this->render('web2print/container.html.twig', $paramsBag);
     }
 
     /**
-     * @Template
      * @param Request $request
-     * @return array
+     * @return Response
+     *
+     * @throws \Exception
      */
     public function productCellAction(Request $request)
     {
@@ -87,7 +94,7 @@ class Web2printController extends BaseController
         $product = AbstractProduct::getById($request->get('id'));
         $paramsBag['product'] = $product;
 
-        return $paramsBag;
+        return $this->render('web2print/product_cell.html.twig', $paramsBag);
     }
 
     /**
