@@ -15,7 +15,7 @@
 
 namespace AppBundle\Twig\Extension;
 
-use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Countries;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
@@ -25,7 +25,10 @@ class Country extends AbstractExtension
     {
         return [
             new TwigFilter('country', function ($code, $displayLocale = null) {
-                return Intl::getRegionBundle()->getCountryName($code, $displayLocale);
+                if (!empty($code)) {
+                    return Countries::getName($code, $displayLocale);
+                }
+                return null;
             })
         ];
     }
