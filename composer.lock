@@ -5960,12 +5960,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "ea44008964462aec5e1e931d17af2573cf621511"
+                "reference": "58414f5c996087bdad7189d0a7c9a10503a3337b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/ea44008964462aec5e1e931d17af2573cf621511",
-                "reference": "ea44008964462aec5e1e931d17af2573cf621511",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/58414f5c996087bdad7189d0a7c9a10503a3337b",
+                "reference": "58414f5c996087bdad7189d0a7c9a10503a3337b",
                 "shasum": ""
             },
             "require": {
@@ -6004,7 +6004,7 @@
                 "issues": "https://github.com/pimcore/data-hub/issues",
                 "source": "https://github.com/pimcore/data-hub/tree/master"
             },
-            "time": "2020-12-02T09:09:34+00:00"
+            "time": "2020-12-02T12:47:39+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -7906,20 +7906,20 @@
         },
         {
             "name": "symfony-cmf/routing-bundle",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony-cmf/routing-bundle.git",
-                "reference": "b97512ea80a03ce2ce81b825f8a21fc5ddf576ed"
+                "reference": "0d5d4e96db39f0e625d95a2b77503c59cd1ad6f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/routing-bundle/zipball/b97512ea80a03ce2ce81b825f8a21fc5ddf576ed",
-                "reference": "b97512ea80a03ce2ce81b825f8a21fc5ddf576ed",
+                "url": "https://api.github.com/repos/symfony-cmf/routing-bundle/zipball/0d5d4e96db39f0e625d95a2b77503c59cd1ad6f9",
+                "reference": "0d5d4e96db39f0e625d95a2b77503c59cd1ad6f9",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2",
+                "php": "^7.2 || ^8.0",
                 "symfony-cmf/routing": "^2.3.0",
                 "symfony/framework-bundle": "^4.4 || ^5.0",
                 "twig/twig": "^2.4.4 || ^3.0"
@@ -7983,9 +7983,9 @@
             ],
             "support": {
                 "issues": "https://github.com/symfony-cmf/routing-bundle/issues",
-                "source": "https://github.com/symfony-cmf/routing-bundle/tree/2.4.1"
+                "source": "https://github.com/symfony-cmf/routing-bundle/tree/2.4.2"
             },
-            "time": "2020-10-23T11:42:28+00:00"
+            "time": "2020-12-03T07:37:36+00:00"
         },
         {
             "name": "symfony/contracts",
