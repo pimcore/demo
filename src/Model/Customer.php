@@ -20,24 +20,6 @@ use CustomerManagementFrameworkBundle\Model\SsoAwareCustomerInterface;
 
 class Customer extends \Pimcore\Model\DataObject\Customer implements SsoAwareCustomerInterface, PasswordRecoveryInterface
 {
-    protected $name;
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
-    }
-
     /**
      * @return bool
      */

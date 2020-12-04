@@ -143,11 +143,6 @@ services:
         arguments:
             $generator: '@router'
 
-    # Example custom templating helper
-    App\Templating\Helper\TestHelper:
-         public: true
-         tags:
-             - { name: templating.helper, alias: fooBar }
 
 
     # ---------------------------------------------------------
