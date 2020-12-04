@@ -12,11 +12,13 @@
  * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
+namespace App;
+
 use HWI\Bundle\OAuthBundle\HWIOAuthBundle;
 use Pimcore\HttpKernel\BundleCollection\BundleCollection;
-use Pimcore\Kernel;
+use Pimcore\Kernel as PimcoreKernel;
 
-class AppKernel extends Kernel
+class Kernel extends PimcoreKernel
 {
     /**
      * Adds bundles to register to the bundle collection. The collection is able
@@ -26,9 +28,6 @@ class AppKernel extends Kernel
      */
     public function registerBundlesToCollection(BundleCollection $collection)
     {
-        if (class_exists('\\AppBundle\\AppBundle')) {
-            $collection->addBundle(new \AppBundle\AppBundle);
-        }
 
         // activate bundle for SSO oauth login/register functionality
         if (class_exists('\Http\HttplugBundle\HttplugBundle')) {

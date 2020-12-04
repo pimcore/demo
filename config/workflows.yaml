@@ -53,7 +53,7 @@ pimcore:
             label: "Product Data Enrichment Workflow"
 
             support_strategy:
-                service: AppBundle\Workflow\SupportsStrategy
+                service: App\Workflow\SupportsStrategy
 
             initial_markings: todo
 

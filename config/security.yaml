@@ -43,7 +43,7 @@ security:
                 default_target_path: 'account-index'
 
                 # use custom success handler to also update e-commerce framework environment after successful login
-                success_handler: AppBundle\EventListener\AuthenticationLoginListener
+                success_handler: App\EventListener\AuthenticationLoginListener
 
             # configure the OAuth authenticator (HWIOAuthBundle)
             oauth:
@@ -54,7 +54,7 @@ security:
                 failure_path: 'account-login'
 
                 # use custom success handler to also update e-commerce framework environment after successful login
-                success_handler: AppBundle\EventListener\AuthenticationLoginListener
+                success_handler: App\EventListener\AuthenticationLoginListener
                 oauth_user_provider:
                     service: cmf.security.user_provider.oauth
 
@@ -65,7 +65,7 @@ security:
                 # optional: to keep logins of other firewalls (like admin)
                 invalidate_session: false
                 # use custom success handler to also update e-commerce framework environment after successful logout
-                success_handler: AppBundle\EventListener\AuthenticationLogoutListener
+                success_handler: App\EventListener\AuthenticationLogoutListener
 
             remember_me:
                 secret:   '%kernel.secret%'

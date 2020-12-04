@@ -1,3 +1,33 @@
+parameters:
+    secret: ThisTokenIsNotSoSecretChangeIt
+    google_client_id: <google_client_id>
+    google_client_secret: <google_client_secret>
+    twitter_client_id: <twitter_client_id>
+    twitter_client_secret: <twitter_client_secret>
+    app_encryption_secret: "ThisTokenIsNotSoSecretChangeIt"
+
+    # customize the full path to external executables
+    # normally they are auto-detected by `which program` or auto-discovered in the configured path in
+    # System Settings -> General -> Additional $PATH variable
+    # but in general it's a good idea to have your programs in your $PATH environment variable (system wide)
+    #pimcore_executable_composer: php /opt/vendor/bin/composer.phar
+    #pimcore_executable_html2text: /usr/local/html2text/bin/html2text
+    #pimcore_executable_soffice: /opt/libreoffice/bin/soffice
+    #pimcore_executable_gs: /opt/ghostscript/bin/gs
+    #pimcore_executable_pdftotext: /opt/tools/pdftotext
+    #pimcore_executable_xvfb-run: /opt/tools/xvfb-run
+    #pimcore_executable_pngcrush: /opt/tools/pngcrush
+    #pimcore_executable_zopflipng: /opt/tools/zopflipng
+    #pimcore_executable_pngout: /opt/tools/pngout
+    #pimcore_executable_advpng: /opt/tools/advpng
+    #pimcore_executable_cjpeg: /opt/tools/cjpeg
+    #pimcore_executable_jpegoptim: /opt/tools/jpegoptim
+    #pimcore_executable_php: /usr/local/custom-php/bin/php
+    #pimcore_executable_nice: /opt/tools/nice
+    #pimcore_executable_nohup: /opt/tools/nohup
+    #pimcore_executable_ffmpeg: /opt/tools/ffmpeg
+    #pimcore_executable_exiftool: /opt/tools/exiftool
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -11,20 +41,20 @@ services:
 
 
     # ---------------------------------------------------------
-    # Register all controllers of AppBundle as services
+    # Register all controllers of App as services
     # ---------------------------------------------------------
-    AppBundle\Controller\:
-        resource: '../../src/AppBundle/Controller'
+    App\Controller\:
+        resource: '../src/Controller'
         public: true
         tags: ['controller.service_arguments']
 
 
 
     # ---------------------------------------------------------
-    # Register all commands of AppBundle as commands
+    # Register all commands of App as commands
     # ---------------------------------------------------------
-    AppBundle\Command\:
-        resource: '../../src/AppBundle/Command'
+    App\Command\:
+        resource: '../src/Command'
         tags: ['console.command']
 
 
@@ -32,73 +62,73 @@ services:
     # ---------------------------------------------------------
     # Forms
     # ---------------------------------------------------------
-    AppBundle\Form\DeliveryAddressFormType: ~
-    AppBundle\Form\LoginFormType: ~
-    AppBundle\Form\RegistrationFormType: ~
-    AppBundle\Form\RegistrationFormHandler: ~
-    AppBundle\Form\CarSubmitFormType: ~
+    App\Form\DeliveryAddressFormType: ~
+    App\Form\LoginFormType: ~
+    App\Form\RegistrationFormType: ~
+    App\Form\RegistrationFormHandler: ~
+    App\Form\CarSubmitFormType: ~
 
 
 
     # ---------------------------------------------------------
     # Misc Services
     # ---------------------------------------------------------
-    AppBundle\Services\PasswordRecoveryService: ~
-    AppBundle\Services\NewsletterDoubleOptInService: ~
-    AppBundle\Services\SegmentTrackingHelperService: ~
-    AppBundle\Website\Navigation\BreadcrumbHelperService: ~
+    App\Services\PasswordRecoveryService: ~
+    App\Services\NewsletterDoubleOptInService: ~
+    App\Services\SegmentTrackingHelperService: ~
+    App\Website\Navigation\BreadcrumbHelperService: ~
 
-    AppBundle\Model\Product\CalculatedValue\QualityCalculator:
+    App\Model\Product\CalculatedValue\QualityCalculator:
         public: true
 
-    AppBundle\Model\Product\CalculatedValue\AccessoryPartName:
+    App\Model\Product\CalculatedValue\AccessoryPartName:
         public: true
 
 
     # ---------------------------------------------------------
     # Twig Extensions
     # ---------------------------------------------------------
-    AppBundle\Twig\Extension\CategoryFilterExtension:
+    App\Twig\Extension\CategoryFilterExtension:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\Country:
+    App\Twig\Extension\Country:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\Currency:
+    App\Twig\Extension\Currency:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\GeneralFilterExtension:
+    App\Twig\Extension\GeneralFilterExtension:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\NavigationExtension:
+    App\Twig\Extension\NavigationExtension:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\UniqidExtension:
+    App\Twig\Extension\UniqidExtension:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\LanguageSwitcherExtension:
+    App\Twig\Extension\LanguageSwitcherExtension:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\ProductPageExtension:
+    App\Twig\Extension\ProductPageExtension:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\NewsExtension:
+    App\Twig\Extension\NewsExtension:
         tags: ['twig.extension']
 
-    AppBundle\Twig\Extension\PrintCatalogExtension:
+    App\Twig\Extension\PrintCatalogExtension:
         tags: ['twig.extension']
 
 
     # ---------------------------------------------------------
     # Link Generators for DataObjects
     # ---------------------------------------------------------
-    AppBundle\Website\LinkGenerator\CategoryLinkGenerator:
+    App\Website\LinkGenerator\CategoryLinkGenerator:
         public: true
 
-    AppBundle\Website\LinkGenerator\ProductLinkGenerator:
+    App\Website\LinkGenerator\ProductLinkGenerator:
         public: true
 
-    AppBundle\Website\LinkGenerator\NewsLinkGenerator:
+    App\Website\LinkGenerator\NewsLinkGenerator:
         public: true
 
 
@@ -109,10 +139,15 @@ services:
 
     # overwrite PimcoreUrl helper to add existing parameters to generated urls
     Pimcore\Twig\Extension\Templating\PimcoreUrl:
-        class: AppBundle\Website\Tool\PimcoreUrl
+        class: App\Website\Tool\PimcoreUrl
         arguments:
             $generator: '@router'
 
+    # Example custom templating helper
+    App\Templating\Helper\TestHelper:
+         public: true
+         tags:
+             - { name: templating.helper, alias: fooBar }
 
 
     # ---------------------------------------------------------
@@ -120,34 +155,32 @@ services:
     # ---------------------------------------------------------
 
     # auto sets name based on key for bodystyle, manufacturer, category
-    AppBundle\EventListener\NameSettingListener:
+    App\EventListener\NameSettingListener:
         tags:
             - { name: kernel.event_listener, event: pimcore.dataobject.preAdd, method: onPreAdd }
 
     # adds additional static files to admin backend
-    AppBundle\EventListener\PimcoreAdminListener:
+    App\EventListener\PimcoreAdminListener:
         tags:
             - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.css, method: addCSSFiles }
             - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.js, method: addJSFiles }
 
     # checkout listeners for ecommerce application
-    AppBundle\EventListener\CheckoutEventListener:
+    App\EventListener\CheckoutEventListener:
         tags:
             - { name: kernel.event_listener, event: pimcore.ecommerce.ordermanager.postUpdateOrder, method: onUpdateOrder }
             - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.sendConfirmationMails, method: sendConfirmationMail }
             - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.postCommitOrder, method: postCommitOrder }
 
     # authentication login listener for updating e-commerce framework environment after login
-    AppBundle\EventListener\AuthenticationLoginListener:
+    App\EventListener\AuthenticationLoginListener:
         arguments:
             $httpUtils: '@security.http_utils'
 
     # authentication login listener for updating e-commerce framework environment after logout
-    AppBundle\EventListener\AuthenticationLogoutListener:
+    App\EventListener\AuthenticationLogoutListener:
         arguments:
             $httpUtils: '@security.http_utils'
-
-
 
 
 
@@ -155,5 +188,5 @@ services:
     # ---------------------------------------------------------
     # Workflow
     # ---------------------------------------------------------
-    AppBundle\Workflow\SupportsStrategy: ~
+    App\Workflow\SupportsStrategy: ~
 

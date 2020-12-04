@@ -5,16 +5,16 @@ imports:
 pimcore:
     models:
         class_overrides:
-            Pimcore\Model\DataObject\Car: AppBundle\Model\Product\Car
-            Pimcore\Model\DataObject\AccessoryPart: AppBundle\Model\Product\AccessoryPart
-            Pimcore\Model\DataObject\Category: AppBundle\Model\Product\Category
+            Pimcore\Model\DataObject\Car: App\Model\Product\Car
+            Pimcore\Model\DataObject\AccessoryPart: App\Model\Product\AccessoryPart
+            Pimcore\Model\DataObject\Category: App\Model\Product\Category
 
 
 pimcore_ecommerce_framework:
 
     environment:
         # TODO integrate that implementation into core
-        environment_id: AppBundle\Ecommerce\Overrides\Environment
+        environment_id: App\Ecommerce\Overrides\Environment
 
     # Configuration of price systems - key is name of price system
     price_systems:
@@ -25,7 +25,7 @@ pimcore_ecommerce_framework:
     index_service:
         tenants:
             default:
-                config_id: AppBundle\Ecommerce\IndexService\Config\MySqlConfig
+                config_id: App\Ecommerce\IndexService\Config\MySqlConfig
                 worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\DefaultMysql
                 search_attributes:
                     - name
@@ -139,7 +139,7 @@ pimcore_ecommerce_framework:
 
 
                     segments:
-                        getter_id: AppBundle\Ecommerce\IndexService\SegmentGetter
+                        getter_id: App\Ecommerce\IndexService\SegmentGetter
                         interpreter_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Interpreter\DefaultObjects
                         filter_group: relation
 
@@ -203,7 +203,7 @@ pimcore_ecommerce_framework:
                 price_calculator:
                     modificators:
                         Shipping:
-                            class: AppBundle\Ecommerce\Cart\PriceModificator\Shipping
+                            class: App\Ecommerce\Cart\PriceModificator\Shipping
                             options:
                                 baseCharge: "10"
                                 carCharge: "200"
@@ -218,7 +218,7 @@ pimcore_ecommerce_framework:
                     deliveryaddress:
                         class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
                     confirm:
-                        class: \AppBundle\Ecommerce\CheckoutManager\Confirm
+                        class: \App\Ecommerce\CheckoutManager\Confirm
 
 
     order_manager:
@@ -292,7 +292,7 @@ pimcore_ecommerce_framework:
         trackers:
             enhanced_ecommerce:
                 enabled: true
-               # item_builder_id: AppBundle\Ecommerce\Tracking\TrackingItemBuilder
+               # item_builder_id: App\Ecommerce\Tracking\TrackingItemBuilder
 
             matomo:
                 enabled: true
@@ -307,7 +307,7 @@ pimcore_ecommerce_framework:
 #                    template_prefix: AppBundle:Tracking/analytics/enhanced
 #
 #                # service id for item builder
-#                item_builder_id: AppBundle\Ecommerce\Tracking\TrackingItemBuilder
+#                item_builder_id: App\Ecommerce\Tracking\TrackingItemBuilder
 #
 #                # List of assortment and checkout tenants where this tracker should be activated for.
 #                tenants:
@@ -325,13 +325,13 @@ services:
         autoconfigure: true
 
     # Custom service definitions for index service
-    AppBundle\Ecommerce\IndexService\Config\MySqlConfig:
+    App\Ecommerce\IndexService\Config\MySqlConfig:
         parent: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\AbstractConfig
         autowire: true
         autoconfigure: false
 
 
-    AppBundle\Ecommerce\IndexService\SegmentGetter: ~
+    App\Ecommerce\IndexService\SegmentGetter: ~
 
 
     # define own price system service and configure options for attribute name and price object class
@@ -348,7 +348,7 @@ services:
             - [setCurrencyFormat, ['en', '¤¤ #,##0.00']]
             - [setCurrencyFormat, ['de', '#,##0.00 ¤¤']]
 
-    AppBundle\Ecommerce\Overrides\Environment:
+    App\Ecommerce\Overrides\Environment:
         parent: Pimcore\Bundle\EcommerceFrameworkBundle\Environment
         autowire: true
         autoconfigure: false
