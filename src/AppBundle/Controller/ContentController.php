@@ -24,14 +24,18 @@ use Pimcore\Model\DataObject\BodyStyle;
 use Pimcore\Model\DataObject\Manufacturer;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Translation\Translator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ContentController extends BaseController
 {
+    /**
+     * @Template
+     */
     public function defaultAction()
     {
-        return $this->render('content/default.html.twig');
+        return [];
     }
 
     /**
