@@ -54,7 +54,7 @@ class ContentController extends BaseController
         // you can also set the header via code
         $this->addResponseHeader('X-Custom-Header3', ['foo', 'bar']);
 
-        return $this->render('content/portal.html.twig' ,[
+        return $this->render('content/portal.html.twig', [
             'isPortal' => true
         ]);
     }
@@ -105,7 +105,7 @@ class ContentController extends BaseController
 
             $this->addFlash('success', $translator->trans('general.car-submitted'));
 
-            return $this->renderTemplate('content/car_submit_success.html.twig', ['car' => $car]);
+            return $this->render('content/car_submit_success.html.twig', ['car' => $car]);
         }
 
         return $this->render('content/car_submit.html.twig', [

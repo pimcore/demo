@@ -27,7 +27,6 @@ use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
 use Pimcore\Translation\Translator;
 use Psr\Log\LoggerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

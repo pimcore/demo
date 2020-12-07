@@ -36,6 +36,7 @@ class DefaultController extends BaseController
 
     /**
      * @Template
+     *
      * @param Request $request
      * @return array
      */
