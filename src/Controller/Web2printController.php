@@ -20,7 +20,6 @@ use App\Model\Product\Car;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\Document\Hardlink;
 use Pimcore\Web2Print\Processor;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
