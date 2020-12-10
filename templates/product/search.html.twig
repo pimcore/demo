@@ -10,7 +10,7 @@
     <input type="hidden" name="term" value="{{ term }}"/>
 
     <div class="productList" id="js-productlist">
-        {% include ":product:listing_content.html.twig" with {'productListing': products, 'language': language} %}
+        {% include "product/listing_content.html.twig" with {'productListing': products, 'language': language} %}
     </div>
 </form>
 {% endif %}

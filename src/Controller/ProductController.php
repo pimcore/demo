@@ -339,8 +339,7 @@ class ProductController extends BaseController
             return $this->json($resultset);
         }
 
-        $params[''] = new \stdClass();
-        $filterDefinition = $params['']->filterDefinition = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
+        $filterDefinition = $params['filterDefinition'] = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
 
         // create and init filter service
         $filterService = Factory::getInstance()->getFilterService();
