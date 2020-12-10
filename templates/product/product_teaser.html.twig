@@ -11,7 +11,7 @@
         <div class="card-body pricing">
             <div class="card-body-top pb-3">
                 <h4 class="card-title pricing-card-title text-uppercase">{{ product.oSName }}</h4>
-                {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                {% if( product is instanceof('App\\Model\\Product\\Car')) %}
                     <p class="card-text">{{ product.subText | raw }}</p>
                 {% elseif(product.saleInformation.saleInformation)  %}
                     <p class="card-text">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>

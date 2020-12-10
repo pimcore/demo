@@ -10,7 +10,7 @@
 
             <div class="infoblock">
 
-                {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                {% if( product is instanceof('App\\Model\\Product\\Car')) %}
                     <p>{{ product.subText | raw }}</p>
                 {% elseif(product.saleInformation.saleInformation)  %}
                     <p>{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>

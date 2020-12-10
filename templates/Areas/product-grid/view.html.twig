@@ -22,5 +22,5 @@
 {% endif %}
 
 {% if not pimcore_relation("productFilter").isEmpty() %}
-    {{ render(controller('AppBundle\\Controller\\ProductController::listingAction', params | merge({"filterdefinition": filterDefinitionObject, "noLayout": true}))) }}
+    {{ render(controller('App\\Controller\\ProductController::listingAction', params | merge({"filterdefinition": filterDefinitionObject, "noLayout": true}))) }}
 {% endif %}

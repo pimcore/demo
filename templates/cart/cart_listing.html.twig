@@ -1,5 +1,5 @@
 {# @var cart \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface #}
-{# @var product \AppBundle\Model\Product\AbstractProduct #}
+{# @var product \App\Model\Product\AbstractProduct #}
 
 {% extends 'layouts/layout.html.twig' %}
 
@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="col-8 text-sm-left col-md-5 text-md-left col-md-4">
                                             <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
-                                            {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                                            {% if( product is instanceof('App\\Model\\Product\\Car')) %}
                                                 <p class="text-muted small">{{ product.subText | raw }}</p>
                                             {% elseif(product.saleInformation.saleInformation)  %}
                                                 <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
@@ -158,7 +158,7 @@
                                         </div>
                                         <div class="col-8 text-sm-left text-md-left">
                                             <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
-                                            {% if( product is instanceof('AppBundle\\Model\\Product\\Car')) %}
+                                            {% if( product is instanceof('App\\Model\\Product\\Car')) %}
                                                 <p class="text-muted small">{{ product.subText | raw }}</p>
                                             {% elseif(product.saleInformation.saleInformation)  %}
                                                 <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
