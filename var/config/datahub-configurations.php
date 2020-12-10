@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     "folders" => [
@@ -1989,7 +1989,7 @@ return [
                                         "layout" => [
                                             "fieldtype" => "calculatedValue",
                                             "width" => 500,
-                                            "calculatorClass" => "\\AppBundle\\Model\\Product\\CalculatedValue\\AccessoryPartName",
+                                            "calculatorClass" => "\\App\\Model\\Product\\CalculatedValue\\AccessoryPartName",
                                             "queryColumnType" => "varchar",
                                             "columnLength" => 190,
                                             "phpdocType" => "\\Pimcore\\Model\\DataObject\\Data\\CalculatedValue",
