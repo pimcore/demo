@@ -15,7 +15,7 @@
     "php-http/guzzle6-adapter": "^2.0",
     "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "^3.0",
-    "pimcore/pimcore": "7.0.x-dev as 6.8.x-dev",
+    "pimcore/pimcore": "10.0.x-dev as 6.8.x-dev",
     "pimcore/web2print-tools-bundle": "^4.0",
     "pimcore/data-hub": "^1.0"
   },
