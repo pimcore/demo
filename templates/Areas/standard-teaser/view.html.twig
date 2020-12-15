@@ -1,0 +1,57 @@
+<section class="area-standard-teaser bg-light text-center">
+    <div class="container">
+        <h2>{{ pimcore_input('standardTeaserHeading') }}</h2>
+        <div class="card-deck mb-3 text-center {{ editmode ? 'no-gutters' : '' }} ">
+            {% for t in 0..2 %}
+                {%
+                    set select = pimcore_select('type_' ~ t, {
+                        width: 110,
+                        reload: true,
+                        store: [
+                            ['direct','direct'],
+                            ['snippet','snippet'],
+                            ['news','news']
+                        ],
+                        class: 'align-middle'
+                    })
+                %}
+
+                {% if editmode %}
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <span class="editmode-label align-middle">Type:</span>
+                            {{ select|raw }}
+                        </div>
+                {% endif %}
+
+                {% set type = select.getData() %}
+                {% if type == "direct" %}
+                    {{
+                        include('snippets/standard-teaser.html.twig', {
+                            suffix: (t+1)
+                        })
+                    }}
+                {% elseif type == "news" %}
+                    {{
+                        pimcore_renderlet('newsteaser_' ~ t, {
+                            type: 'object',
+                            editmode: editmode,
+                            controller: 'App\\Controller\\NewsController::newsTeaserAction',
+                            title: 'Drag a news object here',
+                            height : 'auto',
+                            width: '100%'
+                        })
+                    }}
+                {% else %}
+                    {{ pimcore_snippet('teaser_' ~ t) }}
+                {% endif %}
+
+                {% if editmode %}
+                    </div>
+                {% endif %}
+
+
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,180 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # ---------------------------------------------------------
+    # CMF Services
+    # ---------------------------------------------------------
+
+    # example customer save handler config
+    CustomerManagementFrameworkBundle\CustomerSaveHandler\NormalizeZip:
+        tags: [cmf.customer_save_handler]
+
+    # example segment builder config
+    CustomerManagementFrameworkBundle\SegmentBuilder\StateSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+    CustomerManagementFrameworkBundle\SegmentBuilder\GenderSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+    App\CustomerManagementFramework\SegmentBuilder\ProductInterestSegmentBuilder:
+        tags: [cmf.segment_builder]
+
+    # overwrite activity store to mysql
+    CustomerManagementFrameworkBundle\ActivityStore\ActivityStoreInterface:
+        class: CustomerManagementFrameworkBundle\ActivityStore\MySQL
+
+pimcore:
+    models:
+        class_overrides:
+            Pimcore\Model\DataObject\Customer: App\Model\Customer
+
+# Configure the HWIOAuth bundle
+hwi_oauth:
+    firewall_names: [demo_frontend]
+
+    # uses referrer as target path after successful login
+    use_referer: true
+
+    # the credential parameters need to be set somewhere. as we don't want to version client credentials
+    # we add those secrets to parameters.yml and reference the parameters here
+    resource_owners:
+        google:
+            type:                google
+            client_id:           '%google_client_id%'
+            client_secret:       '%google_client_secret%'
+            scope:               "openid email profile"
+            options:
+                csrf: true
+        twitter:
+            type:                twitter
+            client_id:           '%twitter_client_id%'
+            client_secret:       '%twitter_client_secret%'
+            options:
+                csrf: true
+
+pimcore_customer_management_framework:
+
+    # Configuration of customer save manager
+    customer_save_manager:
+
+        # If enabled the automatic object naming scheme will be applied on each customer save. See: customer_provider -> namingScheme option
+        enableAutomaticObjectNamingScheme: true
+
+    # Configuration of customer provider
+    customer_provider:
+
+        # parent folder for active customers
+        parentPath: '/Customer Management/customers'
+
+        # parent folder for customers which are unpublished and inactive
+        archiveDir: '/Customer Management/customers/_archive'
+
+        # If a naming scheme is configured customer objects will be automatically renamend and moved to the configured folder structure as soon as the naming scheme gets applied.
+        namingScheme: '{countryCode}/{zip}/{firstname}-{lastname}'
+
+        # Parent folder for customers which are created via the "new customer" button in the customer list view
+        newCustomersTempDir: '/Customer Management/customers/_temp'
+
+    # Configuration of segment manager
+    segment_manager:
+        segmentFolder:
+            # parent folder of manual segments + segment groups
+            manual: '/Customer Management/segments/manual'
+            # parent folder of calculated segments + segment groups
+            calculated: '/Customer Management/segments/calculated'
+
+    # Configuration of customer save manager
+    customer_save_validator:
+
+        # If enabled an exception will be thrown when saving a customer object if duplicate customers exist.
+        checkForDuplicates:   true
+        requiredFields:
+            # Provide valid field combinations. The customer object then is valid as soon as at least one of these field combinations is filled up.
+            - [email]
+            - [firstname, lastname]
+
+    # Configuration of customer duplicates services
+    customer_duplicates_services:
+
+        # Field or field combinations for hard duplicate check
+        duplicateCheckFields:
+            - [email]
+            - [firstname, lastname, zip, street]
+
+        duplicates_view:
+            enabled: true # the feature will be visible in the backend only if it is enabled
+            # Visible fields in the customer duplicates view.
+            # Each single group/array is one separate column in the view table.
+            listFields:
+                - [id]
+                - [email]
+                - [firstname, lastname]
+                - [street]
+                - [zip, city]
+                - [countryCode]
+
+        # Index used for a global search of customer duplicates.
+        # Matching field combinations can be configured here.
+        # See "Customer Duplicates Service" docs chapter for more details.
+        duplicates_index:
+            enableDuplicatesIndex: true
+            duplicateCheckFields:
+                - lastname:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+                  firstname:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+                  zip:
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\Zip
+
+                  city:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+                  street:
+                      soundex: true
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+
+
+                - email:
+                      metaphone: true
+                      similarity: \CustomerManagementFrameworkBundle\DataSimilarityMatcher\SimilarText
+                      similarityThreshold: 90
+
+            dataTransformers:
+                street: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Street
+                firstname: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
+                city: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
+                lastname: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
+
+    # Enable/Disable SSO oauth client. If enabled additional steps are necessary, see SSO docs for details.
+    oauth_client:
+        enabled: true
+
+    # Configuration of EncryptionService
+    encryption:
+
+        # echo \Defuse\Crypto\Key::createNewRandomKey()->saveToAsciiSafeString();
+        # keep it secret
+        secret:               '%app_encryption_secret%'
+
+    # Configuration for segment assignment
+    segment_assignment_classes:
+        types:
+            document:
+                page: true
+            object:
+                object:
+                    News: true
+                    Category: true
+                folder: true

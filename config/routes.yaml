@@ -1,0 +1,36 @@
+_pimcore:
+    resource: "@PimcoreCoreBundle/Resources/config/routing.yml"
+
+app_localized:
+    resource: "../src/Controller/"
+    type:     annotation
+    prefix:
+        en: /en
+        de: /de
+
+app:
+    resource: "../src/Controller/"
+    type:     annotation
+
+account-logout:
+    path: '{_locale}/account/logout'
+
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /auth/oauth
+
+
+app_auth_oauth_check_google:
+    path: /auth/oauth/check/google
+
+app_auth_oauth_check_twitter:
+    path: /auth/oauth/check/twitter

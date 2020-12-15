@@ -1,0 +1,50 @@
+<section class="teaser-row-container pt-5 pb-3 bg-light text-center">
+    <div class="container">
+        <h2>{{ pimcore_input('productTeaserTitle', {'placeholder':'Enter Title'}) }}</h2>
+
+
+        {% if editmode %}
+
+            <div class="alert alert-info">
+
+                <div class="text-left">
+                    <strong>Teaser with personalized content:</strong>
+                    <br/>
+                    Content of this teaser will be personalized for visitor if possible. Personalization parameters
+                    are <strong>manufactures</strong> and <strong>car classes</strong> of visited car detail pages.
+                    <br/>
+                    Manually assigned cars are fallback and will be displayed when no personalization is possible.
+                </div>
+            </div>
+
+        {% endif %}
+
+        <div class="row mb-3 text-left">
+            {% if editmode or not usePersonalizedData %}
+                {% for i in 0..2 %}
+                    <div class="{{ editmode ? 'teaser-col' : 'col-md-4 d-flex align-items-stretch flex-column' }}">
+                        {{
+                            pimcore_renderlet(('productTeaser'~i), {
+                                type: 'object',
+                                editmode: editmode,
+                                controller: 'App\\Controller\\ProductController::productTeaserAction',
+                                title: 'Drag a product here',
+                                height : 'auto',
+                                width: '100%'
+                            })
+                        }}
+                    </div>
+                {% endfor %}
+            {% else %}
+
+                {% for product in productList %}
+                    <div class="col-md-4 d-flex align-items-stretch flex-column">
+                        {% include 'product/product_teaser.html.twig' with {'product': product} %}
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+        </div>
+
+    </div>
+</section>

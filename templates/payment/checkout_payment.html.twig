@@ -1,0 +1,255 @@
+{# @var cart \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface #}
+{# @var product \App\Model\Product\AbstractProduct #}
+
+{% extends 'layouts/layout.html.twig' %}
+
+{% do pimcore_head_script().appendScript('
+    var _config = _config || {};
+    _config["accessKey"] = "' ~ accessKey | raw ~ '";
+') %}
+
+{% do pimcore_head_link().appendStylesheet('https://static.heidelpay.com/v1/heidelpay.css') %}
+{% do pimcore_head_script().appendFile('https://static.heidelpay.com/v1/heidelpay.js') %}
+
+
+{% block content %}
+
+    <div class="py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8">
+                    <h4 class="mb-3">{{ 'checkout.payment' | trans }}</h4>
+
+                    <div class="accordion" id="paymentAccordion">
+                        <div class="card">
+                            <div class="card-header" id="headingCC">
+                                <div class="display-4 mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseCC" aria-expanded="true" aria-controls="collapseCC">
+                                        {{ 'checkout.creditcard' | trans }}
+                                    </button>
+                                    <div class="float-right mr-4">
+                                        <img style="width: 40px" src="{{ asset('static/images/mc_vrt_pos.svg') }}" />
+                                        <img style="width: 40px" src="{{ asset('static/images/visa_inc_logo.svg') }}" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="collapseCC" class="collapse show" aria-labelledby="headingCC" data-parent="#paymentAccordion">
+                                <div class="card-body">
+
+                                    <!-- credit card form as from the heidelpay docs -->
+                                    <form id="cc-form" class="heidelpayUI form" novalidate>
+                                        <div class="field">
+                                            <div id="card-element-id-number" class="heidelpayInput">
+                                                <!-- Card number UI Element will be inserted here. -->
+                                            </div>
+                                        </div>
+                                        <div class="two fields">
+                                            <div class="field ten wide">
+                                                <div id="card-element-id-expiry" class="heidelpayInput">
+                                                    <!-- Card expiry date UI Element will be inserted here. -->
+                                                </div>
+                                            </div>
+                                            <div class="field six wide">
+                                                <div id="card-element-id-cvc" class="heidelpayInput">
+                                                    <!-- Card CVC UI Element will be inserted here. -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field" id="error-holder" style="color: #9f3a38"> </div>
+                                        <div class="field">
+                                            <button id="submit-button" class="btn btn-success btn-block" type="submit">{{ 'checkout.creditcard.pay' | trans }}</button>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingPaypal">
+                                <div class="display-4 mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsePaypal" aria-expanded="true" aria-controls="collapsePaypal">
+                                        {{ 'checkout.paypal' | trans }}
+                                    </button>
+                                    <div class="float-right mr-4">
+                                        <img style="width: 40px" src="{{ asset('static/images/PayPal_logo.svg') }}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapsePaypal" class="collapse" aria-labelledby="headingPaypal" data-parent="#paymentAccordion">
+                                <div class="card-body">
+
+                                    <!-- paypal form as from the heidelpay docs -->
+                                    <div class="field">
+                                        <button id="js-redirect-payment-method-paypal" class="btn btn-success btn-block">{{ 'checkout.paypal.pay' | trans }}</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSofort">
+                                <div class="display-4 mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSofort" aria-expanded="true" aria-controls="collapseSofort">
+
+                                        {{ 'checkout.sofort' | trans }}
+
+                                    </button>
+                                    <div class="float-right mr-4">
+                                        <img style="width: 40px" src="{{ asset('static/images/SOFORT_ÜBERWEISUNG_Logo.svg') }}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapseSofort" class="collapse" aria-labelledby="headingSofort" data-parent="#paymentAccordion">
+                                <div class="card-body">
+
+                                    <!-- redirect payment content as from the heidelpay docs -->
+                                    <div class="field">
+                                        <button id="js-redirect-payment-method-paypal-sofort" class="btn btn-success btn-block">{{ 'checkout.sofort.pay' | trans }}</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form to submit successful payment result to Pimcore -->
+                    <form id="js-submit-payment-result" action="{{ path('shop-checkout-start-payment') }}">
+                        <input type="hidden" name="paymentMethod" class="js-payment-method-hidden" value=""/>
+                        <input type="hidden" name="paymentId" class="js-payment-id-hidden" value=""/>
+                    </form>
+
+                </div>
+
+                <div class="col-md-4 mb-4 mt-5 mt-md-0">
+                    {% include 'cart/shared/order_summary.html.twig' %}
+                </div>
+
+
+            </div>
+
+            <div class="row mt-5">
+
+                <div class="col-12">
+
+                    <div class="alert alert-info">
+
+                        <h6>Test Payment Data</h6>
+
+                        <div class="row" style="font-size:10pt">
+                            <div class="col-md-4">
+
+                                <strong>Credit Card</strong>
+                                <table class="table table-sm">
+                                    <tr class="tr">
+                                        <th class="th">Type</th>
+                                        <th class="th">Field</th>
+                                        <th class="th">Value</th>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">Visa</td>
+                                        <td class="td">number</td>
+                                        <td class="td"><code>4711100000000000</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td"></td>
+                                        <td class="td">expiryDate</td>
+                                        <td class="td"><code>Date in the future</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td"></td>
+                                        <td class="td">cvc</td>
+                                        <td class="td"><code>123</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td"></td>
+                                        <td class="td">3D Secure Password</td>
+                                        <td class="td"><code>secret3</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">Mastercard</td>
+                                        <td class="td">number</td>
+                                        <td class="td"><code>5453010000059543</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td"></td>
+                                        <td class="td">expiryDate</td>
+                                        <td class="td"><code>Date in the future</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td"></td>
+                                        <td class="td">cvc</td>
+                                        <td class="td"><code>123</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td"></td>
+                                        <td class="td">3D Secure Password</td>
+                                        <td class="td"><code>secret3</code></td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <strong>Sofort</strong>
+                                <table class="table table-sm">
+                                    <tr class="tr">
+                                        <td class="td">bank number</td>
+                                        <td class="td"><code>00000</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">account number</td>
+                                        <td class="td"><code>123456</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">USER_PIN
+                                        </td>
+                                        <td class="td"><code>123456</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">USER_TAN
+                                        </td>
+                                        <td class="td"><code>12345</code></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <strong>Paypal</strong>
+
+                                <table class="table table-sm">
+                                    <tr class="tr">
+                                        <td class="td">Username</td>
+                                        <td class="td"><code>paypal-customer@heidelpay.de</code></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td class="td">Password</td>
+                                        <td class="td"><code>heidelpay</code></td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% do pimcore_inline_script().appendFile(asset('static/js/payment.js')) %}

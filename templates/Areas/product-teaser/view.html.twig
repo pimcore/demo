@@ -1,0 +1,21 @@
+<section class="teaser-row-container pt-5 pb-3 bg-light text-center">
+    <div class="container">
+        <h2>{{ pimcore_input('productTeaserTitle', {'placeholder':'Enter Title'}) }}</h2>
+        <div class="row mb-3 text-left">
+            {% for i in pimcore_iterate_block(pimcore_block('teaserblock',{class:'row11'})) %}
+                <div class="{{ editmode ? '' : 'col-md-4 d-flex align-items-stretch flex-column' }}">
+                    {{
+                        pimcore_renderlet('productTeaser', {
+                            type: 'object',
+                            editmode: editmode,
+                            controller: 'App\\Controller\\ProductController::productTeaserAction',
+                            title: 'Drag a product here',
+                            height : 'auto',
+                            width: '100%'
+                        })
+                    }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

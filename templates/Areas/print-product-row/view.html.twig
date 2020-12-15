@@ -1,0 +1,54 @@
+{% set leftMode = pimcore_select('mode').value == 'left' %}
+
+{% if editmode %}
+
+    <div class="displaymode">
+        <div>Display Mode:</div>
+        {{
+            pimcore_select('mode', {
+                'reload': true,
+                'store': [
+                    ['left', 'Left wide'],
+                    ['right', 'Right wide']
+                ]
+            })
+        }}
+    </div>
+
+{% endif %}
+
+
+<div class="productrow">
+
+    <div class="element first {{ leftMode ? 'wide' : 'small' }} ">
+        {{
+            pimcore_renderlet('productteaser1', {
+                'controller': 'App\\Controller\\Web2printController::productCellAction',
+                'type': 'object',
+                'className': ['Car', 'AccessoryPart'],
+                'editmode': editmode,
+                'title': 'Drag a product here',
+                'height': 400,
+                'mode': (leftMode ? '' : 'small')
+            })
+        }}
+
+    </div>
+
+    <div class="element {{ leftMode ? 'small' : 'wide' }}">
+        {{
+            pimcore_renderlet('productteaser2', {
+                'controller': 'App\\Controller\\Web2printController::productCellAction',
+                'type': 'object',
+                'className': ['Car', 'AccessoryPart'],
+                'editmode': editmode,
+                'title': 'Drag a product here',
+                'height': 400,
+                'mode': (leftMode ? 'small' : 'wide')
+            })
+        }}
+    </div>
+
+    <div class="clear"></div>
+
+</div>

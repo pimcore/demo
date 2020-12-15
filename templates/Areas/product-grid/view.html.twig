@@ -1,0 +1,26 @@
+{% set filterDefinitionObject = filterDefinitionObject %}
+{% set params = app.request.query.all %}
+
+{% if editmode %}
+    <div class="span3">
+    </div>
+    <div class="span9">
+        <h2>ProductFilter Object</h2>
+
+        <div>
+            {{ pimcore_relation("productFilter",{
+                "types": ["object"],
+                "subtypes": {
+                    "object": ["object"],
+                },
+                "classes": ["FilterDefinition"]
+            }) }}
+        </div>
+    </div>
+
+    <div style="clear: both"></div>
+{% endif %}
+
+{% if not pimcore_relation("productFilter").isEmpty() %}
+    {{ render(controller('App\\Controller\\ProductController::listingAction', params | merge({"filterdefinition": filterDefinitionObject, "noLayout": true}))) }}
+{% endif %}

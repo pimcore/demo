@@ -1,0 +1,179 @@
+{# @var cart \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface #}
+{# @var product \App\Model\Product\AbstractProduct #}
+
+{% extends 'layouts/layout.html.twig' %}
+
+{% block content %}
+
+    <div class="py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4 order-md-2 mb-4">
+                    {% include 'cart/shared/order_summary.html.twig' %}
+
+                    <form method="post" action="{{ path('shop-cart-apply-voucher') }}" class="card p-2 mb-4">
+
+                        {% if(cart.pricingManagerTokenInformationDetails | length > 0) %}
+
+                            <ul class="list-group pb-3">
+
+                            {% for codeInfo in cart.pricingManagerTokenInformationDetails %}
+
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-10" style="padding-top: 4px">
+                                            <div>{{ codeInfo.tokenCode }}</div>
+                                            {% if (codeInfo.errorMessages | length) > 0 %}
+                                                <small class="text-muted"><i class="fas fa-exclamation-triangle"></i> {{ codeInfo.errorMessages | join(', ') }}</small>
+                                            {% endif %}
+                                            {% if (codeInfo.noValidRule) %}
+                                                <small class="text-muted"><i class="fas fa-exclamation-triangle"></i> {{ 'cart.voucher-no-rule' | trans }}</small>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="col-2">
+                                            <a href="{{ path('shop-cart-remove-voucher', {'voucher-code': codeInfo.tokenCode}) }}" class="btn btn-outline-danger btn-sm">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+
+                            </ul>
+
+                        {% endif %}
+
+
+                        <div class="input-group">
+                            <input name="voucher-code" type="text" class="form-control" placeholder="{{ 'cart.voucher-code' | trans }}">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary">{{ 'cart.apply-voucher-code' | trans }}</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="card p-2">
+                        <a href="{{ path('shop-checkout-address') }}" class="btn btn-success btn-lg">{{ 'cart.start-checkout' | trans }}</a>
+                    </div>
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">{{ 'cart.title' | trans }}</h4>
+                    <div class="card shopping-cart">
+                        <form method="post">
+                            <div class="card-body">
+
+                                {% for item in cart.items %}
+
+                                    {% set product = item.product %}
+
+                                    <div class="row">
+                                        <div class="col-4 col-sm-4 col-md-2 text-md-center text-sm-left ">
+
+                                            {% if(product.mainImage is defined) %}
+
+                                                {{ product.mainImage.thumbnail('cart').html({class: 'img-responsive', style: 'width:100%; height: auto'}) | raw }}
+
+                                            {% endif %}
+
+                                        </div>
+                                        <div class="col-8 text-sm-left col-md-5 text-md-left col-md-4">
+                                            <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
+                                            {% if( product is instanceof('App\\Model\\Product\\Car')) %}
+                                                <p class="text-muted small">{{ product.subText | raw }}</p>
+                                            {% elseif(product.saleInformation.saleInformation)  %}
+                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                                            {% endif %}
+
+                                            {% set priceInfo = item.priceInfo %}
+
+                                            {% if(priceInfo.rules) %}
+
+                                                <div class="alert alert-success mb-1" role="alert">
+
+                                                    <p class="extra-small small mb-2"><strong>{{ 'general.your-benefits' | trans }}</strong></p>
+
+                                                    <ul class="list-unstyled mb-0 extra-small">
+                                                        {% for rule in priceInfo.rules %}
+                                                            <li>{{ rule.label }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+
+                                                </div>
+
+                                            {% endif %}
+
+
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 text-sm-center col-md-5 text-md-right row pt-md-0 pt-2 ml-0 ml-md-n1">
+                                            <div class="col-7 col-sm-7 col-md-8 text-right pr-0" style="padding-top: 3px">
+                                                <h6>{{ item.price }}  <span class="text-muted">x</span></h6>
+                                            </div>
+                                            <div class="col-3 col-sm-3 col-md-3">
+                                                <div class="quantity">
+                                                    <input name="items[{{ item.itemKey }}]" type="number" step="1" max="99" min="1" value="{{ item.count }}" title="Qty" class="qty w-100" size="4">
+                                                </div>
+                                            </div>
+                                            <div class="col-2 col-sm-2 col-md-1 text-right px-md-0">
+                                                <a href="{{ path('shop-remove-from-cart', {id: item.itemKey}) }}" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                {% endfor %}
+
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-outline-secondary text-right">
+                                        {{ 'cart.update-cart' | trans }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    {% if(cart.giftItems) %}
+                        <h6 class="mt-5 mb-0">Gifts</h6>
+                        <div class="card shopping-cart">
+                            <div class="card-body">
+
+                                {% for item in cart.giftItems %}
+
+                                    {% set product = item.product %}
+
+                                    <div class="row">
+                                        <div class="col-4 col-sm-4 col-md-2 text-md-center text-sm-left ">
+
+                                            {% if(product.mainImage is defined) %}
+
+                                                {{ product.mainImage.thumbnail('cart').html({class: 'img-responsive', style: 'width:100%; height: auto'}) | raw }}
+
+                                            {% endif %}
+
+                                        </div>
+                                        <div class="col-8 text-sm-left text-md-left">
+                                            <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
+                                            {% if( product is instanceof('App\\Model\\Product\\Car')) %}
+                                                <p class="text-muted small">{{ product.subText | raw }}</p>
+                                            {% elseif(product.saleInformation.saleInformation)  %}
+                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

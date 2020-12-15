@@ -1,0 +1,66 @@
+{# @var product \App\Model\Product\AccessoryPart#}
+{# @var compatibleTo \Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface #}
+
+{% extends 'product/detail.html.twig' %}
+
+{% block additionalimages %}
+{% endblock %}
+
+{% block colorvariants %}
+{% endblock %}
+
+{% block detailinfos %}
+{% endblock %}
+
+{% block salesinfos %}
+
+    {% if product.saleInformation.saleInformation %}
+
+        <dl class="item-property col-6 mb-0">
+            <dt>{{ 'general.condition' | trans }}</dt>
+            <dd>{{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans}}</dd>
+        </dl>
+
+        <dl class="item-property col-6 mb-0">
+            <dt>{{ 'general.milage' | trans }}</dt>
+            <dd>{{ product.saleInformation.saleInformation.milage }}</dd>
+        </dl>
+
+        <dl class="item-property col-6 mb-0">
+            <dt>{{ 'general.available-pieces' | trans }}</dt>
+            <dd>{{ product.saleInformation.saleInformation.availabilityPieces }}</dd>
+        </dl>
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block description %}
+{% endblock %}
+
+{% block attributes %}
+{% endblock %}
+
+{% block productrelations %}
+
+    {%  if(compatibleTo.count) %}
+
+        <div class="mt-5 col-12">
+            <h4 class="text-center">{{ 'general.compatibleTo' | trans }}</h4>
+
+            <div class="row">
+                {% for item in compatibleTo %}
+
+                    <div class="col-md-3 d-flex align-items-stretch">
+                        {% include 'product/product_teaser.html.twig' with {'product': item} %}
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+
+    {% endif %}
+
+{% endblock %}

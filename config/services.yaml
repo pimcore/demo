@@ -1,0 +1,187 @@
+parameters:
+    secret: ThisTokenIsNotSoSecretChangeIt
+    google_client_id: <google_client_id>
+    google_client_secret: <google_client_secret>
+    twitter_client_id: <twitter_client_id>
+    twitter_client_secret: <twitter_client_secret>
+    app_encryption_secret: "ThisTokenIsNotSoSecretChangeIt"
+
+    # customize the full path to external executables
+    # normally they are auto-detected by `which program` or auto-discovered in the configured path in
+    # System Settings -> General -> Additional $PATH variable
+    # but in general it's a good idea to have your programs in your $PATH environment variable (system wide)
+    #pimcore_executable_composer: php /opt/vendor/bin/composer.phar
+    #pimcore_executable_html2text: /usr/local/html2text/bin/html2text
+    #pimcore_executable_soffice: /opt/libreoffice/bin/soffice
+    #pimcore_executable_gs: /opt/ghostscript/bin/gs
+    #pimcore_executable_pdftotext: /opt/tools/pdftotext
+    #pimcore_executable_xvfb-run: /opt/tools/xvfb-run
+    #pimcore_executable_pngcrush: /opt/tools/pngcrush
+    #pimcore_executable_zopflipng: /opt/tools/zopflipng
+    #pimcore_executable_pngout: /opt/tools/pngout
+    #pimcore_executable_advpng: /opt/tools/advpng
+    #pimcore_executable_cjpeg: /opt/tools/cjpeg
+    #pimcore_executable_jpegoptim: /opt/tools/jpegoptim
+    #pimcore_executable_php: /usr/local/custom-php/bin/php
+    #pimcore_executable_nice: /opt/tools/nice
+    #pimcore_executable_nohup: /opt/tools/nohup
+    #pimcore_executable_ffmpeg: /opt/tools/ffmpeg
+    #pimcore_executable_exiftool: /opt/tools/exiftool
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        # automatically injects dependencies in your services
+        autowire: true
+        # automatically registers your services as commands, event subscribers, etc.
+        autoconfigure: true
+        # this means you cannot fetch services directly from the container via $container->get()
+        # if you need to do this, you can override this setting on individual services
+        public: false
+
+
+    # ---------------------------------------------------------
+    # Register all controllers of App as services
+    # ---------------------------------------------------------
+    App\Controller\:
+        resource: '../src/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+
+
+    # ---------------------------------------------------------
+    # Register all commands of App as commands
+    # ---------------------------------------------------------
+    App\Command\:
+        resource: '../src/Command'
+        tags: ['console.command']
+
+
+
+    # ---------------------------------------------------------
+    # Forms
+    # ---------------------------------------------------------
+    App\Form\DeliveryAddressFormType: ~
+    App\Form\LoginFormType: ~
+    App\Form\RegistrationFormType: ~
+    App\Form\RegistrationFormHandler: ~
+    App\Form\CarSubmitFormType: ~
+
+
+
+    # ---------------------------------------------------------
+    # Misc Services
+    # ---------------------------------------------------------
+    App\Services\PasswordRecoveryService: ~
+    App\Services\NewsletterDoubleOptInService: ~
+    App\Services\SegmentTrackingHelperService: ~
+    App\Website\Navigation\BreadcrumbHelperService: ~
+
+    App\Model\Product\CalculatedValue\QualityCalculator:
+        public: true
+
+    App\Model\Product\CalculatedValue\AccessoryPartName:
+        public: true
+
+
+    # ---------------------------------------------------------
+    # Twig Extensions
+    # ---------------------------------------------------------
+    App\Twig\Extension\CategoryFilterExtension:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\Country:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\Currency:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\GeneralFilterExtension:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\NavigationExtension:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\UniqidExtension:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\LanguageSwitcherExtension:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\ProductPageExtension:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\NewsExtension:
+        tags: ['twig.extension']
+
+    App\Twig\Extension\PrintCatalogExtension:
+        tags: ['twig.extension']
+
+
+    # ---------------------------------------------------------
+    # Link Generators for DataObjects
+    # ---------------------------------------------------------
+    App\Website\LinkGenerator\CategoryLinkGenerator:
+        public: true
+
+    App\Website\LinkGenerator\ProductLinkGenerator:
+        public: true
+
+    App\Website\LinkGenerator\NewsLinkGenerator:
+        public: true
+
+
+
+    # ---------------------------------------------------------
+    # Overwrite Pimcore Default Services
+    # ---------------------------------------------------------
+
+    # overwrite PimcoreUrl helper to add existing parameters to generated urls
+    Pimcore\Twig\Extension\Templating\PimcoreUrl:
+        class: App\Website\Tool\PimcoreUrl
+        arguments:
+            $generator: '@router'
+
+
+
+    # ---------------------------------------------------------
+    # Event Listeners
+    # ---------------------------------------------------------
+
+    # auto sets name based on key for bodystyle, manufacturer, category
+    App\EventListener\NameSettingListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.dataobject.preAdd, method: onPreAdd }
+
+    # adds additional static files to admin backend
+    App\EventListener\PimcoreAdminListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.css, method: addCSSFiles }
+            - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.js, method: addJSFiles }
+
+    # checkout listeners for ecommerce application
+    App\EventListener\CheckoutEventListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.ecommerce.ordermanager.postUpdateOrder, method: onUpdateOrder }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.sendConfirmationMails, method: sendConfirmationMail }
+            - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.postCommitOrder, method: postCommitOrder }
+
+    # authentication login listener for updating e-commerce framework environment after login
+    App\EventListener\AuthenticationLoginListener:
+        arguments:
+            $httpUtils: '@security.http_utils'
+
+    # authentication login listener for updating e-commerce framework environment after logout
+    App\EventListener\AuthenticationLogoutListener:
+        arguments:
+            $httpUtils: '@security.http_utils'
+
+
+
+
+    # ---------------------------------------------------------
+    # Workflow
+    # ---------------------------------------------------------
+    App\Workflow\SupportsStrategy: ~
+

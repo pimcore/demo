@@ -1,0 +1,71 @@
+pimcore:
+    security:
+        # the encoder factory as shipped by the CMF
+        encoder_factories:
+            Pimcore\Model\DataObject\Customer: cmf.security.user_password_encoder_factory
+
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    providers:
+        # we use a custom user provider which loads users from the Customer class
+        # the user provider is provided by the CMF
+        cmf_customer_provider:
+            id: cmf.security.user_provider #cmf.security.user_provider.oauth
+
+        cmf_customer_provider_with_oauth:
+            id: cmf.security.user_provider.oauth
+
+    firewalls:
+        # demo_frontend firewall is valid for the whole site
+        demo_frontend:
+
+            # -----------------------------------------------------
+            #   SAMPLE SIMPLE FIREWALL CONFIG FOR HTTP-BASIC AUTH
+            # -----------------------------------------------------
+            # the provider defined above
+            # provider: cmf_customer_provider
+            # http_basic: ~
+
+
+            # -----------------------------------------------------
+            #   SAMPLE FIREWALL CONFIG FOR FORM-AUTH inkl. OAUTH
+            # -----------------------------------------------------
+
+            # the provider defined above
+            anonymous: ~
+            # the provider defined above
+            provider: cmf_customer_provider_with_oauth
+            form_login:
+                login_path: 'account-login'
+                check_path: 'account-login'
+                csrf_token_generator: security.csrf.token_manager
+                default_target_path: 'account-index'
+
+                # use custom success handler to also update e-commerce framework environment after successful login
+                success_handler: App\EventListener\AuthenticationLoginListener
+
+            # configure the OAuth authenticator (HWIOAuthBundle)
+            oauth:
+                resource_owners:
+                    google: app_auth_oauth_check_google
+                    twitter: app_auth_oauth_check_twitter
+                login_path: 'account-login'
+                failure_path: 'account-login'
+
+                # use custom success handler to also update e-commerce framework environment after successful login
+                success_handler: App\EventListener\AuthenticationLoginListener
+                oauth_user_provider:
+                    service: cmf.security.user_provider.oauth
+
+            logout:
+                path:   'account-logout'
+                target: /
+
+                # optional: to keep logins of other firewalls (like admin)
+                invalidate_session: false
+                # use custom success handler to also update e-commerce framework environment after successful logout
+                success_handler: App\EventListener\AuthenticationLogoutListener
+
+            remember_me:
+                secret:   '%kernel.secret%'

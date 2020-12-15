@@ -1,0 +1,17 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block content %}
+{% if products|length < 1 %}
+<h3 class="text-center">{{ 'shop.empty-result' | trans }}</h3>
+<h2 class="text-center">{{ term | upper }}</h2>
+{% else  %}
+<h2>{{ term | upper }}</h2>
+<form id="js_filterfield" action="" method="get">
+    <input type="hidden" name="term" value="{{ term }}"/>
+
+    <div class="productList" id="js-productlist">
+        {% include "product/listing_content.html.twig" with {'productListing': products, 'language': language} %}
+    </div>
+</form>
+{% endif %}
+{% endblock %}

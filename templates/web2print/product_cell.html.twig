@@ -1,0 +1,41 @@
+{% set detailLink = app_product_detaillink(product) %}
+
+
+<div class="productCell">
+
+    {% if product %}
+
+        <div class="texts">
+            <h4>{{ product.oSName }}</h4>
+
+            <div class="infoblock">
+
+                {% if( product is instanceof('App\\Model\\Product\\Car')) %}
+                    <p>{{ product.subText | raw }}</p>
+                {% elseif(product.saleInformation.saleInformation)  %}
+                    <p>{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+                {% endif %}
+
+                <p class="price">{{ product.oSPrice }},-</p>
+
+            </div>
+
+        </div>
+
+        <a href="{{ detailLink }}" class="mainImage">
+
+            {% if(product.mainImage) %}
+                {{ product.mainImage.thumbnail('print_productcell').html() | raw }}
+            {% endif %}
+
+        </a>
+
+
+
+    {%  elseif editmode %}
+
+        <p>Drag a product here</p>
+
+    {% endif %}
+</div>
+
