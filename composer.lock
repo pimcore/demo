@@ -5955,12 +5955,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "f85128cc7a374558b5066b6a14f2d4d31b1160df"
+                "reference": "92ec3f74ff6e38e1b107cf9bce81aac4ce3e4526"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/f85128cc7a374558b5066b6a14f2d4d31b1160df",
-                "reference": "f85128cc7a374558b5066b6a14f2d4d31b1160df",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/92ec3f74ff6e38e1b107cf9bce81aac4ce3e4526",
+                "reference": "92ec3f74ff6e38e1b107cf9bce81aac4ce3e4526",
                 "shasum": ""
             },
             "require": {
@@ -5999,7 +5999,7 @@
                 "issues": "https://github.com/pimcore/data-hub/issues",
                 "source": "https://github.com/pimcore/data-hub/tree/master"
             },
-            "time": "2020-12-16T10:39:05+00:00"
+            "time": "2020-12-28T14:24:39+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -10249,16 +10249,16 @@
         },
         {
             "name": "codeception/phpunit-wrapper",
-            "version": "7.8.1",
+            "version": "7.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "bc6f37d770ec00c4c7c78a1cac2b8ac0f9c9eec5"
+                "reference": "cafed18048826790c527843f9b85e8cc79b866f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/bc6f37d770ec00c4c7c78a1cac2b8ac0f9c9eec5",
-                "reference": "bc6f37d770ec00c4c7c78a1cac2b8ac0f9c9eec5",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/cafed18048826790c527843f9b85e8cc79b866f1",
+                "reference": "cafed18048826790c527843f9b85e8cc79b866f1",
                 "shasum": ""
             },
             "require": {
@@ -10290,9 +10290,9 @@
             "description": "PHPUnit classes used by Codeception",
             "support": {
                 "issues": "https://github.com/Codeception/phpunit-wrapper/issues",
-                "source": "https://github.com/Codeception/phpunit-wrapper/tree/7.8.1"
+                "source": "https://github.com/Codeception/phpunit-wrapper/tree/7.8.2"
             },
-            "time": "2020-10-11T18:23:48+00:00"
+            "time": "2020-12-28T14:00:26+00:00"
         },
         {
             "name": "codeception/stub",
