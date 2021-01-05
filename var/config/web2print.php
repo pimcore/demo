@@ -6,7 +6,7 @@ return [
     "generalTool" => "pdfreactor",
     "generalDocumentSaveMode" => "default",
     "displayfield-1584-inputEl" => "Document Save Mode = cleanup deletes all not used document elements for current document. This might be necessary for useage reports in print documents.",
-    "pdfreactorVersion" => "9.0",
+    "pdfreactorVersion" => "10.0",
     "pdfreactorProtocol" => "https",
     "pdfreactorServer" => "cloud.pdfreactor.com",
     "pdfreactorServerPort" => "443",
