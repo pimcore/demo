@@ -10,6 +10,7 @@
   "prefer-stable": true,
   "minimum-stability": "dev",
   "require": {
+    "composer-runtime-api": "^2.0",
     "heidelpay/heidelpay-php": "1.2.5.1",
     "hwi/oauth-bundle": "^1.2.0",
     "php-http/guzzle6-adapter": "^2.0",
