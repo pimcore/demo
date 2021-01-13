@@ -1,4 +1,4 @@
-# Demo and Blue Print Application for Pimcore 6
+# Demo and Blue Print Application for Pimcore
 
 This demo package is intended to be used by Pimcore newcomers who want to learn Pimcore and see it in action. 
 It's tailored get an overview of Pimcores CMS, DAM, PIM and E-Commerce functionality and can be used as a blue print for 
