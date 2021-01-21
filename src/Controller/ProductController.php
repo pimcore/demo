@@ -22,6 +22,8 @@ use App\Model\Product\Category;
 use App\Services\SegmentTrackingHelperService;
 use App\Website\LinkGenerator\ProductLinkGenerator;
 use App\Website\Navigation\BreadcrumbHelperService;
+use Knp\Component\Pager\Pagination\SlidingPagination;
+use Knp\Component\Pager\PaginatorInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\FilterService\ListHelper;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\DefaultMysql;
@@ -40,7 +42,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Zend\Paginator\Paginator;
 
 class ProductController extends BaseController
 {
@@ -145,7 +146,7 @@ class ProductController extends BaseController
      *
      * @return Response
      */
-    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService, ListHelper $listHelper)
+    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService, ListHelper $listHelper, PaginatorInterface $paginator)
     {
         $params = array_merge($request->query->all(), $request->attributes->all());
 
@@ -188,13 +189,16 @@ class ProductController extends BaseController
         $params['filterService'] = $filterService;
         $params['filterDefinition'] = $filterDefinition;
 
+        /** @var SlidingPagination $paginator */
         // init pagination
-        $paginator = new Paginator($productListing);
-        $paginator->setCurrentPageNumber($request->get('page'));
-        $paginator->setItemCountPerPage($filterDefinition->getPageLimit());
-        $paginator->setPageRange(5);
+        $paginator = $paginator->paginate(
+            $productListing,
+            $request->get('page', 1),
+            $filterDefinition->getPageLimit()
+        );
+
         $params['results'] = $paginator;
-        $params['paginationVariables'] = $paginator->getPages('Sliding');
+        $params['paginationVariables'] = $paginator->getPaginationData();
 
         if ($request->attributes->get('noLayout')) {
             return $this->render('/product/listing_content.html.twig', $params);
@@ -248,7 +252,7 @@ class ProductController extends BaseController
      *
      * @return Response|JsonResponse
      */
-    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper, Placeholder $placeholder)
+    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper, Placeholder $placeholder, PaginatorInterface $paginator)
     {
         $params = $request->query->all();
 
@@ -350,12 +354,16 @@ class ProductController extends BaseController
         $params['products'] = $productListing;
 
         // init pagination
-        $paginator = new Paginator($productListing);
-        $paginator->setCurrentPageNumber($request->get('page'));
-        $paginator->setItemCountPerPage($filterDefinition->getPageLimit());
-        $paginator->setPageRange(5);
+        $paginator = $paginator->paginate(
+            $productListing,
+            $request->get('page', 1),
+            5
+        );
+
+        p_r($paginator); die;
+
         $params['results'] = $paginator;
-        $params['paginationVariables'] = $paginator->getPages('Sliding');
+        $params['paginationVariables'] = $paginator->getPaginationData();
 
         $trackingManager = $ecommerceFactory->getTrackingManager();
         foreach ($paginator as $product) {

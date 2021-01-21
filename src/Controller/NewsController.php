@@ -17,6 +17,7 @@ namespace App\Controller;
 
 use App\Website\LinkGenerator\NewsLinkGenerator;
 use App\Website\Navigation\BreadcrumbHelperService;
+use Knp\Component\Pager\PaginatorInterface;
 use Pimcore\Model\DataObject\News;
 use Pimcore\Twig\Extension\Templating\HeadTitle;
 use Pimcore\Twig\Extension\Templating\Placeholder;
@@ -24,7 +25,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Zend\Paginator\Paginator;
 
 class NewsController extends BaseController
 {
@@ -37,7 +37,7 @@ class NewsController extends BaseController
      *
      * @throws \Exception
      */
-    public function listingAction(Request $request)
+    public function listingAction(Request $request, PaginatorInterface $paginator)
     {
 
         // get a list of news objects and order them by date
@@ -45,13 +45,15 @@ class NewsController extends BaseController
         $newsList->setOrderKey('date');
         $newsList->setOrder('DESC');
 
-        $paginator = new Paginator($newsList);
-        $paginator->setCurrentPageNumber($request->get('page'));
-        $paginator->setItemCountPerPage(6);
+        $paginator = $paginator->paginate(
+            $newsList,
+            $request->get('page', 1),
+            6
+        );
 
         return $this->render('news/listing.html.twig', [
             'news' => $paginator,
-            'paginationVariables' => $paginator->getPages('Sliding')
+            'paginationVariables' => $paginator->getPaginationData()
         ]);
     }
 
