@@ -22,6 +22,8 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Model\AbstractOrder;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Heidelpay;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\HeidelpayRequest;
+use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\HobexRequest;
+use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentResponse\SnippetResponse;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentResponse\UrlResponse;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
@@ -47,25 +49,89 @@ class PaymentController extends FrontendController
      */
     public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService)
     {
+//        $cartManager = $factory->getCartManager();
+//        $breadcrumbHelperService->enrichCheckoutPage();
+//
+//        $cart = $cartManager->getOrCreateCartByName('cart');
+//        $checkoutManager = $factory->getCheckoutManager($cart);
+//        $paymentProvider = $checkoutManager->getPayment();
+//
+//        $accessKey = '';
+//        if ($paymentProvider instanceof Heidelpay) {
+//            $accessKey = $paymentProvider->getPublicAccessKey();
+//        }
+//
+//        $trackingManager = $factory->getTrackingManager();
+//        $trackingManager->trackCheckoutStep(new Confirm($cart), $cart, 2);
+//
+//        return $this->render('payment/checkout_payment.html.twig', [
+//            'cart' => $cart,
+//            'accessKey' => $accessKey
+//        ]);
+
         $cartManager = $factory->getCartManager();
-        $breadcrumbHelperService->enrichCheckoutPage();
+        $orderManager = $factory->getOrderManager();
+        $paymentManager = $factory->getPaymentManager();
 
-        $cart = $cartManager->getOrCreateCartByName('cart');
-        $checkoutManager = $factory->getCheckoutManager($cart);
-        $paymentProvider = $checkoutManager->getPayment();
+        p_r($paymentManager->getProviderTypes()); die;
 
-        $accessKey = '';
-        if ($paymentProvider instanceof Heidelpay) {
-            $accessKey = $paymentProvider->getPublicAccessKey();
+        $cart = $cartManager->getCartByName('cart');
+        $checkoutManager = Factory::getInstance()->getCheckoutManager($cart);
+
+        $order = $orderManager->getOrCreateOrderFromCart($cart);
+
+        $requestConfig = new HobexRequest();
+        $requestConfig
+            ->setShopperResultUrl($this->generateUrl('app_webshop_payment_result'))
+            ->setLocale('de')
+        ;
+
+        /** @var SnippetResponse $paymentInitResponse */
+        $paymentInitResponse = $checkoutManager->startOrderPaymentWithPaymentProvider($requestConfig);
+
+        return $this->renderTemplate('Webshop/Checkout/payment.html.twig', [
+            'cart' => $cart,
+            'order' => $order,
+            'renderedForm' => $paymentInitResponse->getSnippet()
+        ]);
+    }
+
+    /**
+     * Final step of the example payment checkout.
+     * This is called then the payment succeeded and the order got confirmed.
+     * @Route("/checkout/success")
+     * @param Request $request
+     */
+    public function success(Request $request) {
+        return $this->redirectToRoute('shop-checkout-completed');
+    }
+
+    /**
+     * In the payment controller the response from Hobex payments is handled.
+     * This action is typically called when the payment succeeded.
+     * @Route("/checkout/payment/result", name="app_webshop_payment_result")
+     * @param Request $request
+     */
+    public function result(Request $request, Factory $factory) {
+
+        $cartManager = $factory->getCartManager();
+        $orderManager = $factory->getOrderManager();
+
+        $paymentProvider = Factory::getInstance()->getPaymentManager()->getProvider("hobex_testprovider");
+
+        $order = Factory::getInstance()->getCommitOrderProcessor()->handlePaymentResponseAndCommitOrderPayment(
+            $request->query->all(),
+            $paymentProvider
+        );
+
+        if ($order->getOrderState() == AbstractOrder::ORDER_STATE_COMMITTED) {
+            return $this->redirectToRoute('app_webshop_checkout_success');
+        } else {
+            $errorMessage = 'Something wrent wrong with the payment: '.$order->getLastPaymentInfo()->getMessage();
+            // error handling ...
+            return $this->redirectToRoute('app_webshop_checkout_step1');
         }
 
-        $trackingManager = $factory->getTrackingManager();
-        $trackingManager->trackCheckoutStep(new Confirm($cart), $cart, 2);
-
-        return $this->render('payment/checkout_payment.html.twig', [
-            'cart' => $cart,
-            'accessKey' => $accessKey
-        ]);
     }
 
     /**
