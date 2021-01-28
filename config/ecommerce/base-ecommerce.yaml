@@ -213,7 +213,7 @@ pimcore_ecommerce_framework:
         tenants:
             default:
                 payment:
-                    provider: unzer
+                    provider: heidelpay
                 steps:
                     deliveryaddress:
                         class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
@@ -233,26 +233,16 @@ pimcore_ecommerce_framework:
 
         # Configuration of payment providers, key is name of provider
         providers:
-            hobex_testprovider:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Hobex
-                profile: sandbox
-                profiles:
-                    sandbox:
-                        entityId: '8a829418530df1d201531299e097175c'
-                        authorizationBearer: 'OGE4Mjk0MTg1MzBkZjFkMjAxNTMxMjk5ZTJjMTE3YWF8ZzJnU3BnS2hLUw=='
-                        testSystem: true
-                        payment_methods:
-                            - VISA
-                            - MASTER
-                            - SOFORTUEBERWEISUNG
-                            - SEPA
-            unzer:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Unzer
+
+            heidelpay:
+                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Heidelpay
                 profile: sandbox
                 profiles:
                     sandbox:
                         publicAccessKey: s-pub-2a10GBUCSfOqqtyulwXJub7e8m0EwDbP
                         privateAccessKey: s-priv-2a10PcxkejMP6YJwHH1shzvHyOd8PrOt
+
+
             datatrans:
                 # Service id of payment provider implementation
                 provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Datatrans
@@ -272,29 +262,29 @@ pimcore_ecommerce_framework:
                         sign: sign_id
                         use_digital_signature: false
                         mode: live
-            payu:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayU
-                profile: 'sandbox'
-                profiles:
-                    sandbox:
-                        pos_id: '300746'
-                        md5_key: 'b6ca15b0d1020e8094d9b5f8d163db54'
-                        oauth_client_id: '300746'
-                        oauth_client_secret: '2ee86a66e5d97e3fadc400c9f19b065d'
-            ogone:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\OGone
+
+            qpay:
+                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\QPay
                 profile: sandbox
                 profiles:
                     sandbox:
-                        secret: D343DDFD3434
-                        pspid: MyTestAccount
-                        mode: sandbox
-                    # encryptionType: SHA256 or SHA512 (optional)
+                        secret: B8AKTPWBRMNBV455FG6M2DANE99WU2
+                        customer: D200001
+                        toolkit_password: jcv45z
+                        # define optional properties which can be used in initPayment (see Wirecard documentation)
+                        optional_payment_properties:
+                            - paymentType
+                            - financialInstitution
+                            - transactionIdentifier # necessary for recurPayment based on SEPA DIRECT DEBIT
+                        recurring_payment_enabled: true
+
+                        # set hash algorithm to HMAC-SHA512
+                        hash_algorithm:
+                            hmac_sha512
+
                     live:
-                        secret: D343DDFD3434
-                        pspid: MyLiveAccount
-                        mode: live
-                    # encryptionType: SHA256 or SHA512 (optional)
+                        secret: secret
+                        customer: customer
 
     # tracking manager - define which trackers (e.g. Google Analytics Universal Ecommerce) are active and should
     # be called when you track something via TrackingManager
