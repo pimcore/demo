@@ -2,11 +2,11 @@
 
 $(document).ready(function() {
 
-    let heidelpayInstance = new heidelpay(_config.accessKey, {locale: 'en-GB'});
+    let unzerInstance = new unzer(_config.accessKey, {locale: 'en-GB'});
 
     let $errorHolder = $('#error-holder');
 
-    let Card = heidelpayInstance.Card();
+    let Card = unzerInstance.Card();
     // Rendering input fields
     Card.create('number', {
         containerId: 'card-element-id-number',
@@ -71,7 +71,7 @@ $(document).ready(function() {
     $('#js-redirect-payment-method-paypal').on('click', function(e){
         e.preventDefault();
 
-        var Paypal = heidelpayInstance.Paypal();
+        var Paypal = unzerInstance.Paypal();
 
         Paypal.createResource()
             .then(successHandler)
@@ -81,7 +81,7 @@ $(document).ready(function() {
     $('#js-redirect-payment-method-paypal-sofort').on('click', function(e){
         e.preventDefault();
 
-        var Sofort = heidelpayInstance.Sofort();
+        let Sofort = unzerInstance.Sofort();
 
         Sofort.createResource()
             .then(successHandler)

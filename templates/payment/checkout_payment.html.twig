@@ -8,8 +8,8 @@
     _config["accessKey"] = "' ~ accessKey | raw ~ '";
 ') %}
 
-{% do pimcore_head_link().appendStylesheet('https://static.heidelpay.com/v1/heidelpay.css') %}
-{% do pimcore_head_script().appendFile('https://static.heidelpay.com/v1/heidelpay.js') %}
+{% do pimcore_head_link().appendStylesheet('https://static.unzer.com/v1/unzer.css') %}
+{% do pimcore_head_script().appendFile('https://static.unzer.com/v1/unzer.js') %}
 
 
 {% block content %}
@@ -39,21 +39,21 @@
                             <div id="collapseCC" class="collapse show" aria-labelledby="headingCC" data-parent="#paymentAccordion">
                                 <div class="card-body">
 
-                                    <!-- credit card form as from the heidelpay docs -->
-                                    <form id="cc-form" class="heidelpayUI form" novalidate>
+                                    <!-- credit card form as from the unzer docs -->
+                                    <form id="cc-form" class="unzerUI form" novalidate>
                                         <div class="field">
-                                            <div id="card-element-id-number" class="heidelpayInput">
+                                            <div id="card-element-id-number" class="unzerInput">
                                                 <!-- Card number UI Element will be inserted here. -->
                                             </div>
                                         </div>
                                         <div class="two fields">
                                             <div class="field ten wide">
-                                                <div id="card-element-id-expiry" class="heidelpayInput">
+                                                <div id="card-element-id-expiry" class="unzerInput">
                                                     <!-- Card expiry date UI Element will be inserted here. -->
                                                 </div>
                                             </div>
                                             <div class="field six wide">
-                                                <div id="card-element-id-cvc" class="heidelpayInput">
+                                                <div id="card-element-id-cvc" class="unzerInput">
                                                     <!-- Card CVC UI Element will be inserted here. -->
                                                 </div>
                                             </div>
@@ -82,7 +82,7 @@
                             <div id="collapsePaypal" class="collapse" aria-labelledby="headingPaypal" data-parent="#paymentAccordion">
                                 <div class="card-body">
 
-                                    <!-- paypal form as from the heidelpay docs -->
+                                    <!-- paypal form as from the unzer docs -->
                                     <div class="field">
                                         <button id="js-redirect-payment-method-paypal" class="btn btn-success btn-block">{{ 'checkout.paypal.pay' | trans }}</button>
                                     </div>
@@ -106,7 +106,7 @@
                             <div id="collapseSofort" class="collapse" aria-labelledby="headingSofort" data-parent="#paymentAccordion">
                                 <div class="card-body">
 
-                                    <!-- redirect payment content as from the heidelpay docs -->
+                                    <!-- redirect payment content as from the unzer docs -->
                                     <div class="field">
                                         <button id="js-redirect-payment-method-paypal-sofort" class="btn btn-success btn-block">{{ 'checkout.sofort.pay' | trans }}</button>
                                     </div>
