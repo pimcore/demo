@@ -1,39 +1,35 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-14T16:41:12+02:00
-* IP: 192.168.9.96
-
-
 Fields Summary: 
- - label [input]
- - field [indexFieldSelection]
- - ranges [structuredTable]
- - preSelectFrom [numeric]
- - preSelectTo [numeric]
- - scriptPath [input]
- - unit [input]
+- label [input]
+- field [indexFieldSelection]
+- ranges [structuredTable]
+- preSelectFrom [numeric]
+- preSelectTo [numeric]
+- scriptPath [input]
+- unit [input]
 */ 
 
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+   'dao' => NULL,
    'key' => 'FilterNumberRangeSelection',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinitionType',
+   'implementsInterfaces' => '',
    'title' => '',
    'group' => 'FilterTypes',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -44,10 +40,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 100,
          'layout' => '',
          'border' => false,
-         'icon' => '',
          'name' => 'Layout',
          'type' => '',
          'region' => '',
@@ -88,10 +82,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => NULL,
              'showCharCount' => NULL,
@@ -109,6 +103,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelection::__set_state(array(
@@ -125,7 +120,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               'field' => 'varchar(200)',
               'preSelect' => 'text',
             ),
-             'phpdocType' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\CoreExtensions\\ObjectData\\IndexFieldSelection',
              'width' => 400,
              'considerTenants' => true,
              'multiPreSelect' => 'none',
@@ -211,7 +205,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                 'id' => 'extModel3131-4',
               ),
             ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\StructuredTable',
              'name' => 'ranges',
              'title' => 'Ranges',
              'tooltip' => '',
@@ -234,7 +227,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'defaultValue' => NULL,
              'queryColumnType' => 'double',
              'columnType' => 'double',
-             'phpdocType' => 'float',
              'integer' => false,
              'unsigned' => false,
              'minValue' => NULL,
@@ -256,6 +248,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           5 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -264,7 +257,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'defaultValue' => NULL,
              'queryColumnType' => 'double',
              'columnType' => 'double',
-             'phpdocType' => 'float',
              'integer' => false,
              'unsigned' => false,
              'minValue' => NULL,
@@ -286,15 +278,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           6 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => NULL,
              'showCharCount' => NULL,
@@ -312,15 +305,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           7 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => NULL,
              'showCharCount' => NULL,
@@ -338,12 +332,19 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'icon' => '',
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
-   'dao' => NULL,
+   'generateTypeDeclarations' => true,
 ));

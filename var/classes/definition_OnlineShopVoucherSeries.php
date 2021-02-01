@@ -1,7 +1,6 @@
 <?php 
 
 /** 
-* Generated at: 2020-01-23T11:18:22+01:00
 * Inheritance: no
 * Variants: no
 
@@ -17,10 +16,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopVoucherSeries',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1579774702,
+   'modificationDate' => 1612176243,
    'userOwner' => 0,
-   'userModification' => 2,
+   'userModification' => 1,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractVoucherSeries',
+   'implementsInterfaces' => '',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -31,20 +31,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
-   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -55,10 +52,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 150,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -99,10 +94,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => false,
              'showCharCount' => false,
@@ -120,11 +115,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
              'fieldtype' => 'fieldcollections',
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Fieldcollection',
              'allowedTypes' => 
             array (
               0 => 'VoucherTokenTypePattern',
@@ -154,15 +149,26 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
+         'labelWidth' => 150,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
    'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/vip.svg',
    'previewUrl' => '',
    'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
+   'compositeIndices' => 
+  array (
+  ),
+   'generateTypeDeclarations' => true,
+   'showFieldLookup' => false,
    'propertyVisibility' => 
   array (
     'grid' => 
@@ -184,5 +190,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'creationDate' => false,
     ),
   ),
+   'enableGridLocking' => false,
    'dao' => NULL,
 ));

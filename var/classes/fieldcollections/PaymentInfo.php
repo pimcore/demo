@@ -1,53 +1,49 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T12:48:51+02:00
-* IP: 192.168.9.96
-
-
 Fields Summary: 
- - paymentStart [datetime]
- - paymentFinish [datetime]
- - paymentReference [input]
- - paymentState [select]
- - internalPaymentId [input]
- - message [textarea]
- - providerData [textarea]
- - provider_qpay_amount [input]
- - provider_qpay_paymentType [input]
- - provider_qpay_paymentState [input]
- - provider_datatrans_acqAuthorizationCode [input]
- - provider_datatrans_amount [input]
- - provider_datatrans_responseXML [textarea]
- - provider_paypal_amount [input]
- - provider_paypal_TransactionType [input]
- - provider_paypal_PaymentType [input]
- - provider_payu_amount [input]
- - provider_payu_PaymentType [input]
- - provider_ogone_amount [input]
- - provider_ogone_PaymentId [input]
- - provider_ogone_PaymentType [input]
+- paymentStart [datetime]
+- paymentFinish [datetime]
+- paymentReference [input]
+- paymentState [select]
+- internalPaymentId [input]
+- message [textarea]
+- providerData [textarea]
+- provider_qpay_amount [input]
+- provider_qpay_paymentType [input]
+- provider_qpay_paymentState [input]
+- provider_datatrans_acqAuthorizationCode [input]
+- provider_datatrans_amount [input]
+- provider_datatrans_responseXML [textarea]
+- provider_paypal_amount [input]
+- provider_paypal_TransactionType [input]
+- provider_paypal_PaymentType [input]
+- provider_payu_amount [input]
+- provider_payu_PaymentType [input]
+- provider_ogone_amount [input]
+- provider_ogone_PaymentId [input]
+- provider_ogone_PaymentType [input]
 */ 
 
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+   'dao' => NULL,
    'key' => 'PaymentInfo',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractPaymentInformation',
+   'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Order Details',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -58,10 +54,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 150,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -80,7 +74,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'fieldtype' => 'datetime',
              'queryColumnType' => 'bigint(20)',
              'columnType' => 'bigint(20)',
-             'phpdocType' => '\\Carbon\\Carbon',
              'defaultValue' => NULL,
              'useCurrentDate' => false,
              'name' => 'paymentStart',
@@ -97,13 +90,13 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
              'fieldtype' => 'datetime',
              'queryColumnType' => 'bigint(20)',
              'columnType' => 'bigint(20)',
-             'phpdocType' => '\\Carbon\\Carbon',
              'defaultValue' => NULL,
              'useCurrentDate' => false,
              'name' => 'paymentFinish',
@@ -120,15 +113,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => NULL,
              'showCharCount' => NULL,
@@ -146,6 +140,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
@@ -195,7 +190,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'queryColumnType' => 'varchar(255)',
              'columnType' => 'varchar(255)',
              'columnLength' => 190,
-             'phpdocType' => 'string',
              'dynamicOptions' => false,
              'name' => 'paymentState',
              'title' => 'Payment State',
@@ -211,15 +205,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => NULL,
              'showCharCount' => NULL,
@@ -237,6 +232,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           5 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
@@ -248,7 +244,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'excludeFromSearchIndex' => false,
              'queryColumnType' => 'longtext',
              'columnType' => 'longtext',
-             'phpdocType' => 'string',
              'name' => 'message',
              'title' => 'Message',
              'tooltip' => '',
@@ -274,7 +269,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'excludeFromSearchIndex' => false,
              'queryColumnType' => 'longtext',
              'columnType' => 'longtext',
-             'phpdocType' => 'string',
              'name' => 'providerData',
              'title' => 'Provider Data',
              'tooltip' => 'JSON',
@@ -293,7 +287,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           7 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'additionalDataWirecard',
              'type' => NULL,
              'region' => '',
@@ -311,10 +304,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -332,15 +325,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -358,15 +352,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -384,14 +379,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           8 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'additionalDataDatatrans',
              'type' => NULL,
              'region' => '',
@@ -409,10 +406,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -430,15 +427,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -456,6 +454,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
@@ -467,7 +466,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'excludeFromSearchIndex' => false,
                  'queryColumnType' => 'longtext',
                  'columnType' => 'longtext',
-                 'phpdocType' => 'string',
                  'name' => 'provider_datatrans_responseXML',
                  'title' => 'ResponseXML',
                  'tooltip' => '',
@@ -485,11 +483,12 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           9 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'additionalDataPayPal',
              'type' => NULL,
              'region' => '',
@@ -507,10 +506,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -528,15 +527,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -554,15 +554,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -580,14 +581,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           10 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'additionalDataPayU',
              'type' => NULL,
              'region' => '',
@@ -605,10 +608,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -626,15 +629,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -652,14 +656,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           11 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'additionalDataOGone',
              'type' => NULL,
              'region' => '',
@@ -677,10 +683,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -698,15 +704,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -724,15 +731,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 500,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -750,15 +758,24 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
+         'labelWidth' => 150,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
-   'dao' => NULL,
+   'generateTypeDeclarations' => true,
 ));

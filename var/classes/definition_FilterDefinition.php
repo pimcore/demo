@@ -1,7 +1,6 @@
 <?php 
 
 /** 
-* Generated at: 2020-01-23T11:18:21+01:00
 * Inheritance: yes
 * Variants: no
 
@@ -30,10 +29,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'FilterDefinition',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1579774701,
+   'modificationDate' => 1612176177,
    'userOwner' => 0,
-   'userModification' => 2,
+   'userModification' => 1,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinition',
+   'implementsInterfaces' => '',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -44,20 +44,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => true,
    'allowVariants' => NULL,
    'showVariants' => false,
-   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -86,10 +83,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
-             'labelWidth' => 100,
              'layout' => '',
              'border' => false,
-             'icon' => NULL,
              'name' => 'General',
              'type' => '',
              'region' => '',
@@ -129,7 +124,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
-                 'labelWidth' => 150,
                  'name' => 'Default Product List Options',
                  'type' => NULL,
                  'region' => NULL,
@@ -173,7 +167,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'defaultValue' => NULL,
                      'queryColumnType' => 'double',
                      'columnType' => 'double',
-                     'phpdocType' => 'float',
                      'integer' => false,
                      'unsigned' => false,
                      'minValue' => NULL,
@@ -195,6 +188,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                   2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
@@ -219,7 +213,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
-                     'phpdocType' => 'string',
                      'dynamicOptions' => false,
                      'name' => 'defaultOrderByInheritance',
                      'title' => 'inherit Default OrderBy',
@@ -235,11 +228,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                   3 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
                      'fieldtype' => 'fieldcollections',
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Fieldcollection',
                      'allowedTypes' => 
                     array (
                       0 => 'OrderByFields',
@@ -268,11 +261,12 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   )),
                 ),
                  'locked' => false,
+                 'labelWidth' => 150,
+                 'labelAlign' => 'left',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
-                 'labelWidth' => 155,
                  'name' => 'Order By Options',
                  'type' => NULL,
                  'region' => NULL,
@@ -322,7 +316,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'excludeFromSearchIndex' => false,
                      'queryColumnType' => 'longtext',
                      'columnType' => 'longtext',
-                     'phpdocType' => 'string',
                      'name' => 'orderByAsc',
                      'title' => 'OrderBy',
                      'tooltip' => '',
@@ -351,7 +344,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'excludeFromSearchIndex' => false,
                      'queryColumnType' => 'longtext',
                      'columnType' => 'longtext',
-                     'phpdocType' => 'string',
                      'name' => 'orderByDesc',
                      'title' => 'OrderBy Descending',
                      'tooltip' => '',
@@ -369,11 +361,12 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   )),
                 ),
                  'locked' => false,
+                 'labelWidth' => 155,
+                 'labelAlign' => 'left',
               )),
               3 => 
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
-                 'labelWidth' => 150,
                  'name' => 'Additional Options',
                  'type' => NULL,
                  'region' => NULL,
@@ -416,7 +409,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'defaultValue' => 0,
                      'queryColumnType' => 'tinyint(1)',
                      'columnType' => 'tinyint(1)',
-                     'phpdocType' => 'boolean',
                      'name' => 'ajaxReload',
                      'title' => 'ajaxReload',
                      'tooltip' => '',
@@ -431,6 +423,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                   2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Checkbox::__set_state(array(
@@ -438,7 +431,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'defaultValue' => 0,
                      'queryColumnType' => 'tinyint(1)',
                      'columnType' => 'tinyint(1)',
-                     'phpdocType' => 'boolean',
                      'name' => 'infiniteScroll',
                      'title' => 'Infinite Scroll',
                      'tooltip' => '',
@@ -453,6 +445,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                   3 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -461,7 +454,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'defaultValue' => NULL,
                      'queryColumnType' => 'double',
                      'columnType' => 'double',
-                     'phpdocType' => 'float',
                      'integer' => false,
                      'unsigned' => false,
                      'minValue' => NULL,
@@ -483,20 +475,24 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                 ),
                  'locked' => false,
+                 'labelWidth' => 150,
+                 'labelAlign' => 'left',
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
+             'labelWidth' => 100,
+             'labelAlign' => 'left',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
-             'labelWidth' => 150,
              'layout' => '',
              'border' => false,
-             'icon' => NULL,
              'name' => 'Preconditions',
              'type' => '',
              'region' => '',
@@ -556,7 +552,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 190,
-                 'phpdocType' => 'string',
                  'dynamicOptions' => false,
                  'name' => 'conditionsInheritance',
                  'title' => 'inherit Conditions',
@@ -572,11 +567,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
                  'fieldtype' => 'fieldcollections',
-                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Fieldcollection',
                  'allowedTypes' => 
                 array (
                   0 => 'FilterSelectFromMultiSelect',
@@ -614,14 +609,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
-             'labelWidth' => 150,
              'layout' => '',
              'border' => false,
-             'icon' => NULL,
              'name' => 'Filters',
              'type' => '',
              'region' => '',
@@ -681,7 +677,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 190,
-                 'phpdocType' => 'string',
                  'dynamicOptions' => false,
                  'name' => 'filtersInheritance',
                  'title' => 'inherit Filters',
@@ -697,11 +692,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
                  'fieldtype' => 'fieldcollections',
-                 'phpdocType' => '\\Pimcore\\Model\\DataObject\\Fieldcollection',
                  'allowedTypes' => 
                 array (
                   0 => 'FilterCategory',
@@ -739,14 +734,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'fieldtype' => 'panel',
-             'labelWidth' => 150,
              'layout' => '',
              'border' => false,
-             'icon' => NULL,
              'name' => 'Recommendations',
              'type' => '',
              'region' => '',
@@ -794,7 +790,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   'id' => 'int(11)',
                   'type' => 'enum(\'document\',\'asset\',\'object\')',
                 ),
-                 'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
                  'objectsAllowed' => true,
                  'assetsAllowed' => false,
                  'assetTypes' => 
@@ -804,7 +799,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'documentTypes' => 
                 array (
                 ),
-                 'lazyLoading' => false,
                  'classes' => 
                 array (
                   0 => 
@@ -830,7 +824,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'fieldtype' => 'fieldset',
-                 'labelWidth' => 150,
                  'name' => 'Layout',
                  'type' => '',
                  'region' => '',
@@ -867,7 +860,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'queryColumnType' => 'varchar',
                      'columnType' => 'varchar',
                      'columnLength' => 190,
-                     'phpdocType' => 'string',
                      'dynamicOptions' => false,
                      'name' => 'similarityFieldsInheritance',
                      'title' => 'inherit SimilarityFields',
@@ -883,11 +875,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
+                     'defaultValueGenerator' => '',
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
                      'fieldtype' => 'fieldcollections',
-                     'phpdocType' => '\\Pimcore\\Model\\DataObject\\Fieldcollection',
                      'allowedTypes' => 
                     array (
                       0 => 'SimilarityField',
@@ -916,21 +908,34 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   )),
                 ),
                  'locked' => false,
+                 'labelWidth' => 150,
+                 'labelAlign' => 'left',
               )),
             ),
              'locked' => false,
+             'icon' => NULL,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
         ),
          'locked' => false,
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
    'icon' => '/bundles/pimcoreadmin/img/flat-color-icons/empty_filter.svg',
    'previewUrl' => '',
    'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
+   'compositeIndices' => 
+  array (
+  ),
+   'generateTypeDeclarations' => true,
+   'showFieldLookup' => false,
    'propertyVisibility' => 
   array (
     'grid' => 
@@ -952,5 +957,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'creationDate' => false,
     ),
   ),
+   'enableGridLocking' => false,
    'dao' => NULL,
 ));
