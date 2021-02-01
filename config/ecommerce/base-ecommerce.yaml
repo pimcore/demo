@@ -242,28 +242,6 @@ pimcore_ecommerce_framework:
                         publicAccessKey: s-pub-2a10GBUCSfOqqtyulwXJub7e8m0EwDbP
                         privateAccessKey: s-priv-2a10PcxkejMP6YJwHH1shzvHyOd8PrOt
 
-
-            datatrans:
-                # Service id of payment provider implementation
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Datatrans
-
-                # Currently active profile
-                profile: sandbox
-
-                # Available profiles with options
-                profiles:
-                    sandbox:
-                        merchant_id: 1000011011
-                        sign: 30916165706580013
-                        use_digital_signature: false
-                        recurring_payment_enabled: true
-                    live:
-                        merchant_id: merchant_id_id
-                        sign: sign_id
-                        use_digital_signature: false
-                        mode: live
-
-
     # tracking manager - define which trackers (e.g. Google Analytics Universal Ecommerce) are active and should
     # be called when you track something via TrackingManager
     tracking_manager:

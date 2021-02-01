@@ -201,49 +201,6 @@ CREATE TABLE `object_brick_query_OAuth2Token_3` (
 
 
 
-DROP TABLE IF EXISTS `object_brick_query_PaymentProviderDatatrans_EF_OSO`;
-CREATE TABLE `object_brick_query_PaymentProviderDatatrans_EF_OSO` (
-  `o_id` int(11) NOT NULL DEFAULT '0',
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `configurationKey` varchar(190) DEFAULT NULL,
-  `auth_aliasCC` varchar(255) DEFAULT NULL,
-  `auth_maskedCC` varchar(255) DEFAULT NULL,
-  `auth_pmethod` varchar(255) DEFAULT NULL,
-  `auth_expm` varchar(255) DEFAULT NULL,
-  `auth_expy` varchar(255) DEFAULT NULL,
-  `auth_reqtype` varchar(255) DEFAULT NULL,
-  `auth_uppTransactionId` varchar(255) DEFAULT NULL,
-  `auth_amount` varchar(255) DEFAULT NULL,
-  `auth_currency` varchar(255) DEFAULT NULL,
-  `auth_refno` varchar(255) DEFAULT NULL,
-  `paymentFinished` bigint(20) DEFAULT NULL,
-  `sourceOrder__id` int(11) DEFAULT NULL,
-  `sourceOrder__type` enum('document','asset','object') DEFAULT NULL,
-  PRIMARY KEY (`o_id`,`fieldname`),
-  KEY `o_id` (`o_id`),
-  KEY `fieldname` (`fieldname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-DROP TABLE IF EXISTS `object_brick_query_PaymentProviderHeidelPay_EF_OSO`;
-CREATE TABLE `object_brick_query_PaymentProviderHeidelPay_EF_OSO` (
-  `o_id` int(11) NOT NULL DEFAULT '0',
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `auth_paymentMethod` varchar(190) DEFAULT NULL,
-  `auth_amount` varchar(190) DEFAULT NULL,
-  `auth_currency` varchar(190) DEFAULT NULL,
-  `auth_paymentType` varchar(190) DEFAULT NULL,
-  `auth_paymentReference` varchar(190) DEFAULT NULL,
-  `auth_clientMessage` varchar(190) DEFAULT NULL,
-  `auth_merchantMessage` varchar(190) DEFAULT NULL,
-  `auth_chargeId` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`o_id`,`fieldname`),
-  KEY `o_id` (`o_id`),
-  KEY `fieldname` (`fieldname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 DROP TABLE IF EXISTS `object_brick_query_PaymentProviderUnzer_EF_OSO`;
 CREATE TABLE `object_brick_query_PaymentProviderUnzer_EF_OSO` (
   `o_id` int(11) NOT NULL DEFAULT '0',
@@ -387,46 +344,6 @@ CREATE TABLE `object_brick_store_OAuth2Token_3` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-
-DROP TABLE IF EXISTS `object_brick_store_PaymentProviderDatatrans_EF_OSO`;
-CREATE TABLE `object_brick_store_PaymentProviderDatatrans_EF_OSO` (
-  `o_id` int(11) NOT NULL DEFAULT '0',
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `configurationKey` varchar(190) DEFAULT NULL,
-  `auth_aliasCC` varchar(255) DEFAULT NULL,
-  `auth_maskedCC` varchar(255) DEFAULT NULL,
-  `auth_pmethod` varchar(255) DEFAULT NULL,
-  `auth_expm` varchar(255) DEFAULT NULL,
-  `auth_expy` varchar(255) DEFAULT NULL,
-  `auth_reqtype` varchar(255) DEFAULT NULL,
-  `auth_uppTransactionId` varchar(255) DEFAULT NULL,
-  `auth_amount` varchar(255) DEFAULT NULL,
-  `auth_currency` varchar(255) DEFAULT NULL,
-  `auth_refno` varchar(255) DEFAULT NULL,
-  `paymentFinished` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`o_id`,`fieldname`),
-  KEY `o_id` (`o_id`),
-  KEY `fieldname` (`fieldname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-DROP TABLE IF EXISTS `object_brick_store_PaymentProviderHeidelPay_EF_OSO`;
-CREATE TABLE `object_brick_store_PaymentProviderHeidelPay_EF_OSO` (
-  `o_id` int(11) NOT NULL DEFAULT '0',
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `auth_paymentMethod` varchar(190) DEFAULT NULL,
-  `auth_amount` varchar(190) DEFAULT NULL,
-  `auth_currency` varchar(190) DEFAULT NULL,
-  `auth_paymentType` varchar(190) DEFAULT NULL,
-  `auth_paymentReference` varchar(190) DEFAULT NULL,
-  `auth_clientMessage` varchar(190) DEFAULT NULL,
-  `auth_merchantMessage` varchar(190) DEFAULT NULL,
-  `auth_chargeId` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`o_id`,`fieldname`),
-  KEY `o_id` (`o_id`),
-  KEY `fieldname` (`fieldname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `object_brick_store_PaymentProviderUnzer_EF_OSO`;
@@ -971,9 +888,6 @@ CREATE TABLE `object_collection_PaymentInfo_EF_OSO` (
   `internalPaymentId` varchar(255) DEFAULT NULL,
   `message` longtext,
   `providerData` longtext,
-  `provider_datatrans_acqAuthorizationCode` varchar(255) DEFAULT NULL,
-  `provider_datatrans_amount` varchar(255) DEFAULT NULL,
-  `provider_datatrans_responseXML` longtext,
   `provider_unzer_amount` varchar(255) DEFAULT NULL,
   `provider_unzer_PaymentType` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),

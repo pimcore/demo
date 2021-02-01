@@ -3944,9 +3944,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'phpdocType' => '\\Pimcore\\Model\\DataObject\\Objectbrick',
                  'allowedTypes' =>
                 array (
-                  1 => 'PaymentProviderDatatrans',
-                  2 => 'PaymentProviderHeidelPay',
-                  3 => 'PaymentProviderUnzer'
+                  1 => 'PaymentProviderUnzer'
                 ),
                  'maxItems' => '',
                  'border' => false,

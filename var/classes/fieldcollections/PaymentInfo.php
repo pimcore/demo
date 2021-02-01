@@ -13,9 +13,8 @@ Fields Summary:
  - internalPaymentId [input]
  - message [textarea]
  - providerData [textarea]
- - provider_datatrans_acqAuthorizationCode [input]
- - provider_datatrans_amount [input]
- - provider_datatrans_responseXML [textarea]
+ - provider_unzer_amount [input]
+ - provider_unzer_PaymentType [textarea]
 */
 
 
@@ -280,104 +279,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'visibleSearch' => false,
           )),
           7 =>
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
-             'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
-             'name' => 'additionalDataDatatrans',
-             'type' => NULL,
-             'region' => '',
-             'title' => 'Additional Datatrans Data',
-             'width' => NULL,
-             'height' => NULL,
-             'collapsible' => true,
-             'collapsed' => true,
-             'bodyStyle' => '',
-             'datatype' => 'layout',
-             'permissions' => NULL,
-             'childs' =>
-            array (
-              0 =>
-              Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                 'fieldtype' => 'input',
-                 'width' => 500,
-                 'queryColumnType' => 'varchar',
-                 'columnType' => 'varchar',
-                 'columnLength' => 255,
-                 'phpdocType' => 'string',
-                 'regex' => '',
-                 'unique' => NULL,
-                 'showCharCount' => NULL,
-                 'name' => 'provider_datatrans_acqAuthorizationCode',
-                 'title' => 'ACQ Authorization Code',
-                 'tooltip' => '',
-                 'mandatory' => false,
-                 'noteditable' => true,
-                 'index' => false,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'datatype' => 'data',
-                 'relationType' => false,
-                 'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
-              )),
-              1 =>
-              Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                 'fieldtype' => 'input',
-                 'width' => 500,
-                 'queryColumnType' => 'varchar',
-                 'columnType' => 'varchar',
-                 'columnLength' => 255,
-                 'phpdocType' => 'string',
-                 'regex' => '',
-                 'unique' => NULL,
-                 'showCharCount' => NULL,
-                 'name' => 'provider_datatrans_amount',
-                 'title' => 'Amount',
-                 'tooltip' => '',
-                 'mandatory' => false,
-                 'noteditable' => true,
-                 'index' => false,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'datatype' => 'data',
-                 'relationType' => false,
-                 'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
-              )),
-              2 =>
-              Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
-                 'fieldtype' => 'textarea',
-                 'width' => 500,
-                 'height' => 300,
-                 'maxLength' => NULL,
-                 'showCharCount' => NULL,
-                 'excludeFromSearchIndex' => false,
-                 'queryColumnType' => 'longtext',
-                 'columnType' => 'longtext',
-                 'phpdocType' => 'string',
-                 'name' => 'provider_datatrans_responseXML',
-                 'title' => 'ResponseXML',
-                 'tooltip' => '',
-                 'mandatory' => false,
-                 'noteditable' => true,
-                 'index' => false,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'datatype' => 'data',
-                 'relationType' => false,
-                 'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
-              )),
-            ),
-             'locked' => false,
-          )),
-          8 =>
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
              'labelWidth' => 150,
