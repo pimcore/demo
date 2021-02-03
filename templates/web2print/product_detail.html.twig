@@ -10,7 +10,7 @@
             <div class="print-col-6">
                 {% if(product.mainImage) %}
                     <div class="">
-                        {{ product.mainImage.thumbnail('print_product_detail').getHTML({class: 'img-fluid'})|raw }}
+                        {{ product.mainImage.thumbnail('print_product_detail').getHTML({imgAttributes: {class: 'img-fluid'}})|raw }}
 
                         {% set additionalImages = product.additionalImages %}
                         {%  if(additionalImages) %}
@@ -20,7 +20,7 @@
                                 {% for image in additionalImages %}
 
                                     <div class="print-col-6 mt-3">
-                                        {{ image.thumbnail('print_product_detail_small').getHTML({class: 'img-fluid'})|raw }}
+                                        {{ image.thumbnail('print_product_detail_small').getHTML({imgAttributes: {class: 'img-fluid'}})|raw }}
                                     </div>
 
                                 {% endfor %}
@@ -36,7 +36,7 @@
                 <div class="print-row d-none d-block mb-3">
                     <div class="print-col-12">
                         {% if(product.manufacturer and product.manufacturer.logo)  %}
-                            {{ product.manufacturer.logo.thumbnail('print_product_detail_manufacturer').getHTML({class: 'img-fluid float-right'})|raw }}
+                            {{ product.manufacturer.logo.thumbnail('print_product_detail_manufacturer').getHTML({imgAttributes: {class: 'img-fluid float-right'}})|raw }}
                         {%  endif  %}
 
                         <h1 class="d-block">{{ product.oSName }}</h1>

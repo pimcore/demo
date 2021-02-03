@@ -10,7 +10,7 @@
 
         <div class="d-md-none mt-3">
             {% if(product.manufacturer and product.manufacturer.logo)  %}
-                {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({class: 'img-fluid float-right'})|raw }}
+                {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({imgAttributes: {class: 'img-fluid float-right'}})|raw }}
             {%  endif  %}
             <div class="page-header">
                 <h1>{{ product.oSName }}</h1>
@@ -25,7 +25,7 @@
 
                         <div class="p-3">
                             <a href="{{ product.mainImage.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
-                                {{ product.mainImage.thumbnail('product_detail').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
+                                {{ product.mainImage.thumbnail('product_detail').getHTML({imgAttributes: {class: 'img-thumbnail1 img-fluid'}})|raw }}
                             </a>
 
                             {% block additionalimages %}
@@ -39,7 +39,7 @@
                                             <div class="col-4 mt-3">
 
                                                 <a href="{{ image.getThumbnail('galleryLightbox')|raw }}" class="thumbnail">
-                                                    {{ image.thumbnail('product_detail_small').getHTML({class: 'img-thumbnail1 img-fluid'})|raw }}
+                                                    {{ image.thumbnail('product_detail_small').getHTML({imgAttributes: {class: 'img-thumbnail1 img-fluid'}})|raw }}
                                                 </a>
 
                                             </div>
@@ -61,7 +61,7 @@
                         <div class="row d-none d-md-block mb-3">
                             <div class="col-12">
                                 {% if(product.manufacturer and product.manufacturer.logo)  %}
-                                    {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({class: 'img-fluid float-right'})|raw }}
+                                    {{ product.manufacturer.logo.thumbnail('product_detail_manufacturer').getHTML({imgAttributes: {class: 'img-fluid float-right'}})|raw }}
                                 {%  endif  %}
 
                                 <h2 class="">{{ product.oSName }}</h2>
