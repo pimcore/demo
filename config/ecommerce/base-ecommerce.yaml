@@ -213,7 +213,7 @@ pimcore_ecommerce_framework:
         tenants:
             default:
                 payment:
-                    provider: heidelpay
+                    provider: unzer
                 steps:
                     deliveryaddress:
                         class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
@@ -234,57 +234,13 @@ pimcore_ecommerce_framework:
         # Configuration of payment providers, key is name of provider
         providers:
 
-            heidelpay:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Heidelpay
+            unzer:
+                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Unzer
                 profile: sandbox
                 profiles:
                     sandbox:
                         publicAccessKey: s-pub-2a10GBUCSfOqqtyulwXJub7e8m0EwDbP
                         privateAccessKey: s-priv-2a10PcxkejMP6YJwHH1shzvHyOd8PrOt
-
-
-            datatrans:
-                # Service id of payment provider implementation
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Datatrans
-
-                # Currently active profile
-                profile: sandbox
-
-                # Available profiles with options
-                profiles:
-                    sandbox:
-                        merchant_id: 1000011011
-                        sign: 30916165706580013
-                        use_digital_signature: false
-                        recurring_payment_enabled: true
-                    live:
-                        merchant_id: merchant_id_id
-                        sign: sign_id
-                        use_digital_signature: false
-                        mode: live
-
-            qpay:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\QPay
-                profile: sandbox
-                profiles:
-                    sandbox:
-                        secret: B8AKTPWBRMNBV455FG6M2DANE99WU2
-                        customer: D200001
-                        toolkit_password: jcv45z
-                        # define optional properties which can be used in initPayment (see Wirecard documentation)
-                        optional_payment_properties:
-                            - paymentType
-                            - financialInstitution
-                            - transactionIdentifier # necessary for recurPayment based on SEPA DIRECT DEBIT
-                        recurring_payment_enabled: true
-
-                        # set hash algorithm to HMAC-SHA512
-                        hash_algorithm:
-                            hmac_sha512
-
-                    live:
-                        secret: secret
-                        customer: customer
 
     # tracking manager - define which trackers (e.g. Google Analytics Universal Ecommerce) are active and should
     # be called when you track something via TrackingManager

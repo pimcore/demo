@@ -20,8 +20,8 @@ use App\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\V7\CheckoutManagerInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Model\AbstractOrder;
-use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Heidelpay;
-use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\HeidelpayRequest;
+use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Unzer;
+use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\UnzerRequest;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentResponse\UrlResponse;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
@@ -55,7 +55,7 @@ class PaymentController extends FrontendController
         $paymentProvider = $checkoutManager->getPayment();
 
         $accessKey = '';
-        if ($paymentProvider instanceof Heidelpay) {
+        if ($paymentProvider instanceof Unzer) {
             $accessKey = $paymentProvider->getPublicAccessKey();
         }
 
@@ -94,7 +94,7 @@ class PaymentController extends FrontendController
              */
             $order = $paymentInfo->getObject();
 
-            $paymentConfig = new HeidelpayRequest();
+            $paymentConfig = new UnzerRequest();
             $paymentConfig->setInternalPaymentId($paymentInfo->getInternalPaymentId());
             $paymentConfig->setPaymentReference($request->get('paymentId'));
             $paymentConfig->setReturnUrl($this->generateUrl('shop-commit-order', ['order' => $order->getOrdernumber()], UrlGeneratorInterface::ABSOLUTE_URL));
