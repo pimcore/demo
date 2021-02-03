@@ -3,7 +3,7 @@
     <a href="{{ detailLink }}" class="text-decoration-none text-dark">
         {% if(product.mainImage) %}
         <div class="product-img">
-            {{ product.mainImage.thumbnail('grid').html({class: 'img-fluid w-100'}) | raw }}
+            {{ product.mainImage.thumbnail('grid').html({imgAttributes: {class: 'img-fluid w-100'}}) | raw }}
         </div>
         {% endif %}
 
