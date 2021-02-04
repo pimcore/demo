@@ -6293,16 +6293,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "73da3074dd6788eb9c9fa9341ecfa964effcd351"
+                "reference": "a56bf458e4dfa6da4f7af3c7c92f878b9f06910f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/73da3074dd6788eb9c9fa9341ecfa964effcd351",
-                "reference": "73da3074dd6788eb9c9fa9341ecfa964effcd351",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/a56bf458e4dfa6da4f7af3c7c92f878b9f06910f",
+                "reference": "a56bf458e4dfa6da4f7af3c7c92f878b9f06910f",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": "^6.8",
+                "pimcore/pimcore": "^6.8 || ^10.0",
                 "webonyx/graphql-php": "^0.13"
             },
             "require-dev": {
@@ -6337,7 +6337,7 @@
                 "issues": "https://github.com/pimcore/data-hub/issues",
                 "source": "https://github.com/pimcore/data-hub/tree/master"
             },
-            "time": "2021-02-02T08:21:07+00:00"
+            "time": "2021-02-03T16:22:30+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -6418,20 +6418,20 @@
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "v3.4.4",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "69bcc5beb2c9843dd43bdb7d99b6c9b2e2191222"
+                "reference": "a6ea6d11e01d6da418578181271511eb5830dd8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/69bcc5beb2c9843dd43bdb7d99b6c9b2e2191222",
-                "reference": "69bcc5beb2c9843dd43bdb7d99b6c9b2e2191222",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/a6ea6d11e01d6da418578181271511eb5830dd8b",
+                "reference": "a6ea6d11e01d6da418578181271511eb5830dd8b",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": "^6.8",
+                "pimcore/pimcore": "^6.8 || ^10.0",
                 "symfony/symfony": "^4 || ^5"
             },
             "type": "pimcore-bundle",
@@ -6456,9 +6456,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/output-data-config-toolkit/issues",
-                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v3.4.4"
+                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v3.5.0"
             },
-            "time": "2020-11-18T11:08:09+00:00"
+            "time": "2021-02-03T15:56:05+00:00"
         },
         {
             "name": "pimcore/pimcore",
@@ -10245,23 +10245,24 @@
     "packages-dev": [
         {
             "name": "behat/gherkin",
-            "version": "v4.7.1",
+            "version": "v4.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "987bcdc3d29ba433e6bd4b1db4ae59737ba3dacd"
+                "reference": "d1ff9aa23bb280e8aee9118d42eec386d6f851f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/987bcdc3d29ba433e6bd4b1db4ae59737ba3dacd",
-                "reference": "987bcdc3d29ba433e6bd4b1db4ae59737ba3dacd",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/d1ff9aa23bb280e8aee9118d42eec386d6f851f7",
+                "reference": "d1ff9aa23bb280e8aee9118d42eec386d6f851f7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.7|~6|~7",
+                "cucumber/cucumber": "dev-gherkin-16.0.0",
+                "phpunit/phpunit": "^5.7.1|~6|~7",
                 "symfony/phpunit-bridge": "~2.7|~3|~4",
                 "symfony/yaml": "~2.3|~3|~4"
             },
@@ -10302,9 +10303,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.7.1"
+                "source": "https://github.com/Behat/Gherkin/tree/v4.7.2"
             },
-            "time": "2021-01-26T16:24:32+00:00"
+            "time": "2021-02-03T16:10:01+00:00"
         },
         {
             "name": "cache/integration-tests",
