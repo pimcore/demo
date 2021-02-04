@@ -1,34 +1,30 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T12:49:04+02:00
-* IP: 192.168.9.96
-
-
 Fields Summary: 
- - field [indexFieldSelectionCombo]
- - weight [numeric]
+- field [indexFieldSelectionCombo]
+- weight [numeric]
 */ 
 
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+   'dao' => NULL,
    'key' => 'SimilarityField',
    'parentClass' => '',
+   'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Filter Definition',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -39,10 +35,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 100,
          'layout' => '',
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => '',
          'region' => '',
@@ -167,7 +161,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'queryColumnType' => 'varchar(255)',
              'columnType' => 'varchar(255)',
              'columnLength' => 190,
-             'phpdocType' => 'string',
              'dynamicOptions' => false,
              'name' => 'field',
              'title' => 'Field',
@@ -183,6 +176,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -191,7 +185,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'defaultValue' => 1,
              'queryColumnType' => 'double',
              'columnType' => 'double',
-             'phpdocType' => 'float',
              'integer' => false,
              'unsigned' => false,
              'minValue' => NULL,
@@ -213,12 +206,19 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
-   'dao' => NULL,
+   'generateTypeDeclarations' => true,
 ));

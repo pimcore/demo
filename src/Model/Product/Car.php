@@ -26,7 +26,7 @@ class Car extends \Pimcore\Model\DataObject\Car
     /**
      * @return string
      */
-    public function getOSName()
+    public function getOSName(): ?string
     {
         return ($this->getManufacturer() ? $this->getManufacturer()->getName() . ' ' : '') . $this->getName();
     }
@@ -52,7 +52,7 @@ class Car extends \Pimcore\Model\DataObject\Car
     /**
      * @return int|string
      */
-    public function getOSProductNumber()
+    public function getOSProductNumber(): ?string
     {
         return $this->getId();
     }
@@ -60,7 +60,7 @@ class Car extends \Pimcore\Model\DataObject\Car
     /**
      * @return string
      */
-    public function getOSIndexType()
+    public function getOSIndexType(): ?string
     {
         return $this->getObjectType() === self::OBJECT_TYPE_ACTUAL_CAR ? self::OBJECT_TYPE_VARIANT : self::OBJECT_TYPE_OBJECT;
     }

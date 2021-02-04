@@ -23,7 +23,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
     /**
      * @return string
      */
-    public function getOSName()
+    public function getOSName(): ?string
     {
         return $this->getGeneratedName();
     }
@@ -39,7 +39,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
     /**
      * @return int|string
      */
-    public function getOSProductNumber()
+    public function getOSProductNumber(): ?string
     {
         return $this->getErpNumber();
     }
@@ -47,7 +47,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
     /**
      * @return string
      */
-    public function getOSIndexType()
+    public function getOSIndexType(): ?string
     {
         return self::OBJECT_TYPE_VARIANT;
     }
@@ -63,7 +63,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
     /**
      * @return Category[]
      */
-    public function getCategories()
+    public function getCategories(): ?array
     {
         return [$this->getMainCategory()];
     }

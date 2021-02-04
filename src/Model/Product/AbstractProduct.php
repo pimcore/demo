@@ -27,12 +27,12 @@ abstract class AbstractProduct extends \Pimcore\Bundle\EcommerceFrameworkBundle\
         return null;
     }
 
-    public function isActive($inProductList = false)
+    public function isActive(bool $inProductList = false): bool
     {
         return $this->isPublished();
     }
 
-    public function getPriceSystemName()
+    public function getPriceSystemName(): ?string
     {
         return 'default';
     }

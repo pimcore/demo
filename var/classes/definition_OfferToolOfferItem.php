@@ -1,7 +1,6 @@
 <?php 
 
 /** 
-* Generated at: 2020-01-23T11:18:22+01:00
 * Inheritance: no
 * Variants: no
 
@@ -26,10 +25,11 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OfferToolOfferItem',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1579774702,
+   'modificationDate' => 1612176206,
    'userOwner' => 0,
-   'userModification' => 2,
+   'userModification' => 1,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\OfferTool\\AbstractOfferItem',
+   'implementsInterfaces' => '',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
@@ -40,20 +40,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
-   'cacheRawRelationData' => false,
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -64,10 +61,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 100,
          'layout' => '',
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => '',
          'region' => '',
@@ -107,7 +102,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'Product Information',
              'type' => NULL,
              'region' => NULL,
@@ -132,7 +126,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   'id' => 'int(11)',
                   'type' => 'enum(\'document\',\'asset\',\'object\')',
                 ),
-                 'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
                  'objectsAllowed' => true,
                  'assetsAllowed' => false,
                  'assetTypes' => 
@@ -142,7 +135,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'documentTypes' => 
                 array (
                 ),
-                 'lazyLoading' => false,
                  'classes' => 
                 array (
                 ),
@@ -165,10 +157,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 400,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -186,15 +178,16 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 400,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -212,14 +205,16 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'Price Information',
              'type' => NULL,
              'region' => NULL,
@@ -240,7 +235,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValue' => NULL,
                  'queryColumnType' => 'double',
                  'columnType' => 'double',
-                 'phpdocType' => 'float',
                  'integer' => false,
                  'unsigned' => false,
                  'minValue' => NULL,
@@ -262,6 +256,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -270,7 +265,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValue' => NULL,
                  'queryColumnType' => 'double',
                  'columnType' => 'double',
-                 'phpdocType' => 'float',
                  'integer' => false,
                  'unsigned' => false,
                  'minValue' => NULL,
@@ -292,6 +286,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
@@ -316,7 +311,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 190,
-                 'phpdocType' => 'string',
                  'dynamicOptions' => false,
                  'name' => 'DiscountType',
                  'title' => 'Discount Type',
@@ -332,6 +326,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               3 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -340,7 +335,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValue' => NULL,
                  'queryColumnType' => 'double',
                  'columnType' => 'double',
-                 'phpdocType' => 'float',
                  'integer' => false,
                  'unsigned' => false,
                  'minValue' => NULL,
@@ -362,6 +356,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
               4 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
@@ -370,7 +365,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValue' => NULL,
                  'queryColumnType' => 'double',
                  'columnType' => 'double',
-                 'phpdocType' => 'float',
                  'integer' => false,
                  'unsigned' => false,
                  'minValue' => NULL,
@@ -392,9 +386,12 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
@@ -403,7 +400,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'height' => '',
              'maxItems' => '',
              'queryColumnType' => 'text',
-             'phpdocType' => 'array',
              'relationType' => true,
              'visibleFields' => NULL,
              'allowToCreateNewObject' => true,
@@ -411,7 +407,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'visibleFieldDefinitions' => 
             array (
             ),
-             'lazyLoading' => true,
              'classes' => 
             array (
               0 => 
@@ -444,7 +439,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'excludeFromSearchIndex' => false,
              'queryColumnType' => 'longtext',
              'columnType' => 'longtext',
-             'phpdocType' => 'string',
              'name' => 'comment',
              'title' => 'Comment',
              'tooltip' => '',
@@ -463,7 +457,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
           5 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'labelWidth' => 150,
              'name' => 'System Informations',
              'type' => NULL,
              'region' => NULL,
@@ -481,10 +474,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 400,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -502,21 +495,35 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'labelWidth' => 150,
+             'labelAlign' => 'left',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
    'icon' => '',
    'previewUrl' => '',
    'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
+   'compositeIndices' => 
+  array (
+  ),
+   'generateTypeDeclarations' => true,
+   'showFieldLookup' => false,
    'propertyVisibility' => 
   array (
     'grid' => 
@@ -538,5 +545,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'creationDate' => true,
     ),
   ),
+   'enableGridLocking' => false,
    'dao' => NULL,
 ));

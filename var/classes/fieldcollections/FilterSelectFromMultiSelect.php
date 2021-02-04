@@ -1,35 +1,31 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-14T16:41:27+02:00
-* IP: 192.168.9.96
-
-
 Fields Summary: 
- - label [input]
- - field [indexFieldSelection]
- - scriptPath [input]
+- label [input]
+- field [indexFieldSelection]
+- scriptPath [input]
 */ 
 
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+   'dao' => NULL,
    'key' => 'FilterSelectFromMultiSelect',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractFilterDefinitionType',
+   'implementsInterfaces' => '',
    'title' => '',
    'group' => 'FilterTypes',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -40,10 +36,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 100,
          'layout' => '',
          'border' => false,
-         'icon' => '',
          'name' => 'Layout',
          'type' => '',
          'region' => '',
@@ -84,10 +78,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => NULL,
              'showCharCount' => NULL,
@@ -105,6 +99,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelection::__set_state(array(
@@ -121,7 +116,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
               'field' => 'varchar(200)',
               'preSelect' => 'text',
             ),
-             'phpdocType' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\CoreExtensions\\ObjectData\\IndexFieldSelection',
              'width' => 400,
              'considerTenants' => true,
              'multiPreSelect' => 'remote_single',
@@ -151,10 +145,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 400,
+             'defaultValue' => NULL,
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 255,
-             'phpdocType' => 'string',
              'regex' => '',
              'unique' => NULL,
              'showCharCount' => NULL,
@@ -172,12 +166,19 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'icon' => '',
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
-   'dao' => NULL,
+   'generateTypeDeclarations' => true,
 ));

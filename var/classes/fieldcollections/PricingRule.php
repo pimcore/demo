@@ -1,34 +1,31 @@
 <?php 
 
 /** 
-* Generated at: 2019-08-16T12:48:56+02:00
-* IP: 192.168.9.96
-
-
 Fields Summary: 
- - ruleId [numeric]
- - localizedfields [localizedfields]
+- ruleId [numeric]
+- localizedfields [localizedfields]
+-- name [input]
 */ 
 
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+   'dao' => NULL,
    'key' => 'PricingRule',
    'parentClass' => '',
+   'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Order Details',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
      'title' => NULL,
-     'width' => NULL,
-     'height' => NULL,
+     'width' => 0,
+     'height' => 0,
      'collapsible' => false,
      'collapsed' => false,
      'bodyStyle' => NULL,
@@ -39,10 +36,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 100,
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -63,7 +58,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'defaultValue' => NULL,
              'queryColumnType' => 'double',
              'columnType' => 'double',
-             'phpdocType' => 'float',
              'integer' => false,
              'unsigned' => false,
              'minValue' => NULL,
@@ -85,21 +79,21 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
              'fieldtype' => 'localizedfields',
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
              'childs' => 
             array (
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => 300,
+                 'defaultValue' => NULL,
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 255,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
@@ -117,6 +111,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'name' => 'localizedfields',
@@ -126,7 +121,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'width' => '',
              'height' => '',
              'maxTabs' => NULL,
-             'labelWidth' => NULL,
              'border' => false,
              'provideSplitView' => NULL,
              'tabPosition' => 'top',
@@ -134,7 +128,12 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'referencedFields' => 
             array (
             ),
-             'fieldDefinitionsCache' => NULL,
+             'permissionView' => 
+            array (
+            ),
+             'permissionEdit' => 
+            array (
+            ),
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -147,12 +146,20 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
+             'labelWidth' => NULL,
+             'labelAlign' => 'left',
           )),
         ),
          'locked' => false,
+         'icon' => NULL,
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
-   'dao' => NULL,
+   'generateTypeDeclarations' => true,
 ));
