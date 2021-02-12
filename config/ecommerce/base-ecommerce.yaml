@@ -1,5 +1,4 @@
 imports:
-    - { resource: '@PimcoreEcommerceFrameworkBundle/Resources/config/v7_configurations.yml' }
 #    - { resource: 'elastic-search.yml' }
 
 pimcore:
@@ -197,9 +196,6 @@ pimcore_ecommerce_framework:
     cart_manager:
         tenants:
             default:
-                cart:
-                    factory_options:
-                        cart_readonly_mode: deactivated
                 price_calculator:
                     modificators:
                         Shipping:
