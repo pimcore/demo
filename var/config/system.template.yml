@@ -89,23 +89,3 @@ pimcore_admin:
         color_admin_interface: ''
         login_screen_custom_image: ''
         login_screen_invert_colors: false
-swiftmailer:
-    mailers:
-        pimcore_mailer:
-            transport: sendmail
-            delivery_addresses:
-            host: ''
-            username: ''
-            password: ''
-            port: ''
-            encryption: null
-            auth_mode: null
-        newsletter_mailer:
-            transport: null
-            delivery_addresses:
-            host: ''
-            username: ''
-            password: ''
-            port: ''
-            encryption: null
-            auth_mode: null
