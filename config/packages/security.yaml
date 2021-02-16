@@ -1,0 +1,115 @@
+security:
+    providers:
+        pimcore_admin:
+            id: Pimcore\Bundle\AdminBundle\Security\User\UserProvider
+
+
+        # we use a custom user provider which loads users from the Customer class
+        # the user provider is provided by the CMF
+        cmf_customer_provider:
+            id: cmf.security.user_provider #cmf.security.user_provider.oauth
+
+        cmf_customer_provider_with_oauth:
+            id: cmf.security.user_provider.oauth
+
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        # Pimcore WebDAV HTTP basic
+        pimcore_admin_webdav:
+            pattern: ^/admin/asset/webdav
+            provider: pimcore_admin
+            http_basic: ~
+
+        # Pimcore admin form login
+        pimcore_admin:
+            anonymous: ~
+            pattern: ^/admin(/.*)?$
+            # admin firewall is stateless as we open the admin
+            # session on demand for non-blocking parallel requests
+            stateless: true
+            provider: pimcore_admin
+            logout:
+                path:   /admin/logout
+                target: /admin/login
+                success_handler: Pimcore\Bundle\AdminBundle\Security\LogoutSuccessHandler
+            guard:
+                entry_point: Pimcore\Bundle\AdminBundle\Security\Guard\AdminAuthenticator
+                authenticators:
+                    - Pimcore\Bundle\AdminBundle\Security\Guard\AdminAuthenticator
+            two_factor:
+                auth_form_path: /admin/login/2fa                   # Path or route name of the two-factor form
+                check_path: /admin/login/2fa-verify                # Path or route name of the two-factor code check
+                default_target_path: /admin            # Where to redirect by default after successful authentication
+                always_use_default_target_path: false  # If it should always redirect to default_target_path
+                auth_code_parameter_name: _auth_code   # Name of the parameter for the two-factor authentication code
+                trusted_parameter_name: _trusted       # Name of the parameter for the trusted device option
+                multi_factor: false                    # If ALL active two-factor methods need to be fulfilled (multi-factor authentication)
+
+        # demo_frontend firewall is valid for the whole site
+        demo_frontend:
+
+            # -----------------------------------------------------
+            #   SAMPLE SIMPLE FIREWALL CONFIG FOR HTTP-BASIC AUTH
+            # -----------------------------------------------------
+            # the provider defined above
+            # provider: cmf_customer_provider
+            # http_basic: ~
+
+
+            # -----------------------------------------------------
+            #   SAMPLE FIREWALL CONFIG FOR FORM-AUTH inkl. OAUTH
+            # -----------------------------------------------------
+
+            # the provider defined above
+            anonymous: ~
+            # the provider defined above
+            provider: cmf_customer_provider_with_oauth
+            form_login:
+                login_path: 'account-login'
+                check_path: 'account-login'
+                csrf_token_generator: security.csrf.token_manager
+                default_target_path: 'account-index'
+
+                # use custom success handler to also update e-commerce framework environment after successful login
+                success_handler: App\EventListener\AuthenticationLoginListener
+
+            # configure the OAuth authenticator (HWIOAuthBundle)
+            oauth:
+                resource_owners:
+                    google: app_auth_oauth_check_google
+                    twitter: app_auth_oauth_check_twitter
+                login_path: 'account-login'
+                failure_path: 'account-login'
+
+                # use custom success handler to also update e-commerce framework environment after successful login
+                success_handler: App\EventListener\AuthenticationLoginListener
+                oauth_user_provider:
+                    service: cmf.security.user_provider.oauth
+
+            logout:
+                path: 'account-logout'
+                target: /
+
+                # optional: to keep logins of other firewalls (like admin)
+                invalidate_session: false
+                # use custom success handler to also update e-commerce framework environment after successful logout
+                success_handler: App\EventListener\AuthenticationLogoutListener
+
+            remember_me:
+                secret: '%kernel.secret%'
+
+    access_control:
+        - { path: ^/admin/settings/display-custom-logo, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login/2fa-verify, roles: IS_AUTHENTICATED_2FA_IN_PROGRESS}
+        - { path: ^/admin/login/2fa, roles: IS_AUTHENTICATED_2FA_IN_PROGRESS}
+        - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login/(login|lostpassword|deeplink|csrf-token)$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_PIMCORE_USER }
+
+    role_hierarchy:
+        ROLE_PIMCORE_ADMIN: [ROLE_PIMCORE_USER]
+

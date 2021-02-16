@@ -1,12 +1,9 @@
 imports:
-    - { resource: security.yaml }
     - { resource: services.yaml }
     - { resource: 'local/' }
-
     - { resource: ecommerce/base-ecommerce.yaml }
     - { resource: cmf.yaml }
     - { resource: workflows.yaml }
-    - { resource: migrations.yaml }
 
 pimcore:
 
@@ -18,6 +15,10 @@ pimcore:
 # or even more specific:
 # ./bin/console debug:config pimcore assets.image
 
+    security:
+        # the encoder factory as shipped by the CMF
+        encoder_factories:
+            Pimcore\Model\DataObject\Customer: cmf.security.user_password_encoder_factory
 
 #### TRANSLATIONS
 #    translations:
