@@ -61,7 +61,7 @@ security:
 
 
             # -----------------------------------------------------
-            #   SAMPLE FIREWALL CONFIG FOR FORM-AUTH inkl. OAUTH
+            #   SAMPLE FIREWALL CONFIG FOR FORM-AUTH incl. OAUTH
             # -----------------------------------------------------
 
             # the provider defined above
