@@ -1,18 +1,18 @@
-<?php 
+<?php
 
-/** 
-Fields Summary: 
+/**
+Fields Summary:
 - cylinders [numeric]
 - capacity [quantityValue]
 - power [quantityValue]
 - engineLocation [select]
-*/ 
+*/
 
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
-   'classDefinitions' => 
+   'classDefinitions' =>
   array (
-    0 => 
+    0 =>
     array (
       'classname' => 'Car',
       'fieldname' => 'attributes',
@@ -24,7 +24,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'implementsInterfaces' => NULL,
    'title' => '',
    'group' => '',
-   'layoutDefinitions' => 
+   'generateTypeDeclarations' => true,
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
@@ -41,9 +42,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'childs' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
          'labelWidth' => 100,
@@ -60,9 +61,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'childs' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'fieldtype' => 'numeric',
              'width' => '',
@@ -93,25 +94,25 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
              'fieldtype' => 'quantityValue',
              'width' => NULL,
              'unitWidth' => NULL,
              'defaultValue' => NULL,
              'defaultUnit' => '5',
-             'validUnits' => 
+             'validUnits' =>
             array (
               0 => '5',
             ),
              'decimalPrecision' => NULL,
              'autoConvert' => false,
-             'queryColumnType' => 
+             'queryColumnType' =>
             array (
               'value' => 'double',
               'unit' => 'bigint(20)',
             ),
-             'columnType' => 
+             'columnType' =>
             array (
               'value' => 'double',
               'unit' => 'bigint(20)',
@@ -133,25 +134,25 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
              'fieldtype' => 'quantityValue',
              'width' => NULL,
              'unitWidth' => NULL,
              'defaultValue' => NULL,
              'defaultUnit' => '6',
-             'validUnits' => 
+             'validUnits' =>
             array (
               0 => '6',
             ),
              'decimalPrecision' => NULL,
              'autoConvert' => false,
-             'queryColumnType' => 
+             'queryColumnType' =>
             array (
               'value' => 'double',
               'unit' => 'bigint(20)',
             ),
-             'columnType' => 
+             'columnType' =>
             array (
               'value' => 'double',
               'unit' => 'bigint(20)',
@@ -173,22 +174,22 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          3 => 
+          3 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'fieldtype' => 'select',
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'front',
                 'value' => 'front',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'back',
                 'value' => 'back',
               ),
-              2 => 
+              2 =>
               array (
                 'key' => 'middle',
                 'value' => 'middle',

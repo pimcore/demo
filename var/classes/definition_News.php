@@ -27,6 +27,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'parentClass' => '',
    'listingParentClass' => '',
    'useTraits' => '',
+   'generateTypeDeclarations' => true,
    'listingUseTraits' => '',
    'encryption' => false,
    'encryptedTables' =>

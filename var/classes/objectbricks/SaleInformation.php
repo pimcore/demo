@@ -1,24 +1,24 @@
-<?php 
+<?php
 
-/** 
-Fields Summary: 
+/**
+Fields Summary:
 - availabilityPieces [numeric]
 - availabilityType [select]
 - condition [select]
 - priceInEUR [numeric]
 - milage [quantityValue]
-*/ 
+*/
 
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
-   'classDefinitions' => 
+   'classDefinitions' =>
   array (
-    0 => 
+    0 =>
     array (
       'classname' => 'Car',
       'fieldname' => 'saleInformation',
     ),
-    1 => 
+    1 =>
     array (
       'classname' => 'AccessoryPart',
       'fieldname' => 'saleInformation',
@@ -30,7 +30,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'implementsInterfaces' => NULL,
    'title' => '',
    'group' => '',
-   'layoutDefinitions' => 
+   'generateTypeDeclarations' => true,
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
@@ -47,9 +48,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'childs' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
          'labelWidth' => 100,
@@ -66,9 +67,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'childs' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'fieldtype' => 'numeric',
              'width' => '',
@@ -99,22 +100,22 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'fieldtype' => 'select',
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'couple-weeks',
                 'value' => 'couple-weeks',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'couple-days',
                 'value' => 'couple-days',
               ),
-              2 => 
+              2 =>
               array (
                 'key' => 'instant',
                 'value' => 'instant',
@@ -145,27 +146,27 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'fieldtype' => 'select',
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'broken',
                 'value' => 'broken',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'reworked',
                 'value' => 'reworked',
               ),
-              2 => 
+              2 =>
               array (
                 'key' => 'used',
                 'value' => 'used',
               ),
-              3 => 
+              3 =>
               array (
                 'key' => 'new',
                 'value' => 'new',
@@ -196,7 +197,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          3 => 
+          3 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'fieldtype' => 'numeric',
              'width' => '',
@@ -227,26 +228,26 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          4 => 
+          4 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
              'fieldtype' => 'quantityValue',
              'width' => NULL,
              'unitWidth' => NULL,
              'defaultValue' => NULL,
              'defaultUnit' => '7',
-             'validUnits' => 
+             'validUnits' =>
             array (
               0 => '8',
               1 => '7',
             ),
              'decimalPrecision' => NULL,
              'autoConvert' => false,
-             'queryColumnType' => 
+             'queryColumnType' =>
             array (
               'value' => 'double',
               'unit' => 'bigint(20)',
             ),
-             'columnType' => 
+             'columnType' =>
             array (
               'value' => 'double',
               'unit' => 'bigint(20)',

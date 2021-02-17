@@ -1,17 +1,17 @@
-<?php 
+<?php
 
-/** 
+/**
 * Generated at: 2020-01-23T11:18:21+01:00
 * Inheritance: no
 * Variants: no
 
 
-Fields Summary: 
+Fields Summary:
 - name [input]
 - terms [block]
 -- term [input]
 -- phrases [table]
-*/ 
+*/
 
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -25,16 +25,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'parentClass' => 'CustomerManagementFrameworkBundle\\Model\\AbstractTermSegmentBuilderDefinition',
    'listingParentClass' => '',
    'useTraits' => '',
+   'generateTypeDeclarations' => true,
    'listingUseTraits' => '',
    'encryption' => false,
-   'encryptedTables' => 
+   'encryptedTables' =>
   array (
   ),
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
    'cacheRawRelationData' => false,
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'labelWidth' => 100,
@@ -52,9 +53,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'childs' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
          'labelWidth' => 200,
@@ -72,9 +73,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'childs' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => NULL,
@@ -100,7 +101,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'visibleGridView' => true,
              'visibleSearch' => true,
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Block::__set_state(array(
              'fieldtype' => 'block',
              'lazyLoading' => NULL,
@@ -112,9 +113,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'columnType' => 'longtext',
              'styleElement' => '',
              'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\BlockElement[][]',
-             'childs' => 
+             'childs' =>
             array (
-              0 => 
+              0 =>
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'fieldtype' => 'input',
                  'width' => NULL,
@@ -140,7 +141,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
-              1 => 
+              1 =>
               Pimcore\Model\DataObject\ClassDefinition\Data\Table::__set_state(array(
                  'fieldtype' => 'table',
                  'width' => '',
@@ -151,7 +152,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'rowsFixed' => false,
                  'data' => '',
                  'columnConfigActivated' => false,
-                 'columnConfig' => 
+                 'columnConfig' =>
                 array (
                 ),
                  'queryColumnType' => 'longtext',
@@ -174,7 +175,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               )),
             ),
              'layout' => NULL,
-             'referencedFields' => 
+             'referencedFields' =>
             array (
             ),
              'name' => 'terms',
@@ -203,9 +204,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'group' => 'CustomerManagement',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
-   'propertyVisibility' => 
+   'propertyVisibility' =>
   array (
-    'grid' => 
+    'grid' =>
     array (
       'id' => true,
       'key' => false,
@@ -214,7 +215,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'modificationDate' => false,
       'creationDate' => false,
     ),
-    'search' => 
+    'search' =>
     array (
       'id' => true,
       'key' => false,
