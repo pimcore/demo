@@ -25,6 +25,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'userOwner' => 0,
    'userModification' => 2,
    'parentClass' => '',
+   'listingParentClass' => '',
    'useTraits' => '',
    'generateTypeDeclarations' => true,
    'listingUseTraits' => '',
