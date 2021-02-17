@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-/** 
-Fields Summary: 
+/**
+Fields Summary:
 - auth_paymentMethod [input]
 - auth_amount [input]
 - auth_currency [input]
@@ -10,13 +10,13 @@ Fields Summary:
 - auth_clientMessage [input]
 - auth_merchantMessage [input]
 - auth_chargeId [input]
-*/ 
+*/
 
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
-   'classDefinitions' => 
+   'classDefinitions' =>
   array (
-    0 => 
+    0 =>
     array (
       'classname' => 'OnlineShopOrder',
       'fieldname' => 'paymentProvider',
@@ -28,7 +28,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'implementsInterfaces' => NULL,
    'title' => '',
    'group' => 'PaymentProvider',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'layout' => NULL,
@@ -44,9 +44,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'childs' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
          'layout' => NULL,
@@ -62,9 +62,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'childs' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
@@ -91,7 +91,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
@@ -118,7 +118,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
@@ -145,7 +145,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          3 => 
+          3 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 800,
@@ -172,7 +172,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          4 => 
+          4 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
@@ -199,7 +199,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          5 => 
+          5 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
@@ -226,7 +226,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          6 => 
+          6 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
@@ -253,7 +253,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
-          7 => 
+          7 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => NULL,
@@ -292,5 +292,5 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'generateTypeDeclarations' => false,
+   'generateTypeDeclarations' => true,
 ));
