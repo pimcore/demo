@@ -6142,12 +6142,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "d8e89df68c321a49812e992fc74308e3a0be19cb"
+                "reference": "1b86628d678a880b0802a4489c3127f2f6e26c74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/d8e89df68c321a49812e992fc74308e3a0be19cb",
-                "reference": "d8e89df68c321a49812e992fc74308e3a0be19cb",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/1b86628d678a880b0802a4489c3127f2f6e26c74",
+                "reference": "1b86628d678a880b0802a4489c3127f2f6e26c74",
                 "shasum": ""
             },
             "require": {
@@ -6200,7 +6200,7 @@
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
                 "source": "https://github.com/pimcore/customer-data-framework/tree/master"
             },
-            "time": "2021-02-05T09:04:00+00:00"
+            "time": "2021-02-17T12:49:28+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -6378,16 +6378,16 @@
         },
         {
             "name": "pimcore/payment-provider-unzer",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/payment-provider-unzer.git",
-                "reference": "87079fb01a79d4a3a80938d9ddd803ad6e459e1b"
+                "reference": "14a4f60ca7634dce6522717b9e70c29672d1c8e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/87079fb01a79d4a3a80938d9ddd803ad6e459e1b",
-                "reference": "87079fb01a79d4a3a80938d9ddd803ad6e459e1b",
+                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/14a4f60ca7634dce6522717b9e70c29672d1c8e2",
+                "reference": "14a4f60ca7634dce6522717b9e70c29672d1c8e2",
                 "shasum": ""
             },
             "require": {
@@ -6417,9 +6417,9 @@
             "description": "Pimcore Payment Provider - Unzer (Heidelpay)",
             "support": {
                 "issues": "https://github.com/pimcore/payment-provider-unzer/issues",
-                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.0"
+                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.1"
             },
-            "time": "2021-02-01T12:34:27+00:00"
+            "time": "2021-02-17T11:03:16+00:00"
         },
         {
             "name": "pimcore/pimcore",
@@ -6427,12 +6427,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "174e3b801d507bd640bea7008de0709bebf5cecc"
+                "reference": "0c5613cd6ea946f133503a05ebe66a0f2c68c9ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/174e3b801d507bd640bea7008de0709bebf5cecc",
-                "reference": "174e3b801d507bd640bea7008de0709bebf5cecc",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/0c5613cd6ea946f133503a05ebe66a0f2c68c9ef",
+                "reference": "0c5613cd6ea946f133503a05ebe66a0f2c68c9ef",
                 "shasum": ""
             },
             "require": {
@@ -6499,7 +6499,6 @@
                 "symfony/monolog-bundle": "^3.1.0",
                 "symfony/symfony": "^5.2.0",
                 "tijsverkoyen/css-to-inline-styles": "^2.2.1",
-                "twig/extensions": "^1.5",
                 "twig/twig": "^2.10",
                 "umpirsky/country-list": "^2.0.4",
                 "vrana/adminer": "^4.8.0",
@@ -6590,7 +6589,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-02-16T15:41:30+00:00"
+            "time": "2021-02-17T15:57:20+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -9641,66 +9640,6 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
             },
             "time": "2020-07-13T06:12:54+00:00"
-        },
-        {
-            "name": "twig/extensions",
-            "version": "v1.5.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twigphp/Twig-extensions.git",
-                "reference": "57873c8b0c1be51caa47df2cdb824490beb16202"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/57873c8b0c1be51caa47df2cdb824490beb16202",
-                "reference": "57873c8b0c1be51caa47df2cdb824490beb16202",
-                "shasum": ""
-            },
-            "require": {
-                "twig/twig": "^1.27|^2.0"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^3.4",
-                "symfony/translation": "^2.7|^3.4"
-            },
-            "suggest": {
-                "symfony/translation": "Allow the time_diff output to be translated"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Twig_Extensions_": "lib/"
-                },
-                "psr-4": {
-                    "Twig\\Extensions\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Common additional features for Twig that do not directly belong in core",
-            "keywords": [
-                "i18n",
-                "text"
-            ],
-            "support": {
-                "issues": "https://github.com/twigphp/Twig-extensions/issues",
-                "source": "https://github.com/twigphp/Twig-extensions/tree/master"
-            },
-            "abandoned": true,
-            "time": "2018-12-05T18:34:18+00:00"
         },
         {
             "name": "twig/twig",
