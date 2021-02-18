@@ -32,13 +32,4 @@ return [
             ]
         ]
     ],
-    "piwik" => [
-        "piwik_url" => "",
-        "api_token" => "",
-        "report_token" => "",
-        "api_client_options" => "",
-        "iframe_username" => "",
-        "iframe_password" => "",
-        "sites" => []
-    ]
 ];

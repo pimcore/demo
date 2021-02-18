@@ -246,10 +246,6 @@ pimcore_ecommerce_framework:
                 enabled: true
                # item_builder_id: App\Ecommerce\Tracking\TrackingItemBuilder
 
-            matomo:
-                enabled: true
-                id: Pimcore\Bundle\EcommerceFrameworkBundle\Tracking\Tracker\Piwik
-
 #            my_custom_tracker:
 #                # use already defined enhanced ecommerce tracker
 #                id: Pimcore\Bundle\EcommerceFrameworkBundle\Tracking\Tracker\Analytics\EnhancedEcommerce
