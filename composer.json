@@ -20,6 +20,9 @@
     "pimcore/data-hub": "^1.0",
     "pimcore/payment-provider-unzer": "^1.0"
   },
+  "suggest": {
+    "elasticsearch/elasticsearch": "Required for Elastic Search service"
+  },
   "autoload": {
     "psr-4": {
       "App\\": "src/",
