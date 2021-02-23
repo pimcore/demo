@@ -15,7 +15,7 @@ pimcore_ecommerce_framework:
         tenants:
             ElasticSearch:
                 enabled: true
-                worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\ElasticSearch\DefaultElasticSearch6
+                worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\ElasticSearch\DefaultElasticSearch7
                 config_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\ElasticSearch
 
                 placeholders:
@@ -29,11 +29,11 @@ pimcore_ecommerce_framework:
                     es_client_params:
                         hosts:
                             - '%es_client%'
-                        indexType: 'DemoProducts'
- 
+
                     index_settings:
                         number_of_shards: 5
                         number_of_replicas: 0
+                        max_ngram_diff: 30
                         analysis:
                             normalizer:
                                 lowercase:
