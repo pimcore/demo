@@ -37,12 +37,8 @@ You don't need to have a PHP environment with composer installed.
 1. Part of the new project is a docker compose file. Use it to start the needed services
     `docker-compose up -d`
 1. Install pimcore and initialize the DB
-    `docker-compose exec php vendor/bin/pimcore-install --mysql-host-socket=db`
+    `docker-compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`
     * When asked for admin user and password: Choose freely
-    * When asked for DB credentials, use the following:
-      * MySQL username: pimcore
-      * MySQL password: pimcore
-      * MySQL database: pimcore
     * This can take a while, up to 20 minutes
 1. Fix permissions again, the installer has created new directories
     `sudo chown -R 1000 .`
