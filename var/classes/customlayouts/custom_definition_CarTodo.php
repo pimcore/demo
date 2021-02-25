@@ -9,14 +9,13 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
    'name' => 'Todo',
    'description' => '',
    'creationDate' => 1566996476,
-   'modificationDate' => 1593591768,
+   'modificationDate' => 1614249267,
    'userOwner' => 2,
    'userModification' => 0,
    'classId' => 'CAR',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
-     'labelWidth' => 100,
      'layout' => NULL,
      'border' => false,
      'name' => 'pimcore_root',
@@ -35,7 +34,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
-         'labelWidth' => 100,
          'layout' => NULL,
          'border' => false,
          'name' => 'Basedata',
@@ -54,7 +52,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
              'fieldtype' => 'localizedfields',
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Localizedfield',
              'childs' => 
             array (
               0 => 
@@ -65,7 +62,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'queryColumnType' => 'varchar',
                  'columnType' => 'varchar',
                  'columnLength' => 190,
-                 'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => false,
                  'showCharCount' => false,
@@ -92,7 +88,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'height' => '',
                  'queryColumnType' => 'longtext',
                  'columnType' => 'longtext',
-                 'phpdocType' => 'string',
                  'toolbarConfig' => '',
                  'excludeFromSearchIndex' => false,
                  'name' => 'description',
@@ -118,7 +113,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'width' => '',
              'height' => '',
              'maxTabs' => NULL,
-             'labelWidth' => NULL,
              'border' => false,
              'provideSplitView' => false,
              'tabPosition' => 'top',
@@ -127,6 +121,12 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
             array (
             ),
              'fieldDefinitionsCache' => NULL,
+             'permissionView' => 
+            array (
+            ),
+             'permissionEdit' => 
+            array (
+            ),
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -139,6 +139,8 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
+             'labelWidth' => NULL,
+             'labelAlign' => 'left',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
@@ -151,7 +153,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               'id' => 'int(11)',
               'type' => 'enum(\'document\',\'asset\',\'object\')',
             ),
-             'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
              'objectsAllowed' => true,
              'assetsAllowed' => false,
              'assetTypes' => 
@@ -194,7 +195,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
               'id' => 'int(11)',
               'type' => 'enum(\'document\',\'asset\',\'object\')',
             ),
-             'phpdocType' => '\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject',
              'objectsAllowed' => true,
              'assetsAllowed' => false,
              'assetTypes' => 
@@ -299,7 +299,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'queryColumnType' => 'varchar',
              'columnType' => 'varchar',
              'columnLength' => 190,
-             'phpdocType' => 'string',
              'dynamicOptions' => false,
              'name' => 'carClass',
              'title' => 'Class',
@@ -320,10 +319,14 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
         ),
          'locked' => false,
          'icon' => NULL,
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
      'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
    'default' => 0,
    'dao' => NULL,

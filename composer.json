@@ -5,7 +5,8 @@
   "license": "GPL-3.0-or-later",
   "config": {
     "optimize-autoloader": true,
-    "sort-packages": true
+    "sort-packages": true,
+    "discard-changes": true
   },
   "prefer-stable": true,
   "minimum-stability": "dev",
@@ -55,5 +56,14 @@
     "symfony-web-dir": "public",
     "symfony-tests-dir": "tests",
     "symfony-assets-install": "relative"
+  },
+  "repositories": {
+    "dev": {
+      "type": "path",
+      "url": "./dev/*/*",
+      "options": {
+        "symlink": true
+      }
+    }
   }
 }
