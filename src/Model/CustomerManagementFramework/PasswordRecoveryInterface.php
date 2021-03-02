@@ -21,26 +21,26 @@ use CustomerManagementFrameworkBundle\Model\CustomerInterface;
 interface PasswordRecoveryInterface
 {
     /**
-     * @param string $token
+     * @param string|null $token
      *
      * @return CustomerInterface
      */
-    public function setPasswordRecoveryToken($token);
+    public function setPasswordRecoveryToken(?string $token): CustomerInterface;
 
     /**
      * @return string
      */
-    public function getPasswordRecoveryToken();
+    public function getPasswordRecoveryToken(): ?string;
 
     /**
-     * @param Carbon $tokenDate
+     * @param Carbon|null $tokenDate
      *
      * @return CustomerInterface
      */
     public function setPasswordRecoveryTokenDate($tokenDate);
 
     /**
-     * @return Carbon
+     * @return Carbon|null
      */
     public function getPasswordRecoveryTokenDate();
 
@@ -50,14 +50,14 @@ interface PasswordRecoveryInterface
     public function save();
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEmail();
+    public function getEmail(): ?string;
 
     /**
-     * @param string $password
+     * @param string|null $password
      *
      * @return CustomerInterface
      */
-    public function setPassword($password);
+    public function setPassword(?string $password): CustomerInterface;
 }
