@@ -17,4 +17,8 @@ namespace App\Document\Areabrick;
 
 class Blockquote extends AbstractAreabrick
 {
+    public function needsReload(): bool
+    {
+        return false;
+    }
 }

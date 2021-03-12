@@ -34,4 +34,9 @@ abstract class AbstractAreabrick extends AbstractTemplateAreabrick
     {
         return static::TEMPLATE_SUFFIX_TWIG;
     }
+
+    public function needsReload(): bool
+    {
+        return true;
+    }
 }
