@@ -71,7 +71,7 @@ class Web2printController extends BaseController
                 $child = Hardlink\Service::wrap($child);
             }
 
-            $child->setProperty('hide-layout', 'bool', true);
+            $child->setProperty('hide-layout', 'bool', true, false, true);
 
             $allChildren[] = $child;
         }
