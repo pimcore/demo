@@ -6222,12 +6222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "df77fce801bcdf28acac307c9f394c5ce1aa6fed"
+                "reference": "9d3227ea004090a373bfd0cb6dc9b3eaa2e7373f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/df77fce801bcdf28acac307c9f394c5ce1aa6fed",
-                "reference": "df77fce801bcdf28acac307c9f394c5ce1aa6fed",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/9d3227ea004090a373bfd0cb6dc9b3eaa2e7373f",
+                "reference": "9d3227ea004090a373bfd0cb6dc9b3eaa2e7373f",
                 "shasum": ""
             },
             "require": {
@@ -6278,9 +6278,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
-                "source": "https://github.com/pimcore/customer-data-framework/tree/asdf"
+                "source": "https://github.com/pimcore/customer-data-framework/tree/master"
             },
-            "time": "2021-03-02T13:22:14+00:00"
+            "time": "2021-03-17T10:28:45+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -6507,12 +6507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "cddde3eb7588371220c38d4bec54d0bc08c17d95"
+                "reference": "2d6f2270a9dedb46be78fe4f7b0615ca8760f067"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/cddde3eb7588371220c38d4bec54d0bc08c17d95",
-                "reference": "cddde3eb7588371220c38d4bec54d0bc08c17d95",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/2d6f2270a9dedb46be78fe4f7b0615ca8760f067",
+                "reference": "2d6f2270a9dedb46be78fe4f7b0615ca8760f067",
                 "shasum": ""
             },
             "require": {
@@ -6668,7 +6668,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-03-17T09:35:33+00:00"
+            "time": "2021-03-17T12:02:56+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
