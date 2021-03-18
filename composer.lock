@@ -6507,12 +6507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "2d6f2270a9dedb46be78fe4f7b0615ca8760f067"
+                "reference": "9c3c960a5a2a33e7a364e974790cea7d515dabd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/2d6f2270a9dedb46be78fe4f7b0615ca8760f067",
-                "reference": "2d6f2270a9dedb46be78fe4f7b0615ca8760f067",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/9c3c960a5a2a33e7a364e974790cea7d515dabd0",
+                "reference": "9c3c960a5a2a33e7a364e974790cea7d515dabd0",
                 "shasum": ""
             },
             "require": {
@@ -6668,7 +6668,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-03-17T12:02:56+00:00"
+            "time": "2021-03-18T14:15:27+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
