@@ -42,7 +42,7 @@ pimcore:
             email: 73893596983@developer.gserviceaccount.com
             simple_api_key: AIzaSyCo9Wj49hYJWW2WgOju4iMYNTvdcBxmyQ8
             browser_api_key: AIzaSyBJX16kWAmUVEz1c1amzp2iKqAfumbcoQQ
-    cache:
+    full_page_cache:
         enabled: false
         lifetime: null
         exclude_cookie: ''
@@ -74,8 +74,6 @@ pimcore:
         debug:
             email_addresses: ''
         use_specific: false
-    webservice:
-        enabled: false
     applicationlog:
         mail_notification:
             send_log_summary: false
