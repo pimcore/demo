@@ -1,6 +1,10 @@
 {% extends 'layouts/layout.html.twig' %}
 
+
 {% block content %}
+
+    <i class="fas fa-chevron-down"></i>
+
     <div id="main-content" class="main-content" >
         {% if document.getTitle() is empty %}
             {% do pimcore_head_title(pimcore_input('headline').getData(), 'PREPEND') %}
