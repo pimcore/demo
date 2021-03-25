@@ -6337,16 +6337,16 @@
         },
         {
             "name": "pimcore/number-sequence-generator",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/number-sequence-generator.git",
-                "reference": "2d963d049754e6b0a919ec2dfc043865c20d0058"
+                "reference": "930410df0eae0b0fd597988389de68a19d975b51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/number-sequence-generator/zipball/2d963d049754e6b0a919ec2dfc043865c20d0058",
-                "reference": "2d963d049754e6b0a919ec2dfc043865c20d0058",
+                "url": "https://api.github.com/repos/pimcore/number-sequence-generator/zipball/930410df0eae0b0fd597988389de68a19d975b51",
+                "reference": "930410df0eae0b0fd597988389de68a19d975b51",
                 "shasum": ""
             },
             "type": "pimcore-bundle",
@@ -6368,9 +6368,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/number-sequence-generator/issues",
-                "source": "https://github.com/pimcore/number-sequence-generator/tree/master"
+                "source": "https://github.com/pimcore/number-sequence-generator/tree/v1.0.4"
             },
-            "time": "2018-03-02T08:44:52+00:00"
+            "time": "2021-03-24T15:55:44+00:00"
         },
         {
             "name": "pimcore/object-merger",
