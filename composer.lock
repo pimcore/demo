@@ -6632,16 +6632,16 @@
         },
         {
             "name": "pimcore/search-query-parser",
-            "version": "v1.2.5",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/search-query-parser.git",
-                "reference": "bb4010fb8d07ee33983591692779471f401b0043"
+                "reference": "95797b9b63251ca945960e22aabedefbd81fe38c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/search-query-parser/zipball/bb4010fb8d07ee33983591692779471f401b0043",
-                "reference": "bb4010fb8d07ee33983591692779471f401b0043",
+                "url": "https://api.github.com/repos/pimcore/search-query-parser/zipball/95797b9b63251ca945960e22aabedefbd81fe38c",
+                "reference": "95797b9b63251ca945960e22aabedefbd81fe38c",
                 "shasum": ""
             },
             "require": {
@@ -6650,10 +6650,10 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.1",
-                "symfony/var-dumper": "^3.2",
-                "zendframework/zendframework1": "^1.12"
+                "symfony/var-dumper": "^3.2"
             },
             "suggest": {
+                "pimcore/pimcore": "If using it in combination with Pimcore and CMF",
                 "zendframework/zendframework1": "If using the Zend_Db query builder"
             },
             "type": "library",
@@ -6672,9 +6672,9 @@
             "description": "Parses a simplified SQL-like query string into a syntax tree which can be used to build search queries",
             "support": {
                 "issues": "https://github.com/pimcore/search-query-parser/issues",
-                "source": "https://github.com/pimcore/search-query-parser/tree/master"
+                "source": "https://github.com/pimcore/search-query-parser/tree/v1.3.0"
             },
-            "time": "2017-09-27T08:38:51+00:00"
+            "time": "2021-03-30T06:57:18+00:00"
         },
         {
             "name": "pimcore/web2print-tools-bundle",
