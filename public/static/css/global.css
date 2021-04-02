@@ -1193,6 +1193,10 @@ section img {
     max-width: 100%;
 }
 
+section picture img {
+    height: auto;
+}
+
 .thumbnail-examples h5 {
     margin-top:1em;
     line-height: 1em;
