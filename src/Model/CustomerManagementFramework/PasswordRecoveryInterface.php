@@ -25,7 +25,7 @@ interface PasswordRecoveryInterface
      *
      * @return CustomerInterface
      */
-    public function setPasswordRecoveryToken(?string $token): CustomerInterface;
+    public function setPasswordRecoveryToken(?string $token);
 
     /**
      * @return string
@@ -37,12 +37,12 @@ interface PasswordRecoveryInterface
      *
      * @return CustomerInterface
      */
-    public function setPasswordRecoveryTokenDate($tokenDate);
+    public function setPasswordRecoveryTokenDate(?\Carbon\Carbon $tokenDate);
 
     /**
      * @return Carbon|null
      */
-    public function getPasswordRecoveryTokenDate();
+    public function getPasswordRecoveryTokenDate(): ?\Carbon\Carbon;
 
     /**
      * @return CustomerInterface
@@ -59,5 +59,5 @@ interface PasswordRecoveryInterface
      *
      * @return CustomerInterface
      */
-    public function setPassword(?string $password): CustomerInterface;
+    public function setPassword(?string $password);
 }
