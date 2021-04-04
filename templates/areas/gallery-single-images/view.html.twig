@@ -3,10 +3,10 @@
 <section class="area-gallery-single-images {{ ( not editmode ? 'row':'') }}">
         {% for i in pimcore_iterate_block(pimcore_block('gallery')) %}
                 {% if editmode %}
-                        {{ pimcore_image('image', { thumbnail: 'galleryThumbnail', class: 'img-thumbnail'}) }}
+                        {{ pimcore_image('image', { thumbnail: 'galleryThumbnail', imgAttributes: {class: 'img-thumbnail'}}) }}
                 {% else %}
                         <div class="col-md-4">
-                                {{ macros.image_link(pimcore_image('image', { thumbnail: 'galleryThumbnail', class: 'img-thumbnail'}), editmode, 'galleryLightbox') }}
+                                {{ macros.image_link(pimcore_image('image', { thumbnail: 'galleryThumbnail', imgAttributes: {class: 'img-thumbnail'}}), editmode, 'galleryLightbox') }}
                          </div>
                 {% endif %}
 

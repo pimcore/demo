@@ -10,7 +10,7 @@
         {% set image = news.gallery.current %}
 
         {% if image.image %}
-            {{ image.image.thumbnail('standardTeaser').html({class: 'img-fluid'}) | raw }}
+            {{ image.image.thumbnail('standardTeaser').html({imgAttributes: {class: 'img-fluid'}}) | raw }}
         {% endif %}
 
     {% endif %}

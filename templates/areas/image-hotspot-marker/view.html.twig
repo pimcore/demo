@@ -29,7 +29,7 @@
     <div style="position: relative;">
         {% set image = pimcore_image('image', {
             thumbnail: 'content',
-            class: 'img-responsive'
+            imgAttributes: {class: 'img-responsive'}
         }) %}
 
         {{ image|raw }}

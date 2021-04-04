@@ -74,7 +74,7 @@
 
                                             {% if(product.mainImage is defined) %}
 
-                                                {{ product.mainImage.thumbnail('cart').html({class: 'img-responsive', style: 'width:100%; height: auto'}) | raw }}
+                                                {{ product.mainImage.thumbnail('cart').html({imgAttributes: {class: 'img-responsive', style: 'width:100%; height: auto'}}) | raw }}
 
                                             {% endif %}
 
@@ -151,7 +151,7 @@
 
                                             {% if(product.mainImage is defined) %}
 
-                                                {{ product.mainImage.thumbnail('cart').html({class: 'img-responsive', style: 'width:100%; height: auto'}) | raw }}
+                                                {{ product.mainImage.thumbnail('cart').html({imgAttributes: {class: 'img-responsive', style: 'width:100%; height: auto'}}) | raw }}
 
                                             {% endif %}
 

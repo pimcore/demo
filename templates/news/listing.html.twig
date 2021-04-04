@@ -36,7 +36,7 @@
 
                             {% if image.image %}
                                 <a href="{{ detailLink }}">
-                                    {{ image.image.thumbnail('newsList').html({class: 'mr-3'}) | raw }}
+                                    {{ image.image.thumbnail('newsList').html({imgAttributes: {class: 'mr-3'}}) | raw }}
                                 </a>
                             {% endif %}
                         {% endif %}
