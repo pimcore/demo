@@ -69,7 +69,7 @@ class NewsletterDoubleOptInService
                 'token' => $token,
                 'tokenLink' => $this->urlGenerator->generate('account-confirm-newsletter', ['token' => $token]),
             ]);
-            $mail->setTo($customer->getEmail());
+            $mail->addTo([$customer->getEmail()]);
 
             $mail->send();
         }
