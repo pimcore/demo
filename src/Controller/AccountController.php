@@ -35,7 +35,6 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\OrderManager\Order\Listing\Filter\CustomerObject;
 use Pimcore\DataObject\Consent\Service;
 use Pimcore\Translation\Translator;
-use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +45,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * Class AccountController
@@ -88,7 +88,7 @@ class AccountController extends BaseController
         // to load the token to prepopulate the registration form with account data.
         if ($error instanceof AccountNotLinkedException) {
             // this can be anything - for simplicity we just use an UUID as it is unique and random
-            $registrationKey = (string) Uuid::uuid4();
+            $registrationKey = (string) Uuid::v4()->toRfc4122();
             $oAuthHandler->saveToken($registrationKey, $error->getToken());
 
             return $this->redirectToRoute('account-register', [
