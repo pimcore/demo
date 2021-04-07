@@ -1,15 +1,15 @@
-<?php 
+<?php
 
-/** 
+/**
 * Inheritance: no
 * Variants: no
 
 
-Fields Summary: 
+Fields Summary:
 - tokenId [numeric]
 - token [input]
 - voucherSeries [manyToOneRelation]
-*/ 
+*/
 
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -17,7 +17,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopVoucherToken',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1612176252,
+   'modificationDate' => 1617805427,
    'userOwner' => 0,
    'userModification' => 1,
    'parentClass' => '',
@@ -26,13 +26,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'useTraits' => '',
    'listingUseTraits' => '',
    'encryption' => false,
-   'encryptedTables' => 
+   'encryptedTables' =>
   array (
   ),
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'layout' => NULL,
@@ -48,9 +48,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'childs' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
          'layout' => '',
@@ -66,9 +66,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'childs' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
              'fieldtype' => 'text',
              'html' => '<b>VoucherToken </b>that are actually used with orders.&nbsp;',
@@ -86,18 +86,19 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'bodyStyle' => 'padding: 10px; background-color: #d9edf7; border-color: #bce8f1 !important; color: #31708f;',
              'datatype' => 'layout',
              'permissions' => NULL,
-             'childs' => 
+             'childs' =>
             array (
             ),
              'locked' => false,
+             'blockedVarsForExport' =>
+            array (
+            ),
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'fieldtype' => 'numeric',
              'width' => 500,
              'defaultValue' => NULL,
-             'queryColumnType' => 'double',
-             'columnType' => 'double',
              'integer' => false,
              'unsigned' => false,
              'minValue' => NULL,
@@ -119,15 +120,16 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
+             'blockedVarsForExport' =>
+            array (
+            ),
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'fieldtype' => 'input',
              'width' => 500,
              'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
              'columnLength' => 255,
              'regex' => '',
              'unique' => false,
@@ -146,31 +148,29 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
+             'blockedVarsForExport' =>
+            array (
+            ),
              'defaultValueGenerator' => '',
           )),
-          3 => 
+          3 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
              'fieldtype' => 'manyToOneRelation',
              'width' => 500,
              'assetUploadPath' => '',
              'relationType' => true,
-             'queryColumnType' => 
-            array (
-              'id' => 'int(11)',
-              'type' => 'enum(\'document\',\'asset\',\'object\')',
-            ),
              'objectsAllowed' => true,
              'assetsAllowed' => false,
-             'assetTypes' => 
+             'assetTypes' =>
             array (
             ),
              'documentsAllowed' => false,
-             'documentTypes' => 
+             'documentTypes' =>
             array (
             ),
-             'classes' => 
+             'classes' =>
             array (
-              0 => 
+              0 =>
               array (
                 'classes' => 'OnlineShopVoucherSeries',
               ),
@@ -189,15 +189,24 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' =>
+            array (
+            ),
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' =>
+        array (
+        ),
          'icon' => NULL,
-         'labelWidth' => 150,
+         'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' =>
+    array (
+    ),
      'icon' => NULL,
      'labelWidth' => 100,
      'labelAlign' => 'left',
@@ -207,14 +216,14 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
-   'compositeIndices' => 
+   'compositeIndices' =>
   array (
   ),
    'generateTypeDeclarations' => true,
    'showFieldLookup' => false,
-   'propertyVisibility' => 
+   'propertyVisibility' =>
   array (
-    'grid' => 
+    'grid' =>
     array (
       'id' => true,
       'key' => false,
@@ -223,7 +232,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'modificationDate' => false,
       'creationDate' => false,
     ),
-    'search' => 
+    'search' =>
     array (
       'id' => true,
       'key' => false,
@@ -235,4 +244,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
   ),
    'enableGridLocking' => false,
    'dao' => NULL,
+   'blockedVarsForExport' =>
+  array (
+  ),
 ));

@@ -1,14 +1,14 @@
-<?php 
+<?php
 
-/** 
+/**
 * Inheritance: no
 * Variants: no
 
 
-Fields Summary: 
+Fields Summary:
 - taxEntryCombinationType [select]
 - taxEntries [fieldcollections]
-*/ 
+*/
 
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -16,7 +16,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopTaxClass',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1612176235,
+   'modificationDate' => 1617805434,
    'userOwner' => 0,
    'userModification' => 1,
    'parentClass' => '',
@@ -25,13 +25,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'useTraits' => '',
    'listingUseTraits' => '',
    'encryption' => false,
-   'encryptedTables' => 
+   'encryptedTables' =>
   array (
   ),
    'allowInherit' => false,
    'allowVariants' => NULL,
    'showVariants' => false,
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'fieldtype' => 'panel',
      'layout' => NULL,
@@ -47,9 +47,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'childs' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'fieldtype' => 'panel',
          'layout' => NULL,
@@ -65,9 +65,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'childs' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
              'fieldtype' => 'text',
              'html' => '<div><font size="2"><b>OnlineShopTaxClass </b>as definition for tax calculation within ecommerce frameworks price systems. Products price system decides which TaxClass to take and does the tax calculation based on it.&nbsp;<br></font></div><div><font size="2"><b><br></b></font></div><div><font size="2"><b>Tax Entry Combination Type</b> defines how tax entry rates are combined:&nbsp;</font></div><div><ul><li><font size="2"><b>Combine:</b> Sum up all tax rates and calculates tax amount afterwards.<br></font></li><li><font size="2"><b>One After Another:</b> For each tax rate calculate tax amount, add it to total sum and then calculate tax amount for next tax rate based on new total sum. </font><b style="font-size: 13px;">&nbsp;</b><br></li></ul></div>',
@@ -85,22 +85,25 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'bodyStyle' => 'padding: 10px; background-color: #d9edf7; border-color: #bce8f1 !important; color: #31708f;',
              'datatype' => 'layout',
              'permissions' => NULL,
-             'childs' => 
+             'childs' =>
             array (
             ),
              'locked' => false,
+             'blockedVarsForExport' =>
+            array (
+            ),
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'fieldtype' => 'select',
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'Combine',
                 'value' => 'combine',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'One After Another',
                 'value' => 'oneAfterAnother',
@@ -110,8 +113,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'defaultValue' => '',
              'optionsProviderClass' => NULL,
              'optionsProviderData' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
              'columnLength' => '190',
              'dynamicOptions' => false,
              'name' => 'taxEntryCombinationType',
@@ -128,12 +129,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' =>
+            array (
+            ),
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
              'fieldtype' => 'fieldcollections',
-             'allowedTypes' => 
+             'allowedTypes' =>
             array (
               0 => 'TaxEntry',
             ),
@@ -158,15 +162,24 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' =>
+            array (
+            ),
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' =>
+        array (
+        ),
          'icon' => NULL,
-         'labelWidth' => 200,
+         'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' =>
+    array (
+    ),
      'icon' => NULL,
      'labelWidth' => 100,
      'labelAlign' => 'left',
@@ -176,14 +189,14 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'group' => 'E-Commerce',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
-   'compositeIndices' => 
+   'compositeIndices' =>
   array (
   ),
    'generateTypeDeclarations' => true,
    'showFieldLookup' => false,
-   'propertyVisibility' => 
+   'propertyVisibility' =>
   array (
-    'grid' => 
+    'grid' =>
     array (
       'id' => true,
       'key' => false,
@@ -192,7 +205,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
       'modificationDate' => false,
       'creationDate' => false,
     ),
-    'search' => 
+    'search' =>
     array (
       'id' => true,
       'key' => false,
@@ -204,4 +217,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
   ),
    'enableGridLocking' => false,
    'dao' => NULL,
+   'blockedVarsForExport' =>
+  array (
+  ),
 ));
