@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "748b98b4bca176b6d2ef709af48f1cdb",
+    "content-hash": "2ecd5122944425bdb0ef45ad9504fe9e",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -6743,12 +6743,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "1377c3dfefc500a77a278832cd61c1b72f0dfce8"
+                "reference": "5e6dd2339060950d86dd1693ba796acc6f49c73e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/1377c3dfefc500a77a278832cd61c1b72f0dfce8",
-                "reference": "1377c3dfefc500a77a278832cd61c1b72f0dfce8",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/5e6dd2339060950d86dd1693ba796acc6f49c73e",
+                "reference": "5e6dd2339060950d86dd1693ba796acc6f49c73e",
                 "shasum": ""
             },
             "require": {
@@ -6906,7 +6906,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-04-07T08:51:24+00:00"
+            "time": "2021-04-07T11:32:53+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
