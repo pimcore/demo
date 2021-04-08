@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ecd5122944425bdb0ef45ad9504fe9e",
+    "content-hash": "79ee0bbe3e5cfca9673c3c57bcc72861",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -6457,12 +6457,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "f37a9949c75251df5a9320f022c0992122a0843c"
+                "reference": "4949554e3494fc72604aebfa4f9984d8b3381750"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/f37a9949c75251df5a9320f022c0992122a0843c",
-                "reference": "f37a9949c75251df5a9320f022c0992122a0843c",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/4949554e3494fc72604aebfa4f9984d8b3381750",
+                "reference": "4949554e3494fc72604aebfa4f9984d8b3381750",
                 "shasum": ""
             },
             "require": {
@@ -6516,7 +6516,7 @@
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
                 "source": "https://github.com/pimcore/customer-data-framework/tree/master"
             },
-            "time": "2021-04-06T11:02:32+00:00"
+            "time": "2021-04-07T14:35:50+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -6739,7 +6739,7 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "dev-master",
+            "version": "v10.0.0-BETA2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
@@ -6844,7 +6844,6 @@
                 "ext-imagick": "^3.4.0",
                 "ext-redis": "*"
             },
-            "default-branch": true,
             "bin": [
                 "bin/pimcore-install"
             ],
@@ -10499,14 +10498,7 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "package": "pimcore/pimcore",
-            "version": "10.0.9999999.9999999-dev",
-            "alias": "6.9.x-dev",
-            "alias_normalized": "6.9.9999999.9999999-dev"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "pimcore/pimcore": 20
