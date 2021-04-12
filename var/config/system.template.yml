@@ -20,7 +20,6 @@ pimcore:
             days: null
         error_pages:
             default: /en/Error-Page
-        create_redirect_when_moved: false
         allow_trailing_slash: 'no'
         generate_preview: true
     objects:
