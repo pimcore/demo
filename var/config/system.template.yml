@@ -6,7 +6,6 @@ pimcore:
         domain: ''
         redirect_to_maindomain: false
         debug_admin_translations: false
-        show_cookie_notice: false
         valid_languages: 'en,de,fr'
         fallback_languages:
             en: ''
