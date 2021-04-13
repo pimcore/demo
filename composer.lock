@@ -6453,16 +6453,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "dev-master",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "4949554e3494fc72604aebfa4f9984d8b3381750"
+                "reference": "5e6f27d11793f75761d0383ac89e203fd26828e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/4949554e3494fc72604aebfa4f9984d8b3381750",
-                "reference": "4949554e3494fc72604aebfa4f9984d8b3381750",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/5e6f27d11793f75761d0383ac89e203fd26828e4",
+                "reference": "5e6f27d11793f75761d0383ac89e203fd26828e4",
                 "shasum": ""
             },
             "require": {
@@ -6485,7 +6485,6 @@
                 "php-http/guzzle7-adapter": "^0.1.1",
                 "php-http/httplug-bundle": "^1.20.0"
             },
-            "default-branch": true,
             "type": "pimcore-bundle",
             "extra": {
                 "pimcore": {
@@ -6514,9 +6513,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
-                "source": "https://github.com/pimcore/customer-data-framework/tree/master"
+                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.0.0"
             },
-            "time": "2021-04-07T14:35:50+00:00"
+            "time": "2021-04-12T15:16:50+00:00"
         },
         {
             "name": "pimcore/data-hub",
