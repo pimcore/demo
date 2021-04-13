@@ -6366,16 +6366,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "12e659b66cad3989dc4ed75090400fcd87156c74"
+                "reference": "76a66f72f4bb3cdb68e4fc5c4623bb463f05605e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/12e659b66cad3989dc4ed75090400fcd87156c74",
-                "reference": "12e659b66cad3989dc4ed75090400fcd87156c74",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/76a66f72f4bb3cdb68e4fc5c4623bb463f05605e",
+                "reference": "76a66f72f4bb3cdb68e4fc5c4623bb463f05605e",
                 "shasum": ""
             },
             "require": {
@@ -6425,9 +6425,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
-                "source": "https://github.com/pimcore/customer-data-framework/tree/v2.6.1"
+                "source": "https://github.com/pimcore/customer-data-framework/tree/v2.6.2"
             },
-            "time": "2020-12-17T07:52:53+00:00"
+            "time": "2021-03-24T10:57:06+00:00"
         },
         {
             "name": "pimcore/data-hub",
