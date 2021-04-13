@@ -108,12 +108,10 @@ services:
     # ---------------------------------------------------------
 
     # overwrite PimcoreUrl helper to add existing parameters to generated urls
-    Pimcore\Templating\Helper\PimcoreUrl:
+    Pimcore\Twig\Extension\Templating\PimcoreUrl:
         class: AppBundle\Website\Tool\PimcoreUrl
         arguments:
             $generator: '@router'
-        tags:
-            - { name: templating.helper, alias: pimcoreUrl }
 
 
 
