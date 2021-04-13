@@ -15,7 +15,7 @@
 
 namespace AppBundle\Website\Tool;
 
-class PimcoreUrl extends \Pimcore\Templating\Helper\PimcoreUrl
+class PimcoreUrl extends \Pimcore\Twig\Extension\Templating\PimcoreUrl
 {
     /**
      * @param array $urlOptions
