@@ -1,87 +1,34 @@
 pimcore:
     general:
-        timezone: Europe/Berlin
-        language: en
-        path_variable: ''
         domain: ''
         redirect_to_maindomain: false
-        debug_admin_translations: false
+        language: en
         valid_languages: 'en,de,fr'
         fallback_languages:
             en: ''
             de: ''
             fr: ''
         default_language: ''
-        disable_usage_statistics: false
-        instance_identifier: ''
+        debug_admin_translations: false
     documents:
         versions:
-            steps: 10
             days: null
+            steps: 10
         error_pages:
             default: /en/Error-Page
-        allow_trailing_slash: 'no'
-        generate_preview: true
     objects:
         versions:
-            steps: 10
             days: null
+            steps: 10
     assets:
         versions:
-            steps: 10
             days: null
-        icc_rgb_profile: ''
-        icc_cmyk_profile: ''
+            steps: 10
         hide_edit_image: false
         disable_tree_preview: false
-    services:
-        google:
-            client_id: 73893596983.apps.googleusercontent.com
-            email: 73893596983@developer.gserviceaccount.com
-            simple_api_key: AIzaSyCo9Wj49hYJWW2WgOju4iMYNTvdcBxmyQ8
-            browser_api_key: AIzaSyBJX16kWAmUVEz1c1amzp2iKqAfumbcoQQ
-    full_page_cache:
-        enabled: false
-        lifetime: null
-        exclude_cookie: ''
-        exclude_patterns: ''
-    httpclient:
-        adapter: Socket
-        proxy_host: ''
-        proxy_port: ''
-        proxy_user: ''
-        proxy_pass: ''
-    email:
-        sender:
-            name: 'Pimcore Demo'
-            email: demo@pimcore.com
-        return:
-            name: ''
-            email: ''
-        method: sendmail
-        debug:
-            email_addresses: ''
-    newsletter:
-        sender:
-            name: ''
-            email: ''
-        return:
-            name: ''
-            email: ''
-        method: null
-        debug:
-            email_addresses: ''
-        use_specific: false
-    applicationlog:
-        mail_notification:
-            send_log_summary: false
-            filter_priority: null
-            mail_receiver: ''
-        archive_treshold: '30'
-        archive_alternative_database: ''
 pimcore_admin:
     branding:
+        login_screen_invert_colors: false
         color_login_screen: ''
         color_admin_interface: ''
         login_screen_custom_image: ''
-        login_screen_invert_colors: false
