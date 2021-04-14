@@ -6648,23 +6648,22 @@
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "dev-master",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "045ba04c1637493422467d5fb146cc33c3d65727"
+                "reference": "4b202e1d61c12a517edb65d5535fa3029647e7bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/045ba04c1637493422467d5fb146cc33c3d65727",
-                "reference": "045ba04c1637493422467d5fb146cc33c3d65727",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/4b202e1d61c12a517edb65d5535fa3029647e7bc",
+                "reference": "4b202e1d61c12a517edb65d5535fa3029647e7bc",
                 "shasum": ""
             },
             "require": {
                 "pimcore/pimcore": "^6.8 || ^10.0",
-                "symfony/symfony": "^4 || ^5"
+                "symfony/symfony": "^4.3 || ^5"
             },
-            "default-branch": true,
             "type": "pimcore-bundle",
             "extra": {
                 "pimcore": {
@@ -6687,9 +6686,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/output-data-config-toolkit/issues",
-                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/master"
+                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v4.0.0"
             },
-            "time": "2021-04-02T10:51:07+00:00"
+            "time": "2021-04-13T08:59:54+00:00"
         },
         {
             "name": "pimcore/payment-provider-unzer",
@@ -6954,32 +6953,28 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "dev-master",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "141e3cab04ad33d80ffe9a74a2bbb4f43eb11e6a"
+                "reference": "d703f2f2ee98dc1bee2b17fb53d61d34f2a339fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/141e3cab04ad33d80ffe9a74a2bbb4f43eb11e6a",
-                "reference": "141e3cab04ad33d80ffe9a74a2bbb4f43eb11e6a",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/d703f2f2ee98dc1bee2b17fb53d61d34f2a339fb",
+                "reference": "d703f2f2ee98dc1bee2b17fb53d61d34f2a339fb",
                 "shasum": ""
             },
             "require": {
                 "pimcore/output-data-config-toolkit-bundle": "^4.0",
-                "pimcore/pimcore": "^6.8 || ^10.0"
+                "pimcore/pimcore": "^6.9 || ^10.0"
             },
-            "default-branch": true,
             "type": "pimcore-bundle",
             "extra": {
                 "pimcore": {
                     "bundles": [
                         "Web2PrintToolsBundle\\Web2PrintToolsBundle"
                     ]
-                },
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -6993,9 +6988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/web2print-tools/issues",
-                "source": "https://github.com/pimcore/web2print-tools/tree/master"
+                "source": "https://github.com/pimcore/web2print-tools/tree/v4.0.1"
             },
-            "time": "2021-03-14T09:56:44+00:00"
+            "time": "2021-04-13T11:47:49+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
