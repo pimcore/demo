@@ -6435,12 +6435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "79a98bfe2a0c85c4ad61fd04431c0271bd353eb9"
+                "reference": "a67253f38d1795f9c6c1c46e751c7c65b58b15da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/79a98bfe2a0c85c4ad61fd04431c0271bd353eb9",
-                "reference": "79a98bfe2a0c85c4ad61fd04431c0271bd353eb9",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/a67253f38d1795f9c6c1c46e751c7c65b58b15da",
+                "reference": "a67253f38d1795f9c6c1c46e751c7c65b58b15da",
                 "shasum": ""
             },
             "require": {
@@ -6479,7 +6479,7 @@
                 "issues": "https://github.com/pimcore/data-hub/issues",
                 "source": "https://github.com/pimcore/data-hub/tree/master"
             },
-            "time": "2021-04-19T08:40:36+00:00"
+            "time": "2021-04-19T10:17:34+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -6604,16 +6604,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v6.9.1",
+            "version": "v6.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "055d64a90e8cd145795ed1e28f16c24fc7629c10"
+                "reference": "ce1f43d4cc8d02461cce5e9dba488bab53541d2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/055d64a90e8cd145795ed1e28f16c24fc7629c10",
-                "reference": "055d64a90e8cd145795ed1e28f16c24fc7629c10",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/ce1f43d4cc8d02461cce5e9dba488bab53541d2b",
+                "reference": "ce1f43d4cc8d02461cce5e9dba488bab53541d2b",
                 "shasum": ""
             },
             "require": {
@@ -6776,7 +6776,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-04-07T11:32:10+00:00"
+            "time": "2021-04-19T12:18:33+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
