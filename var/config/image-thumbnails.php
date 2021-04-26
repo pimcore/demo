@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     "grid" => [
@@ -192,7 +192,7 @@ return [
             [
                 "method" => "addOverlay",
                 "arguments" => [
-                    "path" => "/web/static/images/logo-overlay.png",
+                    "path" => "/public/static/images/logo-overlay.png",
                     "x" => 10,
                     "y" => 10,
                     "origin" => "bottom-right",
@@ -300,7 +300,7 @@ return [
             [
                 "method" => "addOverlay",
                 "arguments" => [
-                    "path" => "/web/static/images/logo-overlay.png",
+                    "path" => "/public/static/images/logo-overlay.png",
                     "x" => 10,
                     "y" => 10,
                     "origin" => "top-left",
@@ -438,7 +438,7 @@ return [
             [
                 "method" => "applyMask",
                 "arguments" => [
-                    "path" => "/web/static/images/mask-example.png"
+                    "path" => "/public/static/images/mask-example.png"
                 ]
             ]
         ],
@@ -473,7 +473,7 @@ return [
             [
                 "method" => "addOverlay",
                 "arguments" => [
-                    "path" => "/web/static/images/logo-overlay.png",
+                    "path" => "/public/static/images/logo-overlay.png",
                     "x" => 10,
                     "y" => 10,
                     "origin" => "top-left",
