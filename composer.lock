@@ -6522,12 +6522,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "e5a54ccf965a550f77c203bb06ca51e659a7bac1"
+                "reference": "2d11e2c9ac212bff9e745d5d3b28bacaa9149228"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/e5a54ccf965a550f77c203bb06ca51e659a7bac1",
-                "reference": "e5a54ccf965a550f77c203bb06ca51e659a7bac1",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/2d11e2c9ac212bff9e745d5d3b28bacaa9149228",
+                "reference": "2d11e2c9ac212bff9e745d5d3b28bacaa9149228",
                 "shasum": ""
             },
             "require": {
@@ -6566,7 +6566,7 @@
                 "issues": "https://github.com/pimcore/data-hub/issues",
                 "source": "https://github.com/pimcore/data-hub/tree/master"
             },
-            "time": "2021-04-28T07:44:42+00:00"
+            "time": "2021-04-28T10:15:24+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -6736,16 +6736,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v10.0.0-BETA3",
+            "version": "v10.0.0-BETA4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "8579d28a4059969ddd94d1696f44be9b7c929276"
+                "reference": "c2b5b40217a6d3fcfe7bbf18ba65745d28ebc213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/8579d28a4059969ddd94d1696f44be9b7c929276",
-                "reference": "8579d28a4059969ddd94d1696f44be9b7c929276",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/c2b5b40217a6d3fcfe7bbf18ba65745d28ebc213",
+                "reference": "c2b5b40217a6d3fcfe7bbf18ba65745d28ebc213",
                 "shasum": ""
             },
             "require": {
@@ -6834,12 +6834,14 @@
                 "elasticsearch/elasticsearch": "^7.11",
                 "phpstan/phpstan": "^0.12.56",
                 "phpstan/phpstan-symfony": "^0.12.11",
-                "phpunit/phpunit": "^9"
+                "phpunit/phpunit": "^9",
+                "spiritix/php-chrome-html2pdf": "^1.5"
             },
             "suggest": {
                 "elasticsearch/elasticsearch": "Required for Elastic Search service",
                 "ext-imagick": "^3.4.0",
-                "ext-redis": "*"
+                "ext-redis": "*",
+                "spiritix/php-chrome-html2pdf": "Required for the Headless Chrome Web2Print Extension"
             },
             "bin": [
                 "bin/pimcore-install"
@@ -6902,7 +6904,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-04-19T12:31:42+00:00"
+            "time": "2021-04-28T10:11:37+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
