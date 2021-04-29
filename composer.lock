@@ -6476,22 +6476,22 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/master"
+                "source": "https://github.com/pimcore/data-hub/tree/v0.8"
             },
             "time": "2021-04-28T10:15:24+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/number-sequence-generator.git",
-                "reference": "930410df0eae0b0fd597988389de68a19d975b51"
+                "reference": "e010e3d6f937eaa092cd360e21324f2988d8399b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/number-sequence-generator/zipball/930410df0eae0b0fd597988389de68a19d975b51",
-                "reference": "930410df0eae0b0fd597988389de68a19d975b51",
+                "url": "https://api.github.com/repos/pimcore/number-sequence-generator/zipball/e010e3d6f937eaa092cd360e21324f2988d8399b",
+                "reference": "e010e3d6f937eaa092cd360e21324f2988d8399b",
                 "shasum": ""
             },
             "type": "pimcore-bundle",
@@ -6513,9 +6513,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/number-sequence-generator/issues",
-                "source": "https://github.com/pimcore/number-sequence-generator/tree/v1.0.4"
+                "source": "https://github.com/pimcore/number-sequence-generator/tree/v1.0.5"
             },
-            "time": "2021-03-24T15:55:44+00:00"
+            "time": "2021-04-28T14:35:47+00:00"
         },
         {
             "name": "pimcore/object-merger",
