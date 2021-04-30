@@ -17,7 +17,7 @@
                 {% if configElement is instanceof('\\OutputDataConfigToolkitBundle\\ConfigElement\\Operator\\Group') %}
 
                     {%
-                        include 'Areas/print-product-table/spec_attribute/column-attribute-table-values.html.twig' with {
+                        include 'areas/print-product-table/spec_attribute/column-attribute-table-values.html.twig' with {
                             'configArray': configElement.childs,
                             'elements': [element],
                             'subgroup': (subgroup + 1)

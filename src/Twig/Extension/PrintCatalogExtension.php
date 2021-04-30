@@ -66,17 +66,17 @@ class PrintCatalogExtension extends AbstractExtension
     {
         if ($outputElement->value instanceof Image) {
             return $this->printImage($outputElement->value, $thumbnailName);
-        } elseif ($outputElement->def instanceof ImageGallery) {
+        } elseif (($outputElement->def ?? null) instanceof ImageGallery) {
             return $this->printImageGallery($outputElement->value, $thumbnailName);
-        } elseif ($outputElement->def instanceof Hotspotimage) {
+        } elseif (($outputElement->def ?? null) instanceof Hotspotimage) {
             return $this->printHotspotImage($outputElement->value, $thumbnailName);
-        } elseif ($outputElement->def instanceof Select) {
+        } elseif (($outputElement->def ?? null) instanceof Select) {
             return $this->printSelectValue($outputElement->value);
-        } elseif ($outputElement->def instanceof Multiselect) {
+        } elseif (($outputElement->def ?? null) instanceof Multiselect) {
             return $this->printMultiSelectValue($outputElement->value);
-        } elseif ($outputElement->def instanceof ManyToOneRelation) {
+        } elseif (($outputElement->def ?? null) instanceof ManyToOneRelation) {
             return $this->printManyToOne($outputElement->value);
-        } elseif ($outputElement->def instanceof ManyToManyObjectRelation) {
+        } elseif (($outputElement->def ?? null) instanceof ManyToManyObjectRelation) {
             return $this->printManyToManyObjects($outputElement->value);
         } else {
             return $outputElement->value;

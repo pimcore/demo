@@ -22,7 +22,7 @@
     {% set configArray = output_channel_build_output_data_config(pimcore_outputchanneltable('tableconfig').getOutputChannel()) %}
     <table class="outputchannel">
         {%
-            include 'Areas/print-product-table/spec_attribute/column-attribute-table.html.twig' with {
+            include 'areas/print-product-table/spec_attribute/column-attribute-table.html.twig' with {
                 'configArray': configArray,
                 'classname': ("Pimcore\\Model\\DataObject\\" ~ pimcore_outputchanneltable('tableconfig').selectedClass),
                 'elements': pimcore_outputchanneltable('tableconfig'),
