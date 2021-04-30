@@ -33,7 +33,9 @@ class Web2printController extends BaseController
      */
     public function defaultAction(Request $request)
     {
-        $paramsBag = [];
+        $paramsBag = [
+            'document' => $this->document
+        ];
 
         foreach ($request->attributes as $key => $value) {
             $paramsBag[$key] = $value;
@@ -57,7 +59,9 @@ class Web2printController extends BaseController
      */
     public function containerAction(Request $request)
     {
-        $paramsBag = [];
+        $paramsBag = [
+            'document' => $this->document
+        ];
 
         foreach ($request->attributes as $key => $value) {
             $paramsBag[$key] = $value;
