@@ -58,7 +58,7 @@ CREATE TABLE `ecommerceframework_cartitem` (
   `itemKey` varchar(100) COLLATE utf8_bin NOT NULL,
   `parentItemKey` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '0',
   `comment` longtext CHARACTER SET latin1,
-  `addedDateTimestamp` int(10) NOT NULL,
+  `addedDateTimestamp` bigint NOT NULL,
   `sortIndex` int(10) unsigned DEFAULT '0',
   PRIMARY KEY (`itemKey`,`cartId`,`parentItemKey`),
   KEY `cartId_parentItemKey` (`cartId`,`parentItemKey`)
