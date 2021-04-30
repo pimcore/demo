@@ -19,6 +19,7 @@ use App\Model\Product\Category;
 use App\Website\Tool\Text;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\Document;
 
 class CategoryLinkGenerator extends AbstractProductLinkGenerator implements LinkGeneratorInterface
 {
@@ -33,6 +34,10 @@ class CategoryLinkGenerator extends AbstractProductLinkGenerator implements Link
     {
         if (false === $object instanceof Category) {
             throw new \InvalidArgumentException('Given object is no category');
+        }
+
+        if (isset($params['document']) && $params['document'] instanceof Document) {
+            $this->document = $params['document'];
         }
 
         return $this->pimcoreUrl->__invoke(
