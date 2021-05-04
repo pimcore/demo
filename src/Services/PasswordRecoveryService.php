@@ -76,7 +76,7 @@ class PasswordRecoveryService
                 'token' => $token,
                 'tokenLink' => $this->urlGenerator->generate('account-reset-password', ['token' => $token]),
             ]);
-            $mail->setTo($customer->getEmail());
+            $mail->addTo($customer->getEmail());
 
             $mail->send();
 
