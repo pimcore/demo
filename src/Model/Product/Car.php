@@ -179,12 +179,4 @@ class Car extends \Pimcore\Model\DataObject\Car
         return [];
     }
 
-    public function getElementAdminStyle()
-    {
-        if (empty($this->o_elementAdminStyle)) {
-            $this->o_elementAdminStyle = new AdminStyle\Car($this);
-        }
-
-        return $this->o_elementAdminStyle;
-    }
 }

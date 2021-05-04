@@ -42,4 +42,13 @@ class PimcoreAdminListener
             )
         );
     }
+
+    public function onResolveElementAdminStyle(\Pimcore\Event\Admin\ElementAdminStyleEvent $event)
+    {
+        $element = $event->getElement();
+        // decide which default styles you want to override
+        if ($element instanceof \App\Model\Product\Car) {
+            $event->setAdminStyle(new \App\Model\Product\AdminStyle\Car($element));
+        }
+    }
 }
