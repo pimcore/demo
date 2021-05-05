@@ -357,10 +357,9 @@ class ProductController extends BaseController
         $paginator = $paginator->paginate(
             $productListing,
             $request->get('page', 1),
-            5
+            $filterDefinition->getPageLimit()
         );
 
-        p_r($paginator); die;
 
         $params['results'] = $paginator;
         $params['paginationVariables'] = $paginator->getPaginationData();
