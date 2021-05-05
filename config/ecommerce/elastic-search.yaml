@@ -51,7 +51,7 @@ pimcore_ecommerce_framework:
                                         - lowercase
                             tokenizer:
                                 app_ngram_tokenzier:
-                                    type: nGram
+                                    type: ngram
                                     min_gram: 3
                                     max_gram: 25
                                     token_chars: [letter, digit]
