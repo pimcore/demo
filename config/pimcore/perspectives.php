@@ -347,5 +347,156 @@ return [
                 "sort" => -1
             ]
         ]
+    ],
+
+    "CDP" => [
+        "elementTree" => [
+            [
+                "type" => "customview",
+                "position" => "left",
+                "sort" => 0,
+                "treeContextMenu" => [
+
+                ],
+                "id" => 7
+            ],
+            [
+                "type" => "customview",
+                "position" => "right",
+                "sort" => 0,
+                "treeContextMenu" => [
+
+                ],
+                "id" => 8
+            ],
+            [
+                "type" => "customview",
+                "position" => "right",
+                "sort" => 1,
+                "treeContextMenu" => [
+
+                ],
+                "id" => 3
+            ]
+        ],
+        "iconCls" => NULL,
+        "icon" => "/bundles/pimcoreadmin/img/flat-white-icons/conference_call.svg",
+        "toolbar" => [
+            "file" => [
+                "hidden" => false,
+                "items" => [
+                    "perspectives" => true,
+                    "dashboards" => true,
+                    "openDocument" => false,
+                    "openAsset" => false,
+                    "openObject" => true,
+                    "searchReplace" => true,
+                    "schedule" => true,
+                    "seemode" => false,
+                    "closeAll" => true,
+                    "help" => true,
+                    "about" => true
+                ]
+            ],
+            "marketing" => [
+                "hidden" => true,
+                "items" => [
+                    "reports" => true,
+                    "tagmanagement" => true,
+                    "targeting" => true,
+                    "seo" => [
+                        "hidden" => false,
+                        "items" => [
+                            "documents" => true,
+                            "robots" => true,
+                            "httperrors" => true
+                        ]
+                    ]
+                ]
+            ],
+            "extras" => [
+                "hidden" => true,
+                "items" => [
+                    "glossary" => false,
+                    "redirects" => false,
+                    "translations" => true,
+                    "recyclebin" => false,
+                    "plugins" => false,
+                    "notesEvents" => false,
+                    "applicationlog" => false,
+                    "gdpr_data_extractor" => false,
+                    "emails" => false,
+                    "maintenance" => false,
+                    "systemtools" => [
+                        "hidden" => false,
+                        "items" => [
+                            "phpinfo" => true,
+                            "opcache" => true,
+                            "requirements" => true,
+                            "serverinfo" => true,
+                            "database" => true,
+                            "fileexplorer" => true
+                        ]
+                    ]
+                ]
+            ],
+            "settings" => [
+                "hidden" => true,
+                "items" => [
+                    "customReports" => true,
+                    "marketingReports" => true,
+                    "documentTypes" => true,
+                    "predefinedProperties" => true,
+                    "predefinedMetadata" => true,
+                    "system" => true,
+                    "website" => true,
+                    "web2print" => true,
+                    "users" => [
+                        "hidden" => false,
+                        "items" => [
+                            "users" => true,
+                            "roles" => true
+                        ]
+                    ],
+                    "thumbnails" => true,
+                    "objects" => [
+                        "hidden" => false,
+                        "items" => [
+                            "classes" => true,
+                            "fieldcollections" => true,
+                            "objectbricks" => true,
+                            "quantityValue" => true,
+                            "classificationstore" => true,
+                            "bulkExport" => true,
+                            "bulkImport" => true
+                        ]
+                    ],
+                    "routes" => true,
+                    "cache" => [
+                        "hidden" => false,
+                        "items" => [
+                            "clearAll" => true,
+                            "clearData" => true,
+                            "clearSymfony" => true,
+                            "clearOutput" => true,
+                            "clearTemp" => true
+                        ]
+                    ],
+                    "adminTranslations" => true,
+                    "tagConfiguration" => true,
+                    "perspectiveEditor" => true
+                ]
+            ],
+            "search" => [
+                "hidden" => false,
+                "items" => [
+                    "quickSearch" => true,
+                    "documents" => false,
+                    "assets" => false,
+                    "objects" => true,
+                    "advancedObjectSearch" => true
+                ]
+            ]
+        ]
     ]
 ];
