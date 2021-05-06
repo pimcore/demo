@@ -10144,16 +10144,16 @@
         },
         {
             "name": "unzerdev/php-sdk",
-            "version": "1.1.1.1",
+            "version": "1.1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/unzerdev/php-sdk.git",
-                "reference": "39d4317ebf6a46c46cb51b703635d0a981dd85ec"
+                "reference": "6324a6cd7fd23ec938cdda8b28a2e87c4e012d99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unzerdev/php-sdk/zipball/39d4317ebf6a46c46cb51b703635d0a981dd85ec",
-                "reference": "39d4317ebf6a46c46cb51b703635d0a981dd85ec",
+                "url": "https://api.github.com/repos/unzerdev/php-sdk/zipball/6324a6cd7fd23ec938cdda8b28a2e87c4e012d99",
+                "reference": "6324a6cd7fd23ec938cdda8b28a2e87c4e012d99",
                 "shasum": ""
             },
             "require": {
@@ -10181,9 +10181,9 @@
             "description": "This is the php sdk to connect to the Unzer rest api.",
             "support": {
                 "email": "support@unzer.com",
-                "source": "https://github.com/unzerdev/php-sdk/tree/1.1.1.1"
+                "source": "https://github.com/unzerdev/php-sdk/tree/1.1.2.0"
             },
-            "time": "2021-03-15T09:47:47+00:00"
+            "time": "2021-05-05T09:58:19+00:00"
         },
         {
             "name": "vrana/adminer",
