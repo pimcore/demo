@@ -146,6 +146,12 @@
                     <h4>PDF</h4>
                 </div>
                 {{ pimcore_pdf("myPdf", {"width": 640, height: 100}) }}
+
+                <div class="alert alert-secondary">
+                    <h4>EDITABLE DIALOG BOX</h4>
+                    <p>Configured on the Image w. metadata brick class "App\Document\Areabrick\ImageMetadata". Click on the edit button(pencil) for editable box:</p>
+                </div>
+                {{ pimcore_area('content', { 'type' : 'image-metadata'}) }}
             </div>
 
         {% endif %}

@@ -1,6 +1,5 @@
 {% extends 'layouts/layout.html.twig' %}
 
-
 {% block content %}
     <div id="main-content" class="main-content" >
         {% if document.getTitle() is empty %}
@@ -21,7 +20,7 @@
         {{ pimcore_areablock('content', {
             'allowed': ['blockquote', 'embed', 'featurette', 'gallery-carousel', 'gallery-folder',
                 'gallery-single-images', 'headlines', 'horizontal-line', 'icon-teaser-row', 'image',
-                'image-hotspot-marker', 'pdf', 'product-grid', 'product-teaser', 'standard-teaser', 'text-accordion',
+                'image-hotspot-marker', 'image-metadata', 'pdf', 'product-grid', 'product-teaser', 'standard-teaser', 'text-accordion',
                 'time-slider-featurette', 'video', 'wysiwyg', 'wysiwyg-with-images', 'personalized-product-teaser']
         }) }}
     </div>
