@@ -6,7 +6,7 @@ E-Commerce Applications built with Pimcore. If you are an experienced Pimcore de
 
 ## Getting started 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo my-project
+COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo my-project --ignore-platform-reqs
 cd ./my-project
 ./vendor/bin/pimcore-install
 ```
