@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f73b885720bf8167168f48e7adb9662",
+    "content-hash": "d87b770d01c8a3c3f9c01bdda416dfe0",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -6453,16 +6453,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "326a281b5f61d855c3ddb1336fe3abe2aada4ae7"
+                "reference": "b42a01721d31855c2a07dba278c056597ef8380c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/326a281b5f61d855c3ddb1336fe3abe2aada4ae7",
-                "reference": "326a281b5f61d855c3ddb1336fe3abe2aada4ae7",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/b42a01721d31855c2a07dba278c056597ef8380c",
+                "reference": "b42a01721d31855c2a07dba278c056597ef8380c",
                 "shasum": ""
             },
             "require": {
@@ -6513,13 +6513,13 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
-                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.0.1"
+                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.0.2"
             },
-            "time": "2021-04-28T10:14:02+00:00"
+            "time": "2021-05-06T18:24:50+00:00"
         },
         {
             "name": "pimcore/data-hub",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
@@ -6538,7 +6538,6 @@
             "require-dev": {
                 "symfony/phpunit-bridge": "*"
             },
-            "default-branch": true,
             "type": "pimcore-bundle",
             "extra": {
                 "pimcore": {
@@ -6565,7 +6564,7 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/master"
+                "source": "https://github.com/pimcore/data-hub/tree/v1.0"
             },
             "time": "2021-05-10T09:57:47+00:00"
         },
@@ -6651,16 +6650,16 @@
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "v4.0.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "4b202e1d61c12a517edb65d5535fa3029647e7bc"
+                "reference": "fbcb99040d3b8a665d4fe1a6d177ad18e70f9d0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/4b202e1d61c12a517edb65d5535fa3029647e7bc",
-                "reference": "4b202e1d61c12a517edb65d5535fa3029647e7bc",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/fbcb99040d3b8a665d4fe1a6d177ad18e70f9d0e",
+                "reference": "fbcb99040d3b8a665d4fe1a6d177ad18e70f9d0e",
                 "shasum": ""
             },
             "require": {
@@ -6675,7 +6674,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -6689,22 +6688,22 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/output-data-config-toolkit/issues",
-                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v4.0.0"
+                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v4.0.1"
             },
-            "time": "2021-04-13T08:59:54+00:00"
+            "time": "2021-05-06T18:42:31+00:00"
         },
         {
             "name": "pimcore/payment-provider-unzer",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/payment-provider-unzer.git",
-                "reference": "14a4f60ca7634dce6522717b9e70c29672d1c8e2"
+                "reference": "935566d7447f48fe88b486ec8ed4c7e6abe6cf1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/14a4f60ca7634dce6522717b9e70c29672d1c8e2",
-                "reference": "14a4f60ca7634dce6522717b9e70c29672d1c8e2",
+                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/935566d7447f48fe88b486ec8ed4c7e6abe6cf1b",
+                "reference": "935566d7447f48fe88b486ec8ed4c7e6abe6cf1b",
                 "shasum": ""
             },
             "require": {
@@ -6734,22 +6733,22 @@
             "description": "Pimcore Payment Provider - Unzer (Heidelpay)",
             "support": {
                 "issues": "https://github.com/pimcore/payment-provider-unzer/issues",
-                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.1"
+                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.2"
             },
-            "time": "2021-02-17T11:03:16+00:00"
+            "time": "2021-05-10T12:07:02+00:00"
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v10.0.0-BETA4",
+            "version": "v10.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "c2b5b40217a6d3fcfe7bbf18ba65745d28ebc213"
+                "reference": "5c58cebac1f9061840a262a771b72113e3db4508"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/c2b5b40217a6d3fcfe7bbf18ba65745d28ebc213",
-                "reference": "c2b5b40217a6d3fcfe7bbf18ba65745d28ebc213",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/5c58cebac1f9061840a262a771b72113e3db4508",
+                "reference": "5c58cebac1f9061840a262a771b72113e3db4508",
                 "shasum": ""
             },
             "require": {
@@ -6836,8 +6835,8 @@
                 "codeception/phpunit-wrapper": "^9",
                 "composer/composer": "*",
                 "elasticsearch/elasticsearch": "^7.11",
-                "phpstan/phpstan": "^0.12.56",
-                "phpstan/phpstan-symfony": "^0.12.11",
+                "phpstan/phpstan": "^0.12.85",
+                "phpstan/phpstan-symfony": "^0.12.32",
                 "phpunit/phpunit": "^9",
                 "spiritix/php-chrome-html2pdf": "^1.5"
             },
@@ -6851,17 +6850,6 @@
                 "bin/pimcore-install"
             ],
             "type": "library",
-            "extra": {
-                "symfony-app-dir": "app",
-                "symfony-bin-dir": "bin",
-                "symfony-var-dir": "var",
-                "symfony-web-dir": "public",
-                "symfony-tests-dir": "tests",
-                "symfony-assets-install": "relative",
-                "branch-alias": {
-                    "dev-master": "10.0-dev"
-                }
-            },
             "autoload": {
                 "files": [
                     "lib/helper-functions.php"
@@ -6908,7 +6896,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-04-28T10:11:37+00:00"
+            "time": "2021-05-11T08:39:34+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -6958,16 +6946,16 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "d703f2f2ee98dc1bee2b17fb53d61d34f2a339fb"
+                "reference": "0fca13ae43f0eb34345f4cda64e418063b06107f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/d703f2f2ee98dc1bee2b17fb53d61d34f2a339fb",
-                "reference": "d703f2f2ee98dc1bee2b17fb53d61d34f2a339fb",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/0fca13ae43f0eb34345f4cda64e418063b06107f",
+                "reference": "0fca13ae43f0eb34345f4cda64e418063b06107f",
                 "shasum": ""
             },
             "require": {
@@ -6980,6 +6968,9 @@
                     "bundles": [
                         "Web2PrintToolsBundle\\Web2PrintToolsBundle"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -6993,9 +6984,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/web2print-tools/issues",
-                "source": "https://github.com/pimcore/web2print-tools/tree/v4.0.1"
+                "source": "https://github.com/pimcore/web2print-tools/tree/v4.0.2"
             },
-            "time": "2021-04-13T11:47:49+00:00"
+            "time": "2021-05-07T07:21:37+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
@@ -10390,16 +10381,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.6.2",
+            "version": "v14.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f"
+                "reference": "e3f807a06c44a04d66f83021b28667983d344a50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f",
-                "reference": "bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/e3f807a06c44a04d66f83021b28667983d344a50",
+                "reference": "e3f807a06c44a04d66f83021b28667983d344a50",
                 "shasum": ""
             },
             "require": {
@@ -10444,7 +10435,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.2"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.3"
             },
             "funding": [
                 {
@@ -10452,7 +10443,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-04-23T09:26:03+00:00"
+            "time": "2021-05-10T15:30:40+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -10502,9 +10493,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "pimcore/pimcore": 10
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
