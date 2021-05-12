@@ -201,7 +201,7 @@ class ProductController extends BaseController
         $params['paginationVariables'] = $paginator->getPaginationData();
 
         if ($request->attributes->get('noLayout')) {
-            return $this->render('/product/listing_content.html.twig', $params);
+            return $this->render('product/listing_content.html.twig', $params);
         }
 
         // track product impressions
@@ -232,7 +232,7 @@ class ProductController extends BaseController
             $trackingManager = $ecommerceFactory->getTrackingManager();
             $trackingManager->trackProductImpression($product, 'teaser');
 
-            return $this->render('/product/product_teaser.html.twig', $paramsBag);
+            return $this->render('product/product_teaser.html.twig', $paramsBag);
         }
 
         throw new NotFoundHttpException('Product not found.');

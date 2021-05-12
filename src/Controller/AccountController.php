@@ -392,7 +392,7 @@ class AccountController extends BaseController
         $orderList->addFilter(new CustomerObject($user));
         $orderList->setOrder('orderDate DESC');
 
-        return $this->render('/account/index.html.twig', [
+        return $this->render('account/index.html.twig', [
             'blacklist' => $blacklist,
             'orderList' => $orderList,
             'hideBreadcrumbs' => true
