@@ -255,6 +255,49 @@
             "time": "2017-09-25T19:44:35+00:00"
         },
         {
+            "name": "brusch/unzer-php-sdk",
+            "version": "1.1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brusch/unzer-php-sdk.git",
+                "reference": "6a30f674e978421efd60ec5fc68f4d93e3390fc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brusch/unzer-php-sdk/zipball/6a30f674e978421efd60ec5fc68f4d93e3390fc2",
+                "reference": "6a30f674e978421efd60ec5fc68f4d93e3390fc2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "~7.1.0|~7.2.0|~7.3.0|~7.4.0|~8.0.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpunit/phpunit": ">6.5 <8.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UnzerSDK\\": "src",
+                    "UnzerSDK\\examples\\": "examples"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "This is a fork of unzerdev/php-sdk that supports PHP8 until the official SDK provides support.",
+            "support": {
+                "email": "support@unzer.com",
+                "source": "https://github.com/brusch/unzer-php-sdk/tree/1.1.1.1"
+            },
+            "time": "2021-05-14T08:27:07+00:00"
+        },
+        {
             "name": "cbschuld/browser.php",
             "version": "v1.9.6",
             "source": {
@@ -610,28 +653,30 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.12.1",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b"
+                "reference": "03cb2123a67d4be806554fe670d0adc298199808"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b17c5014ef81d212ac539f07a1001832df1b6d3b",
-                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/03cb2123a67d4be806554fe670d0adc298199808",
+                "reference": "03cb2123a67d4be806554fe670d0adc298199808",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "1.*",
                 "ext-tokenizer": "*",
-                "php": "^7.1 || ^8.0"
+                "php": "^7.1 || ^8.0",
+                "psr/cache": "^1 || ^2 || ^3"
             },
             "require-dev": {
-                "doctrine/cache": "1.*",
+                "doctrine/cache": "^1.11 || ^2.0",
                 "doctrine/coding-standard": "^6.0 || ^8.1",
                 "phpstan/phpstan": "^0.12.20",
-                "phpunit/phpunit": "^7.5 || ^9.1.5"
+                "phpunit/phpunit": "^7.5 || ^9.1.5",
+                "symfony/cache": "^4.4 || ^5.2"
             },
             "type": "library",
             "autoload": {
@@ -674,9 +719,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
-                "source": "https://github.com/doctrine/annotations/tree/1.12.1"
+                "source": "https://github.com/doctrine/annotations/tree/1.13.0"
             },
-            "time": "2021-02-21T21:00:45+00:00"
+            "time": "2021-04-29T07:39:39+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -3520,16 +3565,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "2.0.5",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "27ea64cc9d61ae7b6a5f04bebf062d89dd18e8f7"
+                "reference": "f1ecc5c7bf193da14fbc34198ffb16d979ad7d5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/27ea64cc9d61ae7b6a5f04bebf062d89dd18e8f7",
-                "reference": "27ea64cc9d61ae7b6a5f04bebf062d89dd18e8f7",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f1ecc5c7bf193da14fbc34198ffb16d979ad7d5a",
+                "reference": "f1ecc5c7bf193da14fbc34198ffb16d979ad7d5a",
                 "shasum": ""
             },
             "require": {
@@ -3584,7 +3629,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/2.0.5"
+                "source": "https://github.com/thephpleague/flysystem/tree/2.0.7"
             },
             "funding": [
                 {
@@ -3600,7 +3645,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-11T15:03:35+00:00"
+            "time": "2021-05-13T19:36:24+00:00"
         },
         {
             "name": "league/flysystem-bundle",
@@ -4604,16 +4649,16 @@
         },
         {
             "name": "mpratt/embera",
-            "version": "2.0.17",
+            "version": "2.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpratt/Embera.git",
-                "reference": "e5a1131773236d2f56a5416ef064328cc91a973e"
+                "reference": "17358913e299497e464ad17f1310f8a01505fd9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpratt/Embera/zipball/e5a1131773236d2f56a5416ef064328cc91a973e",
-                "reference": "e5a1131773236d2f56a5416ef064328cc91a973e",
+                "url": "https://api.github.com/repos/mpratt/Embera/zipball/17358913e299497e464ad17f1310f8a01505fd9c",
+                "reference": "17358913e299497e464ad17f1310f8a01505fd9c",
                 "shasum": ""
             },
             "require": {
@@ -4621,7 +4666,7 @@
                 "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.3"
+                "phpunit/phpunit": "^9.0"
             },
             "suggest": {
                 "ext-curl": "Allow to fetch data using curl instead of using file_get_contents"
@@ -4661,9 +4706,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mpratt/Embera/issues",
-                "source": "https://github.com/mpratt/Embera/tree/2.0.17"
+                "source": "https://github.com/mpratt/Embera/tree/2.0.18"
             },
-            "time": "2021-03-12T01:38:04+00:00"
+            "time": "2021-05-14T04:44:48+00:00"
         },
         {
             "name": "mustangostang/spyc",
@@ -6694,21 +6739,21 @@
         },
         {
             "name": "pimcore/payment-provider-unzer",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/payment-provider-unzer.git",
-                "reference": "935566d7447f48fe88b486ec8ed4c7e6abe6cf1b"
+                "reference": "a612d2268609b5c4f99d8cf7c8940b840f55387e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/935566d7447f48fe88b486ec8ed4c7e6abe6cf1b",
-                "reference": "935566d7447f48fe88b486ec8ed4c7e6abe6cf1b",
+                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/a612d2268609b5c4f99d8cf7c8940b840f55387e",
+                "reference": "a612d2268609b5c4f99d8cf7c8940b840f55387e",
                 "shasum": ""
             },
             "require": {
-                "pimcore/pimcore": "^10.0.0",
-                "unzerdev/php-sdk": "^1.1.0.0"
+                "brusch/unzer-php-sdk": "^1.1.1.1",
+                "pimcore/pimcore": "^10.0.0"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -6733,9 +6778,9 @@
             "description": "Pimcore Payment Provider - Unzer (Heidelpay)",
             "support": {
                 "issues": "https://github.com/pimcore/payment-provider-unzer/issues",
-                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.2"
+                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.3"
             },
-            "time": "2021-05-10T12:07:02+00:00"
+            "time": "2021-05-14T08:50:36+00:00"
         },
         {
             "name": "pimcore/pimcore",
@@ -10134,60 +10179,17 @@
             "time": "2020-12-03T10:09:09+00:00"
         },
         {
-            "name": "unzerdev/php-sdk",
-            "version": "1.1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/unzerdev/php-sdk.git",
-                "reference": "6324a6cd7fd23ec938cdda8b28a2e87c4e012d99"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/unzerdev/php-sdk/zipball/6324a6cd7fd23ec938cdda8b28a2e87c4e012d99",
-                "reference": "6324a6cd7fd23ec938cdda8b28a2e87c4e012d99",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": "~7.1.0|~7.2.0|~7.3.0|~7.4.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "phpunit/phpunit": ">6.5 <8.0"
-            },
-            "suggest": {
-                "ext-curl": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "UnzerSDK\\": "src",
-                    "UnzerSDK\\examples\\": "examples"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "This is the php sdk to connect to the Unzer rest api.",
-            "support": {
-                "email": "support@unzer.com",
-                "source": "https://github.com/unzerdev/php-sdk/tree/1.1.2.0"
-            },
-            "time": "2021-05-05T09:58:19+00:00"
-        },
-        {
             "name": "vrana/adminer",
-            "version": "v4.8.0",
+            "version": "v4.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vrana/adminer.git",
-                "reference": "b83c61fca3f491073cd5f5888a2acbf6f044366b"
+                "reference": "1f173e18bdf0be29182e0d67989df56eadea4754"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vrana/adminer/zipball/b83c61fca3f491073cd5f5888a2acbf6f044366b",
-                "reference": "b83c61fca3f491073cd5f5888a2acbf6f044366b",
+                "url": "https://api.github.com/repos/vrana/adminer/zipball/1f173e18bdf0be29182e0d67989df56eadea4754",
+                "reference": "1f173e18bdf0be29182e0d67989df56eadea4754",
                 "shasum": ""
             },
             "type": "library",
@@ -10227,7 +10229,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-02-10T16:21:55+00:00"
+            "time": "2021-05-14T05:39:59+00:00"
         },
         {
             "name": "vrana/jush",
