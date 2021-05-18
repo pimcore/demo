@@ -8229,16 +8229,16 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v6.1.3",
+            "version": "v6.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "0cb905471c2d69f162c4bd643c912c2f38fed2d2"
+                "reference": "d962626a1b454edb36f727f8e0090b45280af98c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/0cb905471c2d69f162c4bd643c912c2f38fed2d2",
-                "reference": "0cb905471c2d69f162c4bd643c912c2f38fed2d2",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/d962626a1b454edb36f727f8e0090b45280af98c",
+                "reference": "d962626a1b454edb36f727f8e0090b45280af98c",
                 "shasum": ""
             },
             "require": {
@@ -8301,9 +8301,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/issues",
-                "source": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/tree/v6.1.3"
+                "source": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/tree/v6.1.4"
             },
-            "time": "2021-05-16T16:19:44+00:00"
+            "time": "2021-05-17T13:48:05+00:00"
         },
         {
             "name": "sensiolabs/ansi-to-html",
@@ -10385,16 +10385,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.6.4",
+            "version": "v14.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba"
+                "reference": "6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
-                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31",
+                "reference": "6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31",
                 "shasum": ""
             },
             "require": {
@@ -10439,7 +10439,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.4"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.7.0"
             },
             "funding": [
                 {
@@ -10447,7 +10447,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-05-11T12:37:43+00:00"
+            "time": "2021-05-17T19:21:04+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
