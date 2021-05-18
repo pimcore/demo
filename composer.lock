@@ -10172,16 +10172,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.6.4",
+            "version": "v14.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba"
+                "reference": "6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
-                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31",
+                "reference": "6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31",
                 "shasum": ""
             },
             "require": {
@@ -10226,7 +10226,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.4"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.7.0"
             },
             "funding": [
                 {
@@ -10234,7 +10234,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-05-11T12:37:43+00:00"
+            "time": "2021-05-17T19:21:04+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
