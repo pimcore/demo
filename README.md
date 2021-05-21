@@ -42,7 +42,7 @@ You don't need to have a PHP environment with composer installed.
     * When asked for admin user and password: Choose freely
     * This can take a while, up to 20 minutes
 1. Fix permissions again, the installer has created new directories
-    `sudo chown -R 1000 .`
+    `docker-compose run --rm php chown -R www-data:www-data var/*`
 1. :heavy_check_mark: DONE - You can now visit your pimcore-demo:
     * The frontend: <http://localhost>
     * The admin interface, using the credentials you have chosen above:
