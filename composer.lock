@@ -6695,16 +6695,16 @@
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "fbcb99040d3b8a665d4fe1a6d177ad18e70f9d0e"
+                "reference": "b3c6d195d7efcf1f99a609fab4fec567680826fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/fbcb99040d3b8a665d4fe1a6d177ad18e70f9d0e",
-                "reference": "fbcb99040d3b8a665d4fe1a6d177ad18e70f9d0e",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/b3c6d195d7efcf1f99a609fab4fec567680826fa",
+                "reference": "b3c6d195d7efcf1f99a609fab4fec567680826fa",
                 "shasum": ""
             },
             "require": {
@@ -6733,9 +6733,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/output-data-config-toolkit/issues",
-                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v4.0.1"
+                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v4.0.2"
             },
-            "time": "2021-05-06T18:42:31+00:00"
+            "time": "2021-05-26T12:10:00+00:00"
         },
         {
             "name": "pimcore/payment-provider-unzer",
