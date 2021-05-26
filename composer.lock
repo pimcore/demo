@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d4b0753f141466e3447943c85036bfc",
+    "content-hash": "6081b46fc68039b0e70df811c3beb5bf",
     "packages": [
         {
             "name": "amnuts/opcache-gui",
@@ -6429,26 +6429,25 @@
         },
         {
             "name": "pimcore/data-hub",
-            "version": "dev-master",
+            "version": "v0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "cf7b4e116fea62d1ae49c407ee10cbd949c8f136"
+                "reference": "2d11e2c9ac212bff9e745d5d3b28bacaa9149228"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/cf7b4e116fea62d1ae49c407ee10cbd949c8f136",
-                "reference": "cf7b4e116fea62d1ae49c407ee10cbd949c8f136",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/2d11e2c9ac212bff9e745d5d3b28bacaa9149228",
+                "reference": "2d11e2c9ac212bff9e745d5d3b28bacaa9149228",
                 "shasum": ""
             },
             "require": {
                 "pimcore/pimcore": "^6.9 || ^10.0",
-                "webonyx/graphql-php": "^14.6"
+                "webonyx/graphql-php": "^0.13"
             },
             "require-dev": {
                 "symfony/phpunit-bridge": "*"
             },
-            "default-branch": true,
             "type": "pimcore-bundle",
             "extra": {
                 "pimcore": {
@@ -6475,9 +6474,9 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/master"
+                "source": "https://github.com/pimcore/data-hub/tree/v0.8"
             },
-            "time": "2021-05-10T12:33:46+00:00"
+            "time": "2021-04-28T10:15:24+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -6778,16 +6777,16 @@
         },
         {
             "name": "pimcore/search-query-parser",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/search-query-parser.git",
-                "reference": "95797b9b63251ca945960e22aabedefbd81fe38c"
+                "reference": "bd2acc24890b6faf09574fee1a8536847e94870e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/search-query-parser/zipball/95797b9b63251ca945960e22aabedefbd81fe38c",
-                "reference": "95797b9b63251ca945960e22aabedefbd81fe38c",
+                "url": "https://api.github.com/repos/pimcore/search-query-parser/zipball/bd2acc24890b6faf09574fee1a8536847e94870e",
+                "reference": "bd2acc24890b6faf09574fee1a8536847e94870e",
                 "shasum": ""
             },
             "require": {
@@ -6818,9 +6817,9 @@
             "description": "Parses a simplified SQL-like query string into a syntax tree which can be used to build search queries",
             "support": {
                 "issues": "https://github.com/pimcore/search-query-parser/issues",
-                "source": "https://github.com/pimcore/search-query-parser/tree/v1.3.0"
+                "source": "https://github.com/pimcore/search-query-parser/tree/v1.3.1"
             },
-            "time": "2021-03-30T06:57:18+00:00"
+            "time": "2021-05-26T09:55:40+00:00"
         },
         {
             "name": "pimcore/web2print-tools-bundle",
@@ -10168,16 +10167,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.7.0",
+            "version": "v0.13.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31"
+                "reference": "d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31",
-                "reference": "6b0ba9a4688b2ef74ea4d52b27477dd80fa67f31",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3",
+                "reference": "d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3",
                 "shasum": ""
             },
             "require": {
@@ -10186,19 +10185,15 @@
                 "php": "^7.1||^8.0"
             },
             "require-dev": {
-                "amphp/amp": "^2.3",
                 "doctrine/coding-standard": "^6.0",
-                "nyholm/psr7": "^1.2",
-                "phpbench/phpbench": "^0.16.10",
-                "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "0.12.82",
-                "phpstan/phpstan-phpunit": "0.12.18",
-                "phpstan/phpstan-strict-rules": "0.12.9",
-                "phpunit/phpunit": "^7.2|^8.5",
+                "phpbench/phpbench": "^0.14.0",
+                "phpstan/phpstan": "^0.11.4",
+                "phpstan/phpstan-phpunit": "^0.11.0",
+                "phpstan/phpstan-strict-rules": "^0.11.0",
+                "phpunit/phpcov": "^5.0",
+                "phpunit/phpunit": "^7.2",
                 "psr/http-message": "^1.0",
-                "react/promise": "2.*",
-                "simpod/php-coveralls-mirror": "^3.0",
-                "squizlabs/php_codesniffer": "3.5.4"
+                "react/promise": "2.*"
             },
             "suggest": {
                 "psr/http-message": "To use standard GraphQL server",
@@ -10222,7 +10217,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.7.0"
+                "source": "https://github.com/webonyx/graphql-php/tree/0.13.x"
             },
             "funding": [
                 {
@@ -10230,7 +10225,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-05-17T19:21:04+00:00"
+            "time": "2020-07-02T05:49:25+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -12353,9 +12348,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "pimcore/data-hub": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
