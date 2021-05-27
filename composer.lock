@@ -184,25 +184,27 @@
         },
         {
             "name": "box/spout",
-            "version": "v2.7.3",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/box/spout.git",
-                "reference": "3681a3421a868ab9a65da156c554f756541f452b"
+                "reference": "9bdb027d312b732515b884a341c0ad70372c6295"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/box/spout/zipball/3681a3421a868ab9a65da156c554f756541f452b",
-                "reference": "3681a3421a868ab9a65da156c554f756541f452b",
+                "url": "https://api.github.com/repos/box/spout/zipball/9bdb027d312b732515b884a341c0ad70372c6295",
+                "reference": "9bdb027d312b732515b884a341c0ad70372c6295",
                 "shasum": ""
             },
             "require": {
+                "ext-dom": "*",
                 "ext-xmlreader": "*",
                 "ext-zip": "*",
-                "php": ">=5.4.0"
+                "php": ">=7.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.0"
+                "friendsofphp/php-cs-fixer": "^2",
+                "phpunit/phpunit": "^8"
             },
             "suggest": {
                 "ext-iconv": "To handle non UTF-8 CSV files (if \"php-intl\" is not already installed or is too limited)",
@@ -211,7 +213,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "autoload": {
@@ -250,9 +252,9 @@
             ],
             "support": {
                 "issues": "https://github.com/box/spout/issues",
-                "source": "https://github.com/box/spout/tree/v2.7.3"
+                "source": "https://github.com/box/spout/tree/v3.3.0"
             },
-            "time": "2017-09-25T19:44:35+00:00"
+            "time": "2021-05-14T21:18:09+00:00"
         },
         {
             "name": "brusch/unzer-php-sdk",
@@ -3077,16 +3079,16 @@
         },
         {
             "name": "knplabs/knp-paginator-bundle",
-            "version": "v5.5.0",
+            "version": "v5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "615fa674e38840e4bae901336830f8c9edfef893"
+                "reference": "afa4daf9708fa526dc7f22773e6d064e25fa66ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/615fa674e38840e4bae901336830f8c9edfef893",
-                "reference": "615fa674e38840e4bae901336830f8c9edfef893",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/afa4daf9708fa526dc7f22773e6d064e25fa66ea",
+                "reference": "afa4daf9708fa526dc7f22773e6d064e25fa66ea",
                 "shasum": ""
             },
             "require": {
@@ -3144,9 +3146,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/KnpPaginatorBundle/issues",
-                "source": "https://github.com/KnpLabs/KnpPaginatorBundle/tree/v5.5.0"
+                "source": "https://github.com/KnpLabs/KnpPaginatorBundle/tree/v5.5.1"
             },
-            "time": "2021-05-24T12:28:30+00:00"
+            "time": "2021-05-27T06:49:26+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -4921,16 +4923,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.48.0",
+            "version": "2.48.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "d3c447f21072766cddec3522f9468a5849a76147"
+                "reference": "8d1f50f1436fb4b05e7127360483dd9c6e73da16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d3c447f21072766cddec3522f9468a5849a76147",
-                "reference": "d3c447f21072766cddec3522f9468a5849a76147",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8d1f50f1436fb4b05e7127360483dd9c6e73da16",
+                "reference": "8d1f50f1436fb4b05e7127360483dd9c6e73da16",
                 "shasum": ""
             },
             "require": {
@@ -5010,7 +5012,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-07T10:08:30+00:00"
+            "time": "2021-05-26T22:08:38+00:00"
         },
         {
             "name": "nikic/phlexy",
@@ -6498,20 +6500,20 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v3.0.2",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "b42a01721d31855c2a07dba278c056597ef8380c"
+                "reference": "0df6e00736fd85c588f8bb31eb45e087b070a294"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/b42a01721d31855c2a07dba278c056597ef8380c",
-                "reference": "b42a01721d31855c2a07dba278c056597ef8380c",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/0df6e00736fd85c588f8bb31eb45e087b070a294",
+                "reference": "0df6e00736fd85c588f8bb31eb45e087b070a294",
                 "shasum": ""
             },
             "require": {
-                "box/spout": "^2.7",
+                "box/spout": "^3.0",
                 "dragonmantank/cron-expression": "^3.0",
                 "drewm/mailchimp-api": "*",
                 "guzzlehttp/guzzle": ">=4.1.4 <8.0",
@@ -6536,9 +6538,6 @@
                     "bundles": [
                         "CustomerManagementFrameworkBundle\\PimcoreCustomerManagementFrameworkBundle"
                     ]
-                },
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -6558,22 +6557,22 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
-                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.0.2"
+                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.1.0"
             },
-            "time": "2021-05-06T18:24:50+00:00"
+            "time": "2021-05-21T11:54:28+00:00"
         },
         {
             "name": "pimcore/data-hub",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "342ce492949cdb50c16136c4b6bdd676afd76bdd"
+                "reference": "4514020c6ec9295d522444f31a0e3cffba87d31e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/342ce492949cdb50c16136c4b6bdd676afd76bdd",
-                "reference": "342ce492949cdb50c16136c4b6bdd676afd76bdd",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/4514020c6ec9295d522444f31a0e3cffba87d31e",
+                "reference": "4514020c6ec9295d522444f31a0e3cffba87d31e",
                 "shasum": ""
             },
             "require": {
@@ -6589,9 +6588,6 @@
                     "bundles": [
                         "Pimcore\\Bundle\\DataHubBundle\\PimcoreDataHubBundle"
                     ]
-                },
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -6609,9 +6605,9 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/v1.0"
+                "source": "https://github.com/pimcore/data-hub/tree/v1.0.1"
             },
-            "time": "2021-05-10T09:57:47+00:00"
+            "time": "2021-05-26T11:26:58+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -10328,20 +10324,20 @@
         },
         {
             "name": "webmozarts/console-parallelization",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/console-parallelization.git",
-                "reference": "dc6a871a7989735c117025f182ba43bbcafb3329"
+                "reference": "60f99ee8953caf88679709622fd4fac58f7f4bbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/console-parallelization/zipball/dc6a871a7989735c117025f182ba43bbcafb3329",
-                "reference": "dc6a871a7989735c117025f182ba43bbcafb3329",
+                "url": "https://api.github.com/repos/webmozarts/console-parallelization/zipball/60f99ee8953caf88679709622fd4fac58f7f4bbe",
+                "reference": "60f99ee8953caf88679709622fd4fac58f7f4bbe",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3 || ^8.0",
+                "php": "^7.2",
                 "psr/log": "^1.1",
                 "symfony/console": "^3.0 || ^4.0 || ^5.0",
                 "symfony/dependency-injection": "^3.0 || ^4.1.12 || ^5.0",
@@ -10377,9 +10373,9 @@
             "description": "Enables parallelization of Symfony Console commands",
             "support": {
                 "issues": "https://github.com/webmozarts/console-parallelization/issues",
-                "source": "https://github.com/webmozarts/console-parallelization/tree/1.2.1"
+                "source": "https://github.com/webmozarts/console-parallelization/tree/1.2.2"
             },
-            "time": "2021-03-08T10:33:48+00:00"
+            "time": "2020-06-11T06:04:51+00:00"
         },
         {
             "name": "webonyx/graphql-php",
