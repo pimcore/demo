@@ -136,6 +136,9 @@ pimcore:
                         changePublishedState: force_published
                         notes:
                             commentEnabled: true
+                            customHtml:
+                                service: 'App\Services\Workflow\CustomHtmlService'
+                                position: 'top'
                         notificationSettings:
                             - notifyUsers: ['admin']
                               notifyRoles: ['projectmanagers', 'admins']

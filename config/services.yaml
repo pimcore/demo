@@ -83,6 +83,7 @@ services:
     App\Services\PasswordRecoveryService: ~
     App\Services\NewsletterDoubleOptInService: ~
     App\Services\SegmentTrackingHelperService: ~
+    App\Services\Workflow\CustomHtmlService: ~
     App\Website\Navigation\BreadcrumbHelperService: ~
 
     App\Model\Product\CalculatedValue\QualityCalculator:
