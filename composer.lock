@@ -3013,6 +3013,7 @@
                 "issues": "https://github.com/heidelpay/heidelpayPHP/issues",
                 "source": "https://github.com/heidelpay/heidelpayPHP/tree/1.2.5.1"
             },
+            "abandoned": "unzerdev/php-sdk",
             "time": "2019-11-26T09:44:40+00:00"
         },
         {
