@@ -17,6 +17,7 @@ namespace App\Controller;
 
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject;
+use Pimcore\Tool;
 use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends FrontendController
@@ -29,7 +30,7 @@ class BaseController extends FrontendController
      */
     protected function verifyPreviewRequest(Request $request, DataObject $object): bool
     {
-        if ($request->get('pimcore_object_preview') && DataObject\Service::getElementFromSession('object', $object->getId())) {
+        if (Tool::isElementRequestByAdmin($request, $object)) {
             return true;
         }
 
