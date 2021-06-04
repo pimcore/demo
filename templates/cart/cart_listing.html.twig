@@ -72,7 +72,7 @@
                                     <div class="row">
                                         <div class="col-4 col-sm-4 col-md-2 text-md-center text-sm-left ">
 
-                                            {% if(product.mainImage is defined) %}
+                                            {% if(product.mainImage is not empty) %}
 
                                                 {{ product.mainImage.thumbnail('cart').html({imgAttributes: {class: 'img-responsive', style: 'width:100%; height: auto'}}) | raw }}
 
@@ -83,7 +83,7 @@
                                             <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
                                             {% if( product is instanceof('App\\Model\\Product\\Car')) %}
                                                 <p class="text-muted small">{{ product.subText | raw }}</p>
-                                            {% elseif(product.saleInformation.saleInformation)  %}
+                                            {% elseif(product.saleInformation is not empty and product.saleInformation.saleInformation)  %}
                                                 <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
                                             {% endif %}
 
