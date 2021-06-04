@@ -20,6 +20,8 @@ use App\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Exception\VoucherServiceException;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Model\CheckoutableInterface;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Model\ProductInterface;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Translation\Translator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -99,7 +101,9 @@ class CartController extends FrontendController
 
             foreach ($items as $itemKey => $quantity) {
                 $product = AbstractProduct::getById($itemKey);
-                $cart->updateItem($itemKey, $product, $quantity, true);
+                if ($product instanceof CheckoutableInterface) {
+                    $cart->updateItem($itemKey, $product, $quantity, true);
+                }
             }
             $cart->save();
 
@@ -128,17 +132,16 @@ class CartController extends FrontendController
     {
         $id = $request->get('id');
         $product = AbstractProduct::getById($id);
-        if (null === $product) {
-            throw new \Exception('Product not found');
-        }
 
         $cart = $this->getCart();
         $cart->removeItem($id);
         $cart->save();
 
-        $trackingManager = $ecommerceFactory->getTrackingManager();
-        $trackingManager->trackCartProductActionRemove($cart, $product);
-        $trackingManager->forwardTrackedCodesAsFlashMessage();
+        if ($product instanceof ProductInterface) {
+            $trackingManager = $ecommerceFactory->getTrackingManager();
+            $trackingManager->trackCartProductActionRemove($cart, $product);
+            $trackingManager->forwardTrackedCodesAsFlashMessage();
+        }
 
         return $this->redirectToRoute('shop-cart-detail');
     }
