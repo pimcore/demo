@@ -1045,16 +1045,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "7f472cc85eba050a83fcf38cece87b868877d7e2"
+                "reference": "4202ce675d29e70a8b9ee763bec021b6f44caccb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/7f472cc85eba050a83fcf38cece87b868877d7e2",
-                "reference": "7f472cc85eba050a83fcf38cece87b868877d7e2",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/4202ce675d29e70a8b9ee763bec021b6f44caccb",
+                "reference": "4202ce675d29e70a8b9ee763bec021b6f44caccb",
                 "shasum": ""
             },
             "require": {
@@ -1137,7 +1137,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.4.1"
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.4.2"
             },
             "funding": [
                 {
@@ -1153,7 +1153,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-01T18:38:32+00:00"
+            "time": "2021-06-05T13:40:39+00:00"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
