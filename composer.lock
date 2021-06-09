@@ -4925,16 +4925,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.48.1",
+            "version": "2.49.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8d1f50f1436fb4b05e7127360483dd9c6e73da16"
+                "reference": "93d9db91c0235c486875d22f1e08b50bdf3e6eee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8d1f50f1436fb4b05e7127360483dd9c6e73da16",
-                "reference": "8d1f50f1436fb4b05e7127360483dd9c6e73da16",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/93d9db91c0235c486875d22f1e08b50bdf3e6eee",
+                "reference": "93d9db91c0235c486875d22f1e08b50bdf3e6eee",
                 "shasum": ""
             },
             "require": {
@@ -5014,7 +5014,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-26T22:08:38+00:00"
+            "time": "2021-06-02T07:31:40+00:00"
         },
         {
             "name": "nikic/phlexy",
@@ -6504,16 +6504,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "0df6e00736fd85c588f8bb31eb45e087b070a294"
+                "reference": "63c4837b7580c9d96d186145a896f05c3a717701"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/0df6e00736fd85c588f8bb31eb45e087b070a294",
-                "reference": "0df6e00736fd85c588f8bb31eb45e087b070a294",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/63c4837b7580c9d96d186145a896f05c3a717701",
+                "reference": "63c4837b7580c9d96d186145a896f05c3a717701",
                 "shasum": ""
             },
             "require": {
@@ -6526,7 +6526,21 @@
                 "pimcore/object-merger": "^2.4 || ^3.0",
                 "pimcore/pimcore": "^6.9 || ^10.0",
                 "pimcore/search-query-parser": "^1.3",
-                "symfony/symfony": "^4.3 || ^5.2.0"
+                "symfony/asset": "^4.3 || ^5.2.0",
+                "symfony/config": "^4.3 || ^5.2.0",
+                "symfony/console": "^4.3 || ^5.2.0",
+                "symfony/dependency-injection": "^4.3 || ^5.2.0",
+                "symfony/event-dispatcher": "^4.3 || ^5.2.0",
+                "symfony/http-foundation": "^4.3 || ^5.2.0",
+                "symfony/http-kernel": "^4.3 || ^5.2.0",
+                "symfony/options-resolver": "^4.3 || ^5.2.0",
+                "symfony/routing": "^4.3 || ^5.2.0",
+                "symfony/security-bundle": "^4.3 || ^5.2.0",
+                "symfony/security-core": "^4.3 || ^5.2.0",
+                "symfony/security-guard": "^4.3 || ^5.2.0",
+                "symfony/security-http": "^4.3 || ^5.2.0",
+                "symfony/stopwatch": "^4.3 || ^5.2.0",
+                "symfony/translation-contracts": "^1.1 || ^2.2"
             },
             "require-dev": {
                 "codeception/codeception": "~2.4.5 || ^4.1.12"
@@ -6561,9 +6575,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
-                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.1.0"
+                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.2.0"
             },
-            "time": "2021-05-21T11:54:28+00:00"
+            "time": "2021-06-07T15:36:13+00:00"
         },
         {
             "name": "pimcore/data-hub",
@@ -6695,21 +6709,28 @@
         },
         {
             "name": "pimcore/output-data-config-toolkit-bundle",
-            "version": "v4.0.2",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/output-data-config-toolkit.git",
-                "reference": "b3c6d195d7efcf1f99a609fab4fec567680826fa"
+                "reference": "b9803ac872d02ca54151bde5695a99f0cabc6a2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/b3c6d195d7efcf1f99a609fab4fec567680826fa",
-                "reference": "b3c6d195d7efcf1f99a609fab4fec567680826fa",
+                "url": "https://api.github.com/repos/pimcore/output-data-config-toolkit/zipball/b9803ac872d02ca54151bde5695a99f0cabc6a2d",
+                "reference": "b9803ac872d02ca54151bde5695a99f0cabc6a2d",
                 "shasum": ""
             },
             "require": {
                 "pimcore/pimcore": "^6.8 || ^10.0",
-                "symfony/symfony": "^4.3 || ^5"
+                "symfony/config": "4.3 || ^5.0",
+                "symfony/dependency-injection": "4.3 || ^5.0",
+                "symfony/event-dispatcher": "4.3 || ^5.0",
+                "symfony/event-dispatcher-contracts": "^2.2",
+                "symfony/http-foundation": "4.3 || ^5.0",
+                "symfony/http-kernel": "4.3 || ^5.0",
+                "symfony/routing": "4.3 || ^5.0",
+                "symfony/templating": "4.3 || ^5.0"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -6717,9 +6738,6 @@
                     "bundles": [
                         "OutputDataConfigToolkitBundle\\OutputDataConfigToolkitBundle"
                     ]
-                },
-                "branch-alias": {
-                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -6733,9 +6751,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/output-data-config-toolkit/issues",
-                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v4.0.2"
+                "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v4.1.0"
             },
-            "time": "2021-05-26T12:10:00+00:00"
+            "time": "2021-06-07T15:27:44+00:00"
         },
         {
             "name": "pimcore/payment-provider-unzer",
@@ -6784,16 +6802,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v10.0.2",
+            "version": "v10.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "4e9b03c4de4b0b5f6893ab4b9a9402eeacea8350"
+                "reference": "c1c0e4bd4906ed13e66edc4beb95579739ff1b9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/4e9b03c4de4b0b5f6893ab4b9a9402eeacea8350",
-                "reference": "4e9b03c4de4b0b5f6893ab4b9a9402eeacea8350",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/c1c0e4bd4906ed13e66edc4beb95579739ff1b9b",
+                "reference": "c1c0e4bd4906ed13e66edc4beb95579739ff1b9b",
                 "shasum": ""
             },
             "require": {
@@ -6872,7 +6890,8 @@
             "conflict": {
                 "doctrine/doctrine-migrations-bundle": "3.1.0",
                 "symfony/monolog-bundle": "3.6.0",
-                "thecodingmachine/safe": "<1.2.0"
+                "thecodingmachine/safe": "<1.2.0",
+                "webmozarts/console-parallelization": "1.2.2"
             },
             "require-dev": {
                 "cache/integration-tests": "dev-master",
@@ -6942,7 +6961,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-06-02T13:33:03+00:00"
+            "time": "2021-06-09T12:22:40+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -10558,20 +10577,20 @@
         },
         {
             "name": "webmozarts/console-parallelization",
-            "version": "1.2.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/console-parallelization.git",
-                "reference": "60f99ee8953caf88679709622fd4fac58f7f4bbe"
+                "reference": "dc6a871a7989735c117025f182ba43bbcafb3329"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/console-parallelization/zipball/60f99ee8953caf88679709622fd4fac58f7f4bbe",
-                "reference": "60f99ee8953caf88679709622fd4fac58f7f4bbe",
+                "url": "https://api.github.com/repos/webmozarts/console-parallelization/zipball/dc6a871a7989735c117025f182ba43bbcafb3329",
+                "reference": "dc6a871a7989735c117025f182ba43bbcafb3329",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2",
+                "php": "^7.3 || ^8.0",
                 "psr/log": "^1.1",
                 "symfony/console": "^3.0 || ^4.0 || ^5.0",
                 "symfony/dependency-injection": "^3.0 || ^4.1.12 || ^5.0",
@@ -10607,9 +10626,9 @@
             "description": "Enables parallelization of Symfony Console commands",
             "support": {
                 "issues": "https://github.com/webmozarts/console-parallelization/issues",
-                "source": "https://github.com/webmozarts/console-parallelization/tree/1.2.2"
+                "source": "https://github.com/webmozarts/console-parallelization/tree/1.2.1"
             },
-            "time": "2020-06-11T06:04:51+00:00"
+            "time": "2021-03-08T10:33:48+00:00"
         },
         {
             "name": "webonyx/graphql-php",
