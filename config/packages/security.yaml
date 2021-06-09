@@ -12,6 +12,11 @@ security:
         cmf_customer_provider_with_oauth:
             id: cmf.security.user_provider.oauth
 
+    encoders:
+        # Our user class and the algorithm we'll use to encode passwords
+        # 'auto' means to let Symfony choose the best possible password hasher (Argon2 or Bcrypt)
+        # https://symfony.com/doc/current/security.html#c-encoding-passwords
+        Pimcore\Model\DataObject\Customer: 'auto'
 
     firewalls:
         dev:
