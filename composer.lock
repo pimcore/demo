@@ -1510,16 +1510,16 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "1c2780df6b58998f411e64973cfa464ba0a06e00"
+                "reference": "8d0c58655cf9d76462d00ec5dd099737e513e86d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/1c2780df6b58998f411e64973cfa464ba0a06e00",
-                "reference": "1c2780df6b58998f411e64973cfa464ba0a06e00",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/8d0c58655cf9d76462d00ec5dd099737e513e86d",
+                "reference": "8d0c58655cf9d76462d00ec5dd099737e513e86d",
                 "shasum": ""
             },
             "require": {
@@ -1594,7 +1594,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/migrations/issues",
-                "source": "https://github.com/doctrine/migrations/tree/3.1.2"
+                "source": "https://github.com/doctrine/migrations/tree/3.1.3"
             },
             "funding": [
                 {
@@ -1610,7 +1610,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-24T12:54:34+00:00"
+            "time": "2021-06-10T19:24:33+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -6581,16 +6581,16 @@
         },
         {
             "name": "pimcore/data-hub",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "4514020c6ec9295d522444f31a0e3cffba87d31e"
+                "reference": "9977b93d090993a9cde2ac3bb0f2c30ca28cc688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/4514020c6ec9295d522444f31a0e3cffba87d31e",
-                "reference": "4514020c6ec9295d522444f31a0e3cffba87d31e",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/9977b93d090993a9cde2ac3bb0f2c30ca28cc688",
+                "reference": "9977b93d090993a9cde2ac3bb0f2c30ca28cc688",
                 "shasum": ""
             },
             "require": {
@@ -6606,6 +6606,9 @@
                     "bundles": [
                         "Pimcore\\Bundle\\DataHubBundle\\PimcoreDataHubBundle"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -6623,9 +6626,9 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/v1.0.1"
+                "source": "https://github.com/pimcore/data-hub/tree/v1.0.2"
             },
-            "time": "2021-05-26T11:26:58+00:00"
+            "time": "2021-06-08T13:36:29+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
