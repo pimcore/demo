@@ -2393,16 +2393,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.201.0",
+            "version": "v0.181.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "0375af405757b36f3bcc82e19d7daf61e0b4cfd8"
+                "reference": "a4ea5fd96887d654d10d446b239e1ff60240e2c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/0375af405757b36f3bcc82e19d7daf61e0b4cfd8",
-                "reference": "0375af405757b36f3bcc82e19d7daf61e0b4cfd8",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/a4ea5fd96887d654d10d446b239e1ff60240e2c1",
+                "reference": "a4ea5fd96887d654d10d446b239e1ff60240e2c1",
                 "shasum": ""
             },
             "require": {
@@ -2413,12 +2413,9 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Google\\Service\\": "src"
-                },
-                "files": [
-                    "autoload.php"
-                ]
+                "psr-0": {
+                    "Google_Service_": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2431,9 +2428,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.201.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.181.0"
             },
-            "time": "2021-06-18T15:00:35+00:00"
+            "time": "2021-06-13T11:20:02+00:00"
         },
         {
             "name": "google/auth",
@@ -3005,22 +3002,22 @@
         },
         {
             "name": "knplabs/knp-components",
-            "version": "v3.0.2",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/knp-components.git",
-                "reference": "7db2eb032591ded5809455af8a4dfdfda079041c"
+                "reference": "f06a6ebea71a91c8cd34213f9417004062133627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/7db2eb032591ded5809455af8a4dfdfda079041c",
-                "reference": "7db2eb032591ded5809455af8a4dfdfda079041c",
+                "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/f06a6ebea71a91c8cd34213f9417004062133627",
+                "reference": "f06a6ebea71a91c8cd34213f9417004062133627",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.3 || ^8.0",
                 "symfony/event-dispatcher-contracts": "^1.1 || ^2.0",
-                "symfony/http-foundation": "^4.4 || ^5.1"
+                "symfony/http-foundation": "^4.4 || ^5.2"
             },
             "require-dev": {
                 "doctrine/mongodb-odm": "^2.0",
@@ -3029,9 +3026,11 @@
                 "ext-pdo_sqlite": "*",
                 "jackalope/jackalope-doctrine-dbal": "^1.2",
                 "phpunit/phpunit": "^9.5",
+                "propel/propel1": "^1.7",
                 "ruflin/elastica": "^7.0",
-                "symfony/http-kernel": "^4.4 || ^5.1",
-                "symfony/property-access": "^4.4 || ^5.1"
+                "solarium/solarium": "^6.0",
+                "symfony/http-kernel": "^4.4 || ^5.2",
+                "symfony/property-access": "^4.4 || ^5.2"
             },
             "suggest": {
                 "doctrine/common": "to allow usage pagination with Doctrine ArrayCollection",
@@ -3079,9 +3078,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/knp-components/issues",
-                "source": "https://github.com/KnpLabs/knp-components/tree/v3.0.2"
+                "source": "https://github.com/KnpLabs/knp-components/tree/v3.1.0"
             },
-            "time": "2021-03-16T13:52:01+00:00"
+            "time": "2021-06-23T12:27:23+00:00"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -6453,16 +6452,16 @@
         },
         {
             "name": "pimcore/data-hub",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "9977b93d090993a9cde2ac3bb0f2c30ca28cc688"
+                "reference": "f9c20decd07b69ebab42dd84232d44e36667ea51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/9977b93d090993a9cde2ac3bb0f2c30ca28cc688",
-                "reference": "9977b93d090993a9cde2ac3bb0f2c30ca28cc688",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/f9c20decd07b69ebab42dd84232d44e36667ea51",
+                "reference": "f9c20decd07b69ebab42dd84232d44e36667ea51",
                 "shasum": ""
             },
             "require": {
@@ -6498,9 +6497,9 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/v1.0.2"
+                "source": "https://github.com/pimcore/data-hub/tree/v1.0.3"
             },
-            "time": "2021-06-08T13:36:29+00:00"
+            "time": "2021-06-23T10:28:15+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -6677,16 +6676,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v10.0.4",
+            "version": "v10.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "1ad9beee09f77acf891f292100fd4087a4d5b197"
+                "reference": "f788993ffa4dbcfde1de8fd7f01403282e56d4be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/1ad9beee09f77acf891f292100fd4087a4d5b197",
-                "reference": "1ad9beee09f77acf891f292100fd4087a4d5b197",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/f788993ffa4dbcfde1de8fd7f01403282e56d4be",
+                "reference": "f788993ffa4dbcfde1de8fd7f01403282e56d4be",
                 "shasum": ""
             },
             "require": {
@@ -6764,6 +6763,7 @@
             },
             "conflict": {
                 "doctrine/doctrine-migrations-bundle": "3.1.0",
+                "google/apiclient-services": ">=0.200.0",
                 "symfony/monolog-bundle": "3.6.0",
                 "thecodingmachine/safe": "<1.2.0",
                 "webmozarts/console-parallelization": "1.2.2"
@@ -6836,7 +6836,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-06-11T09:47:24+00:00"
+            "time": "2021-06-23T12:21:19+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -6886,16 +6886,16 @@
         },
         {
             "name": "pimcore/web2print-tools-bundle",
-            "version": "v4.0.2",
+            "version": "v4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/web2print-tools.git",
-                "reference": "0fca13ae43f0eb34345f4cda64e418063b06107f"
+                "reference": "8fe75c6deabfb8a2616e46df1b671ad511aeaf2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/0fca13ae43f0eb34345f4cda64e418063b06107f",
-                "reference": "0fca13ae43f0eb34345f4cda64e418063b06107f",
+                "url": "https://api.github.com/repos/pimcore/web2print-tools/zipball/8fe75c6deabfb8a2616e46df1b671ad511aeaf2f",
+                "reference": "8fe75c6deabfb8a2616e46df1b671ad511aeaf2f",
                 "shasum": ""
             },
             "require": {
@@ -6908,9 +6908,6 @@
                     "bundles": [
                         "Web2PrintToolsBundle\\Web2PrintToolsBundle"
                     ]
-                },
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -6924,9 +6921,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/web2print-tools/issues",
-                "source": "https://github.com/pimcore/web2print-tools/tree/v4.0.2"
+                "source": "https://github.com/pimcore/web2print-tools/tree/v4.0.3"
             },
-            "time": "2021-05-07T07:21:37+00:00"
+            "time": "2021-06-10T09:17:42+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
