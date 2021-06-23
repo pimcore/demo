@@ -10,7 +10,9 @@ return [
             "id" => 1,
             "rootfolder" => "/Product Data/Cars",
             "showroot" => FALSE,
-            "classes" => "CAR",
+            "classes" => [
+                "CAR" => 3
+            ],
             "position" => "left",
             "sort" => "3",
             "expanded" => TRUE
