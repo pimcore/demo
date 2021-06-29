@@ -96,7 +96,7 @@ pimcore:
                     label: 'Product is ready'
                     color: '#009900'
                     permissions:
-                        - condition: "is_fully_authenticated() and 'ROLE_PIMCORE_ADMIN' in roles"
+                        - condition: "is_fully_authenticated() and 'ROLE_PIMCORE_ADMIN' in role_names"
                           #modify: true
                           objectLayout: CarReview
 
