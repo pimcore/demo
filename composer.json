@@ -6,7 +6,8 @@
   "config": {
     "optimize-autoloader": true,
     "sort-packages": true,
-    "discard-changes": true
+    "discard-changes": true,
+    "process-timeout": 0
   },
   "prefer-stable": true,
   "minimum-stability": "dev",
