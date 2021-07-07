@@ -6457,16 +6457,16 @@
         },
         {
             "name": "pimcore/data-hub",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "f9c20decd07b69ebab42dd84232d44e36667ea51"
+                "reference": "6d878ecb1eab88be57e7fe79a6b4807d7ad54374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/f9c20decd07b69ebab42dd84232d44e36667ea51",
-                "reference": "f9c20decd07b69ebab42dd84232d44e36667ea51",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/6d878ecb1eab88be57e7fe79a6b4807d7ad54374",
+                "reference": "6d878ecb1eab88be57e7fe79a6b4807d7ad54374",
                 "shasum": ""
             },
             "require": {
@@ -6502,9 +6502,9 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/v1.0.3"
+                "source": "https://github.com/pimcore/data-hub/tree/v1.0.4"
             },
-            "time": "2021-06-23T10:28:15+00:00"
+            "time": "2021-07-05T08:27:02+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
@@ -6681,16 +6681,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v10.0.6",
+            "version": "v10.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "47f01019fb60596598cbc3d0d300cf4db17d63e7"
+                "reference": "2a561b5343f45a85ca319dc604892dcd17587ec9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/47f01019fb60596598cbc3d0d300cf4db17d63e7",
-                "reference": "47f01019fb60596598cbc3d0d300cf4db17d63e7",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/2a561b5343f45a85ca319dc604892dcd17587ec9",
+                "reference": "2a561b5343f45a85ca319dc604892dcd17587ec9",
                 "shasum": ""
             },
             "require": {
@@ -6841,7 +6841,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-06-24T08:42:35+00:00"
+            "time": "2021-07-07T12:03:43+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
