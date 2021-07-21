@@ -257,49 +257,6 @@
             "time": "2021-05-14T21:18:09+00:00"
         },
         {
-            "name": "brusch/unzer-php-sdk",
-            "version": "1.1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/brusch/unzer-php-sdk.git",
-                "reference": "6a30f674e978421efd60ec5fc68f4d93e3390fc2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/brusch/unzer-php-sdk/zipball/6a30f674e978421efd60ec5fc68f4d93e3390fc2",
-                "reference": "6a30f674e978421efd60ec5fc68f4d93e3390fc2",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": "~7.1.0|~7.2.0|~7.3.0|~7.4.0|~8.0.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "phpunit/phpunit": ">6.5 <8.0"
-            },
-            "suggest": {
-                "ext-curl": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "UnzerSDK\\": "src",
-                    "UnzerSDK\\examples\\": "examples"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "This is a fork of unzerdev/php-sdk that supports PHP8 until the official SDK provides support.",
-            "support": {
-                "email": "support@unzer.com",
-                "source": "https://github.com/brusch/unzer-php-sdk/tree/1.1.1.1"
-            },
-            "time": "2021-05-14T08:27:07+00:00"
-        },
-        {
             "name": "cbschuld/browser.php",
             "version": "v1.9.6",
             "source": {
@@ -6457,7 +6414,7 @@
         },
         {
             "name": "pimcore/data-hub",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
@@ -6502,7 +6459,7 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/v1.0.4"
+                "source": "https://github.com/pimcore/data-hub/tree/v1.0.5"
             },
             "time": "2021-07-05T08:27:02+00:00"
         },
@@ -6636,21 +6593,21 @@
         },
         {
             "name": "pimcore/payment-provider-unzer",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/payment-provider-unzer.git",
-                "reference": "a612d2268609b5c4f99d8cf7c8940b840f55387e"
+                "reference": "9c40b651d2c31c6eb6c72feaabb7bec3badbb9ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/a612d2268609b5c4f99d8cf7c8940b840f55387e",
-                "reference": "a612d2268609b5c4f99d8cf7c8940b840f55387e",
+                "url": "https://api.github.com/repos/pimcore/payment-provider-unzer/zipball/9c40b651d2c31c6eb6c72feaabb7bec3badbb9ab",
+                "reference": "9c40b651d2c31c6eb6c72feaabb7bec3badbb9ab",
                 "shasum": ""
             },
             "require": {
-                "brusch/unzer-php-sdk": "^1.1.1.1",
-                "pimcore/pimcore": "^10.0.0"
+                "pimcore/pimcore": "^10.0.0",
+                "unzerdev/php-sdk": "^1.1.3.0"
             },
             "type": "pimcore-bundle",
             "extra": {
@@ -6658,9 +6615,6 @@
                     "bundles": [
                         "Pimcore\\Bundle\\EcommerceFrameworkBundle\\PimcorePaymentProviderUnzerBundle"
                     ]
-                },
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -6675,22 +6629,22 @@
             "description": "Pimcore Payment Provider - Unzer (Heidelpay)",
             "support": {
                 "issues": "https://github.com/pimcore/payment-provider-unzer/issues",
-                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.3"
+                "source": "https://github.com/pimcore/payment-provider-unzer/tree/v1.0.4"
             },
-            "time": "2021-05-14T08:50:36+00:00"
+            "time": "2021-07-21T09:09:47+00:00"
         },
         {
             "name": "pimcore/pimcore",
-            "version": "v10.0.7",
+            "version": "10.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "2a561b5343f45a85ca319dc604892dcd17587ec9"
+                "reference": "11e7a320f4a03bb3626217955975d523c6a6b28b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/2a561b5343f45a85ca319dc604892dcd17587ec9",
-                "reference": "2a561b5343f45a85ca319dc604892dcd17587ec9",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/11e7a320f4a03bb3626217955975d523c6a6b28b",
+                "reference": "11e7a320f4a03bb3626217955975d523c6a6b28b",
                 "shasum": ""
             },
             "require": {
@@ -6841,7 +6795,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-07-07T12:03:43+00:00"
+            "time": "2021-07-21T08:51:27+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
@@ -10226,6 +10180,49 @@
                 "source": "https://github.com/umpirsky/country-list/tree/2.0.6"
             },
             "time": "2020-12-03T10:09:09+00:00"
+        },
+        {
+            "name": "unzerdev/php-sdk",
+            "version": "1.1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unzerdev/php-sdk.git",
+                "reference": "d094b9ed0b0d0d486e74e5bffd791372b2e150c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unzerdev/php-sdk/zipball/d094b9ed0b0d0d486e74e5bffd791372b2e150c8",
+                "reference": "d094b9ed0b0d0d486e74e5bffd791372b2e150c8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "~7.1.0|~7.2.0|~7.3.0|~7.4.0|~8.0.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpunit/phpunit": ">6.5 <10.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UnzerSDK\\": "src",
+                    "UnzerSDK\\examples\\": "examples"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "This is the php sdk to connect to the Unzer rest api.",
+            "support": {
+                "email": "support@unzer.com",
+                "source": "https://github.com/unzerdev/php-sdk/tree/1.1.3.0"
+            },
+            "time": "2021-07-02T10:44:52+00:00"
         },
         {
             "name": "vrana/adminer",
