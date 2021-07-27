@@ -21,6 +21,9 @@
     "pimcore/data-hub": "^1.0",
     "pimcore/payment-provider-unzer": "^1.0"
   },
+  "conflict": {
+    "hwi/oauth-bundle": "1.4.0"
+  },
   "suggest": {
     "elasticsearch/elasticsearch": "Required for Elastic Search service"
   },
