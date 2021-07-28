@@ -5822,6 +5822,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'algorithm' => 'password_hash',
                  'salt' => '',
                  'saltlocation' => 'back',
+                 'minimumLength' => 10,
                  'name' => 'password',
                  'title' => 'Password',
                  'tooltip' => '',
