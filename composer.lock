@@ -2744,53 +2744,53 @@
         },
         {
             "name": "hwi/oauth-bundle",
-            "version": "1.3.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hwi/HWIOAuthBundle.git",
-                "reference": "fc6192da389669edef33911473acee8cca203bc3"
+                "reference": "b9727c4a56e97254616fd875068af8f71ed73a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/fc6192da389669edef33911473acee8cca203bc3",
-                "reference": "fc6192da389669edef33911473acee8cca203bc3",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/b9727c4a56e97254616fd875068af8f71ed73a89",
+                "reference": "b9727c4a56e97254616fd875068af8f71ed73a89",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0",
+                "php": "^7.3 || ^8.0",
                 "php-http/client-common": "^2.0",
                 "php-http/client-implementation": "^1.0",
                 "php-http/discovery": "^1.0",
                 "php-http/httplug": "^2.0",
                 "php-http/message-factory": "^1.0",
                 "psr/http-message": "^1.0",
-                "symfony/form": "^4.4|^5.0",
-                "symfony/framework-bundle": "^4.4|^5.0",
-                "symfony/options-resolver": "^4.4|^5.0",
-                "symfony/security-bundle": "^4.4|^5.0",
-                "symfony/templating": "^4.4|^5.0",
-                "symfony/yaml": "^4.4|^5.0"
+                "symfony/form": "^4.4|^5.1",
+                "symfony/framework-bundle": "^4.4|^5.1",
+                "symfony/options-resolver": "^4.4|^5.1",
+                "symfony/security-bundle": "^4.4|^5.1",
+                "symfony/templating": "^4.4|^5.1",
+                "symfony/yaml": "^4.4|^5.1"
             },
             "conflict": {
                 "twig/twig": "<1.34"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "^2.0",
-                "doctrine/orm": "^2.6",
-                "friendsofphp/php-cs-fixer": "^2.0",
+                "doctrine/orm": "^2.6.4",
+                "friendsofphp/php-cs-fixer": "^3.0",
                 "friendsofsymfony/user-bundle": "^2.1",
                 "php-http/guzzle6-adapter": "^2.0",
                 "php-http/httplug-bundle": "^1.7",
-                "phpunit/phpunit": "^8.5",
-                "symfony/browser-kit": "^4.4|^5.0",
-                "symfony/css-selector": "^4.4|^5.0",
+                "phpstan/phpstan": "^0.12.91",
+                "phpunit/phpunit": "^9.5",
+                "symfony/browser-kit": "^4.4|^5.1",
+                "symfony/css-selector": "^4.4|^5.1",
                 "symfony/monolog-bundle": "^3.4",
-                "symfony/phpunit-bridge": "^5.1",
-                "symfony/property-access": "^4.4|^5.0",
-                "symfony/stopwatch": "^4.4|^5.0",
-                "symfony/translation": "^4.4|^5.0",
-                "symfony/twig-bundle": "^4.4|^5.0",
-                "symfony/validator": "^4.4|^5.0"
+                "symfony/property-access": "^4.4|^5.1",
+                "symfony/stopwatch": "^5.1",
+                "symfony/translation": "^4.4|^5.1",
+                "symfony/twig-bundle": "^4.4|^5.1",
+                "symfony/validator": "^4.4|^5.1"
             },
             "suggest": {
                 "doctrine/doctrine-bundle": "to use Doctrine user provider",
@@ -2802,7 +2802,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-1.4": "1.4-dev"
                 }
             },
             "autoload": {
@@ -2899,7 +2899,6 @@
                 "vkontakte",
                 "windows live",
                 "wordpress",
-                "wunderlist",
                 "xing",
                 "yahoo",
                 "yandex",
@@ -2907,9 +2906,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hwi/HWIOAuthBundle/issues",
-                "source": "https://github.com/hwi/HWIOAuthBundle/tree/1.3.0"
+                "source": "https://github.com/hwi/HWIOAuthBundle/tree/1.4.1"
             },
-            "time": "2021-01-03T16:04:52+00:00"
+            "time": "2021-07-28T08:07:24+00:00"
         },
         {
             "name": "khanamiryan/qrcode-detector-decoder",
@@ -4762,16 +4761,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.51.0",
+            "version": "2.51.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "48ebff252df4d3b60ecb8e2583f79dfba6b56bc8"
+                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/48ebff252df4d3b60ecb8e2583f79dfba6b56bc8",
-                "reference": "48ebff252df4d3b60ecb8e2583f79dfba6b56bc8",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
+                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
                 "shasum": ""
             },
             "require": {
@@ -4852,7 +4851,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-28T08:28:41+00:00"
+            "time": "2021-07-28T13:16:28+00:00"
         },
         {
             "name": "nikic/phlexy",
@@ -8767,16 +8766,16 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.23.0",
+            "version": "v1.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "24b72c6baa32c746a4d0840147c9715e42bb68ab"
+                "reference": "16880ba9c5ebe3642d1995ab866db29270b36535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/24b72c6baa32c746a4d0840147c9715e42bb68ab",
-                "reference": "24b72c6baa32c746a4d0840147c9715e42bb68ab",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/16880ba9c5ebe3642d1995ab866db29270b36535",
+                "reference": "16880ba9c5ebe3642d1995ab866db29270b36535",
                 "shasum": ""
             },
             "require": {
@@ -8828,7 +8827,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.23.1"
             },
             "funding": [
                 {
@@ -8844,7 +8843,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T09:17:38+00:00"
+            "time": "2021-05-27T12:26:48+00:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -9106,16 +9105,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.23.0",
+            "version": "v1.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "2df51500adbaebdc4c38dea4c89a2e131c45c8a1"
+                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2df51500adbaebdc4c38dea4c89a2e131c45c8a1",
-                "reference": "2df51500adbaebdc4c38dea4c89a2e131c45c8a1",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
                 "shasum": ""
             },
             "require": {
@@ -9166,7 +9165,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
             },
             "funding": [
                 {
@@ -9182,7 +9181,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T09:27:20+00:00"
+            "time": "2021-05-27T12:26:48+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -9341,16 +9340,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.23.0",
+            "version": "v1.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "eca0bf41ed421bed1b57c4958bab16aa86b757d0"
+                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/eca0bf41ed421bed1b57c4958bab16aa86b757d0",
-                "reference": "eca0bf41ed421bed1b57c4958bab16aa86b757d0",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/1100343ed1a92e3a38f9ae122fc0eb21602547be",
+                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be",
                 "shasum": ""
             },
             "require": {
@@ -9404,7 +9403,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.1"
             },
             "funding": [
                 {
@@ -9420,7 +9419,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-19T12:13:01+00:00"
+            "time": "2021-07-28T13:41:28+00:00"
         },
         {
             "name": "symfony/polyfill-php81",
@@ -9582,16 +9581,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v5.3.5",
+            "version": "v5.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "4f8d9188fc2db2717d806bc7bd5dcd8d6298814a"
+                "reference": "48769674fddb95a4a7881783f4bd0d687c04313a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/4f8d9188fc2db2717d806bc7bd5dcd8d6298814a",
-                "reference": "4f8d9188fc2db2717d806bc7bd5dcd8d6298814a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/48769674fddb95a4a7881783f4bd0d687c04313a",
+                "reference": "48769674fddb95a4a7881783f4bd0d687c04313a",
                 "shasum": ""
             },
             "require": {
@@ -9782,7 +9781,7 @@
             ],
             "support": {
                 "issues": "https://github.com/symfony/symfony/issues",
-                "source": "https://github.com/symfony/symfony/tree/v5.3.5"
+                "source": "https://github.com/symfony/symfony/tree/v5.3.6"
             },
             "funding": [
                 {
@@ -9798,7 +9797,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-27T04:39:36+00:00"
+            "time": "2021-07-29T07:06:40+00:00"
         },
         {
             "name": "thecodingmachine/safe",
