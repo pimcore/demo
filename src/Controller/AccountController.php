@@ -476,8 +476,16 @@ class AccountController extends BaseController
     public function sendPasswordRecoveryMailAction(Request $request, PasswordRecoveryService $service, Translator $translator)
     {
         if ($request->isMethod(Request::METHOD_POST)) {
-            $service->sendRecoveryMail($request->get('email', ''), $this->document->getProperty('password_reset_mail'));
-            $this->addFlash('success', $translator->trans('account.reset-mail-sent-when-possible'));
+            try {
+                $customer = $service->sendRecoveryMail($request->get('email', ''), $this->document->getProperty('password_reset_mail'));
+                if (!$customer instanceof CustomerInterface) {
+                    throw new \Exception('Invalid Customer');
+                }
+
+                $this->addFlash('success', $translator->trans('account.reset-mail-sent-when-possible'));
+            } catch (\Exception $e) {
+                $this->addFlash('danger', $e->getMessage());
+            }
 
             return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
         }
