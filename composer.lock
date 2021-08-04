@@ -6341,16 +6341,16 @@
         },
         {
             "name": "pimcore/customer-management-framework-bundle",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/customer-data-framework.git",
-                "reference": "63c4837b7580c9d96d186145a896f05c3a717701"
+                "reference": "f4264f347cf5c15c017eee062568e1c7d136a5fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/63c4837b7580c9d96d186145a896f05c3a717701",
-                "reference": "63c4837b7580c9d96d186145a896f05c3a717701",
+                "url": "https://api.github.com/repos/pimcore/customer-data-framework/zipball/f4264f347cf5c15c017eee062568e1c7d136a5fe",
+                "reference": "f4264f347cf5c15c017eee062568e1c7d136a5fe",
                 "shasum": ""
             },
             "require": {
@@ -6412,22 +6412,22 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/customer-data-framework/issues",
-                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.2.0"
+                "source": "https://github.com/pimcore/customer-data-framework/tree/v3.2.1"
             },
-            "time": "2021-06-07T15:36:13+00:00"
+            "time": "2021-08-04T09:00:46+00:00"
         },
         {
             "name": "pimcore/data-hub",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/data-hub.git",
-                "reference": "6d878ecb1eab88be57e7fe79a6b4807d7ad54374"
+                "reference": "aadf48f6594ec5764b57e8d8fbd4b1ca78a07684"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/6d878ecb1eab88be57e7fe79a6b4807d7ad54374",
-                "reference": "6d878ecb1eab88be57e7fe79a6b4807d7ad54374",
+                "url": "https://api.github.com/repos/pimcore/data-hub/zipball/aadf48f6594ec5764b57e8d8fbd4b1ca78a07684",
+                "reference": "aadf48f6594ec5764b57e8d8fbd4b1ca78a07684",
                 "shasum": ""
             },
             "require": {
@@ -6463,22 +6463,22 @@
             "description": "Pimcore Datahub",
             "support": {
                 "issues": "https://github.com/pimcore/data-hub/issues",
-                "source": "https://github.com/pimcore/data-hub/tree/v1.0.5"
+                "source": "https://github.com/pimcore/data-hub/tree/v1.0.6"
             },
-            "time": "2021-07-05T08:27:02+00:00"
+            "time": "2021-07-28T09:43:44+00:00"
         },
         {
             "name": "pimcore/number-sequence-generator",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/number-sequence-generator.git",
-                "reference": "e010e3d6f937eaa092cd360e21324f2988d8399b"
+                "reference": "216c78d8b561b291de6e29144d8e25429ac8a0b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/number-sequence-generator/zipball/e010e3d6f937eaa092cd360e21324f2988d8399b",
-                "reference": "e010e3d6f937eaa092cd360e21324f2988d8399b",
+                "url": "https://api.github.com/repos/pimcore/number-sequence-generator/zipball/216c78d8b561b291de6e29144d8e25429ac8a0b1",
+                "reference": "216c78d8b561b291de6e29144d8e25429ac8a0b1",
                 "shasum": ""
             },
             "type": "pimcore-bundle",
@@ -6500,9 +6500,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pimcore/number-sequence-generator/issues",
-                "source": "https://github.com/pimcore/number-sequence-generator/tree/v1.0.5"
+                "source": "https://github.com/pimcore/number-sequence-generator/tree/v1.0.6"
             },
-            "time": "2021-04-28T14:35:47+00:00"
+            "time": "2021-08-02T13:36:41+00:00"
         },
         {
             "name": "pimcore/object-merger",
@@ -6639,16 +6639,16 @@
         },
         {
             "name": "pimcore/pimcore",
-            "version": "10.0.8",
+            "version": "v10.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pimcore/pimcore.git",
-                "reference": "11e7a320f4a03bb3626217955975d523c6a6b28b"
+                "reference": "8abb61baef932f9211c1f54df067591508383d22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/11e7a320f4a03bb3626217955975d523c6a6b28b",
-                "reference": "11e7a320f4a03bb3626217955975d523c6a6b28b",
+                "url": "https://api.github.com/repos/pimcore/pimcore/zipball/8abb61baef932f9211c1f54df067591508383d22",
+                "reference": "8abb61baef932f9211c1f54df067591508383d22",
                 "shasum": ""
             },
             "require": {
@@ -6799,7 +6799,7 @@
                 "source": "https://github.com/pimcore/pimcore",
                 "wiki": "https://pimcore.com/docs/latest/"
             },
-            "time": "2021-07-21T08:51:27+00:00"
+            "time": "2021-08-04T09:07:36+00:00"
         },
         {
             "name": "pimcore/search-query-parser",
