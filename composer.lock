@@ -2744,16 +2744,16 @@
         },
         {
             "name": "hwi/oauth-bundle",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hwi/HWIOAuthBundle.git",
-                "reference": "b9727c4a56e97254616fd875068af8f71ed73a89"
+                "reference": "7a5846f0fcd747ce7fe1c712b2c48d7e0a5bdafb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/b9727c4a56e97254616fd875068af8f71ed73a89",
-                "reference": "b9727c4a56e97254616fd875068af8f71ed73a89",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/7a5846f0fcd747ce7fe1c712b2c48d7e0a5bdafb",
+                "reference": "7a5846f0fcd747ce7fe1c712b2c48d7e0a5bdafb",
                 "shasum": ""
             },
             "require": {
@@ -2906,9 +2906,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hwi/HWIOAuthBundle/issues",
-                "source": "https://github.com/hwi/HWIOAuthBundle/tree/1.4.1"
+                "source": "https://github.com/hwi/HWIOAuthBundle/tree/1.4.2"
             },
-            "time": "2021-07-28T08:07:24+00:00"
+            "time": "2021-08-09T09:54:56+00:00"
         },
         {
             "name": "knplabs/knp-components",
