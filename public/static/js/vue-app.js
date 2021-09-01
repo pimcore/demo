@@ -147,7 +147,7 @@ new Vue({
       this.$apollo.query({
         query: GET_EVENT_DETAILS,
         variables: {
-          id: id,
+          id: parseInt(id),
         },
       }).then(data => {
         this.eventDetails = data.data.eventDetails;
