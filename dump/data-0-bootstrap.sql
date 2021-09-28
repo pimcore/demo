@@ -2556,16 +2556,6 @@ CREATE TABLE `object_store_NE` (
 
 
 
-DROP TABLE IF EXISTS `pimcore_migrations`;
-CREATE TABLE `pimcore_migrations` (
-  `migration_set` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `migrated_at` datetime NOT NULL,
-  PRIMARY KEY (`migration_set`,`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-
 DROP TABLE IF EXISTS `plugin_cmf_actiontrigger_actions`;
 CREATE TABLE `plugin_cmf_actiontrigger_actions` (
   `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
