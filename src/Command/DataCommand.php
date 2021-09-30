@@ -97,6 +97,8 @@ class DataCommand extends AbstractCommand
 //        }
 
         $output->writeln('done');
+
+        return 0;
     }
 
     protected function updateAccessoryKey(AccessoryPart $object)

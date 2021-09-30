@@ -58,5 +58,7 @@ class AssetCopyrightCommand extends AbstractCommand
 
             $output->writeln('...done');
         }
+
+        return 0;
     }
 }
