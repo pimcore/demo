@@ -10,10 +10,10 @@ services:
         volumes:
             - pimcore-demo-database:/var/lib/mysql
         environment:
-            - MYSQL_ROOT_PASSWORD=ROOT
-            - MYSQL_DATABASE=pimcore
-            - MYSQL_USER=pimcore
-            - MYSQL_PASSWORD=pimcore
+            MYSQL_ROOT_PASSWORD: ROOT
+            MYSQL_DATABASE: pimcore
+            MYSQL_USER: pimcore
+            MYSQL_PASSWORD: pimcore
 
     nginx:
         image: nginx:stable-alpine
@@ -30,7 +30,7 @@ services:
         #user: '1000:1000' # set to your uid:gid
         image: pimcore/pimcore:PHP8.0-fpm
         environment:
-            - COMPOSER_HOME=/var/www/html
+            COMPOSER_HOME: /var/www/html
         depends_on:
             - db
         volumes:
@@ -41,8 +41,8 @@ services:
         #user: '1000:1000' # set to your uid:gid
         image: pimcore/pimcore:PHP8.0-fpm-debug
         environment:
-            - PHP_IDE_CONFIG="serverName=localhost"
-            - COMPOSER_HOME=/var/www/html
+            PHP_IDE_CONFIG: "serverName=localhost"
+            COMPOSER_HOME: /var/www/html
         depends_on:
             - db
         volumes:
