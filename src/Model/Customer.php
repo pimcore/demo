@@ -20,11 +20,8 @@ use CustomerManagementFrameworkBundle\Model\SsoAwareCustomerInterface;
 
 class Customer extends \Pimcore\Model\DataObject\Customer implements SsoAwareCustomerInterface, PasswordRecoveryInterface
 {
-    /**
-     * @return bool
-     */
     public function getProfilingConsent(): ?\Pimcore\Model\DataObject\Data\Consent
     {
-        return $this->getProfiling() ? $this->getProfiling()->getConsent() : false;
+        return $this->getProfiling() ? $this->getProfiling()->getConsent() : null;
     }
 }
