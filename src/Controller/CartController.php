@@ -73,6 +73,10 @@ class CartController extends FrontendController
         }
 
         $cart = $this->getCart();
+        if ($cart->getItemCount() > 99) {
+            throw new \Exception('Maximum Cart items limit Reached');
+        }
+
         $cart->addItem($product, 1);
         $cart->save();
 
@@ -100,6 +104,9 @@ class CartController extends FrontendController
             $items = $request->get('items');
 
             foreach ($items as $itemKey => $quantity) {
+                if ($cart->getItemCount() > 99) {
+                    break;
+                }
                 $product = AbstractProduct::getById($itemKey);
                 if ($product instanceof CheckoutableInterface) {
                     $cart->updateItem($itemKey, $product, $quantity, true);
