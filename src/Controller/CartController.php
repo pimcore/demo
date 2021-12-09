@@ -54,7 +54,7 @@ class CartController extends FrontendController
     }
 
     /**
-     * @Route("/cart/add-to-cart", name="shop-add-to-cart")
+     * @Route("/cart/add-to-cart", name="shop-add-to-cart", methods={"POST"})
      *
      * @param Request $request
      * @param Factory $ecommerceFactory
@@ -65,6 +65,10 @@ class CartController extends FrontendController
      */
     public function addToCartAction(Request $request, Factory $ecommerceFactory)
     {
+        if (!$this->isCsrfTokenValid('addToCart', $request->get('_csrf_token'))) {
+            throw new \Exception('Invalid request');
+        }
+
         $id = $request->get('id');
         $product = AbstractProduct::getById($id);
 
