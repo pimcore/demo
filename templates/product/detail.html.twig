@@ -157,7 +157,7 @@
                             {% endif %}
                         </div>
                         <form id="shop_add_to_cart_form" method="post" action="{{ path('shop-add-to-cart', { id: product.id }) }}">
-                            <input type="hidden" name="csrfToken" value="{{ pimcore_csrf.getCsrfToken() }}">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('addToCart') }}">
                             <a href="#" onclick="document.getElementById('shop_add_to_cart_form').submit();"
                                class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</a>
                         </form>
