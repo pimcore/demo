@@ -262,12 +262,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 array (
                 ),
                  'fieldDefinitionsCache' => NULL,
-                 'permissionView' => 
-                array (
-                ),
-                 'permissionEdit' => 
-                array (
-                ),
+                 'permissionView' => NULL,
+                 'permissionEdit' => NULL,
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
