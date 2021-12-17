@@ -67,7 +67,7 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
      */
     public function calculateSegments(CustomerInterface $customer, SegmentManagerInterface $segmentManager)
     {
-        if (!$customer->getProfilingConsent()) {
+        if (!$customer->getProfilingConsent()->getConsent()) {
             return;
         }
 
