@@ -156,9 +156,10 @@
                                 <p class="small text-muted mt-1">{{ 'general.available-in' | trans }} {{ ('attribute.' ~ product.saleInformation.saleInformation.availabilityType) | lower | trans }}</p>
                             {% endif %}
                         </div>
-                        <form id="shop_add_to_cart_form" method="post" action="{{ path('shop-add-to-cart', { id: product.id }) }}">
+                        <form id="shop_add_to_cart_form_{{ product.id }}" method="post" action="{{ path('shop-add-to-cart', { id: product.id }) }}">
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('addToCart') }}">
-                            <a href="#" onclick="document.getElementById('shop_add_to_cart_form').submit();"
+                            <a href="#"
+                               onclick="document.getElementById('shop_add_to_cart_form_{{ product.id }}').submit();"
                                class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</a>
                         </form>
 
