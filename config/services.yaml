@@ -75,7 +75,26 @@ services:
     App\Form\RegistrationFormHandler: ~
     App\Form\CarSubmitFormType: ~
 
+    # ---------------------------------------------------------
+    # Processors
+    # ---------------------------------------------------------
+    App\Processors\AbsoluteURLProcessor: ~
 
+    # ---------------------------------------------------------
+    # Sitemaps
+    # ---------------------------------------------------------
+    App\Sitemaps\NewsGenerator:
+        arguments:
+            $processors:
+                - '@Pimcore\Sitemap\Element\Processor\AbsoluteURLProcessor'
+    App\Sitemaps\ProductGenerator:
+        arguments:
+            $processors:
+                - '@Pimcore\Sitemap\Element\Processor\AbsoluteURLProcessor'
+    App\Sitemaps\CategoryGenerator:
+        arguments:
+            $processors:
+                - '@Pimcore\Sitemap\Element\Processor\AbsoluteURLProcessor'
 
     # ---------------------------------------------------------
     # Misc Services
