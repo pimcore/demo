@@ -58,10 +58,8 @@ class CategoryGenerator extends AbstractElementGenerator
                 'referenceType' => UrlGeneratorInterface::ABSOLUTE_URL
             ], true);
 
-            $path = $this->urlGenerator->generateUrl($link);
-
             // create an entry for the sitemap
-            $url = new UrlConcrete($path);
+            $url = new UrlConcrete($link);
 
             // run url through processors
             $url = $this->process($url, $category, $context);

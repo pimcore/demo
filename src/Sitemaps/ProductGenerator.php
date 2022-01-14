@@ -9,8 +9,8 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace App\Sitemaps;
@@ -21,6 +21,9 @@ use Pimcore\Sitemap\Element\GeneratorContext;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
+use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
+
 
 class ProductGenerator extends AbstractElementGenerator
 {
@@ -33,7 +36,11 @@ class ProductGenerator extends AbstractElementGenerator
 
         $section = 'cars';
 
-        $list = new Car\Listing();
+        $indexService = Factory::getInstance()->getIndexService();
+        $productListing = $indexService->getProductListForCurrentTenant();
+        $productListing->addCondition("carClass IS NOT NULL", 'carClass');
+        $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
+        $list = $productListing;
 
         // the context contains metadata for filters/processors
         // it contains at least the url container, but you can add additional data
