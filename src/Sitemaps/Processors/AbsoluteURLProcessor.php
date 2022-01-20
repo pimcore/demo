@@ -15,7 +15,7 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace App\Processors;
+namespace App\Sitemaps\Processors;
 
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Sitemap\Element\GeneratorContextInterface;

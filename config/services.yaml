@@ -8,6 +8,11 @@ parameters:
     # use echo \Defuse\Crypto\Key::createNewRandomKey()->saveToAsciiSafeString(); to generate secret for data encryption
     app_encryption_secret: "ThisTokenIsNotSoSecretChangeIt"
 
+
+    #this is necessary for CLI commands to get the base url, eg. sitemap dump
+    router.request_context.host: localhost
+    router.request_context.scheme: http
+
     # customize the full path to external executables
     # normally they are auto-detected by `which program` or auto-discovered in the configured path in
     # System Settings -> General -> Additional $PATH variable
@@ -78,7 +83,7 @@ services:
     # ---------------------------------------------------------
     # Processors
     # ---------------------------------------------------------
-    App\Processors\AbsoluteURLProcessor: ~
+    App\Sitemaps\Processors\AbsoluteURLProcessor: ~
 
     # ---------------------------------------------------------
     # Sitemaps
@@ -86,15 +91,15 @@ services:
     App\Sitemaps\NewsGenerator:
         arguments:
             $processors:
-                - '@App\Processors\AbsoluteURLProcessor'
+                - '@App\Sitemaps\Processors\AbsoluteURLProcessor'
     App\Sitemaps\ProductGenerator:
         arguments:
             $processors:
-                - '@App\Processors\AbsoluteURLProcessor'
+                - '@App\Sitemaps\Processors\AbsoluteURLProcessor'
     App\Sitemaps\CategoryGenerator:
         arguments:
             $processors:
-                - '@App\Processors\AbsoluteURLProcessor'
+                - '@App\Sitemaps\Processors\AbsoluteURLProcessor'
 
     # ---------------------------------------------------------
     # Misc Services

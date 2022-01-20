@@ -82,6 +82,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
             if (isset($params['document']) && $params['document'] instanceof Document) {
                 $document = $params['document'];
             } else {
+                # TODO: line 38 $request = $this->getCurrentRequest(); in DocumentResolver causes problems to Sitemap genearation
                 $document = $this->documentResolver->getDocument($this->requestStack->getCurrentRequest());
             }
 
