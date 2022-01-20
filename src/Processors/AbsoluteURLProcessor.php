@@ -15,7 +15,7 @@ declare(strict_types=1);
  *  @license    http://www.pimcore.org/license     GPLv3 and PCL
  */
 
-namespace Pimcore\Sitemap\Element\Processor;
+namespace App\Processors;
 
 use Pimcore\Model\Element\ElementInterface;
 use Pimcore\Sitemap\Element\GeneratorContextInterface;
@@ -24,9 +24,6 @@ use Pimcore\Sitemap\UrlGeneratorInterface;
 use Presta\SitemapBundle\Sitemap\Url\Url;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 
-/**
- * Adds modification date from element modification date.
- */
 class AbsoluteURLProcessor implements ProcessorInterface
 {
     /**

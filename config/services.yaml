@@ -86,15 +86,15 @@ services:
     App\Sitemaps\NewsGenerator:
         arguments:
             $processors:
-                - '@Pimcore\Sitemap\Element\Processor\AbsoluteURLProcessor'
+                - '@App\Processors\AbsoluteURLProcessor'
     App\Sitemaps\ProductGenerator:
         arguments:
             $processors:
-                - '@Pimcore\Sitemap\Element\Processor\AbsoluteURLProcessor'
+                - '@App\Processors\AbsoluteURLProcessor'
     App\Sitemaps\CategoryGenerator:
         arguments:
             $processors:
-                - '@Pimcore\Sitemap\Element\Processor\AbsoluteURLProcessor'
+                - '@App\Processors\AbsoluteURLProcessor'
 
     # ---------------------------------------------------------
     # Misc Services
