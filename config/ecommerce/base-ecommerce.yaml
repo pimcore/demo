@@ -209,7 +209,7 @@ pimcore_ecommerce_framework:
         tenants:
             default:
                 payment:
-                    provider: unzer
+                    provider: paypal
                 steps:
                     deliveryaddress:
                         class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
@@ -229,14 +229,32 @@ pimcore_ecommerce_framework:
 
         # Configuration of payment providers, key is name of provider
         providers:
-
-            unzer:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Unzer
+            paypal:
+                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton
                 profile: sandbox
                 profiles:
                     sandbox:
-                        publicAccessKey: s-pub-2a10GBUCSfOqqtyulwXJub7e8m0EwDbP
-                        privateAccessKey: s-priv-2a10PcxkejMP6YJwHH1shzvHyOd8PrOt
+                        client_id: '%env(paypal_client_id)%'
+                        client_secret: '%env(paypal_secret_id)%'
+
+                        # defines, if payment caputure should take place automatic or manual, default is automatic
+                        capture_strategy: automatic
+
+                        # defines mode of PayPal API, default value is sandbox
+                        mode: sandbox
+
+                        # defines PayPal application context for shipping, default value is NO_SHIPPING
+                        # see https://developer.paypal.com/docs/api/orders/v2/#definition-application_context
+                        shipping_preference: NO_SHIPPING
+
+                        # defines PayPal application context for user action, default value is PAY_NOW
+                        # see https://developer.paypal.com/docs/api/orders/v2/#definition-application_context
+                        user_action: PAY_NOW
+
+                    live:
+                        client_id: <YOUR PAYPAL REST API CLIENT ID>
+                        client_secret: <YOUR PAYPAL REST API CLIENT SECRET>
+                        mode: live
 
     # tracking manager - define which trackers (e.g. Google Analytics Universal Ecommerce) are active and should
     # be called when you track something via TrackingManager

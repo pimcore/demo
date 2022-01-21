@@ -20,9 +20,9 @@ use App\Website\Navigation\BreadcrumbHelperService;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\V7\CheckoutManagerInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Model\AbstractOrder;
-use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\Unzer;
-use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\UnzerRequest;
+use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentResponse\UrlResponse;
+use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\AbstractRequest;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\OnlineShopOrder;
 use Pimcore\Translation\Translator;
@@ -53,9 +53,9 @@ class PaymentController extends FrontendController
         $checkoutManager = $factory->getCheckoutManager($cart);
         $paymentProvider = $checkoutManager->getPayment();
 
-        $accessKey = '';
-        if ($paymentProvider instanceof Unzer) {
-            $accessKey = $paymentProvider->getPublicAccessKey();
+        $SDKUrl = '';
+        if($paymentProvider instanceof PayPalSmartPaymentButton) {
+            $SDKUrl = $paymentProvider->buildPaymentSDKLink();
         }
 
         $trackingManager = $factory->getTrackingManager();
@@ -63,7 +63,7 @@ class PaymentController extends FrontendController
 
         return $this->render('payment/checkout_payment.html.twig', [
             'cart' => $cart,
-            'accessKey' => $accessKey
+            'SDKUrl' => $SDKUrl
         ]);
     }
 
@@ -77,39 +77,24 @@ class PaymentController extends FrontendController
      */
     public function startPaymentAction(Request $request, Factory $factory, LoggerInterface $logger)
     {
-        try {
             $cartManager = $factory->getCartManager();
             $cart = $cartManager->getOrCreateCartByName('cart');
 
-            /**
-             * @var $checkoutManager CheckoutManagerInterface
-             */
-            $checkoutManager = $factory->getCheckoutManager($cart);
+            $checkoutManager = Factory::getInstance()->getCheckoutManager($cart);
+            $paymentInformation = $checkoutManager->initOrderPayment();
+            $order = $paymentInformation->getObject();
 
-            $paymentInfo = $checkoutManager->initOrderPayment();
+            $config = [
+                'return_url' => '',
+                'cancel_url' => '' . 'http://localhost/payment?error=cancel',
+                'OrderDescription' => 'My Order ' . $order->getOrdernumber() . ' at pimcore.org',
+                'InternalPaymentId' => $paymentInformation->getInternalPaymentId()
+            ];
 
-            /**
-             * @var OnlineShopOrder $order
-             */
-            $order = $paymentInfo->getObject();
-
-            $paymentConfig = new UnzerRequest();
-            $paymentConfig->setInternalPaymentId($paymentInfo->getInternalPaymentId());
-            $paymentConfig->setPaymentReference($request->get('paymentId'));
-            $paymentConfig->setReturnUrl($this->generateUrl('shop-commit-order', ['order' => $order->getOrdernumber()], UrlGeneratorInterface::ABSOLUTE_URL));
-            $paymentConfig->setErrorUrl($this->generateUrl('shop-checkout-payment-error', [], UrlGeneratorInterface::ABSOLUTE_URL));
+            $paymentConfig = new AbstractRequest($config);
 
             $response = $checkoutManager->startOrderPaymentWithPaymentProvider($paymentConfig);
-
-            if ($response instanceof UrlResponse) {
-                return new RedirectResponse($response->getUrl());
-            }
-        } catch (\Exception $e) {
-            $this->addFlash('danger', $e->getMessage());
-            $logger->error($e->getMessage());
-
-            return $this->redirectToRoute('shop-checkout-payment');
-        }
+            return new \Symfony\Component\HttpFoundation\JsonResponse($response->getJsonString(), 200, [], true);
     }
 
     /**
@@ -141,35 +126,19 @@ class PaymentController extends FrontendController
      */
     public function commitOrderAction(Request $request, Factory $factory, LoggerInterface $logger, Translator $translator, SessionInterface $session)
     {
-        $order = OnlineShopOrder::getByOrdernumber($request->query->get('order'), 1);
-
         $cartManager = $factory->getCartManager();
         $cart = $cartManager->getOrCreateCartByName('cart');
 
-        /**
-         * @var $checkoutManager CheckoutManagerInterface
-         */
         $checkoutManager = $factory->getCheckoutManager($cart);
+        $params = array_merge($request->query->all(), $request->request->all());
 
-        try {
-            $order = $checkoutManager->handlePaymentResponseAndCommitOrderPayment([
-                'order' => $order
-            ]);
-        } catch (\Exception $e) {
-            $logger->error($e->getMessage());
-        }
-
-        if (!$order || $order->getOrderState() !== AbstractOrder::ORDER_STATE_COMMITTED) {
-            $this->addFlash('danger', $translator->trans('checkout.payment-failed'));
-
-            return $this->redirectToRoute('shop-checkout-payment');
-        }
+        $order = $checkoutManager->handlePaymentResponseAndCommitOrderPayment($params);
 
         if (!$session->isStarted()) {
             $session->start();
         }
 
-        $session->set('last_order_id', $order->getId());
+        $session->set("last_order_id", $order->getId());
 
         return $this->redirectToRoute('shop-checkout-completed');
     }
