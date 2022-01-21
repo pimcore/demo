@@ -10,8 +10,8 @@ parameters:
 
 
     #this is necessary for CLI commands to get the base url, eg. sitemap dump
-    router.request_context.host: localhost
-    router.request_context.scheme: http
+    router.request_context.host: demo.pimcore.fun
+    router.request_context.scheme: https
 
     # customize the full path to external executables
     # normally they are auto-detected by `which program` or auto-discovered in the configured path in

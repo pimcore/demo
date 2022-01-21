@@ -16,14 +16,22 @@
 namespace App\Sitemaps;
 
 use Pimcore\Model\DataObject\News;
+use Pimcore\Model\Document;
 use Pimcore\Sitemap\Element\AbstractElementGenerator;
 use Pimcore\Sitemap\Element\GeneratorContext;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Pimcore\Localization\LocaleServiceInterface;
 
 class NewsGenerator extends AbstractElementGenerator
 {
+    public function __construct(LocaleServiceInterface $localeService, array $filters = [], array $processors = [])
+    {
+        parent::__construct($filters, $processors);
+        $localeService->setLocale('en');
+    }
+
     public function populate(UrlContainerInterface $urlContainer, string $section = null)
     {
         if (null !== $section && $section !== 'news') {
@@ -52,7 +60,8 @@ class NewsGenerator extends AbstractElementGenerator
             // use a link generator to generate an URL to the article
             // you need to make sure the link generator generates an absolute url
             $link = $newsArticle->getClass()->getLinkGenerator()->generate($newsArticle, [
-                'referenceType' => UrlGeneratorInterface::ABSOLUTE_URL
+                'referenceType' => UrlGeneratorInterface::ABSOLUTE_URL,
+                'document' => Document::getByPath('/en/News')
             ]);
 
             // create an entry for the sitemap
