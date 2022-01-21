@@ -20,6 +20,27 @@ pimcore:
         encoder_factories:
             Pimcore\Model\DataObject\Customer: cmf.security.user_password_encoder_factory
 
+    sitemaps:
+        generators:
+            app_news:
+                enabled: true
+                priority: 50
+                generator_id: App\Sitemaps\NewsGenerator
+            app_cars:
+                enabled: true
+                priority: 49
+                generator_id: App\Sitemaps\ProductGenerator
+            app_category:
+                enabled: true
+                priority: 48
+                generator_id: App\Sitemaps\CategoryGenerator
+
+            # Pimcore ships a default document tree generator which is enabled by default
+            # but you can easily disable it here.
+            pimcore_documents:
+                enabled: true
+
+
 #### TRANSLATIONS
 #    translations:
 #        case_insensitive: true
