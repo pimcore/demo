@@ -26,10 +26,9 @@ use Pimcore\Localization\LocaleServiceInterface;
 
 class NewsGenerator extends AbstractElementGenerator
 {
-    public function __construct(LocaleServiceInterface $localeService, array $filters = [], array $processors = [])
+    public function __construct(protected LocaleServiceInterface $localeService, array $filters = [], array $processors = [])
     {
         parent::__construct($filters, $processors);
-        $localeService->setLocale('en');
     }
 
     public function populate(UrlContainerInterface $urlContainer, string $section = null)
@@ -49,6 +48,9 @@ class NewsGenerator extends AbstractElementGenerator
         // it contains at least the url container, but you can add additional data
         // with the params parameter
         $context = new GeneratorContext($urlContainer, $section, ['foo' => 'bar']);
+
+        //change locale as per multilingual setup
+        $this->localeService->setLocale('en');
 
         /** @var News $newsArticle */
         foreach ($list as $newsArticle) {
