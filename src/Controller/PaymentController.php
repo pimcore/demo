@@ -86,7 +86,7 @@ class PaymentController extends FrontendController
 
             $config = [
                 'return_url' => '',
-                'cancel_url' => '' . 'https://demo.pimcore.fun/payment-error',
+                'cancel_url' => 'https://demo.pimcore.fun/payment-error',
                 'OrderDescription' => 'My Order ' . $order->getOrdernumber() . ' at pimcore.org',
                 'InternalPaymentId' => $paymentInformation->getInternalPaymentId()
             ];
