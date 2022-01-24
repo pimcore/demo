@@ -20,7 +20,6 @@ paypal.Buttons({
         });
     },
     onApprove: function(data) {
-        console.log(data);
         // make sure you deliver orderID, payerID and paymentID to your
         // handle response controller action, e.g. by creating a form and
         // posting the data

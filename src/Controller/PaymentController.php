@@ -86,7 +86,7 @@ class PaymentController extends FrontendController
 
             $config = [
                 'return_url' => '',
-                'cancel_url' => '' . 'http://localhost/payment?error=cancel',
+                'cancel_url' => '' . 'https://demo.pimcore.fun/payment-error',
                 'OrderDescription' => 'My Order ' . $order->getOrdernumber() . ' at pimcore.org',
                 'InternalPaymentId' => $paymentInformation->getInternalPaymentId()
             ];
@@ -102,11 +102,7 @@ class PaymentController extends FrontendController
      */
     public function paymentErrorAction(Request $request, LoggerInterface $logger)
     {
-        $logger->error('payment error: ' . $request->get('merchantMessage'));
-
-        if ($clientMessage = $request->get('clientMessage')) {
-            $this->addFlash('danger', $clientMessage);
-        }
+        $this->addFlash('danger', 'Payment error');
 
         return $this->redirectToRoute('shop-checkout-payment');
     }
@@ -138,7 +134,7 @@ class PaymentController extends FrontendController
             $session->start();
         }
 
-        $session->set("last_order_id", $order->getId());
+        $session->set('last_order_id', $order->getId());
 
         return $this->redirectToRoute('shop-checkout-completed');
     }
