@@ -52,7 +52,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'OnlineShopOrder',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1642802394,
+   'modificationDate' => 1643228785,
    'userOwner' => 0,
    'userModification' => 1,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractOrder',
@@ -3043,7 +3043,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'fieldtype' => 'objectbricks',
                  'allowedTypes' => 
                 array (
-                  0 => 'PaymentProviderPayPal',
+                  0 => 'PaymentProviderPayPalSmartButton',
                 ),
                  'maxItems' => '',
                  'border' => false,

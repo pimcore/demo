@@ -17,14 +17,10 @@ namespace App\Controller;
 
 use App\Ecommerce\CheckoutManager\Confirm;
 use App\Website\Navigation\BreadcrumbHelperService;
-use Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\V7\CheckoutManagerInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
-use Pimcore\Bundle\EcommerceFrameworkBundle\Model\AbstractOrder;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton;
-use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentResponse\UrlResponse;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\AbstractRequest;
 use Pimcore\Controller\FrontendController;
-use Pimcore\Model\DataObject\OnlineShopOrder;
 use Pimcore\Translation\Translator;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -32,7 +28,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class PaymentController extends FrontendController
 {
@@ -50,6 +45,11 @@ class PaymentController extends FrontendController
         $breadcrumbHelperService->enrichCheckoutPage();
 
         $cart = $cartManager->getOrCreateCartByName('cart');
+
+        if ($cart->isEmpty()) {
+            return $this->redirectToRoute('shop-cart-detail');
+        }
+
         $checkoutManager = $factory->getCheckoutManager($cart);
         $paymentProvider = $checkoutManager->getPayment();
 
