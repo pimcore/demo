@@ -8,6 +8,6 @@ return [
         "Web2PrintToolsBundle\\Web2PrintToolsBundle" => TRUE,
         "Pimcore\\Bundle\\DataHubBundle\\PimcoreDataHubBundle" => TRUE,
         "Pimcore\\Bundle\\ObjectMergerBundle\\ObjectMergerBundle" => TRUE,
-        "Pimcore\\Bundle\\EcommerceFrameworkBundle\\PimcorePaymentProviderUnzerBundle" => TRUE
+        "Pimcore\\Bundle\\EcommerceFrameworkBundle\\PimcorePaymentProviderPayPalSmartPaymentButtonBundle" => TRUE
     ]
 ];

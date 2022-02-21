@@ -1,93 +1,51 @@
+paypal.Buttons({
+    onCancel: function (data) {
+        // e.g. redirect to a certain page or show message
+        window.location.replace('/payment-error');
+    },
+    onError: function (data) {
+        // e.g. redirect to a certain page or show message
+        window.location.replace('/payment-error');
+    },
+    createOrder: function(data, actions) {
+        return fetch('/checkout-start-payment', {
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function(res) {
+            return res.json();
+        }).then(function (data) {
+            return data.id;
+        });
+    },
+    onApprove: function(data) {
+        // make sure you deliver orderID, payerID and paymentID to your
+        // handle response controller action, e.g. by creating a form and
+        // posting the data
+        var form = document.createElement('form');
+        document.body.appendChild(form);
+        form.method = 'POST';
+        form.action = '/payment-commit-order';
 
+        var orderID = document.createElement('input');
+        orderID.type = 'hidden';
+        orderID.name = 'orderID';
+        orderID.value = data['orderID'];
+        form.appendChild(orderID);
 
-$(document).ready(function() {
+        var payerID = document.createElement('input');
+        payerID.type = 'hidden';
+        payerID.name = 'payerID';
+        payerID.value = data['payerID'];
+        form.appendChild(payerID);
 
-    let unzerInstance = new unzer(_config.accessKey, {locale: 'en-GB'});
+        var paymentID = document.createElement('input');
+        paymentID.type = 'hidden';
+        paymentID.name = 'paymentID';
+        paymentID.value = data['paymentID'];
+        form.appendChild(paymentID);
 
-    let $errorHolder = $('#error-holder');
-
-    let Card = unzerInstance.Card();
-    // Rendering input fields
-    Card.create('number', {
-        containerId: 'card-element-id-number',
-        onlyIframe: false
-    });
-    Card.create('expiry', {
-        containerId: 'card-element-id-expiry',
-        onlyIframe: false
-    });
-    Card.create('cvc', {
-        containerId: 'card-element-id-cvc',
-        onlyIframe: false
-    });
-
-    let ccForm = document.getElementById('cc-form');
-    let submitPaymentResultForm = document.getElementById('js-submit-payment-result');
-
-    // General event handling
-    let buttonDisabled = {};
-    let submitButton = document.getElementById('submit-button');
-    submitButton.disabled = true;
-
-
-    let successHandler = function(data) {
-        console.log('success');
-        data.method = data.method ? data.method : 'card';
-        $('.js-payment-method-hidden').val(data.method);
-        $('.js-payment-id-hidden').val(data.id);
-
-        submitPaymentResultForm.submit();
-    };
-
-    let errorHandler = function(error) {
-        console.log('error');
-        $errorHolder.html(error.message);
-    };
-
-    Card.addEventListener('change', function(e) {
-        if (e.success) {
-            buttonDisabled[e.type] = true;
-            submitButton.disabled = false;
-            $errorHolder.html('')
-        } else {
-            buttonDisabled[e.type] = false;
-            submitButton.disabled = true;
-            $errorHolder.html(e.error)
-        }
-        submitButton.disabled = !(buttonDisabled.number && buttonDisabled.expiry && buttonDisabled.cvc);
-
-    });
-
-
-    ccForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        console.log('creditcard form submit');
-        Card.createResource()
-            .then(successHandler)
-            .catch(errorHandler)
-    });
-
-
-    $('#js-redirect-payment-method-paypal').on('click', function(e){
-        e.preventDefault();
-
-        var Paypal = unzerInstance.Paypal();
-
-        Paypal.createResource()
-            .then(successHandler)
-            .catch(errorHandler)
-    });
-
-    $('#js-redirect-payment-method-paypal-sofort').on('click', function(e){
-        e.preventDefault();
-
-        let Sofort = unzerInstance.Sofort();
-
-        Sofort.createResource()
-            .then(successHandler)
-            .catch(errorHandler)
-    });
-
-
-});
-
+        form.submit();
+    }
+}).render('#paypal-button-container');
