@@ -9,8 +9,8 @@ Fields Summary:
  - internalPaymentId [input]
  - message [textarea]
  - providerData [textarea]
- - provider_unzer_amount [input]
- - provider_unzer_PaymentType [textarea]
+ - provider_paypal_amount [input]
+ - provider_paypal_PaymentType [textarea]
 */
 
 
@@ -275,10 +275,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           7 =>
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'fieldtype' => 'fieldset',
-             'name' => 'additionalDataUnzer',
+             'name' => 'additionalDataPaypal',
              'type' => NULL,
              'region' => '',
-             'title' => 'Additional Unzer Data',
+             'title' => 'Additional Paypal Data',
              'width' => NULL,
              'height' => NULL,
              'collapsible' => true,
@@ -299,7 +299,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
-                 'name' => 'provider_unzer_amount',
+                 'name' => 'provider_paypal_amount',
                  'title' => 'Amount',
                  'tooltip' => '',
                  'mandatory' => false,
@@ -326,7 +326,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'regex' => '',
                  'unique' => NULL,
                  'showCharCount' => NULL,
-                 'name' => 'provider_unzer_PaymentType',
+                 'name' => 'provider_paypal_PaymentType',
                  'title' => 'Payment Type',
                  'tooltip' => '',
                  'mandatory' => false,
