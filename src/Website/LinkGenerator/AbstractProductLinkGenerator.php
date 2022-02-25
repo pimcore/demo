@@ -57,7 +57,7 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
     public function getNavigationPath(?Category $category, ?Category $rootCategory = null)
     {
         if (empty($rootCategory)) {
-            if(!$this->document) {
+            if (!$this->document) {
                 try {
                     $this->document = $this->documentResolver->getDocument($this->requestStack->getCurrentRequest());
                 } catch (\Exception $e) {

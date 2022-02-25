@@ -15,15 +15,14 @@
 
 namespace App\Sitemaps;
 
+use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
+use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
 use Pimcore\Model\DataObject\Car;
 use Pimcore\Sitemap\Element\AbstractElementGenerator;
 use Pimcore\Sitemap\Element\GeneratorContext;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
-use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
-
 
 class ProductGenerator extends AbstractElementGenerator
 {
@@ -38,7 +37,7 @@ class ProductGenerator extends AbstractElementGenerator
 
         $indexService = Factory::getInstance()->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
-        $productListing->addCondition("carClass IS NOT NULL", 'carClass');
+        $productListing->addCondition('carClass IS NOT NULL', 'carClass');
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
         $list = $productListing;
 

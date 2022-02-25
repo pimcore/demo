@@ -43,7 +43,6 @@ class Blockquote extends AbstractAreabrick implements EditableDialogBoxInterface
             ]
         ]);
 
-
         return $config;
     }
 

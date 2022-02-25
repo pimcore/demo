@@ -49,9 +49,11 @@ class ProductController extends BaseController
      * @param Request $request
      * @param AbstractObject $object
      * @param UrlSlug $urlSlug
+     *
      * @return Response
      */
-    public function productDetailSlugAction(Request $request, AbstractObject $object, UrlSlug $urlSlug) {
+    public function productDetailSlugAction(Request $request, AbstractObject $object, UrlSlug $urlSlug)
+    {
         return $this->forward('App\Controller\ProductController::detailAction', ['product' => $object]);
     }
 
@@ -78,8 +80,7 @@ class ProductController extends BaseController
         SegmentTrackingHelperService $segmentTrackingHelperService,
         Concrete $product,
         ProductLinkGenerator $productLinkGenerator
-    )
-    {
+    ) {
         if (!(
                 $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
             )
@@ -89,8 +90,9 @@ class ProductController extends BaseController
 
         //redirect to main url
         $generatorUrl = $productLinkGenerator->generate($product);
-        if($generatorUrl != $request->getPathInfo()) {
+        if ($generatorUrl != $request->getPathInfo()) {
             $queryString = $request->getQueryString();
+
             return $this->redirect($generatorUrl . ($queryString ? '?' . $queryString : ''));
         }
 
@@ -107,7 +109,6 @@ class ProductController extends BaseController
         $trackingManager->trackProductView($product);
 
         if ($product instanceof Car) {
-
             foreach ($product->getAccessories() as $accessory) {
                 $trackingManager->trackProductImpression($accessory, 'crosssells');
             }
@@ -118,13 +119,13 @@ class ProductController extends BaseController
             // get all compatible products
             $productList = $ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
             $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-            if($productList instanceof DefaultMysql) {
+            if ($productList instanceof DefaultMysql) {
                 $productList->addCondition('o_id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'o_id');
-            } else if($productList instanceof AbstractElasticSearch) {
+            } elseif ($productList instanceof AbstractElasticSearch) {
                 $productList->addCondition(['terms' => ['system.o_id' => $product->getCompatibleToProductIds()]], 'o_id');
             }
 
-            foreach($productList as $compatibleProduct) {
+            foreach ($productList as $compatibleProduct) {
                 $trackingManager->trackProductImpression($compatibleProduct, 'crosssells');
             }
 
@@ -264,7 +265,7 @@ class ProductController extends BaseController
 
         $term = strip_tags($request->get('term'));
 
-        if($productListing instanceof AbstractElasticSearch) {
+        if ($productListing instanceof AbstractElasticSearch) {
 
             // simple elastic search query - uses multi-match query on all defined search_attributes
 //            $productListing->addQueryCondition($term);
@@ -275,22 +276,22 @@ class ProductController extends BaseController
                 'function_score' => [
                     'query' => [
                         'multi_match' => [
-                            "query" => $term,
-                            "type" => "cross_fields",
-                            "operator" => "and",
-                            "fields" => [
-                                "attributes.name^4",
-                                "attributes.name.analyzed",
-                                "attributes.name.analyzed_ngram",
-                                "attributes.manufacturer_name^3",
-                                "attributes.manufacturer_name.analyzed",
-                                "attributes.manufacturer_name.analyzed_ngram",
-                                "attributes.color",
-                                "attributes.color.analyzed",
-                                "attributes.color.analyzed_ngram",
-                                "attributes.carClass",
-                                "attributes.carClass.analyzed",
-                                "attributes.carClass.analyzed_ngram"
+                            'query' => $term,
+                            'type' => 'cross_fields',
+                            'operator' => 'and',
+                            'fields' => [
+                                'attributes.name^4',
+                                'attributes.name.analyzed',
+                                'attributes.name.analyzed_ngram',
+                                'attributes.manufacturer_name^3',
+                                'attributes.manufacturer_name.analyzed',
+                                'attributes.manufacturer_name.analyzed_ngram',
+                                'attributes.color',
+                                'attributes.color.analyzed',
+                                'attributes.color.analyzed_ngram',
+                                'attributes.carClass',
+                                'attributes.carClass.analyzed',
+                                'attributes.carClass.analyzed_ngram'
                             ]
                         ]
                     ],
@@ -310,8 +311,6 @@ class ProductController extends BaseController
             ];
 
             $productListing->addQueryCondition($query, 'searchTerm');
-
-
         } else {
 
             //default mysql search query condition - would also work for elastic search in that way
@@ -322,9 +321,7 @@ class ProductController extends BaseController
                     $productListing->addQueryCondition($t);
                 }
             }
-
         }
-
 
         if (isset($params['autocomplete'])) {
             $resultset = [];
@@ -359,7 +356,6 @@ class ProductController extends BaseController
             $request->get('page', 1),
             $filterDefinition->getPageLimit()
         );
-
 
         $params['results'] = $paginator;
         $params['paginationVariables'] = $paginator->getPaginationData();

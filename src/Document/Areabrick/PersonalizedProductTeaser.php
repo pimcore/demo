@@ -84,7 +84,7 @@ class PersonalizedProductTeaser extends AbstractAreabrick
         $allowedSegmentGroups = [SegmentGetter::SEGMENT_GROUP_CAR_CLASS, SegmentGetter::SEGMENT_GROUP_MANUFACTURER];
         $segmentCollection = $this->segmentTracker->getFilteredAssignments($this->visitorInfoStorage->getVisitorInfo(), $allowedSegmentGroups, 2);
 
-        if(empty($segmentCollection)) {
+        if (empty($segmentCollection)) {
             return;
         }
 
@@ -98,7 +98,6 @@ class PersonalizedProductTeaser extends AbstractAreabrick
                 }
 
                 $this->addRelationCondition($productList, $values);
-
             }
         }
 
@@ -112,27 +111,25 @@ class PersonalizedProductTeaser extends AbstractAreabrick
         }
     }
 
-    protected function addRelationCondition(ProductListInterface $productList, $values) {
-
-        if($productList instanceof DefaultMysql) {
+    protected function addRelationCondition(ProductListInterface $productList, $values)
+    {
+        if ($productList instanceof DefaultMysql) {
             $productList->addRelationCondition('segments', 'dest IN (' . implode(',', $values) . ')');
-        } else if($productList instanceof AbstractElasticSearch) {
+        } elseif ($productList instanceof AbstractElasticSearch) {
             $productList->addRelationCondition('segments', ['terms' => ['relations.' . 'segments' => $values]]);
         } else {
-            throw new InvalidConfigException("Product List Type not supported");
+            throw new InvalidConfigException('Product List Type not supported');
         }
-
     }
 
-    protected function setRandOrderKey(ProductListInterface $productList) {
-
-        if($productList instanceof DefaultMysql) {
+    protected function setRandOrderKey(ProductListInterface $productList)
+    {
+        if ($productList instanceof DefaultMysql) {
             $productList->setOrderKey('RAND()');
-        } else if($productList instanceof AbstractElasticSearch) {
+        } elseif ($productList instanceof AbstractElasticSearch) {
             //not possible
         } else {
-            throw new InvalidConfigException("Product List Type not supported");
+            throw new InvalidConfigException('Product List Type not supported');
         }
-
     }
 }

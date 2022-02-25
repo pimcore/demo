@@ -15,6 +15,7 @@
 
 namespace App\Sitemaps;
 
+use Pimcore\Localization\LocaleServiceInterface;
 use Pimcore\Model\DataObject\News;
 use Pimcore\Model\Document;
 use Pimcore\Sitemap\Element\AbstractElementGenerator;
@@ -22,7 +23,6 @@ use Pimcore\Sitemap\Element\GeneratorContext;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Pimcore\Localization\LocaleServiceInterface;
 
 class NewsGenerator extends AbstractElementGenerator
 {

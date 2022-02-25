@@ -54,7 +54,7 @@ class PaymentController extends FrontendController
         $paymentProvider = $checkoutManager->getPayment();
 
         $SDKUrl = '';
-        if($paymentProvider instanceof PayPalSmartPaymentButton) {
+        if ($paymentProvider instanceof PayPalSmartPaymentButton) {
             $SDKUrl = $paymentProvider->buildPaymentSDKLink();
         }
 
@@ -77,24 +77,25 @@ class PaymentController extends FrontendController
      */
     public function startPaymentAction(Request $request, Factory $factory, LoggerInterface $logger)
     {
-            $cartManager = $factory->getCartManager();
-            $cart = $cartManager->getOrCreateCartByName('cart');
+        $cartManager = $factory->getCartManager();
+        $cart = $cartManager->getOrCreateCartByName('cart');
 
-            $checkoutManager = Factory::getInstance()->getCheckoutManager($cart);
-            $paymentInformation = $checkoutManager->initOrderPayment();
-            $order = $paymentInformation->getObject();
+        $checkoutManager = Factory::getInstance()->getCheckoutManager($cart);
+        $paymentInformation = $checkoutManager->initOrderPayment();
+        $order = $paymentInformation->getObject();
 
-            $config = [
+        $config = [
                 'return_url' => '',
                 'cancel_url' => 'https://demo.pimcore.fun/payment-error',
                 'OrderDescription' => 'My Order ' . $order->getOrdernumber() . ' at pimcore.org',
                 'InternalPaymentId' => $paymentInformation->getInternalPaymentId()
             ];
 
-            $paymentConfig = new AbstractRequest($config);
+        $paymentConfig = new AbstractRequest($config);
 
-            $response = $checkoutManager->startOrderPaymentWithPaymentProvider($paymentConfig);
-            return new \Symfony\Component\HttpFoundation\JsonResponse($response->getJsonString(), 200, [], true);
+        $response = $checkoutManager->startOrderPaymentWithPaymentProvider($paymentConfig);
+
+        return new \Symfony\Component\HttpFoundation\JsonResponse($response->getJsonString(), 200, [], true);
     }
 
     /**
