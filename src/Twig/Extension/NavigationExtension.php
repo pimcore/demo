@@ -76,7 +76,7 @@ class NavigationExtension extends AbstractExtension
         $navigation = $this->navigationHelper->build([
             'active' => $document,
             'root' => $startNode,
-            'pageCallback' => function($page, $document) {
+            'pageCallback' => function ($page, $document) {
                 if ($document->getProperty(self::NAVIGATION_EXTENSION_POINT_PROPERTY) == 'category' && $rootCategory = $document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME)) {
                     foreach ($rootCategory->getChildren() as $category) {
                         $categoryPage = new NavDocument([

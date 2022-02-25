@@ -53,6 +53,7 @@ class Web2printController extends BaseController
     /**
      *
      * @param Request $request
+     *
      * @return Response
      *
      * @throws \Exception
@@ -87,6 +88,7 @@ class Web2printController extends BaseController
 
     /**
      * @param Request $request
+     *
      * @return Response
      *
      * @throws \Exception

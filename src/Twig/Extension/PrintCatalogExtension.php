@@ -24,8 +24,8 @@ use Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation;
 use Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect;
 use Pimcore\Model\DataObject\ClassDefinition\Data\Select;
 use Pimcore\Model\Element\AbstractElement;
-use Pimcore\Twig\Extension\Templating\Placeholder;
 use Pimcore\Translation\Translator;
+use Pimcore\Twig\Extension\Templating\Placeholder;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

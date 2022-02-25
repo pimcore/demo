@@ -24,7 +24,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CategoryGenerator extends AbstractElementGenerator
 {
-    function __construct(array $filters = [], array $processors = [])
+    public function __construct(array $filters = [], array $processors = [])
     {
         parent::__construct($filters, $processors);
     }

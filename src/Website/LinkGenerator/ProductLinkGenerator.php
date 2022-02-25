@@ -48,21 +48,24 @@ class ProductLinkGenerator extends AbstractProductLinkGenerator implements LinkG
     /**
      * @param ProductInterface $object
      * @param array $params
+     *
      * @return string
      */
-    public function generateWithMockup(ProductInterface $object, array $params = []): string {
+    public function generateWithMockup(ProductInterface $object, array $params = []): string
+    {
         return $this->doGenerate($object, $params);
     }
 
     /**
      * @param $object
      * @param $params
+     *
      * @return string
      */
     protected function doGenerate($object, $params): string
     {
         return ForceInheritance::run(function () use ($object, $params) {
-            if(!empty($object->getUrlSlug())) {
+            if (!empty($object->getUrlSlug())) {
                 return current($object->getUrlSlug())->getSlug();
             }
 

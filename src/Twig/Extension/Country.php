@@ -28,6 +28,7 @@ class Country extends AbstractExtension
                 if (!empty($code)) {
                     return Countries::getName($code, $displayLocale);
                 }
+
                 return null;
             })
         ];

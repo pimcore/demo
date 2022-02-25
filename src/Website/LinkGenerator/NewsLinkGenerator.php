@@ -90,7 +90,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
                 $fullPath = substr($document->getFullPath(), strlen($localeUrlPart));
             }
 
-            if($document && !$fullPath) {
+            if ($document && !$fullPath) {
                 $fullPath = $document->getProperty('news_default_document') ? substr($document->getProperty('news_default_document')->getFullPath(), strlen($localeUrlPart)) : '';
             }
 

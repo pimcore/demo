@@ -62,6 +62,7 @@ class ProductPageExtension extends AbstractExtension
 
     /**
      * @param ProductInterface $product
+     *
      * @return string
      */
     public function generateLink(ProductInterface $product): string

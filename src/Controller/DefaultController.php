@@ -27,6 +27,7 @@ class DefaultController extends BaseController
      * @Route("/examples", name="examples")
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function examplesAction(Request $request)
@@ -38,6 +39,7 @@ class DefaultController extends BaseController
      * @Template
      *
      * @param Request $request
+     *
      * @return array
      */
     public function defaultAction(Request $request)
