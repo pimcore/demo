@@ -31,7 +31,9 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_customerview_admin','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_customer_automation_rules','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_newsletter_enqueue_all_customers','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_config','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_adapter_graphql','Datahub');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_admin','Datahub');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_config','Datahub');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('predefined_properties','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('qr_codes','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('recyclebin','');
