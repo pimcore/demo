@@ -3023,22 +3023,6 @@ CREATE TABLE `plugin_cmf_sequence_numbers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
-DROP TABLE IF EXISTS `plugin_datahub_permissions`;
-CREATE TABLE `plugin_datahub_permissions` (
-  `uid` int(11) unsigned NOT NULL DEFAULT 0,
-  `uname` varchar(765) CHARACTER SET utf8 DEFAULT NULL,
-  `utype` enum('user','role') NOT NULL DEFAULT 'user',
-  `configuration` varchar(50) NOT NULL DEFAULT '0',
-  `type` varchar(50) NOT NULL DEFAULT '0',
-  `read` tinyint(1) unsigned DEFAULT 0,
-  `update` tinyint(1) unsigned DEFAULT 0,
-  `delete` tinyint(1) unsigned DEFAULT 0,
-  PRIMARY KEY (`uid`,`configuration`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
 DROP TABLE IF EXISTS `plugin_datahub_workspaces_asset`;
 CREATE TABLE `plugin_datahub_workspaces_asset` (
   `cid` int(11) unsigned NOT NULL DEFAULT 0,
