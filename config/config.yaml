@@ -39,7 +39,9 @@ pimcore:
             pimcore_documents:
                 enabled: true
 
-
+pimcore_admin:
+    admin_csp_header:
+        enabled: true
 #### TRANSLATIONS
 #    translations:
 #        case_insensitive: true
@@ -47,7 +49,6 @@ pimcore:
 #### FEATURE FLAGS
 #    flags:
 #        zend_date: true
-
 #### CLASS OVERRIDES EXAMPLES
 #    models:
 #        class_overrides:
