@@ -15,57 +15,38 @@
 
 namespace App\EventListener;
 
+use Pimcore\Bundle\AdminBundle\Security\Event\LogoutListener;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Tools\SessionConfigurator;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler;
-use Symfony\Component\Security\Http\Logout\LogoutSuccessHandlerInterface;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Authentication listener to cleanup user and session in general from e-commerce framework environment after logout
  */
-class AuthenticationLogoutListener extends DefaultLogoutSuccessHandler implements LogoutSuccessHandlerInterface
+class AuthenticationLogoutListener extends LogoutListener
 {
-    /**
-     * @var EnvironmentInterface
-     */
-    protected $environment;
-
-    /**
-     * @var SessionConfigurator
-     */
-    protected $sessionConfigurator;
-
-    /**
-     * @var SessionInterface
-     */
-    protected $session;
-
     public function __construct(
-        HttpUtils $httpUtils,
-        EnvironmentInterface $environment,
-        SessionConfigurator $sessionConfigurator,
-        SessionInterface $session,
-        string $targetUrl = '/'
+        protected EnvironmentInterface $environment,
+        protected SessionConfigurator $sessionConfigurator,
+        protected SessionInterface $session,
+        protected TokenStorageInterface    $tokenStorage,
+        protected RouterInterface          $router,
+        protected EventDispatcherInterface $eventDispatcher
     ) {
-        parent::__construct($httpUtils, $targetUrl);
-
-        $this->environment = $environment;
-        $this->sessionConfigurator = $sessionConfigurator;
-        $this->session = $session;
     }
 
     /**
-     * Creates a Response object to send upon a successful logout.
-     *
      * @param Request $request
      *
-     * @return Response never null
+     * @return RedirectResponse|Response
      */
-    public function onLogoutSuccess(Request $request)
+    public function onLogoutSuccess(Request $request): RedirectResponse|Response
     {
         // unset user in environment
         $this->environment->setCurrentUserId(null);

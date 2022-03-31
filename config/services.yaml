@@ -206,9 +206,7 @@ services:
             $httpUtils: '@security.http_utils'
 
     # authentication login listener for updating e-commerce framework environment after logout
-    App\EventListener\AuthenticationLogoutListener:
-        arguments:
-            $httpUtils: '@security.http_utils'
+    App\EventListener\AuthenticationLogoutListener: ~
 
 
 
