@@ -77,10 +77,7 @@ pimcore:
 #                map:
 #                  myDataType: \App\Model\DataObject\Data\MyDataType
 
-# config/config.yaml
-pimcore_admin:
-    admin_csp_header:
-        enabled: true
+
 #### ASSET CUSTOM SETTINGS
 #    assets:
 #        icc_rgb_profile: ''
