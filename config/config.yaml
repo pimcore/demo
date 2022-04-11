@@ -42,6 +42,9 @@ pimcore:
 pimcore_admin:
     admin_csp_header:
         enabled: true
+        exclude_paths:
+            - '@^/admin/external_opcache@'
+
 #### TRANSLATIONS
 #    translations:
 #        case_insensitive: true
