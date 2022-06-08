@@ -96,8 +96,6 @@ security:
 
                 # optional: to keep logins of other firewalls (like admin)
                 invalidate_session: false
-                # use custom success handler to also update e-commerce framework environment after successful logout
-                success_handler: App\EventListener\AuthenticationLogoutListener
 
             remember_me:
                 secret: '%kernel.secret%'
