@@ -141,7 +141,7 @@ pimcore:
 #### Pimcore ADMIN
 pimcore_admin:
     admin_csp_header:
-        enabled: true
+        enabled: false
         exclude_paths:
             - '@^/admin/external_opcache@'
 
