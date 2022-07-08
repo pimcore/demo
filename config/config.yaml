@@ -39,11 +39,6 @@ pimcore:
             pimcore_documents:
                 enabled: true
 
-pimcore_admin:
-    admin_csp_header:
-        enabled: true
-        exclude_paths:
-            - '@^/admin/external_opcache@'
 
 #### TRANSLATIONS
 #    translations:
@@ -142,6 +137,13 @@ pimcore_admin:
 #            mail_receiver: ''
 #        archive_treshold: '30'
 #        archive_alternative_database: ''
+
+#### Pimcore ADMIN
+pimcore_admin:
+    admin_csp_header:
+        enabled: false
+        exclude_paths:
+            - '@^/admin/external_opcache@'
 
 #### SYMFONY OVERRIDES
 framework:
