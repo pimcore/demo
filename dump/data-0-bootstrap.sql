@@ -449,6 +449,36 @@ CREATE TABLE `object_brick_store_Transmission_CAR` (
 
 
 
+DROP TABLE IF EXISTS `object_classificationstore_data_AP`;
+CREATE TABLE `object_classificationstore_data_AP` (
+  `o_id` int(11) unsigned NOT NULL,
+  `collectionId` bigint(20) DEFAULT NULL,
+  `groupId` bigint(20) NOT NULL,
+  `keyId` bigint(20) NOT NULL,
+  `value` longtext DEFAULT NULL,
+  `value2` longtext DEFAULT NULL,
+  `fieldname` varchar(70) NOT NULL,
+  `language` varchar(10) NOT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`o_id`,`fieldname`,`groupId`,`keyId`,`language`),
+  KEY `keyId` (`keyId`),
+  KEY `language` (`language`),
+  CONSTRAINT `fk_object_classificationstore_data_AP__o_id` FOREIGN KEY (`o_id`) REFERENCES `objects` (`o_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `object_classificationstore_groups_AP`;
+CREATE TABLE `object_classificationstore_groups_AP` (
+  `o_id` int(11) unsigned NOT NULL,
+  `groupId` bigint(20) NOT NULL,
+  `fieldname` varchar(70) NOT NULL,
+  PRIMARY KEY (`o_id`,`fieldname`,`groupId`),
+  CONSTRAINT `fk_object_classificationstore_groups_AP__o_id` FOREIGN KEY (`o_id`) REFERENCES `objects` (`o_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 DROP TABLE IF EXISTS `object_collection_FilterCategoryMultiselect_EF_FD`;
 CREATE TABLE `object_collection_FilterCategoryMultiselect_EF_FD` (
   `o_id` int(10) unsigned NOT NULL DEFAULT 0,
