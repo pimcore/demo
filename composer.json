@@ -19,7 +19,8 @@
     "pimcore/pimcore": "^10.x-dev",
     "pimcore/web2print-tools-bundle": "^4.0",
     "pimcore/data-hub": "^1.0",
-    "pimcore/payment-provider-paypal-smart-payment-button": "^1.0"
+    "pimcore/payment-provider-paypal-smart-payment-button": "^1.0",
+    "spiritix/php-chrome-html2pdf": "^1.7"
   },
   "conflict": {
     "hwi/oauth-bundle": "1.4.0"
@@ -57,6 +58,11 @@
       "options": {
         "symlink": true
       }
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "eloquent/composer-npm-bridge": true
     }
   }
 }
