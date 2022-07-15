@@ -59,5 +59,10 @@
         "symlink": true
       }
     }
+  },
+  "config": {
+    "allow-plugins": {
+      "eloquent/composer-npm-bridge": true
+    }
   }
 }
