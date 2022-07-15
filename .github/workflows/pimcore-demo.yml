@@ -87,6 +87,10 @@ jobs:
           curl -sfL https://github.com/powerman/dockerize/releases/download/v0.11.5/dockerize-`uname -s`-`uname -m` \
           | install /dev/stdin /usr/local/bin/dockerize'
 
+        docker-compose exec -T -- php-fpm bash -c '\
+          curl -sL https://deb.nodesource.com/setup | sudo bash - && \
+          | apt-get install -yq nodejs build-essential
+
         # Wait for the database to set up.
         docker-compose exec -T -- php-fpm dockerize -wait tcp://db:3306 -timeout 5m
 
