@@ -7,23 +7,23 @@ DROP TABLE IF EXISTS `bundle_outputdataconfigtoolkit_outputdefinition`;
 CREATE TABLE `bundle_outputdataconfigtoolkit_outputdefinition` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `o_id` int(11) NOT NULL,
-  `o_classId` varchar(50) COLLATE utf8_bin NOT NULL,
-  `channel` varchar(255) COLLATE utf8_bin NOT NULL,
+  `o_classId` varchar(50) COLLATE utf8mb3_bin NOT NULL,
+  `channel` varchar(255) COLLATE utf8mb3_bin NOT NULL,
   `configuration` longtext CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Unique` (`o_id`,`o_classId`,`channel`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
 
 DROP TABLE IF EXISTS `bundle_web2print_favorite_outputdefinitions`;
 CREATE TABLE `bundle_web2print_favorite_outputdefinitions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `o_classId` varchar(50) COLLATE utf8_bin NOT NULL,
-  `description` varchar(255) COLLATE utf8_bin NOT NULL,
+  `o_classId` varchar(50) COLLATE utf8mb3_bin NOT NULL,
+  `description` varchar(255) COLLATE utf8mb3_bin NOT NULL,
   `configuration` longtext CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
 
@@ -34,29 +34,30 @@ CREATE TABLE `cache_items` (
   `item_lifetime` int(10) unsigned DEFAULT NULL,
   `item_time` int(10) unsigned NOT NULL,
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
 
 
 DROP TABLE IF EXISTS `ecommerceframework_cart`;
 CREATE TABLE `ecommerceframework_cart` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `userid` int(20) NOT NULL,
-  `name` varchar(250) COLLATE utf8_bin DEFAULT NULL,
+  `name` varchar(250) COLLATE utf8mb3_bin DEFAULT NULL,
   `creationDateTimestamp` int(10) NOT NULL,
   `modificationDateTimestamp` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ecommerceframework_cart_userid_index` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
 
 DROP TABLE IF EXISTS `ecommerceframework_cartcheckoutdata`;
 CREATE TABLE `ecommerceframework_cartcheckoutdata` (
   `cartId` int(20) NOT NULL,
-  `key` varchar(150) COLLATE utf8_bin NOT NULL,
-  `data` longtext COLLATE utf8_bin DEFAULT NULL,
+  `key` varchar(150) COLLATE utf8mb3_bin NOT NULL,
+  `data` longtext COLLATE utf8mb3_bin DEFAULT NULL,
   PRIMARY KEY (`cartId`,`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
 
@@ -65,14 +66,14 @@ CREATE TABLE `ecommerceframework_cartitem` (
   `productId` int(20) NOT NULL,
   `cartId` int(20) NOT NULL,
   `count` int(20) NOT NULL,
-  `itemKey` varchar(100) COLLATE utf8_bin NOT NULL,
-  `parentItemKey` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '0',
+  `itemKey` varchar(100) COLLATE utf8mb3_bin NOT NULL,
+  `parentItemKey` varchar(100) COLLATE utf8mb3_bin NOT NULL DEFAULT '0',
   `comment` longtext CHARACTER SET latin1 DEFAULT NULL,
   `addedDateTimestamp` bigint(20) NOT NULL,
   `sortIndex` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`itemKey`,`cartId`,`parentItemKey`),
   KEY `cartId_parentItemKey` (`cartId`,`parentItemKey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
 
@@ -102,7 +103,7 @@ CREATE TABLE `ecommerceframework_vouchertoolkit_reservations` (
   `timestamp` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `token` (`token`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -112,7 +113,7 @@ CREATE TABLE `ecommerceframework_vouchertoolkit_statistics` (
   `voucherSeriesId` bigint(20) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -127,7 +128,7 @@ CREATE TABLE `ecommerceframework_vouchertoolkit_tokens` (
   `timestamp` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `token` (`token`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -143,6 +144,17 @@ CREATE TABLE `messenger_messages` (
   PRIMARY KEY (`id`),
   KEY `IDX_75EA56E016BA31DB` (`delivered_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9305 DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `migration_versions`;
+CREATE TABLE `migration_versions` (
+  `version` varchar(1024) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `executed_at` datetime DEFAULT NULL,
+  `execution_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
 
 
 DROP TABLE IF EXISTS `object_brick_query_Bodywork_CAR`;
@@ -245,6 +257,7 @@ CREATE TABLE `object_brick_query_PaymentProviderPayPalSmartButton_EF_OSO` (
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_PaymentProviderPayPalSmartButton__fae6504e` FOREIGN KEY (`o_id`) REFERENCES `objects` (`o_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 DROP TABLE IF EXISTS `object_brick_query_SaleInformation_AP`;
@@ -381,7 +394,6 @@ CREATE TABLE `object_brick_store_OAuth2Token_3` (
 
 
 
-
 DROP TABLE IF EXISTS `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO`;
 CREATE TABLE `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO` (
   `o_id` int(11) unsigned NOT NULL DEFAULT 0,
@@ -445,6 +457,36 @@ CREATE TABLE `object_brick_store_Transmission_CAR` (
   KEY `o_id` (`o_id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_Transmission_CAR__o_id` FOREIGN KEY (`o_id`) REFERENCES `objects` (`o_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `object_classificationstore_data_AP`;
+CREATE TABLE `object_classificationstore_data_AP` (
+  `o_id` int(11) unsigned NOT NULL,
+  `collectionId` bigint(20) DEFAULT NULL,
+  `groupId` bigint(20) NOT NULL,
+  `keyId` bigint(20) NOT NULL,
+  `value` longtext DEFAULT NULL,
+  `value2` longtext DEFAULT NULL,
+  `fieldname` varchar(70) NOT NULL,
+  `language` varchar(10) NOT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`o_id`,`fieldname`,`groupId`,`keyId`,`language`),
+  KEY `keyId` (`keyId`),
+  KEY `language` (`language`),
+  CONSTRAINT `fk_object_classificationstore_data_AP__o_id` FOREIGN KEY (`o_id`) REFERENCES `objects` (`o_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+DROP TABLE IF EXISTS `object_classificationstore_groups_AP`;
+CREATE TABLE `object_classificationstore_groups_AP` (
+  `o_id` int(11) unsigned NOT NULL,
+  `groupId` bigint(20) NOT NULL,
+  `fieldname` varchar(70) NOT NULL,
+  PRIMARY KEY (`o_id`,`fieldname`,`groupId`),
+  CONSTRAINT `fk_object_classificationstore_groups_AP__o_id` FOREIGN KEY (`o_id`) REFERENCES `objects` (`o_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -2813,7 +2855,7 @@ CREATE TABLE `plugin_cmf_actiontrigger_actions` (
   `modificationDate` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ruleId` (`ruleId`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2829,7 +2871,7 @@ CREATE TABLE `plugin_cmf_actiontrigger_queue` (
   PRIMARY KEY (`id`),
   KEY `customerId` (`customerId`),
   KEY `actionId` (`actionId`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2846,7 +2888,7 @@ CREATE TABLE `plugin_cmf_actiontrigger_rules` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2867,18 +2909,18 @@ CREATE TABLE `plugin_cmf_activities` (
   KEY `customerId` (`customerId`),
   KEY `o_id` (`o_id`),
   KEY `a_id` (`a_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb3;
 
 
 
 DROP TABLE IF EXISTS `plugin_cmf_activities_metadata`;
 CREATE TABLE `plugin_cmf_activities_metadata` (
   `activityId` int(20) NOT NULL,
-  `key` varchar(150) COLLATE utf8_bin NOT NULL,
-  `data` longtext COLLATE utf8_bin DEFAULT NULL,
+  `key` varchar(150) COLLATE utf8mb3_bin NOT NULL,
+  `data` longtext COLLATE utf8mb3_bin DEFAULT NULL,
   PRIMARY KEY (`activityId`,`key`),
   KEY `activityId` (`activityId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
 
@@ -2894,7 +2936,7 @@ CREATE TABLE `plugin_cmf_customer_filter_definition` (
   `creationDate` datetime DEFAULT current_timestamp(),
   `modificationDate` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2904,9 +2946,8 @@ CREATE TABLE `plugin_cmf_deletions` (
   `entityType` char(20) NOT NULL,
   `type` varchar(255) NOT NULL,
   `creationDate` bigint(20) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`,`entityType`,`type`),
   KEY `type` (`entityType`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2916,7 +2957,7 @@ CREATE TABLE `plugin_cmf_duplicates_false_positives` (
   `row2` text NOT NULL,
   `row1Details` text NOT NULL,
   `row2Details` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2935,7 +2976,7 @@ CREATE TABLE `plugin_cmf_duplicatesindex` (
   KEY `fieldCombination` (`fieldCombination`),
   KEY `soundex` (`soundex`),
   KEY `metaphone` (`metaphone`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2945,7 +2986,7 @@ CREATE TABLE `plugin_cmf_duplicatesindex_customers` (
   `customer_id` int(11) unsigned NOT NULL,
   KEY `duplicate_id` (`duplicate_id`),
   KEY `customer_id` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2957,7 +2998,7 @@ CREATE TABLE `plugin_cmf_newsletter_queue` (
   `modificationDate` bigint(20) DEFAULT NULL,
   UNIQUE KEY `customerId` (`customerId`),
   KEY `operation` (`operation`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -2972,7 +3013,7 @@ CREATE TABLE `plugin_cmf_potential_duplicates` (
   PRIMARY KEY (`id`),
   KEY `duplicateIds` (`duplicateCustomerIds`),
   KEY `declined` (`declined`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -3011,7 +3052,7 @@ DROP TABLE IF EXISTS `plugin_cmf_segmentbuilder_changes_queue`;
 CREATE TABLE `plugin_cmf_segmentbuilder_changes_queue` (
   `customerId` int(11) unsigned NOT NULL,
   UNIQUE KEY `customerId` (`customerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -3020,13 +3061,14 @@ CREATE TABLE `plugin_cmf_sequence_numbers` (
   `name` char(50) NOT NULL,
   `number` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
 
 
 DROP TABLE IF EXISTS `plugin_datahub_workspaces_asset`;
 CREATE TABLE `plugin_datahub_workspaces_asset` (
   `cid` int(11) unsigned NOT NULL DEFAULT 0,
-  `cpath` varchar(765) CHARACTER SET utf8 DEFAULT NULL,
+  `cpath` varchar(765) CHARACTER SET utf8mb3 DEFAULT NULL,
   `configuration` varchar(50) NOT NULL DEFAULT '0',
   `create` tinyint(1) unsigned DEFAULT 0,
   `read` tinyint(1) unsigned DEFAULT 0,
@@ -3040,7 +3082,7 @@ CREATE TABLE `plugin_datahub_workspaces_asset` (
 DROP TABLE IF EXISTS `plugin_datahub_workspaces_document`;
 CREATE TABLE `plugin_datahub_workspaces_document` (
   `cid` int(11) unsigned NOT NULL DEFAULT 0,
-  `cpath` varchar(765) CHARACTER SET utf8 DEFAULT NULL,
+  `cpath` varchar(765) CHARACTER SET utf8mb3 DEFAULT NULL,
   `configuration` varchar(50) NOT NULL DEFAULT '0',
   `create` tinyint(1) unsigned DEFAULT 0,
   `read` tinyint(1) unsigned DEFAULT 0,
@@ -3054,7 +3096,7 @@ CREATE TABLE `plugin_datahub_workspaces_document` (
 DROP TABLE IF EXISTS `plugin_datahub_workspaces_object`;
 CREATE TABLE `plugin_datahub_workspaces_object` (
   `cid` int(11) unsigned NOT NULL DEFAULT 0,
-  `cpath` varchar(765) CHARACTER SET utf8 DEFAULT NULL,
+  `cpath` varchar(765) CHARACTER SET utf8mb3 DEFAULT NULL,
   `configuration` varchar(50) NOT NULL DEFAULT '0',
   `create` tinyint(1) unsigned DEFAULT 0,
   `read` tinyint(1) unsigned DEFAULT 0,
@@ -3091,7 +3133,7 @@ CREATE TABLE `shop_productindex` (
   `manufacturer_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`),
   FULLTEXT KEY `search` (`name`,`manufacturer_name`,`color`,`carClass`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
@@ -3100,8 +3142,8 @@ CREATE TABLE `shop_productindex_relations` (
   `src` int(11) NOT NULL,
   `src_virtualProductId` int(11) NOT NULL,
   `dest` int(11) NOT NULL,
-  `fieldname` varchar(255) COLLATE utf8_bin NOT NULL,
-  `type` varchar(20) COLLATE utf8_bin NOT NULL,
+  `fieldname` varchar(255) COLLATE utf8mb3_bin NOT NULL,
+  `type` varchar(20) COLLATE utf8mb3_bin NOT NULL,
   PRIMARY KEY (`src`,`dest`,`fieldname`,`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
