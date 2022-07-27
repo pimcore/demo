@@ -47,7 +47,6 @@ pimcore:
 #### FEATURE FLAGS
 #    flags:
 #        zend_date: true
-
 #### CLASS OVERRIDES EXAMPLES
 #    models:
 #        class_overrides:
@@ -138,6 +137,13 @@ pimcore:
 #            mail_receiver: ''
 #        archive_treshold: '30'
 #        archive_alternative_database: ''
+
+#### Pimcore ADMIN
+pimcore_admin:
+    admin_csp_header:
+        enabled: false
+        exclude_paths:
+            - '@^/admin/external_opcache@'
 
 #### SYMFONY OVERRIDES
 framework:
