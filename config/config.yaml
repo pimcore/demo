@@ -16,8 +16,8 @@ pimcore:
 
     security:
         # the encoder factory as shipped by the CMF
-        encoder_factories:
-            Pimcore\Model\DataObject\Customer: cmf.security.user_password_encoder_factory
+        password_hasher_factories:
+            Pimcore\Model\DataObject\Customer: cmf.security.user_password_hasher_factory
 
     sitemaps:
         generators:
