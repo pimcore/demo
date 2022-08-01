@@ -38,16 +38,19 @@
                 {% set document = document.getObject() %}
             {% endif %}
 
-            {% if document.getTitle() is not empty %}
-                {% do pimcore_head_title().set(document.getTitle()) %}
+            {% if document is instanceof('\\Pimcore\\Model\\Document\\Page') %}
+                {% if document.getTitle() is not empty %}
+                    {% do pimcore_head_title().set(document.getTitle()) %}
+                {% endif %}
+
+                {% if document.getDescription() is not empty %}
+                    {% do pimcore_head_meta().setDescription(document.getDescription()) %}
+                {% endif %}
+
+                {% do pimcore_head_title().append('Pimcore Demo') %}
+                {% do pimcore_head_title().setSeparator(' : ') %}
             {% endif %}
 
-            {% if document.getDescription() is not empty %}
-                {% do pimcore_head_meta().setDescription(document.getDescription()) %}
-            {% endif %}
-
-            {% do pimcore_head_title().append('Pimcore Demo') %}
-            {% do pimcore_head_title().setSeparator(' : ') %}
             {% set isPortal = ((isPortal is defined) and isPortal) %}
         {% endapply %}
 
