@@ -17,6 +17,10 @@ namespace App\Website\Tool;
 
 class Text
 {
+    /**
+     * @param string $string
+     * @return string
+     */
     public static function getStringAsOneLine($string)
     {
         $string = str_replace("\r\n", ' ', $string);
@@ -28,6 +32,11 @@ class Text
         return $string;
     }
 
+    /**
+     * @param string $string
+     * @param int $length
+     * @return string
+     */
     public static function cutStringRespectingWhitespace($string, $length)
     {
         if ($length < strlen($string)) {
@@ -41,6 +50,10 @@ class Text
         return $string;
     }
 
+    /**
+     * @param string $text
+     * @return string
+     */
     public static function toUrl($text)
     {
         // to ASCII

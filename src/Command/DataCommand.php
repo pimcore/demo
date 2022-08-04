@@ -58,6 +58,10 @@ class DataCommand extends AbstractCommand
         $this->setName('app:data-command');
     }
 
+    /**
+     * @return int
+     * @throws \Exception
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $listing = new AccessoryPart\Listing();
@@ -147,6 +151,11 @@ class DataCommand extends AbstractCommand
         $part->setOwner($owners[rand(0, count($owners) - 1)]);
     }
 
+    /**
+     * @param int $min
+     * @param int $max
+     * @return float
+     */
     protected function generatePrice($min, $max)
     {
         $price = rand($min, $max);
@@ -157,6 +166,10 @@ class DataCommand extends AbstractCommand
         return $price;
     }
 
+    /**
+     * @param string $condition
+     * @return float
+     */
     protected function generateCarPrice($condition)
     {
         $priceRangeArray = [

@@ -37,6 +37,9 @@ class CategoryFilterExtension extends AbstractExtension
         $this->categoryLinkGenerator = $categoryLinkGenerator;
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions()
     {
         return [
@@ -45,6 +48,11 @@ class CategoryFilterExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @param int $currentValue
+     * @param Category|null $rootCategory
+     * @return \stdClass
+     */
     public function prepareData($currentValue, Category $rootCategory = null)
     {
         $data = new \stdClass();
@@ -61,7 +69,7 @@ class CategoryFilterExtension extends AbstractExtension
     }
 
     /**
-     * @param $currentValue
+     * @param int $currentValue
      *
      * @return Category
      */
@@ -70,6 +78,11 @@ class CategoryFilterExtension extends AbstractExtension
         return Category::getById($currentValue);
     }
 
+    /**
+     * @param Category|null $currentCategory
+     * @param Category|null $rootCategory
+     * @return array|\Pimcore\Model\DataObject[]
+     */
     public function getSubCategories(Category $currentCategory = null, $rootCategory = null)
     {
         $subCategories = [];
@@ -84,7 +97,6 @@ class CategoryFilterExtension extends AbstractExtension
 //            foreach($currentCategory->getChildren() as $subCategory) {
 //                $subCategories[] = $subCategory;
 //            }
-        } else {
         }
 
         return $subCategories;

@@ -27,6 +27,12 @@ class AssetCopyrightCommand extends AbstractCommand
         $this->setName('app:asset-copyright');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     * @throws \Exception
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $assets = new Asset\Listing();

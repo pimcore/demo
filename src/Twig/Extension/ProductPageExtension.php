@@ -46,6 +46,9 @@ class ProductPageExtension extends AbstractExtension
         $this->translator = $translator;
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions()
     {
         return [
@@ -53,6 +56,9 @@ class ProductPageExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @return TwigFilter[]
+     */
     public function getFilters()
     {
         return [

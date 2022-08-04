@@ -17,6 +17,9 @@ namespace App\Document\Areabrick;
 
 class EmailWysiwyg extends AbstractAreabrick
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'E-Mail WYSIWYG';

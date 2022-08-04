@@ -36,6 +36,12 @@ class AbsoluteURLProcessor implements ProcessorInterface
         $this->urlGenerator = $urlGenerator;
     }
 
+    /**
+     * @param Url $url
+     * @param ElementInterface $element
+     * @param GeneratorContextInterface $context
+     * @return UrlConcrete
+     */
     public function process(Url $url, ElementInterface $element, GeneratorContextInterface $context)
     {
         $path = $this->urlGenerator->generateUrl($url->getLoc());

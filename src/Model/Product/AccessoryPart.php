@@ -64,7 +64,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
     /**
      * @return Category[]
      */
-    public function getCategories(): ?array
+    public function getCategories(): array
     {
         return [$this->getMainCategory()];
     }

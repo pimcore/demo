@@ -89,7 +89,7 @@ class NewsController extends BaseController
     /**
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function newsTeaserAction(Request $request)
     {
@@ -107,7 +107,7 @@ class NewsController extends BaseController
     /**
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function emailNewsTeaserAction(Request $request, NewsLinkGenerator $newsLinkGenerator)
     {
