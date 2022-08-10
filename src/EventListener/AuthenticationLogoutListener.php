@@ -16,7 +16,7 @@
 namespace App\EventListener;
 
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
-use Pimcore\Bundle\EcommerceFrameworkBundle\Tools\SessionConfigurator;
+use Pimcore\Bundle\EcommerceFrameworkBundle\EventListener\SessionBagListener;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -35,9 +35,9 @@ class AuthenticationLogoutListener extends DefaultLogoutSuccessHandler implement
     protected $environment;
 
     /**
-     * @var SessionConfigurator
+     * @var SessionBagListener
      */
-    protected $sessionConfigurator;
+    protected $sessionBagListener;
 
     /**
      * @var SessionInterface
@@ -47,14 +47,14 @@ class AuthenticationLogoutListener extends DefaultLogoutSuccessHandler implement
     public function __construct(
         HttpUtils $httpUtils,
         EnvironmentInterface $environment,
-        SessionConfigurator $sessionConfigurator,
+        SessionBagListener $sessionBagListener,
         SessionInterface $session,
         string $targetUrl = '/'
     ) {
         parent::__construct($httpUtils, $targetUrl);
 
         $this->environment = $environment;
-        $this->sessionConfigurator = $sessionConfigurator;
+        $this->sessionBagListener = $sessionBagListener;
         $this->session = $session;
     }
 
@@ -72,7 +72,7 @@ class AuthenticationLogoutListener extends DefaultLogoutSuccessHandler implement
         $this->environment->save();
 
         // clear complete e-commerce framework session
-        $this->sessionConfigurator->clearSession($this->session);
+        $this->sessionBagListener->clearSession($this->session);
 
         // call parent in order to return correct redirect
         return parent::onLogoutSuccess($request);
