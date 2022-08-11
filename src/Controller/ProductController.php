@@ -328,10 +328,10 @@ class ProductController extends BaseController
             $productListing->setLimit(10);
             foreach ($productListing as $product) {
                 $result['href'] = $productLinkGenerator->generateWithMockup($product, []);
+
+                $result['product'] = $product->getOSName() ?? '';
                 if ($product instanceof Car) {
-                    $result['product'] = $product->getOSName() . ' ' . $product->getColor()[0] . ', ' . $product->getCarClass();
-                } else {
-                    $result['product'] = $product->getOSName();
+                    $result['product'] .= ' ' . $product->getColor()[0] . ', ' . $product->getCarClass();
                 }
 
                 $resultset[] = $result;

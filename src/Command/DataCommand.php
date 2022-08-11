@@ -59,8 +59,7 @@ class DataCommand extends AbstractCommand
     }
 
     /**
-     * @return int
-     * @throws \Exception
+     * {@inheritdoc}
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {

@@ -23,9 +23,9 @@ class Car extends \Pimcore\Model\DataObject\Car
     const OBJECT_TYPE_ACTUAL_CAR = 'actual-car';
     const OBJECT_TYPE_VIRTUAL_CAR = 'virtual-car';
 
-    public function getOSName(): string
+    public function getOSName(): ?string
     {
-        return ($this->getManufacturer() ? $this->getManufacturer()->getName() . ' ' : '') . $this->getName();
+        return ($this->getManufacturer() ? ($this->getManufacturer()->getName() . ' ') : null) . $this->getName();
     }
 
     /**

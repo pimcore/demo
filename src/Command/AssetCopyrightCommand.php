@@ -28,10 +28,7 @@ class AssetCopyrightCommand extends AbstractCommand
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int
-     * @throws \Exception
+     * {@inheritdoc}
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
