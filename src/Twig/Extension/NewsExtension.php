@@ -37,6 +37,9 @@ class NewsExtension extends AbstractExtension
         $this->newsLinkGenerator = $newsLinkGenerator;
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions()
     {
         return [

@@ -104,7 +104,7 @@ class BreadcrumbHelperService
             'parentId' => $category ? 'category-' . $category->getParentId() : '',
             'id' => 'product-' . $product->getId(),
             'url' => '#',
-            'label' => $product->getOSName()
+            'label' => $product->getOSName() ?? ''
         ]);
     }
 

@@ -17,6 +17,9 @@ namespace App\Document\Areabrick;
 
 class EmailImage extends AbstractAreabrick
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'E-Mail Image';

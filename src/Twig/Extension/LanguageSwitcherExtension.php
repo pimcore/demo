@@ -64,6 +64,10 @@ class LanguageSwitcherExtension extends AbstractExtension
         return $links;
     }
 
+    /**
+     * @param string $language
+     * @return string
+     */
     public function getLanguageFlag($language)
     {
         $flag = '';

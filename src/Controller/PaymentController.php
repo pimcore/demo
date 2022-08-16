@@ -17,12 +17,14 @@ namespace App\Controller;
 
 use App\Ecommerce\CheckoutManager\Confirm;
 use App\Website\Navigation\BreadcrumbHelperService;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Exception\UnsupportedException;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\AbstractRequest;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Translation\Translator;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -73,7 +75,7 @@ class PaymentController extends FrontendController
      * @param Request $request
      * @param Factory $factory
      *
-     * @return RedirectResponse
+     * @return JsonResponse
      */
     public function startPaymentAction(Request $request, Factory $factory, LoggerInterface $logger)
     {
@@ -95,11 +97,13 @@ class PaymentController extends FrontendController
 
         $response = $checkoutManager->startOrderPaymentWithPaymentProvider($paymentConfig);
 
-        return new \Symfony\Component\HttpFoundation\JsonResponse($response->getJsonString(), 200, [], true);
+        return new JsonResponse($response->getJsonString(), 200, [], true);
     }
 
     /**
      * @Route("/payment-error", name = "shop-checkout-payment-error" )
+     *
+     * @return RedirectResponse
      */
     public function paymentErrorAction(Request $request, LoggerInterface $logger)
     {
@@ -119,7 +123,6 @@ class PaymentController extends FrontendController
      *
      * @return RedirectResponse
      *
-     * @throws \Pimcore\Bundle\EcommerceFrameworkBundle\Exception\UnsupportedException
      */
     public function commitOrderAction(Request $request, Factory $factory, LoggerInterface $logger, Translator $translator, SessionInterface $session)
     {

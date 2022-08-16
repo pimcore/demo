@@ -54,6 +54,11 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
         $this->pimcoreUrl = $pimcoreUrl;
     }
 
+    /**
+     * @param Category|null $category
+     * @param Category|null $rootCategory
+     * @return string
+     */
     public function getNavigationPath(?Category $category, ?Category $rootCategory = null)
     {
         if (empty($rootCategory)) {

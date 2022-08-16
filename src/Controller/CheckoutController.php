@@ -84,7 +84,7 @@ class CheckoutController extends FrontendController
     }
 
     /**
-     * @param $deliveryAddress
+     * @param mixed $deliveryAddress
      *
      * @return array|null
      */

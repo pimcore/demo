@@ -31,6 +31,9 @@ class Currency extends AbstractExtension
         $this->formatter = $formatter;
     }
 
+    /**
+     * @return TwigFilter[]
+     */
     public function getFilters()
     {
         return [
@@ -38,6 +41,11 @@ class Currency extends AbstractExtension
         ];
     }
 
+    /**
+     * @param float $value
+     * @param string $currency
+     * @return string
+     */
     public function format($value, $currency = 'EUR')
     {
         return $this->formatter->formatCurrency($value, $currency);

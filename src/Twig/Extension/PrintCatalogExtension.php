@@ -53,6 +53,9 @@ class PrintCatalogExtension extends AbstractExtension
         $this->placeholderHelper = $placeholderHelper;
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions()
     {
         return [
@@ -141,7 +144,7 @@ class PrintCatalogExtension extends AbstractExtension
      *
      * @return string
      */
-    protected function printMultiSelectValue(array $value = null): string
+    protected function printMultiSelectValue(?array $value = null): string
     {
         $result = [];
         if ($value) {
@@ -177,7 +180,7 @@ class PrintCatalogExtension extends AbstractExtension
      *
      * @return string
      */
-    protected function printManyToOne(AbstractElement $element = null): string
+    protected function printManyToOne(?AbstractElement $element = null): string
     {
         if ($element && method_exists($element, 'getName')) {
             return $element->getName();

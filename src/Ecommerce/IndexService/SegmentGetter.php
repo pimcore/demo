@@ -41,6 +41,9 @@ class SegmentGetter implements GetterInterface
         $this->segmentManager = $segmentManager;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function get($object, $config = null)
     {
         $segments = [];

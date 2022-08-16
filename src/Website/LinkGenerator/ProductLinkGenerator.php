@@ -71,7 +71,7 @@ class ProductLinkGenerator extends AbstractProductLinkGenerator implements LinkG
 
             return $this->pimcoreUrl->__invoke(
                 [
-                    'productname' => Text::toUrl($object->getOSName() ? $object->getOSName() : 'product'),
+                    'productname' => Text::toUrl($object->getOSName() ?? 'product'),
                     'product' => $object->getId(),
                     'path' => $this->getNavigationPath($object->getMainCategory(), $params['rootCategory'] ?? null),
                     'page' => null

@@ -21,6 +21,9 @@ use Twig\TwigFilter;
 
 class Country extends AbstractExtension
 {
+    /**
+     * @return TwigFilter[]
+     */
     public function getFilters()
     {
         return [
