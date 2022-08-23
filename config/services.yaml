@@ -1,12 +1,12 @@
 parameters:
-    secret: ThisTokenIsNotSoSecretChangeIt
+    secret: ThisTokenIsNotSoSecretChangeItImmediately
     google_client_id: <google_client_id>
     google_client_secret: <google_client_secret>
     twitter_client_id: <twitter_client_id>
     twitter_client_secret: <twitter_client_secret>
     
     # use echo \Defuse\Crypto\Key::createNewRandomKey()->saveToAsciiSafeString(); to generate secret for data encryption
-    app_encryption_secret: "ThisTokenIsNotSoSecretChangeIt"
+    app_encryption_secret: "ThisTokenIsNotSoSecretChangeItImmediately"
 
 
     #this is necessary for CLI commands to get the base url, eg. sitemap dump
