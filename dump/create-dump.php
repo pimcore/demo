@@ -49,7 +49,7 @@ foreach ($tables as $name) {
     $dumpData .= 'DROP TABLE IF EXISTS `' . $name . '`;';
     $dumpData .= "\n";
 
-    $tableData = $db->fetchRow('SHOW CREATE TABLE ' . $name);
+    $tableData = $db->fetchAssociative('SHOW CREATE TABLE ' . $name);
 
     $dumpData .= $tableData['Create Table'] . ';';
 
@@ -128,7 +128,7 @@ foreach ($views as $name) {
     $dumpData .= "\n";
 
     try {
-        $viewData = $db->fetchRow('SHOW CREATE VIEW ' . $name);
+        $viewData = $db->fetchAssociative('SHOW CREATE VIEW ' . $name);
         $dumpData .= $viewData['Create View'] . ';';
     } catch (\Exception $e) {
         echo $e->getMessage() . "\n";
