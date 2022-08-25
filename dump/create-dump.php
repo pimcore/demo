@@ -24,7 +24,7 @@ if (isset($_SERVER['argv'][1])) {
 }
 
 
-$tablesRaw = $db->fetchAll('SHOW FULL TABLES');
+$tablesRaw = $db->fetchAllAssociative('SHOW FULL TABLES');
 
 $views = [];
 $tables = [];
@@ -86,12 +86,12 @@ foreach ($tables as $name) {
     }
 
     $tableColumns = [];
-    $data = $db->fetchAll('SHOW COLUMNS FROM ' . $name);
+    $data = $db->fetchAllAssociative('SHOW COLUMNS FROM ' . $name);
     foreach ($data as $dataRow) {
         $tableColumns[] = $db->quoteIdentifier($dataRow['Field']);
     }
 
-    $tableData = $db->fetchAll('SELECT * FROM ' . $name);
+    $tableData = $db->fetchAllAssociative('SELECT * FROM ' . $name);
 
     foreach ($tableData as $row) {
         $cells = [];
