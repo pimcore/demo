@@ -182,7 +182,7 @@ class ProductController extends BaseController
         }
 
         if (empty($filterDefinition)) {
-            $filterDefinition = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
+            $filterDefinition = Config::getWebsiteConfig()['fallbackFilterdefinition'];
         }
 
         $filterService = $ecommerceFactory->getFilterService();
@@ -340,7 +340,7 @@ class ProductController extends BaseController
             return $this->json($resultset);
         }
 
-        $filterDefinition = $params['filterDefinition'] = Config::getWebsiteConfig()->get('fallbackFilterdefinition');
+        $filterDefinition = $params['filterDefinition'] = Config::getWebsiteConfig()['fallbackFilterdefinition'];
 
         // create and init filter service
         $filterService = Factory::getInstance()->getFilterService();
