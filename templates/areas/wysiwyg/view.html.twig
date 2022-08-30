@@ -6,7 +6,7 @@
 {% endif %}
 
 <section class="area-wysiwyg">
-    {% pimcoreglossary %}
+    {% apply pimcore_glossary %}
         {{ content|raw }}
-    {% endpimcoreglossary %}
+    {% endapply %}
 </section>
