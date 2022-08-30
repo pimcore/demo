@@ -10,9 +10,9 @@
 <section class="area-wysiwyg">
     <div class="row">
         <div class="col-sm-8">
-            {% pimcoreglossary %}
+            {% apply pimcore_glossary %}
                 {{ content|raw }}
-            {% endpimcoreglossary %}
+            {% endapply %}
         </div>
         <div class="col-sm-4">
             {% for i in pimcore_iterate_block(pimcore_block('images')) %}
