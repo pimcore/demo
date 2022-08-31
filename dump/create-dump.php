@@ -24,7 +24,7 @@ if (isset($_SERVER['argv'][1])) {
 }
 
 
-$tablesRaw = $db->fetchAll('SHOW FULL TABLES');
+$tablesRaw = $db->fetchAllAssociative('SHOW FULL TABLES');
 
 $views = [];
 $tables = [];
@@ -49,7 +49,7 @@ foreach ($tables as $name) {
     $dumpData .= 'DROP TABLE IF EXISTS `' . $name . '`;';
     $dumpData .= "\n";
 
-    $tableData = $db->fetchRow('SHOW CREATE TABLE ' . $name);
+    $tableData = $db->fetchAssociative('SHOW CREATE TABLE ' . $name);
 
     $dumpData .= $tableData['Create Table'] . ';';
 
@@ -86,12 +86,12 @@ foreach ($tables as $name) {
     }
 
     $tableColumns = [];
-    $data = $db->fetchAll('SHOW COLUMNS FROM ' . $name);
+    $data = $db->fetchAllAssociative('SHOW COLUMNS FROM ' . $name);
     foreach ($data as $dataRow) {
         $tableColumns[] = $db->quoteIdentifier($dataRow['Field']);
     }
 
-    $tableData = $db->fetchAll('SELECT * FROM ' . $name);
+    $tableData = $db->fetchAllAssociative('SELECT * FROM ' . $name);
 
     foreach ($tableData as $row) {
         $cells = [];
@@ -128,7 +128,7 @@ foreach ($views as $name) {
     $dumpData .= "\n";
 
     try {
-        $viewData = $db->fetchRow('SHOW CREATE VIEW ' . $name);
+        $viewData = $db->fetchAssociative('SHOW CREATE VIEW ' . $name);
         $dumpData .= $viewData['Create View'] . ';';
     } catch (\Exception $e) {
         echo $e->getMessage() . "\n";
