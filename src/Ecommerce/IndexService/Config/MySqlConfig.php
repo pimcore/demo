@@ -22,16 +22,26 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Model\IndexableInterface;
 
 class MySqlConfig extends DefaultMysql
 {
+    /**
+     * @return string
+     */
     public function getTablename()
     {
         return 'shop_productindex';
     }
 
+    /**
+     * @return string
+     */
     public function getRelationTablename()
     {
         return 'shop_productindex_relations';
     }
 
+    /**
+     * @param IndexableInterface $object
+     * @return bool
+     */
     public function inIndex(IndexableInterface $object)
     {
         return $object instanceof Car || $object instanceof AccessoryPart;

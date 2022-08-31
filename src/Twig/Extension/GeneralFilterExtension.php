@@ -36,6 +36,9 @@ class GeneralFilterExtension extends AbstractExtension
         $this->translator = $translator;
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions()
     {
         return [
@@ -45,6 +48,10 @@ class GeneralFilterExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @param array $values
+     * @return array
+     */
     public function translateValues($values)
     {
         foreach ($values as &$modifyingValue) {

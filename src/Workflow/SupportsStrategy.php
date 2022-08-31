@@ -21,6 +21,11 @@ use Symfony\Component\Workflow\WorkflowInterface;
 
 class SupportsStrategy implements WorkflowSupportStrategyInterface
 {
+    /**
+     * @param WorkflowInterface $workflow
+     * @param object $subject
+     * @return bool
+     */
     public function supports(WorkflowInterface $workflow, $subject): bool
     {
         if ($workflow->getName() == 'product_data_enrichment') {

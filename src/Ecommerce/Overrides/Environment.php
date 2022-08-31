@@ -24,7 +24,7 @@ class Environment extends \Pimcore\Bundle\EcommerceFrameworkBundle\SessionEnviro
     protected $useGuestCart = null;
 
     /**
-     * @return null
+     * @return bool
      */
     public function getUseGuestCart()
     {

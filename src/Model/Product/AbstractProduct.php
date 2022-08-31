@@ -38,7 +38,7 @@ abstract class AbstractProduct extends \Pimcore\Bundle\EcommerceFrameworkBundle\
     }
 
     /**
-     * @return |null
+     * @return string|null
      */
     public function getPrice()
     {

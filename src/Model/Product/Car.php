@@ -23,14 +23,15 @@ class Car extends \Pimcore\Model\DataObject\Car
     const OBJECT_TYPE_ACTUAL_CAR = 'actual-car';
     const OBJECT_TYPE_VIRTUAL_CAR = 'virtual-car';
 
-    /**
-     * @return string
-     */
     public function getOSName(): ?string
     {
-        return ($this->getManufacturer() ? $this->getManufacturer()->getName() . ' ' : '') . $this->getName();
+        return ($this->getManufacturer() ? ($this->getManufacturer()->getName() . ' ') : null) . $this->getName();
     }
 
+    /**
+     * @param string|null $language
+     * @return string|null
+     */
     public function getProductName($language = null)
     {
         return $this->getName($language);
@@ -51,7 +52,7 @@ class Car extends \Pimcore\Model\DataObject\Car
     }
 
     /**
-     * @return int|string
+     * @return string|null
      */
     public function getOSProductNumber(): ?string
     {
@@ -59,7 +60,7 @@ class Car extends \Pimcore\Model\DataObject\Car
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getOSIndexType(): ?string
     {
