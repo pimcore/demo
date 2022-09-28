@@ -1,5 +1,5 @@
 _pimcore:
-    resource: "@PimcoreCoreBundle/Resources/config/routing.yaml"
+    resource: "@PimcoreCoreBundle/config/routing.yaml"
 
 app_localized:
     resource: "../src/Controller/"
