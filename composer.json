@@ -19,7 +19,8 @@
     "pimcore/pimcore": "11.x-dev as 10.99.99",
     "pimcore/web2print-tools-bundle": "^4.0",
     "pimcore/data-hub": "^1.0",
-    "pimcore/payment-provider-paypal-smart-payment-button": "^1.0"
+    "pimcore/payment-provider-paypal-smart-payment-button": "^1.0",
+    "symfony/intl": "^5.2.0"
   },
   "conflict": {
     "hwi/oauth-bundle": "1.4.0"
