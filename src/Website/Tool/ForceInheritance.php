@@ -20,7 +20,7 @@ use Pimcore\Model\DataObject\AbstractObject;
 class ForceInheritance
 {
     /**
-     * @param string $callable
+     * @param \Closure $callable
      * @return mixed
      */
     public static function run($callable)
