@@ -1,29 +1,15 @@
-<?php 
+<?php
 
-/** 
-Fields Summary: 
-- availabilityPieces [numeric]
-- availabilityType [select]
-- condition [select]
-- priceInEUR [numeric]
-- milage [quantityValue]
-*/ 
-
+/**
+ * Fields Summary:
+ * - availabilityPieces [numeric]
+ * - availabilityType [select]
+ * - condition [select]
+ * - priceInEUR [numeric]
+ * - milage [quantityValue]
+ */
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
-   'classDefinitions' => 
-  array (
-    0 => 
-    array (
-      'classname' => 'Car',
-      'fieldname' => 'saleInformation',
-    ),
-    1 => 
-    array (
-      'classname' => 'AccessoryPart',
-      'fieldname' => 'saleInformation',
-    ),
-  ),
    'dao' => NULL,
    'key' => 'SaleInformation',
    'parentClass' => '',
@@ -32,10 +18,6 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'group' => '',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-     'fieldtype' => 'panel',
-     'labelWidth' => 100,
-     'layout' => NULL,
-     'border' => false,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -47,14 +29,10 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'children' => 
     array (
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'fieldtype' => 'panel',
-         'labelWidth' => 100,
-         'layout' => NULL,
-         'border' => false,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -66,23 +44,10 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'children' => 
         array (
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
-             'fieldtype' => 'numeric',
-             'width' => '',
-             'defaultValue' => NULL,
-             'queryColumnType' => 'double',
-             'columnType' => 'double',
-             'phpdocType' => 'float',
-             'integer' => false,
-             'unsigned' => false,
-             'minValue' => NULL,
-             'maxValue' => NULL,
-             'unique' => false,
-             'decimalSize' => NULL,
-             'decimalPrecision' => NULL,
              'name' => 'availabilityPieces',
              'title' => 'Availability Pieces',
              'tooltip' => '',
@@ -93,15 +58,45 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'numeric',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => '',
+             'defaultValue' => NULL,
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => false,
+             'decimalSize' => NULL,
+             'decimalPrecision' => NULL,
              'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+             'name' => 'availabilityType',
+             'title' => 'Availability Type',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
              'fieldtype' => 'select',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
              'options' => 
             array (
               0 => 
@@ -124,13 +119,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'defaultValue' => '',
              'optionsProviderClass' => '',
              'optionsProviderData' => '',
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
              'columnLength' => 190,
-             'phpdocType' => 'string',
              'dynamicOptions' => false,
-             'name' => 'availabilityType',
-             'title' => 'Availability Type',
+             'defaultValueGenerator' => '',
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+             'name' => 'condition',
+             'title' => 'Condition',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -139,15 +135,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'select',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-             'fieldtype' => 'select',
+             'blockedVarsForExport' => 
+            array (
+            ),
              'options' => 
             array (
               0 => 
@@ -175,42 +170,12 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'defaultValue' => '',
              'optionsProviderClass' => '',
              'optionsProviderData' => '',
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
              'columnLength' => 190,
-             'phpdocType' => 'string',
              'dynamicOptions' => false,
-             'name' => 'condition',
-             'title' => 'Condition',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
              'defaultValueGenerator' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
-             'fieldtype' => 'numeric',
-             'width' => '',
-             'defaultValue' => NULL,
-             'queryColumnType' => 'double',
-             'columnType' => 'double',
-             'phpdocType' => 'float',
-             'integer' => false,
-             'unsigned' => false,
-             'minValue' => 0,
-             'maxValue' => NULL,
-             'unique' => false,
-             'decimalSize' => 10,
-             'decimalPrecision' => 2,
              'name' => 'priceInEUR',
              'title' => 'Price in EUR',
              'tooltip' => '',
@@ -221,37 +186,27 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'numeric',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => '',
+             'defaultValue' => NULL,
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => 0,
+             'maxValue' => NULL,
+             'unique' => false,
+             'decimalSize' => 10,
+             'decimalPrecision' => 2,
              'defaultValueGenerator' => '',
           )),
           4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'fieldtype' => 'quantityValue',
-             'width' => NULL,
-             'unitWidth' => NULL,
-             'defaultValue' => NULL,
-             'defaultUnit' => '7',
-             'validUnits' => 
-            array (
-              0 => '8',
-              1 => '7',
-            ),
-             'decimalPrecision' => NULL,
-             'autoConvert' => false,
-             'queryColumnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'columnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\QuantityValue',
              'name' => 'milage',
              'title' => 'Milage',
              'tooltip' => '',
@@ -262,18 +217,72 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'quantityValue',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => NULL,
+             'unitWidth' => NULL,
+             'defaultValue' => NULL,
+             'defaultUnit' => '7',
+             'validUnits' => 
+            array (
+              0 => '8',
+              1 => '7',
+            ),
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => NULL,
+             'decimalSize' => NULL,
+             'decimalPrecision' => NULL,
+             'autoConvert' => false,
              'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'fieldtype' => 'panel',
+         'layout' => NULL,
+         'border' => false,
          'icon' => NULL,
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' => 
+    array (
+    ),
+     'fieldtype' => 'panel',
+     'layout' => NULL,
+     'border' => false,
      'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
+   'generateTypeDeclarations' => true,
+   'blockedVarsForExport' => 
+  array (
+  ),
+   'classDefinitions' => 
+  array (
+    0 => 
+    array (
+      'classname' => 'Car',
+      'fieldname' => 'saleInformation',
+    ),
+    1 => 
+    array (
+      'classname' => 'AccessoryPart',
+      'fieldname' => 'saleInformation',
+    ),
+  ),
 ));

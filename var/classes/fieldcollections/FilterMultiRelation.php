@@ -1,14 +1,13 @@
-<?php 
+<?php
 
-/** 
-Fields Summary: 
-- label [input]
-- field [indexFieldSelection]
-- useAndCondition [checkbox]
-- scriptPath [input]
-- availableRelations [manyToManyObjectRelation]
-*/ 
-
+/**
+ * Fields Summary:
+ * - label [input]
+ * - field [indexFieldSelection]
+ * - useAndCondition [checkbox]
+ * - scriptPath [input]
+ * - availableRelations [manyToManyObjectRelation]
+ */
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'dao' => NULL,
@@ -19,9 +18,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'group' => 'FilterTypes',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-     'fieldtype' => 'panel',
-     'layout' => NULL,
-     'border' => false,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -33,13 +29,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'children' => 
     array (
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'fieldtype' => 'panel',
-         'layout' => '',
-         'border' => false,
          'name' => 'Layout',
          'type' => '',
          'region' => '',
@@ -51,15 +44,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => '',
-         'childs' => 
+         'children' => 
         array (
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
-             'fieldtype' => 'text',
-             'html' => '<b>Filter MultiRelation</b><div>Multi selection filter for relation fields.</div><div>- Use And Condition: Uses AND condition instead of OR.&nbsp;</div>',
-             'renderingClass' => NULL,
-             'renderingData' => NULL,
-             'border' => false,
              'name' => 'Layout',
              'type' => NULL,
              'region' => NULL,
@@ -71,22 +59,21 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'bodyStyle' => 'padding: 10px; background-color: #d9edf7; border-color: #bce8f1 !important; color: #31708f;',
              'datatype' => 'layout',
              'permissions' => NULL,
-             'childs' => 
+             'children' => 
             array (
             ),
              'locked' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'fieldtype' => 'text',
+             'html' => '<b>Filter MultiRelation</b><div>Multi selection filter for relation fields.</div><div>- Use And Condition: Uses AND condition instead of OR.&nbsp;</div>',
+             'renderingClass' => NULL,
+             'renderingData' => NULL,
+             'border' => false,
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 400,
-             'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'label',
              'title' => 'Label',
              'tooltip' => '',
@@ -97,15 +84,45 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => '',
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 400,
+             'defaultValue' => NULL,
+             'columnLength' => 255,
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelection::__set_state(array(
+             'name' => 'field',
+             'title' => 'Field',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
              'fieldtype' => 'indexFieldSelection',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
              'queryColumnType' => 
             array (
               'tenant' => 'varchar(100)',
@@ -128,27 +145,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'predefinedPreSelectOptions' => 
             array (
             ),
-             'name' => 'field',
-             'title' => 'Field',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Checkbox::__set_state(array(
-             'fieldtype' => 'checkbox',
-             'defaultValue' => 0,
-             'queryColumnType' => 'tinyint(1)',
-             'columnType' => 'tinyint(1)',
              'name' => 'useAndCondition',
              'title' => 'Use And Condition',
              'tooltip' => '',
@@ -159,23 +158,19 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'checkbox',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'defaultValue' => 0,
              'defaultValueGenerator' => '',
           )),
           4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 300,
-             'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'scriptPath',
              'title' => 'Script Path',
              'tooltip' => '',
@@ -186,32 +181,27 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => '',
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 300,
+             'defaultValue' => NULL,
+             'columnLength' => 255,
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
           5 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
-             'fieldtype' => 'manyToManyObjectRelation',
-             'width' => '',
-             'height' => '',
-             'maxItems' => '',
-             'queryColumnType' => 'text',
-             'relationType' => true,
-             'visibleFields' => 
-            array (
-            ),
-             'allowToCreateNewObject' => true,
-             'optimizedAdminLoading' => false,
-             'visibleFieldDefinitions' => 
-            array (
-            ),
-             'classes' => 
-            array (
-            ),
-             'pathFormatterClass' => '',
              'name' => 'availableRelations',
              'title' => 'Available Relations',
              'tooltip' => '',
@@ -222,21 +212,57 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'manyToManyObjectRelation',
+             'relationType' => true,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'classes' => 
+            array (
+            ),
+             'pathFormatterClass' => '',
+             'width' => '',
+             'height' => '',
+             'maxItems' => NULL,
+             'visibleFields' => 
+            array (
+            ),
+             'allowToCreateNewObject' => true,
+             'optimizedAdminLoading' => false,
+             'enableTextSelection' => false,
+             'visibleFieldDefinitions' => 
+            array (
+            ),
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'fieldtype' => 'panel',
+         'layout' => '',
+         'border' => false,
          'icon' => '',
          'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' => 
+    array (
+    ),
+     'fieldtype' => 'panel',
+     'layout' => NULL,
+     'border' => false,
      'icon' => NULL,
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
+   'blockedVarsForExport' => 
+  array (
+  ),
 ));

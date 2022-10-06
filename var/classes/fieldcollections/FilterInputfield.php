@@ -1,13 +1,12 @@
-<?php 
+<?php
 
-/** 
-Fields Summary: 
-- label [input]
-- field [indexFieldSelection]
-- preSelect [input]
-- scriptPath [input]
-*/ 
-
+/**
+ * Fields Summary:
+ * - label [input]
+ * - field [indexFieldSelection]
+ * - preSelect [input]
+ * - scriptPath [input]
+ */
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'dao' => NULL,
@@ -18,9 +17,6 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'group' => 'FilterTypes',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-     'fieldtype' => 'panel',
-     'layout' => NULL,
-     'border' => false,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -32,13 +28,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'children' => 
     array (
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'fieldtype' => 'panel',
-         'layout' => '',
-         'border' => false,
          'name' => 'Layout',
          'type' => '',
          'region' => '',
@@ -50,19 +43,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => '',
-         'childs' => 
+         'children' => 
         array (
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 300,
-             'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => '255',
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'label',
              'title' => 'Label',
              'tooltip' => '',
@@ -73,15 +57,45 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => '',
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 300,
+             'defaultValue' => NULL,
+             'columnLength' => '255',
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
           1 => 
           Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelection::__set_state(array(
+             'name' => 'field',
+             'title' => 'Field',
+             'tooltip' => '',
+             'mandatory' => false,
+             'noteditable' => false,
+             'index' => false,
+             'locked' => false,
+             'style' => '',
+             'permissions' => NULL,
+             'datatype' => 'data',
              'fieldtype' => 'indexFieldSelection',
+             'relationType' => false,
+             'invisible' => false,
+             'visibleGridView' => false,
+             'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
              'queryColumnType' => 
             array (
               'tenant' => 'varchar(100)',
@@ -104,32 +118,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'predefinedPreSelectOptions' => 
             array (
             ),
-             'name' => 'field',
-             'title' => 'Field',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 300,
-             'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => '255',
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'preSelect',
              'title' => 'PreSelect',
              'tooltip' => '',
@@ -140,23 +131,27 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => '',
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 300,
+             'defaultValue' => NULL,
+             'columnLength' => '255',
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 300,
-             'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => '255',
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'scriptPath',
              'title' => 'Script Path',
              'tooltip' => '',
@@ -167,23 +162,51 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => '',
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 300,
+             'defaultValue' => NULL,
+             'columnLength' => '255',
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'fieldtype' => 'panel',
+         'layout' => '',
+         'border' => false,
          'icon' => '',
          'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' => 
+    array (
+    ),
+     'fieldtype' => 'panel',
+     'layout' => NULL,
+     'border' => false,
      'icon' => NULL,
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
+   'blockedVarsForExport' => 
+  array (
+  ),
 ));

@@ -1,29 +1,21 @@
-<?php 
+<?php
 
-/** 
-* Generated at: 2019-08-16T12:47:56+02:00
-* IP: 192.168.9.96
-
-
-Fields Summary: 
- - token [input]
- - usages [numeric]
- - onlyTokenPerCart [checkbox]
-*/ 
-
+/**
+ * Fields Summary:
+ * - token [input]
+ * - usages [numeric]
+ * - onlyTokenPerCart [checkbox]
+ */
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+   'dao' => NULL,
    'key' => 'VoucherTokenTypeSingle',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractVoucherTokenType',
+   'implementsInterfaces' => NULL,
    'title' => '',
    'group' => 'Voucher',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-     'fieldtype' => 'panel',
-     'labelWidth' => 100,
-     'layout' => NULL,
-     'border' => false,
-     'icon' => NULL,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -35,15 +27,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'children' => 
     array (
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'fieldtype' => 'panel',
-         'labelWidth' => 150,
-         'layout' => NULL,
-         'border' => false,
-         'icon' => NULL,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -55,15 +42,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'children' => 
         array (
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
-             'fieldtype' => 'text',
-             'html' => 'Specify one single token and allow usage of this token multiple times.&nbsp;',
-             'renderingClass' => NULL,
-             'renderingData' => NULL,
-             'border' => false,
              'name' => 'Layout',
              'type' => NULL,
              'region' => NULL,
@@ -75,22 +57,21 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'bodyStyle' => 'padding: 10px; background-color: #d9edf7; border-color: #bce8f1 !important; color: #31708f;',
              'datatype' => 'layout',
              'permissions' => NULL,
-             'childs' => 
+             'children' => 
             array (
             ),
              'locked' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'fieldtype' => 'text',
+             'html' => 'Specify one single token and allow usage of this token multiple times.&nbsp;',
+             'renderingClass' => NULL,
+             'renderingData' => NULL,
+             'border' => false,
           )),
           1 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 500,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'phpdocType' => 'string',
-             'regex' => '^((?!\\s).)*$',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'token',
              'title' => 'Token',
              'tooltip' => '',
@@ -101,26 +82,27 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 500,
+             'defaultValue' => NULL,
+             'columnLength' => 255,
+             'regex' => '^((?!\\s).)*$',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
+             'defaultValueGenerator' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
-             'fieldtype' => 'numeric',
-             'width' => 500,
-             'defaultValue' => 1,
-             'queryColumnType' => 'double',
-             'columnType' => 'double',
-             'phpdocType' => 'float',
-             'integer' => false,
-             'unsigned' => true,
-             'minValue' => 1,
-             'maxValue' => NULL,
-             'unique' => NULL,
-             'decimalSize' => NULL,
-             'decimalPrecision' => 0,
              'name' => 'usages',
              'title' => 'Usage count',
              'tooltip' => '',
@@ -131,18 +113,27 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'numeric',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 500,
+             'defaultValue' => 1,
+             'integer' => false,
+             'unsigned' => true,
+             'minValue' => 1,
+             'maxValue' => NULL,
+             'unique' => false,
+             'decimalSize' => NULL,
+             'decimalPrecision' => 0,
+             'defaultValueGenerator' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Checkbox::__set_state(array(
-             'fieldtype' => 'checkbox',
-             'defaultValue' => 0,
-             'queryColumnType' => 'tinyint(1)',
-             'columnType' => 'tinyint(1)',
-             'phpdocType' => 'boolean',
              'name' => 'onlyTokenPerCart',
              'title' => 'Only token of a cart',
              'tooltip' => '',
@@ -153,16 +144,43 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'checkbox',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'defaultValue' => 0,
+             'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'fieldtype' => 'panel',
+         'layout' => NULL,
+         'border' => false,
+         'icon' => NULL,
+         'labelWidth' => 150,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' => 
+    array (
+    ),
+     'fieldtype' => 'panel',
+     'layout' => NULL,
+     'border' => false,
+     'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
-   'dao' => NULL,
+   'generateTypeDeclarations' => true,
+   'blockedVarsForExport' => 
+  array (
+  ),
 ));
