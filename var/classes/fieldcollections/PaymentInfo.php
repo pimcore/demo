@@ -1,18 +1,17 @@
 <?php
 
 /**
-Fields Summary:
- - paymentStart [datetime]
- - paymentFinish [datetime]
- - paymentReference [input]
- - paymentState [select]
- - internalPaymentId [input]
- - message [textarea]
- - providerData [textarea]
- - provider_paypal_amount [input]
- - provider_paypal_PaymentType [textarea]
-*/
-
+ * Fields Summary:
+ * - paymentStart [datetime]
+ * - paymentFinish [datetime]
+ * - paymentReference [input]
+ * - paymentState [select]
+ * - internalPaymentId [input]
+ * - message [textarea]
+ * - providerData [textarea]
+ * - provider_paypal_amount [input]
+ * - provider_paypal_PaymentType [input]
+ */
 
 return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'dao' => NULL,
@@ -21,11 +20,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Order Details',
-   'layoutDefinitions' =>
+   'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-     'fieldtype' => 'panel',
-     'layout' => NULL,
-     'border' => false,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -37,13 +33,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' =>
+     'children' => 
     array (
-      0 =>
+      0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'fieldtype' => 'panel',
-         'layout' => NULL,
-         'border' => false,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -55,15 +48,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' =>
+         'children' => 
         array (
-          0 =>
+          0 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
-             'fieldtype' => 'datetime',
-             'queryColumnType' => 'bigint(20)',
-             'columnType' => 'bigint(20)',
-             'defaultValue' => NULL,
-             'useCurrentDate' => false,
              'name' => 'paymentStart',
              'title' => 'Payment Start',
              'tooltip' => '',
@@ -74,19 +62,22 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'datetime',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'defaultValueGenerator' => '',
-          )),
-          1 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
-             'fieldtype' => 'datetime',
+             'blockedVarsForExport' => 
+            array (
+            ),
              'queryColumnType' => 'bigint(20)',
              'columnType' => 'bigint(20)',
              'defaultValue' => NULL,
              'useCurrentDate' => false,
+             'defaultValueGenerator' => '',
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
              'name' => 'paymentFinish',
              'title' => 'Payment Finish',
              'tooltip' => '',
@@ -97,23 +88,22 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'datetime',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'queryColumnType' => 'bigint(20)',
+             'columnType' => 'bigint(20)',
+             'defaultValue' => NULL,
+             'useCurrentDate' => false,
              'defaultValueGenerator' => '',
           )),
-          2 =>
+          2 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 500,
-             'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'paymentReference',
              'title' => 'Payment Reference',
              'tooltip' => '',
@@ -124,61 +114,27 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'defaultValueGenerator' => '',
-          )),
-          3 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-             'fieldtype' => 'select',
-             'options' =>
+             'blockedVarsForExport' => 
             array (
-              0 =>
-              array (
-                'key' => 'Committed',
-                'value' => 'committed',
-              ),
-              1 =>
-              array (
-                'key' => 'Cancelled',
-                'value' => 'cancelled',
-              ),
-              2 =>
-              array (
-                'key' => 'Payment Init',
-                'value' => 'paymentInit',
-              ),
-              3 =>
-              array (
-                'key' => 'Payment Pending',
-                'value' => 'paymentPending',
-              ),
-              4 =>
-              array (
-                'key' => 'Payment Authorized',
-                'value' => 'paymentAuthorized',
-              ),
-              5 =>
-              array (
-                'key' => 'Aborted',
-                'value' => 'aborted',
-              ),
-              6 =>
-              array (
-                'key' => 'Aborted but Response Received',
-                'value' => 'abortedButResponseReceived',
-              ),
             ),
              'width' => 500,
-             'defaultValue' => '',
-             'optionsProviderClass' => NULL,
-             'optionsProviderData' => NULL,
-             'queryColumnType' => 'varchar(255)',
-             'columnType' => 'varchar(255)',
-             'columnLength' => 190,
-             'dynamicOptions' => false,
+             'defaultValue' => NULL,
+             'columnLength' => 255,
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
+             'defaultValueGenerator' => '',
+          )),
+          3 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'name' => 'paymentState',
              'title' => 'Payment State',
              'tooltip' => '',
@@ -189,23 +145,62 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'select',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'options' => 
+            array (
+              0 => 
+              array (
+                'key' => 'Committed',
+                'value' => 'committed',
+              ),
+              1 => 
+              array (
+                'key' => 'Cancelled',
+                'value' => 'cancelled',
+              ),
+              2 => 
+              array (
+                'key' => 'Payment Init',
+                'value' => 'paymentInit',
+              ),
+              3 => 
+              array (
+                'key' => 'Payment Pending',
+                'value' => 'paymentPending',
+              ),
+              4 => 
+              array (
+                'key' => 'Payment Authorized',
+                'value' => 'paymentAuthorized',
+              ),
+              5 => 
+              array (
+                'key' => 'Aborted',
+                'value' => 'aborted',
+              ),
+              6 => 
+              array (
+                'key' => 'Aborted but Response Received',
+                'value' => 'abortedButResponseReceived',
+              ),
+            ),
+             'width' => 500,
+             'defaultValue' => '',
+             'optionsProviderClass' => NULL,
+             'optionsProviderData' => NULL,
+             'columnLength' => 190,
+             'dynamicOptions' => false,
              'defaultValueGenerator' => '',
           )),
-          4 =>
+          4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-             'fieldtype' => 'input',
-             'width' => 500,
-             'defaultValue' => NULL,
-             'queryColumnType' => 'varchar',
-             'columnType' => 'varchar',
-             'columnLength' => 255,
-             'regex' => '',
-             'unique' => NULL,
-             'showCharCount' => NULL,
              'name' => 'internalPaymentId',
              'title' => 'Internal Payment ID',
              'tooltip' => '',
@@ -216,22 +211,27 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'input',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 500,
+             'defaultValue' => NULL,
+             'columnLength' => 255,
+             'regex' => '',
+             'regexFlags' => 
+            array (
+            ),
+             'unique' => false,
+             'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          5 =>
+          5 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
-             'fieldtype' => 'textarea',
-             'width' => 500,
-             'height' => 100,
-             'maxLength' => NULL,
-             'showCharCount' => NULL,
-             'excludeFromSearchIndex' => false,
-             'queryColumnType' => 'longtext',
-             'columnType' => 'longtext',
              'name' => 'message',
              'title' => 'Message',
              'tooltip' => '',
@@ -242,21 +242,22 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'textarea',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-          )),
-          6 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
-             'fieldtype' => 'textarea',
+             'blockedVarsForExport' => 
+            array (
+            ),
              'width' => 500,
-             'height' => 200,
+             'height' => 100,
              'maxLength' => NULL,
-             'showCharCount' => NULL,
+             'showCharCount' => false,
              'excludeFromSearchIndex' => false,
-             'queryColumnType' => 'longtext',
-             'columnType' => 'longtext',
+          )),
+          6 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
              'name' => 'providerData',
              'title' => 'Provider Data',
              'tooltip' => 'JSON',
@@ -267,14 +268,22 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'textarea',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => 500,
+             'height' => 200,
+             'maxLength' => NULL,
+             'showCharCount' => false,
+             'excludeFromSearchIndex' => false,
           )),
-          7 =>
+          7 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
-             'fieldtype' => 'fieldset',
              'name' => 'additionalDataPaypal',
              'type' => NULL,
              'region' => '',
@@ -286,19 +295,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'bodyStyle' => '',
              'datatype' => 'layout',
              'permissions' => NULL,
-             'childs' =>
+             'children' => 
             array (
-              0 =>
+              0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                 'fieldtype' => 'input',
-                 'width' => NULL,
-                 'defaultValue' => NULL,
-                 'queryColumnType' => 'varchar',
-                 'columnType' => 'varchar',
-                 'columnLength' => 255,
-                 'regex' => '',
-                 'unique' => NULL,
-                 'showCharCount' => NULL,
                  'name' => 'provider_paypal_amount',
                  'title' => 'Amount',
                  'tooltip' => '',
@@ -309,23 +309,27 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
+                 'fieldtype' => 'input',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'defaultValueGenerator' => '',
-              )),
-              1 =>
-              Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                 'fieldtype' => 'input',
-                 'width' => 500,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'width' => NULL,
                  'defaultValue' => NULL,
-                 'queryColumnType' => 'varchar',
-                 'columnType' => 'varchar',
                  'columnLength' => 255,
                  'regex' => '',
-                 'unique' => NULL,
-                 'showCharCount' => NULL,
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
+                 'showCharCount' => false,
+                 'defaultValueGenerator' => '',
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'provider_paypal_PaymentType',
                  'title' => 'Payment Type',
                  'tooltip' => '',
@@ -336,28 +340,60 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
+                 'fieldtype' => 'input',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'width' => 500,
+                 'defaultValue' => NULL,
+                 'columnLength' => 255,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
+                 'showCharCount' => false,
                  'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'fieldtype' => 'fieldset',
              'labelWidth' => 150,
              'labelAlign' => 'left',
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'fieldtype' => 'panel',
+         'layout' => NULL,
+         'border' => false,
          'icon' => NULL,
          'labelWidth' => 150,
          'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' => 
+    array (
+    ),
+     'fieldtype' => 'panel',
+     'layout' => NULL,
+     'border' => false,
      'icon' => NULL,
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
+   'blockedVarsForExport' => 
+  array (
+  ),
 ));

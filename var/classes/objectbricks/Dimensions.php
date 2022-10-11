@@ -1,23 +1,14 @@
-<?php 
+<?php
 
-/** 
-Fields Summary: 
-- length [quantityValue]
-- width [quantityValue]
-- wheelbase [quantityValue]
-- weight [quantityValue]
-*/ 
-
+/**
+ * Fields Summary:
+ * - length [quantityValue]
+ * - width [quantityValue]
+ * - wheelbase [quantityValue]
+ * - weight [quantityValue]
+ */
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
-   'classDefinitions' => 
-  array (
-    0 => 
-    array (
-      'classname' => 'Car',
-      'fieldname' => 'attributes',
-    ),
-  ),
    'dao' => NULL,
    'key' => 'Dimensions',
    'parentClass' => '',
@@ -26,10 +17,6 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'group' => '',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-     'fieldtype' => 'panel',
-     'labelWidth' => 100,
-     'layout' => NULL,
-     'border' => false,
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -41,14 +28,10 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'childs' => 
+     'children' => 
     array (
       0 => 
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-         'fieldtype' => 'panel',
-         'labelWidth' => 100,
-         'layout' => NULL,
-         'border' => false,
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
@@ -60,32 +43,10 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'childs' => 
+         'children' => 
         array (
           0 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'fieldtype' => 'quantityValue',
-             'width' => NULL,
-             'unitWidth' => NULL,
-             'defaultValue' => NULL,
-             'defaultUnit' => '1',
-             'validUnits' => 
-            array (
-              0 => '1',
-            ),
-             'decimalPrecision' => NULL,
-             'autoConvert' => false,
-             'queryColumnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'columnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\QuantityValue',
              'name' => 'length',
              'title' => 'Length',
              'tooltip' => '',
@@ -96,15 +57,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'quantityValue',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'defaultValueGenerator' => '',
-          )),
-          1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'fieldtype' => 'quantityValue',
+             'blockedVarsForExport' => 
+            array (
+            ),
              'width' => NULL,
              'unitWidth' => NULL,
              'defaultValue' => NULL,
@@ -113,19 +73,18 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
             array (
               0 => '1',
             ),
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => NULL,
+             'decimalSize' => NULL,
              'decimalPrecision' => NULL,
              'autoConvert' => false,
-             'queryColumnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'columnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\QuantityValue',
+             'defaultValueGenerator' => '',
+          )),
+          1 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
              'name' => 'width',
              'title' => 'Width',
              'tooltip' => '',
@@ -136,15 +95,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'quantityValue',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'defaultValueGenerator' => '',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'fieldtype' => 'quantityValue',
+             'blockedVarsForExport' => 
+            array (
+            ),
              'width' => NULL,
              'unitWidth' => NULL,
              'defaultValue' => NULL,
@@ -153,19 +111,18 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
             array (
               0 => '1',
             ),
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => NULL,
+             'decimalSize' => NULL,
              'decimalPrecision' => NULL,
              'autoConvert' => false,
-             'queryColumnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'columnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\QuantityValue',
+             'defaultValueGenerator' => '',
+          )),
+          2 => 
+          Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
              'name' => 'wheelbase',
              'title' => 'Wheelbase',
              'tooltip' => '',
@@ -176,36 +133,34 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'quantityValue',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => NULL,
+             'unitWidth' => NULL,
+             'defaultValue' => NULL,
+             'defaultUnit' => '1',
+             'validUnits' => 
+            array (
+              0 => '1',
+            ),
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => NULL,
+             'decimalSize' => NULL,
+             'decimalPrecision' => NULL,
+             'autoConvert' => false,
              'defaultValueGenerator' => '',
           )),
           3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'fieldtype' => 'quantityValue',
-             'width' => NULL,
-             'unitWidth' => NULL,
-             'defaultValue' => NULL,
-             'defaultUnit' => '3',
-             'validUnits' => 
-            array (
-              0 => '3',
-            ),
-             'decimalPrecision' => NULL,
-             'autoConvert' => false,
-             'queryColumnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'columnType' => 
-            array (
-              'value' => 'double',
-              'unit' => 'bigint(20)',
-            ),
-             'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\QuantityValue',
              'name' => 'weight',
              'title' => 'Weight',
              'tooltip' => '',
@@ -216,18 +171,66 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'style' => '',
              'permissions' => NULL,
              'datatype' => 'data',
+             'fieldtype' => 'quantityValue',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'width' => NULL,
+             'unitWidth' => NULL,
+             'defaultValue' => NULL,
+             'defaultUnit' => '3',
+             'validUnits' => 
+            array (
+              0 => '3',
+            ),
+             'integer' => false,
+             'unsigned' => false,
+             'minValue' => NULL,
+             'maxValue' => NULL,
+             'unique' => NULL,
+             'decimalSize' => NULL,
+             'decimalPrecision' => NULL,
+             'autoConvert' => false,
              'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
+         'blockedVarsForExport' => 
+        array (
+        ),
+         'fieldtype' => 'panel',
+         'layout' => NULL,
+         'border' => false,
          'icon' => NULL,
+         'labelWidth' => 100,
+         'labelAlign' => 'left',
       )),
     ),
      'locked' => false,
+     'blockedVarsForExport' => 
+    array (
+    ),
+     'fieldtype' => 'panel',
+     'layout' => NULL,
+     'border' => false,
      'icon' => NULL,
+     'labelWidth' => 100,
+     'labelAlign' => 'left',
   )),
+   'generateTypeDeclarations' => true,
+   'blockedVarsForExport' => 
+  array (
+  ),
+   'classDefinitions' => 
+  array (
+    0 => 
+    array (
+      'classname' => 'Car',
+      'fieldname' => 'attributes',
+    ),
+  ),
 ));
