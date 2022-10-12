@@ -96,6 +96,9 @@ new Vue({
         fromDate: null,
         toDate: null,
         tag: 'All'
+      },
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
       }
     }
   },
