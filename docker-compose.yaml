@@ -46,4 +46,4 @@ services:
             - ./.docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro
 
 volumes:
-    pimcore-database:
+    pimcore-demo-database:
