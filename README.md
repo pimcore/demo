@@ -38,7 +38,7 @@ You don't need to have a PHP environment with composer installed.
     * Open the `docker-compose.yml` file in an editor, uncomment all the `user: '1000:1000'` lines and update the ids if necessary
     * Start the needed services with `docker-compose up -d`
 1. Install pimcore and initialize the DB
-    `docker-compose exec php-fpm vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`
+    `docker-compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`
     * When asked for admin user and password: Choose freely
     * This can take a while, up to 20 minutes
 1. :heavy_check_mark: DONE - You can now visit your pimcore-demo:
