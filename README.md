@@ -30,7 +30,7 @@ You don't need to have a PHP environment with composer installed.
 ### Follow these steps
 
 1. Initialize the demo project using the `pimcore/pimcore` image
-    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:PHP8.0-fpm composer create-project pimcore/demo my-project``
+    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.1-latest composer create-project pimcore/demo my-project``
 1. Go to your new project
     `cd my-project/`
 1. Part of the new project is a docker compose file
