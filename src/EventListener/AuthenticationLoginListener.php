@@ -68,7 +68,7 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
      *
      * @return Response never null
      */
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token)
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token): Response
     {
         // save current user to e-commerce framework environment
         $user = $token->getUser();
