@@ -76,8 +76,6 @@ security:
                 check_path: 'account-login'
                 default_target_path: 'account-index'
 
-                # use custom success handler to also update e-commerce framework environment after successful login
-                success_handler: App\EventListener\AuthenticationLoginListener
 
             # configure the OAuth authenticator (HWIOAuthBundle)
             oauth:
@@ -87,8 +85,6 @@ security:
                 login_path: 'account-login'
                 failure_path: 'account-login'
 
-                # use custom success handler to also update e-commerce framework environment after successful login
-                success_handler: App\EventListener\AuthenticationLoginListener
                 oauth_user_provider:
                     service: cmf.security.user_provider.oauth
 
