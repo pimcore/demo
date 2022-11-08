@@ -9,10 +9,7 @@ security:
         # we use a custom user provider which loads users from the Customer class
         # the user provider is provided by the CMF
         cmf_customer_provider:
-            id: cmf.security.user_provider #cmf.security.user_provider.oauth
-
-        cmf_customer_provider_with_oauth:
-            id: cmf.security.user_provider.oauth
+            id: cmf.security.user_provider
 
 
     firewalls:
@@ -65,11 +62,11 @@ security:
             # http_basic: ~
 
             # -----------------------------------------------------
-            #   SAMPLE FIREWALL CONFIG FOR FORM-AUTH incl. OAUTH
+            #   SAMPLE FIREWALL CONFIG FOR FORM-AUTH
             # -----------------------------------------------------
 
             # the provider defined above
-            provider: cmf_customer_provider_with_oauth
+            provider: cmf_customer_provider
             form_login:
                 enable_csrf: true
                 login_path: 'account-login'
@@ -78,19 +75,6 @@ security:
 
                 # use custom success handler to also update e-commerce framework environment after successful login
                 success_handler: App\EventListener\AuthenticationLoginListener
-
-            # configure the OAuth authenticator (HWIOAuthBundle)
-            oauth:
-                resource_owners:
-                    google: app_auth_oauth_check_google
-                    twitter: app_auth_oauth_check_twitter
-                login_path: 'account-login'
-                failure_path: 'account-login'
-
-                # use custom success handler to also update e-commerce framework environment after successful login
-                success_handler: App\EventListener\AuthenticationLoginListener
-                oauth_user_provider:
-                    service: cmf.security.user_provider.oauth
 
             logout:
                 path: 'account-logout'

@@ -10,7 +10,6 @@ use Web2PrintToolsBundle\Web2PrintToolsBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
-    Presta\SitemapBundle\PrestaSitemapBundle::class => ['all' => true],
     PimcoreEcommerceFrameworkBundle::class => ['all' => true],
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
     PimcorePaymentProviderPayPalSmartPaymentButtonBundle::class => ['all' => true],

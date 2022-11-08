@@ -31,30 +31,6 @@ pimcore:
         class_overrides:
             Pimcore\Model\DataObject\Customer: App\Model\Customer
 
-# Configure the HWIOAuth bundle
-hwi_oauth:
-    firewall_names: [demo_frontend]
-
-    # uses referrer as target path after successful login
-    use_referer: true
-
-    # the credential parameters need to be set somewhere. as we don't want to version client credentials
-    # we add those secrets to parameters.yml and reference the parameters here
-    resource_owners:
-        google:
-            type:                google
-            client_id:           '%google_client_id%'
-            client_secret:       '%google_client_secret%'
-            scope:               "openid email profile"
-            options:
-                csrf: true
-        twitter:
-            type:                twitter
-            client_id:           '%twitter_client_id%'
-            client_secret:       '%twitter_client_secret%'
-            options:
-                csrf: true
-
 pimcore_customer_management_framework:
 
     # Configuration of customer save manager
@@ -156,10 +132,6 @@ pimcore_customer_management_framework:
                 firstname: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
                 city: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
                 lastname: \CustomerManagementFrameworkBundle\DataTransformer\DuplicateIndex\Simplify
-
-    # Enable/Disable SSO oauth client. If enabled additional steps are necessary, see SSO docs for details.
-    oauth_client:
-        enabled: true
 
     # Configuration of EncryptionService
     encryption:
