@@ -12,7 +12,7 @@ CREATE FUNCTION PLUGIN_CMF_COLLECT_OBJECT_SEGMENT_ASSIGNMENTS(elementIdent INT) 
     SELECT `breaksInheritance` FROM `plugin_cmf_segment_assignment` WHERE `elementId` = elementIdent AND `elementType` = 'object' INTO breaks;
 
     WHILE (elementExists = 0 OR breaks IS NULL OR breaks <> 1) AND elementIdent > 1 DO
-      SELECT `o_parentId`  FROM `objects` WHERE `o_id` = elementIdent INTO elementIdent;
+      SELECT `parentId`  FROM `objects` WHERE `id` = elementIdent INTO elementIdent;
       SELECT CONCAT_WS(',', segmentIds, (SELECT `segments` FROM `plugin_cmf_segment_assignment` WHERE `elementId` = elementIdent AND `elementType` = 'object')) INTO segmentIds;
       SELECT COUNT(*) FROM `plugin_cmf_segment_assignment` WHERE `elementId` = elementIdent AND `elementType` = 'object' INTO elementExists;
       SELECT `breaksInheritance` INTO breaks FROM `plugin_cmf_segment_assignment` WHERE `elementId` = elementIdent AND `elementType` = 'object';

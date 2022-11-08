@@ -65,7 +65,7 @@ return [
             "position" => "left",
             "sort" => "6",
             "expanded" => TRUE,
-            "where" => "(o_path LIKE '/Product Data/Manufacturer/%' OR o_key = 'Manufacturer' OR o_path LIKE '/Product Data/Body-Styles/%' OR o_key = 'Body-Styles')"
+            "where" => "(path LIKE '/Product Data/Manufacturer/%' OR key = 'Manufacturer' OR path LIKE '/Product Data/Body-Styles/%' OR key = 'Body-Styles')"
         ],
         [
             "treetype" => "object",
