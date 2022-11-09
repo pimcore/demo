@@ -73,8 +73,6 @@ security:
                 check_path: 'account-login'
                 default_target_path: 'account-index'
 
-                # use custom success handler to also update e-commerce framework environment after successful login
-                success_handler: App\EventListener\AuthenticationLoginListener
 
             logout:
                 path: 'account-logout'

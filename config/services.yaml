@@ -197,9 +197,7 @@ services:
             - { name: kernel.event_listener, event: pimcore.ecommerce.commitorderprocessor.postCommitOrder, method: postCommitOrder }
 
     # authentication login listener for updating e-commerce framework environment after login
-    App\EventListener\AuthenticationLoginListener:
-        arguments:
-            $httpUtils: '@security.http_utils'
+    App\EventListener\AuthenticationLoginListener: ~
 
     # authentication login listener for updating e-commerce framework environment after logout
     App\EventListener\AuthenticationLogoutListener: ~
