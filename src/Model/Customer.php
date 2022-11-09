@@ -24,9 +24,4 @@ class Customer extends \Pimcore\Model\DataObject\Customer implements SsoAwareCus
     {
         return $this->getProfiling();
     }
-
-    public function getUserIdentifier(): string
-    {
-        return $this->getUsername();
-    }
 }

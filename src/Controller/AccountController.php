@@ -39,7 +39,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -59,7 +58,6 @@ class AccountController extends BaseController
      *
      * @param AuthenticationUtils $authenticationUtils
      * @param OAuthRegistrationHandler $oAuthHandler
-     * @param SessionInterface $session
      * @param Request $request
      * @param UserInterface|null $user
      *
@@ -68,7 +66,6 @@ class AccountController extends BaseController
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
         OAuthRegistrationHandler $oAuthHandler,
-        SessionInterface $session,
         Request $request,
         UserInterface $user = null
     ) {
@@ -109,7 +106,7 @@ class AccountController extends BaseController
 
         //store referer in session to get redirected after login
         if (!$request->get('no-referer-redirect')) {
-            $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
+            $request->getSession()->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
         }
 
         return $this->render('account/login.html.twig', [
@@ -134,7 +131,6 @@ class AccountController extends BaseController
      * @param OAuthRegistrationHandler $oAuthHandler
      * @param LoginManagerInterface $loginManager
      * @param RegistrationFormHandler $registrationFormHandler
-     * @param SessionInterface $session
      * @param AuthenticationLoginListener $authenticationLoginListener
      * @param Translator $translator
      * @param Service $consentService
@@ -150,7 +146,6 @@ class AccountController extends BaseController
         OAuthRegistrationHandler $oAuthHandler,
         LoginManagerInterface $loginManager,
         RegistrationFormHandler $registrationFormHandler,
-        SessionInterface $session,
         AuthenticationLoginListener $authenticationLoginListener,
         Translator $translator,
         Service $consentService,
@@ -229,6 +224,7 @@ class AccountController extends BaseController
                 }
 
                 //check if special redirect is necessary
+                $session = $request->getSession();
                 if ($session->get('referrer')) {
                     $response = $this->redirect($session->get('referrer'));
                     $session->remove('referrer');
@@ -283,16 +279,15 @@ class AccountController extends BaseController
      * redirect to that referrer
      *
      * @param Request $request
-     * @param SessionInterface $session
      * @param $service
      *
      * @return Response
      * @Route("/auth/oauth/referrerLogin/{service}", name="app_auth_oauth_login_referrer")
      */
-    public function connectAction(Request $request, SessionInterface $session, $service)
+    public function connectAction(Request $request, $service)
     {
         // we overwrite this route to store user's referrer in the session
-        $session->set('referrer', $request->headers->get('referer'));
+        $request->getSession()->set('referrer', $request->headers->get('referer'));
 
         return $this->forward('HWIOAuthBundle:Connect:redirectToService', ['service' => $service]);
     }
