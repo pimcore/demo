@@ -34,7 +34,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -53,7 +52,6 @@ class AccountController extends BaseController
      * @Route("/account/login", name="account-login")
      *
      * @param AuthenticationUtils $authenticationUtils
-     * @param SessionInterface $session
      * @param Request $request
      * @param UserInterface|null $user
      *
@@ -61,7 +59,6 @@ class AccountController extends BaseController
      */
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
-        SessionInterface $session,
         Request $request,
         UserInterface $user = null
     ) {
@@ -87,7 +84,7 @@ class AccountController extends BaseController
 
         //store referer in session to get redirected after login
         if (!$request->get('no-referer-redirect')) {
-            $session->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
+            $request->getSession()->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
         }
 
         return $this->render('account/login.html.twig', [
@@ -108,7 +105,6 @@ class AccountController extends BaseController
      * @param CustomerProviderInterface $customerProvider
      * @param LoginManagerInterface $loginManager
      * @param RegistrationFormHandler $registrationFormHandler
-     * @param SessionInterface $session
      * @param AuthenticationLoginListener $authenticationLoginListener
      * @param Translator $translator
      * @param Service $consentService
@@ -123,7 +119,6 @@ class AccountController extends BaseController
         CustomerProviderInterface $customerProvider,
         LoginManagerInterface $loginManager,
         RegistrationFormHandler $registrationFormHandler,
-        SessionInterface $session,
         AuthenticationLoginListener $authenticationLoginListener,
         Translator $translator,
         Service $consentService,

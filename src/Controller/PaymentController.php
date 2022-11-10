@@ -28,7 +28,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PaymentController extends FrontendController
@@ -119,12 +118,11 @@ class PaymentController extends FrontendController
      * @param Factory $factory
      * @param LoggerInterface $logger
      * @param Translator $translator
-     * @param SessionInterface $session
      *
      * @return RedirectResponse
      *
      */
-    public function commitOrderAction(Request $request, Factory $factory, LoggerInterface $logger, Translator $translator, SessionInterface $session)
+    public function commitOrderAction(Request $request, Factory $factory, LoggerInterface $logger, Translator $translator)
     {
         $cartManager = $factory->getCartManager();
         $cart = $cartManager->getOrCreateCartByName('cart');
@@ -134,6 +132,7 @@ class PaymentController extends FrontendController
 
         $order = $checkoutManager->handlePaymentResponseAndCommitOrderPayment($params);
 
+        $session = $request->getSession();
         if (!$session->isStarted()) {
             $session->start();
         }

@@ -66,7 +66,11 @@ security:
             # -----------------------------------------------------
 
             # the provider defined above
+
             provider: cmf_customer_provider
+            
+            entry_point: form_login
+
             form_login:
                 enable_csrf: true
                 login_path: 'account-login'
