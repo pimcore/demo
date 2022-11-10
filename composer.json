@@ -12,7 +12,6 @@
   "prefer-stable": true,
   "minimum-stability": "dev",
   "require": {
-    "hwi/oauth-bundle": "^1.2.0",
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "^3.3.0",
@@ -21,9 +20,6 @@
     "pimcore/data-hub": "^1.0",
     "pimcore/payment-provider-paypal-smart-payment-button": "^1.0",
     "symfony/intl": "^6.1"
-  },
-  "conflict": {
-    "hwi/oauth-bundle": "1.4.0"
   },
   "suggest": {
     "elasticsearch/elasticsearch": "Required for Elastic Search service"

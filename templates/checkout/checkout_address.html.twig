@@ -12,12 +12,6 @@
                 <div class="col-md-8">
                     <h4 class="mb-3">{{ 'checkout.billing-address' | trans }}</h4>
 
-                    {% if(not app.user) %}
-                        <div class="mb-5">
-                            {% include 'account/partial/social_buttons.html.twig' with {'connect': false} %}
-                        </div>
-                    {% endif %}
-
                     {{ form_start(form) }}
 
                         <div class="row">
