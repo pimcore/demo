@@ -23,7 +23,6 @@ use Pimcore\Model\DataObject\OnlineShopOrder;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CheckoutController extends FrontendController
@@ -113,14 +112,13 @@ class CheckoutController extends FrontendController
     /**
      * @Route("/checkout-completed", name="shop-checkout-completed")
      *
-     * @param SessionInterface $session
      * @param Factory $ecommerceFactory
      *
      * @return Response
      */
-    public function checkoutCompletedAction(SessionInterface $session, Factory $ecommerceFactory)
+    public function checkoutCompletedAction(Request $request, Factory $ecommerceFactory)
     {
-        $orderId = $session->get('last_order_id');
+        $orderId = $request->getSession()->get('last_order_id');
 
         $order = OnlineShopOrder::getById($orderId);
 

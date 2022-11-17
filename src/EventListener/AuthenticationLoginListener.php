@@ -22,40 +22,32 @@ use CustomerManagementFrameworkBundle\Model\CustomerInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
-use Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler;
-use Symfony\Component\Security\Http\HttpUtils;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\PasswordUpgradeBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
 
 /**
  * Authentication listener to set correct user to e-commerce framework environment after login and track login activity
  */
-class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler implements AuthenticationSuccessHandlerInterface
+class AuthenticationLoginListener implements EventSubscriberInterface, LoggerAwareInterface
 {
-    /**
-     * @var EnvironmentInterface
-     */
-    protected $environment;
+    use LoggerAwareTrait;
 
-    /**
-     * @var ActivityManagerInterface
-     */
-    protected $activityManager;
-
-    /**
-     * @var Factory
-     */
-    protected $factory;
-
-    public function __construct(HttpUtils $httpUtils, EnvironmentInterface $environment, ActivityManagerInterface $activityManager, Factory $factory, array $options = [])
+    public static function getSubscribedEvents(): array
     {
-        parent::__construct($httpUtils, $options);
+        return [
+            LoginSuccessEvent::class => 'onLoginSuccess',
+        ];
+    }
 
-        $this->environment = $environment;
-        $this->activityManager = $activityManager;
-        $this->factory = $factory;
+    public function __construct(
+        protected EnvironmentInterface $environment,
+        protected ActivityManagerInterface $activityManager,
+        protected Factory $factory)
+    {
     }
 
     /**
@@ -63,20 +55,24 @@ class AuthenticationLoginListener extends DefaultAuthenticationSuccessHandler im
      * is called by authentication listeners inheriting from
      * AbstractAuthenticationListener.
      *
-     * @param Request $request
-     * @param TokenInterface $token
+     * @param LoginSuccessEvent $event
      *
-     * @return Response never null
+     * @return void
      */
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token)
+    public function onLoginSuccess(LoginSuccessEvent $event): void
     {
+        $passport = $event->getPassport();
+        if (!$passport instanceof Passport || !$passport->hasBadge(PasswordUpgradeBadge::class)) {
+            return;
+        }
+
+        $user = $passport->getUser();
+        if (null === $user->getPassword()) {
+            return;
+        }
+
         // save current user to e-commerce framework environment
-        $user = $token->getUser();
-
         $this->doEcommerceFrameworkLogin($user);
-
-        // call parent function to create correct redirect
-        return parent::onAuthenticationSuccess($request, $token);
     }
 
     public function doEcommerceFrameworkLogin(CustomerInterface $customer)

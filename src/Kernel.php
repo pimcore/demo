@@ -14,9 +14,9 @@
 
 namespace App;
 
-use HWI\Bundle\OAuthBundle\HWIOAuthBundle;
 use Pimcore\HttpKernel\BundleCollection\BundleCollection;
 use Pimcore\Kernel as PimcoreKernel;
+use Presta\SitemapBundle\PrestaSitemapBundle;
 
 class Kernel extends PimcoreKernel
 {
@@ -28,11 +28,7 @@ class Kernel extends PimcoreKernel
      */
     public function registerBundlesToCollection(BundleCollection $collection)
     {
-
-        // activate bundle for SSO oauth login/register functionality
-        if (class_exists('\Http\HttplugBundle\HttplugBundle')) {
-            $collection->addBundle(new \Http\HttplugBundle\HttplugBundle());
-        }
-        $collection->addBundle(HWIOAuthBundle::class);
+        // activate Presta\Sitemap Bundle for sitemaps generation
+        $collection->addBundle(PrestaSitemapBundle::class);
     }
 }
