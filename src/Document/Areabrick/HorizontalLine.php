@@ -20,7 +20,7 @@ class HorizontalLine extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Horiz. Line';
     }

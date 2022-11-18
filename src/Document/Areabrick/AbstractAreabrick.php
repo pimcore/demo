@@ -22,7 +22,7 @@ abstract class AbstractAreabrick extends AbstractTemplateAreabrick
     /**
      * @inheritDoc
      */
-    public function getTemplateLocation()
+    public function getTemplateLocation(): string
     {
         return static::TEMPLATE_LOCATION_GLOBAL;
     }
@@ -30,7 +30,7 @@ abstract class AbstractAreabrick extends AbstractTemplateAreabrick
     /**
      * @inheritDoc
      */
-    public function getTemplateSuffix()
+    public function getTemplateSuffix(): string
     {
         return static::TEMPLATE_SUFFIX_TWIG;
     }

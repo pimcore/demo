@@ -20,7 +20,7 @@ class PrintProductRow extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Print Product Row';
     }

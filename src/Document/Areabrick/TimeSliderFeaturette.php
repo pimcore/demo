@@ -20,7 +20,7 @@ class TimeSliderFeaturette extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Time Slider Featurette';
     }
