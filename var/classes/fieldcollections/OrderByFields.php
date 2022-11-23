@@ -13,7 +13,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Filter Definition',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
@@ -26,9 +26,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'children' => 
+     'children' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => '',
@@ -41,16 +41,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => '',
-         'children' => 
+         'children' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Bundle\EcommerceFrameworkBundle\CoreExtensions\ClassDefinition\IndexFieldSelectionCombo::__set_state(array(
              'name' => 'field',
              'title' => 'Field',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => '',
@@ -60,102 +60,102 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'categoryIds',
                 'value' => 'categoryIds',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'name',
                 'value' => 'name',
               ),
-              2 => 
+              2 =>
               array (
                 'key' => 'seoname',
                 'value' => 'seoname',
               ),
-              3 => 
+              3 =>
               array (
                 'key' => 'description',
                 'value' => 'description',
               ),
-              4 => 
+              4 =>
               array (
                 'key' => 'ean',
                 'value' => 'ean',
               ),
-              5 => 
+              5 =>
               array (
                 'key' => 'artno',
                 'value' => 'artno',
               ),
-              6 => 
+              6 =>
               array (
                 'key' => 'gender',
                 'value' => 'gender',
               ),
-              7 => 
+              7 =>
               array (
                 'key' => 'color',
                 'value' => 'color',
               ),
-              8 => 
+              8 =>
               array (
                 'key' => 'size',
                 'value' => 'size',
               ),
-              9 => 
+              9 =>
               array (
                 'key' => 'price',
                 'value' => 'price',
               ),
-              10 => 
+              10 =>
               array (
                 'key' => 'foottype',
                 'value' => 'foottype',
               ),
-              11 => 
+              11 =>
               array (
                 'key' => 'gaittype',
                 'value' => 'gaittype',
               ),
-              12 => 
+              12 =>
               array (
                 'key' => 'fittings',
                 'value' => 'fittings',
               ),
-              13 => 
+              13 =>
               array (
                 'key' => 'zips',
                 'value' => 'zips',
               ),
-              14 => 
+              14 =>
               array (
                 'key' => 'approvals',
                 'value' => 'approvals',
               ),
-              15 => 
+              15 =>
               array (
                 'key' => 'rating',
                 'value' => 'rating',
               ),
-              16 => 
+              16 =>
               array (
                 'key' => 'features',
                 'value' => 'features',
               ),
-              17 => 
+              17 =>
               array (
                 'key' => 'attributes',
                 'value' => 'attributes',
               ),
-              18 => 
+              18 =>
               array (
                 'key' => 'technologies',
                 'value' => 'technologies',
@@ -172,14 +172,14 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'showAllFields' => false,
              'considerTenants' => true,
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'name' => 'direction',
              'title' => 'Direction',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => '',
@@ -189,17 +189,17 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'asc',
                 'value' => 'asc',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'desc',
                 'value' => 'desc',
@@ -215,7 +215,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' => 
+         'blockedVarsForExport' =>
         array (
         ),
          'fieldtype' => 'panel',
@@ -227,7 +227,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' => 
+     'blockedVarsForExport' =>
     array (
     ),
      'fieldtype' => 'panel',
@@ -238,7 +238,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
-   'blockedVarsForExport' => 
+   'blockedVarsForExport' =>
   array (
   ),
 ));
