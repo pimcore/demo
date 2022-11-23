@@ -11,10 +11,6 @@ pimcore:
 
 pimcore_ecommerce_framework:
 
-    environment:
-        # TODO integrate that implementation into core
-        environment_id: App\Ecommerce\Overrides\Environment
-
     # Configuration of price systems - key is name of price system
     price_systems:
         default:
@@ -313,8 +309,3 @@ services:
         calls:
             - [setCurrencyFormat, ['en', '¤¤ #,##0.00']]
             - [setCurrencyFormat, ['de', '#,##0.00 ¤¤']]
-
-    App\Ecommerce\Overrides\Environment:
-        parent: Pimcore\Bundle\EcommerceFrameworkBundle\Environment
-        autowire: true
-        autoconfigure: false
