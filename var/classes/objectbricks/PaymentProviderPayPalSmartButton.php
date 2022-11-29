@@ -17,7 +17,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'implementsInterfaces' => NULL,
    'title' => '',
    'group' => 'PaymentProvider',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
@@ -30,9 +30,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'children' => 
+     'children' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
@@ -45,16 +45,16 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'children' => 
+         'children' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'configurationKey',
              'title' => 'Configuration Key',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -64,28 +64,28 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => NULL,
              'defaultValue' => NULL,
              'columnLength' => 190,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'auth_orderID',
              'title' => 'OrderID',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -95,28 +95,28 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 400,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'auth_payerID',
              'title' => 'PayerID',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -126,28 +126,28 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 400,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          3 => 
+          3 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'auth_email_address',
              'title' => 'Email Address',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -157,28 +157,28 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 400,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          4 => 
+          4 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'auth_given_name',
              'title' => 'Given Name',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -188,28 +188,28 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 400,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          5 => 
+          5 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'auth_surname',
              'title' => 'Surname',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -219,14 +219,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 400,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
@@ -235,7 +235,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' => 
+         'blockedVarsForExport' =>
         array (
         ),
          'fieldtype' => 'panel',
@@ -247,7 +247,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' => 
+     'blockedVarsForExport' =>
     array (
     ),
      'fieldtype' => 'panel',
@@ -258,12 +258,12 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => false,
-   'blockedVarsForExport' => 
+   'blockedVarsForExport' =>
   array (
   ),
-   'classDefinitions' => 
+   'classDefinitions' =>
   array (
-    0 => 
+    0 =>
     array (
       'classname' => 'OnlineShopOrder',
       'fieldname' => 'paymentProvider',

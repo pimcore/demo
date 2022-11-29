@@ -67,10 +67,7 @@ class Car extends \Pimcore\Model\DataObject\Car
         return $this->getObjectType() === self::OBJECT_TYPE_ACTUAL_CAR ? self::OBJECT_TYPE_VARIANT : self::OBJECT_TYPE_OBJECT;
     }
 
-    /**
-     * @return int
-     */
-    public function getOSParentId()
+    public function getOSParentId(): int
     {
         if ($this->getObjectType() == self::OBJECT_TYPE_ACTUAL_CAR) {
             $parent = $this->getParent();

@@ -25,6 +25,7 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ElasticSear
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
 use Pimcore\Model\Document\Editable\Area\Info;
 use Pimcore\Targeting\VisitorInfoStorage;
+use Symfony\Component\HttpFoundation\Response;
 
 class PersonalizedProductTeaser extends AbstractAreabrick
 {
@@ -67,17 +68,17 @@ class PersonalizedProductTeaser extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Personalized Product Teaser';
     }
 
-    public function action(Info $info)
+    public function action(Info $info): ?Response
     {
         $info->setParam('usePersonalizedData', false);
 
         if (! $this->visitorInfoStorage->hasVisitorInfo()) {
-            return;
+            return null;
         }
 
         //get relevant segments for filtering
@@ -85,7 +86,7 @@ class PersonalizedProductTeaser extends AbstractAreabrick
         $segmentCollection = $this->segmentTracker->getFilteredAssignments($this->visitorInfoStorage->getVisitorInfo(), $allowedSegmentGroups, 2);
 
         if (empty($segmentCollection)) {
-            return;
+            return null;
         }
 
         //build filter list

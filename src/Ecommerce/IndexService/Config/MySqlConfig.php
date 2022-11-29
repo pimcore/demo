@@ -25,7 +25,7 @@ class MySqlConfig extends DefaultMysql
     /**
      * @return string
      */
-    public function getTablename()
+    public function getTablename(): string
     {
         return 'shop_productindex';
     }
@@ -33,7 +33,7 @@ class MySqlConfig extends DefaultMysql
     /**
      * @return string
      */
-    public function getRelationTablename()
+    public function getRelationTablename(): string
     {
         return 'shop_productindex_relations';
     }
@@ -42,7 +42,7 @@ class MySqlConfig extends DefaultMysql
      * @param IndexableInterface $object
      * @return bool
      */
-    public function inIndex(IndexableInterface $object)
+    public function inIndex(IndexableInterface $object): bool
     {
         return $object instanceof Car || $object instanceof AccessoryPart;
     }

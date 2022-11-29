@@ -81,7 +81,7 @@ class QualityCalculator implements DynamicTextLabelInterface, CalculatorClassInt
      *
      * @return string
      */
-    public function renderLayoutText($data, $object, $params)
+    public function renderLayoutText($data, $object, $params): string
     {
         if ($object instanceof Car) {
             $quality = [];

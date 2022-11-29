@@ -26,7 +26,7 @@ class PimcoreUrl extends \Pimcore\Twig\Extension\Templating\PimcoreUrl
      *
      * @return string
      */
-    public function __invoke(array $urlOptions = [], $name = null, $reset = false, $encode = true, $relative = false)
+    public function __invoke(array $urlOptions = [], $name = null, $reset = false, $encode = true, $relative = false): string
     {
         // merge all parameters from request to parameters
         if (!$reset && $this->requestHelper->hasMainRequest()) {
