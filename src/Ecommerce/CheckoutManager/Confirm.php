@@ -28,7 +28,7 @@ class Confirm extends AbstractStep implements CheckoutStepInterface
     /**
      * @inheritdoc
      */
-    public function getName()
+    public function getName(): string
     {
         return 'confirm';
     }
@@ -36,7 +36,7 @@ class Confirm extends AbstractStep implements CheckoutStepInterface
     /**
      * @inheritdoc
      */
-    public function commit($data)
+    public function commit($data): bool
     {
         $this->cart->setCheckoutData(self::PRIVATE_NAMESPACE, json_encode($data));
 
@@ -46,9 +46,9 @@ class Confirm extends AbstractStep implements CheckoutStepInterface
     /**
      * @inheritdoc
      */
-    public function getData()
+    public function getData(): mixed
     {
-        $data = json_decode($this->cart->getCheckoutData(self::PRIVATE_NAMESPACE));
+        $data = json_decode((string) $this->cart->getCheckoutData(self::PRIVATE_NAMESPACE));
 
         return $data;
     }

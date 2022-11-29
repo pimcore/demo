@@ -18,6 +18,7 @@ namespace App\Ecommerce\Cart\PriceModificator;
 use App\Model\Product\AccessoryPart;
 use App\Model\Product\Car;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface;
+use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartPriceModificator\CartPriceModificatorInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\ModificatedPrice;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\ModificatedPriceInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\PriceInterface;
@@ -54,7 +55,7 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Shipping';
     }
@@ -67,7 +68,7 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
      *
      * @return ModificatedPriceInterface
      */
-    public function modify(PriceInterface $currentSubTotal, CartInterface $cart)
+    public function modify(PriceInterface $currentSubTotal, CartInterface $cart): ModificatedPrice|ModificatedPriceInterface
     {
         $carCount = 0;
         $hasAccessories = false;
@@ -100,11 +101,13 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
         return $modificatedPrice;
     }
 
-    public function setCharge(Decimal $charge)
+    public function setCharge(Decimal $charge): CartPriceModificatorInterface
     {
         if ($charge->isZero()) {
             $this->baseCharge = Decimal::zero();
             $this->carCharge = Decimal::zero();
         }
+
+        return $this;
     }
 }

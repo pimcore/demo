@@ -110,6 +110,8 @@ class PersonalizedProductTeaser extends AbstractAreabrick
             $info->setParam('productList', $productList);
             $info->setParam('usePersonalizedData', true);
         }
+
+        return null;
     }
 
     protected function addRelationCondition(ProductListInterface $productList, $values)
