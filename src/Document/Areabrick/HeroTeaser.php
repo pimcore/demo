@@ -20,7 +20,7 @@ class HeroTeaser extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Hero Teaser';
     }

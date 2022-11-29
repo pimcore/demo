@@ -14,7 +14,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'implementsInterfaces' => NULL,
    'title' => '',
    'group' => '',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
@@ -27,9 +27,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'children' => 
+     'children' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
@@ -42,16 +42,16 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'children' => 
+         'children' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'numberOfDoors',
              'title' => 'Number Of Doors',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -61,7 +61,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => '',
@@ -75,14 +75,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'decimalPrecision' => NULL,
              'defaultValueGenerator' => '',
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'numberOfSeats',
              'title' => 'Number Of Seats',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -92,7 +92,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => '',
@@ -106,14 +106,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'decimalPrecision' => NULL,
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
              'name' => 'cargoCapacity',
              'title' => 'Cargo Capacity',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -123,14 +123,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => NULL,
              'unitWidth' => NULL,
              'defaultValue' => NULL,
              'defaultUnit' => '4',
-             'validUnits' => 
+             'validUnits' =>
             array (
               0 => '4',
             ),
@@ -146,7 +146,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' => 
+         'blockedVarsForExport' =>
         array (
         ),
          'fieldtype' => 'panel',
@@ -158,7 +158,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' => 
+     'blockedVarsForExport' =>
     array (
     ),
      'fieldtype' => 'panel',
@@ -169,12 +169,12 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
-   'blockedVarsForExport' => 
+   'blockedVarsForExport' =>
   array (
   ),
-   'classDefinitions' => 
+   'classDefinitions' =>
   array (
-    0 => 
+    0 =>
     array (
       'classname' => 'Car',
       'fieldname' => 'attributes',

@@ -16,6 +16,7 @@
 namespace App\EventListener;
 
 use Pimcore\Bundle\AdminBundle\Security\Event\LogoutListener;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Environment;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EnvironmentInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\EventListener\SessionBagListener;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -47,7 +48,7 @@ class AuthenticationLogoutListener extends LogoutListener
     public function onLogoutSuccess(Request $request): RedirectResponse|Response
     {
         // unset user in environment
-        $this->environment->setCurrentUserId(null);
+        $this->environment->setCurrentUserId(Environment::USER_ID_NOT_SET);
         $this->environment->save();
 
         // clear complete e-commerce framework session

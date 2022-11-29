@@ -20,7 +20,7 @@ class PrintPageBreak extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Print PageBreak';
     }

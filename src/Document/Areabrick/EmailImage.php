@@ -20,7 +20,7 @@ class EmailImage extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'E-Mail Image';
     }

@@ -17,7 +17,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'implementsInterfaces' => '',
    'title' => '',
    'group' => 'FilterTypes',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
@@ -30,9 +30,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'children' => 
+     'children' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => '',
@@ -45,9 +45,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => '',
-         'children' => 
+         'children' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
              'name' => 'Layout',
              'type' => NULL,
@@ -60,11 +60,11 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'bodyStyle' => 'padding: 10px; background-color: #d9edf7; border-color: #bce8f1 !important; color: #31708f;',
              'datatype' => 'layout',
              'permissions' => NULL,
-             'children' => 
+             'children' =>
             array (
             ),
              'locked' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'fieldtype' => 'text',
@@ -73,14 +73,14 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'renderingData' => NULL,
              'border' => false,
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'label',
              'title' => 'Label',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => '',
@@ -90,28 +90,28 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 400,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
              'name' => 'preSelect',
              'title' => 'Pre Select',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => '',
@@ -121,12 +121,12 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'classes' => 
+             'classes' =>
             array (
-              0 => 
+              0 =>
               array (
                 'classes' => 'Category',
               ),
@@ -136,22 +136,22 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'assetUploadPath' => '',
              'objectsAllowed' => true,
              'assetsAllowed' => false,
-             'assetTypes' => 
+             'assetTypes' =>
             array (
             ),
              'documentsAllowed' => false,
-             'documentTypes' => 
+             'documentTypes' =>
             array (
             ),
           )),
-          3 => 
+          3 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
              'name' => 'rootCategory',
              'title' => 'Root Category',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -161,12 +161,12 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'classes' => 
+             'classes' =>
             array (
-              0 => 
+              0 =>
               array (
                 'classes' => 'Category',
               ),
@@ -176,22 +176,22 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'assetUploadPath' => '',
              'objectsAllowed' => true,
              'assetsAllowed' => false,
-             'assetTypes' => 
+             'assetTypes' =>
             array (
             ),
              'documentsAllowed' => false,
-             'documentTypes' => 
+             'documentTypes' =>
             array (
             ),
           )),
-          4 => 
+          4 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Checkbox::__set_state(array(
              'name' => 'includeParentCategories',
              'title' => 'Include SubCategories',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => '',
@@ -201,20 +201,20 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'defaultValue' => 0,
              'defaultValueGenerator' => '',
           )),
-          5 => 
+          5 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'scriptPath',
              'title' => 'Script Path',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => '',
@@ -224,28 +224,28 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 400,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' => 
+             'regexFlags' =>
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          6 => 
+          6 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
              'name' => 'availableCategories',
              'title' => 'Available Categories',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => '',
@@ -255,12 +255,12 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'classes' => 
+             'classes' =>
             array (
-              0 => 
+              0 =>
               array (
                 'classes' => 'ProductCategory',
               ),
@@ -273,13 +273,13 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'allowToCreateNewObject' => true,
              'optimizedAdminLoading' => false,
              'enableTextSelection' => false,
-             'visibleFieldDefinitions' => 
+             'visibleFieldDefinitions' =>
             array (
             ),
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' => 
+         'blockedVarsForExport' =>
         array (
         ),
          'fieldtype' => 'panel',
@@ -291,7 +291,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' => 
+     'blockedVarsForExport' =>
     array (
     ),
      'fieldtype' => 'panel',
@@ -302,7 +302,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
-   'blockedVarsForExport' => 
+   'blockedVarsForExport' =>
   array (
   ),
 ));

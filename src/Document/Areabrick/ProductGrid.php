@@ -17,18 +17,19 @@ namespace App\Document\Areabrick;
 
 use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Model\Document\Editable\Area\Info;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductGrid extends AbstractAreabrick
 {
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Product Grid';
     }
 
-    public function action(Info $info)
+    public function action(Info $info): ?Response
     {
         /**
          * @var $filterDefinition FilterDefinition

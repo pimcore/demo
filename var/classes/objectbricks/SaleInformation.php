@@ -16,7 +16,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'implementsInterfaces' => NULL,
    'title' => '',
    'group' => '',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
@@ -29,9 +29,9 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'children' => 
+     'children' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
@@ -44,16 +44,16 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'children' => 
+         'children' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'availabilityPieces',
              'title' => 'Availability Pieces',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -63,7 +63,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => '',
@@ -77,14 +77,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'decimalPrecision' => NULL,
              'defaultValueGenerator' => '',
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'name' => 'availabilityType',
              'title' => 'Availability Type',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -94,22 +94,22 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'couple-weeks',
                 'value' => 'couple-weeks',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'couple-days',
                 'value' => 'couple-days',
               ),
-              2 => 
+              2 =>
               array (
                 'key' => 'instant',
                 'value' => 'instant',
@@ -123,14 +123,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'dynamicOptions' => false,
              'defaultValueGenerator' => '',
           )),
-          2 => 
+          2 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'name' => 'condition',
              'title' => 'Condition',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -140,27 +140,27 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'options' => 
+             'options' =>
             array (
-              0 => 
+              0 =>
               array (
                 'key' => 'broken',
                 'value' => 'broken',
               ),
-              1 => 
+              1 =>
               array (
                 'key' => 'reworked',
                 'value' => 'reworked',
               ),
-              2 => 
+              2 =>
               array (
                 'key' => 'used',
                 'value' => 'used',
               ),
-              3 => 
+              3 =>
               array (
                 'key' => 'new',
                 'value' => 'new',
@@ -174,14 +174,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'dynamicOptions' => false,
              'defaultValueGenerator' => '',
           )),
-          3 => 
+          3 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'priceInEUR',
              'title' => 'Price in EUR',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -191,7 +191,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => '',
@@ -205,14 +205,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'decimalPrecision' => 2,
              'defaultValueGenerator' => '',
           )),
-          4 => 
+          4 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
              'name' => 'milage',
              'title' => 'Milage',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -222,14 +222,14 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => NULL,
              'unitWidth' => NULL,
              'defaultValue' => NULL,
              'defaultUnit' => '7',
-             'validUnits' => 
+             'validUnits' =>
             array (
               0 => '8',
               1 => '7',
@@ -246,7 +246,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' => 
+         'blockedVarsForExport' =>
         array (
         ),
          'fieldtype' => 'panel',
@@ -258,7 +258,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' => 
+     'blockedVarsForExport' =>
     array (
     ),
      'fieldtype' => 'panel',
@@ -269,17 +269,17 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
-   'blockedVarsForExport' => 
+   'blockedVarsForExport' =>
   array (
   ),
-   'classDefinitions' => 
+   'classDefinitions' =>
   array (
-    0 => 
+    0 =>
     array (
       'classname' => 'Car',
       'fieldname' => 'saleInformation',
     ),
-    1 => 
+    1 =>
     array (
       'classname' => 'AccessoryPart',
       'fieldname' => 'saleInformation',

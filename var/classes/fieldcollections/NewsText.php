@@ -13,7 +13,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'implementsInterfaces' => NULL,
    'title' => '',
    'group' => 'News',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
@@ -26,9 +26,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'children' => 
+     'children' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
@@ -41,9 +41,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => '',
          'datatype' => 'layout',
          'permissions' => NULL,
-         'children' => 
+         'children' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
              'name' => 'localizedfields',
              'title' => '',
@@ -60,19 +60,19 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'children' => 
+             'children' =>
             array (
-              0 => 
+              0 =>
               Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
                  'name' => 'text',
                  'title' => 'Text',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
-                 'index' => false,
+                 'index' => null,
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
@@ -82,7 +82,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'blockedVarsForExport' => 
+                 'blockedVarsForExport' =>
                 array (
                 ),
                  'width' => '',
@@ -101,7 +101,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'provideSplitView' => false,
              'tabPosition' => NULL,
              'hideLabelsWhenTabsReached' => NULL,
-             'referencedFields' => 
+             'referencedFields' =>
             array (
             ),
              'fieldDefinitionsCache' => NULL,
@@ -112,7 +112,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' => 
+         'blockedVarsForExport' =>
         array (
         ),
          'fieldtype' => 'panel',
@@ -124,7 +124,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' => 
+     'blockedVarsForExport' =>
     array (
     ),
      'fieldtype' => 'panel',
@@ -135,7 +135,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
-   'blockedVarsForExport' => 
+   'blockedVarsForExport' =>
   array (
   ),
 ));

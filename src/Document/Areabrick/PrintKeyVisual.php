@@ -20,7 +20,7 @@ class PrintKeyVisual extends AbstractAreabrick
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Print KeyVisual';
     }

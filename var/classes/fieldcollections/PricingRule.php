@@ -14,7 +14,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Order Details',
-   'layoutDefinitions' => 
+   'layoutDefinitions' =>
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
@@ -27,9 +27,9 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
-     'children' => 
+     'children' =>
     array (
-      0 => 
+      0 =>
       Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
@@ -42,16 +42,16 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'bodyStyle' => NULL,
          'datatype' => 'layout',
          'permissions' => NULL,
-         'children' => 
+         'children' =>
         array (
-          0 => 
+          0 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'ruleId',
              'title' => 'Rule Id',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => false,
+             'index' => null,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
@@ -61,7 +61,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
              'width' => 100,
@@ -75,7 +75,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'decimalPrecision' => NULL,
              'defaultValueGenerator' => '',
           )),
-          1 => 
+          1 =>
           Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
              'name' => 'localizedfields',
              'title' => '',
@@ -92,19 +92,19 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
-             'blockedVarsForExport' => 
+             'blockedVarsForExport' =>
             array (
             ),
-             'children' => 
+             'children' =>
             array (
-              0 => 
+              0 =>
               Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'name',
                  'title' => 'Name',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
-                 'index' => false,
+                 'index' => null,
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
@@ -114,14 +114,14 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'blockedVarsForExport' => 
+                 'blockedVarsForExport' =>
                 array (
                 ),
                  'width' => 300,
                  'defaultValue' => NULL,
                  'columnLength' => 255,
                  'regex' => '',
-                 'regexFlags' => 
+                 'regexFlags' =>
                 array (
                 ),
                  'unique' => false,
@@ -138,7 +138,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'provideSplitView' => NULL,
              'tabPosition' => 'top',
              'hideLabelsWhenTabsReached' => NULL,
-             'referencedFields' => 
+             'referencedFields' =>
             array (
             ),
              'fieldDefinitionsCache' => NULL,
@@ -147,7 +147,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' => 
+         'blockedVarsForExport' =>
         array (
         ),
          'fieldtype' => 'panel',
@@ -159,7 +159,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' => 
+     'blockedVarsForExport' =>
     array (
     ),
      'fieldtype' => 'panel',
@@ -170,7 +170,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'labelAlign' => 'left',
   )),
    'generateTypeDeclarations' => true,
-   'blockedVarsForExport' => 
+   'blockedVarsForExport' =>
   array (
   ),
 ));
