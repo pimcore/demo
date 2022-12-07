@@ -520,7 +520,7 @@ CREATE TABLE `object_collection_FilterCategoryMultiselect_localized_EF_FD` (
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_8C2E3279A94707C7` (`id`),
+  KEY `IDX_8C2E3279A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterCategoryMultiselect_localize_4abb1d7a` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -732,7 +732,7 @@ CREATE TABLE `object_collection_FilterNumberRangeSelection_localized_EF_FD` (
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_81EC7656A94707C7` (`000_id`),
+  KEY `IDX_81EC7656A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterNumberRangeSelection_localiz_15c765c5` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
