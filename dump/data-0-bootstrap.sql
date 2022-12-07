@@ -511,17 +511,17 @@ CREATE TABLE `object_collection_FilterCategoryMultiselect_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterCategoryMultiselect_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterCategoryMultiselect_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
   KEY `IDX_8C2E3279A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterCategoryMultiselect_localize_4abb1d7a` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  CONSTRAINT `fk_object_collection_FilterCategoryMultiselect_localize_4abb1d7a` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -545,17 +545,17 @@ CREATE TABLE `object_collection_FilterCategory_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterCategory_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterCategory_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_21FD7525A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterCategory_localized_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_21FD7525A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterCategory_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -582,17 +582,17 @@ CREATE TABLE `object_collection_FilterInputfield_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterInputfield_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterInputfield_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_F447F022A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterInputfield_localized_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_F447F022A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterInputfield_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -619,17 +619,17 @@ CREATE TABLE `object_collection_FilterMultiRelation_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterMultiRelation_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterMultiRelation_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_AB8E56F0A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterMultiRelation_localized_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_AB8E56F0A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterMultiRelation_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -676,17 +676,17 @@ CREATE TABLE `object_collection_FilterMultiSelect_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterMultiSelect_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterMultiSelect_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_D3D71AF9A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterMultiSelect_localized_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_D3D71AF9A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterMultiSelect_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -723,17 +723,17 @@ CREATE TABLE `object_collection_FilterNumberRangeSelection_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterNumberRangeSelection_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterNumberRangeSelection_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_81EC7656A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterNumberRangeSelection_localiz_15c765c5` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_81EC7656A94707C7` (`000_id`),
+  CONSTRAINT `fk_object_collection_FilterNumberRangeSelection_localiz_15c765c5` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -763,17 +763,17 @@ CREATE TABLE `object_collection_FilterNumberRange_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterNumberRange_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterNumberRange_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_A7FE373AA94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterNumberRange_localized_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_A7FE373AA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterNumberRange_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -799,17 +799,17 @@ CREATE TABLE `object_collection_FilterRelation_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterRelation_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterRelation_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_E5DA3D6FA94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterRelation_localized_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_E5DA3D6FA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterRelation_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -835,17 +835,17 @@ CREATE TABLE `object_collection_FilterSelectFromMultiSelect_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterSelectFromMultiSelect_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterSelectFromMultiSelect_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_AE9B40CEA94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterSelectFromMultiSelect_locali_66ddb75e` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_AE9B40CEA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterSelectFromMultiSelect_locali_66ddb75e` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -871,17 +871,17 @@ CREATE TABLE `object_collection_FilterSelect_EF_FD` (
 
 DROP TABLE IF EXISTS `object_collection_FilterSelect_localized_EF_FD`;
 CREATE TABLE `object_collection_FilterSelect_localized_EF_FD` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `label` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_3E6DC489A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_FilterSelect_localized_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_3E6DC489A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_FilterSelect_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -902,17 +902,17 @@ CREATE TABLE `object_collection_NewsCars_NE` (
 
 DROP TABLE IF EXISTS `object_collection_NewsCars_localized_NE`;
 CREATE TABLE `object_collection_NewsCars_localized_NE` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_34B3B198A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_NewsCars_localized_NE__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_34B3B198A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_NewsCars_localized_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -934,17 +934,17 @@ CREATE TABLE `object_collection_NewsLinks_NE` (
 
 DROP TABLE IF EXISTS `object_collection_NewsLinks_localized_NE`;
 CREATE TABLE `object_collection_NewsLinks_localized_NE` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_2DC5C691A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_NewsLinks_localized_NE__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_2DC5C691A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_NewsLinks_localized_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -965,17 +965,17 @@ CREATE TABLE `object_collection_NewsText_NE` (
 
 DROP TABLE IF EXISTS `object_collection_NewsText_localized_NE`;
 CREATE TABLE `object_collection_NewsText_localized_NE` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `text` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_D583CFFFA94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_NewsText_localized_NE__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_D583CFFFA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_NewsText_localized_NE__ooo_id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -1054,17 +1054,17 @@ CREATE TABLE `object_collection_PricingRule_EF_OSOI` (
 
 DROP TABLE IF EXISTS `object_collection_PricingRule_localized_EF_OSOI`;
 CREATE TABLE `object_collection_PricingRule_localized_EF_OSOI` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
   KEY `IDX_C001B98BA94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_PricingRule_localized_EF_OSOI__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  CONSTRAINT `fk_object_collection_PricingRule_localized_EF_OSOI__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -1102,17 +1102,17 @@ CREATE TABLE `object_collection_TaxEntry_EF_OSTC` (
 
 DROP TABLE IF EXISTS `object_collection_TaxEntry_localized_EF_OSTC`;
 CREATE TABLE `object_collection_TaxEntry_localized_EF_OSTC` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `index` int(11) NOT NULL DEFAULT 0,
   `fieldname` varchar(190) NOT NULL DEFAULT '',
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`,`index`,`fieldname`),
+  PRIMARY KEY (`ooo_id`,`language`,`index`,`fieldname`),
   KEY `index` (`index`),
   KEY `fieldname` (`fieldname`),
   KEY `language` (`language`),
-  KEY `IDX_81B466B2A94707C7` (`id`),
-  CONSTRAINT `fk_object_collection_TaxEntry_localized_EF_OSTC__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_81B466B2A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_collection_TaxEntry_localized_EF_OSTC__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -1158,334 +1158,334 @@ CREATE TABLE `object_collection_VoucherTokenTypeSingle_EF_OSVS` (
 
 DROP TABLE IF EXISTS `object_localized_data_AP`;
 CREATE TABLE `object_localized_data_AP` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `nameAddition` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_783A5A3BA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_data_AP__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_783A5A3BA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_data_AP__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_data_BS`;
 CREATE TABLE `object_localized_data_BS` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_CA1E5842A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_data_BS__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_CA1E5842A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_data_BS__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_data_CA`;
 CREATE TABLE `object_localized_data_CA` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_20BC184BA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_data_CA__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_20BC184BA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_data_CA__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_data_CAR`;
 CREATE TABLE `object_localized_data_CAR` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_B649FB55A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_data_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_B649FB55A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_data_CAR__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_data_EV`;
 CREATE TABLE `object_localized_data_EV` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(255) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_F5353A0AA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_data_EV__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_F5353A0AA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_data_EV__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_data_NE`;
 CREATE TABLE `object_localized_data_NE` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_927FA21FA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_data_NE__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_927FA21FA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_data_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_AP_de`;
 CREATE TABLE `object_localized_query_AP_de` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `nameAddition` varchar(190) DEFAULT NULL,
   `generatedName` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_FCCC8968A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_AP_de__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_FCCC8968A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_AP_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_AP_en`;
 CREATE TABLE `object_localized_query_AP_en` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `nameAddition` varchar(190) DEFAULT NULL,
   `generatedName` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_720561A1A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_AP_en__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_720561A1A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_AP_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_AP_fr`;
 CREATE TABLE `object_localized_query_AP_fr` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `nameAddition` varchar(190) DEFAULT NULL,
   `generatedName` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_4D296E2DA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_AP_fr__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_4D296E2DA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_AP_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_BS_de`;
 CREATE TABLE `object_localized_query_BS_de` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_A9D95C56A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_BS_de__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_A9D95C56A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_BS_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_BS_en`;
 CREATE TABLE `object_localized_query_BS_en` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_2710B49FA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_BS_en__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_2710B49FA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_BS_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_BS_fr`;
 CREATE TABLE `object_localized_query_BS_fr` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_183CBB13A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_BS_fr__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_183CBB13A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_BS_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_CAR_de`;
 CREATE TABLE `object_localized_query_CAR_de` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   `textsAvailable` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_7F48A36DA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_CAR_de__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_7F48A36DA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_CAR_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_CAR_en`;
 CREATE TABLE `object_localized_query_CAR_en` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   `textsAvailable` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_F1814BA4A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_CAR_en__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_F1814BA4A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_CAR_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_CAR_fr`;
 CREATE TABLE `object_localized_query_CAR_fr` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   `textsAvailable` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_CEAD4428A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_CAR_fr__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_CEAD4428A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_CAR_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_CA_de`;
 CREATE TABLE `object_localized_query_CA_de` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_6EA9EAF2A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_CA_de__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_6EA9EAF2A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_CA_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_CA_en`;
 CREATE TABLE `object_localized_query_CA_en` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_E060023BA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_CA_en__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_E060023BA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_CA_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_CA_fr`;
 CREATE TABLE `object_localized_query_CA_fr` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `name` varchar(190) DEFAULT NULL,
   `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_DF4C0DB7A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_CA_fr__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_DF4C0DB7A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_CA_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_EV_de`;
 CREATE TABLE `object_localized_query_EV_de` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(255) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_2C277074A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_EV_de__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_2C277074A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_EV_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_EV_en`;
 CREATE TABLE `object_localized_query_EV_en` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(255) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_A2EE98BDA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_EV_en__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_A2EE98BDA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_EV_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_EV_fr`;
 CREATE TABLE `object_localized_query_EV_fr` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(255) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_9DC29731A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_EV_fr__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_9DC29731A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_EV_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_NE_de`;
 CREATE TABLE `object_localized_query_NE_de` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_195BB914A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_NE_de__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_195BB914A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_NE_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_NE_en`;
 CREATE TABLE `object_localized_query_NE_en` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_979251DDA94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_NE_en__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_979251DDA94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_NE_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
 DROP TABLE IF EXISTS `object_localized_query_NE_fr`;
 CREATE TABLE `object_localized_query_NE_fr` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `language` varchar(10) NOT NULL DEFAULT '',
   `title` varchar(190) DEFAULT NULL,
   `shortText` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`language`),
+  PRIMARY KEY (`ooo_id`,`language`),
   KEY `language` (`language`),
-  KEY `IDX_A8BE5E51A94707C7` (`id`),
-  CONSTRAINT `fk_object_localized_query_NE_fr__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+  KEY `IDX_A8BE5E51A94707C7` (`ooo_id`),
+  CONSTRAINT `fk_object_localized_query_NE_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
