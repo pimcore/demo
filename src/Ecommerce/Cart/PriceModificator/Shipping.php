@@ -62,8 +62,6 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
      *
      * @param PriceInterface $currentSubTotal - current sub total which is modified and returned
      * @param CartInterface $cart - cart
-     *
-     * @return ModificatedPriceInterface
      */
     public function modify(PriceInterface $currentSubTotal, CartInterface $cart): ModificatedPrice|ModificatedPriceInterface
     {
