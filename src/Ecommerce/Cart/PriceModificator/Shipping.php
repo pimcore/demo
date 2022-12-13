@@ -52,9 +52,6 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return 'Shipping';
