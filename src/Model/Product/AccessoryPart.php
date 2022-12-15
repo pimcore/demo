@@ -80,7 +80,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
     {
         $paths = [];
         foreach ($this->getCompatibleTo() as $compatible) {
-            $paths[] = 'o_path LIKE "' . $compatible->getFullPath() . '%"';
+            $paths[] = 'path LIKE "' . $compatible->getFullPath() . '%"';
         }
 
         $listing = new Listing();

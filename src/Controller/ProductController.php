@@ -120,9 +120,9 @@ class ProductController extends BaseController
             $productList = $ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
             $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
             if ($productList instanceof DefaultMysql) {
-                $productList->addCondition('o_id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'o_id');
+                $productList->addCondition('id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'id');
             } elseif ($productList instanceof AbstractElasticSearch) {
-                $productList->addCondition(['terms' => ['system.o_id' => $product->getCompatibleToProductIds()]], 'o_id');
+                $productList->addCondition(['terms' => ['system.id' => $product->getCompatibleToProductIds()]], 'id');
             }
 
             foreach ($productList as $compatibleProduct) {
@@ -297,11 +297,11 @@ class ProductController extends BaseController
                     ],
                     'functions' => [
                         [
-                            'filter' => ['match' => ['system.o_classId' => 'AP']],
+                            'filter' => ['match' => ['system.classId' => 'AP']],
                             'weight' => 1
                         ],
                         [
-                            'filter' => ['match' => ['system.o_classId' => 'CAR']],
+                            'filter' => ['match' => ['system.classId' => 'CAR']],
                             'weight' => 2
                         ]
                     ],

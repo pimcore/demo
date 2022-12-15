@@ -11,7 +11,7 @@ pimcore.plugin.extendadmin = Class.create(pimcore.plugin.admin, {
     },
 
     postOpenObject: function (object, type) {
-        if (object.data.general.o_className == 'Car' && object.data.data.objectType == "actual-car") {
+        if (object.data.general.className == 'Car' && object.data.data.objectType == "actual-car") {
             object.toolbar.add({
                 text: t('print-pdf'),
                 iconCls: 'pimcore_icon_pdf',
