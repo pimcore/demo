@@ -154,7 +154,7 @@ class ProductController extends BaseController
         //needed to make sure category filter filters for active category
         $params['parentCategoryIds'] = $params['category'] ?? null;
 
-        $category = Category::getById($params['category'] ?? null);
+        $category = Category::getById($params['category'] ?? -1);
         $params['category'] = $category;
         if ($category) {
             $headTitleHelper($category->getName());
@@ -257,7 +257,7 @@ class ProductController extends BaseController
     {
         $params = $request->query->all();
 
-        $params['category'] = Category::getById($params['category'] ?? null);
+        $params['category'] = Category::getById($params['category'] ?? -1);
 
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();

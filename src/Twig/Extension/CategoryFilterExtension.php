@@ -75,7 +75,7 @@ class CategoryFilterExtension extends AbstractExtension
      */
     public function getCurrentCategory($currentValue)
     {
-        return Category::getById($currentValue);
+        return Category::getById($currentValue ?? -1);
     }
 
     /**
