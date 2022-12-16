@@ -1,0 +1,16 @@
+pimcore:
+    custom_views:
+        definitions:
+            4:
+                treetype: object
+                name: Categories
+                icon: /bundles/pimcoreadmin/img/flat-white-icons/pimcore-main-icon-category.svg
+                id: 4
+                showroot: false
+                rootfolder: '/Product Data/Categories'
+                classes:
+                    - 0
+                position: left
+                sort: '5'
+                expanded: true
+                joins: {  }

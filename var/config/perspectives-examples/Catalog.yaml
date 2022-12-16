@@ -1,0 +1,34 @@
+pimcore:
+    perspectives:
+        definitions:
+            Catalog:
+                elementTree:
+                    -
+                        type: customview
+                        id: 6
+                        position: left
+                        expanded: false
+                        hidden: false
+                        sort: 0
+                    -
+                        type: assets
+                        position: right
+                        expanded: false
+                        hidden: false
+                        sort: 0
+                    -
+                        type: customview
+                        id: 1
+                        position: right
+                        expanded: false
+                        hidden: false
+                        sort: 1
+                iconCls: null
+                icon: /bundles/pimcoreadmin/img/flat-white-icons/book.svg
+                toolbar:
+                    file: true
+                    extras: false
+                    marketing: false
+                    settings: false
+                    search: true
+                    ecommerce: false

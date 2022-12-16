@@ -1,0 +1,18 @@
+pimcore:
+    custom_views:
+        definitions:
+            5:
+                treetype: object
+                name: 'Product Attributes'
+                icon: /bundles/pimcoreadmin/img/flat-white-icons/pimcore-main-icon-setting.svg
+                id: 5
+                showroot: false
+                rootfolder: '/Product Data'
+                classes:
+                    - 0
+                    - 1
+                position: left
+                sort: '6'
+                expanded: true
+                where: '(o_path LIKE ''/Product Data/Manufacturer/%'' OR o_key = ''Manufacturer'' OR o_path LIKE ''/Product Data/Body-Styles/%'' OR o_key = ''Body-Styles'')'
+                joins: {  }

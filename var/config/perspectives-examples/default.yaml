@@ -1,0 +1,47 @@
+pimcore:
+    perspectives:
+        definitions:
+            default:
+                elementTree:
+                    -
+                        type: documents
+                        position: left
+                        expanded: false
+                        hidden: false
+                        sort: 0
+                    -
+                        type: assets
+                        position: left
+                        expanded: false
+                        hidden: false
+                        sort: 1
+                    -
+                        type: objects
+                        position: left
+                        expanded: false
+                        hidden: false
+                        sort: 2
+                iconCls: pimcore_nav_icon_perspective
+                icon: null
+                dashboards:
+                    predefined:
+                        welcome:
+                            positions:
+                                -
+                                    -
+                                        id: 1
+                                        type: pimcore.layout.portlets.modificationStatistic
+                                        config: null
+                                    -
+                                        id: 2
+                                        type: pimcore.layout.portlets.modifiedAssets
+                                        config: null
+                                -
+                                    -
+                                        id: 3
+                                        type: pimcore.layout.portlets.modifiedObjects
+                                        config: null
+                                    -
+                                        id: 4
+                                        type: pimcore.layout.portlets.modifiedDocuments
+                                        config: null

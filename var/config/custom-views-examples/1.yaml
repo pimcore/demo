@@ -1,0 +1,17 @@
+pimcore:
+    custom_views:
+        definitions:
+            1:
+                treetype: object
+                name: Cars
+                condition: null
+                icon: /bundles/pimcoreadmin/img/flat-white-icons/automotive.svg
+                id: 1
+                rootfolder: '/Product Data/Cars'
+                showroot: false
+                classes:
+                    - 0
+                position: left
+                sort: '3'
+                expanded: true
+                joins: {  }

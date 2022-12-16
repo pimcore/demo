@@ -1,0 +1,37 @@
+pimcore:
+    perspectives:
+        definitions:
+            CMS:
+                elementTree:
+                    -
+                        type: documents
+                        position: left
+                        expanded: false
+                        hidden: false
+                        sort: 0
+                    -
+                        type: customview
+                        name: Products
+                        hidden: 'true'
+                        sort: 1
+                        position: left
+                    -
+                        type: customview
+                        name: Orders
+                        hidden: 'true'
+                        sort: 2
+                        position: left
+                    -
+                        type: assets
+                        position: right
+                        expanded: false
+                        hidden: false
+                        sort: 0
+                    -
+                        type: objects
+                        position: right
+                        expanded: false
+                        hidden: false
+                        sort: 1
+                iconCls: pimcore_nav_icon_document
+                icon: null

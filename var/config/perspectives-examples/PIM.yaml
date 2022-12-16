@@ -1,0 +1,72 @@
+pimcore:
+    perspectives:
+        definitions:
+            PIM:
+                elementTree:
+                    -
+                        type: customview
+                        id: 1
+                        hidden: false
+                        position: left
+                        sort: 0
+                    -
+                        type: customview
+                        id: 2
+                        hidden: false
+                        position: left
+                        sort: 1
+                    -
+                        type: documents
+                        position: left
+                        expanded: false
+                        hidden: true
+                        sort: 2
+                    -
+                        type: objects
+                        position: left
+                        expanded: false
+                        hidden: true
+                        sort: 3
+                    -
+                        type: customview
+                        id: 4
+                        hidden: false
+                        position: right
+                        sort: 0
+                    -
+                        type: customview
+                        id: 5
+                        hidden: false
+                        position: right
+                        sort: 1
+                    -
+                        type: assets
+                        position: right
+                        expanded: false
+                        hidden: false
+                        sort: 2
+                iconCls: pimcore_nav_icon_object
+                icon: null
+                toolbar:
+                    file: 1
+                    extras:
+                        hidden: true
+                    marketing:
+                        hidden: true
+                    settings:
+                        items:
+                            documentTypes: false
+                            predefinedProperties: false
+                            predefinedMetadata: false
+                            system: false
+                            routes: false
+                            thumbnails: false
+                            adminTranslations: false
+                            website: false
+                            users: false
+                            cache: false
+                    search:
+                        items:
+                            documents: false
+                            esBackendSearch: false
+                    ecommerce: false
