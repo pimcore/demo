@@ -200,7 +200,9 @@ services:
     App\EventListener\AuthenticationLoginListener: ~
 
     # authentication login listener for updating e-commerce framework environment after logout
-    App\EventListener\AuthenticationLogoutListener: ~
+    App\EventListener\AuthenticationLogoutListener:
+        tags:
+            - { name: 'kernel.event_subscriber', dispatcher: 'security.event_dispatcher.pimcore_admin' }
 
 
 
