@@ -90,7 +90,7 @@ class CategoryFilterExtension extends AbstractExtension
         $parent = $currentCategory ?: $rootCategory;
 
         if ($parent) {
-            $subCategories = array_filter($parent->getChildren(), function ($item) {
+            $subCategories = array_filter($parent->getChildren()->load(), function ($item) {
                 return $item instanceof Category && $item->isPublished();
             });
 
