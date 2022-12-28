@@ -19,5 +19,4 @@ return [
     OutputDataConfigToolkitBundle::class => ['all' => true],
     Web2PrintToolsBundle::class => ['all' => true],
     ObjectMergerBundle::class => ['all' => true],
-
 ];
