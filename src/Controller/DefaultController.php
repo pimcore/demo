@@ -26,11 +26,9 @@ class DefaultController extends BaseController
     /**
      * @Route("/examples", name="examples")
      *
-     * @param Request $request
-     *
      * @return Response
      */
-    public function examplesAction(Request $request)
+    public function examplesAction(): Response
     {
         return $this->render('default/examples.html.twig');
     }
@@ -38,35 +36,23 @@ class DefaultController extends BaseController
     /**
      * @Template
      *
-     * @param Request $request
-     *
      * @return array
      */
-    public function defaultAction(Request $request)
+    public function defaultAction(): array
     {
         return [];
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function genericMailAction(Request $request)
+    public function genericMailAction(): Response
     {
         return $this->render('default/generic_mail.html.twig');
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function galleryRenderletAction(Request $request)
+    public function galleryRenderletAction(Request $request): Response
     {
         $params = [];
-        if ($request->get('id') && $request->get('type') === 'asset') {
-            $params['asset'] =  Asset::getById((int) $request->get('id'));
+        if ($request->attributes->get('id') && $request->attributes->get('type') === 'asset') {
+            $params['asset'] =  Asset::getById($request->attributes->getInt('id'));
         }
 
         return $this->render('default/gallery_renderlet.html.twig', $params);

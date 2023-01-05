@@ -217,9 +217,9 @@ class ProductController extends BaseController
     public function productTeaserAction(Request $request, Factory $ecommerceFactory): Response
     {
         $paramsBag = [];
-        if ($request->get('type') === 'object') {
+        if ($request->attributes->get('type') === 'object') {
             AbstractObject::setGetInheritedValues(true);
-            $product = AbstractProduct::getById((int) $request->get('id'));
+            $product = AbstractProduct::getById($request->attributes->getInt('id'));
 
             $paramsBag['product'] = $product;
 
@@ -234,30 +234,19 @@ class ProductController extends BaseController
     }
 
     /**
-     * @Route("/search", name="search")
-     *
-     * @param Request $request
-     * @param ListHelper $listHelper
-     * @param Factory $ecommerceFactory
-     * @param ProductLinkGenerator $productLinkGenerator
-     * @param Translator $translator
-     * @param BreadcrumbHelperService $breadcrumbHelperService
-     * @param HeadTitle $headTitleHelper
-     * @param Placeholder $placeholder
-     *
-     * @return Response|JsonResponse
+     * @Route("/search", name="search", methods={"GET"})
      */
-    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper, Placeholder $placeholder, PaginatorInterface $paginator)
+    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper, Placeholder $placeholder, PaginatorInterface $paginator): Response
     {
         $params = $request->query->all();
 
-        $params['category'] = Category::getById($params['category'] ?? -1);
+        $params['category'] = Category::getById((int) ($params['category'] ?? -1));
 
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
 
-        $term = strip_tags($request->get('term'));
+        $term = strip_tags($request->query->get('term'));
 
         if ($productListing instanceof AbstractElasticSearch) {
 
@@ -347,7 +336,7 @@ class ProductController extends BaseController
         // init pagination
         $paginator = $paginator->paginate(
             $productListing,
-            $request->get('page', 1),
+            $request->query->getInt('page', 1),
             $filterDefinition->getPageLimit()
         );
 

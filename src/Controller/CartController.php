@@ -60,11 +60,11 @@ class CartController extends FrontendController
      */
     public function addToCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
-        if (!$this->isCsrfTokenValid('addToCart', $request->get('_csrf_token'))) {
+        if (!$this->isCsrfTokenValid('addToCart', $request->request->get('_csrf_token'))) {
             throw new \Exception('Invalid request');
         }
 
-        $id = (int) $request->get('id');
+        $id = $request->query->getInt('id');
         $product = AbstractProduct::getById($id);
 
         if (null === $product) {
@@ -131,7 +131,7 @@ class CartController extends FrontendController
      */
     public function removeFromCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
-        $id = (int) $request->get('id');
+        $id = $request->query->getInt('id');
         $product = AbstractProduct::getById($id);
 
         $cart = $this->getCart();
