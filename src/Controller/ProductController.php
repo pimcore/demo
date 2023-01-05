@@ -214,18 +214,12 @@ class ProductController extends BaseController
         return $this->render('product/listing.html.twig', $params);
     }
 
-    /**
-     * @param Request $request
-     * @param Factory $ecommerceFactory
-     *
-     * @return Response
-     */
-    public function productTeaserAction(Request $request, Factory $ecommerceFactory)
+    public function productTeaserAction(Request $request, Factory $ecommerceFactory): Response
     {
         $paramsBag = [];
-        if ($request->get('type') == 'object') {
+        if ($request->get('type') === 'object') {
             AbstractObject::setGetInheritedValues(true);
-            $product = AbstractProduct::getById($request->get('id'));
+            $product = AbstractProduct::getById((int) $request->get('id'));
 
             $paramsBag['product'] = $product;
 

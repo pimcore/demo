@@ -56,20 +56,15 @@ class CartController extends FrontendController
     /**
      * @Route("/cart/add-to-cart", name="shop-add-to-cart", methods={"POST"})
      *
-     * @param Request $request
-     * @param Factory $ecommerceFactory
-     *
-     * @return RedirectResponse
-     *
      * @throws \Exception
      */
-    public function addToCartAction(Request $request, Factory $ecommerceFactory)
+    public function addToCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
         if (!$this->isCsrfTokenValid('addToCart', $request->get('_csrf_token'))) {
             throw new \Exception('Invalid request');
         }
 
-        $id = $request->get('id');
+        $id = (int) $request->get('id');
         $product = AbstractProduct::getById($id);
 
         if (null === $product) {
@@ -133,15 +128,10 @@ class CartController extends FrontendController
 
     /**
      * @Route("/cart/remove-from-cart", name="shop-remove-from-cart")
-     *
-     * @param Request $request
-     * @param Factory $ecommerceFactory
-     *
-     * @return RedirectResponse
      */
-    public function removeFromCartAction(Request $request, Factory $ecommerceFactory)
+    public function removeFromCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
-        $id = $request->get('id');
+        $id = (int) $request->get('id');
         $product = AbstractProduct::getById($id);
 
         $cart = $this->getCart();

@@ -66,7 +66,7 @@ class DefaultController extends BaseController
     {
         $params = [];
         if ($request->get('id') && $request->get('type') === 'asset') {
-            $params['asset'] =  Asset::getById($request->get('id'));
+            $params['asset'] =  Asset::getById((int) $request->get('id'));
         }
 
         return $this->render('default/gallery_renderlet.html.twig', $params);
