@@ -22,16 +22,8 @@ use Twig\TwigFunction;
 
 class CategoryFilterExtension extends AbstractExtension
 {
-    /**
-     * @var CategoryLinkGenerator
-     */
-    protected $categoryLinkGenerator;
+    protected CategoryLinkGenerator $categoryLinkGenerator;
 
-    /**
-     * CategoryFilterExtension constructor.
-     *
-     * @param CategoryLinkGenerator $categoryLinkGenerator
-     */
     public function __construct(CategoryLinkGenerator $categoryLinkGenerator)
     {
         $this->categoryLinkGenerator = $categoryLinkGenerator;
@@ -40,7 +32,7 @@ class CategoryFilterExtension extends AbstractExtension
     /**
      * @return TwigFunction[]
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('app_category_filter_generate_link', [$this, 'generateLink']),
@@ -48,12 +40,7 @@ class CategoryFilterExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param int $currentValue
-     * @param Category|null $rootCategory
-     * @return \stdClass
-     */
-    public function prepareData($currentValue, Category $rootCategory = null)
+    public function prepareData(int $currentValue, Category $rootCategory = null): \stdClass
     {
         $data = new \stdClass();
 
@@ -68,48 +55,30 @@ class CategoryFilterExtension extends AbstractExtension
         return $data;
     }
 
-    /**
-     * @param int $currentValue
-     *
-     * @return Category
-     */
-    public function getCurrentCategory($currentValue)
+    public function getCurrentCategory(int $currentValue): Category
     {
-        return Category::getById($currentValue ?? -1);
+        return Category::getById($currentValue);
     }
 
     /**
-     * @param Category|null $currentCategory
-     * @param Category|null $rootCategory
-     * @return array|\Pimcore\Model\DataObject[]
+     * @return Category[]
      */
-    public function getSubCategories(Category $currentCategory = null, $rootCategory = null)
+    public function getSubCategories(Category $currentCategory = null, Category $rootCategory = null): array
     {
         $subCategories = [];
 
         $parent = $currentCategory ?: $rootCategory;
 
         if ($parent) {
-            $subCategories = array_filter($parent->getChildren(), function ($item) {
+            $subCategories = array_filter($parent->getChildren()->load(), static function ($item) {
                 return $item instanceof Category && $item->isPublished();
             });
-
-//            foreach($currentCategory->getChildren() as $subCategory) {
-//                $subCategories[] = $subCategory;
-//            }
         }
 
         return $subCategories;
     }
 
-    /**
-     * @param Category $category
-     * @param Category|null $rootCategory
-     * @param bool $reset
-     *
-     * @return string
-     */
-    public function generateLink(Category $category, Category $rootCategory = null, $reset = false): string
+    public function generateLink(Category $category, Category $rootCategory = null, bool $reset = false): string
     {
         return $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory], $reset);
     }
