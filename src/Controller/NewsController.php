@@ -31,15 +31,10 @@ class NewsController extends BaseController
     const NEWS_DEFAULT_DOCUMENT_PROPERTY_NAME = 'news_default_document';
 
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @throws \Exception
      */
-    public function listingAction(Request $request, PaginatorInterface $paginator)
+    public function listingAction(Request $request, PaginatorInterface $paginator): Response
     {
-
         // get a list of news objects and order them by date
         $newsList = new News\Listing();
         $newsList->setOrderKey('date');
@@ -59,16 +54,8 @@ class NewsController extends BaseController
 
     /**
      * @Route("{path}/{newstitle}~n{news}", name="news-detail", defaults={"path"=""}, requirements={"path"=".*?", "newstitle"="[\w-]+", "news"="\d+"})
-     *
-     * @param Request $request
-     * @param HeadTitle $headTitleHelper
-     * @param Placeholder $placeholderHelper
-     * @param NewsLinkGenerator $newsLinkGenerator
-     * @param BreadcrumbHelperService $breadcrumbHelperService
-     *
-     * @return Response
      */
-    public function detailAction(Request $request, HeadTitle $headTitleHelper, Placeholder $placeholderHelper, NewsLinkGenerator $newsLinkGenerator, BreadcrumbHelperService $breadcrumbHelperService)
+    public function detailAction(Request $request, HeadTitle $headTitleHelper, Placeholder $placeholderHelper, NewsLinkGenerator $newsLinkGenerator, BreadcrumbHelperService $breadcrumbHelperService): Response
     {
         $news = News::getById($request->get('news'));
 
@@ -86,16 +73,11 @@ class NewsController extends BaseController
         ]);
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function newsTeaserAction(Request $request)
+    public function newsTeaserAction(Request $request): Response
     {
         $paramsBag = [];
-        if ($request->get('type') == 'object') {
-            $news = News::getById($request->get('id'));
+        if ($request->attributes->get('type') === 'object') {
+            $news = News::getById($request->attributes->getInt('id'));
             $paramsBag['news'] = $news;
 
             return $this->render('news/news_teaser.html.twig', $paramsBag);
@@ -104,16 +86,11 @@ class NewsController extends BaseController
         throw new NotFoundHttpException('News not found.');
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function emailNewsTeaserAction(Request $request, NewsLinkGenerator $newsLinkGenerator)
+    public function emailNewsTeaserAction(Request $request, NewsLinkGenerator $newsLinkGenerator): Response
     {
         $paramsBag = [];
-        if ($request->get('type') == 'object') {
-            $news = News::getById($request->get('id'));
+        if ($request->attributes->get('type') === 'object') {
+            $news = News::getById($request->attributes->getInt('id'));
             $paramsBag['news'] = $news;
             $paramsBag['detailLink'] = $newsLinkGenerator->generate($news, ['document' => $this->document->getProperty('news_default_document')]);
 
