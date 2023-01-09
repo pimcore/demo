@@ -87,32 +87,25 @@ class Web2printController extends BaseController
     }
 
     /**
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @throws \Exception
      */
-    public function productCellAction(Request $request)
+    public function productCellAction(Request $request): Response
     {
         AbstractObject::setGetInheritedValues(true);
-        $product = AbstractProduct::getById($request->get('id'));
+        $product = AbstractProduct::getById($request->attributes->getInt('id'));
         $paramsBag['product'] = $product;
 
         return $this->render('web2print/product_cell.html.twig', $paramsBag);
     }
 
     /**
-     * @param Request $request
      * @Route("/product-print", name="product_print")
-     *
-     * @return Response
      *
      * @throws \Exception
      */
-    public function productPrintAction(Request $request)
+    public function productPrintAction(Request $request): Response
     {
-        $objId = $request->get('id');
+        $objId = $request->query->getInt('id');
         $obj = Car::getById($objId);
 
         if ($obj instanceof Car) {
@@ -122,17 +115,19 @@ class Web2printController extends BaseController
 
             if ($request->get('html')) {
                 return new Response($html);
-            } else {
-                $adapter = Processor::getInstance();
+            }
 
-                if ($html) {
-                    return new Response(
-                        $adapter->getPdfFromString($html),
-                        200,
-                        ['Content-Type' => 'application/pdf']
-                    );
-                }
+            $adapter = Processor::getInstance();
+
+            if ($html) {
+                return new Response(
+                    $adapter->getPdfFromString($html),
+                    200,
+                    ['Content-Type' => 'application/pdf']
+                );
             }
         }
+
+        throw $this->createNotFoundException();
     }
 }
