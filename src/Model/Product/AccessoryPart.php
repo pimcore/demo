@@ -45,10 +45,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
         return $this->getErpNumber();
     }
 
-    /**
-     * @return string
-     */
-    public function getOSIndexType(): ?string
+    public function getOSIndexType(): string
     {
         return self::OBJECT_TYPE_VARIANT;
     }
