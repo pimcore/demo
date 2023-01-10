@@ -78,7 +78,7 @@ class CategoryFilterExtension extends AbstractExtension
         return $subCategories;
     }
 
-    public function generateLink(Category $category, Category $rootCategory = null, bool $reset = false): string
+    public function generateLink(Category $category, ?Category $rootCategory = null, bool $reset = false): string
     {
         return $this->categoryLinkGenerator->generate($category, ['rootCategory' => $rootCategory], $reset);
     }
