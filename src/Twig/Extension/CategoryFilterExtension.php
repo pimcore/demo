@@ -40,7 +40,7 @@ class CategoryFilterExtension extends AbstractExtension
         ];
     }
 
-    public function prepareData(int $currentValue, Category $rootCategory = null): \stdClass
+    public function prepareData(int $currentValue, ?Category $rootCategory = null): \stdClass
     {
         $data = new \stdClass();
 
@@ -63,7 +63,7 @@ class CategoryFilterExtension extends AbstractExtension
     /**
      * @return Category[]
      */
-    public function getSubCategories(Category $currentCategory = null, Category $rootCategory = null): array
+    public function getSubCategories(?Category $currentCategory = null, ?Category $rootCategory = null): array
     {
         $subCategories = [];
 
