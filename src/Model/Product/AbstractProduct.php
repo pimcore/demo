@@ -32,7 +32,7 @@ abstract class AbstractProduct extends \Pimcore\Bundle\EcommerceFrameworkBundle\
         return $this->isPublished();
     }
 
-    public function getPriceSystemName(): ?string
+    public function getPriceSystemName(): string
     {
         return 'default';
     }
