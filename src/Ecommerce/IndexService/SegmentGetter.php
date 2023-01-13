@@ -44,7 +44,7 @@ class SegmentGetter implements GetterInterface
     /**
      * {@inheritdoc}
      */
-    public function get($object, $config = null)
+    public function get($object, ?array $config = null): mixed
     {
         $segments = [];
 

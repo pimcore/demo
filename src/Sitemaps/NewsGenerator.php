@@ -31,7 +31,7 @@ class NewsGenerator extends AbstractElementGenerator
         parent::__construct($filters, $processors);
     }
 
-    public function populate(UrlContainerInterface $urlContainer, string $section = null)
+    public function populate(UrlContainerInterface $urlContainer, ?string $section = null): void
     {
         if (null !== $section && $section !== 'news') {
             // do not add entries if section doesn't match

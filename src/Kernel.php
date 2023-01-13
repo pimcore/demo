@@ -26,7 +26,7 @@ class Kernel extends PimcoreKernel
      *
      * @param BundleCollection $collection
      */
-    public function registerBundlesToCollection(BundleCollection $collection)
+    public function registerBundlesToCollection(BundleCollection $collection): void
     {
         // activate Presta\Sitemap Bundle for sitemaps generation
         $collection->addBundle(PrestaSitemapBundle::class);

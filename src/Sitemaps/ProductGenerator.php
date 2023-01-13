@@ -26,7 +26,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class ProductGenerator extends AbstractElementGenerator
 {
-    public function populate(UrlContainerInterface $urlContainer, string $section = null)
+    public function populate(UrlContainerInterface $urlContainer, ?string $section = null): void
     {
         if (null !== $section && $section !== 'cars') {
             // do not add entries if section doesn't match
