@@ -29,7 +29,7 @@ class CategoryGenerator extends AbstractElementGenerator
         parent::__construct($filters, $processors);
     }
 
-    public function populate(UrlContainerInterface $urlContainer, string $section = null)
+    public function populate(UrlContainerInterface $urlContainer, ?string $section = null): void
     {
         if (null !== $section && $section !== 'category') {
             // do not add entries if section doesn't match
