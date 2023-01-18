@@ -220,7 +220,9 @@ class ProductController extends BaseController
         if ($request->attributes->get('type') === 'object') {
             AbstractObject::setGetInheritedValues(true);
             $product = AbstractProduct::getById($request->attributes->getInt('id'));
-
+            if ($product instanceof Car && $product->getObjectType() === Car::OBJECT_TYPE_VIRTUAL_CAR) {
+                throw new \Exception('Virtual products are not allowed in product teasers.');
+            }
             $paramsBag['product'] = $product;
 
             //track product impression
