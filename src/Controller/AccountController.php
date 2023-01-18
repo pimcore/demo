@@ -30,7 +30,6 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\OrderManager\Order\Listing\Filter\CustomerObject;
 use Pimcore\DataObject\Consent\Service;
 use Pimcore\Translation\Translator;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,6 +37,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Uid\Uuid;
 
@@ -203,12 +203,12 @@ class AccountController extends BaseController
      * Index page for account - it is restricted to ROLE_USER via security annotation
      *
      * @Route("/account/index", name="account-index")
-     * @Security("is_granted('ROLE_USER')")
      *
      * @param UserInterface|null $user
      *
      * @return Response
      */
+    #[IsGranted('ROLE_USER')]
     public function indexAction(UserInterface $user = null)
     {
         $orderManager = Factory::getInstance()->getOrderManager();
@@ -224,7 +224,6 @@ class AccountController extends BaseController
 
     /**
      * @Route("/account/update-marketing", name="account-update-marketing-permission")
-     * @Security("is_granted('ROLE_USER')")
      *
      * @param Request $request
      * @param Service $consentService
@@ -236,6 +235,7 @@ class AccountController extends BaseController
      *
      * @throws \Exception
      */
+    #[IsGranted('ROLE_USER')]
     public function updateMarketingPermissionAction(Request $request, Service $consentService, Translator $translator, NewsletterDoubleOptInService $newsletterDoubleOptInService, UserInterface $user = null)
     {
         if ($user instanceof Customer) {

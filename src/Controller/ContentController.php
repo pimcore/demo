@@ -24,18 +24,26 @@ use Pimcore\Model\DataObject\BodyStyle;
 use Pimcore\Model\DataObject\Manufacturer;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Translation\Translator;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
+use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Pimcore\Model\DataObject;
 
 class ContentController extends BaseController
 {
-    /**
-     * @Template
-     */
+    #[Template('content/default.html.twig')]
     public function defaultAction()
     {
         return [];
+    }
+
+    /**
+     * @Route("/news/{news}", defaults={"page"=1})
+     */
+    public function testAction(DataObject\News $news, Request $request) {
+        p_r($request); die;
     }
 
     /**
@@ -49,10 +57,13 @@ class ContentController extends BaseController
      *
      * @return Response
      */
+    #[Route('/testportal')]
+    #[ResponseHeader('X-Custom-Attribute')]
+    #[Entity]
     public function portalAction()
     {
         // you can also set the header via code
-        $this->addResponseHeader('X-Custom-Header3', ['foo', 'bar']);
+       // $this->addResponseHeader('X-Custom-Header3', ['foo', 'bar']);
 
         return $this->render('content/portal.html.twig', [
             'isPortal' => true

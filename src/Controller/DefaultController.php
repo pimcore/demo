@@ -16,7 +16,7 @@
 namespace App\Controller;
 
 use Pimcore\Model\Asset;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,10 +34,10 @@ class DefaultController extends BaseController
     }
 
     /**
-     * @Template
      *
      * @return array
      */
+    #[Template('default/default.html.twig')]
     public function defaultAction(): array
     {
         return [];
