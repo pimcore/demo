@@ -9,6 +9,7 @@ use Pimcore\Bundle\GlossaryBundle\PimcoreGlossaryBundle;
 use Pimcore\Bundle\ObjectMergerBundle\ObjectMergerBundle;
 use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
 use Web2PrintToolsBundle\Web2PrintToolsBundle;
+use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
@@ -21,4 +22,5 @@ return [
     OutputDataConfigToolkitBundle::class => ['all' => true],
     Web2PrintToolsBundle::class => ['all' => true],
     ObjectMergerBundle::class => ['all' => true],
+    PimcoreCustomReportsBundle::class => ['all' => true]
 ];
