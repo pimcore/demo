@@ -93,6 +93,9 @@ class Web2printController extends BaseController
     {
         AbstractObject::setGetInheritedValues(true);
         $product = AbstractProduct::getById($request->query->getInt('id'));
+        if(!$product) {
+            $product = AbstractProduct::getById($request->attributes->getInt('id'));
+        }
         $paramsBag['product'] = $product;
 
         return $this->render('web2print/product_cell.html.twig', $paramsBag);
