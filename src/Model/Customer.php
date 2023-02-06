@@ -16,9 +16,7 @@
 namespace App\Model;
 
 use App\Model\CustomerManagementFramework\PasswordRecoveryInterface;
-use CustomerManagementFrameworkBundle\Model\SsoAwareCustomerInterface;
-
-class Customer extends \Pimcore\Model\DataObject\Customer implements SsoAwareCustomerInterface, PasswordRecoveryInterface
+class Customer extends \Pimcore\Model\DataObject\Customer implements PasswordRecoveryInterface
 {
     public function getProfilingConsent(): ?\Pimcore\Model\DataObject\Data\Consent
     {
