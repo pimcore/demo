@@ -3214,3 +3214,25 @@ CREATE TABLE IF NOT EXISTS `search_backend_data` (
     KEY `published` (`published`),
     FULLTEXT KEY `fulltext` (`data`,`properties`)
     ) DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+DROP TABLE IF EXISTS `application_logs`;
+CREATE TABLE IF NOT EXISTS `application_logs` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `pid` INT(11) NULL DEFAULT NULL,
+    `timestamp` datetime NOT NULL,
+    `message` TEXT NULL,
+    `priority` ENUM('emergency','alert','critical','error','warning','notice','info','debug') DEFAULT NULL,
+    `fileobject` varchar(1024) DEFAULT NULL,
+    `info` varchar(1024) DEFAULT NULL,
+    `component` varchar(190) DEFAULT NULL,
+    `source` varchar(190) DEFAULT NULL,
+    `relatedobject` int(11) unsigned DEFAULT NULL,
+    `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
+    `maintenanceChecked` tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `component` (`component`),
+    KEY `timestamp` (`timestamp`),
+    KEY `relatedobject` (`relatedobject`),
+    KEY `priority` (`priority`),
+    KEY `maintenanceChecked` (`maintenanceChecked`)
+    ) DEFAULT CHARSET=utf8mb4;

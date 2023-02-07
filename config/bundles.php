@@ -11,10 +11,11 @@ use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
 use Web2PrintToolsBundle\Web2PrintToolsBundle;
 use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
 use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
+use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
+
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
-    PimcoreEcommerceFrameworkBundle::class => ['all' => true],
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
     PimcoreGlossaryBundle::class => ['all' => true],
     PimcoreSeoBundle::class => ['all' => true],
@@ -24,5 +25,6 @@ return [
     OutputDataConfigToolkitBundle::class => ['all' => true],
     Web2PrintToolsBundle::class => ['all' => true],
     ObjectMergerBundle::class => ['all' => true],
-    PimcoreCustomReportsBundle::class => ['all' => true]
+    PimcoreCustomReportsBundle::class => ['all' => true],
+    PimcoreApplicationLoggerBundle::class => ['all' => true]
 ];
