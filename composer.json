@@ -19,7 +19,8 @@
     "pimcore/web2print-tools-bundle": "^5.0",
     "pimcore/data-hub": "^1.0",
     "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
-    "symfony/intl": "^6.1"
+    "symfony/intl": "^6.1",
+    "symfony/dotenv": "^6.1"
   },
   "suggest": {
     "elasticsearch/elasticsearch": "Required for Elastic Search service"
