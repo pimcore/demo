@@ -16,6 +16,7 @@ use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    PimcoreEcommerceFrameworkBundle::class => ['all' => true],
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
     PimcoreGlossaryBundle::class => ['all' => true],
     PimcoreSeoBundle::class => ['all' => true],
