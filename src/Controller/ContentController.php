@@ -19,36 +19,34 @@ use App\Form\CarSubmitFormType;
 use App\Model\Product\Car;
 use App\Website\Tool\Text;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
-use Pimcore\Controller\Configuration\ResponseHeader;
+use Pimcore\Controller\Attribute\ResponseHeader;
 use Pimcore\Model\DataObject\BodyStyle;
 use Pimcore\Model\DataObject\Manufacturer;
 use Pimcore\Model\DataObject\Service;
 use Pimcore\Translation\Translator;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ContentController extends BaseController
 {
-    /**
-     * @Template
-     */
+    #[Template('content/default.html.twig')]
     public function defaultAction()
     {
         return [];
     }
 
     /**
-     * The annotations below demonstrate the ResponseHeader annotation which can be
+     * The attribute below demonstrate the ResponseHeader attribute which can be
      * used to set custom response headers on the auto-rendered response. At this point, the headers
      * are not really set as we don't have a response yet, but they will be added to the final response
      * by the ResponseHeaderListener.
      *
-     * @ResponseHeader("X-Custom-Header", values={"Foo", "Bar"})
-     * @ResponseHeader("X-Custom-Header2", values="Bazinga", replace=true)
      *
      * @return Response
      */
+    #[ResponseHeader(key: "X-Custom-Header", values: ["Foo", "Bar"])]
+    #[ResponseHeader(key: "X-Custom-Header", values: ["Bazinga"], replace: true)]
     public function portalAction()
     {
         // you can also set the header via code
