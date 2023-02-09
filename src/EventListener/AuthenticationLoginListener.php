@@ -67,7 +67,7 @@ class AuthenticationLoginListener implements EventSubscriberInterface, LoggerAwa
         }
 
         $user = $passport->getUser();
-        if (null === $user->getPassword()) {
+        if (null === $user->getPassword() || !$user instanceof CustomerInterface) {
             return;
         }
 

@@ -9,6 +9,10 @@ use Pimcore\Bundle\GlossaryBundle\PimcoreGlossaryBundle;
 use Pimcore\Bundle\ObjectMergerBundle\ObjectMergerBundle;
 use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
 use Web2PrintToolsBundle\Web2PrintToolsBundle;
+use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
+use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
+use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
+
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
@@ -16,9 +20,12 @@ return [
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
     PimcoreGlossaryBundle::class => ['all' => true],
     PimcoreSeoBundle::class => ['all' => true],
+    PimcoreSimpleBackendSearchBundle::class => ['all' => true],
     PimcorePaymentProviderPayPalSmartPaymentButtonBundle::class => ['all' => true],
     PimcoreDataHubBundle::class => ['all' => true],
     OutputDataConfigToolkitBundle::class => ['all' => true],
     Web2PrintToolsBundle::class => ['all' => true],
     ObjectMergerBundle::class => ['all' => true],
+    PimcoreCustomReportsBundle::class => ['all' => true],
+    PimcoreApplicationLoggerBundle::class => ['all' => true]
 ];

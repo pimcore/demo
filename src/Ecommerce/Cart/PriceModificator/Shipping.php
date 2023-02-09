@@ -38,13 +38,13 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
      */
     protected $carCharge;
 
-    protected function processOptions(array $options)
+    protected function processOptions(array $options): void
     {
         $this->baseCharge = Decimal::create($options['baseCharge']);
         $this->carCharge = Decimal::create($options['carCharge']);
     }
 
-    protected function configureOptions(OptionsResolver $resolver)
+    protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'baseCharge' => 10,

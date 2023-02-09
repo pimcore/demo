@@ -3185,3 +3185,54 @@ CREATE TABLE IF NOT EXISTS `http_error_log` (
   KEY `date` (`date`),
   KEY `count` (`count`)
 ) DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+
+
+DROP TABLE IF EXISTS `search_backend_data`;
+CREATE TABLE IF NOT EXISTS `search_backend_data` (
+    `id` int(11) NOT NULL,
+    `key` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin default '',
+    `index` int(11) unsigned DEFAULT '0',
+    `fullpath` varchar(765) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL, /* path in utf8 (3-byte) using the full key length of 3072 bytes */
+    `maintype` varchar(8) NOT NULL DEFAULT '',
+    `type` varchar(20) DEFAULT NULL,
+    `subtype` varchar(190) DEFAULT NULL,
+    `published` tinyint(1) unsigned DEFAULT NULL,
+    `creationDate` int(11) unsigned DEFAULT NULL,
+    `modificationDate` int(11) unsigned DEFAULT NULL,
+    `userOwner` int(11) DEFAULT NULL,
+    `userModification` int(11) DEFAULT NULL,
+    `data` longtext,
+    `properties` text,
+    PRIMARY KEY (`id`,`maintype`),
+    KEY `key` (`key`),
+    KEY `index` (`index`),
+    KEY `fullpath` (`fullpath`),
+    KEY `maintype` (`maintype`),
+    KEY `type` (`type`),
+    KEY `subtype` (`subtype`),
+    KEY `published` (`published`),
+    FULLTEXT KEY `fulltext` (`data`,`properties`)
+    ) DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+DROP TABLE IF EXISTS `application_logs`;
+CREATE TABLE IF NOT EXISTS `application_logs` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `pid` INT(11) NULL DEFAULT NULL,
+    `timestamp` datetime NOT NULL,
+    `message` TEXT NULL,
+    `priority` ENUM('emergency','alert','critical','error','warning','notice','info','debug') DEFAULT NULL,
+    `fileobject` varchar(1024) DEFAULT NULL,
+    `info` varchar(1024) DEFAULT NULL,
+    `component` varchar(190) DEFAULT NULL,
+    `source` varchar(190) DEFAULT NULL,
+    `relatedobject` int(11) unsigned DEFAULT NULL,
+    `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
+    `maintenanceChecked` tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `component` (`component`),
+    KEY `timestamp` (`timestamp`),
+    KEY `relatedobject` (`relatedobject`),
+    KEY `priority` (`priority`),
+    KEY `maintenanceChecked` (`maintenanceChecked`)
+    ) DEFAULT CHARSET=utf8mb4;
