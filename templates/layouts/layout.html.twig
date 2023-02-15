@@ -35,7 +35,7 @@
 
             {% if document is instanceof('\\Pimcore\\Model\\Document\\Link') %}
                 {# @var document \Pimcore\Model\Document\Link #}
-                {% set document = document.getObject() %}
+                {% set document = document.getElement() %}
             {% endif %}
 
             {% if document is instanceof('\\Pimcore\\Model\\Document\\Page') %}
