@@ -5,7 +5,7 @@ document.addEventListener(pimcore.events.postOpenObject, function (e) {
             iconCls: 'pimcore_icon_pdf',
             scale: 'small',
             handler: function () {
-                const path = "/en/product-print?id=" + object.id;
+                const path = "/en/product-print?id=" + e.detail.object.id;
                 window.open(path);
             }
         });
