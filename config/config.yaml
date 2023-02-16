@@ -19,10 +19,7 @@ pimcore:
         password_hasher_factories:
             Pimcore\Model\DataObject\Customer: cmf.security.user_password_hasher_factory
 
-            # Pimcore ships a default document tree generator which is enabled by default
-            # but you can easily disable it here.
-#            pimcore_documents:
-#                enabled: true
+
 
 
 #### TRANSLATIONS
@@ -173,3 +170,7 @@ pimcore_seo:
                 enabled: true
                 priority: 48
                 generator_id: App\Sitemaps\CategoryGenerator
+            # Pimcore ships a default document tree generator which is enabled by default
+            # but you can easily disable it here.
+            pimcore_documents:
+                enabled: true
