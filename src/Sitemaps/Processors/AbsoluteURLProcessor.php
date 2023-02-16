@@ -17,10 +17,10 @@ declare(strict_types=1);
 
 namespace App\Sitemaps\Processors;
 
+use Pimcore\Bundle\SeoBundle\Sitemap\Element\GeneratorContextInterface;
+use Pimcore\Bundle\SeoBundle\Sitemap\Element\ProcessorInterface;
+use Pimcore\Bundle\SeoBundle\Sitemap\UrlGeneratorInterface;
 use Pimcore\Model\Element\ElementInterface;
-use Pimcore\Sitemap\Element\GeneratorContextInterface;
-use Pimcore\Sitemap\Element\ProcessorInterface;
-use Pimcore\Sitemap\UrlGeneratorInterface;
 use Presta\SitemapBundle\Sitemap\Url\Url;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 

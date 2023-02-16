@@ -15,9 +15,9 @@
 
 namespace App\Sitemaps;
 
+use Pimcore\Bundle\SeoBundle\Sitemap\Element\AbstractElementGenerator;
+use Pimcore\Bundle\SeoBundle\Sitemap\Element\GeneratorContext;
 use Pimcore\Model\DataObject\Category;
-use Pimcore\Sitemap\Element\AbstractElementGenerator;
-use Pimcore\Sitemap\Element\GeneratorContext;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
