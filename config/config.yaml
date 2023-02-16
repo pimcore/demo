@@ -71,12 +71,6 @@ pimcore:
 #                generator: imagick
 #            thumbnails:
 #                webp_auto_support: false
-#    assets:
-#        type_definitions:
-#            map:
-#                custom:
-#                    class: \App\Asset\CustomAsset
-#                    mapping: ["/\\.pub/"]
 
 #### SYSTEM SETTINGS
 
