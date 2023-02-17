@@ -1,29 +1,14 @@
-pimcore.registerNS("pimcore.plugin.extendadmin");
-
-pimcore.plugin.extendadmin = Class.create(pimcore.plugin.admin, {
-    getClassName: function () {
-        return "pimcore.plugin.extendadmin";
-    },
-
-    initialize: function () {
-        pimcore.plugin.broker.registerPlugin(this);
-
-    },
-
-    postOpenObject: function (object, type) {
-        if (object.data.general.className == 'Car' && object.data.data.objectType == "actual-car") {
-            object.toolbar.add({
-                text: t('print-pdf'),
-                iconCls: 'pimcore_icon_pdf',
-                scale: 'small',
-                handler: function () {
-                    var path = "/en/product-print?id=" + object.id;
-                    window.open(path);
-                }.bind(this)
-            });
-            pimcore.layout.refresh();
-        }
+document.addEventListener(pimcore.events.postOpenObject, function (e) {
+    if (e.detail.object.data.general.className === 'Car' && e.detail.object.data.data.objectType === "actual-car") {
+        e.detail.object.toolbar.add({
+            text: t('print-pdf'),
+            iconCls: 'pimcore_icon_pdf',
+            scale: 'small',
+            handler: function () {
+                const path = "/en/product-print?id=" + e.detail.object.id;
+                window.open(path);
+            }
+        });
+        pimcore.layout.refresh();
     }
 });
-
-var extendadmin = new pimcore.plugin.extendadmin();
