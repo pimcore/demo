@@ -12,7 +12,7 @@ use Web2PrintToolsBundle\Web2PrintToolsBundle;
 use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
 use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
 use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
-
+use Pimcore\Bundle\PersonalizationBundle\PimcorePersonalizationBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
@@ -27,5 +27,6 @@ return [
     Web2PrintToolsBundle::class => ['all' => true],
     ObjectMergerBundle::class => ['all' => true],
     PimcoreCustomReportsBundle::class => ['all' => true],
-    PimcoreApplicationLoggerBundle::class => ['all' => true]
+    PimcoreApplicationLoggerBundle::class => ['all' => true],
+    PimcorePersonalizationBundle::class => ['all' => true],
 ];
