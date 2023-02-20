@@ -20,7 +20,7 @@ use App\Model\Product\AbstractProduct;
 use App\Model\Product\Category;
 use CustomerManagementFrameworkBundle\SegmentManager\SegmentManagerInterface;
 use CustomerManagementFrameworkBundle\Targeting\SegmentTracker;
-use Pimcore\Targeting\VisitorInfoStorage;
+use Pimcore\Bundle\PersonalizationBundle\Targeting\VisitorInfoStorage;
 
 class SegmentTrackingHelperService
 {

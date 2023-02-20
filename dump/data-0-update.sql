@@ -1,0 +1,1 @@
+ALTER TABLE `documents` CHANGE COLUMN `type` `type` ENUM('page','link','snippet','folder','hardlink','email','newsletter','printpage','printcontainer') NULL AFTER `parentId`;
