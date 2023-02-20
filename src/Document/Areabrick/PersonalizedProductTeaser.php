@@ -24,7 +24,7 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\DefaultMysq
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ElasticSearch\AbstractElasticSearch;
 use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductListInterface;
 use Pimcore\Model\Document\Editable\Area\Info;
-use Pimcore\Targeting\VisitorInfoStorage;
+use Pimcore\Bundle\PersonalizationBundle\Targeting\VisitorInfoStorage;
 use Symfony\Component\HttpFoundation\Response;
 
 class PersonalizedProductTeaser extends AbstractAreabrick
