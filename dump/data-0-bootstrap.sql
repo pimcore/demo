@@ -3240,9 +3240,9 @@ CREATE TABLE IF NOT EXISTS `application_logs` (
 DROP TABLE IF EXISTS `documents_printpage`;
 CREATE TABLE IF NOT EXISTS `documents_printpage` (
     `id` INT (11) UNSIGNED DEFAULT 0 NOT NULL PRIMARY KEY,
-    `controller`` VARCHAR(500) NULL,
+    `controller` VARCHAR(500) NULL,
     `template` VARCHAR(255) NULL,
-    `lastgenerated`` INT NULL,
+    `lastgenerated` INT NULL,
     `lastgeneratemessage` TEXT NULL,
     `contentmasterdocumentid` INT NULL,
     `missingrequirededitable` TINYINT (1) UNSIGNED NULL,
