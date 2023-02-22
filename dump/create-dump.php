@@ -8,7 +8,7 @@ include __DIR__ . "/../vendor/autoload.php";
 
 
 // get tables which are already in install.sql
-$installSql = file_get_contents(PIMCORE_PATH . '/bundles/InstallBundle/Resources/install.sql');
+$installSql = file_get_contents(PIMCORE_PATH . '/bundles/InstallBundle/dump/install.sql');
 preg_match_all('/CREATE TABLE `(.*)`/', $installSql, $matches);
 $existingTables = $matches[1];
 
