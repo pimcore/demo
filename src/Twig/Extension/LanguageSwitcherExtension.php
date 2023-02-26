@@ -47,7 +47,7 @@ class LanguageSwitcherExtension extends AbstractExtension
         $this->requestStack = $requestStack;
     }
 
-    public function getLocalizedLinks(Document $document, Request $request): array
+    public function getLocalizedLinks(Document $document): array
     {
         $translations = $this->documentService->getTranslations($document);
 
