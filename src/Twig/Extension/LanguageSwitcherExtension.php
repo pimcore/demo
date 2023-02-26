@@ -66,7 +66,7 @@ class LanguageSwitcherExtension extends AbstractExtension
                     $target = $localizedDocument->getFullPath();
                 }
             }
-
+$request = $this->requestStack->getCurrentRequest();
             $route = $request->get('_route');
             $routeParams = $request->get('_route_params');
 
