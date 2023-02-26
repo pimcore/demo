@@ -40,7 +40,7 @@ class LanguageSwitcherExtension extends AbstractExtension
     * @var RequestStack
     */
     private $requestStack;
-    public function __construct(Service $documentService, UrlGeneratorInterface $urlGenerator)
+    public function __construct(Service $documentService, UrlGeneratorInterface $urlGenerator,  RequestStack $requestStack)
     {
         $this->documentService = $documentService;
         $this->urlGenerator = $urlGenerator;
