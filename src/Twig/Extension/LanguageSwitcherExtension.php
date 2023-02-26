@@ -22,7 +22,7 @@ use Pimcore\Model\Document\Service;
 use Pimcore\Tool;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class LanguageSwitcherExtension extends AbstractExtension
