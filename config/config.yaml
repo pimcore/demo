@@ -168,3 +168,5 @@ pimcore_seo:
             # but you can easily disable it here.
             pimcore_documents:
                 enabled: true
+    redirects:
+        auto_create_redirects: true
