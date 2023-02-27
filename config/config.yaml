@@ -19,25 +19,7 @@ pimcore:
         password_hasher_factories:
             Pimcore\Model\DataObject\Customer: cmf.security.user_password_hasher_factory
 
-    sitemaps:
-        generators:
-            app_news:
-                enabled: true
-                priority: 50
-                generator_id: App\Sitemaps\NewsGenerator
-            app_cars:
-                enabled: true
-                priority: 49
-                generator_id: App\Sitemaps\ProductGenerator
-            app_category:
-                enabled: true
-                priority: 48
-                generator_id: App\Sitemaps\CategoryGenerator
 
-            # Pimcore ships a default document tree generator which is enabled by default
-            # but you can easily disable it here.
-            pimcore_documents:
-                enabled: true
 
 
 #### TRANSLATIONS
@@ -89,7 +71,6 @@ pimcore:
 #                generator: imagick
 #            thumbnails:
 #                webp_auto_support: false
-
 
 #### SYSTEM SETTINGS
 
@@ -167,3 +148,25 @@ framework:
 #        transports:
 #            main: smtp://user:pass@smtp.example.com:port
 #            pimcore_newsletter: smtp://user:pass@smtp.example.com:port
+
+pimcore_seo:
+    sitemaps:
+        generators:
+            app_news:
+                enabled: true
+                priority: 50
+                generator_id: App\Sitemaps\NewsGenerator
+            app_cars:
+                enabled: true
+                priority: 49
+                generator_id: App\Sitemaps\ProductGenerator
+            app_category:
+                enabled: true
+                priority: 48
+                generator_id: App\Sitemaps\CategoryGenerator
+            # Pimcore ships a default document tree generator which is enabled by default
+            # but you can easily disable it here.
+            pimcore_documents:
+                enabled: true
+    redirects:
+        auto_create_redirects: true
