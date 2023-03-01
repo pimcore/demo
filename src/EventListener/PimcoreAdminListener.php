@@ -52,11 +52,4 @@ class PimcoreAdminListener
             $event->setAdminStyle(new \App\Model\Product\AdminStyle\Car($element));
         }
     }
-
-    public function onSaveSystemSettings(GenericEvent $event)
-    {
-        $settings = $event->getArgument("settings");
-        $settings["pimcore_admin"]["branding"]["color_login_screen"] = 'FFCC00';
-        $event->setArgument("settings", $settings);
-    }
 }
