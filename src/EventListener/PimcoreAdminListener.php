@@ -16,7 +16,6 @@
 namespace App\EventListener;
 
 use Pimcore\Event\BundleManager\PathsEvent;
-use Symfony\Component\EventDispatcher\GenericEvent;
 
 class PimcoreAdminListener
 {
