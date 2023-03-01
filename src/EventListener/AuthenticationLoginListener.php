@@ -75,7 +75,7 @@ class AuthenticationLoginListener implements EventSubscriberInterface, LoggerAwa
         $this->doEcommerceFrameworkLogin($user);
     }
 
-    public function doEcommerceFrameworkLogin(CustomerInterface $customer)
+    public function doEcommerceFrameworkLogin(\Symfony\Component\Security\Core\User\UserInterface $customer)
     {
         if ($customer) {
 

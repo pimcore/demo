@@ -16,9 +16,9 @@
 namespace App\Model\Product\CalculatedValue;
 
 use App\Model\Product\AccessoryPart;
-use App\Website\Tool\ForceInheritance;
 use Pimcore\Model\DataObject\ClassDefinition\CalculatorClassInterface;
 use Pimcore\Model\DataObject\Concrete;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\Data\CalculatedValue;
 
 class AccessoryPartName implements CalculatorClassInterface
@@ -39,7 +39,7 @@ class AccessoryPartName implements CalculatorClassInterface
         if ($object instanceof AccessoryPart) {
             $language = $context->getPosition();
 
-            return ForceInheritance::run(function () use ($object, $language) {
+            return DataObject\Service::useInheritedValues(true, function () use ($object, $language) {
                 return
                     ($object->getManufacturer() ? ($object->getManufacturer()->getName($language) . ' ') : '') .
                     ($object->getSeries() ? ($object->getSeries()->getName($language) . ' ') : '') .

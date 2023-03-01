@@ -15,9 +15,9 @@
 
 namespace App\Model\Product\AdminStyle;
 
-use App\Website\Tool\ForceInheritance;
 use Pimcore\Model\Element\AdminStyle;
 use Pimcore\Model\Element\ElementInterface;
+use Pimcore\Model\DataObject;
 
 class Car extends AdminStyle
 {
@@ -31,7 +31,7 @@ class Car extends AdminStyle
         $this->element = $element;
 
         if ($element instanceof \App\Model\Product\Car) {
-            ForceInheritance::run(function () use ($element) {
+            DataObject\Service::useInheritedValues(true, function () use ($element) {
                 if ($element->getObjectType() == 'actual-car') {
                     $this->elementIcon = '/bundles/pimcoreadmin/img/twemoji/1f697.svg';
                 }
