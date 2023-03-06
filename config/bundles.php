@@ -18,6 +18,7 @@ use Pimcore\Bundle\PersonalizationBundle\PimcorePersonalizationBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    PimcoreEcommerceFrameworkBundle::class => ['all' => true],
     PimcorePersonalizationBundle::class => ['all' => true],
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
     PimcoreGlossaryBundle::class => ['all' => true],
@@ -32,5 +33,4 @@ return [
     PimcoreGoogleMarketingBundle::class => ['all' => true],
     PimcoreApplicationLoggerBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
-    PimcoreEcommerceFrameworkBundle::class => ['all' => true],
 ];
