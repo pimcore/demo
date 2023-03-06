@@ -20,6 +20,8 @@ namespace App\Twig\Extension;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Service;
 use Pimcore\Tool;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -30,14 +32,27 @@ class LanguageSwitcherExtension extends AbstractExtension
      */
     private $documentService;
 
-    public function __construct(Service $documentService)
+    /**
+     * @var UrlGeneratorInterface $urlGenerator
+     */
+    private UrlGeneratorInterface $urlGenerator;
+
+    /**
+     * @var RequestStack $requestStack
+     */
+    private RequestStack $requestStack;
+
+    public function __construct(Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack)
     {
         $this->documentService = $documentService;
+        $this->urlGenerator = $urlGenerator;
+        $this->requestStack = $requestStack;
     }
 
     public function getLocalizedLinks(Document $document): array
     {
         $translations = $this->documentService->getTranslations($document);
+        $request = $this->requestStack->getCurrentRequest();
 
         $links = [];
         foreach (Tool::getValidLanguages() as $language) {
@@ -53,6 +68,15 @@ class LanguageSwitcherExtension extends AbstractExtension
                 if ($localizedDocument) {
                     $target = $localizedDocument->getFullPath();
                 }
+            }
+
+            $route = $request->get('_route');
+            $routeParams = $request->get('_route_params');
+
+            if ($route && $routeParams) {
+                $routeParams['_locale'] = \Locale::getPrimaryLanguage($language);
+                $route = $this->urlGenerator->generate($route, $routeParams);
+                $target = $route;
             }
 
             $links[$language] = [
