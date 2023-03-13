@@ -16,7 +16,6 @@
 namespace App\CustomerManagementFramework\SegmentBuilder;
 
 use App\Ecommerce\IndexService\SegmentGetter;
-use App\Website\Tool\ForceInheritance;
 use CustomerManagementFrameworkBundle\Model\CustomerInterface;
 use CustomerManagementFrameworkBundle\SegmentBuilder\AbstractSegmentBuilder;
 use CustomerManagementFrameworkBundle\SegmentManager\SegmentManagerInterface;
@@ -24,6 +23,7 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Model\AbstractOrder;
 use Pimcore\Bundle\EcommerceFrameworkBundle\OrderManager\Order\Listing\Filter\CustomerObject;
 use Pimcore\Model\DataObject\OnlineShopOrderItem;
+use Pimcore\Model\DataObject;
 
 /**
  * Sample Segment Builder that adds segments to customer based on products he ordered
@@ -71,7 +71,7 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
             return;
         }
 
-        ForceInheritance::run(function () use ($customer, $segmentManager) {
+        DataObject\Service::useInheritedValues(true, function () use ($customer, $segmentManager) {
             $orderManager = Factory::getInstance()->getOrderManager();
 
             // create new order list

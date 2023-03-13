@@ -15,10 +15,10 @@
 
 namespace App\Website\LinkGenerator;
 
-use App\Website\Tool\ForceInheritance;
 use App\Website\Tool\Text;
 use Pimcore\Http\Request\Resolver\DocumentResolver;
 use Pimcore\Localization\LocaleServiceInterface;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
 use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\News;
@@ -76,7 +76,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
             throw new \InvalidArgumentException('Given object is no News');
         }
 
-        return ForceInheritance::run(function () use ($object, $params) {
+        return DataObject\Service::useInheritedValues(true, function () use ($object, $params) {
             $fullPath = '';
 
             if (isset($params['document']) && $params['document'] instanceof Document) {

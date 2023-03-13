@@ -6,6 +6,7 @@ use Pimcore\Bundle\DataHubBundle\PimcoreDataHubBundle;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PimcoreEcommerceFrameworkBundle;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PimcorePaymentProviderPayPalSmartPaymentButtonBundle;
 use Pimcore\Bundle\GlossaryBundle\PimcoreGlossaryBundle;
+use Pimcore\Bundle\GoogleMarketingBundle\PimcoreGoogleMarketingBundle;
 use Pimcore\Bundle\ObjectMergerBundle\ObjectMergerBundle;
 use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
 use Pimcore\Bundle\WebToPrintBundle\PimcoreWebToPrintBundle;
@@ -18,6 +19,7 @@ use Pimcore\Bundle\PersonalizationBundle\PimcorePersonalizationBundle;
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     PimcoreEcommerceFrameworkBundle::class => ['all' => true],
+    PimcorePersonalizationBundle::class => ['all' => true],
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
     PimcoreGlossaryBundle::class => ['all' => true],
     PimcoreSeoBundle::class => ['all' => true],
@@ -28,7 +30,7 @@ return [
     Web2PrintToolsBundle::class => ['all' => true],
     ObjectMergerBundle::class => ['all' => true],
     PimcoreCustomReportsBundle::class => ['all' => true],
+    PimcoreGoogleMarketingBundle::class => ['all' => true],
     PimcoreApplicationLoggerBundle::class => ['all' => true],
-    PimcorePersonalizationBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
 ];
