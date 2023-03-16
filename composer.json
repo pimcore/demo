@@ -9,7 +9,8 @@
     "discard-changes": true,
     "process-timeout": 0,
     "allow-plugins": {
-      "php-http/discovery": false
+      "php-http/discovery": false,
+      "symfony/runtime": true
     }
   },
   "prefer-stable": true,
@@ -22,6 +23,7 @@
     "pimcore/web2print-tools-bundle": "^5.0",
     "pimcore/data-hub": "^1.0",
     "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
+    "symfony/runtime": "^6.2",
     "symfony/intl": "^6.2",
     "symfony/dotenv": "^6.2"
   },
