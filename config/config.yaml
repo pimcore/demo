@@ -115,9 +115,7 @@ pimcore:
 #### Pimcore ADMIN
 pimcore_admin:
     admin_csp_header:
-        enabled: false
-        exclude_paths:
-            - '@^/admin/external_opcache@'
+        enabled: true
 
 #### SYMFONY OVERRIDES
 framework:
