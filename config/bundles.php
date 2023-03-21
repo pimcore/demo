@@ -15,6 +15,7 @@ use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
 use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
 use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
 use Pimcore\Bundle\PersonalizationBundle\PimcorePersonalizationBundle;
+use Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
@@ -33,4 +34,5 @@ return [
     PimcoreGoogleMarketingBundle::class => ['all' => true],
     PimcoreApplicationLoggerBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
+    PimcoreTinymceBundle::class => ['all' => true],
 ];
