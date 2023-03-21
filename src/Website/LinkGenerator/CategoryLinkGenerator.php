@@ -23,14 +23,7 @@ use Pimcore\Model\Document;
 
 class CategoryLinkGenerator extends AbstractProductLinkGenerator implements LinkGeneratorInterface
 {
-    /**
-     * @param Concrete $object
-     * @param array $params
-     * @param bool $reset
-     *
-     * @return string
-     */
-    public function generate(Concrete $object, array $params = [], $reset = false): string
+    public function generate(object $object, array $params = [], $reset = false): string
     {
         if (false === $object instanceof Category) {
             throw new \InvalidArgumentException('Given object is no category');

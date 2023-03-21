@@ -64,13 +64,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
         $this->localeService = $localeService;
     }
 
-    /**
-     * @param Concrete $object
-     * @param array $params
-     *
-     * @return string
-     */
-    public function generate(Concrete $object, array $params = []): string
+    public function generate(object $object, array $params = []): string
     {
         if (!($object instanceof News)) {
             throw new \InvalidArgumentException('Given object is no News');
