@@ -19,6 +19,8 @@ pimcore:
         password_hasher_factories:
             Pimcore\Model\DataObject\Customer: cmf.security.user_password_hasher_factory
 
+    chromium:
+        uri: 'ws://chrome:3000/'
 
 
 

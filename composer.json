@@ -25,7 +25,8 @@
     "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
     "symfony/runtime": "^6.2",
     "symfony/intl": "^6.2",
-    "symfony/dotenv": "^6.2"
+    "symfony/dotenv": "^6.2",
+    "chrome-php/chrome": "^1.6"
   },
   "suggest": {
     "elasticsearch/elasticsearch": "Required for Elastic Search service"
