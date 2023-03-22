@@ -52,6 +52,9 @@
       "Pimcore\\Composer::installAssets"
     ]
   },
+  "extra": {
+    "symfony-assets-install": "relative"
+  },
   "repositories": {
     "dev": {
       "type": "path",
