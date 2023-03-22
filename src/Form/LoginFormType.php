@@ -36,6 +36,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\PasswordHasher\PasswordHasherInterface;
 
 class LoginFormType extends AbstractType
 {
@@ -55,6 +56,9 @@ class LoginFormType extends AbstractType
                 'label' => 'user.password',
                 'label_attr' => [
                     'class' => 'sr-only'
+                ],
+                'attr' => [
+                    'maxlength' => PasswordHasherInterface::MAX_PASSWORD_LENGTH
                 ]
             ])
             ->add('_target_path', HiddenType::class)
