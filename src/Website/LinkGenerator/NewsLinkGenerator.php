@@ -20,7 +20,6 @@ use Pimcore\Http\Request\Resolver\DocumentResolver;
 use Pimcore\Localization\LocaleServiceInterface;
 use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
-use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\News;
 use Pimcore\Model\Document;
 use Pimcore\Twig\Extension\Templating\PimcoreUrl;
@@ -64,13 +63,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
         $this->localeService = $localeService;
     }
 
-    /**
-     * @param Concrete $object
-     * @param array $params
-     *
-     * @return string
-     */
-    public function generate(Concrete $object, array $params = []): string
+    public function generate(object $object, array $params = []): string
     {
         if (!($object instanceof News)) {
             throw new \InvalidArgumentException('Given object is no News');
