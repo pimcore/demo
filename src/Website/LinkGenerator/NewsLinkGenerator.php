@@ -20,7 +20,6 @@ use Pimcore\Http\Request\Resolver\DocumentResolver;
 use Pimcore\Localization\LocaleServiceInterface;
 use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
-use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\DataObject\News;
 use Pimcore\Model\Document;
 use Pimcore\Twig\Extension\Templating\PimcoreUrl;

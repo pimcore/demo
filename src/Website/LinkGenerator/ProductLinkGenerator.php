@@ -19,12 +19,10 @@ use App\Model\Product\AccessoryPart;
 use App\Model\Product\Car;
 use App\Website\Tool\Text;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Model\ProductInterface;
-use Pimcore\Model\DataObject\ClassDefinition\LinkGeneratorInterface;
 use Pimcore\Model\DataObject;
-use Pimcore\Model\DataObject\Concrete;
 use Pimcore\Model\Document;
 
-class ProductLinkGenerator extends AbstractProductLinkGenerator implements LinkGeneratorInterface
+class ProductLinkGenerator extends AbstractProductLinkGenerator
 {
     public function generate(object $object, array $params = []): string
     {
