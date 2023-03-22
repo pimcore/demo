@@ -31,7 +31,7 @@ trait PasswordMaxLengthTrait
     public function checkPassword(string $password): void
     {
         if ($this->isPasswordTooLong($password)) {
-            throw new ValidationException("Given Password is to long.");
+            throw new ValidationException("Given password is too long.");
         }
     }
 }
