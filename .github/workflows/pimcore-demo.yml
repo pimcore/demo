@@ -70,6 +70,7 @@ jobs:
 
         # Start containers
         docker-compose pull --quiet
+        docker-compose down -v --remove-orphans
         docker-compose up -d
 
         # Install dockerize into the php container. We need it to block until
@@ -80,7 +81,7 @@ jobs:
 
         # Wait for the database to set up.
         docker-compose exec -T -- php dockerize -wait tcp://db:3306 -timeout 5m
-
+          
         # Run pimcore installation.
         docker-compose exec -T \
         -e PIMCORE_INSTALL_ADMIN_USERNAME=pimcore \
@@ -100,3 +101,4 @@ jobs:
            echo "Install failed, skipping build"
            exit 1;
         fi
+        docker-compose down -v --remove-orphans
