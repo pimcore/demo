@@ -81,9 +81,6 @@ jobs:
 
         # Wait for the database to set up.
         docker-compose exec -T -- php dockerize -wait tcp://db:3306 -timeout 5m
-        
-        # Wait for elastic host
-        docker compose exec -T -- php dockerize -wait tcp://elastic:9200 -timeout 5m
           
         # Run pimcore installation.
         docker-compose exec -T \
