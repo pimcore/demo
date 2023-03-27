@@ -15,6 +15,7 @@
 
 namespace App\EventListener;
 
+use Pimcore\Bundle\AdminBundle\Event\ElementAdminStyleEvent;
 use Pimcore\Event\BundleManager\PathsEvent;
 
 class PimcoreAdminListener
@@ -43,7 +44,7 @@ class PimcoreAdminListener
         );
     }
 
-    public function onResolveElementAdminStyle(\Pimcore\Event\Admin\ElementAdminStyleEvent $event)
+    public function onResolveElementAdminStyle(ElementAdminStyleEvent $event)
     {
         $element = $event->getElement();
         // decide which default styles you want to override
