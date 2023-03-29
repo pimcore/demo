@@ -38,6 +38,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\PasswordHasher\PasswordHasherInterface;
 
 class RegistrationFormType extends AbstractType
 {
@@ -61,7 +62,10 @@ class RegistrationFormType extends AbstractType
             ]);
         if (!$options['hidePassword']) {
             $builder->add('password', PasswordType::class, [
-                'label' => 'general.password'
+                'label' => 'general.password',
+                'attr' => [
+                    'maxlength' => PasswordHasherInterface::MAX_PASSWORD_LENGTH
+                ]
             ]);
         }
 
