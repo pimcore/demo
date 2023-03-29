@@ -35,4 +35,5 @@ return [
     PimcoreApplicationLoggerBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
     PimcoreTinymceBundle::class => ['all' => true],
+    PimcoreStaticRoutesBundle::class => ['all' => true],
 ];
