@@ -22,7 +22,23 @@ pimcore:
     chromium:
         uri: 'ws://chrome:3000/'
 
-
+    config_location:
+        image_thumbnails:
+            target: 'settings-store'
+        video_thumbnails:
+            target: 'settings-store'
+        document_types:
+            target: 'settings-store'
+        predefined_properties:
+            target: 'settings-store'
+        predefined_asset_metadata:
+            target: 'settings-store'
+        perspectives:
+            target: 'settings-store'
+        custom_views:
+            target: 'settings-store'
+        object_custom_layouts:
+            target: 'settings-store'
 
 #### TRANSLATIONS
 #    translations:
@@ -165,3 +181,23 @@ pimcore_seo:
                 enabled: true
     redirects:
         auto_create_redirects: true
+
+pimcore_web_to_print:
+    config_location:
+        web_to_print:
+            target: 'settings-store'
+
+pimcore_static_routes:
+    config_location:
+        staticroutes:
+            target: 'settings-store'
+
+pimcore_custom_reports:
+    config_location:
+        custom_reports:
+            target: 'settings-store'
+
+pimcore_data_hub:
+    config_location:
+        data_hub:
+            target: 'settings-store'
