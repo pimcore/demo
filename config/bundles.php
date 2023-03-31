@@ -9,6 +9,7 @@ use Pimcore\Bundle\GlossaryBundle\PimcoreGlossaryBundle;
 use Pimcore\Bundle\GoogleMarketingBundle\PimcoreGoogleMarketingBundle;
 use Pimcore\Bundle\ObjectMergerBundle\ObjectMergerBundle;
 use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
+use Pimcore\Bundle\StaticRoutesBundle\PimcoreStaticRoutesBundle;
 use Pimcore\Bundle\WebToPrintBundle\PimcoreWebToPrintBundle;
 use Web2PrintToolsBundle\Web2PrintToolsBundle;
 use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
@@ -35,4 +36,5 @@ return [
     PimcoreApplicationLoggerBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
     PimcoreTinymceBundle::class => ['all' => true],
+    PimcoreStaticRoutesBundle::class => ['all' => true],
 ];
