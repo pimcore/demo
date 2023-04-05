@@ -20,7 +20,7 @@ There are a few necessary steps before we can accept a pull request:
 your PR (if one is not already open), and your approach to solving it (no necessary for bug fixes - only feature contributions). 
 * [Sign the CLA](https://cla-assistant.io/pimcore/pimcore) - see also below.
 * [Fork us!](https://help.github.com/articles/fork-a-repo/) Code! Follow the coding standards PSR-1 and PSR-2
-* [Send a pull request](https://help.github.com/articles/using-pull-requests/) from your fork’s branch to our `master` branch.
+* [Send a pull request](https://help.github.com/articles/using-pull-requests/) from your fork’s branch to our `main` branch.
 
 ### Contributor License Agreement
 The following terms are used throughout this agreement:

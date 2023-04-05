@@ -3302,7 +3302,7 @@ CREATE TABLE IF NOT EXISTS `documents_printpage` (
     `template` VARCHAR(255) NULL,
     `lastgenerated` INT NULL,
     `lastgeneratemessage` TEXT NULL,
-    `contentmasterdocumentid` INT NULL,
+    `contentmaindocumentid` INT NULL,
     `missingrequirededitable` TINYINT (1) UNSIGNED NULL,
      CONSTRAINT fk_documents_printpage_documents FOREIGN KEY (id) REFERENCES documents(id) ON DELETE CASCADE
 ) DEFAULT CHARSET=utf8mb4;
