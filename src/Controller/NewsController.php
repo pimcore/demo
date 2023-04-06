@@ -89,8 +89,8 @@ class NewsController extends BaseController
     public function emailNewsTeaserAction(Request $request, NewsLinkGenerator $newsLinkGenerator): Response
     {
         $paramsBag = [];
-        if ($request->attributes->get('type') === 'object') {
-            $news = News::getById($request->attributes->getInt('id'));
+        if ($request->query->get('type') === 'object') {
+            $news = News::getById($request->query->getInt('id'));
             $paramsBag['news'] = $news;
             $paramsBag['detailLink'] = $newsLinkGenerator->generate($news, ['document' => $this->document->getProperty('news_default_document')]);
 
