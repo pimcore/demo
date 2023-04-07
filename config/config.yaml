@@ -22,6 +22,9 @@ pimcore:
     chromium:
         uri: 'ws://chrome:3000/'
 
+    gotenberg:
+        base_url: 'gotenberg:3001'
+
     config_location:
         image_thumbnails:
             write-target:
