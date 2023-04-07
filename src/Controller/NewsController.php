@@ -76,8 +76,8 @@ class NewsController extends BaseController
     public function newsTeaserAction(Request $request): Response
     {
         $paramsBag = [];
-        if ($request->attributes->get('type') === 'object') {
-            $news = News::getById($request->attributes->getInt('id'));
+        if ($request->get('type') === 'object') {
+            $news = News::getById($request->get('id'));
             $paramsBag['news'] = $news;
 
             return $this->render('news/news_teaser.html.twig', $paramsBag);
