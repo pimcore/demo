@@ -17,7 +17,6 @@ namespace App\Command;
 
 use Pimcore\Console\AbstractCommand;
 use Pimcore\Model\DataObject\AccessoryPart;
-use Pimcore\Model\DataObject\Car;
 use Pimcore\Model\DataObject\Data\Geopoint;
 use Pimcore\Model\DataObject\Data\QuantityValue;
 use Pimcore\Model\DataObject\Objectbrick\Data\SaleInformation;
