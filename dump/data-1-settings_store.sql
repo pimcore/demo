@@ -39,7 +39,7 @@ INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLE
 INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\\SimpleBackendSearchBundle\\PimcoreSimpleBackendSearchBundle','pimcore','1','bool');
 INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\\CustomReportsBundle\\PimcoreCustomReportsBundle','pimcore','1','bool');
 INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\\ApplicationLoggerBundle\\PimcoreApplicationLoggerBundle','pimcore','1','bool');
-INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\WebToPrintBundle\\PimcoreWebToPrintBundle','pimcore','1','bool');
+INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\\WebToPrintBundle\\PimcoreWebToPrintBundle','pimcore','1','bool');
 INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\\PersonalizationBundle\\PimcorePersonalizationBundle', 'pimcore', '1','bool');
 INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\\GoogleMarketingBundle\\PimcoreGoogleMarketingBundle', 'pimcore', '1','bool');
 INSERT INTO settings_store (`id`,`scope`,`data`,`type`) VALUES ('BUNDLE_INSTALLED__Pimcore\\Bundle\\StaticRoutesBundle\\PimcoreStaticRoutesBundle', 'pimcore', '1','bool');
