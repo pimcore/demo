@@ -18,7 +18,7 @@ namespace App\Ecommerce\Cart\PriceModificator;
 use App\Model\Product\AccessoryPart;
 use App\Model\Product\Car;
 use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartInterface;
-use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartPriceModificator\CartPriceModificatorInterface;
+use Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartPriceModificator;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\ModificatedPrice;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\ModificatedPriceInterface;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\PriceInterface;
@@ -26,7 +26,7 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\TaxManagement\TaxEntry;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Type\Decimal;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\CartPriceModificator\Shipping
+class Shipping extends CartPriceModificator\Shipping
 {
     /**
      * @var Decimal
@@ -84,16 +84,16 @@ class Shipping extends \Pimcore\Bundle\EcommerceFrameworkBundle\CartManager\Cart
 
         $shippingCost = $shippingCost->add($this->carCharge->mul($carCount));
 
-        $modificatedPrice = new ModificatedPrice($shippingCost, $currentSubTotal->getCurrency());
+        $modifiedPrice = new ModificatedPrice($shippingCost, $currentSubTotal->getCurrency());
         $taxClass = $this->getTaxClass();
         if ($taxClass) {
-            $modificatedPrice->setTaxEntryCombinationMode($taxClass->getTaxEntryCombinationType());
-            $modificatedPrice->setTaxEntries(TaxEntry::convertTaxEntries($taxClass));
+            $modifiedPrice->setTaxEntryCombinationMode($taxClass->getTaxEntryCombinationType());
+            $modifiedPrice->setTaxEntries(TaxEntry::convertTaxEntries($taxClass));
 
-            $modificatedPrice->setGrossAmount($shippingCost, true);
+            $modifiedPrice->setGrossAmount($shippingCost, true);
         }
 
-        return $modificatedPrice;
+        return $modifiedPrice;
     }
 
     /**

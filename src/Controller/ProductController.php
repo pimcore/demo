@@ -37,7 +37,6 @@ use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Translation\Translator;
 use Pimcore\Twig\Extension\Templating\HeadTitle;
 use Pimcore\Twig\Extension\Templating\Placeholder;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

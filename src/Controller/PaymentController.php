@@ -17,7 +17,6 @@ namespace App\Controller;
 
 use App\Ecommerce\CheckoutManager\Confirm;
 use App\Website\Navigation\BreadcrumbHelperService;
-use Pimcore\Bundle\EcommerceFrameworkBundle\Exception\UnsupportedException;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\AbstractRequest;
