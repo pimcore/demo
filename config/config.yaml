@@ -186,6 +186,7 @@ pimcore_seo:
         auto_create_redirects: true
 
 # pimcore_newsletter:
+#     default_url_prefix: 'https://my-host.com' # default prefix for your static assets
 #     use_specific: false # set true to use the following options for newsletter delivery
 #     sender:
 #         name: ''
