@@ -27,28 +27,28 @@ pimcore:
 
     config_location:
         image_thumbnails:
-            write-target:
+            write_target:
                 type: 'settings-store'
         video_thumbnails:
-            write-target:
+            write_target:
                 type: 'settings-store'
         document_types:
-            write-target:
+            write_target:
                 type: 'settings-store'
         predefined_properties:
-            write-target:
+            write_target:
                 type: 'settings-store'
         predefined_asset_metadata:
-            write-target:
+            write_target:
                 type: 'settings-store'
         perspectives:
-            write-target:
+            write_target:
                 type: 'settings-store'
         custom_views:
-            write-target:
+            write_target:
                 type: 'settings-store'
         object_custom_layouts:
-            write-target:
+            write_target:
                 type: 'settings-store'
 
 #### TRANSLATIONS
@@ -198,23 +198,23 @@ pimcore_seo:
 pimcore_web_to_print:
     config_location:
         web_to_print:
-            write-target:
+            write_target:
                 type: 'settings-store'
 
 pimcore_static_routes:
     config_location:
         staticroutes:
-            write-target:
+            write_target:
                 type: 'settings-store'
 
 pimcore_custom_reports:
     config_location:
         custom_reports:
-            write-target:
+            write_target:
                 type: 'settings-store'
 
 pimcore_data_hub:
     config_location:
         data_hub:
-            write-target:
+            write_target:
                 type: 'settings-store'
