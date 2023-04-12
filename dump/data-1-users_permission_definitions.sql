@@ -19,6 +19,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('emails','')
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('gdpr_data_extractor','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('glossary','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('http_errors','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('newsletter','Pimcore Newsletter Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notes_events','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications_send','');
