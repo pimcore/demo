@@ -7,6 +7,7 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\PimcoreEcommerceFrameworkBundle;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PimcorePaymentProviderPayPalSmartPaymentButtonBundle;
 use Pimcore\Bundle\GlossaryBundle\PimcoreGlossaryBundle;
 use Pimcore\Bundle\GoogleMarketingBundle\PimcoreGoogleMarketingBundle;
+use Pimcore\Bundle\NewsletterBundle\PimcoreNewsletterBundle;
 use Pimcore\Bundle\ObjectMergerBundle\ObjectMergerBundle;
 use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
 use Pimcore\Bundle\StaticRoutesBundle\PimcoreStaticRoutesBundle;
@@ -37,4 +38,5 @@ return [
     PimcoreWebToPrintBundle::class => ['all' => true],
     PimcoreTinymceBundle::class => ['all' => true],
     PimcoreStaticRoutesBundle::class => ['all' => true],
+    PimcoreNewsletterBundle::class => ['all' => true],
 ];
