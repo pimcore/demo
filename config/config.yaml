@@ -163,6 +163,16 @@ framework:
 #            main: smtp://user:pass@smtp.example.com:port
 #            pimcore_newsletter: smtp://user:pass@smtp.example.com:port
 
+# pimcore_newsletter:
+#     default_url_prefix: 'https://my-host.com' # default prefix for your static assets
+#     use_specific: false # set true to use the following options for newsletter delivery
+#     sender:
+#         name: ''
+#         email: ''
+#     return:
+#         name: ''
+#         email: ''
+
 pimcore_seo:
     sitemaps:
         generators:
@@ -184,16 +194,6 @@ pimcore_seo:
                 enabled: true
     redirects:
         auto_create_redirects: true
-
-# pimcore_newsletter:
-#     default_url_prefix: 'https://my-host.com' # default prefix for your static assets
-#     use_specific: false # set true to use the following options for newsletter delivery
-#     sender:
-#         name: ''
-#         email: ''
-#     return:
-#         name: ''
-#         email: ''
 
 pimcore_web_to_print:
     config_location:
