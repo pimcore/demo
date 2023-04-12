@@ -17,6 +17,7 @@ namespace App\Controller;
 
 use App\EventListener\AuthenticationLoginListener;
 use App\Form\LoginFormType;
+use App\Form\PasswordMaxLengthTrait;
 use App\Form\RegistrationFormHandler;
 use App\Form\RegistrationFormType;
 use App\Model\Customer;
@@ -47,6 +48,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class AccountController extends BaseController
 {
+    use PasswordMaxLengthTrait;
     /**
      * @Route("/account/login", name="account-login")
      *
@@ -150,6 +152,10 @@ class AccountController extends BaseController
             $customer->setActive(true);
 
             try {
+                if(!$hidePassword) {
+                    $this->checkPassword($form->getData()['password']);
+                }
+
                 $customer->save();
 
                 if ($form->getData()['newsletter']) {
@@ -331,24 +337,35 @@ class AccountController extends BaseController
     {
         $token = $request->get('token');
         $customer = $service->getCustomerByToken($token);
-        if (!$customer) {
-            //TODO render error page
-            throw new NotFoundHttpException('Invalid token');
-        }
+        $error = null;
+        try {
+            if (!$customer) {
+                throw new NotFoundHttpException('Invalid token');
+            }
 
-        if ($request->isMethod(Request::METHOD_POST)) {
-            $newPassword = $request->get('password');
-            $service->setPassword($token, $newPassword);
+            if ($request->isMethod(Request::METHOD_POST)) {
 
-            $this->addFlash('success', $translator->trans('account.password-reset-successful'));
+                $newPassword = $request->get('password');
 
-            return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
+                $this->checkPassword($newPassword);
+
+                $service->setPassword($token, $newPassword);
+
+                $this->addFlash('success', $translator->trans('account.password-reset-successful'));
+
+                return $this->redirectToRoute('account-login', ['no-referer-redirect' => true]);
+
+            }
+
+        } catch (\Exception $exception) {
+            $error = $exception->getMessage();
         }
 
         return $this->render('account/reset_password.html.twig', [
             'hideBreadcrumbs' => true,
             'token' => $token,
-            'email' => $customer->getEmail()
+            'email' => $customer?->getEmail(),
+            'error' => $error
         ]);
     }
 }
