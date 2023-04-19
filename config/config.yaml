@@ -23,7 +23,7 @@ pimcore:
         uri: 'ws://chrome:3000/'
 
     gotenberg:
-        base_url: 'gotenberg:3001'
+        base_url: 'gotenberg:3000'
 
     config_location:
         image_thumbnails:
