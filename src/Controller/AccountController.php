@@ -152,10 +152,6 @@ class AccountController extends BaseController
             $customer->setActive(true);
 
             try {
-                if(!$hidePassword) {
-                    $this->checkPassword($form->getData()['password']);
-                }
-
                 $customer->save();
 
                 if ($form->getData()['newsletter']) {
