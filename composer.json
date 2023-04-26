@@ -44,7 +44,7 @@
     "pimcore/output-data-config-toolkit-bundle": "v5.0.0-BETA1 || v5.0.0-BETA2",
     "pimcore/personalization-bundle": "v1.0.0-BETA1",
     "pimcore/web-to-print-bundle": "v1.0.0-BETA1",
-    "pimcore/web2print-tools-bundle": "v5.0.0-BETA1",
+    "pimcore/web2print-tools-bundle": "v5.0.0-BETA1"
   },
   "suggest": {
     "elasticsearch/elasticsearch": "Required for Elastic Search service"
