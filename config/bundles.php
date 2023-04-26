@@ -12,6 +12,8 @@ use Pimcore\Bundle\ObjectMergerBundle\ObjectMergerBundle;
 use Pimcore\Bundle\SeoBundle\PimcoreSeoBundle;
 use Pimcore\Bundle\StaticRoutesBundle\PimcoreStaticRoutesBundle;
 use Pimcore\Bundle\WebToPrintBundle\PimcoreWebToPrintBundle;
+use Pimcore\Bundle\WordExportBundle\PimcoreWordExportBundle;
+use Pimcore\Bundle\XliffBundle\PimcoreXliffBundle;
 use Web2PrintToolsBundle\Web2PrintToolsBundle;
 use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
 use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
@@ -39,4 +41,6 @@ return [
     PimcoreTinymceBundle::class => ['all' => true],
     PimcoreStaticRoutesBundle::class => ['all' => true],
     PimcoreNewsletterBundle::class => ['all' => true],
+    PimcoreWordExportBundle::class => ['all' => true],
+    PimcoreXliffBundle::class => ['all' => true],
 ];
