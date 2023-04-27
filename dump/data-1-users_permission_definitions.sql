@@ -47,6 +47,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('routes','Pi
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('seemode','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('seo_document_editor','Pimcore Seo Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('share_configurations','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('system_appearance_settings','Pimcore Admin Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('system_settings','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_assignment','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_configuration','');
