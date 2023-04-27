@@ -2,7 +2,7 @@
 SET NAMES utf8mb4;
 
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('admin_translations','Pimcore Admin Bundle');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('application_logging','Application Logger Bundle');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('application_logging','Pimcore Application Logger Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('assets','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('asset_metadata','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('bundle_ecommerce_back-office_order','');
