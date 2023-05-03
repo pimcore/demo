@@ -66,7 +66,8 @@ class ProductLinkGenerator extends AbstractProductLinkGenerator
                     'productname' => Text::toUrl($object->getOSName() ?? 'product'),
                     'product' => $object->getId(),
                     'path' => $this->getNavigationPath($object->getMainCategory(), $params['rootCategory'] ?? null),
-                    'page' => null
+                    'page' => null,
+                    '_locale' => $params['locale'] ?? null,
                 ],
                 'shop-detail',
                 true
