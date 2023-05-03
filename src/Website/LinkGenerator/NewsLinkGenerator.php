@@ -91,7 +91,8 @@ class NewsLinkGenerator implements LinkGeneratorInterface
                 [
                 'newstitle' => Text::toUrl($object->getTitle() ? $object->getTitle() : 'news'),
                 'news' => $object->getId(),
-                'path' => $fullPath
+                'path' => $fullPath,
+                '_locale' => $params['locale'] ?? null,
             ],
                 'news-detail',
                 true

@@ -36,7 +36,8 @@ class CategoryLinkGenerator extends AbstractProductLinkGenerator
                 'categoryname' => Text::toUrl($object->getName() ? $object->getName() : 'elements'),
                 'category' => $object->getId(),
                 'path' => $this->getNavigationPath($object, $params['rootCategory'] ?? null),
-                'page' => null
+                'page' => null,
+                '_locale' => $params['locale'] ?? null,
             ],
             'shop-category',
             $reset
