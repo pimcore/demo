@@ -12,7 +12,7 @@
 
                 <span class="dropdown-menu-arrow search arrow"></span>
 
-                <div class="dropdown-item">{{ 'general.logged-in-as' | trans([app.user.username]) }}</div>
+                <div class="dropdown-item">{{ 'general.logged-in-as' | trans([app.user.useridentifier]) }}</div>
                 <div class="dropdown-divider"></div>
                 <a href="{{ path('account-index') }}" class="dropdown-item">{{ 'general.profile' | trans }}</a>
                 <div class="dropdown-divider"></div>
