@@ -6,7 +6,7 @@ SET NAMES utf8mb4;
 DROP TABLE IF EXISTS `bundle_outputdataconfigtoolkit_outputdefinition`;
 CREATE TABLE `bundle_outputdataconfigtoolkit_outputdefinition` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `o_id` int(11) NOT NULL,
+  `objectId` int(11) NOT NULL,
   `classId` varchar(50) COLLATE utf8mb3_bin NOT NULL,
   `channel` varchar(255) COLLATE utf8mb3_bin NOT NULL,
   `configuration` longtext CHARACTER SET latin1 DEFAULT NULL,
