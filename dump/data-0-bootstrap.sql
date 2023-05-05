@@ -6,12 +6,12 @@ SET NAMES utf8mb4;
 DROP TABLE IF EXISTS `bundle_outputdataconfigtoolkit_outputdefinition`;
 CREATE TABLE `bundle_outputdataconfigtoolkit_outputdefinition` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `o_id` int(11) NOT NULL,
+  `objectId` int(11) NOT NULL,
   `classId` varchar(50) COLLATE utf8mb3_bin NOT NULL,
   `channel` varchar(255) COLLATE utf8mb3_bin NOT NULL,
   `configuration` longtext CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `Unique` (`o_id`,`classId`,`channel`)
+  UNIQUE KEY `Unique` (`objectId`,`classId`,`channel`)
 ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
