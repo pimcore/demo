@@ -11,7 +11,7 @@ CREATE TABLE `bundle_outputdataconfigtoolkit_outputdefinition` (
   `channel` varchar(255) COLLATE utf8mb3_bin NOT NULL,
   `configuration` longtext CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `Unique` (`o_id`,`classId`,`channel`)
+  UNIQUE KEY `Unique` (`objectId`,`classId`,`channel`)
 ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 
