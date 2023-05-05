@@ -19,8 +19,8 @@ CREATE TABLE `bundle_outputdataconfigtoolkit_outputdefinition` (
 DROP TABLE IF EXISTS `bundle_web2print_favorite_outputdefinitions`;
 CREATE TABLE `bundle_web2print_favorite_outputdefinitions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `classId` varchar(50) COLLATE utf8mb3_bin NOT NULL,
-  `description` varchar(255) COLLATE utf8mb3_bin NOT NULL,
+  `classId` varchar(50) COLLATE utf8mb3_bin NULL,
+  `description` varchar(255) COLLATE utf8mb3_bin NULL,
   `configuration` longtext CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
