@@ -50,6 +50,9 @@ pimcore:
         object_custom_layouts:
             write_target:
                 type: 'settings-store'
+        system_settings:
+            write_target:
+                type: 'settings-store'
 
 #### TRANSLATIONS
 #    translations:
