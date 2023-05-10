@@ -53,6 +53,8 @@ pimcore:
         system_settings:
             write_target:
                 type: 'settings-store'
+            read_target:
+                type: 'settings-store'
 
 #### TRANSLATIONS
 #    translations:
@@ -142,6 +144,13 @@ pimcore_admin:
         enabled: true
         exclude_paths:
             - '@^/admin/external_opcache@'
+
+    config_location:
+        admin_system_settings:
+            write_target:
+                type: 'settings-store'
+            read_target:
+                type: 'settings-store'
 
 #### SYMFONY OVERRIDES
 framework:
