@@ -3325,3 +3325,17 @@ CREATE TABLE IF NOT EXISTS `documents_newsletter` (
     CONSTRAINT `fk_documents_newsletter_documents` FOREIGN KEY (`id`) REFERENCES `documents` (`id`) ON UPDATE NO ACTION ON DELETE CASCADE
 ) DEFAULT CHARSET=utf8mb4;
 
+DROP TABLE IF EXISTS `translations_admin`;
+CREATE TABLE `translations_admin`
+(
+    `key`              varchar(190) NOT NULL DEFAULT '' COLLATE 'utf8mb4_bin',
+    `type`             varchar(10)           DEFAULT NULL,
+    `language`         varchar(10)  NOT NULL DEFAULT '',
+    `text`             text,
+    `creationDate`     int(11) unsigned DEFAULT NULL,
+    `modificationDate` int(11) unsigned DEFAULT NULL,
+    `userOwner`        int(11) unsigned DEFAULT NULL,
+    `userModification` int(11) unsigned DEFAULT NULL,
+    PRIMARY KEY (`key`, `language`),
+    KEY                `language` (`language`)
+) DEFAULT CHARSET=utf8mb4;
