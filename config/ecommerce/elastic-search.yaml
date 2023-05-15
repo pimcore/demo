@@ -22,6 +22,7 @@ pimcore_ecommerce_framework:
                     '%%locale%%': 'en'
 
                 config_options:
+                    es_client_name: 'default'
                     client_config:
                         logging: true
                         indexName: 'pimcore-demo'
