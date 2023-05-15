@@ -14,14 +14,13 @@
     }
   },
   "prefer-stable": true,
-  "minimum-stability": "dev",
   "require": {
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "^4.0",
     "pimcore/pimcore": "^11.0",
     "pimcore/web2print-tools-bundle": "^5.0",
-    "pimcore/data-hub": "^1.0",
+    "pimcore/data-hub": "^1.6",
     "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
     "pimcore/admin-ui-classic-bundle": "^1.0",
     "pimcore/ecommerce-framework-bundle": "^1.0",
@@ -32,20 +31,6 @@
     "symfony/dotenv": "^6.2",
     "chrome-php/chrome": "^1.6",
     "gotenberg/gotenberg-php": "^1.1"
-  },
-  "conflict": {
-    "pimcore/pimcore": "v11.0.0-ALPHA1 || v11.0.0-ALPHA2 || v11.0.0-ALPHA3 || v11.0.0-ALPHA4 || v11.0.0-ALPHA5 || v11.0.0-ALPHA6 || v11.0.0-ALPHA7 || v11.0.0-ALPHA8 || v11.0.0-BETA1 || v11.0.0-RC1",
-    "pimcore/admin-ui-classic-bundle": "v1.0.0-BETA1",
-    "pimcore/customer-management-framework-bundle": "v4.0.0-BETA1 || v4.0.0-BETA2",
-    "pimcore/data-hub": "v1.6.0-BETA1",
-    "pimcore/ecommerce-framework-bundle": "v1.0.0-BETA1",
-    "pimcore/newsletter-bundle": "v1.0.0-BETA1",
-    "pimcore/google-marketing-bundle": "v1.0.0-BETA1",
-    "pimcore/object-merger": "v4.0.0-BETA1",
-    "pimcore/output-data-config-toolkit-bundle": "v5.0.0-BETA1 || v5.0.0-BETA2",
-    "pimcore/personalization-bundle": "v1.0.0-BETA1",
-    "pimcore/web-to-print-bundle": "v1.0.0-BETA1",
-    "pimcore/web2print-tools-bundle": "v5.0.0-BETA1 || v5.0.0-BETA2"
   },
   "suggest": {
     "elasticsearch/elasticsearch": "Required for Elastic Search service"
