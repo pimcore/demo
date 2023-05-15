@@ -15,7 +15,7 @@ pimcore_ecommerce_framework:
         tenants:
             ElasticSearch:
                 enabled: true
-                worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\ElasticSearch\DefaultElasticSearch7
+                worker_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Worker\ElasticSearch\DefaultElasticSearch8
                 config_id: Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\Config\ElasticSearch
 
                 placeholders:
@@ -25,10 +25,6 @@ pimcore_ecommerce_framework:
                     client_config:
                         logging: true
                         indexName: 'pimcore-demo'
-
-                    es_client_params:
-                        hosts:
-                            - '%es_client%'
 
                     index_settings:
                         number_of_shards: 5
