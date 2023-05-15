@@ -152,6 +152,8 @@ class AccountController extends BaseController
             $customer->setActive(true);
 
             try {
+                $this->checkPassword($form->getData()['password']);
+
                 $customer->save();
 
                 if ($form->getData()['newsletter']) {
