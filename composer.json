@@ -14,6 +14,7 @@
     }
   },
   "prefer-stable": true,
+  "minimum-stability": "dev",
   "require": {
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
