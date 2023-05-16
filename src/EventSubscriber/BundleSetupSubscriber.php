@@ -34,7 +34,7 @@ class BundleSetupSubscriber implements EventSubscriberInterface
 
     public function bundleSetup(BundleSetupEvent $event): void
     {
-        // remove bundles to install since they are installed via dump files
+        // skip bundles installation question since they are installed via dump files
         $event->clearBundlesAndRecommendations();
     }
 }
