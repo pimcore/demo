@@ -40,7 +40,7 @@ class CategoryFilterExtension extends AbstractExtension
         ];
     }
 
-    public function prepareData(int $currentValue, ?Category $rootCategory = null): \stdClass
+    public function prepareData(?int $currentValue, ?Category $rootCategory = null): \stdClass
     {
         $data = new \stdClass();
 
@@ -55,9 +55,12 @@ class CategoryFilterExtension extends AbstractExtension
         return $data;
     }
 
-    public function getCurrentCategory(int $currentValue): Category
+    public function getCurrentCategory(?int $currentValue): ?Category
     {
-        return Category::getById($currentValue);
+        if(is_int($currentValue)) {
+            return Category::getById($currentValue);
+        }
+        return null;
     }
 
     /**
