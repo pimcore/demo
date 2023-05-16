@@ -211,36 +211,6 @@ CREATE TABLE `object_brick_query_Engine_CAR` (
 
 
 
-DROP TABLE IF EXISTS `object_brick_query_OAuth1Token_3`;
-CREATE TABLE `object_brick_query_OAuth1Token_3` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `token` longtext DEFAULT NULL,
-  `tokenSecret` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_query_OAuth1Token_3__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-DROP TABLE IF EXISTS `object_brick_query_OAuth2Token_3`;
-CREATE TABLE `object_brick_query_OAuth2Token_3` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `accessToken` longtext DEFAULT NULL,
-  `tokenType` varchar(190) DEFAULT NULL,
-  `expiresAt` varchar(190) DEFAULT NULL,
-  `refreshToken` longtext DEFAULT NULL,
-  `scope` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_query_OAuth2Token_3__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 DROP TABLE IF EXISTS `object_brick_query_PaymentProviderPayPalSmartButton_EF_OSO`;
 CREATE TABLE `object_brick_query_PaymentProviderPayPalSmartButton_EF_OSO` (
@@ -359,37 +329,6 @@ CREATE TABLE `object_brick_store_Engine_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_Engine_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-DROP TABLE IF EXISTS `object_brick_store_OAuth1Token_3`;
-CREATE TABLE `object_brick_store_OAuth1Token_3` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `token` longtext DEFAULT NULL,
-  `tokenSecret` longtext DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_store_OAuth1Token_3__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-DROP TABLE IF EXISTS `object_brick_store_OAuth2Token_3`;
-CREATE TABLE `object_brick_store_OAuth2Token_3` (
-  `id` int(10) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `accessToken` longtext DEFAULT NULL,
-  `tokenType` varchar(190) DEFAULT NULL,
-  `expiresAt` varchar(190) DEFAULT NULL,
-  `refreshToken` longtext DEFAULT NULL,
-  `scope` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_store_OAuth2Token_3__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -1553,20 +1492,6 @@ CREATE TABLE `object_query_2` (
 
 
 
-DROP TABLE IF EXISTS `object_query_3`;
-CREATE TABLE `object_query_3` (
-  `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `oo_classId` varchar(50) DEFAULT '3',
-  `oo_className` varchar(255) DEFAULT 'SsoIdentity',
-  `provider` varchar(190) DEFAULT NULL,
-  `identifier` varchar(190) DEFAULT NULL,
-  `profileData` longtext DEFAULT NULL,
-  PRIMARY KEY (`oo_id`),
-  KEY `p_index_provider` (`provider`),
-  KEY `p_index_identifier` (`identifier`),
-  CONSTRAINT `fk_object_query_3__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 
 DROP TABLE IF EXISTS `object_query_4`;
@@ -2007,29 +1932,6 @@ CREATE TABLE `object_relations_2` (
   CONSTRAINT `fk_object_relations_2__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-
-DROP TABLE IF EXISTS `object_relations_3`;
-CREATE TABLE `object_relations_3` (
-  `src_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `dest_id` int(11) NOT NULL DEFAULT 0,
-  `type` enum('object','asset','document') NOT NULL,
-  `fieldname` varchar(70) NOT NULL DEFAULT '0',
-  `index` int(11) unsigned NOT NULL DEFAULT 0,
-  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
-  `ownername` varchar(70) NOT NULL DEFAULT '',
-  `position` varchar(70) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`src_id`,`dest_id`,`ownertype`,`ownername`,`fieldname`,`type`,`position`,`index`),
-  KEY `index` (`index`),
-  KEY `dest_id` (`dest_id`),
-  KEY `fieldname` (`fieldname`),
-  KEY `position` (`position`),
-  KEY `ownertype` (`ownertype`),
-  KEY `type` (`type`),
-  KEY `ownername` (`ownername`),
-  KEY `IDX_BDB61BF3FF529AC` (`src_id`),
-  CONSTRAINT `fk_object_relations_3__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -2516,17 +2418,6 @@ CREATE TABLE `object_store_2` (
   CONSTRAINT `fk_object_store_2__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-
-DROP TABLE IF EXISTS `object_store_3`;
-CREATE TABLE `object_store_3` (
-  `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `provider` varchar(190) DEFAULT NULL,
-  `identifier` varchar(190) DEFAULT NULL,
-  `profileData` longtext DEFAULT NULL,
-  PRIMARY KEY (`oo_id`),
-  CONSTRAINT `fk_object_store_3__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
