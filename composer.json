@@ -28,7 +28,7 @@
     "hwi/oauth-bundle": "1.4.0"
   },
   "suggest": {
-    "elasticsearch/elasticsearch": "Required for Elastic Search service"
+    "pimcore/elasticsearch-client": "Required for Elastic Search service"
   },
   "autoload": {
     "psr-4": {
