@@ -26,8 +26,8 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('newsletter'
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notes_events','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications_send','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objects','Data Objects');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objectbricks','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objects','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objectbricks','Data Objects');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_reports','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_settings','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugins','');
