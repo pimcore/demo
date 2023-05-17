@@ -9,7 +9,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('bundle_ecom
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('bundle_ecommerce_pricing_rules','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('bundle_outputDataConfigToolkit','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('classes','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('classificationstore','Data Objects');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('classificationstore','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('clear_cache','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('clear_fullpage_cache','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('clear_temp_files','');
@@ -17,7 +17,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('dashboards'
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('documents','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('document_types','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('emails','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('fieldcollections','Data Objects');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('fieldcollections','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('gdpr_data_extractor','Pimcore Admin Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('glossary','Pimcore Glossary Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('google_marketing','Pimcore Google Marketing Bundle');
@@ -27,7 +27,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notes_event
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications_send','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objects','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objectbricks','Data Objects');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objectbricks','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_reports','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_settings','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugins','');
@@ -40,7 +40,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_data
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_admin','Datahub');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_config','Datahub');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('predefined_properties','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('quantityValueUnits','Data Objects');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('quantityValueUnits','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('qr_codes','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('recyclebin','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('redirects','');
