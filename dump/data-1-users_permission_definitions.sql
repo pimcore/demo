@@ -8,7 +8,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('asset_metad
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('bundle_ecommerce_back-office_order','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('bundle_ecommerce_pricing_rules','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('bundle_outputDataConfigToolkit','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('classes','Data Objects');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('classes','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('classificationstore','Data Objects');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('clear_cache','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('clear_fullpage_cache','');
