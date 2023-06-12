@@ -1,8 +1,8 @@
 parameters:
-    secret: ThisTokenIsNotSoSecretChangeItImmediately
+    secret: 1FMVB3v/SRviXVbKcW9Mu7LykklRrWTji08Whf+ZdM8=
     
     # use echo \Defuse\Crypto\Key::createNewRandomKey()->saveToAsciiSafeString(); to generate secret for data encryption
-    app_encryption_secret: "ThisTokenIsNotSoSecretChangeItImmediately"
+    app_encryption_secret: "78VsXVPUVPS3qMuTNiUJwq+systK9JdS1yM5k4HTToM="
 
 
     #this is necessary for CLI commands to get the base url, eg. sitemap dump

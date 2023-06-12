@@ -9,6 +9,8 @@ services:
         command: [ mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-per-table=1 ]
         volumes:
             - pimcore-demo-database:/var/lib/mysql
+        ports:
+            - "3306:3306"
         environment:
             MYSQL_ROOT_PASSWORD: ROOT
             MYSQL_DATABASE: pimcore
