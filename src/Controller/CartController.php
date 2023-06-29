@@ -27,6 +27,7 @@ use Pimcore\Translation\Translator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CartController extends FrontendController
@@ -105,15 +106,23 @@ class CartController extends FrontendController
         $cart = $this->getCart();
 
         if ($request->getMethod() == Request::METHOD_POST) {
+            if (!$this->isCsrfTokenValid('cartListing', $request->get('_csrf_token'))) {
+                throw new AccessDeniedHttpException('Invalid request');
+            }
+
             $items = $request->get('items');
 
             foreach ($items as $itemKey => $quantity) {
+                if (!is_numeric($quantity)) {
+                    continue;
+                }
+
                 if ($cart->getItemCount() > 99) {
                     break;
                 }
                 $product = AbstractProduct::getById($itemKey);
                 if ($product instanceof CheckoutableInterface) {
-                    $cart->updateItem($itemKey, $product, $quantity, true);
+                    $cart->updateItem($itemKey, $product, floor($quantity), true);
                 }
             }
             $cart->save();
