@@ -14,7 +14,6 @@
     }
   },
   "prefer-stable": true,
-  "minimum-stability": "dev",
   "require": {
     "chrome-php/chrome": "^1.6",
     "gotenberg/gotenberg-php": "^1.1",

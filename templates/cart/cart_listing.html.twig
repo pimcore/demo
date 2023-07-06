@@ -63,6 +63,7 @@
                     <h4 class="mb-3">{{ 'cart.title' | trans }}</h4>
                     <div class="card shopping-cart">
                         <form method="post">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('cartListing') }}">
                             <div class="card-body">
 
                                 {% for item in cart.items %}
