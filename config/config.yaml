@@ -230,35 +230,3 @@ pimcore_data_hub:
         data_hub:
             write_target:
                 type: 'settings-store'
-
-pimcore_open_id_connect:
-    config_location:
-        open_id_connect:
-            write_target:
-                type: 'symfony-config'
-                options:
-                    directory: '/var/www/html/var/config/oidc'
-    default_provider: onelogin
-
-    providers:
-        onelogin:
-            client_id: <CLIENT_ID>
-            client_secret: <CLIENT_SECRET>
-            url_discovery: https://<USERNAME>.onelogin.com/oidc/2/.well-known/openid-configuration
-        okta:
-            client_id: <CLIENT_ID>
-            client_secret: <CLIENT_SECRET>
-            url_discovery: https://<USERNAME>.okta.com/.well-known/openid-configuration
-            load_user_info: true
-            scopes:
-                - profile
-                - email
-                - groups
-            claim_mapping:
-                preferred_username: preferred_username
-                given_name: given_name
-                family_name: family_name
-                email: email
-                groups: groups
-                picture: picture
-                sub: sub

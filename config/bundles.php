@@ -2,7 +2,6 @@
 
 use CustomerManagementFrameworkBundle\PimcoreCustomerManagementFrameworkBundle;
 use OutputDataConfigToolkitBundle\OutputDataConfigToolkitBundle;
-use Pimcore\Bundle\BackendPowerToolsBundle\PimcoreBackendPowerToolsBundle;
 use Pimcore\Bundle\DataHubBundle\PimcoreDataHubBundle;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PimcoreEcommerceFrameworkBundle;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PimcorePaymentProviderPayPalSmartPaymentButtonBundle;
@@ -21,7 +20,6 @@ use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
 use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
 use Pimcore\Bundle\PersonalizationBundle\PimcorePersonalizationBundle;
 use Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle;
-use Pimcore\Bundle\OpenIdConnectBundle\PimcoreOpenIdConnectBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
@@ -45,6 +43,4 @@ return [
     PimcoreNewsletterBundle::class => ['all' => true],
     PimcoreWordExportBundle::class => ['all' => true],
     PimcoreXliffBundle::class => ['all' => true],
-    PimcoreOpenIdConnectBundle::class => ['all' => true],
-    PimcoreBackendPowerToolsBundle::class=> ['all' => true]
 ];
