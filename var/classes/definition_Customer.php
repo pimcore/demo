@@ -19,6 +19,7 @@
  * - idEncoded [input]
  * - customerLanguage [language]
  * - newsletter [consent]
+ * - newsletterActive [newsletterActive]
  * - newsletterConfirmed [newsletterConfirmed]
  * - newsletterConfirmToken [input]
  * - profiling [consent]
@@ -36,9 +37,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Customer',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1683551625,
+   'modificationDate' => 1685007611,
    'userOwner' => 2,
-   'userModification' => 1,
+   'userModification' => 2,
    'parentClass' => '\\CustomerManagementFrameworkBundle\\Model\\AbstractCustomer\\DefaultAbstractUserawareCustomer',
    'implementsInterfaces' => '',
    'listingParentClass' => '',
@@ -142,6 +143,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
+                 'options' => NULL,
                  'width' => '',
                  'defaultValue' => NULL,
                  'optionsProviderClass' => NULL,
@@ -478,6 +480,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
+                 'options' => NULL,
                  'width' => '',
                  'defaultValue' => NULL,
                  'optionsProviderClass' => NULL,
@@ -526,6 +529,29 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'width' => NULL,
                   )),
                   1 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\NewsletterActive::__set_state(array(
+                     'name' => 'newsletterActive',
+                     'title' => 'Newsletter Active',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => true,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'fieldtype' => 'newsletterActive',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                     'blockedVarsForExport' => 
+                    array (
+                    ),
+                     'defaultValue' => NULL,
+                     'defaultValueGenerator' => '',
+                  )),
+                  2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\NewsletterConfirmed::__set_state(array(
                      'name' => 'newsletterConfirmed',
                      'title' => 'Newsletter Confirmed',
@@ -548,7 +574,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'defaultValue' => NULL,
                      'defaultValueGenerator' => '',
                   )),
-                  2 => 
+                  3 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'newsletterConfirmToken',
                      'title' => 'Newsletter Confirm Token',
@@ -579,7 +605,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  3 => 
+                  4 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Consent::__set_state(array(
                      'name' => 'profiling',
                      'title' => 'Profiling',
@@ -1001,7 +1027,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'group' => 'CustomerManagement',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
-   'previewGeneratorReference' => NULL,
+   'previewGeneratorReference' => '',
    'compositeIndices' => 
   array (
   ),
