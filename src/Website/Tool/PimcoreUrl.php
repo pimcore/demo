@@ -30,8 +30,7 @@ class PimcoreUrl extends \Pimcore\Twig\Extension\Templating\PimcoreUrl
     {
         // merge all parameters from request to parameters
         if (!$reset && $this->requestHelper->hasMainRequest()) {
-            $params = $this->requestHelper->getMainRequest()->attributes->get('_route_params') ?? [];
-            $urlOptions = array_replace($params, $urlOptions);
+            $urlOptions = array_replace($this->requestHelper->getMainRequest()->attributes->get('_route_params', []), $urlOptions);
         }
 
         return parent::__invoke($urlOptions, $name, $reset, $encode, $relative);
