@@ -71,9 +71,9 @@ class LanguageSwitcherExtension extends AbstractExtension
             }
 
             $route = $request->get('_route');
-            $routeParams = $request->get('_route_params');
+            $routeParams = $request->get('_route_params', []);
 
-            if ($route && count($routeParams ?? []) > 1) {
+            if ($route && count($routeParams) > 1) {
                 $routeParams['_locale'] = \Locale::getPrimaryLanguage($language);
                 $target = $this->urlGenerator->generate($route, $routeParams);
             }
