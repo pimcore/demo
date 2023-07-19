@@ -104,15 +104,20 @@ class LanguageSwitcherExtension extends AbstractExtension implements ServiceSubs
 
             if ($route && array_key_exists($route, $dynamicRoutesMapping)) {
                 $routeParams = $request->get('_route_params', []);
-                $routeParams['locale'] = $routeParams['_locale'] = \Locale::getPrimaryLanguage($language);
+                $requiredField = $dynamicRoutesMapping[$route]['requiredField'];
+
+                if (!array_key_exists($requiredField, $routeParams)){
+                    continue;
+                }
 
                 $generator = $dynamicRoutesMapping[$route]['generator'];
-                $object = $request->get($dynamicRoutesMapping[$route]['requiredField']);
+                $object = $request->get($requiredField);
+
                 if (!is_object($object)) {
                     $object = DataObject::getById($object);
                 }
                 $linkGeneratorService = $this->locator->get($generator);
-                $target = $linkGeneratorService->generate($object, $routeParams);
+                $target = $linkGeneratorService->generate($object, ['locale' => \Locale::getPrimaryLanguage($language)]);
             }
 
             $links[$language] = [

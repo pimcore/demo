@@ -98,7 +98,7 @@ class NewsLinkGenerator implements LinkGeneratorInterface
 
             return $this->pimcoreUrl->__invoke(
                 [
-                'newstitle' => Text::toUrl($object->getTitle() ? $object->getTitle() : 'news'),
+                'newstitle' => Text::toUrl($object->getTitle($locale) ? $object->getTitle($locale) : 'news'),
                 'news' => $object->getId(),
                 'path' => $fullPath,
                 '_locale' => $locale,
