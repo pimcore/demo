@@ -94,11 +94,14 @@ class NewsLinkGenerator implements LinkGeneratorInterface
                 $fullPath = $document->getProperty('news_default_document') ? substr($document->getProperty('news_default_document')->getFullPath(), strlen($localeUrlPart)) : '';
             }
 
+            $locale = $params['locale'] ?? null;
+
             return $this->pimcoreUrl->__invoke(
                 [
                 'newstitle' => Text::toUrl($object->getTitle() ? $object->getTitle() : 'news'),
                 'news' => $object->getId(),
-                'path' => $fullPath
+                'path' => $fullPath,
+                '_locale' => $locale,
             ],
                 'news-detail',
                 true

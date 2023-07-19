@@ -17,6 +17,9 @@ declare(strict_types=1);
 
 namespace App\Twig\Extension;
 
+use App\Website\LinkGenerator\CategoryLinkGenerator;
+use App\Website\LinkGenerator\NewsLinkGenerator;
+use App\Website\LinkGenerator\ProductLinkGenerator;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Service;
 use Pimcore\Tool;
@@ -24,8 +27,11 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
+use Psr\Container\ContainerInterface;
+use Symfony\Contracts\Service\ServiceSubscriberInterface;
+use Pimcore\Model\DataObject;
 
-class LanguageSwitcherExtension extends AbstractExtension
+class LanguageSwitcherExtension extends AbstractExtension implements ServiceSubscriberInterface
 {
     /**
      * @var Service|Service\Dao
@@ -42,15 +48,39 @@ class LanguageSwitcherExtension extends AbstractExtension
      */
     private RequestStack $requestStack;
 
-    public function __construct(Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack)
+    public function __construct(private ContainerInterface $locator, Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack)
     {
         $this->documentService = $documentService;
         $this->urlGenerator = $urlGenerator;
         $this->requestStack = $requestStack;
     }
 
+    public static function getSubscribedServices(): array
+    {
+        return [
+            'categoryLinkGenerator' => CategoryLinkGenerator::class,
+            'newsLinkGenerator' => NewsLinkGenerator::class,
+            'productLinkGenerator' => ProductLinkGenerator::class,
+        ];
+    }
+
     public function getLocalizedLinks(Document $document): array
     {
+        $dynamicRoutesMapping = [
+            'shop-detail' => [
+                'generator' => 'productLinkGenerator',
+                'requiredField' => 'product'
+            ],
+            'shop-category' => [
+                'generator' => 'categoryLinkGenerator',
+                'requiredField' => 'category'
+            ],
+            'news-detail' => [
+                'generator' => 'newsLinkGenerator',
+                'requiredField' => 'news'
+            ]
+        ];
+
         $translations = $this->documentService->getTranslations($document);
         $request = $this->requestStack->getCurrentRequest();
 
@@ -71,11 +101,18 @@ class LanguageSwitcherExtension extends AbstractExtension
             }
 
             $route = $request->get('_route');
-            $routeParams = $request->get('_route_params', []);
 
-            if ($route && count($routeParams) > 1) {
-                $routeParams['_locale'] = \Locale::getPrimaryLanguage($language);
-                $target = $this->urlGenerator->generate($route, $routeParams);
+            if ($route && array_key_exists($route, $dynamicRoutesMapping)) {
+                $routeParams = $request->get('_route_params', []);
+                $routeParams['locale'] = $routeParams['_locale'] = \Locale::getPrimaryLanguage($language);
+
+                $generator = $dynamicRoutesMapping[$route]['generator'];
+                $object = $request->get($dynamicRoutesMapping[$route]['requiredField']);
+                if (!is_object($object)) {
+                    $object = DataObject::getById($object);
+                }
+                $linkGeneratorService = $this->locator->get($generator);
+                $target = $linkGeneratorService->generate($object, $routeParams);
             }
 
             $links[$language] = [
