@@ -38,18 +38,13 @@ class LanguageSwitcherExtension extends AbstractExtension implements ServiceSubs
      */
     private $documentService;
 
-    /**
-     * @var UrlGeneratorInterface $urlGenerator
-     */
     private UrlGeneratorInterface $urlGenerator;
-
-    /**
-     * @var RequestStack $requestStack
-     */
     private RequestStack $requestStack;
-
-    public function __construct(private ContainerInterface $locator, Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack)
+    private ContainerInterface $locator;
+    
+    public function __construct(ContainerInterface $locator, Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack)
     {
+        $this->locator = $locator;
         $this->documentService = $documentService;
         $this->urlGenerator = $urlGenerator;
         $this->requestStack = $requestStack;
