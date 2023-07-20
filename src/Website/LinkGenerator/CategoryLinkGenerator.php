@@ -40,12 +40,15 @@ class CategoryLinkGenerator extends AbstractProductLinkGenerator implements Link
             $this->document = $params['document'];
         }
 
+        $locale = $params['locale'] ?? null;
+
         return $this->pimcoreUrl->__invoke(
             [
-                'categoryname' => Text::toUrl($object->getName() ? $object->getName() : 'elements'),
+                'categoryname' => Text::toUrl($object->getName($locale) ? $object->getName($locale) : 'elements'),
                 'category' => $object->getId(),
-                'path' => $this->getNavigationPath($object, $params['rootCategory'] ?? null),
-                'page' => null
+                'path' => $this->getNavigationPath($object, $params['rootCategory'] ?? null, $locale),
+                'page' => null,
+                '_locale' => $locale,
             ],
             'shop-category',
             $reset
