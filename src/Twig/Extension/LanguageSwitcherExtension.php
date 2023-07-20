@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace App\Twig\Extension;
 
+use App\Website\LinkGenerator\AbstractProductLinkGenerator;
 use App\Website\LinkGenerator\CategoryLinkGenerator;
 use App\Website\LinkGenerator\NewsLinkGenerator;
 use App\Website\LinkGenerator\ProductLinkGenerator;
@@ -27,11 +28,9 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-use Psr\Container\ContainerInterface;
-use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Pimcore\Model\DataObject;
 
-class LanguageSwitcherExtension extends AbstractExtension implements ServiceSubscriberInterface
+class LanguageSwitcherExtension extends AbstractExtension
 {
     /**
      * @var Service|Service\Dao
@@ -40,23 +39,18 @@ class LanguageSwitcherExtension extends AbstractExtension implements ServiceSubs
 
     private UrlGeneratorInterface $urlGenerator;
     private RequestStack $requestStack;
-    private ContainerInterface $locator;
-    
-    public function __construct(ContainerInterface $locator, Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack)
+    private CategoryLinkGenerator $categoryLinkGenerator;
+    private NewsLinkGenerator $newsLinkGenerator;
+    private ProductLinkGenerator $productLinkGenerator;
+
+    public function __construct(Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack, CategoryLinkGenerator $categoryLinkGenerator, NewsLinkGenerator $newsLinkGenerator, ProductLinkGenerator $productLinkGenerator)
     {
-        $this->locator = $locator;
         $this->documentService = $documentService;
         $this->urlGenerator = $urlGenerator;
         $this->requestStack = $requestStack;
-    }
-
-    public static function getSubscribedServices(): array
-    {
-        return [
-            'categoryLinkGenerator' => CategoryLinkGenerator::class,
-            'newsLinkGenerator' => NewsLinkGenerator::class,
-            'productLinkGenerator' => ProductLinkGenerator::class,
-        ];
+        $this->categoryLinkGenerator = $categoryLinkGenerator;
+        $this->newsLinkGenerator = $newsLinkGenerator;
+        $this->productLinkGenerator = $productLinkGenerator;
     }
 
     public function getLocalizedLinks(Document $document): array
@@ -111,8 +105,11 @@ class LanguageSwitcherExtension extends AbstractExtension implements ServiceSubs
                 if (!is_object($object)) {
                     $object = DataObject::getById($object);
                 }
-                $linkGeneratorService = $this->locator->get($generator);
-                $target = $linkGeneratorService->generate($object, ['locale' => \Locale::getPrimaryLanguage($language)]);
+                
+                $linkGeneratorService = $this->$generator;
+                if ($linkGeneratorService instanceof AbstractProductLinkGenerator) {
+                    $target = $linkGeneratorService->generate($object, ['locale' => \Locale::getPrimaryLanguage($language)]);
+                }
             }
 
             $links[$language] = [
