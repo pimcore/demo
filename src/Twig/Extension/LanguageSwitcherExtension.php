@@ -107,7 +107,7 @@ class LanguageSwitcherExtension extends AbstractExtension
                 }
                 
                 $linkGeneratorService = $this->$generator;
-                if ($linkGeneratorService instanceof AbstractProductLinkGenerator) {
+                if ($linkGeneratorService instanceof LinkGeneratorInterface) {
                     $target = $linkGeneratorService->generate($object, ['locale' => \Locale::getPrimaryLanguage($language)]);
                 }
             }
