@@ -61,13 +61,15 @@ class ProductLinkGenerator extends AbstractProductLinkGenerator
                 return current($object->getUrlSlug())->getSlug();
             }
 
+            $locale = $params['locale'] ?? null;
+
             return $this->pimcoreUrl->__invoke(
                 [
                     'productname' => Text::toUrl($object->getOSName() ?? 'product'),
                     'product' => $object->getId(),
-                    'path' => $this->getNavigationPath($object->getMainCategory(), $params['rootCategory'] ?? null),
+                    'path' => $this->getNavigationPath($object->getMainCategory(), $params['rootCategory'] ?? null, $locale),
                     'page' => null,
-                    '_locale' => $params['locale'] ?? null,
+                    '_locale' => $locale,
                 ],
                 'shop-detail',
                 true

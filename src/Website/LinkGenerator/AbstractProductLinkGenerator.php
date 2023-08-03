@@ -59,7 +59,7 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
      * @param Category|null $rootCategory
      * @return string
      */
-    public function getNavigationPath(?Category $category, ?Category $rootCategory = null)
+    public function getNavigationPath(?Category $category, ?Category $rootCategory = null, $locale = null)
     {
         if (empty($rootCategory)) {
             if (!$this->document) {
@@ -83,7 +83,7 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
         }
 
         foreach ($categories as $categoryInPath) {
-            $path .= Text::toUrl($categoryInPath->getName()).'/';
+            $path .= Text::toUrl($categoryInPath->getName($locale)).'/';
         }
 
         return $path;
