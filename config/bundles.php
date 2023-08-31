@@ -14,6 +14,7 @@ use Pimcore\Bundle\StaticRoutesBundle\PimcoreStaticRoutesBundle;
 use Pimcore\Bundle\WebToPrintBundle\PimcoreWebToPrintBundle;
 use Pimcore\Bundle\WordExportBundle\PimcoreWordExportBundle;
 use Pimcore\Bundle\XliffBundle\PimcoreXliffBundle;
+use Presta\SitemapBundle\PrestaSitemapBundle;
 use Web2PrintToolsBundle\Web2PrintToolsBundle;
 use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
 use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
@@ -43,4 +44,5 @@ return [
     PimcoreNewsletterBundle::class => ['all' => true],
     PimcoreWordExportBundle::class => ['all' => true],
     PimcoreXliffBundle::class => ['all' => true],
+    PrestaSitemapBundle::class => ['all' => true],
 ];
