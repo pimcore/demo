@@ -13,15 +13,15 @@
  * - provider_paypal_PaymentType [input]
  */
 
-return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+return \Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'dao' => NULL,
    'key' => 'PaymentInfo',
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractPaymentInformation',
    'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Order Details',
-   'layoutDefinitions' =>
-  Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+   'layoutDefinitions' => 
+  \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -32,336 +32,322 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'collapsed' => false,
      'bodyStyle' => NULL,
      'datatype' => 'layout',
-     'permissions' => NULL,
-     'children' =>
+     'children' => 
     array (
-      0 =>
-      Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+      0 => 
+      \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
          'title' => '',
-         'width' => NULL,
-         'height' => NULL,
+         'width' => 0,
+         'height' => 0,
          'collapsible' => false,
          'collapsed' => false,
          'bodyStyle' => '',
          'datatype' => 'layout',
-         'permissions' => NULL,
-         'children' =>
+         'children' => 
         array (
-          0 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
+          0 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
              'name' => 'paymentStart',
              'title' => 'Payment Start',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'datetime',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'queryColumnType' => 'bigint(20)',
-             'columnType' => 'bigint(20)',
              'defaultValue' => NULL,
              'useCurrentDate' => false,
+             'columnType' => 'bigint(20)',
              'defaultValueGenerator' => '',
           )),
-          1 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
+          1 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Datetime::__set_state(array(
              'name' => 'paymentFinish',
              'title' => 'Payment Finish',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'datetime',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'queryColumnType' => 'bigint(20)',
-             'columnType' => 'bigint(20)',
              'defaultValue' => NULL,
              'useCurrentDate' => false,
+             'columnType' => 'bigint(20)',
              'defaultValueGenerator' => '',
           )),
-          2 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+          2 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'paymentReference',
              'title' => 'Payment Reference',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'input',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => 500,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' =>
+             'regexFlags' => 
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
+             'width' => 500,
              'defaultValueGenerator' => '',
           )),
-          3 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+          3 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
              'name' => 'paymentState',
              'title' => 'Payment State',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'select',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'options' =>
+             'options' => 
             array (
-              0 =>
+              0 => 
               array (
                 'key' => 'Committed',
                 'value' => 'committed',
               ),
-              1 =>
+              1 => 
               array (
                 'key' => 'Cancelled',
                 'value' => 'cancelled',
               ),
-              2 =>
+              2 => 
               array (
                 'key' => 'Payment Init',
                 'value' => 'paymentInit',
               ),
-              3 =>
+              3 => 
               array (
                 'key' => 'Payment Pending',
                 'value' => 'paymentPending',
               ),
-              4 =>
+              4 => 
               array (
                 'key' => 'Payment Authorized',
                 'value' => 'paymentAuthorized',
               ),
-              5 =>
+              5 => 
               array (
                 'key' => 'Aborted',
                 'value' => 'aborted',
               ),
-              6 =>
+              6 => 
               array (
                 'key' => 'Aborted but Response Received',
                 'value' => 'abortedButResponseReceived',
               ),
             ),
-             'width' => 500,
              'defaultValue' => '',
              'optionsProviderClass' => NULL,
              'optionsProviderData' => NULL,
              'columnLength' => 190,
              'dynamicOptions' => false,
              'defaultValueGenerator' => '',
+             'width' => 500,
           )),
-          4 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+          4 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'internalPaymentId',
              'title' => 'Internal Payment ID',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'input',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => 500,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' =>
+             'regexFlags' => 
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
+             'width' => 500,
              'defaultValueGenerator' => '',
           )),
-          5 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+          5 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
              'name' => 'message',
              'title' => 'Message',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'textarea',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => 500,
-             'height' => 100,
              'maxLength' => NULL,
              'showCharCount' => false,
              'excludeFromSearchIndex' => false,
+             'height' => 100,
+             'width' => 500,
           )),
-          6 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+          6 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
              'name' => 'providerData',
              'title' => 'Provider Data',
              'tooltip' => 'JSON',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'textarea',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => 500,
-             'height' => 200,
              'maxLength' => NULL,
              'showCharCount' => false,
              'excludeFromSearchIndex' => false,
+             'height' => 200,
+             'width' => 500,
           )),
-          7 =>
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+          7 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
              'name' => 'additionalDataPaypal',
              'type' => NULL,
              'region' => '',
              'title' => 'Additional Paypal Data',
-             'width' => NULL,
-             'height' => NULL,
+             'width' => 0,
+             'height' => 0,
              'collapsible' => true,
              'collapsed' => true,
              'bodyStyle' => '',
              'datatype' => 'layout',
-             'permissions' => NULL,
-             'children' =>
+             'children' => 
             array (
-              0 =>
-              Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+              0 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'provider_paypal_amount',
                  'title' => 'Amount',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => true,
-                 'index' => null,
+                 'index' => false,
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
-                 'datatype' => 'data',
-                 'fieldtype' => 'input',
+                 'fieldtype' => '',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'blockedVarsForExport' =>
+                 'blockedVarsForExport' => 
                 array (
                 ),
-                 'width' => NULL,
                  'defaultValue' => NULL,
                  'columnLength' => 255,
                  'regex' => '',
-                 'regexFlags' =>
+                 'regexFlags' => 
                 array (
                 ),
                  'unique' => false,
                  'showCharCount' => false,
+                 'width' => NULL,
                  'defaultValueGenerator' => '',
               )),
-              1 =>
-              Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+              1 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'provider_paypal_PaymentType',
                  'title' => 'Payment Type',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => true,
-                 'index' => null,
+                 'index' => false,
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
-                 'datatype' => 'data',
-                 'fieldtype' => 'input',
+                 'fieldtype' => '',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'blockedVarsForExport' =>
+                 'blockedVarsForExport' => 
                 array (
                 ),
-                 'width' => 500,
                  'defaultValue' => NULL,
                  'columnLength' => 255,
                  'regex' => '',
-                 'regexFlags' =>
+                 'regexFlags' => 
                 array (
                 ),
                  'unique' => false,
                  'showCharCount' => false,
+                 'width' => 500,
                  'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
              'fieldtype' => 'fieldset',
@@ -370,7 +356,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' =>
+         'blockedVarsForExport' => 
         array (
         ),
          'fieldtype' => 'panel',
@@ -382,7 +368,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' =>
+     'blockedVarsForExport' => 
     array (
     ),
      'fieldtype' => 'panel',
@@ -392,8 +378,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'generateTypeDeclarations' => true,
-   'blockedVarsForExport' =>
+   'fieldDefinitionsCache' => NULL,
+   'blockedVarsForExport' => 
   array (
   ),
 ));
