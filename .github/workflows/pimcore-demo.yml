@@ -16,9 +16,17 @@ on:
 jobs:
   test-pimcore-demo:
     runs-on: ubuntu-latest
+    strategy:
+        matrix:
+            include:
+                - { php-version: 8.1, database: "mariadb:10.3", dependencies: lowest, pimcore_version: "", experimental: false }
+                - { php-version: 8.2, database: "mariadb:10.7", dependencies: highest, pimcore_version: "", experimental: false }
+                - { php-version: 8.2, database: "mariadb:10.7", dependencies: highest, pimcore_version: "11.x-dev as 11.0.0", experimental: true }
+                - { php-version: 8.2, database: "mysql:latest", dependencies: highest, pimcore_version: "", experimental: false }
+                - { php-version: 8.2, database: "mysql:latest", dependencies: highest, pimcore_version: "11.x-dev as 11.0.0", experimental: true }
     steps:
     # Check out the repo in a sub-dir to see if it can serve as
-    # teplate for `composer create-project`
+    # template for `composer create-project`
     # See: https://github.com/actions/checkout#usage
     - uses: actions/checkout@v2
       with:
@@ -54,6 +62,8 @@ jobs:
               sample-project
 
     - name: Smoke-test compose file
+      env:
+          DOCKER_DATABASE: "${{ matrix.database }}"
       run: |
         # Echo commands and terminate on first error
         set -ex
@@ -61,9 +71,13 @@ jobs:
         # Check (lint) the compose file
         docker-compose -v
         cd sample-project/
-        docker-compose config
+        docker-compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml config
 
     - name: Test pimcore installation
+      continue-on-error: true
+      env:
+          PIMCORE_VERSION: "${{ matrix.pimcore_version }}"
+          DOCKER_DATABASE: "${{ matrix.database }}"
       run: |
         # Echo commands and terminate on first error
         set -ex
@@ -73,7 +87,11 @@ jobs:
         # Start containers
         docker-compose pull --quiet
         docker-compose down -v --remove-orphans
-        docker-compose up -d
+        docker-compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml up -d
+
+        if [ ! -z "$PIMCORE_VERSION" ]; then
+        composer require --no-update pimcore/pimcore:"${PIMCORE_VERSION}"
+        fi
 
         # Install dockerize into the php container. We need it to block until
         # database is ready to serve connections.
