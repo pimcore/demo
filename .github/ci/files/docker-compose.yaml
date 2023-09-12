@@ -4,7 +4,7 @@ services:
         working_dir: /application
         command: [ mysqld, --log_bin_trust_function_creators=1, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-per-table=1 ]
         volumes:
-            - pimcore-demo-mysql-database:/var/lib/mysql
+            - pimcore-demo-database:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: ROOT
             MYSQL_DATABASE: pimcore
@@ -12,4 +12,4 @@ services:
             MYSQL_PASSWORD: pimcore
 
 volumes:
-    pimcore-demo-mysql-database:
+    pimcore-demo-database:
