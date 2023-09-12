@@ -10,6 +10,3 @@ services:
             MYSQL_DATABASE: pimcore
             MYSQL_USER: pimcore
             MYSQL_PASSWORD: pimcore
-
-volumes:
-    pimcore-demo-database:
