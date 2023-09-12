@@ -90,7 +90,7 @@ jobs:
         docker-compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml up -d
 
         if [ ! -z "$PIMCORE_VERSION" ]; then
-        composer require --no-update pimcore/pimcore:"${PIMCORE_VERSION}"
+          docker-compose exec -T -- php bash composer require --no-update pimcore/pimcore:"${PIMCORE_VERSION}"
         fi
 
         # Install dockerize into the php container. We need it to block until
