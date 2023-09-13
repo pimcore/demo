@@ -216,9 +216,11 @@ class ProductController extends BaseController
     public function productTeaserAction(Request $request, Factory $ecommerceFactory): Response
     {
         $paramsBag = [];
-        if ($request->query->get('type') === 'object') {
+        $type = $request->query->get('type')?:$request->attributes->get('type');
+        if ($type === 'object') {
             AbstractObject::setGetInheritedValues(true);
-            $product = AbstractProduct::getById($request->query->getInt('id'));
+            $id = $request->query->getInt('id')?:$request->attributes->getInt('id');
+            $product = AbstractProduct::getById($id);
             if ($product instanceof Car && $product->getObjectType() === Car::OBJECT_TYPE_VIRTUAL_CAR) {
                 throw new \Exception('Virtual products are not allowed in product teasers.');
             }
