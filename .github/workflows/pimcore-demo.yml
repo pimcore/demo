@@ -128,8 +128,13 @@ jobs:
       run: |
         # Echo commands and terminate on first error
         set -ex
+          
         cd sample-project/
         docker-compose exec -T -- php composer require pimcore/pimcore:"${UPGRADE_VERSION}"
+          
+        # Run pimcore migration.  
+        docker-compose exec -T -- php ./bin/console doctrine:migrations:migrate
+          
         # Check if website is reachable, after upgrade
         response=$(docker-compose exec -T -- php bash -c 'curl -s "nginx:80"')
         if [[ ! $response =~ "Satisfaction" ]]; then
