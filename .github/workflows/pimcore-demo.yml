@@ -19,9 +19,9 @@ jobs:
     strategy:
         matrix:
             include:
-                - { php-version: 8.2, database: "mariadb:latest", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.0.0", experimental: false }
+                - { php-version: 8.2, database: "mariadb:latest", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.0.0", experimental: true }
                 - { php-version: 8.2, database: "mariadb:latest", pimcore_version: "11.x-dev as 11.0.0", experimental: true }
-                - { php-version: 8.2, database: "mysql:latest", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.0.0", experimental: false }
+                - { php-version: 8.2, database: "mysql:latest", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.0.0", experimental: true }
                 - { php-version: 8.2, database: "mysql:latest", pimcore_version: "11.x-dev as 11.0.0", experimental: true }
     steps:
     # Check out the repo in a sub-dir to see if it can serve as
@@ -73,7 +73,7 @@ jobs:
         docker-compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml config
 
     - name: Test pimcore installation
-      continue-on-error: true
+      continue-on-error: ${{ matrix.experimental }}
       env:
           PIMCORE_VERSION: "${{ matrix.pimcore_version }}"
           UPGRADE_VERSION: "${{ matrix.pimcore_upgrade_version }}"
