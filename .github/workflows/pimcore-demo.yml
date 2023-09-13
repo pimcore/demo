@@ -125,6 +125,7 @@ jobs:
       env:
           UPGRADE_VERSION: "${{ matrix.pimcore_upgrade_version }}"
       run: |
+        cd sample-project/
         if [ ! -z "$UPGRADE_VERSION" ]; then
           docker-compose exec -T -- php composer require pimcore/pimcore:"${UPGRADE_VERSION}"
           # Check if website is reachable, after compsoser upgrade
@@ -137,4 +138,5 @@ jobs:
 
     - name: Compose down
       run: |
-            docker-compose down -v --remove-orphans
+        cd sample-project/
+        docker-compose down -v --remove-orphans
