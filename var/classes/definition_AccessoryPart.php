@@ -22,15 +22,16 @@
  * - urlSlug [urlSlug]
  */
 
-return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
+return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
    'id' => 'AP',
    'name' => 'AccessoryPart',
+   'title' => '',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1683551625,
+   'modificationDate' => 1693492482,
    'userOwner' => 2,
-   'userModification' => 18,
+   'userModification' => 2,
    'parentClass' => '\\App\\Model\\Product\\AbstractProduct',
    'implementsInterfaces' => '',
    'listingParentClass' => '',
@@ -43,11 +44,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'allowInherit' => false,
    'allowVariants' => false,
    'showVariants' => false,
-   'fieldDefinitions' => 
-  array (
-  ),
    'layoutDefinitions' => 
-  Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+  \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => 'pimcore_root',
      'type' => NULL,
      'region' => NULL,
@@ -58,67 +56,62 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
      'collapsed' => false,
      'bodyStyle' => NULL,
      'datatype' => 'layout',
-     'permissions' => NULL,
      'children' => 
     array (
       0 => 
-      Pimcore\Model\DataObject\ClassDefinition\Layout\Tabpanel::__set_state(array(
+      \Pimcore\Model\DataObject\ClassDefinition\Layout\Tabpanel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
          'region' => NULL,
          'title' => '',
-         'width' => NULL,
-         'height' => NULL,
+         'width' => 0,
+         'height' => 0,
          'collapsible' => false,
          'collapsed' => false,
          'bodyStyle' => '',
          'datatype' => 'layout',
-         'permissions' => NULL,
          'children' => 
         array (
           0 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+          \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'name' => 'Base Data',
              'type' => NULL,
              'region' => NULL,
              'title' => 'Base Data',
-             'width' => NULL,
-             'height' => NULL,
+             'width' => 0,
+             'height' => 0,
              'collapsible' => false,
              'collapsed' => false,
              'bodyStyle' => '',
              'datatype' => 'layout',
-             'permissions' => NULL,
              'children' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'name' => 'Name',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'Name',
-                 'width' => NULL,
-                 'height' => NULL,
+                 'width' => 0,
+                 'height' => 0,
                  'collapsible' => false,
                  'collapsed' => false,
                  'bodyStyle' => '',
                  'datatype' => 'layout',
-                 'permissions' => NULL,
                  'children' => 
                 array (
                   0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Layout\Text::__set_state(array(
                      'name' => 'Layout',
                      'type' => NULL,
                      'region' => NULL,
                      'title' => '',
-                     'width' => NULL,
-                     'height' => NULL,
+                     'width' => 0,
+                     'height' => 0,
                      'collapsible' => false,
                      'collapsed' => false,
                      'bodyStyle' => '',
                      'datatype' => 'layout',
-                     'permissions' => NULL,
                      'children' => 
                     array (
                     ),
@@ -137,18 +130,17 @@ Text is generated based on
                      'border' => false,
                   )),
                   1 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
                      'name' => 'localizedfields',
                      'title' => '',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
-                     'index' => NULL,
+                     'index' => false,
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'localizedfields',
+                     'fieldtype' => '',
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => true,
@@ -159,7 +151,7 @@ Text is generated based on
                      'children' => 
                     array (
                       0 => 
-                      Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
+                      \Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
                          'name' => 'generatedName',
                          'title' => 'Fullname',
                          'tooltip' => '',
@@ -169,8 +161,7 @@ Text is generated based on
                          'locked' => false,
                          'style' => '',
                          'permissions' => NULL,
-                         'datatype' => 'data',
-                         'fieldtype' => 'calculatedValue',
+                         'fieldtype' => '',
                          'relationType' => false,
                          'invisible' => false,
                          'visibleGridView' => true,
@@ -179,37 +170,34 @@ Text is generated based on
                         array (
                         ),
                          'elementType' => 'input',
-                         'width' => 500,
                          'calculatorType' => 'class',
                          'calculatorExpression' => NULL,
                          'calculatorClass' => '@App\\Model\\Product\\CalculatedValue\\AccessoryPartName',
                          'columnLength' => 190,
+                         'width' => 500,
                       )),
                     ),
                      'region' => NULL,
                      'layout' => NULL,
-                     'width' => '',
-                     'height' => '',
                      'maxTabs' => NULL,
                      'border' => false,
                      'provideSplitView' => false,
-                     'tabPosition' => NULL,
+                     'tabPosition' => 'top',
                      'hideLabelsWhenTabsReached' => NULL,
                      'referencedFields' => 
                     array (
                       0 => 
-                      Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+                      \Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
                          'name' => 'localizedfields',
                          'title' => '',
                          'tooltip' => '',
                          'mandatory' => false,
                          'noteditable' => false,
-                         'index' => NULL,
+                         'index' => false,
                          'locked' => false,
                          'style' => '',
                          'permissions' => NULL,
-                         'datatype' => 'data',
-                         'fieldtype' => 'localizedfields',
+                         'fieldtype' => '',
                          'relationType' => false,
                          'invisible' => false,
                          'visibleGridView' => true,
@@ -220,7 +208,7 @@ Text is generated based on
                          'children' => 
                         array (
                           0 => 
-                          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                          \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                              'name' => 'nameAddition',
                              'title' => 'Name Addition',
                              'tooltip' => '',
@@ -230,8 +218,7 @@ Text is generated based on
                              'locked' => false,
                              'style' => '',
                              'permissions' => NULL,
-                             'datatype' => 'data',
-                             'fieldtype' => 'input',
+                             'fieldtype' => '',
                              'relationType' => false,
                              'invisible' => false,
                              'visibleGridView' => false,
@@ -239,7 +226,6 @@ Text is generated based on
                              'blockedVarsForExport' => 
                             array (
                             ),
-                             'width' => NULL,
                              'defaultValue' => NULL,
                              'columnLength' => 190,
                              'regex' => '',
@@ -248,13 +234,12 @@ Text is generated based on
                             ),
                              'unique' => false,
                              'showCharCount' => false,
+                             'width' => NULL,
                              'defaultValueGenerator' => '',
                           )),
                         ),
                          'region' => NULL,
                          'layout' => NULL,
-                         'width' => '',
-                         'height' => '',
                          'maxTabs' => NULL,
                          'border' => false,
                          'provideSplitView' => false,
@@ -263,18 +248,18 @@ Text is generated based on
                          'referencedFields' => 
                         array (
                         ),
-                         'fieldDefinitionsCache' => NULL,
                          'permissionView' => NULL,
                          'permissionEdit' => NULL,
                          'labelWidth' => 100,
                          'labelAlign' => 'left',
+                         'fieldDefinitionsCache' => NULL,
                       )),
                     ),
-                     'fieldDefinitionsCache' => NULL,
                      'permissionView' => NULL,
                      'permissionEdit' => NULL,
                      'labelWidth' => 100,
                      'labelAlign' => 'left',
+                     'fieldDefinitionsCache' => NULL,
                   )),
                 ),
                  'locked' => false,
@@ -286,22 +271,21 @@ Text is generated based on
                  'labelAlign' => 'left',
               )),
               1 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'name' => 'Definition Data',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'Definition Data',
-                 'width' => NULL,
-                 'height' => NULL,
+                 'width' => 0,
+                 'height' => 0,
                  'collapsible' => false,
                  'collapsed' => false,
                  'bodyStyle' => '',
                  'datatype' => 'layout',
-                 'permissions' => NULL,
                  'children' => 
                 array (
                   0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
                      'name' => 'manufacturer',
                      'title' => 'Manufacturer',
                      'tooltip' => '',
@@ -311,8 +295,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'manyToOneRelation',
+                     'fieldtype' => '',
                      'relationType' => true,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -327,9 +310,11 @@ Text is generated based on
                         'classes' => 'Manufacturer',
                       ),
                     ),
+                     'displayMode' => NULL,
                      'pathFormatterClass' => '',
-                     'width' => 500,
+                     'assetInlineDownloadAllowed' => false,
                      'assetUploadPath' => '',
+                     'allowToClearRelation' => true,
                      'objectsAllowed' => true,
                      'assetsAllowed' => false,
                      'assetTypes' => 
@@ -339,9 +324,10 @@ Text is generated based on
                      'documentTypes' => 
                     array (
                     ),
+                     'width' => 500,
                   )),
                   1 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
                      'name' => 'series',
                      'title' => 'Series',
                      'tooltip' => '',
@@ -351,8 +337,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'manyToOneRelation',
+                     'fieldtype' => '',
                      'relationType' => true,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -367,9 +352,11 @@ Text is generated based on
                         'classes' => 'Car',
                       ),
                     ),
+                     'displayMode' => NULL,
                      'pathFormatterClass' => '',
-                     'width' => 500,
+                     'assetInlineDownloadAllowed' => false,
                      'assetUploadPath' => '',
+                     'allowToClearRelation' => true,
                      'objectsAllowed' => true,
                      'assetsAllowed' => false,
                      'assetTypes' => 
@@ -379,9 +366,10 @@ Text is generated based on
                      'documentTypes' => 
                     array (
                     ),
+                     'width' => 500,
                   )),
                   2 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
                      'name' => 'mainCategory',
                      'title' => 'Main Category',
                      'tooltip' => '',
@@ -391,8 +379,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'manyToOneRelation',
+                     'fieldtype' => '',
                      'relationType' => true,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -407,9 +394,11 @@ Text is generated based on
                         'classes' => 'Category',
                       ),
                     ),
+                     'displayMode' => NULL,
                      'pathFormatterClass' => '',
-                     'width' => 500,
+                     'assetInlineDownloadAllowed' => false,
                      'assetUploadPath' => '',
+                     'allowToClearRelation' => true,
                      'objectsAllowed' => true,
                      'assetsAllowed' => false,
                      'assetTypes' => 
@@ -419,20 +408,20 @@ Text is generated based on
                      'documentTypes' => 
                     array (
                     ),
+                     'width' => 500,
                   )),
                   3 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields::__set_state(array(
                      'name' => 'localizedfields',
                      'title' => '',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
-                     'index' => NULL,
+                     'index' => false,
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'localizedfields',
+                     'fieldtype' => '',
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => true,
@@ -443,7 +432,7 @@ Text is generated based on
                      'children' => 
                     array (
                       0 => 
-                      Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                      \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                          'name' => 'nameAddition',
                          'title' => 'Name Addition',
                          'tooltip' => '',
@@ -453,8 +442,7 @@ Text is generated based on
                          'locked' => false,
                          'style' => '',
                          'permissions' => NULL,
-                         'datatype' => 'data',
-                         'fieldtype' => 'input',
+                         'fieldtype' => '',
                          'relationType' => false,
                          'invisible' => false,
                          'visibleGridView' => false,
@@ -462,7 +450,6 @@ Text is generated based on
                          'blockedVarsForExport' => 
                         array (
                         ),
-                         'width' => NULL,
                          'defaultValue' => NULL,
                          'columnLength' => 190,
                          'regex' => '',
@@ -471,13 +458,12 @@ Text is generated based on
                         ),
                          'unique' => false,
                          'showCharCount' => false,
+                         'width' => NULL,
                          'defaultValueGenerator' => '',
                       )),
                     ),
                      'region' => NULL,
                      'layout' => NULL,
-                     'width' => '',
-                     'height' => '',
                      'maxTabs' => NULL,
                      'border' => false,
                      'provideSplitView' => false,
@@ -486,14 +472,14 @@ Text is generated based on
                      'referencedFields' => 
                     array (
                     ),
-                     'fieldDefinitionsCache' => NULL,
                      'permissionView' => NULL,
                      'permissionEdit' => NULL,
                      'labelWidth' => 100,
                      'labelAlign' => 'left',
+                     'fieldDefinitionsCache' => NULL,
                   )),
                   4 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
                      'name' => 'compatibleTo',
                      'title' => 'Compatible To',
                      'tooltip' => '',
@@ -503,8 +489,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'manyToManyObjectRelation',
+                     'fieldtype' => '',
                      'relationType' => true,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -519,17 +504,19 @@ Text is generated based on
                         'classes' => 'Car',
                       ),
                     ),
+                     'displayMode' => NULL,
                      'pathFormatterClass' => '',
-                     'width' => '',
-                     'height' => '',
                      'maxItems' => NULL,
                      'visibleFields' => 'id,key,name,bodyStyle',
                      'allowToCreateNewObject' => true,
+                     'allowToClearRelation' => true,
                      'optimizedAdminLoading' => false,
                      'enableTextSelection' => false,
                      'visibleFieldDefinitions' => 
                     array (
                     ),
+                     'width' => '',
+                     'height' => '',
                   )),
                 ),
                  'locked' => false,
@@ -553,7 +540,7 @@ Text is generated based on
              'labelAlign' => 'left',
           )),
           1 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+          \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'name' => 'Structured Data',
              'type' => NULL,
              'region' => NULL,
@@ -564,11 +551,10 @@ Text is generated based on
              'collapsed' => false,
              'bodyStyle' => '',
              'datatype' => 'layout',
-             'permissions' => NULL,
              'children' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Classificationstore::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Classificationstore::__set_state(array(
                  'name' => 'technicalAttributes',
                  'title' => 'Technical Attributes',
                  'tooltip' => '',
@@ -578,8 +564,7 @@ Text is generated based on
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
-                 'datatype' => 'data',
-                 'fieldtype' => 'classificationstore',
+                 'fieldtype' => '',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -590,14 +575,9 @@ Text is generated based on
                  'children' => 
                 array (
                 ),
-                 'region' => NULL,
-                 'layout' => NULL,
-                 'width' => 0,
-                 'height' => 0,
-                 'maxTabs' => NULL,
                  'labelWidth' => 0,
                  'localized' => false,
-                 'storeId' => '1',
+                 'storeId' => 1,
                  'hideEmptyData' => false,
                  'disallowAddRemove' => false,
                  'referencedFields' => 
@@ -611,8 +591,8 @@ Text is generated based on
                 array (
                 ),
                  'maxItems' => NULL,
-                 'permissionView' => NULL,
-                 'permissionEdit' => NULL,
+                 'height' => 0,
+                 'width' => 0,
               )),
             ),
              'locked' => false,
@@ -627,7 +607,7 @@ Text is generated based on
              'labelAlign' => 'left',
           )),
           2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+          \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'name' => 'Multimedia & Additiona Data',
              'type' => NULL,
              'region' => NULL,
@@ -638,11 +618,10 @@ Text is generated based on
              'collapsed' => false,
              'bodyStyle' => '',
              'datatype' => 'layout',
-             'permissions' => NULL,
              'children' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Hotspotimage::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Hotspotimage::__set_state(array(
                  'name' => 'image',
                  'title' => 'image',
                  'tooltip' => '',
@@ -652,8 +631,7 @@ Text is generated based on
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
-                 'datatype' => 'data',
-                 'fieldtype' => 'hotspotimage',
+                 'fieldtype' => '',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -661,40 +639,27 @@ Text is generated based on
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'queryColumnType' => 
-                array (
-                  'image' => 'int(11)',
-                  'hotspots' => 'text',
-                ),
-                 'columnType' => 
-                array (
-                  'image' => 'int(11)',
-                  'hotspots' => 'text',
-                ),
-                 'ratioX' => NULL,
-                 'ratioY' => NULL,
                  'predefinedDataTemplates' => '',
+                 'uploadPath' => '',
                  'width' => '',
                  'height' => '',
-                 'uploadPath' => '',
               )),
               1 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'name' => 'Additional Data',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'Additional Data',
-                 'width' => NULL,
-                 'height' => NULL,
+                 'width' => 0,
+                 'height' => 0,
                  'collapsible' => false,
                  'collapsed' => false,
                  'bodyStyle' => '',
                  'datatype' => 'layout',
-                 'permissions' => NULL,
                  'children' => 
                 array (
                   0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
                      'name' => 'additionalCategories',
                      'title' => 'Additional Categories',
                      'tooltip' => '',
@@ -704,8 +669,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'manyToManyObjectRelation',
+                     'fieldtype' => '',
                      'relationType' => true,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -720,17 +684,19 @@ Text is generated based on
                         'classes' => 'Category',
                       ),
                     ),
+                     'displayMode' => NULL,
                      'pathFormatterClass' => '',
-                     'width' => '',
-                     'height' => '',
                      'maxItems' => NULL,
                      'visibleFields' => 'id,fullpath,name',
                      'allowToCreateNewObject' => true,
+                     'allowToClearRelation' => true,
                      'optimizedAdminLoading' => false,
                      'enableTextSelection' => false,
                      'visibleFieldDefinitions' => 
                     array (
                     ),
+                     'width' => '',
+                     'height' => '',
                   )),
                 ),
                  'locked' => false,
@@ -754,37 +720,35 @@ Text is generated based on
              'labelAlign' => 'left',
           )),
           3 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+          \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'name' => 'Sale Information & ERP Data',
              'type' => NULL,
              'region' => NULL,
              'title' => 'Sale Information & ERP Data',
-             'width' => NULL,
-             'height' => NULL,
+             'width' => 0,
+             'height' => 0,
              'collapsible' => false,
              'collapsed' => false,
              'bodyStyle' => '',
              'datatype' => 'layout',
-             'permissions' => NULL,
              'children' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Layout\Fieldset::__set_state(array(
                  'name' => 'ERP-Data',
                  'type' => NULL,
                  'region' => NULL,
                  'title' => 'ERP-Data',
-                 'width' => NULL,
-                 'height' => NULL,
+                 'width' => 0,
+                 'height' => 0,
                  'collapsible' => false,
                  'collapsed' => false,
                  'bodyStyle' => '',
                  'datatype' => 'layout',
-                 'permissions' => NULL,
                  'children' => 
                 array (
                   0 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'erpNumber',
                      'title' => 'ERP Number',
                      'tooltip' => '',
@@ -794,8 +758,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'input',
+                     'fieldtype' => '',
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => true,
@@ -803,7 +766,6 @@ Text is generated based on
                      'blockedVarsForExport' => 
                     array (
                     ),
-                     'width' => NULL,
                      'defaultValue' => NULL,
                      'columnLength' => 190,
                      'regex' => '',
@@ -812,10 +774,11 @@ Text is generated based on
                     ),
                      'unique' => false,
                      'showCharCount' => false,
+                     'width' => NULL,
                      'defaultValueGenerator' => '',
                   )),
                   1 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'categoryCode',
                      'title' => 'Category Code',
                      'tooltip' => '',
@@ -825,8 +788,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'input',
+                     'fieldtype' => '',
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -834,7 +796,6 @@ Text is generated based on
                      'blockedVarsForExport' => 
                     array (
                     ),
-                     'width' => NULL,
                      'defaultValue' => NULL,
                      'columnLength' => 190,
                      'regex' => '',
@@ -843,10 +804,11 @@ Text is generated based on
                     ),
                      'unique' => false,
                      'showCharCount' => false,
+                     'width' => NULL,
                      'defaultValueGenerator' => '',
                   )),
                   2 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'owner',
                      'title' => 'Owner',
                      'tooltip' => '',
@@ -856,8 +818,7 @@ Text is generated based on
                      'locked' => false,
                      'style' => '',
                      'permissions' => NULL,
-                     'datatype' => 'data',
-                     'fieldtype' => 'input',
+                     'fieldtype' => '',
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -865,7 +826,6 @@ Text is generated based on
                      'blockedVarsForExport' => 
                     array (
                     ),
-                     'width' => NULL,
                      'defaultValue' => NULL,
                      'columnLength' => 190,
                      'regex' => '',
@@ -874,6 +834,7 @@ Text is generated based on
                     ),
                      'unique' => false,
                      'showCharCount' => false,
+                     'width' => NULL,
                      'defaultValueGenerator' => '',
                   )),
                 ),
@@ -886,7 +847,7 @@ Text is generated based on
                  'labelAlign' => 'left',
               )),
               1 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
                  'name' => 'saleInformation',
                  'title' => '',
                  'tooltip' => '',
@@ -896,8 +857,7 @@ Text is generated based on
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
-                 'datatype' => 'data',
-                 'fieldtype' => 'objectbricks',
+                 'fieldtype' => '',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -925,22 +885,21 @@ Text is generated based on
              'labelAlign' => 'left',
           )),
           4 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+          \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
              'name' => 'System Data',
              'type' => NULL,
              'region' => NULL,
              'title' => 'System Data',
-             'width' => NULL,
-             'height' => NULL,
+             'width' => 0,
+             'height' => 0,
              'collapsible' => false,
              'collapsed' => false,
              'bodyStyle' => '',
              'datatype' => 'layout',
-             'permissions' => NULL,
              'children' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\UrlSlug::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\UrlSlug::__set_state(array(
                  'name' => 'urlSlug',
                  'title' => 'UrlSlug',
                  'tooltip' => '',
@@ -950,8 +909,7 @@ Text is generated based on
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
-                 'datatype' => 'data',
-                 'fieldtype' => 'urlSlug',
+                 'fieldtype' => '',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -959,10 +917,13 @@ Text is generated based on
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'width' => NULL,
                  'domainLabelWidth' => NULL,
                  'action' => 'App\\Controller\\ProductController:productDetailSlugAction',
                  'availableSites' => 
+                array (
+                ),
+                 'width' => NULL,
+                 'activeDispatchingEvents' => 
                 array (
                 ),
               )),
@@ -985,7 +946,7 @@ Text is generated based on
         ),
          'fieldtype' => 'tabpanel',
          'border' => false,
-         'tabPosition' => NULL,
+         'tabPosition' => 'top',
       )),
     ),
      'locked' => false,
@@ -1000,7 +961,6 @@ Text is generated based on
      'labelAlign' => 'left',
   )),
    'icon' => '/bundles/pimcoreadmin/img/twemoji/1f527.svg',
-   'previewUrl' => '',
    'group' => 'Product Data',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
@@ -1008,7 +968,6 @@ Text is generated based on
    'compositeIndices' => 
   array (
   ),
-   'generateTypeDeclarations' => true,
    'showFieldLookup' => false,
    'propertyVisibility' => 
   array (
@@ -1036,6 +995,9 @@ Text is generated based on
   array (
   ),
    'blockedVarsForExport' => 
+  array (
+  ),
+   'fieldDefinitionsCache' => 
   array (
   ),
    'activeDispatchingEvents' => 

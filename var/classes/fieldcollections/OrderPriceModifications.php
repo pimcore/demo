@@ -8,15 +8,15 @@
  * - amount [numeric]
  */
 
-return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
+return \Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
    'dao' => NULL,
    'key' => 'OrderPriceModifications',
    'parentClass' => '',
    'implementsInterfaces' => '',
    'title' => '',
    'group' => 'Order Details',
-   'layoutDefinitions' =>
-  Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+   'layoutDefinitions' => 
+  \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
      'type' => NULL,
      'region' => NULL,
@@ -27,11 +27,10 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'collapsed' => false,
      'bodyStyle' => NULL,
      'datatype' => 'layout',
-     'permissions' => NULL,
-     'children' =>
+     'children' => 
     array (
-      0 =>
-      Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+      0 => 
+      \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
          'name' => 'Layout',
          'type' => NULL,
          'region' => '',
@@ -42,61 +41,57 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
          'collapsed' => false,
          'bodyStyle' => '',
          'datatype' => 'layout',
-         'permissions' => NULL,
-         'children' =>
+         'children' => 
         array (
-          0 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+          0 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'name',
              'title' => 'Name',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'input',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => 300,
              'defaultValue' => NULL,
              'columnLength' => 255,
              'regex' => '',
-             'regexFlags' =>
+             'regexFlags' => 
             array (
             ),
              'unique' => false,
              'showCharCount' => false,
+             'width' => 300,
              'defaultValueGenerator' => '',
           )),
-          1 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
+          1 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'netAmount',
              'title' => 'NetAmount',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'numeric',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => 300,
              'defaultValue' => NULL,
              'integer' => false,
              'unsigned' => false,
@@ -105,29 +100,28 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'unique' => false,
              'decimalSize' => 19,
              'decimalPrecision' => 4,
+             'width' => 300,
              'defaultValueGenerator' => '',
           )),
-          2 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
+          2 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'pricingRuleId',
              'title' => 'Applied pricing rule ID',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => NULL,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'numeric',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => NULL,
              'defaultValue' => NULL,
              'integer' => true,
              'unsigned' => false,
@@ -136,29 +130,28 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'unique' => false,
              'decimalSize' => NULL,
              'decimalPrecision' => NULL,
+             'width' => NULL,
              'defaultValueGenerator' => '',
           )),
-          3 =>
-          Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
+          3 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'amount',
              'title' => 'Amount',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => true,
-             'index' => null,
+             'index' => false,
              'locked' => false,
              'style' => '',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'numeric',
+             'fieldtype' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => false,
              'visibleSearch' => false,
-             'blockedVarsForExport' =>
+             'blockedVarsForExport' => 
             array (
             ),
-             'width' => 300,
              'defaultValue' => NULL,
              'integer' => false,
              'unsigned' => false,
@@ -167,11 +160,12 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
              'unique' => false,
              'decimalSize' => 19,
              'decimalPrecision' => 4,
+             'width' => 300,
              'defaultValueGenerator' => '',
           )),
         ),
          'locked' => false,
-         'blockedVarsForExport' =>
+         'blockedVarsForExport' => 
         array (
         ),
          'fieldtype' => 'panel',
@@ -183,7 +177,7 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
       )),
     ),
      'locked' => false,
-     'blockedVarsForExport' =>
+     'blockedVarsForExport' => 
     array (
     ),
      'fieldtype' => 'panel',
@@ -193,8 +187,8 @@ return Pimcore\Model\DataObject\Fieldcollection\Definition::__set_state(array(
      'labelWidth' => 100,
      'labelAlign' => 'left',
   )),
-   'generateTypeDeclarations' => true,
-   'blockedVarsForExport' =>
+   'fieldDefinitionsCache' => NULL,
+   'blockedVarsForExport' => 
   array (
   ),
 ));

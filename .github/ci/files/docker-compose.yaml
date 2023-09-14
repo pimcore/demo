@@ -1,0 +1,12 @@
+services:
+    db:
+        image: ${DOCKER_DATABASE}
+        working_dir: /application
+        command: [ mysqld, --log_bin_trust_function_creators=1, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb-file-per-table=1 ]
+        volumes:
+            - pimcore-demo-database:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ROOT
+            MYSQL_DATABASE: pimcore
+            MYSQL_USER: pimcore
+            MYSQL_PASSWORD: pimcore
