@@ -136,10 +136,14 @@ class CartController extends FrontendController
     }
 
     /**
-     * @Route("/cart/remove-from-cart", name="shop-remove-from-cart")
+     * @Route("/cart/remove-from-cart", name="shop-remove-from-cart", methods={"POST"})
      */
     public function removeFromCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
+        if (!$this->isCsrfTokenValid('cartListing', $request->request->get('_csrf_token'))) {
+            throw new \Exception('Invalid request');
+        }
+
         $id = $request->query->getInt('id');
         $product = AbstractProduct::getById($id);
 
