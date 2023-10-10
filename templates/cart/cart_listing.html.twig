@@ -119,9 +119,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-2 col-sm-2 col-md-1 text-right px-md-0">
-                                                <a href="{{ path('shop-remove-from-cart', {id: item.itemKey}) }}" class="btn btn-outline-danger btn-sm">
+                                                <button type="submit" class="btn btn-outline-danger btn-sm" formaction="{{ path('shop-remove-from-cart', {id: item.itemKey}) }}">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
