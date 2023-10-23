@@ -56,7 +56,6 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('system_sett
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_assignment','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_configuration','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_search','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tag_snippet_management','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('targeting','Pimcore Personalization Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('thumbnails','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('translations','');
