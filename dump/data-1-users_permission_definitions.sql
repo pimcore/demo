@@ -28,8 +28,6 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notificatio
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications_send','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objects','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objectbricks','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_reports','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_settings','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugins','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_activityview','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_customerview','');
