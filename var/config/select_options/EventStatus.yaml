@@ -1,0 +1,26 @@
+pimcore:
+    objects:
+        select_options:
+            definitions:
+                EventStatus:
+                    id: EventStatus
+                    group: ''
+                    useTraits: ''
+                    implementsInterfaces: ''
+                    selectOptions:
+                        -
+                            value: Scheduled
+                            label: Scheduled
+                            name: ''
+                        -
+                            value: On-Hold
+                            label: On-Hold
+                            name: ''
+                        -
+                            value: Completed
+                            label: Completed
+                            name: ''
+                        -
+                            value: Cancelled
+                            label: Cancelled
+                            name: ''

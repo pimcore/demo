@@ -1854,6 +1854,7 @@ CREATE TABLE `object_query_EV` (
   `contactEmail` varchar(190) DEFAULT NULL,
   `contactAddress` longtext DEFAULT NULL,
   `cars` text DEFAULT NULL,
+  `status` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EV__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2708,6 +2709,7 @@ CREATE TABLE `object_store_EV` (
   `contactPhone` varchar(190) DEFAULT NULL,
   `contactEmail` varchar(190) DEFAULT NULL,
   `contactAddress` longtext DEFAULT NULL,
+  `status` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EV__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
