@@ -10,6 +10,6 @@ class Validity extends AbstractTemplateAreabrick
 {
     public function getName(): string
     {
-        return 'Date';
+        return 'Validity';
     }
 }
