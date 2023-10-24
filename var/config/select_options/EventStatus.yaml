@@ -21,6 +21,6 @@ pimcore:
                             label: Completed
                             name: ''
                         -
-                            value: Closed
-                            label: Closed
+                            value: Cancelled
+                            label: Cancelled
                             name: ''
