@@ -1,0 +1,10 @@
+{% set date = pimcore_date('myDate', {
+    'format': 'd.m.Y',
+    'outputFormat': '%d.%m.%Y'
+}) %}
+
+{% if editmode or not date.isEmpty() %}
+    <div class="page-header">
+        <h2>{{ date|raw }}</h2>
+    </div>
+{% endif %}
