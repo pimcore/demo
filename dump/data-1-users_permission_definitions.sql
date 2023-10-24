@@ -47,6 +47,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('reports_con
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('robots.txt','Pimcore Seo Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('routes','Pimcore Static Routes Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('seemode','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('selectoptions','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('seo_document_editor','Pimcore Seo Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('share_configurations','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('system_appearance_settings','Pimcore Admin Bundle');
