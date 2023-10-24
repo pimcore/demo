@@ -1,0 +1,15 @@
+
+{% if editmode %}
+    {{ pimcore_select("validity", {
+        "store": [
+            ["one-month", "One month"],
+            ["three-months", "Three months"],
+            ["unlimited", "Unlimited"]
+        ],
+        "defaultValue" : "unlimited"
+    }) }}
+{% else %}
+    <p>
+        {{ "This is valid for" | trans }}: {{ pimcore_select("validity").getData() | trans  }}
+    </p>
+{% endif %}

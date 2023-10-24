@@ -212,3 +212,5 @@ services:
     # ---------------------------------------------------------
     App\Workflow\SupportsStrategy: ~
 
+    App\MyAreaBricks\Custom\Areabricks\:
+        resource: '../src/MyAreaBricks/Custom/Areabricks/*'
