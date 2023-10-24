@@ -1,0 +1,46 @@
+{% set urlField = pimcore_input('iframe_url') %}
+{% set widthField = pimcore_numeric('iframe_width') %}
+{% set heightField = pimcore_numeric('iframe_height') %}
+{% set transparentField = pimcore_checkbox('iframe_transparent') %}
+
+{% if editmode %}
+    <div>
+        <h2>IFrame</h2>
+        <div>
+            URL: {{ urlField }}
+        </div>
+        <br/>
+        <b>Advanced Configuration</b>
+        <div>
+            Width: {{ widthField }}px (default: 100%)
+        </div>
+        <div>
+            Height: {{ heightField }}px (default: 400px)
+        </div>
+        <div>
+            Transparent: {{ transparentField }} (default: false)
+        </div>
+    </div>
+{% else %}
+    {% if not urlField.isEmpty() %}
+
+        {% set transparent = 'false' %}
+        {% set width = '100%' %}
+        {% set height = '400' %}
+
+        {% if not widthField.isEmpty() %}
+            {% set width = widthField.data %}
+        {% endif %}
+
+        {% if not heightField.isEmpty() %}
+            {% set height = heightField.data %}
+        {% endif %}
+
+        {% if transparentField.isChecked() %}
+            {% set transparent = 'true' %}
+        {% endif %}
+
+        <iframe src="{{ urlField }}" width="{{ width }}" height="{{ height }}" allowtransparency="{{ transparent }}" frameborder="0"></iframe>
+
+    {% endif %}
+{% endif %}
