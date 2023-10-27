@@ -11,6 +11,7 @@
  * - tags [multiselect]
  * - locationAddress [textarea]
  * - locationMap [geopoint]
+ * - status [select]
  * - fromDate [datetime]
  * - toDate [datetime]
  * - cars [manyToManyObjectRelation]
@@ -30,7 +31,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1693492263,
+   'modificationDate' => 1698143169,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -263,11 +264,12 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                     ),
                      'maxItems' => NULL,
                      'renderType' => 'tags',
-                     'optionsProviderClass' => '',
-                     'optionsProviderData' => '',
                      'dynamicOptions' => false,
                      'height' => '',
                      'width' => 500,
+                     'optionsProviderType' => NULL,
+                     'optionsProviderClass' => '',
+                     'optionsProviderData' => '',
                   )),
                   2 => 
                   \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
@@ -319,6 +321,34 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'mapType' => 'roadmap',
                      'height' => 0,
                      'width' => 0,
+                  )),
+                  4 => 
+                  \Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+                     'name' => 'status',
+                     'title' => 'Status',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'fieldtype' => '',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                     'blockedVarsForExport' => 
+                    array (
+                    ),
+                     'defaultValue' => '',
+                     'columnLength' => 190,
+                     'dynamicOptions' => false,
+                     'defaultValueGenerator' => '',
+                     'width' => '',
+                     'optionsProviderType' => 'select_options',
+                     'optionsProviderClass' => 'Pimcore\\Bundle\\CoreBundle\\OptionsProvider\\SelectOptionsOptionsProvider',
+                     'optionsProviderData' => 'EventStatus',
                   )),
                 ),
                  'locked' => false,

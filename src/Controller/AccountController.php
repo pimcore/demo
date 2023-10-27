@@ -305,6 +305,7 @@ class AccountController extends BaseController
             try {
                 $customer = $service->sendRecoveryMail($request->get('email', ''), $this->document->getProperty('password_reset_mail'));
                 if (!$customer instanceof CustomerInterface) {
+                    throw new \Exception('Invalid Customer');
                 }
 
                 $this->addFlash('success', $translator->trans('account.reset-mail-sent-when-possible'));

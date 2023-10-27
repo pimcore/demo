@@ -28,8 +28,6 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notificatio
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications_send','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objects','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objectbricks','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_reports','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('piwik_settings','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugins','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_activityview','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_customerview','');
@@ -49,6 +47,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('reports_con
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('robots.txt','Pimcore Seo Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('routes','Pimcore Static Routes Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('seemode','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('selectoptions','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('seo_document_editor','Pimcore Seo Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('share_configurations','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('system_appearance_settings','Pimcore Admin Bundle');
@@ -56,7 +55,6 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('system_sett
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_assignment','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_configuration','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tags_search','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('tag_snippet_management','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('targeting','Pimcore Personalization Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('thumbnails','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('translations','');
