@@ -90,7 +90,7 @@ class AccountController extends BaseController
 
         return $this->render('account/login.html.twig', [
             'form' => $form->createView(),
-            'error' => $error,
+            'error' => $error ? 'Credentials are not valid.' : '',
             'hideBreadcrumbs' => true
         ]);
     }
