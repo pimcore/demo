@@ -51,21 +51,21 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'general.email',
                 'attr' => [
-                    'maxlength' => 100
+                    'maxlength' => 190
                 ],
                 'required' => true
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'general.firstname',
                 'attr' => [
-                    'maxlength' => 100
+                    'maxlength' => 190
                 ],
                 'required' => true
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'general.lastname',
                 'attr' => [
-                    'maxlength' => 100
+                    'maxlength' => 190
                 ],
                 'required' => true
             ]);
