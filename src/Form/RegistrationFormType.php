@@ -50,14 +50,23 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'label' => 'general.email',
+                'attr' => [
+                    'maxlength' => 190
+                ],
                 'required' => true
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'general.firstname',
+                'attr' => [
+                    'maxlength' => 190
+                ],
                 'required' => true
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'general.lastname',
+                'attr' => [
+                    'maxlength' => 190
+                ],
                 'required' => true
             ]);
         if (!$options['hidePassword']) {
