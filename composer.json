@@ -16,7 +16,7 @@
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
     "pimcore/customer-management-framework-bundle": "^3.0",
-    "pimcore/pimcore": "^10.0",
+    "pimcore/pimcore": "10.5.7",
     "pimcore/web2print-tools-bundle": "^4.0",
     "pimcore/data-hub": "^1.0",
     "pimcore/payment-provider-unzer": "^1.0"
