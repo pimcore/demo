@@ -9,7 +9,7 @@
     "discard-changes": true,
     "process-timeout": 0
   },
-  "prefer-stable": true,
+  "prefer-stable": false,
   "minimum-stability": "dev",
   "require": {
     "hwi/oauth-bundle": "^1.2.0",
