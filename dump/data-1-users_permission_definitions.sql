@@ -22,7 +22,7 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('gdpr_data_e
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('glossary','Pimcore Glossary Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('google_marketing','Pimcore Google Marketing Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('http_errors','Pimcore Seo Bundle');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('newsletter','Pimcore Newsletter Bundle');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('newsletters','Pimcore Newsletter Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notes_events','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications_send','');
