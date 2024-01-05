@@ -16,22 +16,23 @@
   "prefer-stable": true,
   "minimum-stability": "dev",
   "require": {
+    "chrome-php/chrome": "^1.6",
+    "gotenberg/gotenberg-php": "^1.1",
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
-    "pimcore/customer-management-framework-bundle": "^4.0",
-    "pimcore/pimcore": "^11.1",
-    "pimcore/web2print-tools-bundle": "^5.0",
-    "pimcore/data-hub": "^1.6",
-    "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
     "pimcore/admin-ui-classic-bundle": "^1.2",
+    "pimcore/customer-management-framework-bundle": "^4.0",
+    "pimcore/data-hub": "^1.6",
     "pimcore/ecommerce-framework-bundle": "^1.0",
-    "pimcore/web-to-print-bundle": "^1.0",
     "pimcore/newsletter-bundle": "^1.0",
-    "symfony/runtime": "^6.2",
-    "symfony/intl": "^6.2",
+    "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
+    "pimcore/pimcore": "^11.1",
+    "pimcore/web-to-print-bundle": "^1.0",
+    "pimcore/web2print-tools-bundle": "^5.0",
+    "platformsh/config-reader": "*",
     "symfony/dotenv": "^6.2",
-    "chrome-php/chrome": "^1.6",
-    "gotenberg/gotenberg-php": "^1.1"
+    "symfony/intl": "^6.2",
+    "symfony/runtime": "^6.2"
   },
   "suggest": {
     "pimcore/elasticsearch-client": "Required for Elastic Search service"

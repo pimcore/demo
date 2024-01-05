@@ -1,0 +1,15 @@
+db:
+  type: mariadb:10.6
+  disk: 2048
+
+redis:
+  type: redis:7.0
+  configuration:
+    maxmemory_policy: volatile-lru
+
+elastic:
+  type: elasticsearch-enterprise:8.5
+  disk: 2048
+
+chrome:
+  type: chrome-headless:120

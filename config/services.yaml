@@ -1,6 +1,6 @@
 parameters:
     secret: ThisTokenIsNotSoSecretChangeItImmediately
-    
+
     # use echo \Defuse\Crypto\Key::createNewRandomKey()->saveToAsciiSafeString(); to generate secret for data encryption
     app_encryption_secret: "ThisTokenIsNotSoSecretChangeItImmediately"
 
@@ -47,6 +47,10 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
+        arguments:
+            - 'mysql:dbname=%database_name%; host=%database_host%; port=%database_port%'
+            - { db_username: '%database_user%', db_password: '%database_password%' }
 
     # ---------------------------------------------------------
     # Register all controllers of App as services

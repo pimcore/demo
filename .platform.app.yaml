@@ -1,0 +1,314 @@
+# The name of this app. Must be unique within a project.
+name: pimcore
+
+# The runtime the application uses.
+type: php:8.1
+
+# The relationships of the application with services or other applications.
+#
+# The left-hand side is the name of the relationship as it will be exposed
+# to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
+# side is in the form `<service name>:<endpoint name>`.
+relationships:
+  database: 'db:mysql'
+  redis: 'redis:redis'
+  chrome: 'chrome:http'
+  elastic: 'elastic:elasticsearch'
+
+build:
+  flavor: none
+
+# Add additional PHP extensions.
+# php:8.1: pcntl, zlib not working
+runtime:
+  xdebug:
+    idekey: pimcore
+  extensions:
+    - apcu
+    - curl
+    - dom
+    - exif
+    - fileinfo
+    - gd
+    - iconv
+    - imagick
+    - imap
+    - mbstring
+    - opcache
+    - pdo_mysql
+    - redis
+    - simplexml
+    - sodium
+    - zip
+
+variables:
+  php:
+    memory_limit: 1024M
+
+dependencies:
+  php:
+      composer/composer: '^2'
+
+disk: 4096
+
+# The 'mounts' describe writable, persistent filesystem mounts in the application.
+mounts:
+  "/var/":
+    source: local
+    source_path: "var/"
+  "/public/var":
+    source: local
+    source_path: "public/var"
+  "/public/bundles":
+    source: local
+    source_path: "public/bundles"
+
+# The configuration of app when it is exposed to the web.
+web:
+  locations:
+    '/':
+      root: "public"
+      passthru: "/index.php"
+      allow: true
+      rules:
+        '^/cache-buster-(?:\d+)/(?<path>.*)$':
+          allow: true
+          passthru: '/$path'
+        '/var/assets/.*\.php(/|$)$':
+          allow: false
+        '/\.(?!well-known/)$':
+          allow: false
+        '(?:\.(?:bak|conf(ig)?|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$':
+          allow: false
+        '^/admin/(adminer|external)':
+          allow: true
+        '.*/(image|video)-thumb__\d+__.*':
+          allow: true
+          passthru: '/var/tmp/thumbnails$uri'
+        '/var/tmp/thumbnails.*':
+          allow: true
+          passthru: '/index.php'
+        '^(?!/admin|/asset/webdav)(?!.*(image|video)-thumb__.*)(.+?)\.((?:css|js)(?:\.map)?|jpe?g|gif|png|svgz?|eps|exe|gz|zip|mp\d|m4a|ogg|ogv|webp|webm|pdf|docx?|xlsx?|pptx?)$':
+          allow: true
+          passthru: '/var/assets$uri'
+
+
+# The hooks executed at various points in the lifecycle of the application.
+hooks:
+  build: |
+    set -e
+
+    composer install --no-scripts
+
+
+    exifVersion="12.60"
+
+    # install our pimcore dependencies that are not available in this container image
+    ./platform-scripts/install-brew-pack.sh gcc graphviz exiftool poppler poppler-utils ghostscript zopfli
+
+    # Make sure we have our target application directory created
+    if [ ! -d "${PLATFORM_APP_DIR}/.libreoffice" ]; then
+      echo "creating libreoffice directory"
+      mkdir -p "${PLATFORM_APP_DIR}/.libreoffice"
+    fi
+
+    # Make sure we have a temp directory to store our libreoffice stuff
+    if [ ! -d "${PLATFORM_CACHE_DIR}/libreofficetmp" ]; then
+      mkdir "${PLATFORM_CACHE_DIR}/libreofficetmp"
+    fi
+
+    cd "${PLATFORM_CACHE_DIR}/libreofficetmp"
+
+    # have we already extracted the contents from the AppImage?
+    if [ ! -d "./squashfs-root" ]; then
+      # image hasnt been extracted. do we even have the image?
+      if [ ! -f LibreOffice-still.basic-x86_64.AppImage ]; then
+        echo "downloading LibreOffice appimage"
+        # @todo this location has a tendency to change. This should be an environmental variable that can be changed
+        # without having to update code
+        wget https://appimages.libreitalia.org/LibreOffice-still.basic-x86_64.AppImage
+      fi
+
+      # make sure we can execute it
+      chmod a+x LibreOffice-still.basic-x86_64.AppImage
+
+      # extract the contents
+      echo "Extracting the contents of the LibreOffice AppImage"
+      ./LibreOffice-still.basic-x86_64.AppImage --appimage-extract
+      ls -al ./squashfs-root/
+      #now let's delete the AppImage to free up some space
+      rm LibreOffice-still.basic-x86_64.AppImage
+    fi
+
+    #now that we've extracted the contents of the image, we need to figure out the name of the directory we're dealing
+    #with. still.basic is always the latest version of LibreOffice so that means the extracted directory name can change
+    #as the version number changes.
+    maybeLOdir=$(find . -type d -name "libreoffice*.*" -maxdepth 3);
+    printf "What I found for maybeLOdir is : %s\n" "${maybeLOdir}"
+    if [ -z "${maybeLOdir}" ]; then
+      echo "I was unable to find the latest libreoffice directory in the extracted contents.";
+      exit 1;
+    else
+      libreOfficeDir=$(basename "${maybeLOdir}")
+    fi
+
+    printf "libreOfficeDir is now : %s \n" "${libreOfficeDir}"
+
+    # now copy the contents of squashfs-root/opt/"$libreOfficeDir"/program/ to /app/.libreoffice/bin/
+    echo "Copying libreoffice files to ${PLATFORM_APP_DIR}/.libreoffice/bin... Files copied: "
+    # @todo, the libreoffice directory name can and WILL Change as the version changes. We need to either designate a
+    # specic version, and then allow for a manged upgrade, or check the name of the directory after we run the
+    # --appimage-extract command to find out the name of the directory we're working with.
+    cp -Rvf ./squashfs-root/opt/${libreOfficeDir}/* "${PLATFORM_APP_DIR}/.libreoffice/" | wc -l
+
+    #add our libreoffice path to PATH
+    echo 'export PATH="'$PLATFORM_APP_DIR'/.libreoffice/program${PATH+:$PATH}";' >> "${PLATFORM_APP_DIR}/.environment"
+
+    #next up is facedetect. https://gitlab.com/wavexx/facedetect/-/tree/master/
+    if [ ! -f "${PLATFORM_CACHE_DIR}/facedetect" ]; then
+      wget -P "${PLATFORM_CACHE_DIR}" https://gitlab.com/wavexx/facedetect/-/blob/5f9b9121001bce20f7d87537ff506fcc90df48ca/facedetect
+      chmod a+x "${PLATFORM_CACHE_DIR}/facedetect"
+    fi
+    cp -vf "${PLATFORM_CACHE_DIR}/facedetect" "${PLATFORM_APP_DIR}/.libreoffice/program/facedetect"
+
+    #next is exiftool
+    if [ ! -d "${PLATFORM_CACHE_DIR}/Image-ExifTool-${exifVersion}" ]; then
+      echo "retrieving https://exiftool.org/Image-ExifTool-${exifVersion}.tar.gz"
+      wget -P "${PLATFORM_CACHE_DIR}" https://exiftool.org/Image-ExifTool-${exifVersion}.tar.gz
+      cd "${PLATFORM_CACHE_DIR}"
+      tar -xvf Image-ExifTool-${exifVersion}.tar.gz
+      # get rid of the archive since we've cached the contents
+      rm "${PLATFORM_CACHE_DIR}/Image-ExifTool-${exifVersion}.tar.gz"
+      cd "${PLATFORM_CACHE_DIR}/Image-ExifTool-${exifVersion}/"
+      perl Makefile.PL
+    fi
+
+    #make sure we have a bin in .global
+    mkdir -p "${PLATFORM_APP_DIR}/.global/bin"
+    cp -Rvf "${PLATFORM_CACHE_DIR}/Image-ExifTool-${exifVersion}/lib" "${PLATFORM_APP_DIR}/.global/bin"
+    cp -vf "${PLATFORM_CACHE_DIR}/Image-ExifTool-${exifVersion}/exiftool" "${PLATFORM_APP_DIR}/.global/bin"
+
+    # #now Chromium!
+    # if [ ! -d "${PLATFORM_CACHE_DIR}/chromium" ] || [ ! -d "${PLATFORM_CACHE_DIR}/chromium/.git"  ]; then
+    #   git clone https://github.com/scheib/chromium-latest-linux.git "${PLATFORM_CACHE_DIR}/chromium/"
+    # else
+    #   git -C "${PLATFORM_CACHE_DIR}/chromium/" pull origin master
+    # fi
+
+    # cd "${PLATFORM_CACHE_DIR}/chromium"
+
+    # bash "${PLATFORM_CACHE_DIR}/chromium/update.sh"
+    # #printf "contents of %s:" "${PLATFORM_CACHE_DIR}/chromium"
+    # #ls -al "${PLATFORM_CACHE_DIR}/chromium"
+    # #now we need to copy the contents of the symlink "latest" over into the app directory
+    # mkdir -p "${PLATFORM_APP_DIR}/.global/bin/chromium"
+    # cp -Rvf "${PLATFORM_CACHE_DIR}/chromium/latest/." "${PLATFORM_APP_DIR}/.global/bin/chromium"
+    # echo 'export PATH="'$PLATFORM_APP_DIR'/.global/bin/chromium${PATH+:$PATH}";' >> "${PLATFORM_APP_DIR}/.environment"
+
+    # And last we have updating ImageMagik to v7
+    if [ ! -d "${PLATFORM_CACHE_DIR}/magick" ]; then
+      mkdir -p "${PLATFORM_CACHE_DIR}/magick"
+    fi
+
+    cd "${PLATFORM_CACHE_DIR}/magick"
+
+    # Have we already extracted the files?
+    if [ ! -d squashfs-root ]; then
+        echo "Retrieving updated imagick binaries..."
+        # ok do we even have the original appimage file?
+        if [ ! -f magick ]; then
+          echo "Retrieving imagick AppImage file..."
+          wget -P "${PLATFORM_CACHE_DIR}/magick" https://imagemagick.org/archive/binaries/magick
+          chmod a+x magick
+        fi
+
+        # Extract the files
+        echo "Extracting imagick binaries from AppImage file..."
+        ./magick --appimage-extract
+        #remove the original download to free up some space
+        rm -f magick
+    fi
+
+    # make sure we have a directory in the app location
+    echo "Creating imagick directory in app directory..."
+    mkdir -p "${PLATFORM_APP_DIR}/.imagick/bin"
+    mkdir -p "${PLATFORM_APP_DIR}/.imagick/lib"
+    # ImageMagick wants its config files in certain locations so we'll copy them over
+    mkdir -p "${PLATFORM_APP_DIR}/.config/ImageMagick"
+
+    #now copy our files from squashfs-root/usr/bin/ to
+    printf "Copying imagick files from %s to %s... \n" "${PLATFORM_CACHE_DIR}/magick/squashfs-root/usr/" "${PLATFORM_APP_DIR}/.imagick/"
+    cp -Rvf ./squashfs-root/usr/bin/* "${PLATFORM_APP_DIR}/.imagick/bin"
+    cp -Rvf ./squashfs-root/usr/lib/* "${PLATFORM_APP_DIR}/.imagick/lib"
+    #And copy the configuration files from squashfs-root/etc/ImageMagick-7/ to /app/.config/ImageMagick
+    printf "Copying imagick configuration files from %s to %s... \n" "${PLATFORM_CACHE_DIR}/magick/squashfs-root/usr/etc/ImageMagick-7" "${PLATFORM_APP_DIR}/.config/ImageMagick"
+    cp -Rvf ./squashfs-root/usr/etc/ImageMagick-7/* "${PLATFORM_APP_DIR}/.config/ImageMagick"
+
+    #last add PATH to PATH
+    echo "Adding imagick bin path to PATH"
+    echo 'export PATH="'$PLATFORM_APP_DIR'/.imagick/bin/${PATH+:$PATH}";' >> "${PLATFORM_APP_DIR}/.environment"
+
+    # we need to temporarily move our var/classes so we can rsync them back into the mount
+    mv "${PLATFORM_APP_DIR}/var/classes" "${PLATFORM_APP_DIR}/config/pimcore/classes"
+    mv "${PLATFORM_APP_DIR}/public/var/assets" "${PLATFORM_APP_DIR}/publicvarassetstmp"
+
+    #cp ${PLATFORM_APP_DIR}/Protocol.php ${PLATFORM_APP_DIR}/vendor/chrome-php/wrench/src/Protocol/Protocol.php
+
+    mv ${PLATFORM_APP_DIR}/platform-scripts/ImageMagick_policy.xml ${PLATFORM_APP_DIR}/.config/ImageMagick/policy.xml
+
+
+  deploy: |
+
+    set -e
+    SESSION_TABLE=$(cat <<-END
+        CREATE TABLE sessions (sess_id VARBINARY(128) NOT NULL PRIMARY KEY, sess_data BLOB NOT NULL, sess_lifetime INTEGER UNSIGNED NOT NULL, sess_time INTEGER UNSIGNED NOT NULL, INDEX sessions_sess_lifetime_idx (sess_lifetime)) COLLATE utf8mb4_bin, ENGINE = InnoDB;
+    END
+    )
+
+    if [ ! -f var/.platform.installed ]; then
+
+        rsync -av "${PLATFORM_APP_DIR}/publicvarassetstmp/" "${PLATFORM_APP_DIR}/public/var/assets/"
+
+        php ./vendor/bin/pimcore-install --no-interaction\
+        --no-debug --skip-database-config --admin-username=admin --admin-password=admin --mysql-host-socket=database.internal --mysql-username=pimcore --mysql-password= --mysql-database=main
+
+        php bin/console doctrine:migrations:sync-metadata-storage
+
+        mysql -h database.internal -u pimcore -p main -e"$SESSION_TABLE"
+
+        touch var/.platform.installed
+    fi
+
+    echo "pimcore:maintenance-mode --enable"
+    rm -f ./var/config/maintenance.php
+    echo '<?php return ["sessionId" => "command-line-dummy-session-id"];' >> var/config/maintenance.php
+    sleep 5
+
+    echo "cache:clear"
+    php ./bin/console cache:clear --no-interaction --ignore-maintenance-mode --no-warmup
+
+    echo "pimcore:deployment:classes-rebuild"
+    php ./bin/console pimcore:deployment:classes-rebuild --create-classes --no-interaction --ignore-maintenance-mode
+
+    echo "doctrine:migrations:migrate --prefix=Pimcore\\Bundle\\CoreBundle"
+    php ./bin/console doctrine:migrations:migrate --prefix=Pimcore\\Bundle\\CoreBundle --no-interaction --ignore-maintenance-mode
+
+    echo "doctrine:migrations:migrate"
+    php ./bin/console doctrine:migrations:migrate --no-interaction --ignore-maintenance-mode
+
+    echo "assets:install"
+    php ./bin/console assets:install --no-interaction --ignore-maintenance-mode
+
+    echo "second cache:clear"
+    php ./bin/console cache:clear --no-interaction --ignore-maintenance-mode --no-warmup
+
+    echo "pimcore:maintenance-mode --disable"
+    php ./bin/console pimcore:maintenance-mode --disable --ignore-maintenance-mode
+
+
+# The configuration of scheduled execution.
+crons:
+  pimcore_cron:
+    spec: "*/5 * * * *"
+    commands:
+      start: "php /app/bin/console pimcore:maintenance"

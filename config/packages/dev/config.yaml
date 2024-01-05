@@ -1,3 +1,67 @@
 imports:
     - { resource: ../../config.yaml }
+    - { resource: 'parameters_platformsh.php' }
 
+doctrine:
+    dbal: {
+        connections: {
+            default: {
+                host: '%database_host%',
+                port: '%database_port%',
+                user: '%database_user%',
+                password: '%database_password%',
+                dbname: '%database_name%',
+                mapping_types: { enum: string, bit: boolean },
+                server_version: 'mariadb-10.6.11'
+            }
+        }
+    }
+
+#### SYMFONY OVERRIDES
+framework:
+  cache:
+    pools:
+      pimcore.cache.pool:
+        public: true
+        tags: true
+        default_lifetime: 31536000  # 1 year
+        adapter: pimcore.cache.adapter.redis_tag_aware
+        provider: 'redis://%redis_host%'
+      cache.annotations:
+        adapter: pimcore.cache.pool
+  mailer:
+    transports:
+      main: '%env(MAILER_DSN)%'
+      pimcore_newsletter: null://null
+    envelope:
+      sender: '%env(MAILER_SENDER)%'
+  session:
+    handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+
+doctrine_migrations:
+    migrations_paths:
+        'App\Migrations': '%kernel.project_dir%/src/Migrations'
+
+monolog:
+  handlers:
+    file_log:
+      type: stream
+      path: "%kernel.logs_dir%/%kernel.environment%.log"
+      level: warning
+    docker:
+      type: stream
+      path: "php://stderr"
+      level: error
+
+parameters:
+  pimcore_portal_engine.elasticsearch.host: '%elastic_host%'
+  pimcore_portal_engine.elasticsearch.index_prefix: 'enterprise_portal_'
+
+  mercure:
+    hub:
+      jwt_key: '%env(MERCURE_TOKEN)%'
+
+  secret: '%env(PIMCORE_ENCRYPTION_SECRET)%'
+
+  pimcore_executable_npm: "/usr/local/bin/npm"
+  pimcore_executable_npx: "/usr/local/nodejs/bin/npx"
