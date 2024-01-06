@@ -1,0 +1,55 @@
+# Platform.sh Project Initialization Template
+#
+# This file defines settings and workflow modifications that allow a git
+# repository to be deployed to Platform.sh and its white-label partners. A
+# project template can be a fully functioning ready-made application or a
+# quick-start point for custom development work.
+#
+# It contains elements that affect the behaviour upon the initialisation of
+# a new project (for example minimal plan sizes) as well as elements that
+# allow Platform.sh to present it in a user interface (such as the description
+# of the project, tags, an icon etc.).
+
+# The schema is versioned so that we can establish code paths differently in the future if we need to change this.
+version: 1
+
+# Templates are a small amount of information supporting a template URL.
+# Each template is selectable at the project-creation step.
+info:
+  # Unique machine name, prefaced by a vendor or organization identifier.
+  # The vendor should be the lowercase name of your company, organization, or project, and the project name
+  # the lowercase name of the template. This may be the same as the vendor in a single-product case.
+  id: vrobert78/pimcore-demo-psh-template
+  # The human-readable name of the template.  This is how the template will be named in the user interface.
+  name: Pimcore Demo
+  # Human-readable descriptive text for the template. Supports limited HTML.
+  # This field should be 1-3 sentences describing how the project is setup, assuming the reader already knows what
+  # the application is.
+  description: |
+    A Platform.sh template for Pimcore Demo
+  # A list of tags associated with the template.  These should be highly generic terms like "CMS", "Framework", and
+  # the language in which the application is written.
+  tags:
+    - PHP
+    - Pimcore
+  # An image URI (either base64-encoded or a URL) representing the template.  Base64-encoded SVG strongly preferred.
+  # image: data:image/svg+xml;...
+  # Additional notes displayed in the template's detail view.
+  # Each note object is displayed as a small section heading with content below. Supports limited HTML.
+  # The most important is a section that lists the "Apps and Services" (container images) that the project uses.
+  # These are the name/version of the Platform.sh containers, not including the Nginx router.
+  notes:
+    - heading: "Apps & Services"
+      content: "PHP 8.1<br/>"
+
+# This key describes the initialization call made to the master environment at
+# project creation time. This is part of the full v2 UI operation mode, which
+# places project schema/options selection early in the creation process, rather
+# than later as it exits now. To allow this schema to be backwards-compatible,
+# this key also gets mapped to the appropriate location in project.settings so
+# that the current UI can have its own workflow overridden as well.
+initialize:
+  repository: https://github.com/vrobert78/pimcore-demo-psh-template.git@11.x
+  config: null
+  files: []
+  profile: Pimcore
