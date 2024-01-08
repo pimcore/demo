@@ -106,6 +106,8 @@ hooks:
     # install our pimcore dependencies that are not available in this container image
     ./platform-scripts/install-brew-pack.sh gcc graphviz exiftool poppler poppler-utils ghostscript zopfli
 
+
+    ####### Libreoffice - start #######
     # Make sure we have our target application directory created
     if [ ! -d "${PLATFORM_APP_DIR}/.libreoffice" ]; then
       echo "creating libreoffice directory"
@@ -154,15 +156,16 @@ hooks:
 
     printf "libreOfficeDir is now : %s \n" "${libreOfficeDir}"
 
-    # now copy the contents of squashfs-root/opt/"$libreOfficeDir"/program/ to /app/.libreoffice/bin/
-    echo "Copying libreoffice files to ${PLATFORM_APP_DIR}/.libreoffice/bin... Files copied: "
+    # now copy the contents of squashfs-root/opt/"$libreOfficeDir"/ to /app/.libreoffice/
+    echo "Copying libreoffice files to ${PLATFORM_APP_DIR}/.libreoffice/... Files copied: "
     # @todo, the libreoffice directory name can and WILL Change as the version changes. We need to either designate a
-    # specic version, and then allow for a manged upgrade, or check the name of the directory after we run the
+    # specic version, and then allow for a managed upgrade, or check the name of the directory after we run the
     # --appimage-extract command to find out the name of the directory we're working with.
     cp -Rvf ./squashfs-root/opt/${libreOfficeDir}/* "${PLATFORM_APP_DIR}/.libreoffice/" | wc -l
 
     #add our libreoffice path to PATH
     echo 'export PATH="'$PLATFORM_APP_DIR'/.libreoffice/program${PATH+:$PATH}";' >> "${PLATFORM_APP_DIR}/.environment"
+    ####### Libreoffice - end #######
 
     #next up is facedetect. https://gitlab.com/wavexx/facedetect/-/tree/master/
     if [ ! -f "${PLATFORM_CACHE_DIR}/facedetect" ]; then
@@ -188,7 +191,7 @@ hooks:
     cp -Rvf "${PLATFORM_CACHE_DIR}/Image-ExifTool-${exifVersion}/lib" "${PLATFORM_APP_DIR}/.global/bin"
     cp -vf "${PLATFORM_CACHE_DIR}/Image-ExifTool-${exifVersion}/exiftool" "${PLATFORM_APP_DIR}/.global/bin"
 
-    # #now Chromium!
+    ####### Chromium - start #######
     # if [ ! -d "${PLATFORM_CACHE_DIR}/chromium" ] || [ ! -d "${PLATFORM_CACHE_DIR}/chromium/.git"  ]; then
     #   git clone https://github.com/scheib/chromium-latest-linux.git "${PLATFORM_CACHE_DIR}/chromium/"
     # else
@@ -204,8 +207,9 @@ hooks:
     # mkdir -p "${PLATFORM_APP_DIR}/.global/bin/chromium"
     # cp -Rvf "${PLATFORM_CACHE_DIR}/chromium/latest/." "${PLATFORM_APP_DIR}/.global/bin/chromium"
     # echo 'export PATH="'$PLATFORM_APP_DIR'/.global/bin/chromium${PATH+:$PATH}";' >> "${PLATFORM_APP_DIR}/.environment"
+    ####### Chromium - end #######
 
-    # And last we have updating ImageMagik to v7
+    ####### ImageMagik v7 - start #######
     if [ ! -d "${PLATFORM_CACHE_DIR}/magick" ]; then
       mkdir -p "${PLATFORM_CACHE_DIR}/magick"
     fi
@@ -248,14 +252,19 @@ hooks:
     echo "Adding imagick bin path to PATH"
     echo 'export PATH="'$PLATFORM_APP_DIR'/.imagick/bin/${PATH+:$PATH}";' >> "${PLATFORM_APP_DIR}/.environment"
 
-    # we need to temporarily move our var/classes so we can rsync them back into the mount
+    # Copy of the ImageMagick policy file
+    mv ${PLATFORM_APP_DIR}/platform-scripts/ImageMagick_policy.xml ${PLATFORM_APP_DIR}/.config/ImageMagick/policy.xml
+    ####### ImageMagik v7 - end #######
+
+    # Move our var/classes into config/pimcore/classes
     mv "${PLATFORM_APP_DIR}/var/classes" "${PLATFORM_APP_DIR}/config/pimcore/classes"
+
+    # we need to temporarily move Demo assets so we can rsync them back into the mount
     mv "${PLATFORM_APP_DIR}/public/var/assets" "${PLATFORM_APP_DIR}/publicvarassetstmp"
 
+    # Fixed Protocol.php in the Wrench implementation: self::HEADER_ORIGIN is removed from getDefaultRequestHeaders
+    # This is just for testing purpose, to use the Platform.sh Chrome Headless service.
     #cp ${PLATFORM_APP_DIR}/Protocol.php ${PLATFORM_APP_DIR}/vendor/chrome-php/wrench/src/Protocol/Protocol.php
-
-    mv ${PLATFORM_APP_DIR}/platform-scripts/ImageMagick_policy.xml ${PLATFORM_APP_DIR}/.config/ImageMagick/policy.xml
-
 
   deploy: |
 
