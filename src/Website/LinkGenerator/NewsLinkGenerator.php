@@ -85,12 +85,14 @@ class NewsLinkGenerator implements LinkGeneratorInterface
             }
 
             $localeUrlPart = '/' . $this->localeService->getLocale() . '/';
-            if ($document && $localeUrlPart !== $document->getFullPath()) {
-                $fullPath = substr($document->getFullPath(), strlen($localeUrlPart));
-            }
 
-            if ($document && !$fullPath) {
-                $fullPath = $document->getProperty(static::DEFAULT_DOCUMENT) ? substr($document->getProperty(static::DEFAULT_DOCUMENT)->getFullPath(), strlen($localeUrlPart)) : '';
+            if ($document) {
+                if ($localeUrlPart !== $document->getFullPath()) {
+                    $fullPath = substr($document->getFullPath(), strlen($localeUrlPart));
+                }
+                if (!$fullPath) {
+                    $fullPath = $document->getProperty(static::DEFAULT_DOCUMENT) ? substr($document->getProperty(static::DEFAULT_DOCUMENT)->getFullPath(), strlen($localeUrlPart)) : '';
+                }
             }
             if (!$fullPath) {
                 throw new \InvalidArgumentException('Set parameter '.static::DEFAULT_DOCUMENT.' for the root or current document.');
