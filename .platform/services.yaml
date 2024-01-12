@@ -13,3 +13,7 @@ elastic:
 
 chrome:
   type: chrome-headless:120
+
+storage:
+  type: network-storage:2.0
+  disk: 4096

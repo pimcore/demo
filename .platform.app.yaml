@@ -54,13 +54,16 @@ disk: 4096
 # The 'mounts' describe writable, persistent filesystem mounts in the application.
 mounts:
   "/var/":
-    source: local
+    source: service
+    service: storage
     source_path: "var/"
   "/public/var":
-    source: local
+    source: service
+    service: storage
     source_path: "public/var"
   "/public/bundles":
-    source: local
+    source: service
+    service: storage
     source_path: "public/bundles"
 
 # The configuration of app when it is exposed to the web.
