@@ -10,13 +10,15 @@
     "process-timeout": 0,
     "allow-plugins": {
       "php-http/discovery": false,
-      "symfony/runtime": true
+      "symfony/runtime": true,
+      "cweagans/composer-patches": true
     }
   },
   "prefer-stable": true,
   "minimum-stability": "dev",
   "require": {
     "chrome-php/chrome": "^1.6",
+    "cweagans/composer-patches": "*",
     "gotenberg/gotenberg-php": "^1.1",
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
@@ -59,7 +61,15 @@
     ]
   },
   "extra": {
-    "symfony-assets-install": "relative"
+    "symfony-assets-install": "relative",
+    "patches": {
+      "chrome-php/wrench": {
+          "Origin-Header": "patchs/wrench-origin-header.patch"
+      },
+      "chrome-php/chrome": {
+          "Dynamic-Connection": "patchs/chrome-php.patch"
+      }
+  }
   },
   "repositories": {
     "dev": {

@@ -35,7 +35,7 @@ if ($platformsh->hasRelationship('elastic')) {
 // Setup chrome
 if ($platformsh->hasRelationship('chrome')) {
     $chrome_credentials = $platformsh->credentials('chrome');
-    $container->setParameter('chrome_host', $chrome_credentials['host']);
+    $container->setParameter('chrome_ip', $chrome_credentials['ip']);
     $container->setParameter('chrome_port', $chrome_credentials['port']);
 }
 

@@ -265,9 +265,6 @@ hooks:
     # we need to temporarily move Demo assets so we can rsync them back into the mount
     mv "${PLATFORM_APP_DIR}/public/var/assets" "${PLATFORM_APP_DIR}/publicvarassetstmp"
 
-    # Fixed Protocol.php in the Wrench implementation: self::HEADER_ORIGIN is removed from getDefaultRequestHeaders
-    # This is just for testing purpose, to use the Platform.sh Chrome Headless service.
-    #cp ${PLATFORM_APP_DIR}/Protocol.php ${PLATFORM_APP_DIR}/vendor/chrome-php/wrench/src/Protocol/Protocol.php
 
   deploy: |
 
