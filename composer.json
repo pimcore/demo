@@ -68,7 +68,10 @@
       },
       "chrome-php/chrome": {
           "Dynamic-Connection": "patchs/chrome-php.patch"
-      }
+      },
+      "pimcore/web-to-print-bundle": {
+        "Web-to-Print-Page-Close": "patchs/web-to-print-bundle.patch"
+    }
   }
   },
   "repositories": {

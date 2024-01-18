@@ -1,0 +1,13 @@
+diff --git a/src/Processor/Chromium.php b/src/Processor/Chromium.php
+index dafc77c..4d1b25a 100644
+--- a/src/Processor/Chromium.php
++++ b/src/Processor/Chromium.php
+@@ -136,7 +136,7 @@ class Chromium extends Processor
+             Logger::debug('Could not create pdf with chromium: '. print_r($e, true));
+             $output = (string) $e;
+         } finally {
+-            $browser->close();
++            $page->close();
+         }
+ 
+         return $output;
