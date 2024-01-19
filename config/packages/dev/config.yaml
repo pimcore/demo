@@ -54,9 +54,6 @@ monolog:
       level: error
 
 parameters:
-  pimcore_portal_engine.elasticsearch.host: '%elastic_host%'
-  pimcore_portal_engine.elasticsearch.index_prefix: 'enterprise_portal_'
-
   mercure:
     hub:
       jwt_key: '%env(MERCURE_TOKEN)%'

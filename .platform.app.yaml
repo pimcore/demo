@@ -13,7 +13,6 @@ relationships:
   database: 'db:mysql'
   redis: 'redis:redis'
   chrome: 'chrome:http'
-  elastic: 'elastic:elasticsearch'
 
 build:
   flavor: none

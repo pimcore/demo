@@ -25,13 +25,6 @@ if ($platformsh->hasRelationship('redis')) {
     $container->setParameter('redis_port', $redis_credentials['port']);
 }
 
-// Setup elastic
-if ($platformsh->hasRelationship('elastic')) {
-    $elastic_credentials = $platformsh->credentials('elastic');
-    $container->setParameter('elastic_host', $elastic_credentials['host']);
-    $container->setParameter('elastic_port', $elastic_credentials['port']);
-}
-
 // Setup chrome
 if ($platformsh->hasRelationship('chrome')) {
     $chrome_credentials = $platformsh->credentials('chrome');

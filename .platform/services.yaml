@@ -7,10 +7,6 @@ redis:
   configuration:
     maxmemory_policy: volatile-lru
 
-elastic:
-  type: elasticsearch-enterprise:8.5
-  disk: 2048
-
 chrome:
   type: chrome-headless:120
 
