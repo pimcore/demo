@@ -63,9 +63,6 @@
   "extra": {
     "symfony-assets-install": "relative",
     "patches": {
-      "chrome-php/wrench": {
-          "Origin-Header": "patchs/wrench-origin-header.patch"
-      },
       "chrome-php/chrome": {
           "Dynamic-Connection": "patchs/chrome-php.patch"
       },
