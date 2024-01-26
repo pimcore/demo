@@ -169,9 +169,9 @@ framework:
 #        handler_id: null
 
 #### SYMFONY MAILER TRANSPORTS
-#    mailer:
-#        transports:
-#            main: smtp://user:pass@smtp.example.com:port
+    mailer:
+        transports:
+            main: smtp://user:pass@mailpit:1025
 #            pimcore_newsletter: smtp://user:pass@smtp.example.com:port
 
 # pimcore_newsletter:
