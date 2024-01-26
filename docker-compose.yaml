@@ -2,6 +2,8 @@ services:
     redis:
         image: redis:alpine
         command: [ redis-server, --maxmemory, 128mb, --maxmemory-policy, volatile-lru, --save, '""' ]
+        volumes:
+            - pimcore-demo-redis-data:/data
 
     db:
         image: mariadb:10.11
@@ -51,5 +53,21 @@ services:
     gotenberg:
         image: gotenberg/gotenberg:7
 
+    mailpit:
+        image: axllent/mailpit
+        container_name: mailpit
+        restart: unless-stopped
+        volumes:
+            - pimcore-mailpit-data:/data
+        ports:
+            - 8025:8025
+        environment:
+            MP_MAX_MESSAGES: 5000
+            MP_DATA_FILE: /data/mailpit.db
+            MP_SMTP_AUTH_ACCEPT_ANY: 1
+            MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
 volumes:
     pimcore-demo-database:
+    pimcore-demo-redis-data:
+    pimcore-mailpit-data:
