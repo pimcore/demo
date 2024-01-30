@@ -2,8 +2,6 @@ services:
     redis:
         image: redis:alpine
         command: [ redis-server, --maxmemory, 128mb, --maxmemory-policy, volatile-lru, --save, '""' ]
-        volumes:
-            - pimcore-demo-redis-data:/data
 
     db:
         image: mariadb:10.11
@@ -58,7 +56,7 @@ services:
         container_name: mailpit
         restart: unless-stopped
         volumes:
-            - pimcore-mailpit-data:/data
+            - pimcore-demo-mailpit-data:/data
         ports:
             - 8025:8025
         environment:
@@ -70,4 +68,4 @@ services:
 volumes:
     pimcore-demo-database:
     pimcore-demo-redis-data:
-    pimcore-mailpit-data:
+    pimcore-demo-mailpit-data:
