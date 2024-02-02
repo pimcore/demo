@@ -40,11 +40,6 @@ class AuthenticationLogoutListener extends LogoutListener
     ) {
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return RedirectResponse|Response
-     */
     public function onLogoutSuccess(Request $request): RedirectResponse|Response
     {
         // unset user in environment

@@ -39,10 +39,6 @@ class RegistrationFormHandler
 
     /**
      * Builds initial form data
-     *
-     * @param CustomerInterface $customer
-     *
-     * @return array
      */
     public function buildFormData(CustomerInterface $customer): array
     {
@@ -63,11 +59,8 @@ class RegistrationFormHandler
 
     /**
      * Maps form values to customer
-     *
-     * @param CustomerInterface $customer
-     * @param Form $form
      */
-    public function updateCustomerFromForm(CustomerInterface $customer, Form $form)
+    public function updateCustomerFromForm(CustomerInterface $customer, Form $form): void
     {
         if (!$form->isSubmitted() || !$form->isValid()) {
             throw new \RuntimeException('Form must be submitted and valid to apply form data');

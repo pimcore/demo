@@ -22,7 +22,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class AssetCopyrightCommand extends AbstractCommand
 {
-    public function configure()
+    public function configure(): void
     {
         $this->setName('app:asset-copyright');
     }
@@ -30,7 +30,7 @@ class AssetCopyrightCommand extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    public function execute(InputInterface $input, OutputInterface $output)
+    public function execute(InputInterface $input, OutputInterface $output): int
     {
         $assets = new Asset\Listing();
         //$assets->setCondition('id = 219');

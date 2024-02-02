@@ -22,12 +22,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends FrontendController
 {
-    /**
-     * @param Request $request
-     * @param DataObject $object
-     *
-     * @return bool
-     */
     protected function verifyPreviewRequest(Request $request, DataObject $object): bool
     {
         if (Tool::isElementRequestByAdmin($request, $object)) {
@@ -37,11 +31,6 @@ class BaseController extends FrontendController
         return false;
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return array
-     */
     protected function getAllParameters(Request $request): array
     {
         return array_merge($request->request->all(), $request->query->all());

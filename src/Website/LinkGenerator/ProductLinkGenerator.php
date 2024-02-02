@@ -37,24 +37,12 @@ class ProductLinkGenerator extends AbstractProductLinkGenerator
         return $this->doGenerate($object, $params);
     }
 
-    /**
-     * @param ProductInterface $object
-     * @param array $params
-     *
-     * @return string
-     */
     public function generateWithMockup(ProductInterface $object, array $params = []): string
     {
         return $this->doGenerate($object, $params);
     }
 
-    /**
-     * @param $object
-     * @param $params
-     *
-     * @return string
-     */
-    protected function doGenerate($object, $params): string
+    protected function doGenerate(ProductInterface $object, array $params): string
     {
         return DataObject\Service::useInheritedValues(true, function () use ($object, $params) {
             if (!empty($object->getUrlSlug())) {

@@ -27,24 +27,13 @@ class SegmentGetter implements GetterInterface
     const SEGMENT_GROUP_BODY_STYLE = 'Interest Body Style';
 
     /**
-     * @var SegmentManagerInterface
-     */
-    protected $segmentManager;
-
-    /**
      * SegmentGetter constructor.
-     *
-     * @param SegmentManagerInterface $segmentManager
      */
-    public function __construct(SegmentManagerInterface $segmentManager)
+    public function __construct(protected SegmentManagerInterface $segmentManager)
     {
-        $this->segmentManager = $segmentManager;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function get($object, ?array $config = null): mixed
+    public function get($object, ?array $config = null): array
     {
         $segments = [];
 

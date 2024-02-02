@@ -24,7 +24,7 @@ class Country extends AbstractExtension
     /**
      * @return TwigFilter[]
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('country', function ($code, $displayLocale = null) {

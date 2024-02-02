@@ -27,45 +27,22 @@ abstract class AbstractProductLinkGenerator implements LinkGeneratorInterface
 {
     const ROOT_CATEGORY_PROPERTY_NAME = 'root_category';
 
-    /**
-     * @var DocumentResolver
-     */
-    protected $documentResolver;
+    protected ?Document $document = null;
 
-    /**
-     * @var RequestStack
-     */
-    protected $requestStack;
-
-    /**
-     * @var PimcoreUrl
-     */
-    protected $pimcoreUrl;
-
-    /**
-     * @var Document|null
-     */
-    protected $document;
-
-    public function __construct(DocumentResolver $documentResolver, RequestStack $requestStack, PimcoreUrl $pimcoreUrl)
-    {
-        $this->documentResolver = $documentResolver;
-        $this->requestStack = $requestStack;
-        $this->pimcoreUrl = $pimcoreUrl;
+    public function __construct(
+        protected DocumentResolver $documentResolver,
+        protected RequestStack $requestStack,
+        protected PimcoreUrl $pimcoreUrl
+    ) {
     }
 
-    /**
-     * @param Category|null $category
-     * @param Category|null $rootCategory
-     * @return string
-     */
-    public function getNavigationPath(?Category $category, ?Category $rootCategory = null, $locale = null)
+    public function getNavigationPath(?Category $category, ?Category $rootCategory = null, string $locale = null)
     {
         if (empty($rootCategory)) {
             if (!$this->document) {
                 try {
                     $this->document = $this->documentResolver->getDocument($this->requestStack->getCurrentRequest());
-                } catch (\Exception $e) {
+                } catch (\Exception) {
                     // nothing to do
                 }
             }
