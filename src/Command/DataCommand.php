@@ -90,7 +90,7 @@ class DataCommand extends AbstractCommand
 //
 //            $geoPoint = $this->locations[rand(0,4)];
 //
-//            $object->setLocation(new GeoCoordinates($geoPoint[1], $geoPoint[0]));
+//            $object->setLocation(new GeoCoordinates($geoPoint[0], $geoPoint[1]));
 //
 //            $object->setObjectType('actual-car');
 //
