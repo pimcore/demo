@@ -57,9 +57,6 @@ class DataCommand extends AbstractCommand
         $this->setName('app:data-command');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $listing = new AccessoryPart\Listing();

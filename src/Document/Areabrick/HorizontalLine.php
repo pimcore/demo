@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class HorizontalLine extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Horiz. Line';

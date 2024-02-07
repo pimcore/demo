@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class WysiwygWithImages extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'WYSIWYG w. Images';
