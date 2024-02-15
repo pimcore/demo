@@ -30,7 +30,6 @@
     "symfony/runtime": "^6.2",
     "symfony/intl": "^6.2",
     "symfony/dotenv": "^6.2",
-    "chrome-php/chrome": "^1.6",
     "gotenberg/gotenberg-php": "^1.1 || ^2.0"
   },
   "suggest": {
