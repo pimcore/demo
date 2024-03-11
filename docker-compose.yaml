@@ -46,7 +46,7 @@ services:
             - ./.docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro
 
     chrome:
-        image: browserless/chrome
+        image: ghcr.io/browserless/chromium:latest
 
     gotenberg:
         image: gotenberg/gotenberg:7
