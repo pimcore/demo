@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class PrintKeyVisual extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Print KeyVisual';

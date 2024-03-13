@@ -25,62 +25,31 @@ use Twig\TwigFunction;
 class ProductPageExtension extends AbstractExtension
 {
     /**
-     * @var ProductLinkGenerator
-     */
-    protected $productLinkGenerator;
-
-    /**
-     * @var Translator
-     */
-    protected $translator;
-
-    /**
      * ProductPageExtension constructor.
-     *
-     * @param ProductLinkGenerator $productLinkGenerator
-     * @param Translator $translator
      */
-    public function __construct(ProductLinkGenerator $productLinkGenerator, Translator $translator)
+    public function __construct(protected ProductLinkGenerator $productLinkGenerator, protected Translator $translator)
     {
-        $this->productLinkGenerator = $productLinkGenerator;
-        $this->translator = $translator;
     }
 
-    /**
-     * @return TwigFunction[]
-     */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('app_product_detaillink', [$this, 'generateLink']),
         ];
     }
 
-    /**
-     * @return TwigFilter[]
-     */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('colorname', [$this, 'getColorName'])
         ];
     }
 
-    /**
-     * @param ProductInterface $product
-     *
-     * @return string
-     */
     public function generateLink(ProductInterface $product): string
     {
         return $this->productLinkGenerator->generateWithMockup($product, []);
     }
 
-    /**
-     * @param array|null $colorNames
-     *
-     * @return string
-     */
     public function getColorName(?array $colorNames = []): string
     {
         $translatedColors = [];

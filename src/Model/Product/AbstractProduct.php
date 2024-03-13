@@ -19,9 +19,6 @@ use Pimcore\Model\DataObject\Data\Hotspotimage;
 
 abstract class AbstractProduct extends \Pimcore\Bundle\EcommerceFrameworkBundle\Model\AbstractProduct
 {
-    /**
-     * @return Hotspotimage|null
-     */
     public function getMainImage(): ?Hotspotimage
     {
         return null;
@@ -37,10 +34,7 @@ abstract class AbstractProduct extends \Pimcore\Bundle\EcommerceFrameworkBundle\
         return 'default';
     }
 
-    /**
-     * @return string|null
-     */
-    public function getPrice()
+    public function getPrice(): ?string
     {
         $saleInformationBrick = $this->getSaleInformation();
         $saleInformation = $saleInformationBrick->getSaleInformation();

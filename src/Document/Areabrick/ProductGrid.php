@@ -21,9 +21,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductGrid extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Product Grid';

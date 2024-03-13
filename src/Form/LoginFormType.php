@@ -40,10 +40,7 @@ use Symfony\Component\PasswordHasher\PasswordHasherInterface;
 
 class LoginFormType extends AbstractType
 {
-    /**
-     * @inheritDoc
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('_username', EmailType::class, [
@@ -67,10 +64,7 @@ class LoginFormType extends AbstractType
             ]);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         // we need to set this to an empty string as we want _username as input name
         // instead of login_form[_username] to work with the form authenticator out
@@ -78,10 +72,7 @@ class LoginFormType extends AbstractType
         return '';
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
     }
 }

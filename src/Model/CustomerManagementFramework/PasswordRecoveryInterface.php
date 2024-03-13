@@ -16,48 +16,32 @@
 namespace App\Model\CustomerManagementFramework;
 
 use Carbon\Carbon;
-use CustomerManagementFrameworkBundle\Model\CustomerInterface;
 
 interface PasswordRecoveryInterface
 {
     /**
-     * @param string|null $token
-     *
-     * @return CustomerInterface
+     * @return $this
      */
-    public function setPasswordRecoveryToken(?string $token);
+    public function setPasswordRecoveryToken(?string $token): static;
 
-    /**
-     * @return string
-     */
     public function getPasswordRecoveryToken(): ?string;
 
     /**
-     * @param Carbon|null $tokenDate
-     *
-     * @return CustomerInterface
+     * @return $this
      */
-    public function setPasswordRecoveryTokenDate(?\Carbon\Carbon $tokenDate);
+    public function setPasswordRecoveryTokenDate(?Carbon $tokenDate): static;
+
+    public function getPasswordRecoveryTokenDate(): ?Carbon;
 
     /**
-     * @return Carbon|null
+     * @return $this
      */
-    public function getPasswordRecoveryTokenDate(): ?\Carbon\Carbon;
+    public function save(): static;
 
-    /**
-     * @return CustomerInterface
-     */
-    public function save();
-
-    /**
-     * @return string|null
-     */
     public function getEmail(): ?string;
 
     /**
-     * @param string|null $password
-     *
-     * @return CustomerInterface
+     * @return $this
      */
-    public function setPassword(?string $password);
+    public function setPassword(?string $password): static;
 }

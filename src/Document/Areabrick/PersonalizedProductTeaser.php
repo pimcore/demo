@@ -65,9 +65,6 @@ class PersonalizedProductTeaser extends AbstractAreabrick
         $this->ecommerceFactory = $ecommerceFactory;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Personalized Product Teaser';

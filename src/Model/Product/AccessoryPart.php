@@ -20,9 +20,6 @@ use Pimcore\Model\DataObject\Data\Hotspotimage;
 
 class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
 {
-    /**
-     * @return string
-     */
     public function getOSName(): ?string
     {
         return $this->getGeneratedName();
@@ -37,9 +34,6 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
             ;
     }
 
-    /**
-     * @return int|string
-     */
     public function getOSProductNumber(): ?string
     {
         return $this->getErpNumber();
@@ -50,9 +44,6 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
         return self::OBJECT_TYPE_VARIANT;
     }
 
-    /**
-     * @return Hotspotimage|null
-     */
     public function getMainImage(): ?Hotspotimage
     {
         return $this->getImage();
@@ -73,7 +64,7 @@ class AccessoryPart extends \Pimcore\Model\DataObject\AccessoryPart
      *
      * @throws \Exception
      */
-    public function getCompatibleToProductIds()
+    public function getCompatibleToProductIds(): array
     {
         $paths = [];
         foreach ($this->getCompatibleTo() as $compatible) {

@@ -22,16 +22,10 @@ use Twig\TwigFunction;
 
 class CategoryFilterExtension extends AbstractExtension
 {
-    protected CategoryLinkGenerator $categoryLinkGenerator;
-
-    public function __construct(CategoryLinkGenerator $categoryLinkGenerator)
+    public function __construct(protected CategoryLinkGenerator $categoryLinkGenerator)
     {
-        $this->categoryLinkGenerator = $categoryLinkGenerator;
     }
 
-    /**
-     * @return TwigFunction[]
-     */
     public function getFunctions(): array
     {
         return [

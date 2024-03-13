@@ -20,13 +20,8 @@ class Category extends \Pimcore\Model\DataObject\Category
     /**
      * returns parent categories for this category
      * stops at given stop category, otherwise stops at topmost category of object tree
-     *
-     * @param Category|null $stopCategory
-     * @param bool $includeStopCategory
-     *
-     * @return array
      */
-    public function getParentCategoryList(self $stopCategory = null, $includeStopCategory = false): array
+    public function getParentCategoryList(self $stopCategory = null, bool $includeStopCategory = false): array
     {
         $parentCategories = [];
 

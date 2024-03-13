@@ -22,10 +22,7 @@ use Twig\TwigFunction;
 
 class UniqidExtension extends AbstractExtension
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('uniqid', function (string $prefix = '', bool $moreEntropy = false) {

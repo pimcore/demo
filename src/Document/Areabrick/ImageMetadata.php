@@ -21,9 +21,6 @@ use Pimcore\Model\Document\Editable;
 
 class ImageMetadata extends AbstractAreabrick implements EditableDialogBoxInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Image w. Metadata';

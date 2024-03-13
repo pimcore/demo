@@ -17,7 +17,7 @@ namespace App\Command;
 
 use Pimcore\Console\AbstractCommand;
 use Pimcore\Model\DataObject\AccessoryPart;
-use Pimcore\Model\DataObject\Data\Geopoint;
+use Pimcore\Model\DataObject\Data\GeoCoordinates;
 use Pimcore\Model\DataObject\Data\QuantityValue;
 use Pimcore\Model\DataObject\Objectbrick\Data\SaleInformation;
 use Pimcore\Model\DataObject\QuantityValue\Unit;
@@ -26,25 +26,25 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class DataCommand extends AbstractCommand
 {
-    protected $priceRange = [
+    protected array $priceRange = [
         'from' => 57,
         'to' => 900
      ];
 
-    protected $availabilityTypes = [
+    protected array $availabilityTypes = [
         'couple-weeks',
         'couple-days',
         'instant'
     ];
 
-    protected $conditionTypes = [
+    protected array $conditionTypes = [
         'broken',
         'reworked',
         'used',
         'new' //not for cars
     ];
 
-    protected $locations = [
+    protected array $locations = [
         [47.8156617813774, 13.049333095550539],
         [48.197161014477935, 16.335082054138187],
         [48.143553854307555, 11.556630134582521],
@@ -52,15 +52,12 @@ class DataCommand extends AbstractCommand
         [48.78339883980666, 9.180042743682863]
     ];
 
-    public function configure()
+    public function configure(): void
     {
         $this->setName('app:data-command');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function execute(InputInterface $input, OutputInterface $output)
+    public function execute(InputInterface $input, OutputInterface $output): int
     {
         $listing = new AccessoryPart\Listing();
         foreach ($listing as $object) {
@@ -90,7 +87,7 @@ class DataCommand extends AbstractCommand
 //
 //            $geoPoint = $this->locations[rand(0,4)];
 //
-//            $object->setLocation(new Geopoint($geoPoint[1], $geoPoint[0]));
+//            $object->setLocation(new GeoCoordinates($geoPoint[0], $geoPoint[1]));
 //
 //            $object->setObjectType('actual-car');
 //
@@ -103,7 +100,7 @@ class DataCommand extends AbstractCommand
         return 0;
     }
 
-    protected function updateAccessoryKey(AccessoryPart $object)
+    protected function updateAccessoryKey(AccessoryPart $object): void
     {
         $key = '';
 
@@ -117,7 +114,7 @@ class DataCommand extends AbstractCommand
         $object->setKey($key);
     }
 
-    protected function updateAccessorySalesInformation(AccessoryPart $object)
+    protected function updateAccessorySalesInformation(AccessoryPart $object): void
     {
         $saleInformation = $object->getSaleInformation()->getSaleInformation();
 
@@ -132,7 +129,7 @@ class DataCommand extends AbstractCommand
         $saleInformation->setMilage(new QuantityValue(rand(30000, 300000), Unit::getByAbbreviation('km')));
     }
 
-    protected function updateAccessoryERPInformation(AccessoryPart $part)
+    protected function updateAccessoryERPInformation(AccessoryPart $part): void
     {
         if (empty($part->getErpNumber())) {
             $part->setErpNumber(crc32($part->getId()));
@@ -149,12 +146,7 @@ class DataCommand extends AbstractCommand
         $part->setOwner($owners[rand(0, count($owners) - 1)]);
     }
 
-    /**
-     * @param int $min
-     * @param int $max
-     * @return float
-     */
-    protected function generatePrice($min, $max)
+    protected function generatePrice(int $min, int $max): float
     {
         $price = rand($min, $max);
 
@@ -164,11 +156,7 @@ class DataCommand extends AbstractCommand
         return $price;
     }
 
-    /**
-     * @param string $condition
-     * @return float
-     */
-    protected function generateCarPrice($condition)
+    protected function generateCarPrice(string $condition): float
     {
         $priceRangeArray = [
             'broken' => [1500, 7500],

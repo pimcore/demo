@@ -26,33 +26,15 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class PasswordRecoveryService
 {
     /**
-     * @var CustomerProviderInterface
-     */
-    protected $customerProvider;
-
-    /**
-     * @var UrlGeneratorInterface
-     */
-    protected $urlGenerator;
-
-    /**
      * PasswordRecoveryService constructor.
-     *
-     * @param CustomerProviderInterface $customerProvider
-     * @param UrlGeneratorInterface $urlGenerator
      */
-    public function __construct(CustomerProviderInterface $customerProvider, UrlGeneratorInterface $urlGenerator)
-    {
-        $this->customerProvider = $customerProvider;
-        $this->urlGenerator = $urlGenerator;
+    public function __construct(
+        protected CustomerProviderInterface $customerProvider,
+        protected UrlGeneratorInterface $urlGenerator
+    ) {
     }
 
     /**
-     * @param string $email
-     * @param Email $emailDocument
-     *
-     * @return CustomerInterface|null
-     *
      * @throws \Exception
      */
     public function sendRecoveryMail(string $email, Email $emailDocument): ?CustomerInterface
@@ -86,11 +68,6 @@ class PasswordRecoveryService
         return null;
     }
 
-    /**
-     * @param string $token
-     *
-     * @return PasswordRecoveryInterface|null
-     */
     public function getCustomerByToken(string $token): ?CustomerInterface
     {
         $customerList = $this->customerProvider->getList();
@@ -105,11 +82,7 @@ class PasswordRecoveryService
         return null;
     }
 
-    /**
-     * @param string $token
-     * @param string $newPassword
-     */
-    public function setPassword(string $token, string $newPassword)
+    public function setPassword(string $token, string $newPassword): void
     {
         $customer = $this->getCustomerByToken($token);
         $customer->setPassword($newPassword);

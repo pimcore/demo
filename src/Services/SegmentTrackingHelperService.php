@@ -25,45 +25,17 @@ use Pimcore\Bundle\PersonalizationBundle\Targeting\VisitorInfoStorage;
 class SegmentTrackingHelperService
 {
     /**
-     * @var VisitorInfoStorage
-     */
-    protected $visitorInfoStorage;
-
-    /**
-     * @var SegmentTracker
-     */
-    protected $segmentTracker;
-
-    /**
-     * @var SegmentGetter
-     */
-    protected $segmentGetter;
-
-    /**
-     * @var SegmentManagerInterface
-     */
-    protected $segmentManager;
-
-    /**
      * SegmentTrackingHelperService constructor.
-     *
-     * @param VisitorInfoStorage $visitorInfoStorage
-     * @param SegmentTracker $segmentTracker
-     * @param SegmentGetter $segmentGetter
-     * @param SegmentManagerInterface $segmentManager
      */
-    public function __construct(VisitorInfoStorage $visitorInfoStorage, SegmentTracker $segmentTracker, SegmentGetter $segmentGetter, SegmentManagerInterface $segmentManager)
-    {
-        $this->visitorInfoStorage = $visitorInfoStorage;
-        $this->segmentTracker = $segmentTracker;
-        $this->segmentGetter = $segmentGetter;
-        $this->segmentManager = $segmentManager;
+    public function __construct(
+        protected VisitorInfoStorage $visitorInfoStorage,
+        protected SegmentTracker $segmentTracker,
+        protected SegmentGetter $segmentGetter,
+        protected SegmentManagerInterface $segmentManager
+    ) {
     }
 
-    /**
-     * @param AbstractProduct $product
-     */
-    public function trackSegmentsForProduct(AbstractProduct $product)
+    public function trackSegmentsForProduct(AbstractProduct $product): void
     {
         if ($this->visitorInfoStorage->hasVisitorInfo()) {
             $segments = $this->segmentGetter->get($product);
@@ -73,10 +45,7 @@ class SegmentTrackingHelperService
         }
     }
 
-    /**
-     * @param Category $category
-     */
-    public function trackSegmentsForCategory(Category $category)
+    public function trackSegmentsForCategory(Category $category): void
     {
         if ($this->visitorInfoStorage->hasVisitorInfo()) {
             $segments = $this->segmentManager->getSegmentsForElement($category);

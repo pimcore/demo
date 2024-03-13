@@ -32,31 +32,13 @@ use Twig\TwigFunction;
 class PrintCatalogExtension extends AbstractExtension
 {
     /**
-     * @var Translator
-     */
-    protected $translator;
-
-    /**
-     * @var Placeholder
-     */
-    protected $placeholderHelper;
-
-    /**
      * PrintCatalogExtension constructor.
-     *
-     * @param Translator $translator
-     * @param Placeholder $placeholderHelper
      */
-    public function __construct(Translator $translator, Placeholder $placeholderHelper)
+    public function __construct(protected Translator $translator, protected Placeholder $placeholderHelper)
     {
-        $this->translator = $translator;
-        $this->placeholderHelper = $placeholderHelper;
     }
 
-    /**
-     * @return TwigFunction[]
-     */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('app_print_output_spec_value', [$this, 'getSpecValue']),
@@ -86,12 +68,6 @@ class PrintCatalogExtension extends AbstractExtension
         }
     }
 
-    /**
-     * @param Image $image
-     * @param string $thumbnailName
-     *
-     * @return string
-     */
     protected function printImage(Image $image, string $thumbnailName): string
     {
         $src = $thumbnailName ? $image->getThumbnail($thumbnailName) : $image->getFullPath();
@@ -99,12 +75,6 @@ class PrintCatalogExtension extends AbstractExtension
         return "<img src='$src' alt='image' />";
     }
 
-    /**
-     * @param \Pimcore\Model\DataObject\Data\ImageGallery $imageGallery
-     * @param string $thumbnailName
-     *
-     * @return string
-     */
     protected function printImageGallery(\Pimcore\Model\DataObject\Data\ImageGallery $imageGallery, string $thumbnailName): string
     {
         $firstItem = $imageGallery->current();
@@ -115,12 +85,6 @@ class PrintCatalogExtension extends AbstractExtension
         return '';
     }
 
-    /**
-     * @param \Pimcore\Model\DataObject\Data\Hotspotimage $hotspotimage
-     * @param string $thumbnailName
-     *
-     * @return string
-     */
     protected function printHotspotImage(\Pimcore\Model\DataObject\Data\Hotspotimage $hotspotimage, string $thumbnailName): string
     {
         $image = $hotspotimage->getImage();
@@ -129,21 +93,11 @@ class PrintCatalogExtension extends AbstractExtension
         }
     }
 
-    /**
-     * @param string $value
-     *
-     * @return string
-     */
     protected function printSelectValue(string $value): string
     {
         return $this->translator->trans('attribute.' . strtolower($value));
     }
 
-    /**
-     * @param array|null $value
-     *
-     * @return string
-     */
     protected function printMultiSelectValue(?array $value = null): string
     {
         $result = [];
@@ -156,11 +110,6 @@ class PrintCatalogExtension extends AbstractExtension
         return implode(', ', $result);
     }
 
-    /**
-     * @param array $value
-     *
-     * @return string
-     */
     protected function printManyToManyObjects(array $value): string
     {
         $result = [];
@@ -175,11 +124,6 @@ class PrintCatalogExtension extends AbstractExtension
         return implode(', ', $result);
     }
 
-    /**
-     * @param AbstractElement|null $element
-     *
-     * @return string
-     */
     protected function printManyToOne(?AbstractElement $element = null): string
     {
         if ($element && method_exists($element, 'getName')) {
@@ -189,11 +133,7 @@ class PrintCatalogExtension extends AbstractExtension
         return '';
     }
 
-    /**
-     * @param string|null $name
-     * @param string|null $registerType
-     */
-    public function createRegisterTitleStyling(?string $name, ?string $registerType = '')
+    public function createRegisterTitleStyling(?string $name, ?string $registerType = ''): void
     {
         $key = $this->getRegisterName($name);
 
@@ -222,12 +162,7 @@ class PrintCatalogExtension extends AbstractExtension
         }
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return string
-     */
-    public function getRegisterName(?string $name)
+    public function getRegisterName(?string $name): string
     {
         return Text::toUrl($name);
     }

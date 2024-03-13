@@ -40,10 +40,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class CarSubmitFormType extends AbstractType
 {
-    /**
-     * @inheritDoc
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $manufacturers = new Manufacturer\Listing();
         $manufacturerChoices = [];

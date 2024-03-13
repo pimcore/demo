@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class PrintPageBreak extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Print PageBreak';

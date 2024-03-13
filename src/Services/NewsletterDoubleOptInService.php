@@ -26,34 +26,18 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class NewsletterDoubleOptInService
 {
     /**
-     * @var UrlGeneratorInterface
-     */
-    protected $urlGenerator;
-
-    /**
-     * @var CustomerProviderInterface
-     */
-    protected $customerProvider;
-
-    /**
      * NewsletterDoubleOptInService constructor.
-     *
-     * @param UrlGeneratorInterface $urlGenerator
-     * @param CustomerProviderInterface $customerProvider
      */
-    public function __construct(UrlGeneratorInterface $urlGenerator, CustomerProviderInterface $customerProvider)
-    {
-        $this->urlGenerator = $urlGenerator;
-        $this->customerProvider = $customerProvider;
+    public function __construct(
+        protected UrlGeneratorInterface $urlGenerator,
+        protected CustomerProviderInterface $customerProvider
+    ) {
     }
 
     /**
-     * @param Customer $customer
-     * @param Email $emailDocument
-     *
      * @throws \Exception
      */
-    public function sendDoubleOptInMail(Customer $customer, Email $emailDocument)
+    public function sendDoubleOptInMail(Customer $customer, Email $emailDocument): void
     {
         if (!$customer->getNewsletterConfirmed()) {
             $token = md5($customer->getId() . time() . uniqid());
@@ -75,11 +59,6 @@ class NewsletterDoubleOptInService
         }
     }
 
-    /**
-     * @param string $token
-     *
-     * @return PasswordRecoveryInterface|null
-     */
     public function getCustomerByToken(string $token): ?CustomerInterface
     {
         $customerList = $this->customerProvider->getList();
@@ -89,12 +68,7 @@ class NewsletterDoubleOptInService
         return $customerList->current();
     }
 
-    /**
-     * @param string $token
-     *
-     * @return Customer|null
-     */
-    public function handleDoubleOptInConfirmation(string $token): ?Customer
+    public function handleDoubleOptInConfirmation(string $token): ?CustomerInterface
     {
         $customer = $this->getCustomerByToken($token);
         if ($customer) {

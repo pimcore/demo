@@ -34,20 +34,11 @@ class CartController extends FrontendController
 {
     const DEFAULT_CART_NAME = 'cart';
 
-    /**
-     * @var Factory
-     */
-    protected $factory;
-
-    public function __construct(Factory $factory)
+    public function __construct(protected Factory $factory)
     {
-        $this->factory = $factory;
     }
 
-    /**
-     * @return CartInterface
-     */
-    protected function getCart()
+    protected function getCart(): CartInterface
     {
         $cartManager = $this->factory->getCartManager();
 
@@ -89,15 +80,12 @@ class CartController extends FrontendController
 
     /**
      * @Route("/cart", name="shop-cart-detail")
-     *
-     * @param Request $request
-     * @param BreadcrumbHelperService $breadcrumbHelperService
-     * @param Factory $ecommerceFactory
-     *
-     * @return Response
      */
-    public function cartListingAction(Request $request, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
-    {
+    public function cartListingAction(
+        Request $request,
+        BreadcrumbHelperService $breadcrumbHelperService,
+        Factory $ecommerceFactory
+    ): Response {
         $cart = $this->getCart();
 
         if ($request->getMethod() == Request::METHOD_POST) {
@@ -163,15 +151,9 @@ class CartController extends FrontendController
     /**
      * @Route("/cart/apply-voucher", name="shop-cart-apply-voucher")
      *
-     * @param Request $request
-     * @param Translator $translator
-     * @param Factory $ecommerceFactory
-     *
-     * @return RedirectResponse
-     *
      * @throws \Exception
      */
-    public function applyVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory)
+    public function applyVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
         if ($token = strip_tags($request->get('voucher-code'))) {
             $cart = $this->getCart();
@@ -198,14 +180,8 @@ class CartController extends FrontendController
 
     /**
      * @Route("/cart/remove-voucher", name="shop-cart-remove-voucher")
-     *
-     * @param Request $request
-     * @param Translator $translator
-     * @param Factory $ecommerceFactory
-     *
-     * @return RedirectResponse
      */
-    public function removeVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory)
+    public function removeVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
         if ($token = strip_tags($request->get('voucher-code'))) {
             $cart = $this->getCart();

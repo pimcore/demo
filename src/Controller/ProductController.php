@@ -44,14 +44,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends BaseController
 {
-    /**
-     * @param Request $request
-     * @param AbstractObject $object
-     * @param UrlSlug $urlSlug
-     *
-     * @return Response
-     */
-    public function productDetailSlugAction(Request $request, AbstractObject $object, UrlSlug $urlSlug)
+    public function productDetailSlugAction(AbstractObject $object): Response
     {
         return $this->forward('App\Controller\ProductController::detailAction', ['product' => $object]);
     }
@@ -59,15 +52,7 @@ class ProductController extends BaseController
     /**
      * @Route("/shop/{path}{productname}~p{product}", name="shop-detail", defaults={"path"=""}, requirements={"path"=".*?", "productname"="[\w-]+", "product"="\d+"})
      *
-     * @param Request $request
-     * @param HeadTitle $headTitleHelper
-     * @param BreadcrumbHelperService $breadcrumbHelperService
-     * @param Factory $ecommerceFactory
-     * @param SegmentTrackingHelperService $segmentTrackingHelperService
      * @param Concrete $product built-in parameter conversion, please see https://github.com/pimcore/pimcore/pull/5554
-     * @param ProductLinkGenerator $productLinkGenerator
-     *
-     * @return Response
      *
      * @throws \Exception
      */
@@ -79,7 +64,7 @@ class ProductController extends BaseController
         SegmentTrackingHelperService $segmentTrackingHelperService,
         Concrete $product,
         ProductLinkGenerator $productLinkGenerator
-    ) {
+    ): Response {
         if (!(
                 $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
             )
@@ -132,22 +117,22 @@ class ProductController extends BaseController
 
             return $this->render('product/detail_accessory.html.twig', $paramBag);
         }
+
+        throw new NotFoundHttpException('Unsupported Product type.');
     }
 
     /**
      * @Route("/shop/{path}{categoryname}~c{category}", name="shop-category", defaults={"path"=""}, requirements={"path"=".*?", "categoryname"="[\w-]+", "category"="\d+"})
-     *
-     * @param Request $request
-     * @param HeadTitle $headTitleHelper
-     * @param BreadcrumbHelperService $breadcrumbHelperService
-     * @param Factory $ecommerceFactory
-     * @param SegmentTrackingHelperService $segmentTrackingHelperService
-     * @param ListHelper $listHelper
-     *
-     * @return Response
      */
-    public function listingAction(Request $request, HeadTitle $headTitleHelper, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory, SegmentTrackingHelperService $segmentTrackingHelperService, ListHelper $listHelper, PaginatorInterface $paginator)
-    {
+    public function listingAction(
+        Request $request,
+        HeadTitle $headTitleHelper,
+        BreadcrumbHelperService $breadcrumbHelperService,
+        Factory $ecommerceFactory,
+        SegmentTrackingHelperService $segmentTrackingHelperService,
+        ListHelper $listHelper,
+        PaginatorInterface $paginator
+    ): Response {
         $params = array_merge($request->query->all(), $request->attributes->all());
 
         //needed to make sure category filter filters for active category
@@ -239,8 +224,17 @@ class ProductController extends BaseController
     /**
      * @Route("/search", name="search", methods={"GET"})
      */
-    public function searchAction(Request $request, ListHelper $listHelper, Factory $ecommerceFactory, ProductLinkGenerator $productLinkGenerator, Translator $translator, BreadcrumbHelperService $breadcrumbHelperService, HeadTitle $headTitleHelper, Placeholder $placeholder, PaginatorInterface $paginator): Response
-    {
+    public function searchAction(
+        Request $request,
+        ListHelper $listHelper,
+        Factory $ecommerceFactory,
+        ProductLinkGenerator $productLinkGenerator,
+        Translator $translator,
+        BreadcrumbHelperService $breadcrumbHelperService,
+        HeadTitle $headTitleHelper,
+        Placeholder $placeholder,
+        PaginatorInterface $paginator
+    ): Response {
         $params = $request->query->all();
 
         $params['category'] = Category::getById((int) ($params['category'] ?? -1));

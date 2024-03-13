@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class GallerySingleImages extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Gallery (Single)';

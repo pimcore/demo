@@ -24,23 +24,11 @@ use Pimcore\Tool;
 
 class QualityCalculator implements DynamicTextLabelInterface, CalculatorClassInterface
 {
-    /**
-     * @param $object Concrete
-     * @param $context CalculatedValue
-     *
-     * @return string
-     */
     public function compute(Concrete $object, CalculatedValue $context): string
     {
         return $this->getCalculatedValueForEditMode($object, $context);
     }
 
-    /**
-     * @param $object
-     * @param $context CalculatedValue
-     *
-     * @return string
-     */
     public function getCalculatedValueForEditMode(Concrete $object, CalculatedValue $context): string
     {
         if ($object instanceof Car) {
@@ -74,14 +62,7 @@ class QualityCalculator implements DynamicTextLabelInterface, CalculatorClassInt
         }
     }
 
-    /**
-     * @param $data
-     * @param $object
-     * @param $params
-     *
-     * @return string
-     */
-    public function renderLayoutText($data, $object, $params): string
+    public function renderLayoutText(string $data, ?Concrete $object, array $params): string
     {
         if ($object instanceof Car) {
             $quality = [];

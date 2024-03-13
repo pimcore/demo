@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class ProductTeaser extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Product Teaser';

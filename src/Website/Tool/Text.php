@@ -17,11 +17,7 @@ namespace App\Website\Tool;
 
 class Text
 {
-    /**
-     * @param string $string
-     * @return string
-     */
-    public static function getStringAsOneLine($string)
+    public static function getStringAsOneLine(string $string): string
     {
         $string = str_replace("\r\n", ' ', $string);
         $string = str_replace("\n", ' ', $string);
@@ -32,12 +28,7 @@ class Text
         return $string;
     }
 
-    /**
-     * @param string $string
-     * @param int $length
-     * @return string
-     */
-    public static function cutStringRespectingWhitespace($string, $length)
+    public static function cutStringRespectingWhitespace(string $string, int $length): string
     {
         if ($length < strlen($string)) {
             $text = substr($string, 0, $length);
@@ -50,11 +41,7 @@ class Text
         return $string;
     }
 
-    /**
-     * @param string $text
-     * @return string
-     */
-    public static function toUrl($text)
+    public static function toUrl(string $text): string
     {
         // to ASCII
         $text = trim(transliterator_transliterate('Any-Latin; Latin-ASCII; [^\u001F-\u007f] remove', $text));

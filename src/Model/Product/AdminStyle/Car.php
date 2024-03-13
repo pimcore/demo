@@ -21,10 +21,9 @@ use Pimcore\Model\DataObject;
 
 class Car extends AdminStyle
 {
-    /** @var ElementInterface */
-    protected $element;
+    protected ElementInterface $element;
 
-    public function __construct($element)
+    public function __construct(ElementInterface $element)
     {
         parent::__construct($element);
 

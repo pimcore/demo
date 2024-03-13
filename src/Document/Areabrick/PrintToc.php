@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class PrintToc extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Print Table Of Contents';

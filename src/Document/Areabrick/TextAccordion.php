@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class TextAccordion extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Text Accordion';

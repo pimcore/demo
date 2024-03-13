@@ -54,10 +54,6 @@ class AuthenticationLoginListener implements EventSubscriberInterface, LoggerAwa
      * This is called when an interactive authentication attempt succeeds. This
      * is called by authentication listeners inheriting from
      * AbstractAuthenticationListener.
-     *
-     * @param LoginSuccessEvent $event
-     *
-     * @return void
      */
     public function onLoginSuccess(LoginSuccessEvent $event): void
     {
@@ -75,7 +71,7 @@ class AuthenticationLoginListener implements EventSubscriberInterface, LoggerAwa
         $this->doEcommerceFrameworkLogin($user);
     }
 
-    public function doEcommerceFrameworkLogin(CustomerInterface $customer)
+    public function doEcommerceFrameworkLogin(CustomerInterface $customer): void
     {
         if ($customer) {
 
@@ -95,7 +91,7 @@ class AuthenticationLoginListener implements EventSubscriberInterface, LoggerAwa
                 $userCart->save();
             }
         } else {
-            $this->environment->setCurrentUserId(null);
+            $this->environment->setCurrentUserId(-1);
         }
 
         // track login activity

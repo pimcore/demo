@@ -25,18 +25,12 @@ class DefaultController extends BaseController
 {
     /**
      * @Route("/examples", name="examples")
-     *
-     * @return Response
      */
     public function examplesAction(): Response
     {
         return $this->render('default/examples.html.twig');
     }
 
-    /**
-     *
-     * @return array
-     */
     #[Template('default/default.html.twig')]
     public function defaultAction(): array
     {

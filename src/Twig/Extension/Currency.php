@@ -21,32 +21,21 @@ use Twig\TwigFilter;
 
 class Currency extends AbstractExtension
 {
-    /**
-     * @var IntlFormatter
-     */
-    protected $formatter;
-
-    public function __construct(IntlFormatter $formatter)
+    public function __construct(protected IntlFormatter $formatter)
     {
-        $this->formatter = $formatter;
     }
 
     /**
      * @return TwigFilter[]
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('currency', [$this, 'format'])
         ];
     }
 
-    /**
-     * @param float $value
-     * @param string $currency
-     * @return string
-     */
-    public function format($value, $currency = 'EUR')
+    public function format(float $value, string $currency = 'EUR'): string
     {
         return $this->formatter->formatCurrency($value, $currency);
     }

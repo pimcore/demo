@@ -28,12 +28,6 @@ class AccessoryPartName implements CalculatorClassInterface
         return $this->getCalculatedValueForEditMode($object, $context);
     }
 
-    /**
-     * @param $object
-     * @param $context CalculatedValue
-     *
-     * @return string
-     */
     public function getCalculatedValueForEditMode(Concrete $object, CalculatedValue $context): string
     {
         if ($object instanceof AccessoryPart) {

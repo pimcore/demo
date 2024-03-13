@@ -29,16 +29,13 @@ class CheckoutController extends FrontendController
 {
     /**
      * @Route("/checkout-address", name="shop-checkout-address")
-     *
-     * @param Factory $factory
-     * @param Request $request
-     * @param BreadcrumbHelperService $breadcrumbHelperService
-     * @param Factory $ecommerceFactory
-     *
-     * @return Response|RedirectResponse
      */
-    public function checkoutAddressAction(Factory $factory, Request $request, BreadcrumbHelperService $breadcrumbHelperService, Factory $ecommerceFactory)
-    {
+    public function checkoutAddressAction(
+        Factory $factory,
+        Request $request,
+        BreadcrumbHelperService $breadcrumbHelperService,
+        Factory $ecommerceFactory
+    ): RedirectResponse|Response {
         $cartManager = $factory->getCartManager();
         $cart = $cartManager->getOrCreateCartByName('cart');
 

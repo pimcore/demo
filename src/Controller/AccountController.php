@@ -49,21 +49,15 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class AccountController extends BaseController
 {
     use PasswordMaxLengthTrait;
+
     /**
      * @Route("/account/login", name="account-login")
-     *
-     * @param AuthenticationUtils $authenticationUtils
-     * @param Request $request
-     * @param UserInterface|null $user
-     *
-     * @return Response|RedirectResponse
      */
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
         Request $request,
         UserInterface $user = null
-    ) {
-
+    ): RedirectResponse|Response {
         //redirect user to index page if logged in
         if ($user && $this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('account-index');
@@ -96,24 +90,10 @@ class AccountController extends BaseController
     }
 
     /**
-     *
      * This could be further separated into services, but was kept as single method for demonstration purposes as the
      * registration process is different on every project.
      *
      * @Route("/account/register", name="account-register")
-     *
-     * @param Request $request
-     * @param CustomerProviderInterface $customerProvider
-     * @param LoginManagerInterface $loginManager
-     * @param RegistrationFormHandler $registrationFormHandler
-     * @param AuthenticationLoginListener $authenticationLoginListener
-     * @param Translator $translator
-     * @param Service $consentService
-     * @param UrlGeneratorInterface $urlGenerator
-     * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
-     * @param UserInterface|null $user
-     *
-     * @return Response|RedirectResponse
      */
     public function registerAction(
         Request $request,
@@ -126,8 +106,7 @@ class AccountController extends BaseController
         UrlGeneratorInterface $urlGenerator,
         NewsletterDoubleOptInService $newsletterDoubleOptInService,
         UserInterface $user = null
-    ) {
-
+    ): RedirectResponse|Response {
         //redirect user to index page if logged in
         if ($user && $this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('account-index');
@@ -206,13 +185,9 @@ class AccountController extends BaseController
      * Index page for account - it is restricted to ROLE_USER via security annotation
      *
      * @Route("/account/index", name="account-index")
-     *
-     * @param UserInterface|null $user
-     *
-     * @return Response
      */
     #[IsGranted('ROLE_USER')]
-    public function indexAction(UserInterface $user = null)
+    public function indexAction(UserInterface $user = null): Response
     {
         $orderManager = Factory::getInstance()->getOrderManager();
         $orderList = $orderManager->createOrderList();
@@ -228,19 +203,16 @@ class AccountController extends BaseController
     /**
      * @Route("/account/update-marketing", name="account-update-marketing-permission")
      *
-     * @param Request $request
-     * @param Service $consentService
-     * @param Translator $translator
-     * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
-     * @param UserInterface|null $user
-     *
-     * @return RedirectResponse
-     *
      * @throws \Exception
      */
     #[IsGranted('ROLE_USER')]
-    public function updateMarketingPermissionAction(Request $request, Service $consentService, Translator $translator, NewsletterDoubleOptInService $newsletterDoubleOptInService, UserInterface $user = null)
-    {
+    public function updateMarketingPermissionAction(
+        Request $request,
+        Service $consentService,
+        Translator $translator,
+        NewsletterDoubleOptInService $newsletterDoubleOptInService,
+        UserInterface $user = null
+    ): RedirectResponse {
         if ($user instanceof Customer) {
             $currentNewsletterPermission = $user->getNewsletter()->getConsent();
             if (!$currentNewsletterPermission && $request->get('newsletter')) {
@@ -268,15 +240,12 @@ class AccountController extends BaseController
 
     /**
      * @Route("/account/confirm-newsletter", name="account-confirm-newsletter")
-     *
-     * @param Request $request
-     * @param NewsletterDoubleOptInService $newsletterDoubleOptInService
-     * @param Translator $translator
-     *
-     * @return RedirectResponse
      */
-    public function confirmNewsletterAction(Request $request, NewsletterDoubleOptInService $newsletterDoubleOptInService, Translator $translator)
-    {
+    public function confirmNewsletterAction(
+        Request $request,
+        NewsletterDoubleOptInService $newsletterDoubleOptInService,
+        Translator $translator
+    ): RedirectResponse {
         $token = $request->get('token');
         $customer = $newsletterDoubleOptInService->handleDoubleOptInConfirmation($token);
         if ($customer) {
@@ -291,16 +260,13 @@ class AccountController extends BaseController
     /**
      * @Route("/account/send-password-recovery", name="account-password-send-recovery")
      *
-     * @param Request $request
-     * @param PasswordRecoveryService $service
-     * @param Translator $translator
-     *
-     * @return Response
-     *
      * @throws \Exception
      */
-    public function sendPasswordRecoveryMailAction(Request $request, PasswordRecoveryService $service, Translator $translator)
-    {
+    public function sendPasswordRecoveryMailAction(
+        Request $request,
+        PasswordRecoveryService $service,
+        Translator $translator
+    ): Response {
         if ($request->isMethod(Request::METHOD_POST)) {
             try {
                 $service->sendRecoveryMail(
@@ -324,15 +290,12 @@ class AccountController extends BaseController
 
     /**
      * @Route("/account/reset-password", name="account-reset-password")
-     *
-     * @param Request $request
-     * @param PasswordRecoveryService $service
-     * @param Translator $translator
-     *
-     * @return Response|RedirectResponse
      */
-    public function resetPasswordAction(Request $request, PasswordRecoveryService $service, Translator $translator)
-    {
+    public function resetPasswordAction(
+        Request $request,
+        PasswordRecoveryService $service,
+        Translator $translator
+    ): RedirectResponse|Response {
         $token = $request->get('token');
         $customer = $service->getCustomerByToken($token);
         $error = null;

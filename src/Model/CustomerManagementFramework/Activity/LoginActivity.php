@@ -27,18 +27,12 @@ class LoginActivity extends AbstractActivity
      */
     protected $customer;
 
-    /**
-     * @var int
-     */
-    protected $activityDate;
+    protected int $activityDate;
 
     /**
      * LoginActivity constructor.
-     *
-     * @param CustomerInterface $customer
-     * @param int $activityDate
      */
-    public function __construct(CustomerInterface $customer, $activityDate = null)
+    public function __construct(CustomerInterface $customer, int $activityDate = null)
     {
         if (is_null($activityDate)) {
             $activityDate = time();
@@ -50,28 +44,21 @@ class LoginActivity extends AbstractActivity
 
     /**
      * Return the type of the activity (i.e. Booking, Login...)
-     *
-     * @return string
      */
-    public function cmfGetType()
+    public function cmfGetType(): string
     {
         return self::TYPE;
     }
 
     /**
      * Returns an array representation of this activity.
-     *
-     * @return array
      */
-    public function cmfToArray()
+    public function cmfToArray(): array
     {
         return ['customer' => $this->getCustomer()->getId(), 'date' => $this->activityDate];
     }
 
-    /**
-     * @return bool
-     */
-    public function cmfWebserviceUpdateAllowed()
+    public function cmfWebserviceUpdateAllowed(): bool
     {
         return false;
     }

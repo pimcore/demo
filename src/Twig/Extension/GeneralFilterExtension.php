@@ -22,24 +22,13 @@ use Twig\TwigFunction;
 class GeneralFilterExtension extends AbstractExtension
 {
     /**
-     * @var Translator
-     */
-    protected $translator;
-
-    /**
      * GeneralFilterExtension constructor.
-     *
-     * @param Translator $translator
      */
-    public function __construct(Translator $translator)
+    public function __construct(protected Translator $translator)
     {
-        $this->translator = $translator;
     }
 
-    /**
-     * @return TwigFunction[]
-     */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('app_general_filter_translate', [$this, 'translateValues']),
@@ -48,11 +37,7 @@ class GeneralFilterExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param array $values
-     * @return array
-     */
-    public function translateValues($values)
+    public function translateValues(array $values): array
     {
         foreach ($values as &$modifyingValue) {
             $modifyingValue['translated'] = $this->translator->trans(mb_strtolower('attribute.' . $modifyingValue['value']));
@@ -61,12 +46,6 @@ class GeneralFilterExtension extends AbstractExtension
         return $values;
     }
 
-    /**
-     * @param array $values
-     * @param string|null $fieldname
-     *
-     * @return array
-     */
     public function sort(array $values, string $fieldname = null): array
     {
         @usort($values, function ($left, $right) use ($fieldname) {
@@ -93,13 +72,6 @@ class GeneralFilterExtension extends AbstractExtension
         return $values;
     }
 
-    /**
-     * @param array $values
-     * @param string $fieldname
-     * @param array $objects
-     *
-     * @return array
-     */
     public function sortObjects(array $values, string $fieldname, array $objects): array
     {
         @usort($values, function ($left, $right) use ($fieldname, $objects) {

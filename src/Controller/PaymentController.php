@@ -33,13 +33,8 @@ class PaymentController extends FrontendController
 {
     /**
      * @Route("/checkout-payment", name="shop-checkout-payment")
-     *
-     * @param Factory $factory
-     * @param BreadcrumbHelperService $breadcrumbHelperService
-     *
-     * @return Response
      */
-    public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService)
+    public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService): Response
     {
         $cartManager = $factory->getCartManager();
         $breadcrumbHelperService->enrichCheckoutPage();
@@ -69,13 +64,8 @@ class PaymentController extends FrontendController
 
     /**
      * @Route("/checkout-start-payment", name="shop-checkout-start-payment")
-     *
-     * @param Request $request
-     * @param Factory $factory
-     *
-     * @return JsonResponse
      */
-    public function startPaymentAction(Request $request, Factory $factory, LoggerInterface $logger)
+    public function startPaymentAction(Factory $factory): JsonResponse
     {
         $cartManager = $factory->getCartManager();
         $cart = $cartManager->getOrCreateCartByName('cart');
@@ -99,11 +89,9 @@ class PaymentController extends FrontendController
     }
 
     /**
-     * @Route("/payment-error", name = "shop-checkout-payment-error" )
-     *
-     * @return RedirectResponse
+     * @Route("/payment-error", name = "shop-checkout-payment-error")
      */
-    public function paymentErrorAction(Request $request, LoggerInterface $logger)
+    public function paymentErrorAction(): RedirectResponse
     {
         $this->addFlash('danger', 'Payment error');
 
@@ -112,16 +100,8 @@ class PaymentController extends FrontendController
 
     /**
      * @Route("/payment-commit-order", name="shop-commit-order")
-     *
-     * @param Request $request
-     * @param Factory $factory
-     * @param LoggerInterface $logger
-     * @param Translator $translator
-     *
-     * @return RedirectResponse
-     *
      */
-    public function commitOrderAction(Request $request, Factory $factory, LoggerInterface $logger, Translator $translator)
+    public function commitOrderAction(Request $request, Factory $factory): RedirectResponse
     {
         $cartManager = $factory->getCartManager();
         $cart = $cartManager->getOrCreateCartByName('cart');

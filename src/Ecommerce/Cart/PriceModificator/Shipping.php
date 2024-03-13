@@ -28,15 +28,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class Shipping extends CartPriceModificator\Shipping
 {
-    /**
-     * @var Decimal
-     */
-    protected $baseCharge;
+    protected Decimal $baseCharge;
 
-    /**
-     * @var Decimal
-     */
-    protected $carCharge;
+    protected Decimal $carCharge;
 
     protected function processOptions(array $options): void
     {

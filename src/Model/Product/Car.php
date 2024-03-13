@@ -28,18 +28,11 @@ class Car extends \Pimcore\Model\DataObject\Car
         return ($this->getManufacturer() ? ($this->getManufacturer()->getName() . ' ') : null) . $this->getName();
     }
 
-    /**
-     * @param string|null $language
-     * @return string|null
-     */
-    public function getProductName($language = null)
+    public function getProductName(string $language = null): ?string
     {
         return $this->getName($language);
     }
 
-    /**
-     * @return string
-     */
     public function getSubText(): string
     {
         $textParts = [];
@@ -51,9 +44,6 @@ class Car extends \Pimcore\Model\DataObject\Car
         return "<span class='text-nowrap'>" . implode("</span>, <span class='text-nowrap'>", array_filter($textParts)) . '</span>';
     }
 
-    /**
-     * @return string|null
-     */
     public function getOSProductNumber(): ?string
     {
         return $this->getId();
@@ -78,9 +68,6 @@ class Car extends \Pimcore\Model\DataObject\Car
         return parent::getOSParentId();
     }
 
-    /**
-     * @return Hotspotimage|null
-     */
     public function getMainImage(): ?Hotspotimage
     {
         $gallery = $this->getGallery();
@@ -120,9 +107,6 @@ class Car extends \Pimcore\Model\DataObject\Car
         return $items;
     }
 
-    /**
-     * @return Category|null
-     */
     public function getMainCategory(): ?Category
     {
         $categories = $this->getCategories();
@@ -132,8 +116,6 @@ class Car extends \Pimcore\Model\DataObject\Car
     }
 
     /**
-     * @return Listing
-     *
      * @throws \Exception
      */
     public function getAccessories(): Listing

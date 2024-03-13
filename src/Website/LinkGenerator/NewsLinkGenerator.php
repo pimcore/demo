@@ -34,39 +34,14 @@ class NewsLinkGenerator implements LinkGeneratorInterface
     const DEFAULT_DOCUMENT = 'news_default_document';
 
     /**
-     * @var DocumentResolver
-     */
-    protected $documentResolver;
-
-    /**
-     * @var RequestStack
-     */
-    protected $requestStack;
-
-    /**
-     * @var PimcoreUrl
-     */
-    protected $pimcoreUrl;
-
-    /**
-     * @var LocaleServiceInterface
-     */
-    protected $localeService;
-
-    /**
      * NewsLinkGenerator constructor.
-     *
-     * @param DocumentResolver $documentResolver
-     * @param RequestStack $requestStack
-     * @param PimcoreUrl $pimcoreUrl
-     * @param LocaleServiceInterface $localeService
      */
-    public function __construct(DocumentResolver $documentResolver, RequestStack $requestStack, PimcoreUrl $pimcoreUrl, LocaleServiceInterface $localeService)
-    {
-        $this->documentResolver = $documentResolver;
-        $this->requestStack = $requestStack;
-        $this->pimcoreUrl = $pimcoreUrl;
-        $this->localeService = $localeService;
+    public function __construct(
+        protected DocumentResolver $documentResolver,
+        protected RequestStack $requestStack,
+        protected PimcoreUrl $pimcoreUrl,
+        protected LocaleServiceInterface $localeService
+    ) {
     }
 
     public function generate(object $object, array $params = []): string
