@@ -9,8 +9,8 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace App\Website\LinkGenerator;
@@ -25,8 +25,14 @@ use Pimcore\Model\Document;
 use Pimcore\Twig\Extension\Templating\PimcoreUrl;
 use Symfony\Component\HttpFoundation\RequestStack;
 
+/**
+ * Generates URI links for News Data-Objects
+ * @todo stop using direct ID. You can use slug field or at least UUID
+ */
 class NewsLinkGenerator implements LinkGeneratorInterface
 {
+    const DEFAULT_DOCUMENT = 'news_default_document';
+
     /**
      * @var DocumentResolver
      */
@@ -79,23 +85,28 @@ class NewsLinkGenerator implements LinkGeneratorInterface
             }
 
             $localeUrlPart = '/' . $this->localeService->getLocale() . '/';
-            if ($document && $localeUrlPart !== $document->getFullPath()) {
-                $fullPath = substr($document->getFullPath(), strlen($localeUrlPart));
-            }
 
-            if ($document && !$fullPath) {
-                $fullPath = $document->getProperty('news_default_document') ? substr($document->getProperty('news_default_document')->getFullPath(), strlen($localeUrlPart)) : '';
+            if ($document) {
+                if ($localeUrlPart !== $document->getFullPath()) {
+                    $fullPath = substr($document->getFullPath(), strlen($localeUrlPart));
+                }
+                if (!$fullPath) {
+                    $fullPath = $document->getProperty(static::DEFAULT_DOCUMENT) ? substr($document->getProperty(static::DEFAULT_DOCUMENT)->getFullPath(), strlen($localeUrlPart)) : '';
+                }
+            }
+            if (!$fullPath) {
+                throw new \InvalidArgumentException('Set parameter '.static::DEFAULT_DOCUMENT.' for the root or current document.');
             }
 
             $locale = $params['locale'] ?? null;
 
             return $this->pimcoreUrl->__invoke(
                 [
-                'newstitle' => Text::toUrl($object->getTitle($locale) ? $object->getTitle($locale) : 'news'),
-                'news' => $object->getId(),
-                'path' => $fullPath,
-                '_locale' => $locale,
-            ],
+                    'newstitle' => Text::toUrl($object->getTitle($locale) ? $object->getTitle($locale) : 'news'),
+                    'news'      => $object->getId(),
+                    'path'      => $fullPath,
+                    '_locale'   => $locale,
+                ],
                 'news-detail',
                 true
             );
