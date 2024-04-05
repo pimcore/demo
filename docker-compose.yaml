@@ -37,6 +37,7 @@ services:
             - db
         volumes:
             - .:/var/www/html
+            - pimcore-demo-tmp-storage:/tmp
 
     supervisord:
         #user: '1000:1000' # set to your uid:gid
@@ -67,4 +68,5 @@ services:
 volumes:
     pimcore-demo-database:
     pimcore-demo-redis-data:
+    pimcore-demo-tmp-storage:
     pimcore-demo-mailpit-data:
