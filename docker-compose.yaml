@@ -47,11 +47,8 @@ services:
             - .:/var/www/html
             - ./.docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro
 
-    chrome:
-        image: browserless/chrome
-
     gotenberg:
-        image: gotenberg/gotenberg:7
+        image: gotenberg/gotenberg:8
 
     mailpit:
         image: axllent/mailpit
