@@ -214,3 +214,8 @@ services:
 
     App\MyAreaBricks\Custom\Areabricks\:
         resource: '../src/MyAreaBricks/Custom/Areabricks/*'
+
+    # the deferred extension is needed for placeholder helpers to work
+    # as otherwise the placeholder block would be rendered before any
+    # content was added (e.g. headTitle)
+    Twig\DeferredExtension\DeferredExtension: ~
