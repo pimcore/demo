@@ -26,8 +26,8 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('newsletters
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notes_events','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('notifications_send','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objects','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objectbricks','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('objects','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugins','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_activityview','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_cmf_perm_customerview','');
@@ -38,8 +38,8 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_data
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_admin','Datahub');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('plugin_datahub_config','Datahub');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('predefined_properties','');
-INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('quantityValueUnits','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('qr_codes','');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('quantityValueUnits','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('recyclebin','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('redirects','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('reports','Pimcore Custom Reports Bundle');
