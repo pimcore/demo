@@ -63,6 +63,7 @@ jobs:
             composer create-project \
               pimcore/demo:@dev \
               --repository='{"type": "path", "url": "./demo"}' \
+              --no-install \
               sample-project
 
     - name: Smoke-test compose file
@@ -95,7 +96,9 @@ jobs:
         if [ ! -z "$PIMCORE_VERSION" ]; then
           docker-compose exec -T -- php composer require --no-update pimcore/pimcore:"${PIMCORE_VERSION}"
         fi
-
+          
+        docker-compose exec -T -- php composer update --no-scripts
+          
         # Install dockerize into the php container. We need it to block until
         # database is ready to serve connections.
         docker-compose exec -T -- php bash -c '\
