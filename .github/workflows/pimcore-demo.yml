@@ -20,10 +20,10 @@ jobs:
     strategy:
         matrix:
             include:
-                - { php-version: 8.2, database: "mariadb:10.11", pimcore_version: "", experimental: true }
-                - { php-version: 8.2, database: "mariadb:10.11", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.0.0", experimental: true }
-                - { php-version: 8.2, database: "mysql:latest", pimcore_version: "", experimental: true }
-                - { php-version: 8.2, database: "mysql:latest", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.0.0", experimental: true }
+                - { php-version: 8.3, database: "mariadb:10.11", pimcore_version: "", experimental: true }
+                - { php-version: 8.3, database: "mariadb:10.11", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.3.99", experimental: true }
+                - { php-version: 8.3, database: "mysql:latest", pimcore_version: "", experimental: true }
+                - { php-version: 8.3, database: "mysql:latest", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.3.99", experimental: true }
     steps:
     # Check out the repo in a sub-dir to see if it can serve as
     # template for `composer create-project`
@@ -134,6 +134,7 @@ jobs:
         set -ex
           
         cd sample-project/
+        docker-compose exec -T -- php composer remove pimcore/platform-version --no-update
         docker-compose exec -T -- php composer require pimcore/pimcore:"${UPGRADE_VERSION}"
           
         # Run pimcore migration.  
