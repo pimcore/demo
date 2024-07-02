@@ -63,6 +63,7 @@ jobs:
             composer create-project \
               pimcore/demo:@dev \
               --repository='{"type": "path", "url": "./demo"}' \
+              --no-install \
               sample-project
 
     - name: Smoke-test compose file
