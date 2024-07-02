@@ -21,6 +21,7 @@ use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
 use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
 use Pimcore\Bundle\PersonalizationBundle\PimcorePersonalizationBundle;
 use Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle;
+use Pimcore\Bundle\GenericExecutionEngineBundle\PimcoreGenericExecutionEngineBundle;
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
@@ -45,4 +46,5 @@ return [
     PimcoreWordExportBundle::class => ['all' => true],
     PimcoreXliffBundle::class => ['all' => true],
     PrestaSitemapBundle::class => ['all' => true],
+    PimcoreGenericExecutionEngineBundle::class => ['all' => true],
 ];

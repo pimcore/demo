@@ -3239,3 +3239,36 @@ CREATE TABLE `translations_admin` (
   KEY `language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+DROP TABLE IF EXISTS `generic_execution_engine_error_log`;
+DROP TABLE IF EXISTS `generic_execution_engine_job_run`;
+
+CREATE TABLE `generic_execution_engine_job_run` (
+    id int unsigned auto_increment PRIMARY KEY,
+    ownerId int unsigned NULL,
+    state varchar(100) NOT NULL,
+    currentStep int unsigned NULL,
+    currentMessage text NULL,
+    log text NULL,
+    serializedJob longtext NULL,
+    context longtext NULL,
+    creationDate int NULL,
+    modificationDate int NULL,
+    executionContext varchar(255) default 'default' NULL,
+    totalElements int unsigned NOT NULL,
+    processedElementsForStep int unsigned NOT NULL,
+    CONSTRAINT fk_generic_job_execution_owner_users
+        FOREIGN KEY (ownerId) REFERENCES pimcore.users (id)
+            ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `generic_execution_engine_error_log` (
+    id int unsigned auto_increment PRIMARY KEY,
+    jobRunId int unsigned NOT NULL,
+    stepNumber int unsigned NOT NULL,
+    elementId int unsigned NULL,
+    errorMessage text NULL,
+    CONSTRAINT fk_generic_job_execution_log_jobs
+        FOREIGN KEY (jobRunId) REFERENCES pimcore.generic_execution_engine_job_run (id)
+            ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
