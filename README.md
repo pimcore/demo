@@ -31,7 +31,7 @@ You don't need to have a PHP environment with composer installed.
 ### Follow these steps
 
 1. Initialize the demo project using the `pimcore/pimcore` image
-    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.2-latest composer create-project pimcore/demo my-project``
+    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project pimcore/demo my-project``
 1. Go to your new project
     `cd my-project/`
 1. Part of the new project is a docker compose file
@@ -47,6 +47,15 @@ You don't need to have a PHP environment with composer installed.
     * The admin interface, using the credentials you have chosen above:
       <http://localhost/admin>
 
+## Pimcore Platform Version
+By default, Pimcore Platform Version is added as a dependency which ensures installation of compatible and in combination 
+with each other tested versions of additional Pimcore modules. More information about the Platform Version can be found in the 
+[Platform Version docs](https://github.com/pimcore/platform-version). 
+
+It might be necessary to update a specific Pimcore module to a version that is not included in the Platform Version.
+In that case, you need to remove the `platform-version` dependency from your `composer.json` and update the module to
+the desired version.
+Be aware that this might lead to a theoretically compatible but untested combination of Pimcore modules.
 
 ## Other demo/skeleton packages
 - [Pimcore Skeleton](https://github.com/pimcore/skeleton/)
