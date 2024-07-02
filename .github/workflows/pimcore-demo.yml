@@ -33,14 +33,18 @@ jobs:
         path: 'demo'
 
     - name: Pull latest pimcore image
+      env:
+          PHP_VERSION: "${{ matrix.php-version }}"
       run: |
         # Echo commands and terminate on first error
         set -ex
         
         # Pull latest build of pimcore's image
-        docker pull docker.io/pimcore/pimcore:php8.2-latest
+        docker pull docker.io/pimcore/pimcore:php"${PHP_VERSION}"-latest
 
     - name: Create project from demo in latest pimcore environment
+      env:
+          PHP_VERSION: "${{ matrix.php-version }}"
       run: |
         # Echo commands and terminate on first error
         set -ex
@@ -55,7 +59,7 @@ jobs:
           --volume=${{ github.workspace }}/:/test/ \
           --workdir=/test/ \
           --user=$(id -u):$(id -g) \
-          docker.io/pimcore/pimcore:php8.2-latest \
+          docker.io/pimcore/pimcore:php"${PHP_VERSION}"-latest \
             composer create-project \
               pimcore/demo:@dev \
               --repository='{"type": "path", "url": "./demo"}' \
