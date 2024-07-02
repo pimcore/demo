@@ -18,7 +18,7 @@
   "require": {
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
-    "pimcore/platform-version": "^2024.1",
+    "pimcore/platform-version": "^2024.2",
     "pimcore/customer-management-framework-bundle": "*",
     "pimcore/pimcore": "*",
     "pimcore/web2print-tools-bundle": "*",
