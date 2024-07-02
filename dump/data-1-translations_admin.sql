@@ -742,9 +742,6 @@ INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`m
 INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('PIM','simple','tr','',1719850132,1719850132,2,2);
 INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('PIM','simple','uk','',1719850132,1719850132,2,2);
 INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('PIM','simple','zh_Hans','',1719850132,1719850132,2,2);
-INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('Pimcore\'s logotype','simple','de','',1719850077,1719850077,0,0);
-INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('Pimcore\'s logotype','simple','en','',1719850077,1719850077,0,0);
-INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('Pimcore\'s logotype','simple','fr','',1719850077,1719850077,0,0);
 INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('Portal-Page','simple','ca','',1719850132,1719850132,2,2);
 INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('Portal-Page','simple','cs','',1719850132,1719850132,2,2);
 INSERT INTO translations_admin (`key`,`type`,`language`,`text`,`creationDate`,`modificationDate`,`userOwner`,`userModification`) VALUES ('Portal-Page','simple','de','',1719850132,1719850132,2,2);
