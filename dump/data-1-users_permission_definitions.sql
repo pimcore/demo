@@ -65,3 +65,5 @@ INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('website_set
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('word_export','Pimcore Word Export Bundle');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('workflow_details','');
 INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('xliff_import_export','Pimcore Xliff Bundle');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('gee_job_run_permission','Pimcore Generic Execution Engine');
+INSERT INTO users_permission_definitions (`key`,`category`) VALUES ('gee_see_all_job_runs_permission','Pimcore Generic Execution Engine');
