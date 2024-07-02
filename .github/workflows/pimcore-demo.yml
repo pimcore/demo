@@ -20,7 +20,6 @@ jobs:
     strategy:
         matrix:
             include:
-                - { php-version: 8.3, database: "mariadb:10.11", pimcore_version: "", experimental: true }
                 - { php-version: 8.2, database: "mariadb:10.11", pimcore_version: "", experimental: true }
                 - { php-version: 8.2, database: "mariadb:10.11", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.0.0", experimental: true }
                 - { php-version: 8.2, database: "mysql:latest", pimcore_version: "", experimental: true }
