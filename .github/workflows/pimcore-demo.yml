@@ -138,7 +138,7 @@ jobs:
           
         cd sample-project/
         docker-compose exec -T -- php composer remove pimcore/platform-version --no-update
-        docker-compose exec -T -- php composer require pimcore/pimcore:"${UPGRADE_VERSION}"
+        docker-compose exec -T -- php composer require pimcore/pimcore:"${UPGRADE_VERSION}" --with-all-dependencies
           
         # Run pimcore migration.  
         docker-compose exec -T -- php ./bin/console doctrine:migrations:migrate
