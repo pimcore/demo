@@ -3258,7 +3258,7 @@ CREATE TABLE `generic_execution_engine_job_run` (
     totalElements int unsigned NOT NULL,
     processedElementsForStep int unsigned NOT NULL,
     CONSTRAINT fk_generic_job_execution_owner_users
-        FOREIGN KEY (ownerId) REFERENCES pimcore.users (id)
+        FOREIGN KEY (ownerId) REFERENCES users (id)
             ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -3269,6 +3269,6 @@ CREATE TABLE `generic_execution_engine_error_log` (
     elementId int unsigned NULL,
     errorMessage text NULL,
     CONSTRAINT fk_generic_job_execution_log_jobs
-        FOREIGN KEY (jobRunId) REFERENCES pimcore.generic_execution_engine_job_run (id)
+        FOREIGN KEY (jobRunId) REFERENCES generic_execution_engine_job_run (id)
             ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
