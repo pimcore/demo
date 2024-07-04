@@ -214,3 +214,12 @@ services:
 
     App\MyAreaBricks\Custom\Areabricks\:
         resource: '../src/MyAreaBricks/Custom/Areabricks/*'
+
+    # ---------------------------------------------------------
+    # Use PdoSessionHandler for session storage
+    # ---------------------------------------------------------
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
+        lazy: true
+        arguments:
+            - !service { class: PDO, factory: [ '@database_connection', 'getNativeConnection' ] }
+            - { lock_mode: 0 }

@@ -3272,3 +3272,12 @@ CREATE TABLE `generic_execution_engine_error_log` (
         FOREIGN KEY (jobRunId) REFERENCES generic_execution_engine_job_run (id)
             ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `sessions`;
+CREATE TABLE `sessions` (
+    sess_id varbinary(128) NOT NULL PRIMARY KEY,
+    sess_data longblob NOT NULL,
+    sess_lifetime int unsigned NOT NULL,
+    sess_time int unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+CREATE INDEX sess_lifetime_idx ON `sessions` (sess_lifetime);
