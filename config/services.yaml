@@ -223,3 +223,8 @@ services:
         arguments:
             - !service { class: PDO, factory: [ '@database_connection', 'getNativeConnection' ] }
             - { lock_mode: 0 }
+
+    # the deferred extension is needed for placeholder helpers to work
+    # as otherwise the placeholder block would be rendered before any
+    # content was added (e.g. headTitle)
+    Twig\DeferredExtension\DeferredExtension: ~
