@@ -1,3 +1,7 @@
+{# we're rendering the content block first to ensure that pimcore_head_* helper calls within all templates used within the content block are executed before the layout gets rendered #}
+{% set content %}
+    {{ block('content') }}
+{% endset %}
 <!doctype html>
 <html lang="{{ app.request.locale }}">
     <head>
@@ -54,8 +58,7 @@
             {% set isPortal = ((isPortal is defined) and isPortal) %}
         {% endapply %}
 
-        {# we're using the deferred extension here to make sure this block is rendered after all helper calls #}
-        {% block layout_head_meta deferred %}
+        {% block layout_head_meta %}
             {{ pimcore_head_title() }}
             {{ pimcore_head_meta() }}
 
@@ -65,7 +68,7 @@
 
         {% endblock %}
 
-        {% block head_stylesheets deferred %}
+        {% block head_stylesheets %}
             {{ pimcore_head_link() }}
         {% endblock %}
 
@@ -132,7 +135,7 @@
 
 
             {% if isPortal %}
-                {{ block('content') }}
+                 {{ content }}
             {% else %}
                 <div id="content" class="container">
                     <div class="row">
@@ -159,7 +162,7 @@
                                     {{ pimcore_render_nav(breadbrumbs, 'breadcrumbs') }}
                                 </div>
                             {% endif %}
-                            {{ block('content') }}
+                             {{ content }}
                         </div>
 
                         {% if leftNavShow %}
