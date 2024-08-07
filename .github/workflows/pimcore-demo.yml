@@ -74,9 +74,9 @@ jobs:
         set -ex
         
         # Check (lint) the compose file
-        docker-compose -v
+        docker compose -v
         cd sample-project/
-        docker-compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml config
+        docker compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml config
 
     - name: Test pimcore installation
       env:
@@ -89,27 +89,27 @@ jobs:
         cd sample-project/
 
         # Start containers
-        docker-compose pull --quiet
-        docker-compose down -v --remove-orphans
-        docker-compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml up -d
+        docker compose pull --quiet
+        docker compose down -v --remove-orphans
+        docker compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml up -d
 
         if [ ! -z "$PIMCORE_VERSION" ]; then
-          docker-compose exec -T -- php composer require --no-update pimcore/pimcore:"${PIMCORE_VERSION}"
+          docker compose exec -T -- php composer require --no-update pimcore/pimcore:"${PIMCORE_VERSION}"
         fi
           
-        docker-compose exec -T -- php composer update --no-scripts
+        docker compose exec -T -- php composer update --no-scripts
           
         # Install dockerize into the php container. We need it to block until
         # database is ready to serve connections.
-        docker-compose exec -T -- php bash -c '\
+        docker compose exec -T -- php bash -c '\
           curl -sfL https://github.com/powerman/dockerize/releases/download/v0.11.5/dockerize-`uname -s`-`uname -m` \
           | install /dev/stdin /usr/local/bin/dockerize'
 
         # Wait for the database to set up.
-        docker-compose exec -T -- php dockerize -wait tcp://db:3306 -timeout 5m
+        docker compose exec -T -- php dockerize -wait tcp://db:3306 -timeout 5m
           
         # Run pimcore installation.
-        docker-compose exec -T \
+        docker compose exec -T \
         -e PIMCORE_INSTALL_ADMIN_USERNAME=pimcore \
         -e PIMCORE_INSTALL_ADMIN_PASSWORD=pimcore \
         -e PIMCORE_INSTALL_MYSQL_USERNAME=pimcore \
@@ -121,7 +121,7 @@ jobs:
         sudo chown -R www-data .  
         
         # Check if website is reachable
-        response=$(docker-compose exec -T -- php bash -c 'curl -s "nginx:80"')
+        response=$(docker compose exec -T -- php bash -c 'curl -s "nginx:80"')
         
         if [[ ! $response =~ "Satisfaction" ]]; then
            echo "Install failed, skipping build"
@@ -137,14 +137,14 @@ jobs:
         set -ex
           
         cd sample-project/
-        docker-compose exec -T -- php composer remove pimcore/platform-version --no-update
-        docker-compose exec -T -- php composer require pimcore/pimcore:"${UPGRADE_VERSION}" --with-all-dependencies
+        docker compose exec -T -- php composer remove pimcore/platform-version --no-update
+        docker compose exec -T -- php composer require pimcore/pimcore:"${UPGRADE_VERSION}" --with-all-dependencies
           
         # Run pimcore migration.  
-        docker-compose exec -T -- php ./bin/console doctrine:migrations:migrate
+        docker compose exec -T -- php ./bin/console doctrine:migrations:migrate
           
         # Check if website is reachable, after upgrade
-        response=$(docker-compose exec -T -- php bash -c 'curl -s "nginx:80"')
+        response=$(docker compose exec -T -- php bash -c 'curl -s "nginx:80"')
         if [[ ! $response =~ "Satisfaction" ]]; then
            echo "Install failed, skipping build"
            exit 1;
@@ -153,4 +153,4 @@ jobs:
     - name: Compose down
       run: |
         cd sample-project/
-        docker-compose down -v --remove-orphans
+        docker compose down -v --remove-orphans
