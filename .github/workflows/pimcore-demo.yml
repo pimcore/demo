@@ -74,7 +74,7 @@ jobs:
         set -ex
         
         # Check (lint) the compose file
-        docker compose -v
+        docker compose version
         cd sample-project/
         docker compose -f docker-compose.yaml -f .github/ci/files/docker-compose.yaml config
 
