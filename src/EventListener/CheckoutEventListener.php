@@ -29,39 +29,19 @@ use Pimcore\Model\Document\Email;
 class CheckoutEventListener
 {
     /**
-     * @var Factory
-     */
-    protected $ecommerceFactory;
-
-    /**
-     * @var ActivityManagerInterface
-     */
-    protected $activityManager;
-
-    /**
-     * @var LocaleServiceInterface
-     */
-    protected $localeService;
-
-    /**
      * CheckoutEventListener constructor.
-     *
-     * @param Factory $ecommerceFactory
-     * @param ActivityManagerInterface $activityManager
      */
-    public function __construct(Factory $ecommerceFactory, ActivityManagerInterface $activityManager, LocaleServiceInterface $localeService)
-    {
-        $this->ecommerceFactory = $ecommerceFactory;
-        $this->activityManager = $activityManager;
-        $this->localeService = $localeService;
+    public function __construct(
+        protected Factory $ecommerceFactory,
+        protected ActivityManagerInterface $activityManager,
+        protected LocaleServiceInterface $localeService
+    ) {
     }
 
     /**
-     * @param OrderManagerEvent $event
-     *
      * @throws \Exception
      */
-    public function onUpdateOrder(OrderManagerEvent $event)
+    public function onUpdateOrder(OrderManagerEvent $event): void
     {
         $cart = $event->getCart();
 
@@ -106,10 +86,7 @@ class CheckoutEventListener
         }
     }
 
-    /**
-     * @param SendConfirmationMailEvent $event
-     */
-    public function sendConfirmationMail(SendConfirmationMailEvent $event)
+    public function sendConfirmationMail(SendConfirmationMailEvent $event): void
     {
         $order = $event->getOrder();
 
@@ -127,11 +104,9 @@ class CheckoutEventListener
     }
 
     /**
-     * @param CommitOrderProcessorEvent $event
-     *
      * @throws \Pimcore\Bundle\EcommerceFrameworkBundle\Exception\UnsupportedException
      */
-    public function postCommitOrder(CommitOrderProcessorEvent $event)
+    public function postCommitOrder(CommitOrderProcessorEvent $event): void
     {
         $order = $event->getOrder();
         if ($this->activityManager && $order->getCustomer()) {

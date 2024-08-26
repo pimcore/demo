@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class PrintWysiwyg extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Print WYSIWYG';

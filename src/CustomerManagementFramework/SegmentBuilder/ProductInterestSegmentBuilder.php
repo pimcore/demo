@@ -31,41 +31,24 @@ use Pimcore\Model\DataObject;
 class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
 {
     /**
-     * @var SegmentGetter
-     */
-    protected $segmentGetter;
-
-    /**
      * ProductInterestSegmentBuilder constructor.
-     *
-     * @param SegmentGetter $segmentGetter
      */
-    public function __construct(SegmentGetter $segmentGetter)
+    public function __construct(protected SegmentGetter $segmentGetter)
     {
-        $this->segmentGetter = $segmentGetter;
     }
 
     /**
      * prepares data and configurations which could be reused for all buildSegment(CustomerInterface $customer) calls
-     *
-     * @param SegmentManagerInterface $segmentManager
-     *
-     * @return void
      */
-    public function prepare(SegmentManagerInterface $segmentManager)
+    public function prepare(SegmentManagerInterface $segmentManager): void
     {
         // nothing to do
     }
 
     /**
      * update calculated segment(s) for given customer
-     *
-     * @param CustomerInterface $customer
-     * @param SegmentManagerInterface $segmentManager
-     *
-     * @return void
      */
-    public function calculateSegments(CustomerInterface $customer, SegmentManagerInterface $segmentManager)
+    public function calculateSegments(CustomerInterface $customer, SegmentManagerInterface $segmentManager): void
     {
         if (!$customer->getProfilingConsent()->getConsent()) {
             return;
@@ -101,18 +84,12 @@ class ProductInterestSegmentBuilder extends AbstractSegmentBuilder
         });
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return 'ProductCategorySegmentBuilder';
     }
 
-    /**
-     * @return bool
-     */
-    public function executeOnCustomerSave()
+    public function executeOnCustomerSave(): bool
     {
         //only for demo purposes on true, should be false in production environment
         return true;

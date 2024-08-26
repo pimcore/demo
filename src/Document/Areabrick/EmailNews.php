@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class EmailNews extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'E-Mail News';

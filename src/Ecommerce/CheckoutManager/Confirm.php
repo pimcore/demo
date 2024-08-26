@@ -25,17 +25,11 @@ class Confirm extends AbstractStep implements CheckoutStepInterface
      */
     const PRIVATE_NAMESPACE = 'confirm';
 
-    /**
-     * @inheritdoc
-     */
     public function getName(): string
     {
         return 'confirm';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function commit($data): bool
     {
         $this->cart->setCheckoutData(self::PRIVATE_NAMESPACE, json_encode($data));
@@ -43,9 +37,6 @@ class Confirm extends AbstractStep implements CheckoutStepInterface
         return true;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getData(): mixed
     {
         $data = json_decode((string) $this->cart->getCheckoutData(self::PRIVATE_NAMESPACE));

@@ -29,57 +29,23 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class BreadcrumbHelperService
 {
     /**
-     * @var RequestStack
-     */
-    protected $requestStack;
-
-    /**
-     * @var Placeholder
-     */
-    protected $placeholderHelper;
-
-    /**
-     * @var CategoryLinkGenerator
-     */
-    protected $categoryLinkGenerator;
-
-    /**
-     * @var Translator
-     */
-    protected $translator;
-
-    /**
-     * @var UrlGeneratorInterface
-     */
-    protected $urlGenerator;
-
-    /**
      * BreadcrumbHelperService constructor.
-     *
-     * @param RequestStack $requestStack
-     * @param Placeholder $placeholderHelper
-     * @param CategoryLinkGenerator $categoryLinkGenerator
-     * @param Translator $translator
-     * @param UrlGeneratorInterface $urlGenerator
      */
-    public function __construct(RequestStack $requestStack, Placeholder $placeholderHelper, CategoryLinkGenerator $categoryLinkGenerator, Translator $translator, UrlGeneratorInterface $urlGenerator)
-    {
-        $this->requestStack = $requestStack;
-        $this->placeholderHelper = $placeholderHelper;
-        $this->categoryLinkGenerator = $categoryLinkGenerator;
-        $this->translator = $translator;
-        $this->urlGenerator = $urlGenerator;
+    public function __construct(
+        protected RequestStack $requestStack,
+        protected Placeholder $placeholderHelper,
+        protected CategoryLinkGenerator $categoryLinkGenerator,
+        protected Translator $translator,
+        protected UrlGeneratorInterface $urlGenerator
+    ) {
     }
 
-    /**
-     * @return Document
-     */
     protected function getCurrentDocument(): Document
     {
         return $this->requestStack->getCurrentRequest()->attributes->get('contentDocument');
     }
 
-    public function enrichProductDetailPage(AbstractObject $product)
+    public function enrichProductDetailPage(AbstractObject $product): void
     {
         $document = $this->getCurrentDocument();
 
@@ -108,27 +74,24 @@ class BreadcrumbHelperService
         ]);
     }
 
-    public function enrichCategoryPage(Category $category)
+    public function enrichCategoryPage(Category $category): void
     {
         $document = $this->getCurrentDocument();
-
-        if ($category) {
-            $parentId = $document->getId();
-            $parentCategories = $category->getParentCategoryList($document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME));
-            $parentCategories[] = $category;
-            foreach ($parentCategories as $index => $parentCategory) {
-                $this->placeholderHelper->__invoke('addBreadcrumb')->append([
-                    'parentId' => $parentId,
-                    'id' => 'category-' . $parentCategory->getId(),
-                    'url' => $this->categoryLinkGenerator->generate($parentCategory, [], true),
-                    'label' => $parentCategory->getName()
-                ]);
-                $parentId = 'category-' . $parentCategory->getId();
-            }
+        $parentId = $document->getId();
+        $parentCategories = $category->getParentCategoryList($document->getProperty(AbstractProductLinkGenerator::ROOT_CATEGORY_PROPERTY_NAME));
+        $parentCategories[] = $category;
+        foreach ($parentCategories as $parentCategory) {
+            $this->placeholderHelper->__invoke('addBreadcrumb')->append([
+                'parentId' => $parentId,
+                'id' => 'category-' . $parentCategory->getId(),
+                'url' => $this->categoryLinkGenerator->generate($parentCategory, [], true),
+                'label' => $parentCategory->getName()
+            ]);
+            $parentId = 'category-' . $parentCategory->getId();
         }
     }
 
-    public function enrichCartPage()
+    public function enrichCartPage(): void
     {
         $document = $this->getCurrentDocument();
 
@@ -140,7 +103,7 @@ class BreadcrumbHelperService
         ]);
     }
 
-    public function enrichCheckoutPage()
+    public function enrichCheckoutPage(): void
     {
         $document = $this->getCurrentDocument();
 
@@ -159,10 +122,7 @@ class BreadcrumbHelperService
         ]);
     }
 
-    /**
-     * @param News $news
-     */
-    public function enrichNewsPage(News $news)
+    public function enrichNewsPage(News $news): void
     {
         $document = $this->getCurrentDocument();
         $this->placeholderHelper->__invoke('addBreadcrumb')->append([
@@ -173,7 +133,7 @@ class BreadcrumbHelperService
         ]);
     }
 
-    public function enrichGenericDynamicPage($label)
+    public function enrichGenericDynamicPage(string $label): void
     {
         $document = $this->getCurrentDocument();
         $this->placeholderHelper->__invoke('addBreadcrumb')->append([

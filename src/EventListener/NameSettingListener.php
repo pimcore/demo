@@ -22,7 +22,7 @@ use Pimcore\Model\DataObject\Manufacturer;
 
 class NameSettingListener
 {
-    public function onPreAdd(DataObjectEvent $event)
+    public function onPreAdd(DataObjectEvent $event): void
     {
         $object = $event->getObject();
 

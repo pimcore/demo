@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class TimeSliderFeaturette extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Time Slider Featurette';

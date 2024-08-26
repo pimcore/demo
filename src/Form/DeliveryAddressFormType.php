@@ -27,20 +27,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DeliveryAddressFormType extends AbstractType
 {
-    /**
-     * @var LocaleService
-     */
-    protected $locale;
-
-    public function __construct(LocaleService $locale)
+    public function __construct(protected LocaleService $locale)
     {
-        $this->locale = $locale;
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $regionArray = $this->locale->getDisplayRegions();
 
@@ -85,10 +76,7 @@ class DeliveryAddressFormType extends AbstractType
             ]);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         // we need to set this to an empty string as we want _username as input name
         // instead of login_form[_username] to work with the form authenticator out
@@ -96,10 +84,7 @@ class DeliveryAddressFormType extends AbstractType
         return '';
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
     }
 }

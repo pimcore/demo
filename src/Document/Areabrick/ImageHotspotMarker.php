@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class ImageHotspotMarker extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Image Hotspot & Marker';

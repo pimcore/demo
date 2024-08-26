@@ -31,7 +31,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ContentController extends BaseController
 {
     #[Template('content/default.html.twig')]
-    public function defaultAction()
+    public function defaultAction(): array
     {
         return [];
     }
@@ -41,13 +41,10 @@ class ContentController extends BaseController
      * used to set custom response headers on the auto-rendered response. At this point, the headers
      * are not really set as we don't have a response yet, but they will be added to the final response
      * by the ResponseHeaderListener.
-     *
-     *
-     * @return Response
      */
     #[ResponseHeader(key: "X-Custom-Header", values: ["Foo", "Bar"])]
     #[ResponseHeader(key: "X-Custom-Header", values: ["Bazinga"], replace: true)]
-    public function portalAction()
+    public function portalAction(): Response
     {
         // you can also set the header via code
         $this->addResponseHeader('X-Custom-Header3', ['foo', 'bar']);
@@ -57,31 +54,20 @@ class ContentController extends BaseController
         ]);
     }
 
-    /**
-     * @return Response
-     */
-    public function editableRoundupAction()
+    public function editableRoundupAction(): Response
     {
         return $this->render('content/editable_roundup.html.twig');
     }
 
-    /**
-     * @return Response
-     */
-    public function thumbnailsAction()
+    public function thumbnailsAction(): Response
     {
         return $this->render('content/thumbnails.html.twig');
     }
 
     /**
-     * @param Request $request
-     * @param Translator $translator
-     *
-     * @return Response
-     *
      * @throws \Exception
      */
-    public function carSubmitAction(Request $request, Translator $translator)
+    public function carSubmitAction(Request $request, Translator $translator): Response
     {
         $form = $this->createForm(CarSubmitFormType::class);
         $form->handleRequest($request);
@@ -111,13 +97,7 @@ class ContentController extends BaseController
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @param Factory $ecommerceFactory
-     *
-     * @return Response
-     */
-    public function tenantSwitchesAction(Request $request, Factory $ecommerceFactory)
+    public function tenantSwitchesAction(Request $request, Factory $ecommerceFactory): Response
     {
         $environment = $ecommerceFactory->getEnvironment();
 

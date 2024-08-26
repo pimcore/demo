@@ -29,16 +29,10 @@ class OrderActivity extends AbstractActivity
      */
     protected $customer;
 
-    /**
-     * @var AbstractOrder
-     */
-    protected $order;
+    protected AbstractOrder $order;
 
     /**
-     * LoginActivity constructor.
-     *
-     * @param CustomerInterface $customer
-     * @param int $activityDate
+     * OrderActivity constructor.
      */
     public function __construct(CustomerInterface $customer, AbstractOrder $order)
     {
@@ -48,20 +42,16 @@ class OrderActivity extends AbstractActivity
 
     /**
      * Return the type of the activity (i.e. Booking, Login...)
-     *
-     * @return string
      */
-    public function cmfGetType()
+    public function cmfGetType(): string
     {
         return self::TYPE;
     }
 
     /**
      * Returns an array representation of this activity.
-     *
-     * @return array
      */
-    public function cmfToArray()
+    public function cmfToArray(): array
     {
         return [
             'customerId' => $this->getCustomer()->getId(),
@@ -71,15 +61,12 @@ class OrderActivity extends AbstractActivity
         ];
     }
 
-    /**
-     * @return bool
-     */
-    public function cmfWebserviceUpdateAllowed()
+    public function cmfWebserviceUpdateAllowed(): bool
     {
         return false;
     }
 
-    public static function cmfGetOverviewData(ActivityStoreEntryInterface $entry)
+    public static function cmfGetOverviewData(ActivityStoreEntryInterface $entry): array
     {
         $attributes = $entry->getAttributes();
 
@@ -101,7 +88,7 @@ class OrderActivity extends AbstractActivity
         return $data;
     }
 
-    public static function cmfGetDetailviewData(ActivityStoreEntryInterface $entry)
+    public static function cmfGetDetailviewData(ActivityStoreEntryInterface $entry): array
     {
         $attributes = $entry->getAttributes();
 
