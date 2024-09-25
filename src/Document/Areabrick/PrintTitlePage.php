@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class PrintTitlePage extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Print Title Page';

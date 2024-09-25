@@ -32,25 +32,14 @@ use Pimcore\Model\DataObject;
 
 class LanguageSwitcherExtension extends AbstractExtension
 {
-    /**
-     * @var Service|Service\Dao
-     */
-    private $documentService;
-
-    private UrlGeneratorInterface $urlGenerator;
-    private RequestStack $requestStack;
-    private CategoryLinkGenerator $categoryLinkGenerator;
-    private NewsLinkGenerator $newsLinkGenerator;
-    private ProductLinkGenerator $productLinkGenerator;
-
-    public function __construct(Service $documentService, UrlGeneratorInterface $urlGenerator, RequestStack $requestStack, CategoryLinkGenerator $categoryLinkGenerator, NewsLinkGenerator $newsLinkGenerator, ProductLinkGenerator $productLinkGenerator)
-    {
-        $this->documentService = $documentService;
-        $this->urlGenerator = $urlGenerator;
-        $this->requestStack = $requestStack;
-        $this->categoryLinkGenerator = $categoryLinkGenerator;
-        $this->newsLinkGenerator = $newsLinkGenerator;
-        $this->productLinkGenerator = $productLinkGenerator;
+    public function __construct(
+        private Service $documentService,
+        private UrlGeneratorInterface $urlGenerator,
+        private RequestStack $requestStack,
+        private CategoryLinkGenerator $categoryLinkGenerator,
+        private NewsLinkGenerator $newsLinkGenerator,
+        private ProductLinkGenerator $productLinkGenerator
+    ) {
     }
 
     public function getLocalizedLinks(Document $document): array
@@ -105,7 +94,7 @@ class LanguageSwitcherExtension extends AbstractExtension
                 if (!is_object($object)) {
                     $object = DataObject::getById($object);
                 }
-                
+
                 $linkGeneratorService = $this->$generator;
                 if ($linkGeneratorService instanceof LinkGeneratorInterface) {
                     $target = $linkGeneratorService->generate($object, ['locale' => \Locale::getPrimaryLanguage($language)]);
@@ -121,11 +110,7 @@ class LanguageSwitcherExtension extends AbstractExtension
         return $links;
     }
 
-    /**
-     * @param string $language
-     * @return string
-     */
-    public function getLanguageFlag($language)
+    public function getLanguageFlag(string $language): string
     {
         $flag = '';
         if (Tool::isValidLanguage($language)) {
@@ -136,9 +121,6 @@ class LanguageSwitcherExtension extends AbstractExtension
         return $flag;
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getFunctions(): array
     {
         return [
@@ -147,12 +129,7 @@ class LanguageSwitcherExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param string $language
-     *
-     * @return string
-     */
-    public static function getLanguageFlagFile($language)
+    public static function getLanguageFlagFile(string $language): string
     {
         $basePath = '/bundles/pimcoreadmin/img/flags';
         $code = strtolower($language);

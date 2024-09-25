@@ -23,37 +23,21 @@ use Twig\TwigFunction;
 class NewsExtension extends AbstractExtension
 {
     /**
-     * @var NewsLinkGenerator
-     */
-    protected $newsLinkGenerator;
-
-    /**
      * NewsExtension constructor.
-     *
-     * @param NewsLinkGenerator $newsLinkGenerator
      */
-    public function __construct(NewsLinkGenerator $newsLinkGenerator)
+    public function __construct(protected NewsLinkGenerator $newsLinkGenerator)
     {
-        $this->newsLinkGenerator = $newsLinkGenerator;
     }
 
-    /**
-     * @return TwigFunction[]
-     */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('app_news_detaillink', [$this, 'generateLink']),
         ];
     }
 
-    /**
-     * @param News $news
-     *
-     * @return string
-     */
     public function generateLink(News $news): string
     {
-        return $this->newsLinkGenerator->generate($news, []);
+        return $this->newsLinkGenerator->generate($news);
     }
 }

@@ -17,9 +17,6 @@ namespace App\Document\Areabrick;
 
 class IconTeaserRow extends AbstractAreabrick
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'Icon Teaser';

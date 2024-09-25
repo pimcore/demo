@@ -21,12 +21,7 @@ use Symfony\Component\Workflow\WorkflowInterface;
 
 class SupportsStrategy implements WorkflowSupportStrategyInterface
 {
-    /**
-     * @param WorkflowInterface $workflow
-     * @param object $subject
-     * @return bool
-     */
-    public function supports(WorkflowInterface $workflow, $subject): bool
+    public function supports(WorkflowInterface $workflow, object $subject): bool
     {
         if ($workflow->getName() == 'product_data_enrichment') {
             if ($subject instanceof Car && strpos($subject->getFullPath(), '/upload/new') === 0) {

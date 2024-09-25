@@ -29,35 +29,14 @@ class NavigationExtension extends AbstractExtension
 {
     const NAVIGATION_EXTENSION_POINT_PROPERTY = 'navigation_extension_point';
 
-    /**
-     * @var CategoryLinkGenerator
-     */
-    protected $categoryLinkGenerator;
-
-    /**
-     * @var Navigation
-     */
-    protected $navigationHelper;
-
-    /**
-     * @var Placeholder
-     */
-    protected $placeholderHelper;
-
-    /**
-     * @param Navigation $navigationHelper
-     */
-    public function __construct(Navigation $navigationHelper, Placeholder $placeholderHelper, CategoryLinkGenerator $categoryLinkGenerator)
-    {
-        $this->navigationHelper = $navigationHelper;
-        $this->categoryLinkGenerator = $categoryLinkGenerator;
-        $this->placeholderHelper = $placeholderHelper;
+    public function __construct(
+        protected Navigation $navigationHelper,
+        protected Placeholder $placeholderHelper,
+        protected CategoryLinkGenerator $categoryLinkGenerator
+    ) {
     }
 
-    /**
-     * @return array|TwigFunction[]
-     */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('app_navigation_data_links', [$this, 'getDataLinks']),
@@ -65,13 +44,7 @@ class NavigationExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param Document $document
-     * @param Document $startNode
-     *
-     * @return \Pimcore\Navigation\Container
-     */
-    public function getDataLinks(Document $document, Document $startNode)
+    public function getDataLinks(Document $document, Document $startNode): Container
     {
         $navigation = $this->navigationHelper->build([
             'active' => $document,
@@ -104,10 +77,6 @@ class NavigationExtension extends AbstractExtension
     }
 
     /**
-     * @param Container $navigation
-     *
-     * @return Container
-     *
      * @throws \Exception
      */
     public function enrichBreadcrumbs(Container $navigation): Container

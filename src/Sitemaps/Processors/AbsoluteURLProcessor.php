@@ -26,14 +26,8 @@ use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 
 class AbsoluteURLProcessor implements ProcessorInterface
 {
-    /**
-     * @var UrlGeneratorInterface
-     */
-    private $urlGenerator;
-
-    public function __construct(UrlGeneratorInterface $urlGenerator)
+    public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
-        $this->urlGenerator = $urlGenerator;
     }
 
     public function process(Url $url, ElementInterface $element, GeneratorContextInterface $context): ?Url
