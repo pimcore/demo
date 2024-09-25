@@ -63,17 +63,22 @@ $dumpFiles[] = $finalDest;
 $tableBlacklist = [
     'application_logs',
     'cache',
+    'cache_items',
     'classes',
     'cache_tags',
     'edit_lock',
     'email_log',
     'http_error_log',
     'locks',
+    'lock_keys',
     'tmp_store',
     'targeting_storage',
     'tracking_events',
-    'versions',
-    'users'
+    'versions'
+];
+
+$insertIgnoreTables = [
+    'migration_versions'
 ];
 
 // dump data
@@ -86,16 +91,43 @@ foreach ($tables as $name) {
     }
 
     $tableColumns = [];
+    // skip columns to dump, for exmple when they are virtually generated
+    $skipColumns = [];
     $data = $db->fetchAllAssociative('SHOW COLUMNS FROM ' . $name);
+
     foreach ($data as $dataRow) {
+        if ($dataRow['Extra'] == "VIRTUAL GENERATED"){
+            $skipColumns[] = $dataRow['Field'];
+            continue;
+        }
         $tableColumns[] = $db->quoteIdentifier($dataRow['Field']);
     }
 
-    $tableData = $db->fetchAllAssociative('SELECT * FROM ' . $name);
+    $condition = '';
+    if ($name === 'users') {
+        $condition = ' WHERE id != 0';
+    }
+    if (
+        str_starts_with($name, 'translations_')
+        && in_array($db->quoteIdentifier('key'), $tableColumns)
+        && in_array($db->quoteIdentifier('text'), $tableColumns)
+    ) {
+        $condition = ' WHERE text != ""';
+    }
+
+    $tableData = $db->fetchAllAssociative('SELECT * FROM ' . $name . $condition);
+
+    $insertStatement = 'INSERT INTO';
+    if(in_array($name, $insertIgnoreTables)) {
+        $insertStatement = 'INSERT IGNORE INTO';
+    }
 
     foreach ($tableData as $row) {
         $cells = [];
-        foreach ($row as $cell) {
+        foreach ($row as $columnKey => $cell) {
+            if (in_array($columnKey, $skipColumns)){
+                continue;
+            }
             if (is_string($cell)) {
                 $cell = $db->quote($cell);
             } elseif ($cell === null) {
@@ -106,7 +138,7 @@ foreach ($tables as $name) {
         }
 
         $dumpData .= sprintf(
-            "INSERT INTO %s (%s) VALUES (%s);\n",
+            $insertStatement . " %s (%s) VALUES (%s);\n",
             $name,
             implode(',', $tableColumns),
             implode(',', $cells)
