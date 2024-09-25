@@ -3,7 +3,7 @@
 <html lang="">
 <head>
 
-    {% block head_stylesheets deferred %}
+    {% block head_stylesheets %}
         {{ pimcore_head_link() }}
     {% endblock %}
 
@@ -24,11 +24,11 @@
 
 
 
-    {% block headscripts deferred %}
+    {% block headscripts %}
         {{ pimcore_head_script() }}
     {% endblock %}
 
-    {% block register_definition deferred %}
+    {% block register_definition %}
         <style type="text/css">
             {{ pimcore_placeholder('register-title-definition') }}
         </style>
@@ -43,7 +43,7 @@
 
 
 
-{% block inlinescripts deferred %}
+{% block inlinescripts %}
     {{ pimcore_inline_script() }}
 {% endblock %}
 

@@ -54,8 +54,7 @@
             {% set isPortal = ((isPortal is defined) and isPortal) %}
         {% endapply %}
 
-        {# we're using the deferred extension here to make sure this block is rendered after all helper calls #}
-        {% block layout_head_meta deferred %}
+        {% block layout_head_meta %}
             {{ pimcore_head_title() }}
             {{ pimcore_head_meta() }}
 
@@ -65,7 +64,7 @@
 
         {% endblock %}
 
-        {% block head_stylesheets deferred %}
+        {% block head_stylesheets %}
             {{ pimcore_head_link() }}
         {% endblock %}
 
@@ -200,12 +199,12 @@
         {{ pimcore_inc(document.getProperty('footer')) }}
 
         {# output scripts added before #}
-        {% block headscripts deferred %}
+        {% block headscripts %}
             {{ pimcore_head_script() }}
         {% endblock %}
 
 
-        {% block inlinescripts deferred %}
+        {% block inlinescripts %}
             {{ pimcore_inline_script() }}
         {% endblock %}
     </body>
