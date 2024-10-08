@@ -46,5 +46,5 @@ return [
     PimcoreWordExportBundle::class => ['all' => true],
     PimcoreXliffBundle::class => ['all' => true],
     PrestaSitemapBundle::class => ['all' => true],
-    //PimcoreGenericExecutionEngineBundle::class => ['all' => true],
+    PimcoreGenericExecutionEngineBundle::class => ['all' => true],
 ];
