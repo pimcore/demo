@@ -25,6 +25,7 @@ use Pimcore\Bundle\GenericExecutionEngineBundle\PimcoreGenericExecutionEngineBun
 
 return [
     //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    PimcoreGenericExecutionEngineBundle::class => ['all' => true],
     PimcoreEcommerceFrameworkBundle::class => ['all' => true],
     PimcorePersonalizationBundle::class => ['all' => true],
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
@@ -46,5 +47,4 @@ return [
     PimcoreWordExportBundle::class => ['all' => true],
     PimcoreXliffBundle::class => ['all' => true],
     PrestaSitemapBundle::class => ['all' => true],
-    PimcoreGenericExecutionEngineBundle::class => ['all' => true],
 ];
