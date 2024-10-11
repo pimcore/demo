@@ -55,6 +55,9 @@
     "pimcore-scripts": [
       "Pimcore\\Composer::clearCache",
       "Pimcore\\Composer::installAssets"
+    ],
+    "post-create-project-cmd":[
+      "Pimcore\\Composer::clearCache"
     ]
   },
   "extra": {
