@@ -229,3 +229,8 @@ pimcore_data_hub:
         data_hub:
             write_target:
                 type: 'settings-store'
+
+pimcore_personalization:
+    targeting:
+        enabled: true
+                
