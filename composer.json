@@ -54,6 +54,9 @@
     ],
     "pimcore-scripts": [
       "Pimcore\\Composer::clearCache",
+      "@pimcore-install-assets"
+    ],
+    "pimcore-install-assets":[
       "Pimcore\\Composer::installAssets"
     ]
   },
