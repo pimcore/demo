@@ -31,13 +31,14 @@ You don't need to have a PHP environment with composer installed.
 ### Follow these steps
 
 1. Initialize the demo project using the `pimcore/pimcore` image
-    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project pimcore/demo my-project``
+    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project --no-scripts pimcore/demo my-project``
 1. Go to your new project
     `cd my-project/`
 1. Part of the new project is a docker compose file
     * Run `` echo `id -u`:`id -g` `` to retrieve your local user and group id
     * Open the `docker-compose.yaml` file in an editor, uncomment all the `user: '1000:1000'` lines and update the ids if necessary
     * Start the needed services with `docker compose up -d`
+    * Install the assets by running the script `docker compose exec php composer run-script pimcore-install-assets`
 1. Install pimcore and initialize the DB
     `docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`
     * When asked for admin user and password: Choose freely
