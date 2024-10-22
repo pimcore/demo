@@ -6,9 +6,11 @@ E-Commerce Applications built with Pimcore. If you are an experienced Pimcore de
 
 ## Getting started 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo my-project
+COMPOSER_MEMORY_LIMIT=-1 composer create-project --no-scripts pimcore/demo my-project
 cd ./my-project
+./bin/console assets:install --symlink --relative
 ./vendor/bin/pimcore-install
+./bin/console cache:clear
 ```
 
 - Point your virtual host to `my-project/public`
@@ -31,17 +33,19 @@ You don't need to have a PHP environment with composer installed.
 ### Follow these steps
 
 1. Initialize the demo project using the `pimcore/pimcore` image
-    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project pimcore/demo my-project``
+    ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project --no-scripts pimcore/demo my-project``
 1. Go to your new project
     `cd my-project/`
 1. Part of the new project is a docker compose file
     * Run `` echo `id -u`:`id -g` `` to retrieve your local user and group id
     * Open the `docker-compose.yaml` file in an editor, uncomment all the `user: '1000:1000'` lines and update the ids if necessary
     * Start the needed services with `docker compose up -d`
+    * Install the assets by running the script `docker compose exec php bin/console assets:install --symlink --relative`
 1. Install pimcore and initialize the DB
     `docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`
     * When asked for admin user and password: Choose freely
     * This can take a while, up to 20 minutes
+1. Clear and warm up the cache with `docker compose exec php bin/console cache:clear`
 1. :heavy_check_mark: DONE - You can now visit your pimcore-demo:
     * The frontend: <http://localhost>
     * The admin interface, using the credentials you have chosen above:
