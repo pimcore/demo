@@ -43,6 +43,7 @@ You don't need to have a PHP environment with composer installed.
     `docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`
     * When asked for admin user and password: Choose freely
     * This can take a while, up to 20 minutes
+1. Clear and warm up the cache with `docker compose exec php bin/console cache:clear`
 1. :heavy_check_mark: DONE - You can now visit your pimcore-demo:
     * The frontend: <http://localhost>
     * The admin interface, using the credentials you have chosen above:
