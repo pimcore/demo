@@ -38,6 +38,7 @@ You don't need to have a PHP environment with composer installed.
     * Run `` echo `id -u`:`id -g` `` to retrieve your local user and group id
     * Open the `docker-compose.yaml` file in an editor, uncomment all the `user: '1000:1000'` lines and update the ids if necessary
     * Start the needed services with `docker compose up -d`
+    * Run `docker compose exec php composer install` to install the required dependencies
     * Install the assets by running the script `docker compose exec php bin/console assets:install --symlink --relative`
 1. Install pimcore and initialize the DB
     `docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`
