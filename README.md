@@ -6,9 +6,12 @@ E-Commerce Applications built with Pimcore. If you are an experienced Pimcore de
 
 ## Getting started 
 ```bash
-COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo my-project
+COMPOSER_MEMORY_LIMIT=-1 composer create-project --no-scripts pimcore/demo my-project
 cd ./my-project
+composer install
+./bin/console assets:install --symlink --relative
 ./vendor/bin/pimcore-install
+./bin/console cache:clear
 ```
 
 - Point your virtual host to `my-project/public`
