@@ -1,6 +1,6 @@
 imports:
 #    - { resource: 'elastic-search.yaml' }
-
+#    - { resource: 'open-search.yaml' }
 pimcore:
     models:
         class_overrides:
