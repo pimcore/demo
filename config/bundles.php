@@ -20,7 +20,7 @@ use Pimcore\Bundle\SimpleBackendSearchBundle\PimcoreSimpleBackendSearchBundle;
 use Pimcore\Bundle\CustomReportsBundle\PimcoreCustomReportsBundle;
 use Pimcore\Bundle\ApplicationLoggerBundle\PimcoreApplicationLoggerBundle;
 use Pimcore\Bundle\PersonalizationBundle\PimcorePersonalizationBundle;
-use Pimcore\Bundle\TinymceBundle\PimcoreTinymceBundle;
+use Pimcore\Bundle\QuillBundle\PimcoreQuillBundle;
 use Pimcore\Bundle\GenericExecutionEngineBundle\PimcoreGenericExecutionEngineBundle;
 
 return [
@@ -40,7 +40,7 @@ return [
     PimcoreGoogleMarketingBundle::class => ['all' => true],
     PimcoreApplicationLoggerBundle::class => ['all' => true],
     PimcoreWebToPrintBundle::class => ['all' => true],
-    PimcoreTinymceBundle::class => ['all' => true],
+    PimcoreQuillBundle::class => ['all' => true],
     PimcoreStaticRoutesBundle::class => ['all' => true],
     PimcoreNewsletterBundle::class => ['all' => true],
     PimcoreWordExportBundle::class => ['all' => true],

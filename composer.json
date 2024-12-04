@@ -28,6 +28,7 @@
     "pimcore/ecommerce-framework-bundle": "*",
     "pimcore/web-to-print-bundle": "*",
     "pimcore/newsletter-bundle": "*",
+    "pimcore/quill-bundle": "*",
     "symfony/runtime": "^6.2",
     "symfony/intl": "^6.2",
     "symfony/dotenv": "^6.2",
