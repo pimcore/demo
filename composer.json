@@ -18,6 +18,7 @@
   "require": {
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
+    "phpdocumentor/reflection-docblock": "^5.2",
     "pimcore/platform-version": "^2024.3",
     "pimcore/customer-management-framework-bundle": "*",
     "pimcore/pimcore": "*",
@@ -32,6 +33,7 @@
     "symfony/runtime": "^6.2",
     "symfony/intl": "^6.2",
     "symfony/dotenv": "^6.2",
+    "symfony/property-info": "^6.3",
     "gotenberg/gotenberg-php": "^1.1 || ^2.0"
   },
   "suggest": {
