@@ -19,7 +19,7 @@
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
     "phpdocumentor/reflection-docblock": "^5.2",
-    "pimcore/platform-version": "^2024.3",
+    "pimcore/platform-version": "^2024.4",
     "pimcore/customer-management-framework-bundle": "*",
     "pimcore/pimcore": "*",
     "pimcore/web2print-tools-bundle": "*",
