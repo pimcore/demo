@@ -161,8 +161,8 @@ class ProductController extends BaseController
             $trackingManager->trackCategoryPageView($category->getName(), null);
         }
 
-        if ($request->get('filterdefinition') instanceof FilterDefinition) {
-            $filterDefinition = $request->get('filterdefinition');
+        if (isset($params['filterdefinition']) && $params['filterdefinition'] instanceof FilterDefinition) {
+            $filterDefinition = $params['filterdefinition'];
         }
 
         if (empty($filterDefinition)) {
@@ -178,7 +178,7 @@ class ProductController extends BaseController
         // init pagination
         $paginator = $paginator->paginate(
             $productListing,
-            $request->get('page', 1),
+            $request->query->getInt('page', 1),
             $filterDefinition->getPageLimit()
         );
 
@@ -201,7 +201,7 @@ class ProductController extends BaseController
     public function productTeaserAction(Request $request, Factory $ecommerceFactory): Response
     {
         $paramsBag = [];
-        $type = $request->attributes->get('type')?:$request->query->get('type');
+        $type = $request->attributes->getString('type')?:$request->query->getString('type');
         if ($type === 'object') {
             AbstractObject::setGetInheritedValues(true);
             $id = $request->attributes->getInt('id')?:$request->query->getInt('id');
@@ -243,7 +243,7 @@ class ProductController extends BaseController
         $productListing = $indexService->getProductListForCurrentTenant();
         $productListing->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
 
-        $term = strip_tags($request->query->get('term'));
+        $term = strip_tags($request->query->getString('term'));
 
         if ($productListing instanceof AbstractElasticSearch) {
 

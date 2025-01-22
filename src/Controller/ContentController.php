@@ -101,15 +101,15 @@ class ContentController extends BaseController
     {
         $environment = $ecommerceFactory->getEnvironment();
 
-        if ($request->get('change-checkout-tenant')) {
-            $checkoutTenant = $request->get('change-checkout-tenant');
+        if ($request->query->has('change-checkout-tenant')) {
+            $checkoutTenant = $request->query->getString('change-checkout-tenant');
             $checkoutTenant = $checkoutTenant == 'default' ? '' : $checkoutTenant;
             $environment->setCurrentCheckoutTenant(strip_tags($checkoutTenant));
             $environment->save();
         }
 
-        if ($request->get('change-assortment-tenant')) {
-            $assortmentTenant = $request->get('change-assortment-tenant');
+        if ($request->query->has('change-assortment-tenant')) {
+            $assortmentTenant = $request->query->getString('change-assortment-tenant');
             $assortmentTenant = $assortmentTenant == 'default' ? '' : $assortmentTenant;
             $environment->setCurrentAssortmentTenant(strip_tags($assortmentTenant));
             $environment->save();

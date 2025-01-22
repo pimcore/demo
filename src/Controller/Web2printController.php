@@ -106,7 +106,7 @@ class Web2printController extends BaseController
             $params['product'] = $obj;
             $html = $this->renderView('web2print/product_detail.html.twig', $params);
 
-            if ($request->get('html')) {
+            if ($request->query->getInt('html')) {
                 return new Response($html);
             }
 

@@ -52,7 +52,7 @@ class CartController extends FrontendController
      */
     public function addToCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
-        if (!$this->isCsrfTokenValid('addToCart', $request->request->get('_csrf_token'))) {
+        if (!$this->isCsrfTokenValid('addToCart', $request->request->getString('_csrf_token'))) {
             throw new \Exception('Invalid request');
         }
 
@@ -93,7 +93,7 @@ class CartController extends FrontendController
                 throw new AccessDeniedHttpException('Invalid request');
             }
 
-            $items = $request->get('items');
+            $items = $request->request->all('items');
 
             foreach ($items as $itemKey => $quantity) {
                 if (!is_numeric($quantity)) {
@@ -128,7 +128,7 @@ class CartController extends FrontendController
      */
     public function removeFromCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
-        if (!$this->isCsrfTokenValid('cartListing', $request->request->get('_csrf_token'))) {
+        if (!$this->isCsrfTokenValid('cartListing', $request->request->getString('_csrf_token'))) {
             throw new \Exception('Invalid request');
         }
 
@@ -155,7 +155,7 @@ class CartController extends FrontendController
      */
     public function applyVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
-        if ($token = strip_tags($request->get('voucher-code'))) {
+        if ($token = strip_tags($request->request->getString('voucher-code'))) {
             $cart = $this->getCart();
 
             try {
@@ -183,7 +183,7 @@ class CartController extends FrontendController
      */
     public function removeVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
-        if ($token = strip_tags($request->get('voucher-code'))) {
+        if ($token = strip_tags($request->query->getString('voucher-code'))) {
             $cart = $this->getCart();
 
             try {

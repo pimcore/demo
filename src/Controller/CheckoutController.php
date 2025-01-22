@@ -135,15 +135,15 @@ class CheckoutController extends FrontendController
      */
     public function confirmationMailAction(Request $request)
     {
-        $order = $request->get('order');
+        $order = $request->attributes->get('order');
 
-        if ($request->get('order-id')) {
-            $order = OnlineShopOrder::getById($request->get('order-id'));
+        if ($request->request->has('order-id')) {
+            $order = OnlineShopOrder::getById($request->request->getInt('order-id'));
         }
 
         return $this->render('checkout/confirmation_mail.html.twig', [
             'order' => $order,
-            'ordernumber' => $request->get('ordernumber')
+            'ordernumber' => $request->request->getString('ordernumber')
         ]);
     }
 }

@@ -28,7 +28,7 @@ class UserSessionPerspectiveListener extends UserPerspectiveListener
     protected function setRequestedPerspective(User $user, Request $request): void
     {
         // update perspective settings
-        $requestedPerspective = $request->get('perspective');
+        $requestedPerspective = $request->query->getString('perspective');
         $sessionPerspective = $request->getSession()->get('sessionPerspective');
 
         if ($requestedPerspective) {
