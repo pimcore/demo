@@ -89,7 +89,7 @@ class CartController extends FrontendController
         $cart = $this->getCart();
 
         if ($request->getMethod() == Request::METHOD_POST) {
-            if (!$this->isCsrfTokenValid('cartListing', $request->get('_csrf_token'))) {
+            if (!$this->isCsrfTokenValid('cartListing', $request->request->getString('_csrf_token'))) {
                 throw new AccessDeniedHttpException('Invalid request');
             }
 
