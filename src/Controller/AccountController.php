@@ -78,7 +78,7 @@ class AccountController extends BaseController
         ]);
 
         //store referer in session to get redirected after login
-        if (!$request->get('no-referer-redirect')) {
+        if (!$request->query->getInt('no-referer-redirect')) {
             $request->getSession()->set('_security.demo_frontend.target_path', $request->headers->get('referer'));
         }
 
@@ -215,18 +215,18 @@ class AccountController extends BaseController
     ): RedirectResponse {
         if ($user instanceof Customer) {
             $currentNewsletterPermission = $user->getNewsletter()->getConsent();
-            if (!$currentNewsletterPermission && $request->get('newsletter')) {
+            if (!$currentNewsletterPermission && $request->request->getInt('newsletter')) {
                 $consentService->giveConsent($user, 'newsletter', $translator->trans('general.newsletter'));
                 $newsletterDoubleOptInService->sendDoubleOptInMail($user, $this->document->getProperty('newsletter_confirm_mail'));
-            } elseif ($currentNewsletterPermission && !$request->get('newsletter')) {
+            } elseif ($currentNewsletterPermission && !$request->request->getInt('newsletter')) {
                 $user->setNewsletterConfirmed(false);
                 $consentService->revokeConsent($user, 'newsletter');
             }
 
             $currentProfilingPermission = $user->getProfiling()->getConsent();
-            if (!$currentProfilingPermission && $request->get('profiling')) {
+            if (!$currentProfilingPermission && $request->request->getInt('profiling')) {
                 $consentService->giveConsent($user, 'profiling', $translator->trans('general.profiling'));
-            } elseif ($currentProfilingPermission && !$request->get('profiling')) {
+            } elseif ($currentProfilingPermission && !$request->request->getInt('profiling')) {
                 $consentService->revokeConsent($user, 'profiling');
             }
 
@@ -246,7 +246,7 @@ class AccountController extends BaseController
         NewsletterDoubleOptInService $newsletterDoubleOptInService,
         Translator $translator
     ): RedirectResponse {
-        $token = $request->get('token');
+        $token = $request->query->getString('token');
         $customer = $newsletterDoubleOptInService->handleDoubleOptInConfirmation($token);
         if ($customer) {
             $this->addFlash('success', $translator->trans('account.marketing-permissions-confirmed-newsletter'));
@@ -270,7 +270,7 @@ class AccountController extends BaseController
         if ($request->isMethod(Request::METHOD_POST)) {
             try {
                 $service->sendRecoveryMail(
-                    $request->get('email', ''),
+                    $request->query->getString('email', ''),
                     $this->document->getProperty('password_reset_mail')
                 );
 
@@ -284,7 +284,7 @@ class AccountController extends BaseController
 
         return $this->render('account/send_password_recovery_mail.html.twig', [
             'hideBreadcrumbs' => true,
-            'emailPrefill' => $request->get('email')
+            'emailPrefill' => $request->query->getString('email')
         ]);
     }
 
@@ -296,7 +296,7 @@ class AccountController extends BaseController
         PasswordRecoveryService $service,
         Translator $translator
     ): RedirectResponse|Response {
-        $token = $request->get('token');
+        $token = $request->query->getString('token');
         $customer = $service->getCustomerByToken($token);
         $error = null;
         try {
@@ -306,7 +306,7 @@ class AccountController extends BaseController
 
             if ($request->isMethod(Request::METHOD_POST)) {
 
-                $newPassword = $request->get('password');
+                $newPassword = $request->request->getString('password');
 
                 $this->checkPassword($newPassword);
 

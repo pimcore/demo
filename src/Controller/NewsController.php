@@ -42,7 +42,7 @@ class NewsController extends BaseController
 
         $paginator = $paginator->paginate(
             $newsList,
-            $request->get('page', 1),
+            $request->query->getInt('page', 1),
             6
         );
 
@@ -57,7 +57,7 @@ class NewsController extends BaseController
      */
     public function detailAction(Request $request, HeadTitle $headTitleHelper, Placeholder $placeholderHelper, NewsLinkGenerator $newsLinkGenerator, BreadcrumbHelperService $breadcrumbHelperService): Response
     {
-        $news = News::getById($request->get('news'));
+        $news = News::getById($request->attributes->getInt('news'));
 
         if (!($news instanceof News && ($news->isPublished() || $this->verifyPreviewRequest($request, $news)))) {
             throw new NotFoundHttpException('News not found.');
@@ -76,8 +76,8 @@ class NewsController extends BaseController
     public function newsTeaserAction(Request $request): Response
     {
         $paramsBag = [];
-        if ($request->get('type') === 'object') {
-            $news = News::getById($request->get('id'));
+        if ($request->attributes->getString('type') === 'object') {
+            $news = News::getById($request->attributes->getInt('id'));
             $paramsBag['news'] = $news;
 
             return $this->render('news/news_teaser.html.twig', $paramsBag);
@@ -89,8 +89,8 @@ class NewsController extends BaseController
     public function emailNewsTeaserAction(Request $request, NewsLinkGenerator $newsLinkGenerator): Response
     {
         $paramsBag = [];
-        if ($request->get('type') === 'object') {
-            $news = News::getById($request->get('id'));
+        if ($request->attributes->getString('type') === 'object') {
+            $news = News::getById($request->attributes->getInt('id'));
             $paramsBag['news'] = $news;
             $paramsBag['detailLink'] = $newsLinkGenerator->generate($news, ['document' => $this->document->getProperty('news_default_document')]);
 

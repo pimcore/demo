@@ -78,10 +78,10 @@ class LanguageSwitcherExtension extends AbstractExtension
                 }
             }
 
-            $route = $request->get('_route');
+            $route = $request->attributes->getString('_route');
 
             if ($route && array_key_exists($route, $dynamicRoutesMapping)) {
-                $routeParams = $request->get('_route_params', []);
+                $routeParams = $request->attributes->all('_route_params');
                 $requiredField = $dynamicRoutesMapping[$route]['requiredField'];
 
                 if (!array_key_exists($requiredField, $routeParams)){
@@ -89,7 +89,7 @@ class LanguageSwitcherExtension extends AbstractExtension
                 }
 
                 $generator = $dynamicRoutesMapping[$route]['generator'];
-                $object = $request->get($requiredField);
+                $object = $request->attributes->get($requiredField);
 
                 if (!is_object($object)) {
                     $object = DataObject::getById($object);

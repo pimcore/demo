@@ -45,7 +45,7 @@ class DefaultController extends BaseController
     public function galleryRenderletAction(Request $request): Response
     {
         $params = [];
-        if ($request->attributes->get('id') && $request->attributes->get('type') === 'asset') {
+        if ($request->attributes->getInt('id') && $request->attributes->getString('type') === 'asset') {
             $params['asset'] =  Asset::getById($request->attributes->getInt('id'));
         }
 
