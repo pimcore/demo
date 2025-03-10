@@ -40,7 +40,7 @@ jobs:
         set -ex
         
         # Pull latest build of pimcore's image
-        docker pull docker.io/pimcore/pimcore:php"${PHP_VERSION}"-latest
+        docker pull docker.io/pimcore/pimcore:php"${PHP_VERSION}"-v4-dev
 
     - name: Create project from demo in latest pimcore environment
       env:
@@ -59,7 +59,7 @@ jobs:
           --volume=${{ github.workspace }}/:/test/ \
           --workdir=/test/ \
           --user=$(id -u):$(id -g) \
-          docker.io/pimcore/pimcore:php"${PHP_VERSION}"-latest \
+          docker.io/pimcore/pimcore:php"${PHP_VERSION}"-v4-dev \
             composer create-project \
               pimcore/demo:@dev \
               --repository='{"type": "path", "url": "./demo"}' \
