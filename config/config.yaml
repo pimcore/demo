@@ -19,9 +19,6 @@ pimcore:
         password_hasher_factories:
             Pimcore\Model\DataObject\Customer: cmf.security.user_password_hasher_factory
 
-    chromium:
-        uri: 'ws://chrome:3000/'
-
     gotenberg:
         base_url: 'http://gotenberg:3000'
 
