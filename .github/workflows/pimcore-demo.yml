@@ -20,15 +20,15 @@ jobs:
     strategy:
         matrix:
             include:
-                - { php-version: 8.3, database: "mariadb:10.11", pimcore_version: "", experimental: true }
-                - { php-version: 8.3, database: "mariadb:10.11", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.3.99", experimental: true }
-                - { php-version: 8.3, database: "mysql:latest", pimcore_version: "", experimental: true }
-                - { php-version: 8.3, database: "mysql:latest", pimcore_version: "", pimcore_upgrade_version: "11.x-dev as 11.3.99", experimental: true }
+                - { php-version: 8.4, database: "mariadb:10.11", pimcore_version: "", experimental: true }
+                - { php-version: 8.4, database: "mariadb:10.11", pimcore_version: "", pimcore_upgrade_version: "12.x-dev as 12.99.9", experimental: true }
+                - { php-version: 8.4, database: "mysql:latest", pimcore_version: "", experimental: true }
+                - { php-version: 8.4, database: "mysql:latest", pimcore_version: "", pimcore_upgrade_version: "12.x-dev as 12.99.9", experimental: true }
     steps:
     # Check out the repo in a sub-dir to see if it can serve as
     # template for `composer create-project`
     # See: https://github.com/actions/checkout#usage
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         path: 'demo'
 
@@ -40,7 +40,7 @@ jobs:
         set -ex
         
         # Pull latest build of pimcore's image
-        docker pull docker.io/pimcore/pimcore:php"${PHP_VERSION}"-latest
+        docker pull docker.io/pimcore/pimcore:php"${PHP_VERSION}"-v4-dev
 
     - name: Create project from demo in latest pimcore environment
       env:
@@ -59,7 +59,7 @@ jobs:
           --volume=${{ github.workspace }}/:/test/ \
           --workdir=/test/ \
           --user=$(id -u):$(id -g) \
-          docker.io/pimcore/pimcore:php"${PHP_VERSION}"-latest \
+          docker.io/pimcore/pimcore:php"${PHP_VERSION}"-v4-dev \
             composer create-project \
               pimcore/demo:@dev \
               --repository='{"type": "path", "url": "./demo"}' \

@@ -23,7 +23,7 @@ CREATE TABLE `application_logs` (
   KEY `relatedobject` (`relatedobject`),
   KEY `priority` (`priority`),
   KEY `maintenanceChecked` (`maintenanceChecked`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -78,7 +78,7 @@ CREATE TABLE `documents_newsletter` (
   `missingRequiredEditable` tinyint(1) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_documents_newsletter_documents` FOREIGN KEY (`id`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -93,7 +93,7 @@ CREATE TABLE `documents_printpage` (
   `missingrequirededitable` tinyint(1) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_documents_printpage_documents` FOREIGN KEY (`id`) REFERENCES `documents` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -150,7 +150,7 @@ CREATE TABLE `ecommerceframework_pricing_rule` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -206,7 +206,7 @@ CREATE TABLE `glossary` (
   PRIMARY KEY (`id`),
   KEY `language` (`language`),
   KEY `site` (`site`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -226,7 +226,7 @@ CREATE TABLE `http_error_log` (
   KEY `code` (`code`),
   KEY `date` (`date`),
   KEY `count` (`count`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
 
 
 
@@ -241,7 +241,7 @@ CREATE TABLE `messenger_messages` (
   `delivered_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_75EA56E016BA31DB` (`delivered_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=9305 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9305 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -267,7 +267,7 @@ CREATE TABLE `object_brick_query_Bodywork_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_Bodywork_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -287,7 +287,7 @@ CREATE TABLE `object_brick_query_Dimensions_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_Dimensions_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -305,7 +305,7 @@ CREATE TABLE `object_brick_query_Engine_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_Engine_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -323,7 +323,7 @@ CREATE TABLE `object_brick_query_PaymentProviderPayPalSmartButton_EF_OSO` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_PaymentProviderPayPalSmartButton__fae6504e` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -341,7 +341,7 @@ CREATE TABLE `object_brick_query_SaleInformation_AP` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_SaleInformation_AP__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -359,7 +359,7 @@ CREATE TABLE `object_brick_query_SaleInformation_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_SaleInformation_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -372,7 +372,7 @@ CREATE TABLE `object_brick_query_Transmission_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_query_Transmission_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -388,7 +388,7 @@ CREATE TABLE `object_brick_store_Bodywork_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_Bodywork_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -408,7 +408,7 @@ CREATE TABLE `object_brick_store_Dimensions_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_Dimensions_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -426,7 +426,7 @@ CREATE TABLE `object_brick_store_Engine_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_Engine_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -444,7 +444,7 @@ CREATE TABLE `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_PaymentProviderPayPalSmartButton__d52c4917` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -462,7 +462,7 @@ CREATE TABLE `object_brick_store_SaleInformation_AP` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_SaleInformation_AP__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -480,7 +480,7 @@ CREATE TABLE `object_brick_store_SaleInformation_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_SaleInformation_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -493,7 +493,7 @@ CREATE TABLE `object_brick_store_Transmission_CAR` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_Transmission_CAR__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -512,7 +512,7 @@ CREATE TABLE `object_classificationstore_data_AP` (
   KEY `keyId` (`keyId`),
   KEY `language` (`language`),
   CONSTRAINT `fk_object_classificationstore_data_AP__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -523,7 +523,7 @@ CREATE TABLE `object_classificationstore_groups_AP` (
   `fieldname` varchar(70) NOT NULL,
   PRIMARY KEY (`id`,`fieldname`,`groupId`),
   CONSTRAINT `fk_object_classificationstore_groups_AP__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -541,7 +541,7 @@ CREATE TABLE `object_collection_FilterCategoryMultiselect_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_28C299ABDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterCategoryMultiselect_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -558,7 +558,7 @@ CREATE TABLE `object_collection_FilterCategoryMultiselect_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_8C2E3279A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterCategoryMultiselect_localize_4abb1d7a` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -575,7 +575,7 @@ CREATE TABLE `object_collection_FilterCategory_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_9F24266CDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterCategory_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -592,7 +592,7 @@ CREATE TABLE `object_collection_FilterCategory_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_21FD7525A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterCategory_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -612,7 +612,7 @@ CREATE TABLE `object_collection_FilterInputfield_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_699D2D53DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterInputfield_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -629,7 +629,7 @@ CREATE TABLE `object_collection_FilterInputfield_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_F447F022A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterInputfield_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -649,7 +649,7 @@ CREATE TABLE `object_collection_FilterMultiRelation_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_5C39D125DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterMultiRelation_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -666,7 +666,7 @@ CREATE TABLE `object_collection_FilterMultiRelation_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_AB8E56F0A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterMultiRelation_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -686,7 +686,7 @@ CREATE TABLE `object_collection_FilterMultiSelectFromMultiSelect_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_D53E1B56DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterMultiSelectFromMultiSelect_E_1eaf0561` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -706,7 +706,7 @@ CREATE TABLE `object_collection_FilterMultiSelect_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_99B478ADB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterMultiSelect_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -723,7 +723,7 @@ CREATE TABLE `object_collection_FilterMultiSelect_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_D3D71AF9A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterMultiSelect_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -753,7 +753,7 @@ CREATE TABLE `object_collection_FilterNumberRangeSelection_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_45C7200CDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterNumberRangeSelection_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -770,7 +770,7 @@ CREATE TABLE `object_collection_FilterNumberRangeSelection_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_81EC7656A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterNumberRangeSelection_localiz_15c765c5` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -793,7 +793,7 @@ CREATE TABLE `object_collection_FilterNumberRange_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_57BD4C22DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterNumberRange_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -810,7 +810,7 @@ CREATE TABLE `object_collection_FilterNumberRange_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_A7FE373AA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterNumberRange_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -829,7 +829,7 @@ CREATE TABLE `object_collection_FilterRelation_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_E4A9BCBBDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterRelation_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -846,7 +846,7 @@ CREATE TABLE `object_collection_FilterRelation_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_E5DA3D6FA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterRelation_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -865,7 +865,7 @@ CREATE TABLE `object_collection_FilterSelectFromMultiSelect_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_C97EC354DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterSelectFromMultiSelect_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -882,7 +882,7 @@ CREATE TABLE `object_collection_FilterSelectFromMultiSelect_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_AE9B40CEA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterSelectFromMultiSelect_locali_66ddb75e` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -901,7 +901,7 @@ CREATE TABLE `object_collection_FilterSelect_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_C3E5FD75DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_FilterSelect_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -918,7 +918,7 @@ CREATE TABLE `object_collection_FilterSelect_localized_EF_FD` (
   KEY `language` (`language`),
   KEY `IDX_3E6DC489A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_FilterSelect_localized_EF_FD__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -932,7 +932,7 @@ CREATE TABLE `object_collection_NewsCars_NE` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_B3E5E5DCDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_NewsCars_NE__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -949,7 +949,7 @@ CREATE TABLE `object_collection_NewsCars_localized_NE` (
   KEY `language` (`language`),
   KEY `IDX_34B3B198A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_NewsCars_localized_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -964,7 +964,7 @@ CREATE TABLE `object_collection_NewsLinks_NE` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_81DD63EADB01246B` (`id`),
   CONSTRAINT `fk_object_collection_NewsLinks_NE__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -981,7 +981,7 @@ CREATE TABLE `object_collection_NewsLinks_localized_NE` (
   KEY `language` (`language`),
   KEY `IDX_2DC5C691A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_NewsLinks_localized_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -995,7 +995,7 @@ CREATE TABLE `object_collection_NewsText_NE` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_5D6A2592DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_NewsText_NE__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1012,7 +1012,7 @@ CREATE TABLE `object_collection_NewsText_localized_NE` (
   KEY `language` (`language`),
   KEY `IDX_D583CFFFA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_NewsText_localized_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1028,7 +1028,7 @@ CREATE TABLE `object_collection_OrderByFields_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_8139105FDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_OrderByFields_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1046,7 +1046,7 @@ CREATE TABLE `object_collection_OrderPriceModifications_EF_OSO` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_598F73C2DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_OrderPriceModifications_EF_OSO__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1069,7 +1069,7 @@ CREATE TABLE `object_collection_PaymentInfo_EF_OSO` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_B606429DDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_PaymentInfo_EF_OSO__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1084,7 +1084,7 @@ CREATE TABLE `object_collection_PricingRule_EF_OSOI` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_9E956274DB01246B` (`id`),
   CONSTRAINT `fk_object_collection_PricingRule_EF_OSOI__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1101,7 +1101,7 @@ CREATE TABLE `object_collection_PricingRule_localized_EF_OSOI` (
   KEY `language` (`language`),
   KEY `IDX_C001B98BA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_PricingRule_localized_EF_OSOI__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1117,7 +1117,7 @@ CREATE TABLE `object_collection_SimilarityField_EF_FD` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_3FE457BADB01246B` (`id`),
   CONSTRAINT `fk_object_collection_SimilarityField_EF_FD__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1132,7 +1132,7 @@ CREATE TABLE `object_collection_TaxEntry_EF_OSTC` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_CE94A1DDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_TaxEntry_EF_OSTC__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1149,7 +1149,7 @@ CREATE TABLE `object_collection_TaxEntry_localized_EF_OSTC` (
   KEY `language` (`language`),
   KEY `IDX_81B466B2A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_collection_TaxEntry_localized_EF_OSTC__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1171,7 +1171,7 @@ CREATE TABLE `object_collection_VoucherTokenTypePattern_EF_OSVS` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_F37B567DDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_VoucherTokenTypePattern_EF_OSVS__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1188,7 +1188,7 @@ CREATE TABLE `object_collection_VoucherTokenTypeSingle_EF_OSVS` (
   KEY `fieldname` (`fieldname`),
   KEY `IDX_27350A8BDB01246B` (`id`),
   CONSTRAINT `fk_object_collection_VoucherTokenTypeSingle_EF_OSVS__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1201,7 +1201,7 @@ CREATE TABLE `object_localized_data_AP` (
   KEY `language` (`language`),
   KEY `IDX_783A5A3BA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_data_AP__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1214,7 +1214,7 @@ CREATE TABLE `object_localized_data_BS` (
   KEY `language` (`language`),
   KEY `IDX_CA1E5842A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_data_BS__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1228,7 +1228,7 @@ CREATE TABLE `object_localized_data_CA` (
   KEY `language` (`language`),
   KEY `IDX_20BC184BA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_data_CA__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1242,7 +1242,7 @@ CREATE TABLE `object_localized_data_CAR` (
   KEY `language` (`language`),
   KEY `IDX_B649FB55A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_data_CAR__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1256,7 +1256,7 @@ CREATE TABLE `object_localized_data_EV` (
   KEY `language` (`language`),
   KEY `IDX_F5353A0AA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_data_EV__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1270,7 +1270,7 @@ CREATE TABLE `object_localized_data_NE` (
   KEY `language` (`language`),
   KEY `IDX_927FA21FA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_data_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1284,7 +1284,7 @@ CREATE TABLE `object_localized_query_AP_de` (
   KEY `language` (`language`),
   KEY `IDX_FCCC8968A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_AP_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1298,7 +1298,7 @@ CREATE TABLE `object_localized_query_AP_en` (
   KEY `language` (`language`),
   KEY `IDX_720561A1A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_AP_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1312,7 +1312,7 @@ CREATE TABLE `object_localized_query_AP_fr` (
   KEY `language` (`language`),
   KEY `IDX_4D296E2DA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_AP_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1325,7 +1325,7 @@ CREATE TABLE `object_localized_query_BS_de` (
   KEY `language` (`language`),
   KEY `IDX_A9D95C56A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_BS_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1338,7 +1338,7 @@ CREATE TABLE `object_localized_query_BS_en` (
   KEY `language` (`language`),
   KEY `IDX_2710B49FA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_BS_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1351,7 +1351,7 @@ CREATE TABLE `object_localized_query_BS_fr` (
   KEY `language` (`language`),
   KEY `IDX_183CBB13A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_BS_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1366,7 +1366,7 @@ CREATE TABLE `object_localized_query_CAR_de` (
   KEY `language` (`language`),
   KEY `IDX_7F48A36DA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_CAR_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1381,7 +1381,7 @@ CREATE TABLE `object_localized_query_CAR_en` (
   KEY `language` (`language`),
   KEY `IDX_F1814BA4A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_CAR_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1396,7 +1396,7 @@ CREATE TABLE `object_localized_query_CAR_fr` (
   KEY `language` (`language`),
   KEY `IDX_CEAD4428A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_CAR_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1410,7 +1410,7 @@ CREATE TABLE `object_localized_query_CA_de` (
   KEY `language` (`language`),
   KEY `IDX_6EA9EAF2A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_CA_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1424,7 +1424,7 @@ CREATE TABLE `object_localized_query_CA_en` (
   KEY `language` (`language`),
   KEY `IDX_E060023BA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_CA_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1438,7 +1438,7 @@ CREATE TABLE `object_localized_query_CA_fr` (
   KEY `language` (`language`),
   KEY `IDX_DF4C0DB7A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_CA_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1452,7 +1452,7 @@ CREATE TABLE `object_localized_query_EV_de` (
   KEY `language` (`language`),
   KEY `IDX_2C277074A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_EV_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1466,7 +1466,7 @@ CREATE TABLE `object_localized_query_EV_en` (
   KEY `language` (`language`),
   KEY `IDX_A2EE98BDA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_EV_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1480,7 +1480,7 @@ CREATE TABLE `object_localized_query_EV_fr` (
   KEY `language` (`language`),
   KEY `IDX_9DC29731A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_EV_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1494,7 +1494,7 @@ CREATE TABLE `object_localized_query_NE_de` (
   KEY `language` (`language`),
   KEY `IDX_195BB914A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_NE_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1508,7 +1508,7 @@ CREATE TABLE `object_localized_query_NE_en` (
   KEY `language` (`language`),
   KEY `IDX_979251DDA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_NE_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1522,7 +1522,7 @@ CREATE TABLE `object_localized_query_NE_fr` (
   KEY `language` (`language`),
   KEY `IDX_A8BE5E51A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_NE_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1548,7 +1548,7 @@ CREATE TABLE `object_metadata_CU` (
   KEY `index` (`index`),
   KEY `IDX_208F4545DB01246B` (`id`),
   CONSTRAINT `fk_object_metadata_CU__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1566,7 +1566,7 @@ CREATE TABLE `object_query_1` (
   PRIMARY KEY (`oo_id`),
   KEY `p_index_showAsFilter` (`showAsFilter`),
   CONSTRAINT `fk_object_query_1__id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1585,7 +1585,7 @@ CREATE TABLE `object_query_2` (
   PRIMARY KEY (`oo_id`),
   KEY `p_index_reference` (`reference`),
   CONSTRAINT `fk_object_query_2__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1597,7 +1597,7 @@ CREATE TABLE `object_query_4` (
   `name` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_4__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1618,7 +1618,7 @@ CREATE TABLE `object_query_5` (
   `utm_content` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_5__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1642,7 +1642,7 @@ CREATE TABLE `object_query_AP` (
   `owner` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_AP__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1653,7 +1653,7 @@ CREATE TABLE `object_query_BS` (
   `oo_className` varchar(255) DEFAULT 'BodyStyle',
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_BS__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1667,7 +1667,7 @@ CREATE TABLE `object_query_CA` (
   `filterDefinition__type` enum('document','asset','object') DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_CA__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1698,7 +1698,7 @@ CREATE TABLE `object_query_CAR` (
   `imagesAvailable` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_CAR__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1733,7 +1733,7 @@ CREATE TABLE `object_query_CU` (
   PRIMARY KEY (`oo_id`),
   KEY `p_index_idEncoded` (`idEncoded`),
   CONSTRAINT `fk_object_query_CU__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1756,7 +1756,7 @@ CREATE TABLE `object_query_EF_FD` (
   `similarityFieldsInheritance` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_FD__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1804,7 +1804,7 @@ CREATE TABLE `object_query_EF_OSO` (
   PRIMARY KEY (`oo_id`),
   KEY `p_index_cartId` (`cartId`),
   CONSTRAINT `fk_object_query_EF_OSO__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1826,7 +1826,7 @@ CREATE TABLE `object_query_EF_OSOI` (
   `subItems` text DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_OSOI__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1838,7 +1838,7 @@ CREATE TABLE `object_query_EF_OSTC` (
   `taxEntryCombinationType` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_OSTC__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1850,7 +1850,7 @@ CREATE TABLE `object_query_EF_OSVS` (
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_OSVS__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1865,7 +1865,7 @@ CREATE TABLE `object_query_EF_OSVT` (
   `voucherSeries__type` enum('document','asset','object') DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_OSVT__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1880,7 +1880,7 @@ CREATE TABLE `object_query_EF_OTCP` (
   `price` decimal(19,4) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_OTCP__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1901,7 +1901,7 @@ CREATE TABLE `object_query_EF_OTO` (
   `customItems` text DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_OTO__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1924,7 +1924,7 @@ CREATE TABLE `object_query_EF_OTOI` (
   `cartItemKey` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EF_OTOI__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1951,7 +1951,7 @@ CREATE TABLE `object_query_EV` (
   `status` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EV__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1964,7 +1964,7 @@ CREATE TABLE `object_query_MA` (
   `logo` int(11) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_MA__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -1978,7 +1978,7 @@ CREATE TABLE `object_query_NE` (
   `gallery__hotspots` longtext DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_NE__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2003,7 +2003,7 @@ CREATE TABLE `object_relations_1` (
   KEY `ownername` (`ownername`),
   KEY `IDX_53B87ADFFF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_1__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2028,7 +2028,7 @@ CREATE TABLE `object_relations_2` (
   KEY `ownername` (`ownername`),
   KEY `IDX_CAB12B65FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_2__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2053,7 +2053,7 @@ CREATE TABLE `object_relations_4` (
   KEY `ownername` (`ownername`),
   KEY `IDX_23D28E50FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_4__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2078,7 +2078,7 @@ CREATE TABLE `object_relations_5` (
   KEY `ownername` (`ownername`),
   KEY `IDX_54D5BEC6FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_5__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2103,7 +2103,7 @@ CREATE TABLE `object_relations_AP` (
   KEY `ownername` (`ownername`),
   KEY `IDX_8069B0B0FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_AP__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=613 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=613 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2128,7 +2128,7 @@ CREATE TABLE `object_relations_BS` (
   KEY `ownername` (`ownername`),
   KEY `IDX_324DB2C9FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_BS__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2153,7 +2153,7 @@ CREATE TABLE `object_relations_CA` (
   KEY `ownername` (`ownername`),
   KEY `IDX_D8EFF2C0FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_CA__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2178,7 +2178,7 @@ CREATE TABLE `object_relations_CAR` (
   KEY `ownername` (`ownername`),
   KEY `IDX_CCDBF217FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_CAR__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2203,7 +2203,7 @@ CREATE TABLE `object_relations_CU` (
   KEY `ownername` (`ownername`),
   KEY `IDX_C23526BDFF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_CU__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2228,7 +2228,7 @@ CREATE TABLE `object_relations_EF_FD` (
   KEY `ownername` (`ownername`),
   KEY `IDX_DA34FAC2FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_FD__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2253,7 +2253,7 @@ CREATE TABLE `object_relations_EF_OSO` (
   KEY `ownername` (`ownername`),
   KEY `IDX_4B839BF3FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OSO__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2278,7 +2278,7 @@ CREATE TABLE `object_relations_EF_OSOI` (
   KEY `ownername` (`ownername`),
   KEY `IDX_F9FD3684FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OSOI__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2303,7 +2303,7 @@ CREATE TABLE `object_relations_EF_OSTC` (
   KEY `ownername` (`ownername`),
   KEY `IDX_B01E1400FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OSTC__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2328,7 +2328,7 @@ CREATE TABLE `object_relations_EF_OSVS` (
   KEY `ownername` (`ownername`),
   KEY `IDX_9F9F66E6FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OSVS__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2353,7 +2353,7 @@ CREATE TABLE `object_relations_EF_OSVT` (
   KEY `ownername` (`ownername`),
   KEY `IDX_1FBF345FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OSVT__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2378,7 +2378,7 @@ CREATE TABLE `object_relations_EF_OTCP` (
   KEY `ownername` (`ownername`),
   KEY `IDX_346CC7CDFF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OTCP__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2403,7 +2403,7 @@ CREATE TABLE `object_relations_EF_OTO` (
   KEY `ownername` (`ownername`),
   KEY `IDX_4C20D34FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OTO__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2428,7 +2428,7 @@ CREATE TABLE `object_relations_EF_OTOI` (
   KEY `ownername` (`ownername`),
   KEY `IDX_FCB22001FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EF_OTOI__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2453,7 +2453,7 @@ CREATE TABLE `object_relations_EV` (
   KEY `ownername` (`ownername`),
   KEY `IDX_D66D081FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_EV__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2478,7 +2478,7 @@ CREATE TABLE `object_relations_MA` (
   KEY `ownername` (`ownername`),
   KEY `IDX_466CDF4EFF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_MA__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2503,7 +2503,7 @@ CREATE TABLE `object_relations_NE` (
   KEY `ownername` (`ownername`),
   KEY `IDX_6A2C4894FF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_NE__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2518,7 +2518,7 @@ CREATE TABLE `object_store_1` (
   `exportNewsletterProvider` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_1__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2532,7 +2532,7 @@ CREATE TABLE `object_store_2` (
   `targetGroup` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_2__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2543,7 +2543,7 @@ CREATE TABLE `object_store_4` (
   `terms` longtext DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_4__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2563,7 +2563,7 @@ CREATE TABLE `object_store_5` (
   `attributes` longtext DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_5__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2577,7 +2577,7 @@ CREATE TABLE `object_store_AP` (
   `owner` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_AP__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2586,7 +2586,7 @@ CREATE TABLE `object_store_BS` (
   `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_BS__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2595,7 +2595,7 @@ CREATE TABLE `object_store_CA` (
   `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_CA__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2616,7 +2616,7 @@ CREATE TABLE `object_store_CAR` (
   `objectType` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_CAR__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2648,7 +2648,7 @@ CREATE TABLE `object_store_CU` (
   `newsletterConfirmToken` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_CU__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2667,7 +2667,7 @@ CREATE TABLE `object_store_EF_FD` (
   `similarityFieldsInheritance` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_FD__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2705,7 +2705,7 @@ CREATE TABLE `object_store_EF_OSO` (
   `cartHash` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OSO__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2722,7 +2722,7 @@ CREATE TABLE `object_store_EF_OSOI` (
   `comment` longtext DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OSOI__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2732,7 +2732,7 @@ CREATE TABLE `object_store_EF_OSTC` (
   `taxEntryCombinationType` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OSTC__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2742,7 +2742,7 @@ CREATE TABLE `object_store_EF_OSVS` (
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OSVS__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2753,7 +2753,7 @@ CREATE TABLE `object_store_EF_OSVT` (
   `token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OSVT__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2766,7 +2766,7 @@ CREATE TABLE `object_store_EF_OTCP` (
   `price` decimal(19,4) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OTCP__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2783,7 +2783,7 @@ CREATE TABLE `object_store_EF_OTO` (
   `cartId` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OTO__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2801,7 +2801,7 @@ CREATE TABLE `object_store_EF_OTOI` (
   `cartItemKey` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EF_OTOI__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2825,7 +2825,7 @@ CREATE TABLE `object_store_EV` (
   `status` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EV__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2836,7 +2836,7 @@ CREATE TABLE `object_store_MA` (
   `logo` int(11) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_MA__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -2848,7 +2848,7 @@ CREATE TABLE `object_store_NE` (
   `gallery__hotspots` longtext DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_NE__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3034,7 +3034,7 @@ CREATE TABLE `plugin_cmf_segment_assignment` (
   `breaksInheritance` tinyint(4) DEFAULT NULL,
   `inPreparation` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`elementId`,`elementType`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3044,7 +3044,7 @@ CREATE TABLE `plugin_cmf_segment_assignment_index` (
   `elementType` enum('document','asset','object') NOT NULL,
   `segmentId` int(11) NOT NULL,
   PRIMARY KEY (`elementId`,`elementType`,`segmentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3053,7 +3053,7 @@ CREATE TABLE `plugin_cmf_segment_assignment_queue` (
   `elementId` int(11) NOT NULL,
   `elementType` enum('document','asset','object') NOT NULL,
   PRIMARY KEY (`elementId`,`elementType`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3084,7 +3084,7 @@ CREATE TABLE `plugin_datahub_workspaces_asset` (
   `update` tinyint(1) unsigned DEFAULT 0,
   `delete` tinyint(1) unsigned DEFAULT 0,
   PRIMARY KEY (`cid`,`configuration`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3098,7 +3098,7 @@ CREATE TABLE `plugin_datahub_workspaces_document` (
   `update` tinyint(1) unsigned DEFAULT 0,
   `delete` tinyint(1) unsigned DEFAULT 0,
   PRIMARY KEY (`cid`,`configuration`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3112,7 +3112,7 @@ CREATE TABLE `plugin_datahub_workspaces_object` (
   `update` tinyint(1) unsigned DEFAULT 0,
   `delete` tinyint(1) unsigned DEFAULT 0,
   PRIMARY KEY (`cid`,`configuration`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3137,7 +3137,7 @@ CREATE TABLE `redirects` (
   PRIMARY KEY (`id`),
   KEY `priority` (`priority`),
   KEY `routing_lookup` (`active`,`regex`,`sourceSite`,`source`,`type`,`expiry`,`priority`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
 
 
 
@@ -3194,7 +3194,7 @@ CREATE TABLE `targeting_rules` (
   `conditions` longtext DEFAULT NULL,
   `actions` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3209,7 +3209,7 @@ CREATE TABLE `targeting_storage` (
   PRIMARY KEY (`visitorId`,`scope`,`name`),
   KEY `targeting_storage_scope_index` (`scope`),
   KEY `targeting_storage_name_index` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3221,7 +3221,7 @@ CREATE TABLE `targeting_target_groups` (
   `threshold` int(11) DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 
@@ -3237,7 +3237,7 @@ CREATE TABLE `translations_admin` (
   `userModification` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`key`,`language`),
   KEY `language` (`language`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 
 DROP TABLE IF EXISTS `generic_execution_engine_error_log`;
@@ -3260,7 +3260,7 @@ CREATE TABLE `generic_execution_engine_job_run` (
     CONSTRAINT fk_generic_job_execution_owner_users
         FOREIGN KEY (ownerId) REFERENCES users (id)
             ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 CREATE TABLE `generic_execution_engine_error_log` (
     id int unsigned auto_increment PRIMARY KEY,
@@ -3271,7 +3271,7 @@ CREATE TABLE `generic_execution_engine_error_log` (
     CONSTRAINT fk_generic_job_execution_log_jobs
         FOREIGN KEY (jobRunId) REFERENCES generic_execution_engine_job_run (id)
             ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 DROP TABLE IF EXISTS `sessions`;
 CREATE TABLE `sessions` (
