@@ -18,7 +18,13 @@
 
                     /* method of getting the text for the toc lines */
                     text: function (elem) {
-                        return elem.textContent;
+                        return this.htmlEncode(elem.textContent);
+                    },
+
+                    htmlEncode: function (str) {
+                        const div = document.createElement('div');
+                        div.textContent = str;
+                        return div.innerHTML;
                     }
                 });
 
