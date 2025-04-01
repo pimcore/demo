@@ -40,7 +40,7 @@ use Pimcore\Twig\Extension\Templating\Placeholder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class ProductController extends BaseController
 {
@@ -50,12 +50,11 @@ class ProductController extends BaseController
     }
 
     /**
-     * @Route("/shop/{path}{productname}~p{product}", name="shop-detail", defaults={"path"=""}, requirements={"path"=".*?", "productname"="[\w-]+", "product"="\d+"})
-     *
      * @param Concrete $product built-in parameter conversion, please see https://github.com/pimcore/pimcore/pull/5554
      *
      * @throws \Exception
      */
+    #[Route('/shop/{path}{productname}~p{product}', name: 'shop-detail', defaults: ['path' => ''], requirements: ['path' => '.*?', 'productname' => '[\w-]+', 'product' => '\d+'])]
     public function detailAction(
         Request $request,
         HeadTitle $headTitleHelper,
@@ -121,9 +120,7 @@ class ProductController extends BaseController
         throw new NotFoundHttpException('Unsupported Product type.');
     }
 
-    /**
-     * @Route("/shop/{path}{categoryname}~c{category}", name="shop-category", defaults={"path"=""}, requirements={"path"=".*?", "categoryname"="[\w-]+", "category"="\d+"})
-     */
+    #[Route('/shop/{path}{categoryname}~c{category}', name: 'shop-category', defaults: ['path' => ''], requirements: ['path' => '.*?', 'categoryname' => '[\w-]+', 'category' => '\d+'])]
     public function listingAction(
         Request $request,
         HeadTitle $headTitleHelper,
@@ -221,9 +218,7 @@ class ProductController extends BaseController
         throw new NotFoundHttpException('Product not found.');
     }
 
-    /**
-     * @Route("/search", name="search", methods={"GET"})
-     */
+    #[Route('/search', name: 'search', methods: ['GET'])]
     public function searchAction(
         Request $request,
         ListHelper $listHelper,

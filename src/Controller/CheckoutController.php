@@ -23,13 +23,11 @@ use Pimcore\Model\DataObject\OnlineShopOrder;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class CheckoutController extends FrontendController
 {
-    /**
-     * @Route("/checkout-address", name="shop-checkout-address")
-     */
+    #[Route('/checkout-address', name: 'shop-checkout-address')]
     public function checkoutAddressAction(
         Factory $factory,
         Request $request,
@@ -107,12 +105,11 @@ class CheckoutController extends FrontendController
     }
 
     /**
-     * @Route("/checkout-completed", name="shop-checkout-completed")
-     *
      * @param Factory $ecommerceFactory
      *
      * @return Response
      */
+    #[Route('/checkout-completed', name: 'shop-checkout-completed')]
     public function checkoutCompletedAction(Request $request, Factory $ecommerceFactory)
     {
         $orderId = $request->getSession()->get('last_order_id');

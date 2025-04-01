@@ -16,18 +16,27 @@
 namespace App\Controller;
 
 use Pimcore\Model\Asset;
+use Pimcore\Model\DataObject\Car\Listing;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends BaseController
 {
-    /**
-     * @Route("/examples", name="examples")
-     */
+    #[Route('/examples', name: 'examples')]
     public function examplesAction(): Response
     {
+        $cars = new Listing();
+        $cars->addConditionParam('manufacturer__id =:brandId', [ 'brandId' => 93]);
+
+
+
+        $muh = $cars->getTotalCount();
+
+
+
+
         return $this->render('default/examples.html.twig');
     }
 
