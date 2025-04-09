@@ -27,13 +27,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class PaymentController extends FrontendController
 {
-    /**
-     * @Route("/checkout-payment", name="shop-checkout-payment")
-     */
+    #[Route('/checkout-payment', name: 'shop-checkout-payment')]
     public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService): Response
     {
         $cartManager = $factory->getCartManager();
@@ -62,9 +60,7 @@ class PaymentController extends FrontendController
         ]);
     }
 
-    /**
-     * @Route("/checkout-start-payment", name="shop-checkout-start-payment")
-     */
+    #[Route('/checkout-start-payment', name: 'shop-checkout-start-payment')]
     public function startPaymentAction(Factory $factory): JsonResponse
     {
         $cartManager = $factory->getCartManager();
@@ -88,9 +84,7 @@ class PaymentController extends FrontendController
         return new JsonResponse($response->getJsonString(), 200, [], true);
     }
 
-    /**
-     * @Route("/payment-error", name = "shop-checkout-payment-error")
-     */
+    #[Route('/payment-error', name: 'shop-checkout-payment-error')]
     public function paymentErrorAction(): RedirectResponse
     {
         $this->addFlash('danger', 'Payment error');
@@ -98,9 +92,7 @@ class PaymentController extends FrontendController
         return $this->redirectToRoute('shop-checkout-payment');
     }
 
-    /**
-     * @Route("/payment-commit-order", name="shop-commit-order")
-     */
+    #[Route('/payment-commit-order', name: 'shop-commit-order')]
     public function commitOrderAction(Request $request, Factory $factory): RedirectResponse
     {
         $cartManager = $factory->getCartManager();

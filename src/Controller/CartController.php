@@ -28,7 +28,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class CartController extends FrontendController
 {
@@ -46,10 +46,9 @@ class CartController extends FrontendController
     }
 
     /**
-     * @Route("/cart/add-to-cart", name="shop-add-to-cart", methods={"POST"})
-     *
      * @throws \Exception
      */
+    #[Route('/cart/add-to-cart', name: 'shop-add-to-cart', methods: ['POST'])]
     public function addToCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
         if (!$this->isCsrfTokenValid('addToCart', $request->request->getString('_csrf_token'))) {
@@ -78,9 +77,7 @@ class CartController extends FrontendController
         return $this->redirectToRoute('shop-cart-detail');
     }
 
-    /**
-     * @Route("/cart", name="shop-cart-detail")
-     */
+    #[Route('/cart', name: 'shop-cart-detail')]
     public function cartListingAction(
         Request $request,
         BreadcrumbHelperService $breadcrumbHelperService,
@@ -123,9 +120,7 @@ class CartController extends FrontendController
         }
     }
 
-    /**
-     * @Route("/cart/remove-from-cart", name="shop-remove-from-cart", methods={"POST"})
-     */
+    #[Route('/cart/remove-from-cart', name: 'shop-remove-from-cart', methods: ['POST'])]
     public function removeFromCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
         if (!$this->isCsrfTokenValid('cartListing', $request->request->getString('_csrf_token'))) {
@@ -149,10 +144,9 @@ class CartController extends FrontendController
     }
 
     /**
-     * @Route("/cart/apply-voucher", name="shop-cart-apply-voucher")
-     *
      * @throws \Exception
      */
+    #[Route('/cart/apply-voucher', name: 'shop-cart-apply-voucher')]
     public function applyVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
         if ($token = strip_tags($request->request->getString('voucher-code'))) {
@@ -178,9 +172,7 @@ class CartController extends FrontendController
         return $this->redirectToRoute('shop-cart-detail');
     }
 
-    /**
-     * @Route("/cart/remove-voucher", name="shop-cart-remove-voucher")
-     */
+    #[Route('/cart/remove-voucher', name: 'shop-cart-remove-voucher')]
     public function removeVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
         if ($token = strip_tags($request->query->getString('voucher-code'))) {

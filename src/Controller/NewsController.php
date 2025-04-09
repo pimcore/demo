@@ -24,7 +24,7 @@ use Pimcore\Twig\Extension\Templating\Placeholder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class NewsController extends BaseController
 {
@@ -52,9 +52,7 @@ class NewsController extends BaseController
         ]);
     }
 
-    /**
-     * @Route("{path}/{newstitle}~n{news}", name="news-detail", defaults={"path"=""}, requirements={"path"=".*?", "newstitle"="[\w-]+", "news"="\d+"})
-     */
+    #[Route('{path}/{newstitle}~n{news}', name: 'news-detail', requirements: ['path' => '.*?', 'newstitle' => '[\w-]+' ,'news' => '\d+'], defaults: ['path' => ''])]
     public function detailAction(Request $request, HeadTitle $headTitleHelper, Placeholder $placeholderHelper, NewsLinkGenerator $newsLinkGenerator, BreadcrumbHelperService $breadcrumbHelperService): Response
     {
         $news = News::getById($request->attributes->getInt('news'));

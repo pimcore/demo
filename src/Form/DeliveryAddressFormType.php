@@ -15,7 +15,7 @@
 
 namespace App\Form;
 
-use Pimcore\Localization\LocaleService;
+use Pimcore\Localization\LocaleServiceInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,7 +27,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DeliveryAddressFormType extends AbstractType
 {
-    public function __construct(protected LocaleService $locale)
+    public function __construct(protected LocaleServiceInterface $locale)
     {
     }
 
