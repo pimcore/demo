@@ -15,17 +15,16 @@
 
 namespace App\Controller;
 
+use Pimcore\Bundle\StudioBackendBundle\Mercure\Service\PublishService;
 use Pimcore\Model\Asset;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends BaseController
 {
-    /**
-     * @Route("/examples", name="examples")
-     */
+    #[Route("/examples", name: "examples")]
     public function examplesAction(): Response
     {
         return $this->render('default/examples.html.twig');

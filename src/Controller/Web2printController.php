@@ -22,7 +22,7 @@ use Pimcore\Model\Document\Hardlink;
 use Pimcore\Bundle\WebToPrintBundle\Processor;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class Web2printController extends BaseController
 {
@@ -92,10 +92,9 @@ class Web2printController extends BaseController
     }
 
     /**
-     * @Route("/product-print", name="product_print")
-     *
      * @throws \Exception
      */
+    #[Route("/product-print", name: "product_print")]
     public function productPrintAction(Request $request): Response
     {
         $objId = $request->query->getInt('id');
