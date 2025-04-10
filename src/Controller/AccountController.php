@@ -35,7 +35,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -50,9 +50,7 @@ class AccountController extends BaseController
 {
     use PasswordMaxLengthTrait;
 
-    /**
-     * @Route("/account/login", name="account-login")
-     */
+    #[Route("/account/login", name: "account-login")]
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
         Request $request,
@@ -92,9 +90,8 @@ class AccountController extends BaseController
     /**
      * This could be further separated into services, but was kept as single method for demonstration purposes as the
      * registration process is different on every project.
-     *
-     * @Route("/account/register", name="account-register")
      */
+    #[Route('/account/register', name: "account-register")]
     public function registerAction(
         Request $request,
         CustomerProviderInterface $customerProvider,
@@ -183,9 +180,8 @@ class AccountController extends BaseController
 
     /**
      * Index page for account - it is restricted to ROLE_USER via security annotation
-     *
-     * @Route("/account/index", name="account-index")
      */
+    #[Route("/account/index", name: "account-index")]
     #[IsGranted('ROLE_USER')]
     public function indexAction(UserInterface $user = null): Response
     {
@@ -201,10 +197,9 @@ class AccountController extends BaseController
     }
 
     /**
-     * @Route("/account/update-marketing", name="account-update-marketing-permission")
-     *
      * @throws \Exception
      */
+    #[Route("/account/update-marketing", name: "account-update-marketing-permission")]
     #[IsGranted('ROLE_USER')]
     public function updateMarketingPermissionAction(
         Request $request,
@@ -238,9 +233,7 @@ class AccountController extends BaseController
         return $this->redirectToRoute('account-index');
     }
 
-    /**
-     * @Route("/account/confirm-newsletter", name="account-confirm-newsletter")
-     */
+    #[Route("/account/confirm-newsletter", name: "account-confirm-newsletter")]
     public function confirmNewsletterAction(
         Request $request,
         NewsletterDoubleOptInService $newsletterDoubleOptInService,
@@ -258,10 +251,9 @@ class AccountController extends BaseController
     }
 
     /**
-     * @Route("/account/send-password-recovery", name="account-password-send-recovery")
-     *
      * @throws \Exception
      */
+    #[Route("/account/send-password-recovery", name: "account-password-send-recovery")]
     public function sendPasswordRecoveryMailAction(
         Request $request,
         PasswordRecoveryService $service,
@@ -288,9 +280,7 @@ class AccountController extends BaseController
         ]);
     }
 
-    /**
-     * @Route("/account/reset-password", name="account-reset-password")
-     */
+    #[Route("/account/reset-password", name: "account-reset-password")]
     public function resetPasswordAction(
         Request $request,
         PasswordRecoveryService $service,
