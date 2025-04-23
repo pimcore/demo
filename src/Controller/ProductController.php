@@ -131,16 +131,11 @@ class ProductController extends BaseController
         PaginatorInterface $paginator
     ): Response {
         $params = array_merge($request->query->all(), $request->attributes->all());
-
+        $categoryId = isset($params['category']) ? (int)$params['category'] : null;
         //needed to make sure category filter filters for active category
-        $params['parentCategoryIds'] = $params['category'] ?? null;
-
-        $category = Category::getById($params['category'] ?? -1);
+        $params['parentCategoryIds'] = $categoryId;
+        $category = $categoryId ? Category::getById($categoryId) : null;
         $params['category'] = $category;
-        if ($category) {
-            $headTitleHelper($category->getName());
-            $breadcrumbHelperService->enrichCategoryPage($category);
-        }
 
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();
@@ -149,6 +144,9 @@ class ProductController extends BaseController
 
         // load current filter
         if ($category) {
+            $headTitleHelper($category->getName());
+            $breadcrumbHelperService->enrichCategoryPage($category);
+            
             $filterDefinition = $category->getFilterdefinition();
 
             //track segments for personalization
