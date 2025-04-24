@@ -1,7 +1,7 @@
 {
   "name": "pimcore/demo",
   "type": "project",
-  "description": "Demo Application for Pimcore 6",
+  "description": "Demo Application for Pimcore 2025.1",
   "license": "GPL-3.0-or-later",
   "config": {
     "optimize-autoloader": true,
@@ -18,15 +18,11 @@
   "require": {
     "php-http/guzzle7-adapter": "^0.1.1",
     "php-http/httplug-bundle": "^1",
-    "pimcore/platform-version": "^2025.x-dev",
-    "pimcore/customer-management-framework-bundle": "*",
+    "pimcore/platform-version": "^2025.1",
     "pimcore/pimcore": "*",
     "pimcore/web2print-tools-bundle": "*",
     "pimcore/data-hub": "*",
-    "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
     "pimcore/admin-ui-classic-bundle": "*",
-    "pimcore/ecommerce-framework-bundle": "*",
-    "pimcore/web-to-print-bundle": "*",
     "pimcore/newsletter-bundle": "*",
     "pimcore/quill-bundle": "*",
     "symfony/runtime": "^6.2",
