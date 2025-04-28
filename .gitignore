@@ -25,6 +25,7 @@
 /var/config/system.yml
 /var/config/debug-mode.php
 /var/config/maintenance.php
+/var/config/needs-install.lock
 
 # project specific recommendations
 /var/config/tag-manager.php
