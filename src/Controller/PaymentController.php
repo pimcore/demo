@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Controller;
@@ -21,8 +18,6 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\V7\Payment\StartPaymentRequest\AbstractRequest;
 use Pimcore\Controller\FrontendController;
-use Pimcore\Translation\Translator;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +26,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PaymentController extends FrontendController
 {
-    #[Route("/checkout-payment", name: "shop-checkout-payment")]
+    #[Route('/checkout-payment', name: 'shop-checkout-payment')]
     public function checkoutPaymentAction(Factory $factory, BreadcrumbHelperService $breadcrumbHelperService): Response
     {
         $cartManager = $factory->getCartManager();
@@ -60,7 +55,7 @@ class PaymentController extends FrontendController
         ]);
     }
 
-    #[Route("/checkout-start-payment", name: "shop-checkout-start-payment")]
+    #[Route('/checkout-start-payment', name: 'shop-checkout-start-payment')]
     public function startPaymentAction(Factory $factory): JsonResponse
     {
         $cartManager = $factory->getCartManager();
@@ -84,7 +79,7 @@ class PaymentController extends FrontendController
         return new JsonResponse($response->getJsonString(), 200, [], true);
     }
 
-    #[Route("/payment-error", name: "shop-checkout-payment-error")]
+    #[Route('/payment-error', name: 'shop-checkout-payment-error')]
     public function paymentErrorAction(): RedirectResponse
     {
         $this->addFlash('danger', 'Payment error');
@@ -92,7 +87,7 @@ class PaymentController extends FrontendController
         return $this->redirectToRoute('shop-checkout-payment');
     }
 
-    #[Route("/payment-commit-order", name: "shop-commit-order")]
+    #[Route('/payment-commit-order', name: 'shop-commit-order')]
     public function commitOrderAction(Request $request, Factory $factory): RedirectResponse
     {
         $cartManager = $factory->getCartManager();

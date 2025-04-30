@@ -1,26 +1,23 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\EventListener;
 
 use App\Model\CustomerManagementFramework\Activity\OrderActivity;
 use CustomerManagementFrameworkBundle\ActivityManager\ActivityManagerInterface;
-use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Event\Model\CommitOrderProcessorEvent;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Event\Model\OrderManagerEvent;
 use Pimcore\Bundle\EcommerceFrameworkBundle\Event\Model\SendConfirmationMailEvent;
+use Pimcore\Bundle\EcommerceFrameworkBundle\Factory;
 use Pimcore\Localization\LocaleServiceInterface;
 use Pimcore\Mail;
 use Pimcore\Model\DataObject\OnlineShopOrder;

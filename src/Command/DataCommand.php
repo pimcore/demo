@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Command;
@@ -65,35 +62,35 @@ class DataCommand extends AbstractCommand
             $object->save();
         }
 
-//        $listing = new Car\Listing();
-//        $listing->setCondition('o_id NOT IN (SELECT o_parentId FROM object_CAR)');
+        //        $listing = new Car\Listing();
+        //        $listing->setCondition('o_id NOT IN (SELECT o_parentId FROM object_CAR)');
 
-//        foreach($listing as $object) {
-//
-//            $output->writeln("processing element " . $object->getId());
-//
-//            $saleInformation = $object->getSaleInformation()->getSaleInformation();
-//
-//            if(empty($saleInformation)) {
-//                $saleInformation = new SaleInformation($object);
-//                $object->getSaleInformation()->setSaleInformation($saleInformation);
-//            }
-//
-//            $saleInformation->setAvailabilityPieces(rand(1, 5));
-//            $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0,2)]);
-//            $saleInformation->setCondition($this->conditionTypes[rand(0,2)]);
-//            $saleInformation->setPriceInEUR($this->generateCarPrice($saleInformation->getCondition()));
-//            $saleInformation->setMilage(new QuantityValue(rand(30000, 300000), Unit::getByAbbreviation('km')));
-//
-//            $geoPoint = $this->locations[rand(0,4)];
-//
-//            $object->setLocation(new GeoCoordinates($geoPoint[0], $geoPoint[1]));
-//
-//            $object->setObjectType('actual-car');
-//
-//
-//            $object->save();
-//        }
+        //        foreach($listing as $object) {
+        //
+        //            $output->writeln("processing element " . $object->getId());
+        //
+        //            $saleInformation = $object->getSaleInformation()->getSaleInformation();
+        //
+        //            if(empty($saleInformation)) {
+        //                $saleInformation = new SaleInformation($object);
+        //                $object->getSaleInformation()->setSaleInformation($saleInformation);
+        //            }
+        //
+        //            $saleInformation->setAvailabilityPieces(rand(1, 5));
+        //            $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0,2)]);
+        //            $saleInformation->setCondition($this->conditionTypes[rand(0,2)]);
+        //            $saleInformation->setPriceInEUR($this->generateCarPrice($saleInformation->getCondition()));
+        //            $saleInformation->setMilage(new QuantityValue(rand(30000, 300000), Unit::getByAbbreviation('km')));
+        //
+        //            $geoPoint = $this->locations[rand(0,4)];
+        //
+        //            $object->setLocation(new GeoCoordinates($geoPoint[0], $geoPoint[1]));
+        //
+        //            $object->setObjectType('actual-car');
+        //
+        //
+        //            $object->save();
+        //        }
 
         $output->writeln('done');
 

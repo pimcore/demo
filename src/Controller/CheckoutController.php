@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Controller;
@@ -27,7 +24,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CheckoutController extends FrontendController
 {
-    #[Route("/checkout-address", name: "shop-checkout-address")]
+    #[Route('/checkout-address', name: 'shop-checkout-address')]
     public function checkoutAddressAction(
         Factory $factory,
         Request $request,
@@ -109,7 +106,7 @@ class CheckoutController extends FrontendController
      *
      * @return Response
      */
-    #[Route("/checkout-completed", name: "shop-checkout-completed")]
+    #[Route('/checkout-completed', name: 'shop-checkout-completed')]
     public function checkoutCompletedAction(Request $request, Factory $ecommerceFactory)
     {
         $orderId = $request->getSession()->get('last_order_id');

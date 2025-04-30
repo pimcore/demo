@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Controller;
@@ -50,7 +47,7 @@ class AccountController extends BaseController
 {
     use PasswordMaxLengthTrait;
 
-    #[Route("/account/login", name: "account-login")]
+    #[Route('/account/login', name: 'account-login')]
     public function loginAction(
         AuthenticationUtils $authenticationUtils,
         Request $request,
@@ -91,7 +88,7 @@ class AccountController extends BaseController
      * This could be further separated into services, but was kept as single method for demonstration purposes as the
      * registration process is different on every project.
      */
-    #[Route('/account/register', name: "account-register")]
+    #[Route('/account/register', name: 'account-register')]
     public function registerAction(
         Request $request,
         CustomerProviderInterface $customerProvider,
@@ -181,7 +178,7 @@ class AccountController extends BaseController
     /**
      * Index page for account - it is restricted to ROLE_USER via security annotation
      */
-    #[Route("/account/index", name: "account-index")]
+    #[Route('/account/index', name: 'account-index')]
     #[IsGranted('ROLE_USER')]
     public function indexAction(UserInterface $user = null): Response
     {
@@ -199,7 +196,7 @@ class AccountController extends BaseController
     /**
      * @throws \Exception
      */
-    #[Route("/account/update-marketing", name: "account-update-marketing-permission")]
+    #[Route('/account/update-marketing', name: 'account-update-marketing-permission')]
     #[IsGranted('ROLE_USER')]
     public function updateMarketingPermissionAction(
         Request $request,
@@ -233,7 +230,7 @@ class AccountController extends BaseController
         return $this->redirectToRoute('account-index');
     }
 
-    #[Route("/account/confirm-newsletter", name: "account-confirm-newsletter")]
+    #[Route('/account/confirm-newsletter', name: 'account-confirm-newsletter')]
     public function confirmNewsletterAction(
         Request $request,
         NewsletterDoubleOptInService $newsletterDoubleOptInService,
@@ -253,7 +250,7 @@ class AccountController extends BaseController
     /**
      * @throws \Exception
      */
-    #[Route("/account/send-password-recovery", name: "account-password-send-recovery")]
+    #[Route('/account/send-password-recovery', name: 'account-password-send-recovery')]
     public function sendPasswordRecoveryMailAction(
         Request $request,
         PasswordRecoveryService $service,
@@ -280,7 +277,7 @@ class AccountController extends BaseController
         ]);
     }
 
-    #[Route("/account/reset-password", name: "account-reset-password")]
+    #[Route('/account/reset-password', name: 'account-reset-password')]
     public function resetPasswordAction(
         Request $request,
         PasswordRecoveryService $service,

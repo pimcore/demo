@@ -3,24 +3,21 @@
 declare(strict_types=1);
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Twig\Extension;
 
-use App\Website\LinkGenerator\AbstractProductLinkGenerator;
 use App\Website\LinkGenerator\CategoryLinkGenerator;
 use App\Website\LinkGenerator\NewsLinkGenerator;
 use App\Website\LinkGenerator\ProductLinkGenerator;
+use Pimcore\Model\DataObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\Service;
 use Pimcore\Tool;
@@ -28,7 +25,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-use Pimcore\Model\DataObject;
 
 class LanguageSwitcherExtension extends AbstractExtension
 {
@@ -84,7 +80,7 @@ class LanguageSwitcherExtension extends AbstractExtension
                 $routeParams = $request->attributes->all('_route_params');
                 $requiredField = $dynamicRoutesMapping[$route]['requiredField'];
 
-                if (!array_key_exists($requiredField, $routeParams)){
+                if (!array_key_exists($requiredField, $routeParams)) {
                     continue;
                 }
 
