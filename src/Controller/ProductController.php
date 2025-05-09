@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Controller;
@@ -32,7 +29,6 @@ use Pimcore\Bundle\EcommerceFrameworkBundle\IndexService\ProductList\ProductList
 use Pimcore\Config;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\Concrete;
-use Pimcore\Model\DataObject\Data\UrlSlug;
 use Pimcore\Model\DataObject\FilterDefinition;
 use Pimcore\Translation\Translator;
 use Pimcore\Twig\Extension\Templating\HeadTitle;
@@ -54,7 +50,7 @@ class ProductController extends BaseController
      *
      * @throws \Exception
      */
-    #[Route("/shop/{path}{productname}~p{product}", name: "shop-detail", defaults: ["path" => ""], requirements: ["path" => ".*?", "productname" => "[\w-]+", "product" => "\d+"])]
+    #[Route('/shop/{path}{productname}~p{product}', name: 'shop-detail', defaults: ['path' => ''], requirements: ['path' => '.*?', 'productname' => "[\w-]+", 'product' => "\d+"])]
     public function detailAction(
         Request $request,
         HeadTitle $headTitleHelper,
@@ -65,8 +61,8 @@ class ProductController extends BaseController
         ProductLinkGenerator $productLinkGenerator
     ): Response {
         if (!(
-                $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
-            )
+            $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
+        )
         ) {
             throw new NotFoundHttpException('Product not found.');
         }
@@ -120,7 +116,7 @@ class ProductController extends BaseController
         throw new NotFoundHttpException('Unsupported Product type.');
     }
 
-    #[Route("/shop/{path}{categoryname}~c{category}", name: "shop-category", defaults: ["path" => ""], requirements: ["path" => ".*?", "categoryname" => "[\w-]+", "category" => "\d+"])]
+    #[Route('/shop/{path}{categoryname}~c{category}', name: 'shop-category', defaults: ['path' => ''], requirements: ['path' => '.*?', 'categoryname' => "[\w-]+", 'category' => "\d+"])]
     public function listingAction(
         Request $request,
         HeadTitle $headTitleHelper,
@@ -146,7 +142,7 @@ class ProductController extends BaseController
         if ($category) {
             $headTitleHelper($category->getName());
             $breadcrumbHelperService->enrichCategoryPage($category);
-            
+
             $filterDefinition = $category->getFilterdefinition();
 
             //track segments for personalization
@@ -196,10 +192,10 @@ class ProductController extends BaseController
     public function productTeaserAction(Request $request, Factory $ecommerceFactory): Response
     {
         $paramsBag = [];
-        $type = $request->attributes->getString('type')?:$request->query->getString('type');
+        $type = $request->attributes->getString('type') ?: $request->query->getString('type');
         if ($type === 'object') {
             AbstractObject::setGetInheritedValues(true);
-            $id = $request->attributes->getInt('id')?:$request->query->getInt('id');
+            $id = $request->attributes->getInt('id') ?: $request->query->getInt('id');
             $product = AbstractProduct::getById($id);
             if ($product instanceof Car && $product->getObjectType() === Car::OBJECT_TYPE_VIRTUAL_CAR) {
                 throw new \Exception('Virtual products are not allowed in product teasers.');
@@ -216,7 +212,7 @@ class ProductController extends BaseController
         throw new NotFoundHttpException('Product not found.');
     }
 
-    #[Route("/search", name: "search", methods: ["GET"])]
+    #[Route('/search', name: 'search', methods: ['GET'])]
     public function searchAction(
         Request $request,
         ListHelper $listHelper,
@@ -241,7 +237,7 @@ class ProductController extends BaseController
         if ($productListing instanceof AbstractElasticSearch) {
 
             // simple elastic search query - uses multi-match query on all defined search_attributes
-//            $productListing->addQueryCondition($term);
+            //            $productListing->addQueryCondition($term);
 
             //sample for a more specific elastic search query - not considers search_attributes but provides full flexibility
             // this query weights cars more that accessories

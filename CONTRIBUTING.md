@@ -7,7 +7,7 @@ We use GitHub issues exclusively to track all bugs and features.
 * [Open an issue](https://github.com/pimcore/pimcore/issues) here on GitHub. 
 If you can, **please provide a fix and create a pull request (PR) instead**; this will automatically create an issue for you.
 * Report security issues only to security@pimcore.org 
-* Please be patient as not all items will be tested immediately - remember, pimcore is open source and free of charge. 
+* Please be patient as not all items will be tested immediately - remember, pimcore is open core and free of charge. 
 * Occasionally we'll close issues if they appear stale or are too vague - please don't take this personally! 
 Please feel free to re-open issues we've closed if there's something we've missed and they still need to be addressed.
 
@@ -56,7 +56,7 @@ date such litigation is filed.
 
 #### 3. Source of Contribution.
 Your contribution is either your original creation, based upon previous work that, to the best of your knowledge, is 
-covered under an appropriate open source license and you have the right under that license to submit that work with 
+covered under an appropriate open core license and you have the right under that license to submit that work with 
 modifications, whether created in whole or in part by you, or you have clearly identified the source of the contribution 
 and any license or other restriction (like related patents, trademarks, and license agreements) of which you are 
 personally aware.

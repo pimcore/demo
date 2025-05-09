@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Controller;
@@ -48,7 +45,7 @@ class CartController extends FrontendController
     /**
      * @throws \Exception
      */
-    #[Route("/cart/add-to-cart", name: "shop-add-to-cart", methods: ["POST"])]
+    #[Route('/cart/add-to-cart', name: 'shop-add-to-cart', methods: ['POST'])]
     public function addToCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
         if (!$this->isCsrfTokenValid('addToCart', $request->request->getString('_csrf_token'))) {
@@ -77,7 +74,7 @@ class CartController extends FrontendController
         return $this->redirectToRoute('shop-cart-detail');
     }
 
-    #[Route("/cart", name: "shop-cart-detail")]
+    #[Route('/cart', name: 'shop-cart-detail')]
     public function cartListingAction(
         Request $request,
         BreadcrumbHelperService $breadcrumbHelperService,
@@ -120,7 +117,7 @@ class CartController extends FrontendController
         }
     }
 
-    #[Route("/cart/remove-from-cart", name: "shop-remove-from-cart", methods: ["POST"])]
+    #[Route('/cart/remove-from-cart', name: 'shop-remove-from-cart', methods: ['POST'])]
     public function removeFromCartAction(Request $request, Factory $ecommerceFactory): RedirectResponse
     {
         if (!$this->isCsrfTokenValid('cartListing', $request->request->getString('_csrf_token'))) {
@@ -146,7 +143,7 @@ class CartController extends FrontendController
     /**
      * @throws \Exception
      */
-    #[Route("/cart/apply-voucher", name: "shop-cart-apply-voucher")]
+    #[Route('/cart/apply-voucher', name: 'shop-cart-apply-voucher')]
     public function applyVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
         if ($token = strip_tags($request->request->getString('voucher-code'))) {
@@ -172,7 +169,7 @@ class CartController extends FrontendController
         return $this->redirectToRoute('shop-cart-detail');
     }
 
-    #[Route("/cart/remove-voucher", name: "shop-cart-remove-voucher")]
+    #[Route('/cart/remove-voucher', name: 'shop-cart-remove-voucher')]
     public function removeVoucherAction(Request $request, Translator $translator, Factory $ecommerceFactory): RedirectResponse
     {
         if ($token = strip_tags($request->query->getString('voucher-code'))) {

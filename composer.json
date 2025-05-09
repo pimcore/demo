@@ -23,7 +23,7 @@
     "pimcore/pimcore": "*",
     "pimcore/web2print-tools-bundle": "*",
     "pimcore/data-hub": "*",
-    "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
+    "pimcore/payment-provider-paypal-smart-payment-button": "^3.0",
     "pimcore/admin-ui-classic-bundle": "*",
     "pimcore/ecommerce-framework-bundle": "*",
     "pimcore/web-to-print-bundle": "*",

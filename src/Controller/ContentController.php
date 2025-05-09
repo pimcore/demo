@@ -1,16 +1,13 @@
 <?php
 
 /**
- * Pimcore
- *
- * This source file is available under two different licenses:
- * - GNU General Public License version 3 (GPLv3)
- * - Pimcore Enterprise License (PEL)
+ * This source file is available under the terms of the
+ * Pimcore Open Core License (POCL)
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ *  @copyright  Copyright (c) Pimcore GmbH (https://www.pimcore.com)
+ *  @license    Pimcore Open Core License (POCL)
  */
 
 namespace App\Controller;
@@ -42,8 +39,8 @@ class ContentController extends BaseController
      * are not really set as we don't have a response yet, but they will be added to the final response
      * by the ResponseHeaderListener.
      */
-    #[ResponseHeader(key: "X-Custom-Header", values: ["Foo", "Bar"])]
-    #[ResponseHeader(key: "X-Custom-Header", values: ["Bazinga"], replace: true)]
+    #[ResponseHeader(key: 'X-Custom-Header', values: ['Foo', 'Bar'])]
+    #[ResponseHeader(key: 'X-Custom-Header', values: ['Bazinga'], replace: true)]
     public function portalAction(): Response
     {
         // you can also set the header via code
