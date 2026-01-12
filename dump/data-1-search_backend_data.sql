@@ -1,6 +1,32 @@
 
 SET NAMES utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `search_backend_data` (
+                                                     `id` int(11) NOT NULL,
+    `key` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin default '',
+    `index` int(11) unsigned DEFAULT '0',
+    `fullpath` varchar(765) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL, /* path in utf8 (3-byte) using the full key length of 3072 bytes */
+    `maintype` varchar(8) NOT NULL DEFAULT '',
+    `type` varchar(20) DEFAULT NULL,
+    `subtype` varchar(190) DEFAULT NULL,
+    `published` tinyint(1) unsigned DEFAULT NULL,
+    `creationDate` int(11) unsigned DEFAULT NULL,
+    `modificationDate` int(11) unsigned DEFAULT NULL,
+    `userOwner` int(11) DEFAULT NULL,
+    `userModification` int(11) DEFAULT NULL,
+    `data` longtext,
+    `properties` text,
+    PRIMARY KEY (`id`,`maintype`),
+    KEY `key` (`key`),
+    KEY `index` (`index`),
+    KEY `fullpath` (`fullpath`),
+    KEY `maintype` (`maintype`),
+    KEY `type` (`type`),
+    KEY `subtype` (`subtype`),
+    KEY `published` (`published`),
+    FULLTEXT KEY `fulltext` (`data`,`properties`)
+    ) DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
 INSERT INTO search_backend_data (`id`,`key`,`index`,`fullpath`,`maintype`,`type`,`subtype`,`published`,`creationDate`,`modificationDate`,`userOwner`,`userModification`,`data`,`properties`) VALUES (1,'',0,'/','asset','folder','folder',1,1557393622,1557393622,1,1,'ID: 1  \nPath: /  \n','');
 INSERT INTO search_backend_data (`id`,`key`,`index`,`fullpath`,`maintype`,`type`,`subtype`,`published`,`creationDate`,`modificationDate`,`userOwner`,`userModification`,`data`,`properties`) VALUES (1,'',0,'/','document','page','page',1,1557393622,1566982214,1,2,'ID: 1  \nPath: /  \nClassic Cars for Sale! Get Your Daily Dose Need more Stuff? Find Your Car Now! Read More See Action 100% Guaranteed Customer Satisfaction are fully committed offer all our customers and partners the best services available.  Please read what our dealers private sellers and buyers have say about our demo classic car marketplace. Featured Cars Sale Your personal recommendations Read more Classic Car One-Stop Shop HTTP/1.0 200 Cache-Control no-cache private Date Mon Jul 2022 GMT X-Debug-Token 102df0 X-Debug-Token-Link https //demo.pimcore.fun/_profiler/102df0 X-Robots-Tag noindex Popular Brands Take quick look the list popular classic cars brands that have won the hearts people. Read more HTTP/1.0 200 Cache-Control no-cache private Date Mon Jul 2022 GMT X-Debug-Token cf522a X-Debug-Token-Link https //demo.pimcore.fun/_profiler/cf522a X-Robots-Tag noindex Get Inspired! Our magazine offers wide range high quality articles covering different topics like culture lifestyle and new products. More Get latest news infos about events from world-class journalists around world.  Latest News snippet direct snippet Chevrolet 1970 Collection Ford Muscle Collection volkswagen Classics for sale VANS Iconic Vintage Minibuses 569 Classic Cars Trucks for Sale! Car Now! Our Spare Parts Offers Our mission deliver exceptional selling experience dealers sellers excellent tools people who are interested safely buy classic car online. are vibrant demo marketplace built innovative state art technology that continues evolve meet needs not only car enthusiasts. Additionally offering wide range spare parts lot brands models. More than 300 cars vintage trucks sale today award-winning magazine right place get your daily news updates you can get enough have way show off Pimcore Demo Luxury Sale! Economy Sports','footer:/en/shared/includes/footer language:en left_nav_show: left_nav_start_node:/en navigation_accesskey: navigation_anchor: navigation_class: navigation_exclude: navigation_name:home navigation_parameters: navigation_relation: navigation_root:/en navigation_tabindex: navigation_target: navigation_title:Oldimer Cars newsletter_confirm_mail:/en/mails/newsletter_confirm news_default_document:/en/News password_reset_mail:/en/mails/password-recovery terms_and_conditions:/en/More-Stuff/Terms-and-Conditions ');
 INSERT INTO search_backend_data (`id`,`key`,`index`,`fullpath`,`maintype`,`type`,`subtype`,`published`,`creationDate`,`modificationDate`,`userOwner`,`userModification`,`data`,`properties`) VALUES (1,'',0,'/','object','folder','folder',1,1557393622,1557393622,1,1,'ID: 1  \nPath: /  \n','');
